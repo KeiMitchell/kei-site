@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kei Nakayama — Klaviyo for Shopify Subscription Brands</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Nunito:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #f5f2ec;
+      --ink:    #2c3e37;
+      --muted:  rgba(44,62,55,0.76);   /* was 0.5 — much more readable */
+      --faint:  rgba(44,62,55,0.52);   /* was 0.38 — still subdued but legible */
+      --border: rgba(44,62,55,0.14);
+      --max:    680px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── ANIMATION BASE ── */
+    /* Page-load animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes lineGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* Scroll-reveal base state */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays for children */
+    [data-reveal-stagger] > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    [data-reveal-stagger].revealed > *:nth-child(1)  { transition-delay: 0.00s; }
+    [data-reveal-stagger].revealed > *:nth-child(2)  { transition-delay: 0.08s; }
+    [data-reveal-stagger].revealed > *:nth-child(3)  { transition-delay: 0.16s; }
+    [data-reveal-stagger].revealed > *:nth-child(4)  { transition-delay: 0.24s; }
+    [data-reveal-stagger].revealed > *:nth-child(5)  { transition-delay: 0.32s; }
+    [data-reveal-stagger].revealed > *:nth-child(6)  { transition-delay: 0.40s; }
+    [data-reveal-stagger].revealed > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Animated rule */
+    .full-rule {
+      border: none;
+      height: 1px;
+      background: var(--border);
+      transform-origin: left;
+      animation: lineGrow 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation-play-state: paused;
+    }
+    .full-rule.revealed {
+      animation-play-state: running;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+      animation: fadeIn 0.6s ease both;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .nav-cta {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .nav-cta:hover {
+      border-color: var(--ink);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 24px 96px;
+    }
+
+    .hero-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 36px;
+      animation: fadeUp 0.7s 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    .hero-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6.5vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 6px;
+      animation: fadeUp 0.8s 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    .hero h1 strong {
+      font-weight: 900;
+      display: block;
+    }
+
+    .hero-byline {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--faint);
+      margin-bottom: 44px;
+      margin-top: 20px;
+      animation: fadeUp 0.7s 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.72;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 44px;
+      animation: fadeUp 0.7s 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+
+    .hero-desc strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--ink);
+      padding: 15px 36px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      animation: fadeUp 0.7s 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+    .hero-cta:hover {
+      opacity: 0.82;
+      transform: translateY(-1px);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .section h2 {
+      font-size: clamp(26px, 4.5vw, 38px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 40px;
+    }
+
+    .section h2 span {
+      display: block;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    /* ── GAP LIST ── */
+    .gap-list {
+      list-style: none;
+      margin-bottom: 40px;
+    }
+
+    .gap-list li {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .gap-list li:last-child { border-bottom: 1px solid var(--border); }
+
+    .gap-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(44,62,55,0.3);
+      padding-top: 4px;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
+
+    .callout {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--muted);
+      padding: 20px 0 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .callout strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ── WORK LIST ── */
+    .work-list { list-style: none; }
+
+    .work-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+      align-items: baseline;
+    }
+
+    .work-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .work-item h3 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+
+    .work-item p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── STEPS ── */
+    .steps { list-style: none; }
+
+    .step {
+      display: flex;
+      gap: 24px;
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+      align-items: baseline;
+    }
+
+    .step:last-child { border-bottom: 1px solid var(--border); }
+
+    .step-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(44,62,55,0.3);
+      padding-top: 3px;
+      min-width: 20px;
+      flex-shrink: 0;
+    }
+
+    .step h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .step p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── ABOUT ── */
+    .about-body p {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.78;
+      margin-bottom: 16px;
+    }
+
+    .about-body p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .about-body p:last-child { margin-bottom: 0; }
+
+    /* ── CTA BLOCK ── */
+    .cta-section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 80px 24px 104px;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .cta-section h2 strong {
+      font-weight: 900;
+      display: block;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 40px;
+      max-width: 440px;
+    }
+
+    .big-cta {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--ink);
+      padding: 16px 44px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .big-cta:hover {
+      opacity: 0.82;
+      transform: translateY(-2px);
+    }
+
+    .cta-note {
+      display: block;
+      margin-top: 18px;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--faint);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+    }
+
+    .footer-meta {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    footer a, .footer-meta span {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: var(--faint);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--ink); }
+
+    @media (max-width: 640px) {
+      nav { padding: 20px; }
+      .hero, .section, .cta-section { padding-left: 20px; padding-right: 20px; }
+      .work-item { grid-template-columns: 1fr; gap: 4px; }
+      footer { padding: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .footer-meta { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo" aria-label="hanjo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 28" height="26" role="img" aria-label="hanjo logo">
+        <defs>
+          <clipPath id="pillClipNav">
+            <rect x="0" y="2" width="13" height="24" rx="6.5"/>
+          </clipPath>
+        </defs>
+        <rect x="0" y="2" width="13" height="24" rx="6.5" fill="#2c3e37"/>
+        <rect x="0" y="2" width="13" height="9" fill="#4e6e64" clip-path="url(#pillClipNav)"/>
+        <text x="20" y="22" font-family="Nunito, sans-serif" font-weight="400" font-size="22" fill="#2c3e37" letter-spacing="0.01em">hanjo</text>
+      </svg>
+    </a>
+    <a href="mailto:kei.nakayama@hanjo.ai" class="nav-cta">Get in touch</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-label">Klaviyo Specialist &nbsp;·&nbsp; Shopify Subscription Brands</p>
+
+    <h1>
+      Klaviyo that
+      <strong>actually fits subscription.</strong>
+    </h1>
+
+    <p class="hero-byline">Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA</p>
+
+    <p class="hero-desc">
+      Most Klaviyo setups are built for one-time buyers. Subscription brands have different flows,
+      different logic, and different revenue levers — and the gaps are almost always the same.
+      I fix them. <strong>Usually adds $10–30k/month without touching ad spend.</strong>
+    </p>
+
+    <a href="mailto:kei.nakayama@hanjo.ai" class="hero-cta">Let's talk</a>
+  </div>
+
+  <hr class="full-rule js-rule" />
+
+  <!-- GAPS -->
+  <div class="section">
+    <span class="section-label" data-reveal>What I see constantly</span>
+    <h2 data-reveal>The same three gaps<br><span>at nearly every brand.</span></h2>
+
+    <ul class="gap-list" data-reveal-stagger>
+      <li>
+        <span class="gap-num">01</span>
+        <span>Post-purchase flows that stop after the welcome sequence — leaving the entire subscriber lifecycle untouched.</span>
+      </li>
+      <li>
+        <span class="gap-num">02</span>
+        <span>Winback campaigns that go out weeks too late, after the customer has already moved on.</span>
+      </li>
+      <li>
+        <span class="gap-num">03</span>
+        <span>Cancellation save flows that don't exist, or send one generic email and give up.</span>
+      </li>
+    </ul>
+
+    <p class="callout" data-reveal>
+      These aren't edge cases. They show up at brands doing $1M and brands doing $10M.
+      <strong>Closing them is usually the highest-leverage thing you can do in email.</strong>
+    </p>
+  </div>
+
+  <hr class="full-rule js-rule" />
+
+  <!-- WHAT I DO -->
+  <div class="section">
+    <span class="section-label" data-reveal>What I do</span>
+    <h2 data-reveal>Full-cycle Klaviyo,<br><span>built for subscription.</span></h2>
+
+    <ul class="work-list" data-reveal-stagger>
+      <li class="work-item">
+        <h3>Flow audit &amp; rebuild</h3>
+        <p>A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p>
+      </li>
+      <li class="work-item">
+        <h3>Subscriber lifecycle flows</h3>
+        <p>Post-purchase, replenishment reminders, skip/pause saves, reactivation — the full arc, not just onboarding.</p>
+      </li>
+      <li class="work-item">
+        <h3>Cancellation &amp; churn saves</h3>
+        <p>Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p>
+      </li>
+      <li class="work-item">
+        <h3>Winback &amp; re-engagement</h3>
+        <p>Timed to subscriber behavior, not arbitrary day counts. The difference matters.</p>
+      </li>
+      <li class="work-item">
+        <h3>Segmentation &amp; list hygiene</h3>
+        <p>Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.</p>
+      </li>
+    </ul>
+  </div>
+
+  <hr class="full-rule js-rule" />
+
+  <!-- HOW IT WORKS -->
+  <div class="section">
+    <span class="section-label" data-reveal>How it works</span>
+    <h2 data-reveal>Simple to start.<br><span>No retainer required.</span></h2>
+
+    <ul class="steps" data-reveal-stagger>
+      <li class="step">
+        <span class="step-num">01</span>
+        <div>
+          <h3>Quick call</h3>
+          <p>We talk through your current setup, what's working, and where the obvious gaps are. 20–30 minutes.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">02</span>
+        <div>
+          <h3>I look at your Klaviyo account</h3>
+          <p>No deck, no proposal. I give you actual feedback on what's there — what's solid and what I'd change first.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step-num">03</span>
+        <div>
+          <h3>We decide if it makes sense</h3>
+          <p>Project-based or ongoing, depending on what you need. No pressure either way.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <hr class="full-rule js-rule" />
+
+  <!-- ABOUT -->
+  <div class="section">
+    <span class="section-label" data-reveal>Why I do this</span>
+    <h2 data-reveal>I've been on<br><span>the other side of this.</span></h2>
+    <div class="about-body" data-reveal>
+      <p>
+        A few years ago, I built a subscription food prep service on Shopify from scratch.
+        I poured everything into it — the product, the branding, the packaging, the launch.
+        <strong>And I lost almost all of it.</strong>
+      </p>
+      <p>
+        Not because the product was bad. Because I didn't know how to keep the customers I was
+        working so hard to win. The emails were generic. The flows were wrong. The logic didn't fit
+        how subscription customers actually behave. I was running a subscription brand with a
+        one-time-buyer playbook — and I didn't even know it.
+      </p>
+      <p>
+        Running an ecommerce store is genuinely chaotic. You're managing suppliers, operations,
+        ads, customer service, and a hundred other things at once. Email is supposed to work quietly
+        in the background — <strong>but only if someone has built it to fit your actual model.</strong>
+      </p>
+      <p>
+        That experience is why I focus exclusively on Shopify subscription brands. I know what it
+        costs when the retention side is broken, because I lived it. And I know that most of what
+        needs fixing isn't complicated — it's just been built for the wrong type of customer.
+        I'm here to close that gap.
+      </p>
+    </div>
+  </div>
+
+  <hr class="full-rule js-rule" />
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2 data-reveal>
+      If any of this sounds familiar,
+      <strong>it's worth a conversation.</strong>
+    </h2>
+    <p data-reveal>No pitch, no deck. Just an honest look at your Klaviyo setup and what I'd actually change.</p>
+    <div data-reveal>
+      <a href="mailto:kei.nakayama@hanjo.ai" class="big-cta">Get in touch</a>
+      <span class="cta-note">or reply directly to the email that brought you here</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand" aria-label="hanjo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 28" height="20" role="img" aria-label="hanjo logo">
+        <defs>
+          <clipPath id="pillClipFoot">
+            <rect x="0" y="2" width="13" height="24" rx="6.5"/>
+          </clipPath>
+        </defs>
+        <rect x="0" y="2" width="13" height="24" rx="6.5" fill="#2c3e37"/>
+        <rect x="0" y="2" width="13" height="9" fill="#4e6e64" clip-path="url(#pillClipFoot)"/>
+        <text x="20" y="22" font-family="Nunito, sans-serif" font-weight="400" font-size="22" fill="#2c3e37" letter-spacing="0.01em">hanjo</text>
+      </svg>
+    </span>
+    <div class="footer-meta">
+      <span>Kei Nakayama</span>
+      <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a>
+      <span>Los Angeles, CA</span>
+    </div>
+  </footer>
+
+  <script>
+    // ── IntersectionObserver for scroll reveals ──
+    const revealEls   = document.querySelectorAll('[data-reveal]');
+    const staggerEls  = document.querySelectorAll('[data-reveal-stagger]');
+    const ruleEls     = document.querySelectorAll('.js-rule');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+
+    revealEls.forEach(el  => observer.observe(el));
+    staggerEls.forEach(el => observer.observe(el));
+    ruleEls.forEach(el    => observer.observe(el));
+  </script>
+
+</body>
+</html>
