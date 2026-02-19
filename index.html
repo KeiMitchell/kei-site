@@ -4,6 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kei Nakayama · Klaviyo for Shopify Subscription Brands</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Klaviyo specialist for Shopify subscription brands. I build retention email systems that fit how subscription customers actually behave — not generic flows." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kei.gethanjo.com" />
+  <meta property="og:title" content="Kei Nakayama · Klaviyo for Shopify Subscription Brands" />
+  <meta property="og:description" content="Klaviyo specialist for Shopify subscription brands. I build retention email systems that fit how subscription customers actually behave — not generic flows." />
+  <meta property="og:image" content="https://kei.gethanjo.com/kei.JPG" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kei Nakayama · Klaviyo for Shopify Subscription Brands" />
+  <meta name="twitter:description" content="Klaviyo specialist for Shopify subscription brands. I build retention email systems that fit how subscription customers actually behave — not generic flows." />
+  <meta name="twitter:image" content="https://kei.gethanjo.com/kei.JPG" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&display=swap" rel="stylesheet" />
@@ -701,150 +718,46 @@
       .footer-meta { flex-direction: column; gap: 6px; }
     }
 
-    /* ── MODAL ── */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(44,62,55,0.45);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.22s;
-    }
-    .modal-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-    .modal {
-      background: var(--bg);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 48px rgba(44,62,55,0.18);
-      width: 100%;
-      max-width: 480px;
-      max-height: 92vh;
-      overflow-y: auto;
-      transform: translateY(18px);
-      transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .modal-overlay.open .modal {
-      transform: translateY(0);
-    }
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 28px 0;
-    }
-    .modal-title {
-      font-size: 16px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-    }
-    .modal-close {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--faint);
-      padding: 4px;
-      line-height: 0;
-      border-radius: 4px;
-      transition: color 0.15s;
-    }
-    .modal-close:hover { color: var(--ink); }
-    .modal-body { padding: 20px 28px 28px; }
-
-    /* Form elements */
-    .form-group { margin-bottom: 14px; }
-    .form-label {
-      display: block;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--faint);
-      margin-bottom: 6px;
-    }
-    .form-input,
-    .form-select,
-    .form-textarea {
-      width: 100%;
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      margin-top: 48px;
+      padding: 28px 32px;
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 10px 14px;
-      font-size: 14px;
+      border-radius: var(--radius);
+    }
+    .testimonial-quote {
+      font-size: 17px;
       font-weight: 300;
-      font-family: inherit;
       color: var(--ink);
-      outline: none;
-      transition: border-color 0.15s;
+      line-height: 1.72;
+      font-style: italic;
+      margin-bottom: 18px;
     }
-    .form-input::placeholder,
-    .form-textarea::placeholder { color: rgba(44,62,55,0.3); }
-    .form-input:focus,
-    .form-select:focus,
-    .form-textarea:focus { border-color: rgba(44,62,55,0.4); }
-    .form-select {
-      appearance: none;
-      -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232c3e37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 36px;
-      cursor: pointer;
+    .testimonial-attr {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    .form-textarea { resize: vertical; min-height: 76px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .form-submit {
-      width: 100%;
-      background: var(--ink);
-      color: var(--bg);
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 13px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      font-family: inherit;
-      transition: opacity 0.2s;
-      margin-top: 6px;
+    .testimonial-attr-photo {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
     }
-    .form-submit:hover { opacity: 0.85; }
-    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
-    .form-error {
+    .testimonial-attr-text {
       font-size: 12px;
-      color: #c0392b;
-      margin-top: 10px;
-      display: none;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--faint);
+      line-height: 1.5;
     }
-    .form-success {
-      text-align: center;
-      padding: 48px 28px;
-    }
-    .form-success h3 {
-      font-size: 18px;
-      font-weight: 600;
+    .testimonial-attr-name {
       color: var(--ink);
-      margin-bottom: 10px;
-    }
-    .form-success p {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    @media (max-width: 480px) {
-      .form-row { grid-template-columns: 1fr; gap: 0; }
-      .modal-header, .modal-body { padding-left: 20px; padding-right: 20px; }
+      font-weight: 600;
     }
   </style>
 </head>
@@ -856,8 +769,8 @@
       <a href="#" class="logo" aria-label="hanjo">
         <img src="hanjo-logo.svg" alt="hanjo" height="28" />
       </a>
-      <a href="mailto:kei.nakayama@hanjo.ai" class="nav-cta">
-        Get in touch
+      <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="nav-cta">
+        Book a call
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -884,8 +797,8 @@
       <strong>Lower churn means your acquisition budget compounds instead of treading water.</strong>
     </p>
 
-    <a href="mailto:kei.nakayama@hanjo.ai" class="hero-cta">
-      Let's talk
+    <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="hero-cta">
+      Book a 30-min call
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
 
@@ -1079,6 +992,17 @@
         can stand out in a crowded market on the strength of that loyalty.
       </p>
     </div>
+
+    <blockquote class="testimonial" data-reveal>
+      <p class="testimonial-quote">"Kei didn't come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth — not just short-term wins."</p>
+      <div class="testimonial-attr">
+        <img src="kei.JPG" alt="Moncheri Kitchen" class="testimonial-attr-photo" />
+        <span class="testimonial-attr-text">
+          <span class="testimonial-attr-name">Brand Owner</span><br>
+          Moncheri Kitchen · Japanese Pet Food Subscription
+        </span>
+      </div>
+    </blockquote>
   </div>
 
   <hr class="full-rule js-rule" />
@@ -1091,74 +1015,11 @@
     </h2>
     <p data-reveal>I'll look at your Klaviyo account and tell you exactly where subscribers are leaving and what I'd fix first. No pitch, no proposal, no commitment required.</p>
     <div data-reveal>
-      <a href="mailto:kei.nakayama@hanjo.ai" class="big-cta">
-        Get in touch
+      <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="big-cta">
+        Book a free call
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <span class="cta-note">or reply directly to the email that brought you here</span>
-    </div>
-  </div>
-
-  <!-- MODAL -->
-  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal" id="modal">
-      <div class="modal-header">
-        <span class="modal-title" id="modalTitle">Let's talk</span>
-        <button class="modal-close" id="modalClose" aria-label="Close">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form id="leadForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="fieldName">Name *</label>
-              <input class="form-input" id="fieldName" name="name" type="text" required placeholder="Jane Smith" autocomplete="name" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fieldEmail">Email *</label>
-              <input class="form-input" id="fieldEmail" name="email" type="email" required placeholder="jane@brand.com" autocomplete="email" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="fieldStore">Store URL</label>
-            <input class="form-input" id="fieldStore" name="storeUrl" type="text" placeholder="yourbrand.com" />
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="fieldRole">Your role</label>
-              <select class="form-select" id="fieldRole" name="role">
-                <option value="">Select...</option>
-                <option>Founder</option>
-                <option>CMO / Head of Marketing</option>
-                <option>Email Manager</option>
-                <option>Agency</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="fieldSubscribers">Active subscribers</label>
-              <select class="form-select" id="fieldSubscribers" name="subscribers">
-                <option value="">Select...</option>
-                <option>Under 500</option>
-                <option>500–2k</option>
-                <option>2k–10k</option>
-                <option>10k+</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="fieldMessage">What are you trying to fix? (optional)</label>
-            <textarea class="form-textarea" id="fieldMessage" name="message" placeholder="High churn, missing post-purchase flows, need a full Klaviyo audit..."></textarea>
-          </div>
-          <button class="form-submit" type="submit" id="formSubmit">Send it over</button>
-          <p class="form-error" id="formError">Something went wrong. Please email <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a> directly.</p>
-        </form>
-        <div class="form-success" id="formSuccess" style="display:none">
-          <h3>Got it.</h3>
-          <p>I'll take a look at what you've shared<br>and be in touch shortly.</p>
-        </div>
-      </div>
+      <span class="cta-note">No commitment — just a conversation about your setup</span>
     </div>
   </div>
 
@@ -1224,86 +1085,6 @@
     counterEls.forEach(el => observer.observe(el));
     if (growthChart) observer.observe(growthChart);
 
-    // ── Modal ──
-    const overlay    = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-    const leadForm   = document.getElementById('leadForm');
-    const formSubmit = document.getElementById('formSubmit');
-    const formSuccess = document.getElementById('formSuccess');
-    const formError  = document.getElementById('formError');
-
-    function openModal() {
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      document.getElementById('fieldName').focus();
-    }
-
-    function closeModal() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-
-    // All CTA buttons open the modal
-    document.querySelectorAll('.hero-cta, .nav-cta, .big-cta').forEach(el => {
-      el.addEventListener('click', e => {
-        e.preventDefault();
-        openModal();
-      });
-    });
-
-    modalClose.addEventListener('click', closeModal);
-    overlay.addEventListener('click', e => {
-      if (e.target === overlay) closeModal();
-    });
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // Form submission
-    leadForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      formError.style.display = 'none';
-
-      const name  = document.getElementById('fieldName').value.trim();
-      const email = document.getElementById('fieldEmail').value.trim();
-      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-      if (!name || !email || !emailOk) {
-        formError.textContent = !name
-          ? 'Please enter your name.'
-          : !email || !emailOk
-          ? 'Please enter a valid email address.'
-          : '';
-        formError.style.display = 'block';
-        return;
-      }
-
-      formSubmit.disabled = true;
-      formSubmit.textContent = 'Sending…';
-
-      const data = {
-        name,
-        email,
-        storeUrl:    document.getElementById('fieldStore').value.trim(),
-        role:        document.getElementById('fieldRole').value,
-        subscribers: document.getElementById('fieldSubscribers').value,
-        message:     document.getElementById('fieldMessage').value.trim(),
-      };
-
-      try {
-        const res = await fetch('/api/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        if (!res.ok) throw new Error('Failed');
-        leadForm.style.display = 'none';
-        formSuccess.style.display = 'block';
-      } catch {
-        formSubmit.disabled = false;
-        formSubmit.textContent = 'Send it over';
-        formError.style.display = 'block';
-      }
-    });
   </script>
 
 </body>
