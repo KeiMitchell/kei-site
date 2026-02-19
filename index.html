@@ -1253,8 +1253,13 @@
 
       const name  = document.getElementById('fieldName').value.trim();
       const email = document.getElementById('fieldEmail').value.trim();
-      if (!name || !email) {
-        formError.textContent = 'Please fill in your name and email.';
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!name || !email || !emailOk) {
+        formError.textContent = !name
+          ? 'Please enter your name.'
+          : !email || !emailOk
+          ? 'Please enter a valid email address.'
+          : '';
         formError.style.display = 'block';
         return;
       }
