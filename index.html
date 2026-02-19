@@ -478,6 +478,17 @@
     }
 
     /* ── ABOUT ── */
+    .about-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      margin-bottom: 20px;
+      display: block;
+      border: 1.5px solid var(--border);
+    }
+
     .about-body p {
       font-size: 17px;
       font-weight: 300;
@@ -1040,6 +1051,7 @@
 
   <!-- ABOUT -->
   <div class="section">
+    <img src="kei.JPG" alt="Kei Nakayama" class="about-photo" data-reveal />
     <span class="section-label" data-reveal>Why I do this</span>
     <h2 data-reveal>I tried to build<br><span>one of these brands.</span></h2>
     <div class="about-body" data-reveal>
