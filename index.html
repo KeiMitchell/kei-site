@@ -20,34 +20,36 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://kei.gethanjo.com" />
+  <meta property="og:url" content="https://hanjo.ai" />
   <meta property="og:title" content="Kei Nakayama · Klaviyo retention for Shopify brands" />
   <meta property="og:description" content="Klaviyo retention specialist for Shopify brands. I build email systems that fit how repeat customers actually behave — not generic flows." />
-  <meta property="og:image" content="https://kei.gethanjo.com/kei.JPG" />
+  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kei Nakayama · Klaviyo retention for Shopify brands" />
   <meta name="twitter:description" content="Klaviyo retention specialist for Shopify brands. I build email systems that fit how repeat customers actually behave — not generic flows." />
-  <meta name="twitter:image" content="https://kei.gethanjo.com/kei.JPG" />
+  <meta name="twitter:image" content="https://hanjo.ai/kei.JPG" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #f5f2ec;
-      --white:    #ffffff;
-      --ink:      #2c3e37;
-      --muted:    rgba(44,62,55,0.76);
-      --faint:    rgba(44,62,55,0.52);
-      --border:   rgba(44,62,55,0.14);
-      --shadow:   0 1px 3px rgba(44,62,55,0.08), 0 4px 16px rgba(44,62,55,0.05);
-      --radius:   12px;
-      --radius-sm: 6px;
-      --max:      680px;
+      --bg:      #f5f2ec;
+      --white:   #ffffff;
+      --ink:     #2c3e37;
+      --muted:   rgba(44,62,55,0.72);
+      --faint:   rgba(44,62,55,0.46);
+      --border:  rgba(44,62,55,0.12);
+      --shadow:  0 1px 4px rgba(44,62,55,0.06), 0 8px 28px rgba(44,62,55,0.05);
+      --radius:  14px;
+      --radius-sm: 100px;
+      --max:     700px;
+      --wide:    1060px;
     }
 
     html { scroll-behavior: smooth; }
@@ -60,88 +62,79 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      padding-top: 72px;
+      padding-top: 98px;
     }
 
-    /* ── ANIMATION BASE ── */
+    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeIn {
       from { opacity: 0; }
       to   { opacity: 1; }
     }
-    @keyframes lineGrow {
-      from { transform: scaleX(0); }
-      to   { transform: scaleX(1); }
-    }
     @keyframes chipPop {
-      from { opacity: 0; transform: scale(0.82) translateY(6px); }
+      from { opacity: 0; transform: scale(0.84) translateY(5px); }
       to   { opacity: 1; transform: scale(1) translateY(0); }
     }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.35; }
+    }
 
-    /* Scroll-reveal base state */
+    /* Scroll-reveal */
     [data-reveal] {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translateY(26px);
+      transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    [data-reveal].revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
 
-    /* Stagger delays for children */
     [data-reveal-stagger] > * {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translateY(18px);
+      transition: opacity 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    [data-reveal-stagger].revealed > *:nth-child(1)  { transition-delay: 0.00s; }
-    [data-reveal-stagger].revealed > *:nth-child(2)  { transition-delay: 0.08s; }
-    [data-reveal-stagger].revealed > *:nth-child(3)  { transition-delay: 0.16s; }
-    [data-reveal-stagger].revealed > *:nth-child(4)  { transition-delay: 0.24s; }
-    [data-reveal-stagger].revealed > *:nth-child(5)  { transition-delay: 0.32s; }
-    [data-reveal-stagger].revealed > *:nth-child(6)  { transition-delay: 0.40s; }
-    [data-reveal-stagger].revealed > * {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    [data-reveal-stagger].revealed > *:nth-child(1) { transition-delay: 0.00s; }
+    [data-reveal-stagger].revealed > *:nth-child(2) { transition-delay: 0.07s; }
+    [data-reveal-stagger].revealed > *:nth-child(3) { transition-delay: 0.14s; }
+    [data-reveal-stagger].revealed > *:nth-child(4) { transition-delay: 0.21s; }
+    [data-reveal-stagger].revealed > *:nth-child(5) { transition-delay: 0.28s; }
+    [data-reveal-stagger].revealed > *:nth-child(6) { transition-delay: 0.35s; }
+    [data-reveal-stagger].revealed > * { opacity: 1; transform: translateY(0); }
 
-    /* Animated rule */
-    .full-rule {
-      border: none;
-      height: 1px;
-      background: var(--border);
-      transform-origin: left;
-      animation: lineGrow 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-      animation-play-state: paused;
+    /* ── ANNOUNCE BAR ── */
+    .announce {
+      background: var(--ink);
+      color: rgba(245,242,236,0.65);
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      padding: 9px 20px;
+      line-height: 1.4;
     }
-    .full-rule.revealed {
-      animation-play-state: running;
-    }
+    .announce strong { color: var(--bg); font-weight: 500; }
 
     /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(245, 242, 236, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: var(--bg);
       border-bottom: 1px solid var(--border);
-      animation: fadeIn 0.6s ease both;
+      animation: fadeIn 0.5s ease both;
     }
 
     .nav-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 48px;
-      max-width: 1100px;
+      padding: 15px 40px;
+      max-width: var(--wide);
       margin: 0 auto;
     }
 
@@ -152,297 +145,402 @@
       line-height: 0;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-avail {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--faint);
+      letter-spacing: 0.02em;
+    }
+
+    .avail-dot {
+      width: 6px;
+      height: 6px;
+      background: #52a46a;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
     .nav-cta {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 13px;
       font-weight: 500;
-      letter-spacing: 0.01em;
       color: var(--bg);
       background: var(--ink);
       text-decoration: none;
       padding: 9px 18px;
       border-radius: var(--radius-sm);
       transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.01em;
     }
-    .nav-cta:hover {
-      opacity: 0.85;
-      transform: translateY(-1px);
-    }
-    .nav-cta svg { flex-shrink: 0; transition: transform 0.2s; }
+    .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
+    .nav-cta svg { transition: transform 0.2s; }
     .nav-cta:hover svg { transform: translateX(2px); }
+
+    /* ── SECTION WRAPPERS ── */
+    .s-white { background: var(--white); }
+    .s-dark  { background: var(--ink); }
 
     /* ── HERO ── */
     .hero {
-      max-width: var(--max);
+      max-width: var(--wide);
       margin: 0 auto;
-      padding: 96px 24px 104px;
+      padding: 100px 40px 112px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 72px;
+      align-items: center;
     }
 
-    .hero-label {
+    .chips {
       display: flex;
-      align-items: center;
-      gap: 8px;
+      flex-wrap: wrap;
+      gap: 7px;
       margin-bottom: 36px;
     }
 
-    .hero-chip {
-      animation: chipPop 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) both;
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--faint);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 4px 11px;
+      animation: chipPop 0.5s cubic-bezier(0.34,1.4,0.64,1) both;
     }
-    .hero-label .hero-chip:nth-child(1) { animation-delay: 0.10s; }
-    .hero-label .hero-chip:nth-child(2) { animation-delay: 0.20s; }
-    .hero-label .hero-chip:nth-child(3) { animation-delay: 0.30s; }
-
-    .hero-label::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--border);
-      flex-shrink: 0;
-    }
+    .chip:nth-child(1) { animation-delay: 0.10s; }
+    .chip:nth-child(2) { animation-delay: 0.20s; }
+    .chip:nth-child(3) { animation-delay: 0.30s; }
+    .chip--avail { color: var(--ink); border-color: rgba(44,62,55,0.2); }
 
     .hero h1 {
-      font-size: clamp(36px, 6.5vw, 60px);
-      font-weight: 300;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 5.5vw, 64px);
+      font-weight: 700;
       line-height: 1.1;
       letter-spacing: -0.02em;
       color: var(--ink);
       margin-bottom: 6px;
-      animation: fadeUp 0.8s 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      animation: fadeUp 0.8s 0.2s cubic-bezier(0.25,0.46,0.45,0.94) both;
     }
-
-    .hero h1 strong {
-      font-weight: 900;
-      display: block;
-    }
+    .hero h1 strong { font-weight: 700; font-style: italic; display: block; }
 
     .hero-byline {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 400;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--faint);
-      margin-bottom: 44px;
-      margin-top: 20px;
-      animation: fadeUp 0.7s 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      margin-top: 16px;
+      margin-bottom: 36px;
+      animation: fadeUp 0.7s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both;
     }
 
     .hero-desc {
       font-size: 17px;
       font-weight: 300;
-      line-height: 1.72;
+      line-height: 1.75;
       color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 44px;
-      animation: fadeUp 0.7s 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      max-width: 480px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .hero-desc strong { color: var(--ink); font-weight: 500; }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 11px;
+      animation: fadeUp 0.7s 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
     }
 
-    .hero-desc strong {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .hero-cta {
+    .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
       font-weight: 600;
       letter-spacing: 0.02em;
-      color: var(--bg);
-      background: var(--ink);
+      text-decoration: none;
       padding: 13px 26px;
       border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-      animation: fadeUp 0.7s 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    .hero-cta:hover {
-      opacity: 0.85;
-      transform: translateY(-1px);
-    }
-    .hero-cta svg { transition: transform 0.2s; }
-    .hero-cta:hover svg { transform: translateX(3px); }
+    .btn svg { transition: transform 0.2s; }
+    .btn:hover svg { transform: translateX(3px); }
 
-    /* ── SECTIONS ── */
-    .section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 80px 24px;
-    }
+    .btn--dark { color: var(--bg); background: var(--ink); }
+    .btn--dark:hover { opacity: 0.82; transform: translateY(-1px); }
 
-    .section--wide { max-width: 860px; }
+    .btn--light { color: var(--ink); background: var(--bg); }
+    .btn--light:hover { background: #ffffff; transform: translateY(-1px); }
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--faint);
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-label::before {
-      content: '';
-      display: block;
-      width: 24px;
-      height: 1px;
-      background: var(--border);
-      flex-shrink: 0;
-    }
-
-    .section h2 {
-      font-size: clamp(26px, 4.5vw, 38px);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 40px;
-    }
-
-    .section h2 span {
-      display: block;
-      font-weight: 300;
-      font-style: italic;
-    }
-
-    /* ── GAP LIST ── */
-    .gap-list {
-      list-style: none;
-      margin-bottom: 32px;
-    }
-
-    .gap-list li {
-      display: flex;
-      gap: 20px;
-      padding: 20px 0;
-      border-top: 1px solid var(--border);
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.62;
-    }
-
-    .gap-list li:last-child { border-bottom: 1px solid var(--border); }
-
-    .gap-num {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: rgba(44,62,55,0.3);
-      padding-top: 4px;
-      min-width: 18px;
-      flex-shrink: 0;
-    }
-
-    .callout {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.65;
-      color: var(--muted);
-      padding: 20px 24px;
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-    }
-
-    .callout strong {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    /* ── CASE STUDY ── */
-    .case-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .case-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .case-stat {
-      padding: 28px 32px;
-      border-right: 1px solid var(--border);
-    }
-
-    .case-stat:last-child { border-right: none; }
-
-    .stat-num {
-      display: block;
-      font-size: clamp(30px, 4.5vw, 42px);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--ink);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-
-    .stat-label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-
-    .stat-sub {
-      display: block;
+    .btn-note {
       font-size: 12px;
       font-weight: 300;
       color: var(--faint);
       letter-spacing: 0.02em;
     }
 
-    .case-body {
-      padding: 24px 32px;
+    /* Hero proof card */
+    .proof-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: fadeUp 0.8s 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+
+    .proof-stat {
+      padding: 26px 30px;
+      border-bottom: 1px solid var(--border);
+    }
+    .proof-stat:last-child { border-bottom: none; }
+
+    .proof-num {
+      display: block;
+      font-size: clamp(30px, 3.5vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .proof-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .proof-sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--faint);
+    }
+
+    /* ── SHARED SECTION ── */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 88px 24px;
+    }
+    .section--wide {
+      max-width: var(--wide);
+      padding: 88px 40px;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .label--dim {
+      color: rgba(245,242,236,0.4);
+    }
+    .label--dim::before { background: rgba(245,242,236,0.18); }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 44px;
+    }
+    h2 span { display: block; font-weight: 700; font-style: italic; }
+    h2.light { color: rgba(245,242,236,0.94); }
+
+    .callout {
       font-size: 15px;
       font-weight: 300;
+      line-height: 1.68;
       color: var(--muted);
-      line-height: 1.72;
+      padding: 20px 26px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .callout strong { color: var(--ink); font-weight: 600; }
+
+    /* ── GAP LIST ── */
+    .gap-list { list-style: none; margin-bottom: 32px; }
+    .gap-list li {
+      display: flex;
+      gap: 22px;
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .gap-list li:last-child { border-bottom: 1px solid var(--border); }
+    .gap-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(44,62,55,0.26);
+      padding-top: 4px;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── CASE STUDY ── */
+    .case-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .case-box {
+      border: 1px solid rgba(245,242,236,0.11);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+    }
+
+    .case-num {
+      display: block;
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: rgba(245,242,236,0.94);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .case-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(245,242,236,0.65);
+      margin-bottom: 3px;
+    }
+
+    .case-sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,242,236,0.36);
     }
 
     .case-tag {
       display: inline-block;
       font-size: 11px;
       font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
-      color: var(--faint);
-      border: 1px solid var(--border);
+      color: rgba(245,242,236,0.36);
+      border: 1px solid rgba(245,242,236,0.13);
       border-radius: 99px;
-      padding: 4px 12px;
-      margin-bottom: 16px;
+      padding: 4px 11px;
+      margin-bottom: 18px;
     }
 
-    @media (max-width: 640px) {
-      .case-stats { grid-template-columns: 1fr; }
-      .case-stat { border-right: none; border-bottom: 1px solid var(--border); }
-      .case-stat:last-child { border-bottom: none; }
-      .case-stat, .case-body { padding: 20px; }
+    .case-story p {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(245,242,236,0.6);
+      line-height: 1.75;
+    }
+
+    /* Growth chart */
+    .chart-box {
+      border: 1px solid rgba(245,242,236,0.11);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .growth-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      height: 72px;
+      margin-bottom: 14px;
+    }
+
+    .growth-bar-fill {
+      flex: 1;
+      border-radius: 3px 3px 0 0;
+      height: 0;
+      background: rgba(245,242,236,0.9);
+      transition: height 0.9s cubic-bezier(0.34,1.08,0.64,1);
+    }
+    .growth-bar-fill:nth-child(1)  { opacity: 0.12; transition-delay: 0.00s; }
+    .growth-bar-fill:nth-child(2)  { opacity: 0.19; transition-delay: 0.05s; }
+    .growth-bar-fill:nth-child(3)  { opacity: 0.27; transition-delay: 0.10s; }
+    .growth-bar-fill:nth-child(4)  { opacity: 0.35; transition-delay: 0.15s; }
+    .growth-bar-fill:nth-child(5)  { opacity: 0.43; transition-delay: 0.20s; }
+    .growth-bar-fill:nth-child(6)  { opacity: 0.52; transition-delay: 0.25s; }
+    .growth-bar-fill:nth-child(7)  { opacity: 0.61; transition-delay: 0.30s; }
+    .growth-bar-fill:nth-child(8)  { opacity: 0.70; transition-delay: 0.35s; }
+    .growth-bar-fill:nth-child(9)  { opacity: 0.79; transition-delay: 0.40s; }
+    .growth-bar-fill:nth-child(10) { opacity: 0.87; transition-delay: 0.45s; }
+    .growth-bar-fill:nth-child(11) { opacity: 0.93; transition-delay: 0.50s; }
+    .growth-bar-fill:nth-child(12) { opacity: 1.00; transition-delay: 0.55s; }
+
+    .chart-caption {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(245,242,236,0.32);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-top: auto;
     }
 
     /* ── WORK GRID ── */
-    .work-list {
+    .work-grid {
       list-style: none;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
     }
 
     .work-item {
-      background: var(--white);
+      background: var(--bg);
       border-radius: var(--radius);
-      padding: 24px 28px;
-      box-shadow: var(--shadow);
+      padding: 26px 26px;
+      border: 1px solid var(--border);
     }
 
     .work-item h3 {
@@ -451,39 +549,34 @@
       letter-spacing: -0.01em;
       color: var(--ink);
       line-height: 1.4;
-      margin-bottom: 8px;
+      margin-bottom: 9px;
     }
 
     .work-item p {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 300;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.62;
     }
 
     /* ── STEPS ── */
-    .steps {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 
     .step {
       display: flex;
-      gap: 24px;
-      padding: 24px 28px;
+      gap: 26px;
+      padding: 26px 30px;
       background: var(--white);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      align-items: baseline;
+      border: 1px solid var(--border);
+      align-items: flex-start;
     }
 
     .step-num {
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 0.1em;
-      color: rgba(44,62,55,0.3);
+      color: rgba(44,62,55,0.26);
       padding-top: 3px;
       min-width: 20px;
       flex-shrink: 0;
@@ -493,7 +586,7 @@
       font-size: 15px;
       font-weight: 600;
       color: var(--ink);
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       letter-spacing: -0.01em;
     }
 
@@ -501,262 +594,71 @@
       font-size: 14px;
       font-weight: 300;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.62;
     }
 
     /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 44px;
+    }
+
+    .about-photo-col { position: sticky; top: 94px; }
+
     .about-photo {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
       object-fit: cover;
       object-position: center top;
-      margin-bottom: 20px;
       display: block;
-      border: 1.5px solid var(--border);
+      border: 1px solid var(--border);
     }
 
     .about-body p {
-      font-size: 17px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.78;
-      margin-bottom: 16px;
-    }
-
-    .about-body p strong {
-      color: var(--ink);
-      font-weight: 500;
-    }
-
-    .about-body p:last-child { margin-bottom: 0; }
-
-    /* ── CTA BLOCK ── */
-    .cta-section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 88px 24px 112px;
-    }
-
-    .cta-section h2 {
-      font-size: clamp(28px, 5vw, 44px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-
-    .cta-section h2 strong {
-      font-weight: 900;
-      display: block;
-    }
-
-    .cta-section p {
       font-size: 16px;
       font-weight: 300;
       color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 40px;
-      max-width: 440px;
+      line-height: 1.8;
+      margin-bottom: 16px;
     }
-
-    .big-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      color: var(--bg);
-      background: var(--ink);
-      padding: 14px 30px;
-      border-radius: var(--radius-sm);
-      text-decoration: none;
-      transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-    .big-cta:hover {
-      opacity: 0.85;
-      transform: translateY(-2px);
-    }
-    .big-cta svg { transition: transform 0.2s; }
-    .big-cta:hover svg { transform: translateX(3px); }
-
-    .cta-note {
-      display: block;
-      margin-top: 18px;
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--faint);
-      letter-spacing: 0.03em;
-    }
-
-    /* ── HERO PROOF ── */
-    .hero-proof {
-      display: flex;
-      margin-top: 52px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-      animation: fadeUp 0.7s 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-    }
-
-    .hero-proof-stat {
-      flex: 1;
-      padding-right: 28px;
-      border-right: 1px solid var(--border);
-      margin-right: 28px;
-    }
-
-    .hero-proof-stat:last-child {
-      border-right: none;
-      margin-right: 0;
-      padding-right: 0;
-    }
-
-    .hero-proof-stat strong {
-      display: block;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      line-height: 1;
-      margin-bottom: 7px;
-    }
-
-    .hero-proof-stat span {
-      display: block;
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--faint);
-      line-height: 1.45;
-    }
-
-    @media (max-width: 640px) {
-      .hero-proof { display: none; }
-    }
-
-    /* ── GROWTH CHART ── */
-    .growth-chart {
-      border-top: 1px solid var(--border);
-      padding: 24px 32px 20px;
-    }
-
-    .growth-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 5px;
-      height: 80px;
-      margin-bottom: 12px;
-    }
-
-    .growth-bar-fill {
-      flex: 1;
-      border-radius: 3px 3px 0 0;
-      height: 0;
-      background: var(--ink);
-      transition: height 0.9s cubic-bezier(0.34, 1.08, 0.64, 1);
-    }
-    .growth-bar-fill:nth-child(1)  { opacity: 0.10; transition-delay: 0.00s; }
-    .growth-bar-fill:nth-child(2)  { opacity: 0.17; transition-delay: 0.05s; }
-    .growth-bar-fill:nth-child(3)  { opacity: 0.24; transition-delay: 0.10s; }
-    .growth-bar-fill:nth-child(4)  { opacity: 0.31; transition-delay: 0.15s; }
-    .growth-bar-fill:nth-child(5)  { opacity: 0.39; transition-delay: 0.20s; }
-    .growth-bar-fill:nth-child(6)  { opacity: 0.48; transition-delay: 0.25s; }
-    .growth-bar-fill:nth-child(7)  { opacity: 0.57; transition-delay: 0.30s; }
-    .growth-bar-fill:nth-child(8)  { opacity: 0.66; transition-delay: 0.35s; }
-    .growth-bar-fill:nth-child(9)  { opacity: 0.75; transition-delay: 0.40s; }
-    .growth-bar-fill:nth-child(10) { opacity: 0.84; transition-delay: 0.45s; }
-    .growth-bar-fill:nth-child(11) { opacity: 0.92; transition-delay: 0.50s; }
-    .growth-bar-fill:nth-child(12) { opacity: 1.00; transition-delay: 0.55s; }
-
-    .growth-chart-caption {
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--faint);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 640px) {
-      .growth-chart { padding: 20px; }
-      .growth-bars { height: 56px; }
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 28px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-brand {
-      display: inline-flex;
-      align-items: center;
-      line-height: 0;
-    }
-
-    .footer-meta {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    footer a, .footer-meta span {
-      font-size: 12px;
-      font-weight: 300;
-      letter-spacing: 0.04em;
-      color: var(--faint);
-      text-decoration: none;
-    }
-
-    footer a:hover { color: var(--ink); }
-
-    @media (max-width: 640px) {
-      .nav-inner { padding: 16px 20px; }
-      .hero { padding-top: 48px; padding-bottom: 60px; padding-left: 20px; padding-right: 20px; }
-      .section, .cta-section { padding-left: 20px; padding-right: 20px; }
-      .hero-byline { margin-top: 14px; margin-bottom: 24px; }
-      .hero-desc { font-size: 15px; line-height: 1.65; margin-bottom: 28px; }
-      .work-list { grid-template-columns: 1fr; }
-      footer { padding: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
-      .footer-meta { flex-direction: column; gap: 6px; }
-    }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body p strong { color: var(--ink); font-weight: 500; }
 
     /* ── TESTIMONIAL ── */
     .testimonial {
-      margin-top: 48px;
-      padding: 28px 32px;
-      background: var(--white);
+      padding: 30px 34px;
+      background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
     }
+
     .testimonial-quote {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 300;
       color: var(--ink);
-      line-height: 1.72;
+      line-height: 1.75;
       font-style: italic;
       margin-bottom: 18px;
     }
+
     .testimonial-attr {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .testimonial-attr-photo {
-      height: 28px;
+      height: 24px;
       width: auto;
-      border-radius: 0;
       object-fit: contain;
       flex-shrink: 0;
-      opacity: 0.75;
+      opacity: 0.6;
     }
+
     .testimonial-attr-text {
       font-size: 12px;
       font-weight: 500;
@@ -764,9 +666,114 @@
       color: var(--faint);
       line-height: 1.5;
     }
-    .testimonial-attr-name {
-      color: var(--ink);
-      font-weight: 600;
+
+    .testimonial-attr-name { color: var(--ink); font-weight: 600; }
+
+    /* ── CTA SECTION ── */
+    .cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 96px 40px 116px;
+    }
+
+    .cta-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: rgba(245,242,236,0.9);
+      margin-bottom: 22px;
+    }
+    .cta-inner h2 strong { font-weight: 700; font-style: italic; display: block; color: #ffffff; }
+
+    .cta-inner > p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(245,242,236,0.55);
+      line-height: 1.72;
+      margin-bottom: 44px;
+      max-width: 460px;
+    }
+
+    .cta-note-dark {
+      display: block;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,242,236,0.3);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(245,242,236,0.09);
+    }
+
+    .footer-inner {
+      max-width: var(--wide);
+      margin: 0 auto;
+      padding: 26px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-logo img { filter: brightness(100); opacity: 0.45; }
+
+    .footer-meta {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-meta a, .footer-meta span {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      color: rgba(245,242,236,0.38);
+      text-decoration: none;
+    }
+    .footer-meta a:hover { color: rgba(245,242,236,0.75); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 72px 24px 80px;
+        gap: 40px;
+      }
+      .proof-card {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .proof-stat { border-bottom: none; border-right: 1px solid var(--border); }
+      .proof-stat:last-child { border-right: none; }
+
+      .section--wide { padding: 72px 24px; }
+      .case-wrap { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-photo-col { position: static; max-width: 110px; }
+      .cta-inner { padding: 80px 24px 96px; }
+      .footer-inner { padding: 22px 24px; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-inner { padding: 13px 20px; }
+      .nav-avail { display: none; }
+      .section { padding: 64px 20px; }
+      .proof-card { grid-template-columns: 1fr; }
+      .proof-stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .proof-stat:last-child { border-bottom: none; }
+      .work-grid { grid-template-columns: 1fr; }
+      .step { padding: 20px 22px; }
+      .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
     }
   </style>
 </head>
@@ -774,287 +781,299 @@
 
   <!-- NAV -->
   <nav>
+    <div class="announce">
+      <strong>Now taking new clients.</strong> Free 30-min Klaviyo audit — no pitch, no proposal.
+    </div>
     <div class="nav-inner">
       <a href="#" class="logo" aria-label="hanjo">
-        <img src="hanjo-logo.svg" alt="hanjo" height="28" />
+        <img src="hanjo-logo.svg" alt="hanjo" height="26" />
       </a>
-      <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="nav-cta">
-        Book a call
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+      <div class="nav-right">
+        <span class="nav-avail">
+          <span class="avail-dot"></span>
+          Taking new clients
+        </span>
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="nav-cta">
+          Book a call
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <div class="hero">
-    <p class="hero-label">
-      <span class="hero-chip">Klaviyo</span>
-      <span class="hero-chip">Shopify</span>
-
-    </p>
-
-    <h1>
-      You work hard to bring customers in.
-      <strong>Klaviyo should keep them.</strong>
-    </h1>
-
-    <p class="hero-byline">Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA</p>
-
-    <p class="hero-desc">
-      Every customer who churns cost you money to acquire. Then you spend again to replace them.
-      Most Klaviyo setups weren't built for retention. I fix that.
-      <strong>Lower churn means your acquisition budget compounds instead of treading water.</strong>
-    </p>
-
-    <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="hero-cta">
-      Book a 30-min call
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-
-    <div class="hero-proof">
-      <div class="hero-proof-stat">
-        <strong>$10–30k</strong>
-        <span>recovered per month,<br>back into acquisition</span>
-      </div>
-      <div class="hero-proof-stat">
-        <strong data-count="10" data-suffix="×">10×</strong>
-        <span>active customers<br>in 12 months</span>
-      </div>
-      <div class="hero-proof-stat">
-        <strong data-count="40" data-prefix="−" data-suffix="%">−40%</strong>
-        <span>churn reduction<br>15% → 9%</span>
-      </div>
-    </div>
-  </div>
-
-  <hr class="full-rule js-rule" />
-
-  <!-- GAPS -->
-  <div class="section">
-    <span class="section-label" data-reveal>What I see constantly</span>
-    <h2 data-reveal>The same three gaps<br><span>at nearly every brand.</span></h2>
-
-    <ul class="gap-list" data-reveal-stagger>
-      <li>
-        <span class="gap-num">01</span>
-        <span>Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.</span>
-      </li>
-      <li>
-        <span class="gap-num">02</span>
-        <span>Winback campaigns that go out weeks too late, after the customer has already moved on.</span>
-      </li>
-      <li>
-        <span class="gap-num">03</span>
-        <span>Cancellation save flows that don't exist, or send one generic email and give up.</span>
-      </li>
-    </ul>
-
-    <p class="callout" data-reveal>
-      These aren't edge cases. They show up at brands doing $1M and brands doing $10M.
-      <strong>Fixing them is usually worth more than your next month of ad spend.</strong>
-    </p>
-  </div>
-
-  <hr class="full-rule js-rule" />
-
-  <!-- CASE STUDY -->
-  <div class="section section--wide">
-    <span class="section-label" data-reveal>Client result</span>
-    <h2 data-reveal>Japanese pet food brand.<br><span>What a year of real work looks like.</span></h2>
-
-    <div class="case-card" data-reveal>
-      <div class="case-stats">
-        <div class="case-stat">
-          <span class="stat-num" data-count="10" data-suffix="×">10×</span>
-          <span class="stat-label">Active customers</span>
-          <span class="stat-sub">30 → 300 in 12 months</span>
-        </div>
-        <div class="case-stat">
-          <span class="stat-num" data-count="40" data-prefix="−" data-suffix="%">−40%</span>
-          <span class="stat-label">Churn rate</span>
-          <span class="stat-sub">15% → 9%</span>
-        </div>
-        <div class="case-stat">
-          <span class="stat-num">↑ LTV</span>
-          <span class="stat-label">Customer lifetime value</span>
-          <span class="stat-sub">More margin back into acquisition</span>
-        </div>
-      </div>
-
-      <div class="growth-chart" id="growthChart">
-        <div class="growth-bars">
-          <div class="growth-bar-fill" data-h="10%"></div>
-          <div class="growth-bar-fill" data-h="15%"></div>
-          <div class="growth-bar-fill" data-h="21%"></div>
-          <div class="growth-bar-fill" data-h="28%"></div>
-          <div class="growth-bar-fill" data-h="36%"></div>
-          <div class="growth-bar-fill" data-h="45%"></div>
-          <div class="growth-bar-fill" data-h="54%"></div>
-          <div class="growth-bar-fill" data-h="65%"></div>
-          <div class="growth-bar-fill" data-h="75%"></div>
-          <div class="growth-bar-fill" data-h="85%"></div>
-          <div class="growth-bar-fill" data-h="93%"></div>
-          <div class="growth-bar-fill" data-h="100%"></div>
-        </div>
-        <p class="growth-chart-caption">Monthly active customers · 30 → 300</p>
-      </div>
-
-      <div class="case-body">
-        <span class="case-tag">Japanese pet food · Shopify</span>
-        <p>They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren't coming back. The two things that moved the needle: an extensive post-purchase flow that walked new customers through exactly how to get value from the product, and an educational campaign series that built habit and reinforced the brand before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into paid acquisition. That's how 30 active customers became 300 in twelve months.</p>
-      </div>
-    </div>
-  </div>
-
-  <hr class="full-rule js-rule" />
-
-  <!-- WHAT I DO -->
-  <div class="section section--wide">
-    <span class="section-label" data-reveal>What I do</span>
-    <h2 data-reveal>Full-cycle Klaviyo,<br><span>built for retention.</span></h2>
-
-    <p class="callout" data-reveal>
-      Already on Klaviyo? Here's the work. <strong>Not yet? I'll help you decide if it's time to move — and handle the migration if it is.</strong>
-    </p>
-
-    <ul class="work-list" data-reveal-stagger>
-      <li class="work-item">
-        <h3>Flow audit &amp; rebuild</h3>
-        <p>A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p>
-      </li>
-      <li class="work-item">
-        <h3>Popup optimization</h3>
-        <p>Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.</p>
-      </li>
-      <li class="work-item">
-        <h3>Customer lifecycle flows</h3>
-        <p>Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.</p>
-      </li>
-      <li class="work-item">
-        <h3>Cancellation &amp; churn saves</h3>
-        <p>Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p>
-      </li>
-      <li class="work-item">
-        <h3>Winback &amp; re-engagement</h3>
-        <p>Timed to customer behavior, not arbitrary day counts. The difference matters.</p>
-      </li>
-      <li class="work-item">
-        <h3>Segmentation &amp; list hygiene</h3>
-        <p>Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.</p>
-      </li>
-    </ul>
-  </div>
-
-  <hr class="full-rule js-rule" />
-
-  <!-- HOW IT WORKS -->
-  <div class="section">
-    <span class="section-label" data-reveal>How it works</span>
-    <h2 data-reveal>Simple to start.<br><span>No retainer required.</span></h2>
-
-    <ul class="steps" data-reveal-stagger>
-      <li class="step">
-        <span class="step-num">01</span>
-        <div>
-          <h3>Quick call</h3>
-          <p>We talk through your current setup, what's working, and where the obvious gaps are. 20–30 minutes.</p>
-        </div>
-      </li>
-      <li class="step">
-        <span class="step-num">02</span>
-        <div>
-          <h3>I look at your current setup</h3>
-          <p>Already on Klaviyo? I tell you what's working and what's losing money. Not yet? I tell you if moving over makes sense at your stage. Either way — no deck, no proposal, just actual feedback on what to do first.</p>
-        </div>
-      </li>
-      <li class="step">
-        <span class="step-num">03</span>
-        <div>
-          <h3>We decide if it makes sense</h3>
-          <p>Project-based or ongoing, depending on what you need. No pressure either way.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <hr class="full-rule js-rule" />
-
-  <!-- ABOUT -->
-  <div class="section">
-    <img src="kei.JPG" alt="Kei Nakayama" class="about-photo" data-reveal />
-    <span class="section-label" data-reveal>Why I do this</span>
-    <h2 data-reveal>I tried to build<br><span>one of these brands.</span></h2>
-    <div class="about-body" data-reveal>
-      <p>
-        A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough
-        to understand what it actually takes. The sourcing, the packaging, the logistics, the
-        relentless problem-solving before a single order ships.
-        <strong>I couldn't build a product I was proud enough to sell.</strong>
-      </p>
-      <p>
-        That experience changed how I see the people I work with. The founders who do make it —
-        who find something worth coming back to, build a brand around it, and keep showing up —
-        I have a lot of respect for that. Most people don't understand how hard it is until
-        they've tried and fallen short.
-      </p>
-      <p>
-        What I do now is a different kind of problem. Once a brand has a great product, the work
-        becomes keeping the people who find it. That's where most Klaviyo setups quietly fall apart.
-        Not because the brand isn't good enough. <strong>Because the email infrastructure wasn't
-        built to support how returning customers actually behave.</strong>
-      </p>
-      <p>
-        I work with founders who have already done the hard part. My job is to make sure their
-        retention side is working as hard as they are — so their best customers stay, and they
-        can stand out in a crowded market on the strength of that loyalty.
-      </p>
-    </div>
-
-    <blockquote class="testimonial" data-reveal>
-      <p class="testimonial-quote">"Kei didn't come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth — not just short-term wins."</p>
-      <div class="testimonial-attr">
-        <img src="moncheri-logo.png" alt="moncheri kitchen" class="testimonial-attr-photo" />
-        <span class="testimonial-attr-text">
-          <span class="testimonial-attr-name">Brand Owner</span><br>
-          Japanese pet food · Shopify
+    <div>
+      <div class="chips">
+        <span class="chip">Klaviyo</span>
+        <span class="chip">Shopify</span>
+        <span class="chip chip--avail">
+          <span class="avail-dot"></span>
+          Taking new clients
         </span>
       </div>
-    </blockquote>
+
+      <h1>
+        You work hard to bring customers in.
+        <strong>Klaviyo should keep them.</strong>
+      </h1>
+
+      <p class="hero-byline">Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA</p>
+
+      <p class="hero-desc">
+        Every customer who leaves cost you money to acquire. Then you spend again to replace them — and the cycle continues.
+        Most Klaviyo setups weren't built around how returning customers actually behave.
+        <strong>Fix retention, and your acquisition spend finally starts to compound.</strong>
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--dark">
+          Book a free 30-min call
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="btn-note">No commitment — I'll tell you exactly what I'd fix first.</span>
+      </div>
+    </div>
+
+    <!-- Proof card -->
+    <div class="proof-card">
+      <div class="proof-stat">
+        <strong class="proof-num">$10–30k</strong>
+        <span class="proof-label">Revenue recovered / month</span>
+        <span class="proof-sub">Redirected back into acquisition</span>
+      </div>
+      <div class="proof-stat">
+        <strong class="proof-num" data-count="10" data-suffix="×">10×</strong>
+        <span class="proof-label">Active customers</span>
+        <span class="proof-sub">30 → 300 in 12 months</span>
+      </div>
+      <div class="proof-stat">
+        <strong class="proof-num" data-count="40" data-prefix="−" data-suffix="%">−40%</strong>
+        <span class="proof-label">Churn reduction</span>
+        <span class="proof-sub">15% → 9% monthly churn</span>
+      </div>
+    </div>
   </div>
 
-  <hr class="full-rule js-rule" />
+  <!-- GAPS -->
+  <div class="s-white">
+    <div class="section">
+      <span class="label" data-reveal>What I see constantly</span>
+      <h2 data-reveal>Three gaps that quietly<br><span>cost you customers every month.</span></h2>
+
+      <ul class="gap-list" data-reveal-stagger>
+        <li>
+          <span class="gap-num">01</span>
+          <span>Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.</span>
+        </li>
+        <li>
+          <span class="gap-num">02</span>
+          <span>Winback campaigns that go out weeks too late, after the customer has already moved on.</span>
+        </li>
+        <li>
+          <span class="gap-num">03</span>
+          <span>Cancellation save flows that don't exist, or send one generic email and give up.</span>
+        </li>
+      </ul>
+
+      <p class="callout" data-reveal>
+        These aren't edge cases. They show up at brands doing $1M and brands doing $10M.
+        <strong>Fixing them is usually worth more than your next month of ad spend.</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- CASE STUDY -->
+  <div class="s-dark">
+    <div class="section section--wide">
+      <span class="label label--dim" data-reveal>Client result</span>
+      <h2 class="light" data-reveal>Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span></h2>
+
+      <div class="case-wrap" data-reveal-stagger>
+        <div class="case-box">
+          <span class="case-num" data-count="10" data-suffix="×">10×</span>
+          <span class="case-label">Active customers</span>
+          <span class="case-sub">30 → 300 in 12 months</span>
+        </div>
+
+        <div class="case-box">
+          <span class="case-num" data-count="40" data-prefix="−" data-suffix="%">−40%</span>
+          <span class="case-label">Churn rate</span>
+          <span class="case-sub">15% → 9% monthly churn</span>
+        </div>
+
+        <div class="chart-box" id="growthChart">
+          <div class="growth-bars">
+            <div class="growth-bar-fill" data-h="10%"></div>
+            <div class="growth-bar-fill" data-h="15%"></div>
+            <div class="growth-bar-fill" data-h="21%"></div>
+            <div class="growth-bar-fill" data-h="28%"></div>
+            <div class="growth-bar-fill" data-h="36%"></div>
+            <div class="growth-bar-fill" data-h="45%"></div>
+            <div class="growth-bar-fill" data-h="54%"></div>
+            <div class="growth-bar-fill" data-h="65%"></div>
+            <div class="growth-bar-fill" data-h="75%"></div>
+            <div class="growth-bar-fill" data-h="85%"></div>
+            <div class="growth-bar-fill" data-h="93%"></div>
+            <div class="growth-bar-fill" data-h="100%"></div>
+          </div>
+          <p class="chart-caption">Monthly active customers · 30 → 300</p>
+        </div>
+
+        <div class="case-box case-story">
+          <span class="case-tag">Japanese pet food · Shopify</span>
+          <p>They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren't coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That's how 30 active customers became 300 in twelve months.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I DO -->
+  <div class="s-white">
+    <div class="section section--wide">
+      <span class="label" data-reveal>What I do</span>
+      <h2 data-reveal>Full-cycle Klaviyo,<br><span>built for retention.</span></h2>
+
+      <p class="callout" style="margin-bottom: 28px;" data-reveal>
+        Already on Klaviyo? Here's the work. <strong>Not yet? I'll help you decide if it's time to move — and handle the migration if it is.</strong>
+      </p>
+
+      <ul class="work-grid" data-reveal-stagger>
+        <li class="work-item">
+          <h3>Flow audit &amp; rebuild</h3>
+          <p>A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p>
+        </li>
+        <li class="work-item">
+          <h3>Popup optimization</h3>
+          <p>Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.</p>
+        </li>
+        <li class="work-item">
+          <h3>Customer lifecycle flows</h3>
+          <p>Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.</p>
+        </li>
+        <li class="work-item">
+          <h3>Cancellation &amp; churn saves</h3>
+          <p>Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p>
+        </li>
+        <li class="work-item">
+          <h3>Winback &amp; re-engagement</h3>
+          <p>Timed to customer behavior, not arbitrary day counts. The difference matters.</p>
+        </li>
+        <li class="work-item">
+          <h3>Segmentation &amp; list hygiene</h3>
+          <p>Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div>
+    <div class="section">
+      <span class="label" data-reveal>How it works</span>
+      <h2 data-reveal>Simple to start.<br><span>No retainer required.</span></h2>
+
+      <ul class="steps" data-reveal-stagger>
+        <li class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Quick call</h3>
+            <p>We talk through your current setup, what's working, and where the obvious gaps are. 20–30 minutes.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3>I look at your current setup</h3>
+            <p>Already on Klaviyo? I tell you what's working and what's losing money. Not yet? I tell you if moving over makes sense at your stage. Either way — no deck, no proposal, just actual feedback on what to do first.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3>We decide if it makes sense</h3>
+            <p>Project-based or ongoing, depending on what you need. No pressure either way.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="s-white">
+    <div class="section section--wide">
+      <span class="label" data-reveal>Why I do this</span>
+      <h2 data-reveal>I tried to build<br><span>one of these brands.</span></h2>
+
+      <div class="about-grid" data-reveal>
+        <div class="about-photo-col">
+          <img src="kei.JPG" alt="Kei Nakayama" class="about-photo" />
+        </div>
+        <div class="about-body">
+          <p>
+            A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.
+            <strong>I couldn't build a product I was proud enough to sell.</strong>
+          </p>
+          <p>
+            That experience changed how I see the people I work with. The founders who do make it — who find something worth coming back to, build a brand around it, and keep showing up — I have a lot of respect for that.
+          </p>
+          <p>
+            What I do now is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That's where most Klaviyo setups quietly fall apart. Not because the brand isn't good enough.
+            <strong>Because the email infrastructure wasn't built to support how returning customers actually behave.</strong>
+          </p>
+          <p>
+            I work with founders who have already done the hard part. My job is to make sure their retention side is working as hard as they are.
+          </p>
+        </div>
+      </div>
+
+      <blockquote class="testimonial" data-reveal>
+        <p class="testimonial-quote">"Kei didn't come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth — not just short-term wins."</p>
+        <div class="testimonial-attr">
+          <img src="moncheri-logo.png" alt="moncheri kitchen" class="testimonial-attr-photo" />
+          <span class="testimonial-attr-text">
+            <span class="testimonial-attr-name">Brand Owner</span><br>
+            Japanese pet food · Shopify
+          </span>
+        </div>
+      </blockquote>
+    </div>
+  </div>
 
   <!-- CTA -->
-  <div class="cta-section">
-    <h2 data-reveal>
-      If you're spending on acquisition,
-      <strong>this is where most of it leaks.</strong>
-    </h2>
-    <p data-reveal>I'll look at what you've got — Klaviyo, another platform, or starting fresh — and tell you exactly where customers are leaving and what I'd fix first. No pitch, no proposal, no commitment required.</p>
-    <div data-reveal>
-      <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="big-cta">
-        Book a free call
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <span class="cta-note">No commitment — just a conversation about your setup</span>
+  <div class="s-dark">
+    <div class="cta-inner">
+      <h2 data-reveal>
+        If you're spending on acquisition,
+        <strong>this is where most of it leaks.</strong>
+      </h2>
+      <p data-reveal>I'll look at what you've got — Klaviyo, another platform, or starting fresh — and tell you exactly where customers are leaving and what I'd fix first. No pitch, no proposal, no commitment required.</p>
+      <div data-reveal>
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--light">
+          Book a free call
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="cta-note-dark">No commitment — just a conversation about your setup</span>
+      </div>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <span class="footer-brand" aria-label="hanjo">
-      <img src="hanjo-logo.svg" alt="hanjo" height="22" />
-    </span>
-    <div class="footer-meta">
-      <span>Kei Nakayama</span>
-      <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a>
-      <a href="https://www.linkedin.com/in/kei-nakayama-924b481b5/" target="_blank" rel="noopener">LinkedIn</a>
-      <span>Los Angeles, CA</span>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <span>Kei Nakayama</span>
+        <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a>
+        <a href="https://www.linkedin.com/in/kei-nakayama-924b481b5/" target="_blank" rel="noopener">LinkedIn</a>
+        <span>Los Angeles, CA</span>
+      </div>
     </div>
   </footer>
 
   <script>
-    // ── Counter animation ──
     function animateCounter(el) {
       const target   = parseInt(el.dataset.count);
       const prefix   = el.dataset.prefix || '';
@@ -1071,38 +1090,29 @@
       requestAnimationFrame(step);
     }
 
-    // ── Growth bars animation ──
     function animateBars() {
       document.querySelectorAll('#growthChart .growth-bar-fill').forEach(bar => {
         bar.style.height = bar.dataset.h;
       });
     }
 
-    // ── IntersectionObserver for reveals, counters, and bars ──
-    const revealEls  = document.querySelectorAll('[data-reveal]');
-    const staggerEls = document.querySelectorAll('[data-reveal-stagger]');
-    const ruleEls    = document.querySelectorAll('.js-rule');
-    const counterEls = document.querySelectorAll('[data-count]');
-    const growthChart = document.getElementById('growthChart');
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
           el.classList.add('revealed');
-          if (el.dataset.count)      animateCounter(el);
+          if (el.dataset.count)        animateCounter(el);
           if (el.id === 'growthChart') animateBars();
           observer.unobserve(el);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    revealEls.forEach(el  => observer.observe(el));
-    staggerEls.forEach(el => observer.observe(el));
-    ruleEls.forEach(el    => observer.observe(el));
-    counterEls.forEach(el => observer.observe(el));
+    document.querySelectorAll('[data-reveal]').forEach(el  => observer.observe(el));
+    document.querySelectorAll('[data-reveal-stagger]').forEach(el => observer.observe(el));
+    document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
+    const growthChart = document.getElementById('growthChart');
     if (growthChart) observer.observe(growthChart);
-
   </script>
 
 </body>
