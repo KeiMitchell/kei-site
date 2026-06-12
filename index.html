@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kei Nakayama · Klaviyo retention for Shopify brands</title>
+  <title>Kei Nakayama · Klaviyo retention for Japan-connected DTC brands</title>
   <link rel="icon" type="image/svg+xml" href="hanjo-logo.svg" />
 
   <!-- Google Analytics -->
@@ -16,24 +16,24 @@
   </script>
 
   <!-- SEO -->
-  <meta name="description" content="Klaviyo retention specialist for Shopify brands. I build email systems that fit how repeat customers actually behave — not generic flows." />
+  <meta name="description" content="Klaviyo retention specialist for Japan-connected DTC brands on Shopify. I write the copy, design the emails, and build the flows. Projects from $1,500." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hanjo.ai" />
-  <meta property="og:title" content="Kei Nakayama · Klaviyo retention for Shopify brands" />
-  <meta property="og:description" content="Klaviyo retention specialist for Shopify brands. I build email systems that fit how repeat customers actually behave — not generic flows." />
+  <meta property="og:title" content="Kei Nakayama · Klaviyo retention for Japan-connected DTC brands" />
+  <meta property="og:description" content="Klaviyo retention specialist for Japan-connected DTC brands on Shopify. I write the copy, design the emails, and build the flows. Projects from $1,500." />
   <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kei Nakayama · Klaviyo retention for Shopify brands" />
-  <meta name="twitter:description" content="Klaviyo retention specialist for Shopify brands. I build email systems that fit how repeat customers actually behave — not generic flows." />
+  <meta name="twitter:title" content="Kei Nakayama · Klaviyo retention for Japan-connected DTC brands" />
+  <meta name="twitter:description" content="Klaviyo retention specialist for Japan-connected DTC brands on Shopify. I write the copy, design the emails, and build the flows. Projects from $1,500." />
   <meta name="twitter:image" content="https://hanjo.ai/kei.JPG" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,700;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -168,6 +168,28 @@
       border-radius: 50%;
       flex-shrink: 0;
       animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .lang-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 5px 13px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--faint);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      transition: color 0.2s, border-color 0.2s, background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+      font-family: inherit;
+    }
+    .lang-toggle:hover {
+      color: var(--ink);
+      border-color: rgba(44,62,55,0.3);
+      background: rgba(44,62,55,0.04);
     }
 
     .nav-cta {
@@ -741,6 +763,232 @@
     }
     .footer-meta a:hover { color: rgba(245,242,236,0.75); }
 
+    /* ── JAPANESE TYPOGRAPHY ── */
+    html[lang="ja"] body {
+      font-family: 'Noto Sans JP', -apple-system, sans-serif;
+      line-height: 1.8;
+    }
+
+    html[lang="ja"] .hero h1,
+    html[lang="ja"] h2,
+    html[lang="ja"] .cta-inner h2 {
+      font-family: 'Shippori Mincho B1', serif;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+    }
+
+    html[lang="ja"] .hero h1 strong,
+    html[lang="ja"] h2 span,
+    html[lang="ja"] .cta-inner h2 strong {
+      font-style: normal;
+    }
+
+    html[lang="ja"] .hero-desc {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .about-body p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.1;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .callout {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      line-height: 1.95;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .gap-list li {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .step h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .step p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .work-item h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .work-item p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .testimonial-quote {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .case-story p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .cta-inner > p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .label {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.12em;
+    }
+
+    html[lang="ja"] .chip {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.06em;
+    }
+
+    html[lang="ja"] .hero-byline {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.06em;
+    }
+
+    html[lang="ja"] .btn {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .btn-note,
+    html[lang="ja"] .cta-note-dark {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .proof-label {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+    }
+
+    html[lang="ja"] .proof-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .case-label {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .case-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .case-tag {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .chart-caption {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .nav-avail,
+    html[lang="ja"] .nav-cta,
+    html[lang="ja"] .footer-meta a,
+    html[lang="ja"] .footer-meta span {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .testimonial-attr-text {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ── JAPANESE LAYOUT OPTIMIZATIONS ── */
+
+    /* Hero h1: reduce size so Japanese doesn't break mid-katakana-word */
+    html[lang="ja"] .hero h1 {
+      font-size: clamp(26px, 3.6vw, 44px);
+      line-height: 1.35;
+      line-break: strict;       /* prevents ー / small kana breaking off */
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    /* Section h2 */
+    html[lang="ja"] h2 {
+      font-size: clamp(22px, 3vw, 36px);
+      line-height: 1.3;
+      line-break: strict;
+    }
+
+    /* CTA h2 */
+    html[lang="ja"] .cta-inner h2 {
+      font-size: clamp(22px, 3.2vw, 38px);
+      line-break: strict;
+    }
+
+    /* Body text — prevent breaking inside katakana words */
+    html[lang="ja"] .hero-desc,
+    html[lang="ja"] .callout,
+    html[lang="ja"] .step p,
+    html[lang="ja"] .gap-list li,
+    html[lang="ja"] .about-body p,
+    html[lang="ja"] .case-story p,
+    html[lang="ja"] .cta-inner > p {
+      line-break: strict;
+      overflow-wrap: break-word;
+    }
+
+    /* Proof card labels — tighter for Japanese on narrow columns */
+    html[lang="ja"] .proof-label { font-size: 11.5px; line-height: 1.5; }
+    html[lang="ja"] .proof-sub   { font-size: 11px; }
+
+    /* Mobile: hero single-column gets more breathing room */
+    @media (max-width: 880px) {
+      html[lang="ja"] .hero h1 {
+        font-size: clamp(28px, 6vw, 40px);
+      }
+      html[lang="ja"] h2 {
+        font-size: clamp(22px, 5vw, 32px);
+      }
+      html[lang="ja"] .proof-label { font-size: 11px; }
+      html[lang="ja"] .proof-sub   { font-size: 10.5px; }
+    }
+
+    @media (max-width: 560px) {
+      html[lang="ja"] .hero h1 {
+        font-size: clamp(26px, 7.5vw, 36px);
+        line-height: 1.4;
+      }
+      html[lang="ja"] h2 {
+        font-size: clamp(20px, 6vw, 28px);
+      }
+      html[lang="ja"] .cta-inner h2 {
+        font-size: clamp(22px, 7vw, 32px);
+      }
+      html[lang="ja"] .hero-desc { font-size: 14px; }
+      html[lang="ja"] .about-body p { font-size: 14px; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 880px) {
       .hero {
@@ -782,7 +1030,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="announce">
+    <div class="announce" data-i18n="announce">
       <strong>Now taking new clients.</strong> Free 30-min Klaviyo audit.
     </div>
     <div class="nav-inner">
@@ -792,9 +1040,10 @@
       <div class="nav-right">
         <span class="nav-avail">
           <span class="avail-dot"></span>
-          Taking new clients
+          <span data-i18n="nav-avail">Taking new clients</span>
         </span>
-        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="nav-cta">
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav-cta">
           Book a call
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -807,32 +1056,32 @@
     <div>
       <div class="chips">
         <span class="chip">Klaviyo</span>
-        <span class="chip">Shopify</span>
+        <span class="chip" data-i18n="chip-japan">Japan-connected brands</span>
         <span class="chip chip--avail">
           <span class="avail-dot"></span>
-          Taking new clients
+          <span data-i18n="chip-avail">Taking new clients</span>
         </span>
       </div>
 
-      <h1>
+      <h1 data-i18n="hero-h1">
         You work hard to bring customers in.
         <strong>Klaviyo should keep them.</strong>
       </h1>
 
-      <p class="hero-byline">Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA</p>
+      <p class="hero-byline" data-i18n="hero-byline">Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA</p>
 
-      <p class="hero-desc">
+      <p class="hero-desc" data-i18n="hero-desc">
         Every customer who leaves cost you money to acquire. Then you spend again to replace them — and the cycle continues.
-        Most Klaviyo setups weren't built around how returning customers actually behave.
-        <strong>Fix retention, and your acquisition spend finally starts to compound.</strong>
+        I work with Japan-connected DTC brands on Shopify — founders building in Japan, Japanese products finding customers abroad, or cross-market brands where the customer base skews Japanese.
+        <strong>Fix retention with infrastructure that actually fits your market, and acquisition finally starts to compound.</strong>
       </p>
 
       <div class="hero-actions">
-        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--dark">
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--dark" data-i18n="hero-cta">
           Book a free 30-min call
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <span class="btn-note">No commitment — I'll tell you exactly what I'd fix first.</span>
+        <span class="btn-note" data-i18n="hero-cta-note">No commitment — I'll tell you exactly what I'd fix first.</span>
       </div>
     </div>
 
@@ -840,18 +1089,18 @@
     <div class="proof-card">
       <div class="proof-stat">
         <strong class="proof-num">$10–30k</strong>
-        <span class="proof-label">Revenue recovered / month</span>
-        <span class="proof-sub">Redirected back into acquisition</span>
+        <span class="proof-label" data-i18n="proof-1-label">Revenue recovered / month</span>
+        <span class="proof-sub" data-i18n="proof-1-sub">Redirected back into acquisition</span>
       </div>
       <div class="proof-stat">
         <strong class="proof-num" data-count="10" data-suffix="×">10×</strong>
-        <span class="proof-label">Active customers</span>
-        <span class="proof-sub">30 → 300 in 12 months</span>
+        <span class="proof-label" data-i18n="proof-2-label">Active customers</span>
+        <span class="proof-sub" data-i18n="proof-2-sub">30 → 300 in 12 months</span>
       </div>
       <div class="proof-stat">
         <strong class="proof-num" data-count="40" data-prefix="−" data-suffix="%">−40%</strong>
-        <span class="proof-label">Churn reduction</span>
-        <span class="proof-sub">15% → 9% monthly churn</span>
+        <span class="proof-label" data-i18n="proof-3-label">Churn reduction</span>
+        <span class="proof-sub" data-i18n="proof-3-sub">15% → 9% monthly churn</span>
       </div>
     </div>
   </div>
@@ -859,25 +1108,25 @@
   <!-- GAPS -->
   <div class="s-white">
     <div class="section">
-      <span class="label" data-reveal>What I see constantly</span>
-      <h2 data-reveal>Three gaps that quietly<br><span>cost you customers every month.</span></h2>
+      <span class="label" data-reveal data-i18n="gaps-label">What I see constantly</span>
+      <h2 data-reveal data-i18n="gaps-h2">Three gaps that quietly<br><span>cost you customers every month.</span></h2>
 
       <ul class="gap-list" data-reveal-stagger>
         <li>
           <span class="gap-num">01</span>
-          <span>Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.</span>
+          <span data-i18n="gap-1">Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.</span>
         </li>
         <li>
           <span class="gap-num">02</span>
-          <span>Winback campaigns that go out weeks too late, after the customer has already moved on.</span>
+          <span data-i18n="gap-2">Winback campaigns that go out weeks too late, after the customer has already moved on.</span>
         </li>
         <li>
           <span class="gap-num">03</span>
-          <span>Cancellation save flows that don't exist, or send one generic email and give up.</span>
+          <span data-i18n="gap-3">Cancellation save flows that don't exist, or send one generic email and give up.</span>
         </li>
       </ul>
 
-      <p class="callout" data-reveal>
+      <p class="callout" data-reveal data-i18n="gaps-callout">
         These aren't edge cases. They show up at brands doing $1M and brands doing $10M.
         <strong>Fixing them is usually worth more than your next month of ad spend.</strong>
       </p>
@@ -887,20 +1136,20 @@
   <!-- CASE STUDY -->
   <div class="s-dark">
     <div class="section section--wide">
-      <span class="label label--dim" data-reveal>Client result</span>
-      <h2 class="light" data-reveal>Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span></h2>
+      <span class="label label--dim" data-reveal data-i18n="case-label">Client result</span>
+      <h2 class="light" data-reveal data-i18n="case-h2">Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span></h2>
 
       <div class="case-wrap" data-reveal-stagger>
         <div class="case-box">
           <span class="case-num" data-count="10" data-suffix="×">10×</span>
-          <span class="case-label">Active customers</span>
-          <span class="case-sub">30 → 300 in 12 months</span>
+          <span class="case-label" data-i18n="case-1-label">Active customers</span>
+          <span class="case-sub" data-i18n="case-1-sub">30 → 300 in 12 months</span>
         </div>
 
         <div class="case-box">
           <span class="case-num" data-count="40" data-prefix="−" data-suffix="%">−40%</span>
-          <span class="case-label">Churn rate</span>
-          <span class="case-sub">15% → 9% monthly churn</span>
+          <span class="case-label" data-i18n="case-2-label">Churn rate</span>
+          <span class="case-sub" data-i18n="case-2-sub">15% → 9% monthly churn</span>
         </div>
 
         <div class="chart-box" id="growthChart">
@@ -918,12 +1167,12 @@
             <div class="growth-bar-fill" data-h="93%"></div>
             <div class="growth-bar-fill" data-h="100%"></div>
           </div>
-          <p class="chart-caption">Monthly active customers · 30 → 300</p>
+          <p class="chart-caption" data-i18n="chart-caption">Monthly active customers · 30 → 300</p>
         </div>
 
         <div class="case-box case-story">
-          <span class="case-tag">Japanese pet food · Shopify</span>
-          <p>They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren't coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That's how 30 active customers became 300 in twelve months.</p>
+          <span class="case-tag" data-i18n="case-tag">Japanese pet food · Shopify</span>
+          <p data-i18n="case-story">They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren't coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That's how 30 active customers became 300 in twelve months.</p>
         </div>
       </div>
     </div>
@@ -932,37 +1181,37 @@
   <!-- WHAT I DO -->
   <div class="s-white">
     <div class="section section--wide">
-      <span class="label" data-reveal>What I do</span>
-      <h2 data-reveal>Full-cycle Klaviyo,<br><span>built for retention.</span></h2>
+      <span class="label" data-reveal data-i18n="services-label">What I do</span>
+      <h2 data-reveal data-i18n="services-h2">Full-cycle Klaviyo,<br><span>built for Japan-connected brands.</span></h2>
 
-      <p class="callout" style="margin-bottom: 28px;" data-reveal>
-        Already on Klaviyo? Here's the work. <strong>Not yet? I'll help you decide if it's time to move — and handle the migration if it is.</strong>
+      <p class="callout" style="margin-bottom: 28px;" data-reveal data-i18n="services-callout">
+        I write the copy, design the emails, and build the flows. You bring the brand assets — I handle everything else. <strong>Already on Klaviyo? Here's the work. Not yet? I'll help you decide if it's time — and handle the migration.</strong>
       </p>
 
       <ul class="work-grid" data-reveal-stagger>
         <li class="work-item">
-          <h3>Flow audit &amp; rebuild</h3>
-          <p>A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p>
+          <h3 data-i18n="svc-1-h">Flow audit &amp; rebuild</h3>
+          <p data-i18n="svc-1-p">A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p>
         </li>
         <li class="work-item">
-          <h3>Popup optimization</h3>
-          <p>Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.</p>
+          <h3 data-i18n="svc-2-h">Popup optimization</h3>
+          <p data-i18n="svc-2-p">Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.</p>
         </li>
         <li class="work-item">
-          <h3>Customer lifecycle flows</h3>
-          <p>Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.</p>
+          <h3 data-i18n="svc-3-h">Customer lifecycle flows</h3>
+          <p data-i18n="svc-3-p">Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.</p>
         </li>
         <li class="work-item">
-          <h3>Cancellation &amp; churn saves</h3>
-          <p>Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p>
+          <h3 data-i18n="svc-4-h">Cancellation &amp; churn saves</h3>
+          <p data-i18n="svc-4-p">Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p>
         </li>
         <li class="work-item">
-          <h3>Winback &amp; re-engagement</h3>
-          <p>Timed to customer behavior, not arbitrary day counts. The difference matters.</p>
+          <h3 data-i18n="svc-5-h">Winback &amp; re-engagement</h3>
+          <p data-i18n="svc-5-p">Timed to customer behavior, not arbitrary day counts. The difference matters.</p>
         </li>
         <li class="work-item">
-          <h3>Segmentation &amp; list hygiene</h3>
-          <p>Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.</p>
+          <h3 data-i18n="svc-6-h">Segmentation &amp; list hygiene</h3>
+          <p data-i18n="svc-6-p">Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.</p>
         </li>
       </ul>
     </div>
@@ -971,29 +1220,75 @@
   <!-- HOW IT WORKS -->
   <div>
     <div class="section">
-      <span class="label" data-reveal>How it works</span>
-      <h2 data-reveal>Simple to start.<br><span>No retainer required.</span></h2>
+      <span class="label" data-reveal data-i18n="hiw-label">How it works</span>
+      <h2 data-reveal data-i18n="hiw-h2">Simple to start.<br><span>No retainer required.</span></h2>
 
       <ul class="steps" data-reveal-stagger>
         <li class="step">
           <span class="step-num">01</span>
           <div>
-            <h3>Quick call</h3>
-            <p>We talk through your current setup, what's working, and where the obvious gaps are. 20–30 minutes.</p>
+            <h3 data-i18n="step-1-h">Quick call</h3>
+            <p data-i18n="step-1-p">We talk through your current setup, what's working, and where the obvious gaps are. 20–30 minutes.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">02</span>
           <div>
-            <h3>I look at your current setup</h3>
-            <p>Already on Klaviyo? I tell you what's working and what's losing money. Not yet? I tell you if moving over makes sense at your stage. Either way — no deck, no proposal, just actual feedback on what to do first.</p>
+            <h3 data-i18n="step-2-h">I look at your current setup</h3>
+            <p data-i18n="step-2-p">Already on Klaviyo? I tell you what's working and what's losing money. Not yet? I tell you if moving over makes sense at your stage. Either way — no deck, no proposal, just actual feedback on what to do first.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">03</span>
           <div>
-            <h3>We decide if it makes sense</h3>
-            <p>Project-based or ongoing, depending on what you need. No pressure either way.</p>
+            <h3 data-i18n="step-3-h">We decide if it makes sense</h3>
+            <p data-i18n="step-3-p">Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="s-white">
+    <div class="section">
+      <span class="label" data-reveal data-i18n="faq-label">Common questions</span>
+      <h2 data-reveal data-i18n="faq-h2">What founders<br><span>usually ask first.</span></h2>
+
+      <ul class="steps" data-reveal-stagger>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-1-h">Do you write the copy and design the emails?</h3>
+            <p data-i18n="faq-1-p">Yes — full-service. I write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and I handle the rest end-to-end.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-2-h">What does it cost?</h3>
+            <p data-i18n="faq-2-p">Projects typically start from $1,500 – $3,000 depending on scope. I'll give you a clear number on the call — no vague proposals, no surprises.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-3-h">What counts as a "Japan-connected brand"?</h3>
+            <p data-i18n="faq-3-p">Brands founded in Japan, brands with a Japanese product or ethos selling internationally, Japanese-American brands, or any brand where a meaningful portion of customers are Japanese. If you're not sure whether you fit, book a call — the answer is usually yes.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-4-h">How long does a typical project take?</h3>
+            <p data-i18n="faq-4-p">A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-5-h">What if I'm not on Klaviyo yet?</h3>
+            <p data-i18n="faq-5-p">I'll assess whether Klaviyo makes sense at your stage. If it does, I handle the migration. If you're not ready, I'll tell you what to do first so you don't waste a setup.</p>
           </div>
         </li>
       </ul>
@@ -1003,38 +1298,41 @@
   <!-- ABOUT -->
   <div class="s-white">
     <div class="section section--wide">
-      <span class="label" data-reveal>Why I do this</span>
-      <h2 data-reveal>I tried to build<br><span>one of these brands.</span></h2>
+      <span class="label" data-reveal data-i18n="about-label">Why I do this</span>
+      <h2 data-reveal data-i18n="about-h2">I tried to build<br><span>one of these brands.</span></h2>
 
       <div class="about-grid" data-reveal>
         <div class="about-photo-col">
           <img src="kei.JPG" alt="Kei Nakayama" class="about-photo" />
         </div>
         <div class="about-body">
-          <p>
+          <p data-i18n="about-p1">
             A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.
             <strong>I couldn't build a product I was proud enough to sell.</strong>
           </p>
-          <p>
+          <p data-i18n="about-p2">
             That experience changed how I see the people I work with. The founders who do make it — who find something worth coming back to, build a brand around it, and keep showing up — I have a lot of respect for that.
           </p>
-          <p>
+          <p data-i18n="about-p3">
             What I do now is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That's where most Klaviyo setups quietly fall apart. Not because the brand isn't good enough.
             <strong>Because the email infrastructure wasn't built to support how returning customers actually behave.</strong>
           </p>
-          <p>
+          <p data-i18n="about-p4">
+            Most of the brands I work with have roots in Japan — the product, the founder, or the customer base. These brands often carry a distinct kind of customer relationship: high trust expectations, a more deliberate repurchase rhythm, a preference for depth over noise. Generic Klaviyo setups don't account for that. I build ones that do.
+          </p>
+          <p data-i18n="about-p5">
             I work with founders who have already done the hard part. My job is to make sure their retention side is working as hard as they are.
           </p>
         </div>
       </div>
 
       <blockquote class="testimonial" data-reveal>
-        <p class="testimonial-quote">"Kei didn't come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth — not just short-term wins."</p>
+        <p class="testimonial-quote" data-i18n="testimonial-quote">"Kei didn't come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth — not just short-term wins."</p>
         <div class="testimonial-attr">
           <img src="moncheri-logo.png" alt="moncheri kitchen" class="testimonial-attr-photo" />
           <span class="testimonial-attr-text">
-            <span class="testimonial-attr-name">Brand Owner</span><br>
-            Japanese pet food · Shopify
+            <span class="testimonial-attr-name" data-i18n="testimonial-name">Brand Owner</span><br>
+            <span data-i18n="testimonial-brand">Japanese pet food · Shopify</span>
           </span>
         </div>
       </blockquote>
@@ -1044,17 +1342,17 @@
   <!-- CTA -->
   <div class="s-dark">
     <div class="cta-inner">
-      <h2 data-reveal>
+      <h2 data-reveal data-i18n="cta-h2">
         If you're spending on acquisition,
         <strong>this is where most of it leaks.</strong>
       </h2>
-      <p data-reveal>I'll look at what you've got — Klaviyo, another platform, or starting fresh — and tell you exactly where customers are leaving and what I'd fix first. No pitch, no proposal, no commitment required.</p>
+      <p data-reveal data-i18n="cta-p">I'll look at what you've got — Klaviyo, another platform, or starting fresh — and tell you exactly where customers are leaving and what I'd fix first. No pitch, no proposal, no commitment required.</p>
       <div data-reveal>
-        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--light">
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--light" data-i18n="cta-btn">
           Book a free call
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <span class="cta-note-dark">No commitment — just a conversation about your setup</span>
+        <span class="cta-note-dark" data-i18n="cta-note">No commitment — just a conversation about your setup</span>
       </div>
     </div>
   </div>
@@ -1066,15 +1364,206 @@
         <img src="hanjo-logo.svg" alt="hanjo" height="22" />
       </span>
       <div class="footer-meta">
-        <span>Kei Nakayama</span>
+        <span data-i18n="footer-name">Kei Nakayama</span>
         <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a>
         <a href="https://www.linkedin.com/in/kei-nakayama-924b481b5/" target="_blank" rel="noopener">LinkedIn</a>
-        <span>Los Angeles, CA</span>
+        <span data-i18n="footer-location">Los Angeles, CA</span>
       </div>
     </div>
   </footer>
 
   <script>
+    /* ── TRANSLATIONS ── */
+    const T = {
+      en: {
+        'announce':         '<strong>Now taking new clients.</strong> Free 30-min Klaviyo audit.',
+        'nav-avail':        'Taking new clients',
+        'lang-toggle':      'JP',
+        'nav-cta':          'Book a call <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'chip-japan':       'Japan-connected brands',
+        'chip-avail':       'Taking new clients',
+        'hero-h1':          'You work hard to bring customers in.\n        <strong>Klaviyo should keep them.</strong>',
+        'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA',
+        'hero-desc':        'Every customer who leaves cost you money to acquire. Then you spend again to replace them — and the cycle continues.\n        I work with Japan-connected DTC brands on Shopify — founders building in Japan, Japanese products finding customers abroad, or cross-market brands where the customer base skews Japanese.\n        <strong>Fix retention with infrastructure that actually fits your market, and acquisition finally starts to compound.</strong>',
+        'hero-cta':         'Book a free 30-min call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'hero-cta-note':    'No commitment — I\'ll tell you exactly what I\'d fix first.',
+        'proof-1-label':    'Revenue recovered / month',
+        'proof-1-sub':      'Redirected back into acquisition',
+        'proof-2-label':    'Active customers',
+        'proof-2-sub':      '30 → 300 in 12 months',
+        'proof-3-label':    'Churn reduction',
+        'proof-3-sub':      '15% → 9% monthly churn',
+        'gaps-label':       'What I see constantly',
+        'gaps-h2':          'Three gaps that quietly<br><span>cost you customers every month.</span>',
+        'gap-1':            'Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.',
+        'gap-2':            'Winback campaigns that go out weeks too late, after the customer has already moved on.',
+        'gap-3':            'Cancellation save flows that don\'t exist, or send one generic email and give up.',
+        'gaps-callout':     'These aren\'t edge cases. They show up at brands doing $1M and brands doing $10M.\n        <strong>Fixing them is usually worth more than your next month of ad spend.</strong>',
+        'case-label':       'Client result',
+        'case-h2':          'Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span>',
+        'case-1-label':     'Active customers',
+        'case-1-sub':       '30 → 300 in 12 months',
+        'case-2-label':     'Churn rate',
+        'case-2-sub':       '15% → 9% monthly churn',
+        'chart-caption':    'Monthly active customers · 30 → 300',
+        'case-tag':         'Japanese pet food · Shopify',
+        'case-story':       'They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren\'t coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That\'s how 30 active customers became 300 in twelve months.',
+        'services-label':   'What I do',
+        'services-h2':      'Full-cycle Klaviyo,<br><span>built for Japan-connected brands.</span>',
+        'services-callout': 'I write the copy, design the emails, and build the flows. You bring the brand assets — I handle everything else. <strong>Already on Klaviyo? Here\'s the work. Not yet? I\'ll help you decide if it\'s time — and handle the migration.</strong>',
+        'svc-1-h': 'Flow audit &amp; rebuild',
+        'svc-1-p': 'A clear-eyed look at what\'s running, what\'s missing, and what\'s losing money. Then we fix it.',
+        'svc-2-h': 'Popup optimization',
+        'svc-2-p': 'Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.',
+        'svc-3-h': 'Customer lifecycle flows',
+        'svc-3-p': 'Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.',
+        'svc-4-h': 'Cancellation &amp; churn saves',
+        'svc-4-p': 'Segmented by cancel reason, order history, and LTV. Most brands don\'t have these. They should.',
+        'svc-5-h': 'Winback &amp; re-engagement',
+        'svc-5-p': 'Timed to customer behavior, not arbitrary day counts. The difference matters.',
+        'svc-6-h': 'Segmentation &amp; list hygiene',
+        'svc-6-p': 'Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.',
+        'hiw-label':  'How it works',
+        'hiw-h2':     'Simple to start.<br><span>No retainer required.</span>',
+        'step-1-h':   'Quick call',
+        'step-1-p':   'We talk through your current setup, what\'s working, and where the obvious gaps are. 20–30 minutes.',
+        'step-2-h':   'I look at your current setup',
+        'step-2-p':   'Already on Klaviyo? I tell you what\'s working and what\'s losing money. Not yet? I tell you if moving over makes sense at your stage. Either way — no deck, no proposal, just actual feedback on what to do first.',
+        'step-3-h':   'We decide if it makes sense',
+        'step-3-p':   'Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.',
+        'faq-label':  'Common questions',
+        'faq-h2':     'What founders<br><span>usually ask first.</span>',
+        'faq-1-h':    'Do you write the copy and design the emails?',
+        'faq-1-p':    'Yes — full-service. I write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and I handle the rest end-to-end.',
+        'faq-2-h':    'What does it cost?',
+        'faq-2-p':    'Projects typically start from $1,500 – $3,000 depending on scope. I\'ll give you a clear number on the call — no vague proposals, no surprises.',
+        'faq-3-h':    'What counts as a "Japan-connected brand"?',
+        'faq-3-p':    'Brands founded in Japan, brands with a Japanese product or ethos selling internationally, Japanese-American brands, or any brand where a meaningful portion of customers are Japanese. If you\'re not sure whether you fit, book a call — the answer is usually yes.',
+        'faq-4-h':    'How long does a typical project take?',
+        'faq-4-p':    'A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.',
+        'faq-5-h':    'What if I\'m not on Klaviyo yet?',
+        'faq-5-p':    'I\'ll assess whether Klaviyo makes sense at your stage. If it does, I handle the migration. If you\'re not ready, I\'ll tell you what to do first so you don\'t waste a setup.',
+        'about-label': 'Why I do this',
+        'about-h2':    'I tried to build<br><span>one of these brands.</span>',
+        'about-p1':    'A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.\n            <strong>I couldn\'t build a product I was proud enough to sell.</strong>',
+        'about-p2':    'That experience changed how I see the people I work with. The founders who do make it — who find something worth coming back to, build a brand around it, and keep showing up — I have a lot of respect for that.',
+        'about-p3':    'What I do now is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That\'s where most Klaviyo setups quietly fall apart. Not because the brand isn\'t good enough.\n            <strong>Because the email infrastructure wasn\'t built to support how returning customers actually behave.</strong>',
+        'about-p4':    'Most of the brands I work with have roots in Japan — the product, the founder, or the customer base. These brands often carry a distinct kind of customer relationship: high trust expectations, a more deliberate repurchase rhythm, a preference for depth over noise. Generic Klaviyo setups don\'t account for that. I build ones that do.',
+        'about-p5':    'I work with founders who have already done the hard part. My job is to make sure their retention side is working as hard as they are.',
+        'testimonial-quote': '"Kei didn\'t come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth — not just short-term wins."',
+        'testimonial-name':  'Brand Owner',
+        'testimonial-brand': 'Japanese pet food · Shopify',
+        'cta-h2':   'If you\'re spending on acquisition,\n        <strong>this is where most of it leaks.</strong>',
+        'cta-p':    'I\'ll look at what you\'ve got — Klaviyo, another platform, or starting fresh — and tell you exactly where customers are leaving and what I\'d fix first. No pitch, no proposal, no commitment required.',
+        'cta-btn':  'Book a free call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'cta-note': 'No commitment — just a conversation about your setup',
+        'footer-name':     'Kei Nakayama',
+        'footer-location': 'Los Angeles, CA',
+      },
+      ja: {
+        'announce':         '<strong>新規受付中。</strong>まず30分、無料でご相談ください。',
+        'nav-avail':        '受付中',
+        'lang-toggle':      'EN',
+        'nav-cta':          '無料相談を予約する <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'chip-japan':       '米国展開ブランド',
+        'chip-avail':       '受付中',
+        'hero-h1':          'プロダクトを米国に持ち込んだ。\n        <strong>次は、来てくれた顧客を離さない。</strong>',
+        'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; ロサンゼルス、CA',
+        'hero-desc':        '米国で顧客を獲得するには、大きな投資が必要だ。広告を回し、やっと来てくれた顧客がリピートせずに離れていく——その繰り返しを続けている。\n        対象は、米国で展開している日本のブランド。英語のコピー執筆・メールデザイン・フロー構築を丸ごと担当するので、プロダクト開発に集中しながらリテンションを整えられる。\n        <strong>Klaviyoのフローを整えれば、獲得コストが初めて積み重なっていく。</strong>',
+        'hero-cta':         '無料30分相談を予約する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'hero-cta-note':    'コミットメント不要。日本語でやり取りできます。',
+        'proof-1-label':    '月あたり回収できる売上',
+        'proof-1-sub':      '集客コストへの再投資に回る',
+        'proof-2-label':    'アクティブ顧客数',
+        'proof-2-sub':      '30人 → 300人（12ヶ月）',
+        'proof-3-label':    'チャーン削減',
+        'proof-3-sub':      '月間15% → 9%',
+        'gaps-label':       'よく見られること',
+        'gaps-h2':          '米国展開ブランドに多い、<br><span>顧客を失い続ける3つのパターン。</span>',
+        'gap-1':            '購入後のフローがウェルカムメールで止まっている。米国の顧客にとっては、その後に接点がないのと同じだ。',
+        'gap-2':            'ウィンバックのタイミングが遅すぎる。送る頃には、顧客はすでに他を選んでいる。',
+        'gap-3':            '解約防止フローがない。あるいは1通送って終わり。',
+        'gaps-callout':     '米国で展開している日本のブランドに、特によく見られる。メールの仕組みは後回しにされがちで、その間にも顧客は離れ続けている。\n        <strong>ここを整えるだけで、翌月の広告費より価値が出ることが多い。</strong>',
+        'case-label':       'クライアント事例',
+        'case-h2':          '日本のペットフードブランド。<br><span>12ヶ月でアクティブ顧客が30人から300人に。</span>',
+        'case-1-label':     'アクティブ顧客数',
+        'case-1-sub':       '30人 → 300人（12ヶ月）',
+        'case-2-label':     'チャーン率',
+        'case-2-sub':       '月間15% → 9%',
+        'chart-caption':    '月間アクティブ顧客 · 30人 → 300人',
+        'case-tag':         '日本のペットフード · Shopify',
+        'case-story':       '依頼が来た時点では、チャーンが高く、ウィンバックフローもなく、リピートされないせいで広告費が粗利を圧迫していた。充実した購入後フローと教育コンテンツのシリーズで、離れることを考える前に習慣を作った。チャーンは15%から9%に下がり、LTVが上がった。解放された粗利が集客に回り、12ヶ月でアクティブ顧客が30人から300人になった。',
+        'services-label':   'できること',
+        'services-h2':      '米国展開ブランドのための、<br><span>フルサイクルKlaviyo。</span>',
+        'services-callout': '英語のコピー執筆、メールデザイン、フロー構築まで一貫して対応する。ブランドアセットを共有してもらえれば、英語コンテンツの制作から設定まで丸ごと任せられる。<strong>Klaviyo導入済みなら改善から。まだなら、導入すべきかの判断も含めて一緒に考える。</strong>',
+        'svc-1-h': 'フロー診断と再構築',
+        'svc-1-p': '現状を把握し、問題を特定する。そして直す。',
+        'svc-2-h': 'ポップアップ最適化',
+        'svc-2-p': 'ウェルカムオファー、離脱インテント、モバイル対応A/Bテスト。多くのブランドが静かにリスト獲得を漏らしている場所。',
+        'svc-3-h': 'カスタマーライフサイクルフロー',
+        'svc-3-p': '購入後、補充リマインダー、スキップ・一時停止防止、再アクティベーション。オンボーディングだけでなく、全体のフローを。',
+        'svc-4-h': '解約・チャーン防止',
+        'svc-4-p': '解約理由、注文履歴、LTVでセグメント分け。ほとんどのブランドが持っていない。持つべきだ。',
+        'svc-5-h': 'ウィンバックと再エンゲージメント',
+        'svc-5-p': '任意の日数ではなく、顧客の行動に合わせたタイミングで。その差は大きい。',
+        'svc-6-h': 'セグメンテーションとリスト管理',
+        'svc-6-p': '健全なリスト、配信停止のロジック、エンゲージメントの階層整備。他のすべての土台になる部分。',
+        'hiw-label':  '進め方',
+        'hiw-h2':     'シンプルに始められる。<br><span>リテーナー契約は不要。</span>',
+        'step-1-h':   'まず話す',
+        'step-1-p':   '現状のKlaviyoセットアップ、課題、目標について話す。日本語で進められます。20〜30分。',
+        'step-2-h':   '現状を確認する',
+        'step-2-p':   'Klaviyo導入済みなら、うまくいっていることと改善点を伝える。まだなら、今の段階で移行が適切かを判断する。資料も提案書もなし——まず何をすべきかを直接伝える。',
+        'step-3-h':   '進め方を決める',
+        'step-3-p':   'プロジェクト単位か継続契約か、状況に応じて。プロジェクトは通常 $1,500〜$3,000（スコープによる）。リテーナーは不要。どちらの方向でも、プレッシャーはかけない。',
+        'faq-label':  'よくある質問',
+        'faq-h2':     'よく聞かれる、<br><span>5つの質問。</span>',
+        'faq-1-h':    '英語のコピー執筆とメールデザインも対応してもらえますか？',
+        'faq-1-p':    'はい、フルサービスで対応します。米国の顧客向けの英語コピーを執筆し、メールをデザインし、フローを構築します。ブランドアセットと方向性を共有していただければ、英語コンテンツの制作から設定まですべて担当します。',
+        'faq-2-h':    '費用はどれくらいですか？',
+        'faq-2-p':    'スコープによりますが、通常 $1,500〜$3,000 から。通話中に明確な金額をお伝えします——曖昧な提案書も、後から追加される費用もありません。',
+        'faq-3-h':    'どんなブランドが対象ですか？',
+        'faq-3-p':    '米国で展開している日本のブランドが主な対象です。日本で立ち上げたブランド、日本のプロダクトを米国に持ち込んでいるブランド、日系アメリカ人のブランドなどが該当します。当てはまるか迷うなら、まずご連絡ください。',
+        'faq-4-h':    'プロジェクトの期間は？',
+        'faq-4-p':    'フルのフロー構築は、キックオフからローンチまで3〜5週間が目安です。診断は約1週間。スコープと、フィードバックやアセットを提供するスピードによって変わります。',
+        'faq-5-h':    '日本語でやり取りできますか？',
+        'faq-5-p':    'はい。ブランドの担当者との打ち合わせや日々のやり取りは日本語で進めます。米国の顧客に届けるメールコンテンツは英語で制作します。KlaviyoもShopifyも、慣れていない段階から一緒に進められます。',
+        'about-label': 'この仕事をしている理由',
+        'about-h2':    '自分でも一度、<br><span>こういうブランドを作ろうとした。</span>',
+        'about-p1':    '数年前、日本でミールキットブランドを始めようとした。どれだけ大変かを肌で感じるところまでは進んだ。仕入れ、パッケージング、物流——最初の1件を届けるまでに解決しなければならない問題の量。<strong>自信を持って売れるプロダクトが、最終的には作れなかった。</strong>',
+        'about-p2':    'その経験が、一緒に仕事をする人への見方を変えた。こだわり抜いたプロダクトを作り、それを米国市場に持ち込み、諦めずに続けている創業者たちへの尊敬は大きい。',
+        'about-p3':    '今はロサンゼルスを拠点に、米国で展開する日本のブランドのKlaviyo運用を担当している。英語のコピーを書き、メールをデザインし、フローを構築する。日本語でやり取りしながら、米国の顧客に届けるメールコミュニケーションを整える。',
+        'about-p4':    '日本のブランドが持つ誠実さや世界観は、メールでも伝えられる。汎用的なKlaviyo設定では、その独自性が出ない。米国の顧客が自然に継続して買いたくなる仕組みを、ブランドに合わせて作る。',
+        'about-p5':    'プロダクト開発とオペレーションに集中したい創業者と仕事をしている。リテンション側は丸ごと任せてほしい。',
+        'testimonial-quote': '「ブランドと顧客のことを理解した上で動いてくれた。私たちのサブスクリプションモデルがどう動いているかを把握し、短期的な数字ではなく、持続的な成長に意味のある仕組みを作ってくれた。」',
+        'testimonial-name':  'ブランドオーナー',
+        'testimonial-brand': '日本のペットフード · Shopify',
+        'cta-h2':   '米国で獲得した顧客が<br><strong>リピートしていない理由がある。</strong>',
+        'cta-p':    'KlaviyoでもShopifyでも、今の状態を確認する。顧客がどこで離れているか、英語コンテンツを含めて何が必要かを具体的にお伝えする。売り込みも提案書も不要。日本語でお気軽にどうぞ。',
+        'cta-btn':  '無料相談を予約する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'cta-note': 'コミットメント不要。日本語で話せます。',
+        'footer-name':     'Kei Nakayama',
+        'footer-location': 'ロサンゼルス、CA',
+      }
+    };
+
+    /* ── LANGUAGE SWITCH ── */
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('hanjo-lang', lang);
+      const strings = T[lang];
+      Object.keys(strings).forEach(key => {
+        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+          el.innerHTML = strings[key];
+        });
+      });
+    }
+
+    function toggleLang() {
+      applyLang(document.documentElement.lang === 'en' ? 'ja' : 'en');
+    }
+
+    /* ── COUNTER ANIMATION ── */
     function animateCounter(el) {
       const target   = parseInt(el.dataset.count);
       const prefix   = el.dataset.prefix || '';
@@ -1114,6 +1603,10 @@
     document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
     const growthChart = document.getElementById('growthChart');
     if (growthChart) observer.observe(growthChart);
+
+    /* ── INIT ── */
+    const savedLang = localStorage.getItem('hanjo-lang');
+    if (savedLang && savedLang !== 'en') applyLang(savedLang);
   </script>
 
 </body>
