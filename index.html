@@ -1037,6 +1037,24 @@
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
     }
+    /* ── EMAIL SHOWCASE WALL ── */
+    .ew-section { background: var(--bg); overflow: hidden; padding-bottom: 64px; }
+    .ew-section .section { padding-bottom: 4px; }
+    .ew-desc { font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 480px; margin-top: 18px; }
+    .ew-wall { position: relative; height: 660px; max-width: var(--wide); margin: 44px auto 0; display: flex; gap: 22px; justify-content: center; padding: 0 24px;
+      -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 86%, transparent);
+      mask-image: linear-gradient(180deg, transparent, #000 12%, #000 86%, transparent); }
+    .ew-col { flex: 1 1 0; min-width: 0; max-width: 332px; }
+    .ew-track { display: flex; flex-direction: column; gap: 22px; will-change: transform; }
+    .ew-up   { animation: ewUp linear infinite; }
+    .ew-down { animation: ewDown linear infinite; }
+    .ew-wall:hover .ew-track { animation-play-state: paused; }
+    @keyframes ewUp   { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+    @keyframes ewDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+    .ew-card { width: 100%; background-size: cover; background-position: top center; background-repeat: no-repeat; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
+    @media (max-width: 880px) { .ew-wall { height: 580px; } .ew-col:nth-child(3) { display: none; } }
+    @media (max-width: 560px) { .ew-col:nth-child(2) { display: none; } .ew-wall { gap: 0; } }
+    @media (prefers-reduced-motion: reduce) { .ew-up, .ew-down { animation: none; } }
   </style>
 </head>
 <body>
@@ -1115,6 +1133,41 @@
         <span class="proof-label" data-i18n="proof-3-label">Churn reduction</span>
         <span class="proof-sub" data-i18n="proof-3-sub">15% → 9% monthly churn</span>
       </div>
+    </div>
+  </div>
+
+  <!-- EMAIL SHOWCASE WALL -->
+  <div class="ew-section">
+    <div class="section">
+      <span class="label" data-reveal data-i18n="wall-label">Selected work</span>
+      <h2 data-reveal data-i18n="wall-h2">The emails I build<br><span>for clients.</span></h2>
+      <p class="ew-desc" data-reveal data-i18n="wall-desc">Full-cycle Klaviyo — copy, design, and flows. A look at recent client campaigns.</p>
+    </div>
+    <div class="ew-wall" aria-hidden="true">
+      <div class="ew-col"><div class="ew-track ew-up" style="animation-duration:38s">
+        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(email-showcase/mira-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(email-showcase/mira-welcome.jpg)"></div>
+      </div></div>
+      <div class="ew-col"><div class="ew-track ew-down" style="animation-duration:47s">
+        <div class="ew-card" style="aspect-ratio:480/1217;background-image:url(email-showcase/mon-newspaper.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1022;background-image:url(email-showcase/andew-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/890;background-image:url(email-showcase/mira-replen.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1217;background-image:url(email-showcase/mon-newspaper.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1022;background-image:url(email-showcase/andew-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/890;background-image:url(email-showcase/mira-replen.jpg)"></div>
+      </div></div>
+      <div class="ew-col"><div class="ew-track ew-up" style="animation-duration:43s">
+        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/890;background-image:url(email-showcase/mira-replen.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/890;background-image:url(email-showcase/mira-replen.jpg)"></div>
+      </div></div>
     </div>
   </div>
 
@@ -1406,6 +1459,9 @@
         'proof-2-sub':      '30 → 300 in 12 months',
         'proof-3-label':    'Churn reduction',
         'proof-3-sub':      '15% → 9% monthly churn',
+        'wall-label':       'Selected work',
+        'wall-h2':          'The emails I build<br><span>for clients.</span>',
+        'wall-desc':        'Full-cycle Klaviyo — copy, design, and flows. A look at recent client campaigns.',
         'gaps-label':       'What I see constantly',
         'gaps-h2':          'Three gaps that quietly<br><span>cost you customers every month.</span>',
         'gap-1':            'Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.',
@@ -1491,6 +1547,9 @@
         'proof-2-sub':      '30人 → 300人（12ヶ月）',
         'proof-3-label':    'チャーン削減',
         'proof-3-sub':      '月間15% → 9%',
+        'wall-label':       '制作実績',
+        'wall-h2':          'クライアントのために<br><span>つくったメール。</span>',
+        'wall-desc':        'コピーからデザイン、フローまで一貫して。最近のクライアント配信の一例です。',
         'gaps-label':       'よく見られること',
         'gaps-h2':          '米国展開ブランドに多い、<br><span>顧客を失い続ける3つのパターン。</span>',
         'gap-1':            '購入後のフローがウェルカムメールで止まっています。米国の顧客にとっては、その後に接点がないのと同じです。',
