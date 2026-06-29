@@ -1055,6 +1055,29 @@
     @media (max-width: 880px) { .ew-wall { height: 580px; } .ew-col:nth-child(3) { display: none; } }
     @media (max-width: 560px) { .ew-col:nth-child(2) { display: none; } .ew-wall { gap: 0; } }
     @media (prefers-reduced-motion: reduce) { .ew-up, .ew-down { animation: none; } }
+
+    /* ── LIFECYCLE STRIP ── */
+    .lc-strip { max-width: var(--max); margin: 34px auto 0; padding: 0 24px; }
+    .lc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .lc-stat { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; }
+    .lc-stat-top { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
+    .lc-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+    .lc-c0 { background: #b4ad9e; } .lc-c1 { background: #cf8a3c; } .lc-c2 { background: #2f6f57; }
+    .lc-num { font-size: 30px; font-weight: 500; line-height: 1; margin-top: 7px; font-variant-numeric: tabular-nums; }
+    .lc-board { position: relative; height: 210px; margin-top: 18px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .lc-zone-line { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--border); }
+    .lc-zone-labels { position: absolute; left: 0; right: 0; bottom: 12px; display: grid; grid-template-columns: repeat(3, 1fr); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); text-align: center; pointer-events: none; }
+    .lc-bead { position: absolute; width: 12px; height: 12px; border-radius: 50%; transition: left 0.9s cubic-bezier(0.4,0,0.2,1), top 0.9s cubic-bezier(0.4,0,0.2,1), background 0.6s, opacity 0.5s; }
+    .lc-flows { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .lc-flow { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--muted); padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: background 0.45s, border-color 0.45s; }
+    .lc-flow svg { flex: none; }
+    .lc-flow b { color: var(--ink); font-weight: 500; }
+    .lc-flow .lc-arrow { color: var(--faint); }
+    .lc-flow.lc-fire { background: var(--white); border-color: rgba(44,62,55,0.30); }
+    .lc-bridge { max-width: var(--max); margin: 30px auto 0; padding: 0 24px; font-size: 15px; line-height: 1.7; color: var(--muted); }
+    .lc-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 560px) { .lc-flows { grid-template-columns: 1fr; } .lc-num { font-size: 24px; } .lc-stat { padding: 13px 14px; } .lc-board { height: 186px; } }
+    @media (prefers-reduced-motion: reduce) { .lc-bead { transition: none; } }
   </style>
 </head>
 <body>
@@ -1139,10 +1162,48 @@
   <!-- EMAIL SHOWCASE WALL -->
   <div class="ew-section">
     <div class="section">
-      <span class="label" data-reveal data-i18n="wall-label">Selected work</span>
-      <h2 data-reveal data-i18n="wall-h2">The emails I build<br><span>for clients.</span></h2>
-      <p class="ew-desc" data-reveal data-i18n="wall-desc">Full-cycle Klaviyo — copy, design, and flows. A look at recent client campaigns.</p>
+      <span class="label" data-reveal data-i18n="wall-label">What email actually does</span>
+      <h2 data-reveal data-i18n="wall-h2">Email is how a brand<br><span>turns a buyer into a regular.</span></h2>
+      <p class="ew-desc" data-reveal data-i18n="wall-desc">Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now — here's the journey I build to grow it.</p>
     </div>
+
+    <!-- LIFECYCLE STRIP -->
+    <div class="lc-strip">
+      <div class="lc-stats">
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c0"></span><span data-i18n="lc-s0">Prospects</span></div>
+          <div class="lc-num" id="lc-n0">0</div>
+        </div>
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c1"></span><span data-i18n="lc-s1">First order</span></div>
+          <div class="lc-num" id="lc-n1">0</div>
+        </div>
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c2"></span><span data-i18n="lc-s2">Repeat buyers</span></div>
+          <div class="lc-num" id="lc-n2">0</div>
+        </div>
+      </div>
+      <div class="lc-board" id="lc-board" aria-hidden="true">
+        <span class="lc-zone-line" style="left:33.33%"></span>
+        <span class="lc-zone-line" style="left:66.66%"></span>
+        <div class="lc-zone-labels">
+          <span data-i18n="lc-z0">prospect</span><span data-i18n="lc-z1">first order</span><span data-i18n="lc-z2">repeat</span>
+        </div>
+      </div>
+      <p class="lc-sr">An animation showing customers moving from prospect to first-time buyer to repeat buyer, driven by email flows.</p>
+      <div class="lc-flows">
+        <div class="lc-flow" id="lc-f0w">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cf8a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-i18n="lc-f0"><b>Welcome flow</b> <span class="lc-arrow">→ first order</span></span>
+        </div>
+        <div class="lc-flow" id="lc-f1w">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2f6f57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-i18n="lc-f1"><b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span></span>
+        </div>
+      </div>
+    </div>
+    <p class="lc-bridge" data-reveal data-i18n="wall-bridge">And these are the emails that move them — recent client campaigns and flows.</p>
+
     <div class="ew-wall" aria-hidden="true">
       <div class="ew-col"><div class="ew-track ew-up" style="animation-duration:38s">
         <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
@@ -1459,9 +1520,18 @@
         'proof-2-sub':      '30 → 300 in 12 months',
         'proof-3-label':    'Churn reduction',
         'proof-3-sub':      '15% → 9% monthly churn',
-        'wall-label':       'Selected work',
-        'wall-h2':          'The emails I build<br><span>for clients.</span>',
-        'wall-desc':        'Full-cycle Klaviyo — copy, design, and flows. A look at recent client campaigns.',
+        'wall-label':       'What email actually does',
+        'wall-h2':          'Email is how a brand<br><span>turns a buyer into a regular.</span>',
+        'wall-desc':        'Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now — here\'s the journey I build to grow it.',
+        'wall-bridge':      'And these are the emails that move them — recent client campaigns and flows.',
+        'lc-s0':            'Prospects',
+        'lc-s1':            'First order',
+        'lc-s2':            'Repeat buyers',
+        'lc-z0':            'prospect',
+        'lc-z1':            'first order',
+        'lc-z2':            'repeat',
+        'lc-f0':            '<b>Welcome flow</b> <span class="lc-arrow">→ first order</span>',
+        'lc-f1':            '<b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span>',
         'gaps-label':       'What I see constantly',
         'gaps-h2':          'Three gaps that quietly<br><span>cost you customers every month.</span>',
         'gap-1':            'Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.',
@@ -1547,9 +1617,18 @@
         'proof-2-sub':      '30人 → 300人（12ヶ月）',
         'proof-3-label':    'チャーン削減',
         'proof-3-sub':      '月間15% → 9%',
-        'wall-label':       '制作実績',
-        'wall-h2':          'クライアントのために<br><span>つくったメール。</span>',
-        'wall-desc':        'コピーからデザイン、フローまで一貫して。最近のクライアント配信の一例です。',
+        'wall-label':       'メールの役割',
+        'wall-h2':          'メールが、一度きりの来訪客を<br><span>リピート顧客に変えます。</span>',
+        'wall-desc':        '広告で来てくれるのは一度きり。二度目、十度目の購入を生むのがメールです。育てた顧客リストは、いまブランドが持てる最も価値ある資産のひとつ。その歩みを設計します。',
+        'wall-bridge':      'そして、その歩みを動かすのがこれらのメールです。最近のクライアント制作の一例。',
+        'lc-s0':            '見込み客',
+        'lc-s1':            '初回購入',
+        'lc-s2':            'リピーター',
+        'lc-z0':            '見込み客',
+        'lc-z1':            '初回購入',
+        'lc-z2':            'リピート',
+        'lc-f0':            '<b>ウェルカムフロー</b> <span class="lc-arrow">→ 初回購入</span>',
+        'lc-f1':            '<b>リピート促進フロー</b> <span class="lc-arrow">→ リピート</span>',
         'gaps-label':       'よく見られること',
         'gaps-h2':          '米国展開ブランドに多い、<br><span>顧客を失い続ける3つのパターン。</span>',
         'gap-1':            '購入後のフローがウェルカムメールで止まっています。米国の顧客にとっては、その後に接点がないのと同じです。',
@@ -1675,6 +1754,96 @@
     document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
     const growthChart = document.getElementById('growthChart');
     if (growthChart) observer.observe(growthChart);
+
+    /* ── LIFECYCLE STRIP ── */
+    (function () {
+      const board = document.getElementById('lc-board');
+      if (!board) return;
+      const nums  = ['lc-n0', 'lc-n1', 'lc-n2'].map(id => document.getElementById(id));
+      const flows = ['lc-f0w', 'lc-f1w'].map(id => document.getElementById(id));
+      const COLORS = ['#b4ad9e', '#cf8a3c', '#2f6f57'];
+      const BANDS  = [[6, 30], [39, 61], [70, 94]];
+      const beads  = [];
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const TARGET = [11, 7, 7];
+      const FLOW = 2;
+      const place = z => (BANDS[z][0] + Math.random() * (BANDS[z][1] - BANDS[z][0])).toFixed(1) + '%';
+      const topPos = () => (12 + Math.random() * 66).toFixed(1) + '%';
+      const inZone = z => beads.filter(b => b.z === z);
+
+      function counts() {
+        const n = [0, 0, 0];
+        beads.forEach(b => n[b.z]++);
+        nums.forEach((el, i) => { if (el) el.textContent = n[i]; });
+      }
+      function make(z, fade) {
+        const el = document.createElement('div');
+        el.className = 'lc-bead';
+        el.style.background = COLORS[z];
+        el.style.left = place(z);
+        el.style.top = topPos();
+        if (fade) el.style.opacity = '0';
+        board.appendChild(el);
+        beads.push({ el, z });
+        if (fade) setTimeout(() => { el.style.opacity = '1'; }, 30);
+      }
+      function remove(b) {
+        b.el.style.opacity = '0';
+        const idx = beads.indexOf(b);
+        if (idx > -1) beads.splice(idx, 1);
+        setTimeout(() => { if (b.el.parentNode) b.el.parentNode.removeChild(b.el); }, 520);
+      }
+      function fire(i) {
+        const f = flows[i];
+        if (!f) return;
+        f.classList.add('lc-fire');
+        setTimeout(() => f.classList.remove('lc-fire'), 460);
+      }
+      function advance(z) {
+        const pool = inZone(z);
+        if (!pool.length) return false;
+        const k = Math.min(FLOW, pool.length);
+        for (let i = 0; i < k; i++) {
+          const b = pool[i];
+          b.z = z + 1;
+          b.el.style.left = place(b.z);
+          b.el.style.top = topPos();
+          b.el.style.background = COLORS[b.z];
+        }
+        return true;
+      }
+      function tick() {
+        if (advance(1)) fire(1);
+        if (advance(0)) fire(0);
+        const need = Math.min(FLOW, Math.max(0, TARGET[0] - inZone(0).length));
+        for (let i = 0; i < need; i++) make(0, true);
+        const excess = Math.min(FLOW, Math.max(0, inZone(2).length - TARGET[2]));
+        const reps = inZone(2);
+        for (let i = 0; i < excess; i++) remove(reps[i]);
+        counts();
+      }
+
+      TARGET.forEach((count, z) => { for (let i = 0; i < count; i++) make(z, false); });
+      counts();
+
+      if (reduce) return;
+
+      let timer = setInterval(tick, 1500);
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting && !timer) {
+              timer = setInterval(tick, 1500);
+            } else if (!e.isIntersecting && timer) {
+              clearInterval(timer);
+              timer = null;
+            }
+          });
+        }, { threshold: 0.2 });
+        io.observe(board);
+      }
+    })();
 
     /* ── INIT ── */
     const savedLang = localStorage.getItem('hanjo-lang');
