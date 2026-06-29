@@ -321,6 +321,24 @@
       letter-spacing: 0.02em;
     }
 
+    .hero-seework {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .hero-seework:hover { color: var(--ink); }
+    .seework-chevron { animation: seeworkBounce 1.9s ease-in-out infinite; }
+    .hero-seework:hover .seework-chevron { animation-play-state: paused; transform: translateY(2px); }
+    @keyframes seeworkBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+    @media (prefers-reduced-motion: reduce) { .seework-chevron { animation: none; } }
+
     /* Hero proof card */
     .proof-card {
       background: var(--white);
@@ -1038,7 +1056,7 @@
       .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
     }
     /* ── EMAIL SHOWCASE WALL ── */
-    .ew-section { background: var(--bg); overflow: hidden; padding-bottom: 64px; }
+    .ew-section { background: var(--bg); overflow: hidden; padding-bottom: 64px; scroll-margin-top: 90px; }
     .ew-section .section { padding-bottom: 4px; }
     .ew-desc { font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 480px; margin-top: 18px; }
     .ew-wall { position: relative; height: 660px; max-width: var(--wide); margin: 44px auto 0; display: flex; gap: 22px; justify-content: center; padding: 0 24px;
@@ -1125,9 +1143,8 @@
       <p class="hero-byline" data-i18n="hero-byline">Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA</p>
 
       <p class="hero-desc" data-i18n="hero-desc">
-        Every customer who leaves cost you money to acquire. Then you spend again to replace them — and the cycle continues.
-        I work with Japan-connected DTC brands on Shopify — founders building in Japan, Japanese products finding customers abroad, or cross-market brands where the customer base skews Japanese.
-        <strong>Fix retention with infrastructure that actually fits your market, and acquisition finally starts to compound.</strong>
+        Every customer who leaves, you paid to acquire — then you pay again to replace them. I build the Klaviyo flows that bring them back instead, tuned for Japan-connected DTC brands on Shopify.
+        <strong>Fix retention, and acquisition finally starts to compound.</strong>
       </p>
 
       <div class="hero-actions">
@@ -1136,6 +1153,10 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <span class="btn-note" data-i18n="hero-cta-note">No commitment — I'll tell you exactly what I'd fix first.</span>
+        <a href="#work" class="hero-seework">
+          <span data-i18n="hero-see-work">See the emails I build for clients</span>
+          <svg class="seework-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
       </div>
     </div>
 
@@ -1160,7 +1181,7 @@
   </div>
 
   <!-- EMAIL SHOWCASE WALL -->
-  <div class="ew-section">
+  <div class="ew-section" id="work">
     <div class="section">
       <span class="label" data-reveal data-i18n="wall-label">What email actually does</span>
       <h2 data-reveal data-i18n="wall-h2">Email is how a brand<br><span>turns a buyer into a regular.</span></h2>
@@ -1511,9 +1532,10 @@
         'chip-avail':       '2 spots open',
         'hero-h1':          'You work hard to bring customers in.\n        <strong>Klaviyo should keep them.</strong>',
         'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA',
-        'hero-desc':        'Every customer who leaves cost you money to acquire. Then you spend again to replace them — and the cycle continues.\n        I work with Japan-connected DTC brands on Shopify — founders building in Japan, Japanese products finding customers abroad, or cross-market brands where the customer base skews Japanese.\n        <strong>Fix retention with infrastructure that actually fits your market, and acquisition finally starts to compound.</strong>',
+        'hero-desc':        'Every customer who leaves, you paid to acquire — then you pay again to replace them. I build the Klaviyo flows that bring them back instead, tuned for Japan-connected DTC brands on Shopify.\n        <strong>Fix retention, and acquisition finally starts to compound.</strong>',
         'hero-cta':         'Book a free 30-min call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'hero-cta-note':    'No commitment — I\'ll tell you exactly what I\'d fix first.',
+        'hero-see-work':    'See the emails I build for clients',
         'proof-1-label':    'Revenue recovered / month',
         'proof-1-sub':      'Redirected back into acquisition',
         'proof-2-label':    'Active customers',
@@ -1608,9 +1630,10 @@
         'chip-avail':       '残り2社限定',
         'hero-h1':          '一度きりの来訪客を\n        <strong>リピート顧客に。</strong>',
         'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; ロサンゼルス、CA',
-        'hero-desc':        '米国で顧客を獲得するには、大きな投資が必要です。広告を回し、やっと来てくれた顧客がリピートせずに離れていく——その繰り返しを続けています。\n        対象は、米国で展開している日本のブランド。英語のコピー執筆・メールデザイン・フロー構築を丸ごと担当するので、プロダクト開発に集中しながらリテンションを整えられます。\n        <strong>Klaviyoのフローを整えれば、獲得コストが初めて積み重なっていきます。</strong>',
+        'hero-desc':        '費用をかけて獲得した顧客が、リピートせずに離れていく——その穴を埋めるのがメールです。米国展開する日本のDTCブランド向けに、英語のコピー・デザイン・フロー構築を丸ごと担当します。\n        <strong>リテンションを整えれば、獲得コストが初めて積み重なっていきます。</strong>',
         'hero-cta':         '無料30分相談を予約する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'hero-cta-note':    'コミットメント不要。日本語でやり取りできます。',
+        'hero-see-work':    'クライアント向けの制作を見る',
         'proof-1-label':    '月あたり回収できる売上',
         'proof-1-sub':      '集客コストへの再投資に回る',
         'proof-2-label':    'アクティブ顧客数',
