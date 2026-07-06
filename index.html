@@ -135,9 +135,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
-      max-width: var(--wide);
-      margin: 0 auto;
+      padding: 15px clamp(36px, 4.5vw, 72px);
     }
 
     .logo {
@@ -225,12 +223,11 @@
     }
 
     .hero-left {
-      padding: clamp(44px, 5.5vw, 84px) clamp(36px, 4.5vw, 72px) clamp(36px, 4vw, 56px);
+      padding: clamp(32px, 4vw, 56px) clamp(36px, 4.5vw, 72px) clamp(24px, 3vw, 40px);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 720px;
-      margin-left: auto;
+      max-width: 780px;
       width: 100%;
     }
 
@@ -238,29 +235,32 @@
       border: none;
       border-top: 1px solid rgba(44,62,55,0.28);
       width: 64px;
-      margin: 26px 0 0;
+      margin: 18px 0 0;
       animation: fadeUp 0.7s 0.25s cubic-bezier(0.25,0.46,0.45,0.94) both;
     }
 
     .hero-stats {
-      margin-top: clamp(32px, 4vw, 52px);
+      margin-top: clamp(20px, 2.6vw, 32px);
       border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       animation: fadeUp 0.7s 0.6s cubic-bezier(0.25,0.46,0.45,0.94) both;
     }
     .hstat {
       display: flex;
-      align-items: baseline;
-      gap: 20px;
-      padding: 14px 0;
-      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      gap: 4px;
+      padding: 14px 16px 0 0;
+      border-right: 1px solid var(--border);
     }
+    .hstat + .hstat { padding-left: 16px; }
+    .hstat:last-child { border-right: none; padding-right: 0; }
     .hstat-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 34px;
+      font-size: 30px;
       font-weight: 700;
       line-height: 1;
       color: #b06f24;
-      min-width: 118px;
       font-variant-numeric: tabular-nums;
     }
     .hstat-txt { display: flex; flex-direction: column; gap: 1px; }
@@ -292,7 +292,21 @@
     }
     .hero-collage:hover .ew-track { animation-play-state: paused; }
 
+    @media (min-width: 881px) and (max-height: 830px) {
+      .hero { min-height: 0; }
+      .hero-left { padding-top: 22px; padding-bottom: 16px; }
+      .hero h1 { font-size: clamp(34px, 3.4vw, 44px); }
+      .hero-desc { font-size: 15.5px; margin-bottom: 20px; }
+      .hero-byline { margin-bottom: 13px; }
+      .hero-rule { margin-top: 14px; }
+      .hero-stats { margin-top: 13px; }
+      .hstat { padding-top: 11px; }
+      .hstat-num { font-size: 26px; }
+      .hstat-sub { font-size: 11px; }
+    }
+
     .hero h1 {
+      text-wrap: balance;
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(44px, 4.9vw, 64px);
       font-weight: 600;
@@ -310,18 +324,19 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--faint);
-      margin-top: 14px;
-      margin-bottom: 32px;
+      margin-top: 12px;
+      margin-bottom: 22px;
       animation: fadeUp 0.7s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both;
     }
 
     .hero-desc {
-      font-size: 17px;
+      text-wrap: pretty;
+      font-size: 16.5px;
       font-weight: 300;
-      line-height: 1.75;
+      line-height: 1.65;
       color: var(--muted);
-      max-width: 480px;
-      margin-bottom: 40px;
+      max-width: 500px;
+      margin-bottom: 28px;
       animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both;
     }
     .hero-desc strong { color: var(--ink); font-weight: 500; }
@@ -998,6 +1013,7 @@
         grid-template-columns: 1fr;
         min-height: 0;
       }
+      .nav-inner { padding: 15px 24px; }
       .hero-left { max-width: none; padding: 48px 24px 44px; }
       .hero-collage {
         border-left: none;
@@ -1021,10 +1037,15 @@
       .nav-inner { padding: 13px 20px; }
       .nav-avail { display: none; }
 
-      .hero-left { padding: 36px 20px 36px; }
+      .hero-left { padding: 28px 20px 24px; }
+      .hero h1 { font-size: 33px; }
       .hero-collage { height: 340px; gap: 16px; }
-      .hstat-num { font-size: 27px; min-width: 96px; }
-      .hero-byline { margin-bottom: 20px; }
+      .hstat { padding-top: 12px; }
+      .hstat-num { font-size: 22px; }
+      .hstat-label { font-size: 11px; }
+      .hstat-sub { display: none; }
+      .hero-byline { margin-bottom: 16px; }
+      .hero-desc { font-size: 15px; margin-bottom: 22px; }
       .hero-desc { font-size: 15px; }
       .hero-actions .btn { width: 100%; justify-content: center; }
 
@@ -1121,7 +1142,7 @@
   <div class="hero">
     <div class="hero-left">
       <h1 data-i18n="hero-h1">
-        You work hard to bring customers in.
+        You work hard<br>to bring customers in.
         <strong>Klaviyo should keep them.</strong>
       </h1>
 
@@ -1509,7 +1530,7 @@
         'lang-toggle':      'JP',
         'nav-cta':          'Book a call <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'chip-avail':       '2 spots open',
-        'hero-h1':          'You work hard to bring customers in.\n        <strong>Klaviyo should keep them.</strong>',
+        'hero-h1':          'You work hard<br>to bring customers in.\n        <strong>Klaviyo should keep them.</strong>',
         'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA',
         'hero-desc':        'Every customer who leaves, you paid to acquire — then you pay again to replace them. I build the Klaviyo flows that bring them back instead, tuned for DTC brands on Shopify.\n        <strong>Fix retention, and acquisition finally starts to compound.</strong>',
         'hero-cta':         'Book a free 30-min call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
