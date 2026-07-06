@@ -1094,6 +1094,16 @@
     .lc-c0 { background: #b4ad9e; } .lc-c1 { background: #cf8a3c; } .lc-c2 { background: #2f6f57; }
     .lc-num { font-size: 30px; font-weight: 500; line-height: 1; margin-top: 7px; font-variant-numeric: tabular-nums; }
     .lc-board { position: relative; height: 210px; margin-top: 18px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .lc-sim-tag {
+      position: absolute;
+      top: 10px; right: 12px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      pointer-events: none;
+    }
     .lc-zone-line { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--border); }
     .lc-zone-labels { position: absolute; left: 0; right: 0; bottom: 12px; display: grid; grid-template-columns: repeat(3, 1fr); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); text-align: center; pointer-events: none; }
     .lc-bead { position: absolute; width: 12px; height: 12px; border-radius: 50%; transition: left 0.9s cubic-bezier(0.4,0,0.2,1), top 0.9s cubic-bezier(0.4,0,0.2,1), background 0.6s, opacity 0.5s; }
@@ -1222,6 +1232,7 @@
         </div>
       </div>
       <div class="lc-board" id="lc-board" aria-hidden="true">
+        <span class="lc-sim-tag" data-i18n="lc-sim">Live simulation</span>
         <span class="lc-zone-line" style="left:33.33%"></span>
         <span class="lc-zone-line" style="left:66.66%"></span>
         <div class="lc-zone-labels">
@@ -1563,6 +1574,7 @@
         'wall-h2':          'Email is how a brand<br><span>turns a buyer into a regular.</span>',
         'wall-desc':        'Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now — here\'s the journey I build to grow it.',
         'wall-bridge':      'And these are the emails that move them — recent client campaigns and flows.',
+        'lc-sim':           'Live simulation',
         'lc-s0':            'Prospects',
         'lc-s1':            'First order',
         'lc-s2':            'Repeat buyers',
@@ -1661,6 +1673,7 @@
         'wall-h2':          'メールが、一度きりの来訪客を<br><span>リピート顧客に変えます。</span>',
         'wall-desc':        '広告で来てくれるのは一度きり。二度目、十度目の購入を生むのがメールです。育てた顧客リストは、いまブランドが持てる最も価値ある資産のひとつ。その歩みを設計します。',
         'wall-bridge':      'そして、その歩みを動かすのがこれらのメールです。最近のクライアント制作の一例。',
+        'lc-sim':           'シミュレーション',
         'lc-s0':            '見込み客',
         'lc-s1':            '初回購入',
         'lc-s2':            'リピーター',
