@@ -269,8 +269,7 @@
 
     .hero-collage {
       position: relative;
-      background: #ece7db;
-      border-left: 1px solid var(--border);
+      background: var(--bg);
       overflow: hidden;
     }
     .hc-inner {
@@ -284,14 +283,12 @@
     .hc-col { flex: 0 1 46%; max-width: 300px; min-width: 0; }
     .hc-col:first-child { margin-top: -30px; }
     .hc-col:last-child { margin-top: -76px; }
-    .hc-col:first-child .ew-card { transform: rotate(-1.5deg); }
-    .hc-col:last-child .ew-card { transform: rotate(1.3deg); }
     .hero-collage::after {
       content: '';
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(to bottom, #ece7db 0%, rgba(236,231,219,0) 12%, rgba(236,231,219,0) 88%, #ece7db 100%);
+      background: linear-gradient(to bottom, var(--bg) 0%, rgba(245,242,236,0) 14%, rgba(245,242,236,0) 86%, var(--bg) 100%);
     }
     .hero-collage:hover .ew-track { animation-play-state: paused; }
 
