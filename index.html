@@ -62,7 +62,6 @@
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
-      padding-top: 98px;
     }
 
     /* ── ANIMATIONS ── */
@@ -121,7 +120,7 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed;
+      position: sticky;
       top: 0; left: 0; right: 0;
       z-index: 100;
       background: var(--bg);
@@ -1100,11 +1099,11 @@
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ANNOUNCE (scrolls away) + NAV (sticky) -->
+  <div class="announce" data-i18n="announce">
+    <strong>Now taking new clients.</strong> Free 30-min Klaviyo audit.
+  </div>
   <nav>
-    <div class="announce" data-i18n="announce">
-      <strong>Now taking new clients.</strong> Free 30-min Klaviyo audit.
-    </div>
     <div class="nav-inner">
       <a href="#" class="logo" aria-label="hanjo">
         <img src="hanjo-logo.svg" alt="hanjo" height="26" />
