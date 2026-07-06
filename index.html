@@ -105,6 +105,18 @@
     [data-reveal-stagger].revealed > *:nth-child(6) { transition-delay: 0.35s; }
     [data-reveal-stagger].revealed > * { opacity: 1; transform: translateY(0); }
 
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal],
+      [data-reveal-stagger] > *,
+      .hero h1, .hero-byline, .hero-desc, .hero-actions,
+      .chip, .proof-card, nav {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
     /* ── ANNOUNCE BAR ── */
     .announce {
       background: var(--ink);
@@ -1098,6 +1110,12 @@
   </style>
 </head>
 <body>
+
+  <noscript>
+    <style>
+      [data-reveal], [data-reveal-stagger] > * { opacity: 1; transform: none; }
+    </style>
+  </noscript>
 
   <!-- ANNOUNCE (scrolls away) + NAV (sticky) -->
   <div class="announce" data-i18n="announce">
