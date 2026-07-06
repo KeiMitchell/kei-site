@@ -1048,19 +1048,12 @@
     .ew-section .section .label::before { display: none; }
     .ew-desc { margin-left: auto; margin-right: auto; }
     .ew-desc { font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 480px; margin-top: 18px; }
-    .ew-wall { position: relative; height: 660px; max-width: var(--wide); margin: 44px auto 0; display: flex; gap: 22px; justify-content: center; padding: 0 24px;
-      -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%, #000 86%, transparent);
-      mask-image: linear-gradient(180deg, transparent, #000 12%, #000 86%, transparent); }
-    .ew-col { flex: 1 1 0; min-width: 0; max-width: 332px; }
     .ew-track { display: flex; flex-direction: column; gap: 22px; will-change: transform; }
     .ew-up   { animation: ewUp linear infinite; }
     .ew-down { animation: ewDown linear infinite; }
-    .ew-wall:hover .ew-track { animation-play-state: paused; }
     @keyframes ewUp   { from { transform: translateY(0); } to { transform: translateY(-50%); } }
     @keyframes ewDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
     .ew-card { width: 100%; background-size: cover; background-position: top center; background-repeat: no-repeat; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
-    @media (max-width: 880px) { .ew-wall { height: 580px; } .ew-col:nth-child(3) { display: none; } }
-    @media (max-width: 560px) { .ew-col:nth-child(2) { display: none; } .ew-wall { gap: 0; } }
     @media (prefers-reduced-motion: reduce) { .ew-up, .ew-down { animation: none; } }
 
     /* ── LIFECYCLE STRIP ── */
@@ -1091,7 +1084,6 @@
     .lc-flow b { color: var(--ink); font-weight: 500; }
     .lc-flow .lc-arrow { color: var(--faint); }
     .lc-flow.lc-fire { background: var(--white); border-color: rgba(44,62,55,0.30); }
-    .lc-bridge { max-width: var(--max); margin: 30px auto 0; padding: 0 24px; font-size: 15px; line-height: 1.7; color: var(--muted); }
     .lc-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     @media (max-width: 560px) { .lc-flows { grid-template-columns: 1fr; } .lc-num { font-size: 24px; } .lc-stat { padding: 13px 14px; } .lc-board { height: 186px; } }
     @media (prefers-reduced-motion: reduce) { .lc-bead { transition: none; } }
@@ -1152,7 +1144,7 @@
         </a>
         <span class="btn-note" data-i18n="hero-cta-note">No commitment — I'll tell you exactly what I'd fix first.</span>
         <a href="#work" class="hero-seework">
-          <span data-i18n="hero-see-work">See the emails I build for clients</span>
+          <span data-i18n="hero-see-work">See how the journey works</span>
           <svg class="seework-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
         </a>
       </div>
@@ -1248,34 +1240,6 @@
           <span data-i18n="lc-f1"><b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span></span>
         </div>
       </div>
-    </div>
-    <p class="lc-bridge" data-reveal data-i18n="wall-bridge">And these are the emails that move them — recent client campaigns and flows.</p>
-
-    <div class="ew-wall" aria-hidden="true">
-      <div class="ew-col"><div class="ew-track ew-up" style="animation-duration:38s">
-        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(email-showcase/mira-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(email-showcase/mira-welcome.jpg)"></div>
-      </div></div>
-      <div class="ew-col"><div class="ew-track ew-down" style="animation-duration:47s">
-        <div class="ew-card" style="aspect-ratio:480/1217;background-image:url(email-showcase/mon-newspaper.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1022;background-image:url(email-showcase/andew-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/890;background-image:url(email-showcase/mira-replen.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1217;background-image:url(email-showcase/mon-newspaper.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1022;background-image:url(email-showcase/andew-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/890;background-image:url(email-showcase/mira-replen.jpg)"></div>
-      </div></div>
-      <div class="ew-col"><div class="ew-track ew-up" style="animation-duration:43s">
-        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/890;background-image:url(email-showcase/mira-replen.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/890;background-image:url(email-showcase/mira-replen.jpg)"></div>
-      </div></div>
     </div>
   </div>
 
@@ -1553,7 +1517,7 @@
         'hero-desc':        'Every customer who leaves, you paid to acquire — then you pay again to replace them. I build the Klaviyo flows that bring them back instead, tuned for DTC brands on Shopify.\n        <strong>Fix retention, and acquisition finally starts to compound.</strong>',
         'hero-cta':         'Book a free 30-min call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'hero-cta-note':    'No commitment — I\'ll tell you exactly what I\'d fix first.',
-        'hero-see-work':    'See the emails I build for clients',
+        'hero-see-work':    'See how the journey works',
         'proof-1-label':    'Revenue recovered / month',
         'proof-1-sub':      'Redirected back into acquisition',
         'proof-2-label':    'Active customers',
@@ -1563,7 +1527,6 @@
         'wall-label':       'What email actually does',
         'wall-h2':          'Email is how a brand<br><span>turns a buyer into a regular.</span>',
         'wall-desc':        'Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now — here\'s the journey I build to grow it.',
-        'wall-bridge':      'And these are the emails that move them — recent client campaigns and flows.',
         'lc-sim':           'Live simulation',
         'lc-s0':            'Prospects',
         'lc-s1':            'First order',
@@ -1649,7 +1612,7 @@
         'hero-desc':        '費用をかけて獲得した顧客が、リピートせずに離れていく——その穴を埋めるのがメールです。ShopifyのDTCブランド向けに、コピー・デザイン・フロー構築を丸ごと担当します。\n        <strong>リテンションを整えれば、獲得コストが初めて積み重なっていきます。</strong>',
         'hero-cta':         '無料30分相談を予約する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'hero-cta-note':    'コミットメント不要。日本語でやり取りできます。',
-        'hero-see-work':    'クライアント向けの制作を見る',
+        'hero-see-work':    'その仕組みを見る',
         'proof-1-label':    '月あたり回収できる売上',
         'proof-1-sub':      '集客コストへの再投資に回る',
         'proof-2-label':    'アクティブ顧客数',
@@ -1659,7 +1622,6 @@
         'wall-label':       'メールの役割',
         'wall-h2':          'メールが、一度きりの来訪客を<br><span>リピート顧客に変えます。</span>',
         'wall-desc':        '広告で来てくれるのは一度きり。二度目、十度目の購入を生むのがメールです。育てた顧客リストは、いまブランドが持てる最も価値ある資産のひとつ。その歩みを設計します。',
-        'wall-bridge':      'そして、その歩みを動かすのがこれらのメールです。最近のクライアント制作の一例。',
         'lc-sim':           'シミュレーション',
         'lc-s0':            '見込み客',
         'lc-s1':            '初回購入',
