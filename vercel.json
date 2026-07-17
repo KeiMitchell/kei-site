@@ -111,6 +111,22 @@
     {
       "source": "/en/privacy/",
       "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/ja/recovery",
+      "destination": "/recovery/index.html"
+    },
+    {
+      "source": "/ja/recovery/",
+      "destination": "/recovery/index.html"
+    },
+    {
+      "source": "/en/recovery",
+      "destination": "/recovery/index.html"
+    },
+    {
+      "source": "/en/recovery/",
+      "destination": "/recovery/index.html"
     }
   ]
 }
