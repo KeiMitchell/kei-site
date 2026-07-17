@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Websites & Landing Pages · hanjo — Kei Nakayama, Los Angeles</title>
+  <link rel="icon" type="image/svg+xml" href="/hanjo-logo.svg" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JLHW59CHY6');
+  </script>
+
+  <meta name="description" content="Custom bilingual (EN/JA) website and landing page design & build in Los Angeles. Strategy, copy, design, and code by one partner." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hanjo.ai/websites/" />
+  <meta property="og:title" content="Websites & Landing Pages · hanjo — Kei Nakayama, Los Angeles" />
+  <meta property="og:description" content="Custom bilingual (EN/JA) website and landing page design & build in Los Angeles. Strategy, copy, design, and code by one partner." />
+  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #f5f2ec;
+      --white:   #ffffff;
+      --ink:     #2c3e37;
+      --muted:   rgba(44,62,55,0.72);
+      --faint:   rgba(44,62,55,0.46);
+      --border:  rgba(44,62,55,0.12);
+      --radius:  14px;
+      --radius-sm: 100px;
+      --max:     700px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+    [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { [data-reveal] { transition: none !important; opacity: 1 !important; transform: none !important; } }
+    .announce { background: var(--ink); color: rgba(245,242,236,0.65); text-align: center; font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+    .announce strong { color: var(--bg); font-weight: 500; }
+    nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); animation: fadeIn 0.5s ease both; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-avail { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--faint); letter-spacing: 0.02em; }
+    .avail-dot { width: 6px; height: 6px; background: #52a46a; border-radius: 50%; flex-shrink: 0; animation: pulse 2.5s ease-in-out infinite; }
+    .lang-toggle { background: none; border: 1px solid var(--border); border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 500; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
+    .lang-toggle:hover { color: var(--ink); border-color: rgba(44,62,55,0.3); background: rgba(44,62,55,0.04); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--bg); background: var(--ink); text-decoration: none; padding: 9px 18px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.2s; letter-spacing: 0.01em; }
+    .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
+    .s-white { background: var(--white); }
+    .s-dark  { background: var(--ink); }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
+    .label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--border); flex-shrink: 0; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 40px; }
+    h2 span { display: block; font-weight: 700; font-style: italic; }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 26px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--ink); }
+    .page-hero .section { padding: 56px 24px 64px; }
+    .page-hero h1 { text-wrap: balance; font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5.4vw, 58px); font-weight: 600; line-height: 1.06; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 22px; animation: fadeUp 0.8s 0.1s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .page-hero h1 strong { font-weight: 600; font-style: italic; display: block; }
+    .lead { text-wrap: pretty; font-size: 16.5px; font-weight: 300; line-height: 1.7; color: var(--muted); max-width: 560px; margin-bottom: 30px; animation: fadeUp 0.7s 0.25s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; padding: 13px 26px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .btn svg { transition: transform 0.2s; }
+    .btn:hover svg { transform: translateX(3px); }
+    .btn--dark { color: var(--bg); background: var(--ink); }
+    .btn--dark:hover { opacity: 0.82; transform: translateY(-1px); }
+    .btn--light { color: var(--ink); background: var(--bg); }
+    .btn--light:hover { background: #ffffff; transform: translateY(-1px); }
+    .btn-note { font-size: 12px; font-weight: 300; color: var(--muted); letter-spacing: 0.02em; }
+    .inc-list { list-style: none; margin-bottom: 32px; }
+    .inc-list li { display: flex; gap: 22px; padding: 22px 0; border-top: 1px solid var(--border); }
+    .inc-list li:last-child { border-bottom: 1px solid var(--border); }
+    .inc-num { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: rgba(44,62,55,0.26); padding-top: 5px; min-width: 20px; flex-shrink: 0; }
+    .inc-list h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.01em; }
+    .inc-list p { font-size: 14.5px; font-weight: 300; color: var(--muted); line-height: 1.65; }
+    .callout { font-size: 15px; font-weight: 300; line-height: 1.68; color: var(--muted); padding: 20px 26px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); }
+    .s-white .callout { background: var(--bg); }
+    .callout strong { color: var(--ink); font-weight: 600; }
+    .callout a { color: var(--ink); font-weight: 500; }
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; }
+    .step { display: flex; gap: 26px; padding: 26px 30px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); align-items: flex-start; }
+    .step-num { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: rgba(44,62,55,0.26); padding-top: 3px; min-width: 20px; flex-shrink: 0; }
+    .step h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.01em; }
+    .step p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.62; }
+    .cta-inner { max-width: var(--max); margin: 0 auto; padding: 88px 24px 104px; }
+    .cta-inner h2 { font-size: clamp(30px, 5vw, 48px); color: rgba(245,242,236,0.9); margin-bottom: 22px; }
+    .cta-inner h2 strong { font-weight: 700; font-style: italic; display: block; color: #ffffff; }
+    .cta-inner > p { font-size: 16px; font-weight: 300; color: rgba(245,242,236,0.55); line-height: 1.72; margin-bottom: 40px; max-width: 460px; }
+    .cta-note-dark { display: block; margin-top: 14px; font-size: 12px; font-weight: 300; color: rgba(245,242,236,0.3); letter-spacing: 0.03em; }
+    footer { background: var(--ink); border-top: 1px solid rgba(245,242,236,0.09); }
+    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-logo img { filter: brightness(100); opacity: 0.45; }
+    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: rgba(245,242,236,0.38); text-decoration: none; }
+    .footer-meta a:hover { color: rgba(245,242,236,0.75); }
+    html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
+    html[lang="ja"] .page-hero h1, html[lang="ja"] h2, html[lang="ja"] .cta-inner h2 { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; line-height: 1.3; line-break: strict; }
+    html[lang="ja"] .page-hero h1 { font-size: clamp(28px, 4.4vw, 46px); }
+    html[lang="ja"] h2 { font-size: clamp(22px, 3vw, 34px); }
+    html[lang="ja"] .page-hero h1 strong, html[lang="ja"] h2 span, html[lang="ja"] .cta-inner h2 strong { font-style: normal; }
+    html[lang="ja"] .lead, html[lang="ja"] .callout, html[lang="ja"] .inc-list p, html[lang="ja"] .step p, html[lang="ja"] .cta-inner > p { font-family: 'Noto Sans JP', sans-serif; line-break: strict; overflow-wrap: break-word; }
+    html[lang="ja"] .lead { font-size: 15px; line-height: 2.0; letter-spacing: 0.02em; }
+    html[lang="ja"] .callout { font-size: 14px; line-height: 1.95; letter-spacing: 0.02em; }
+    html[lang="ja"] .inc-list p, html[lang="ja"] .step p { font-size: 13.5px; line-height: 1.9; letter-spacing: 0.02em; }
+    html[lang="ja"] .inc-list h3, html[lang="ja"] .step h3, html[lang="ja"] .btn, html[lang="ja"] .btn-note, html[lang="ja"] .cta-note-dark, html[lang="ja"] .label, html[lang="ja"] .crumb, html[lang="ja"] .nav-avail, html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span, html[lang="ja"] .announce { font-family: 'Noto Sans JP', sans-serif; }
+    @media (max-width: 560px) {
+      .nav-inner { padding: 13px 20px; }
+      .nav-avail { display: none; }
+      .section { padding: 52px 20px; }
+      .page-hero .section { padding: 40px 20px 48px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .step { padding: 20px 22px; }
+      .cta-inner { padding: 72px 20px 88px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; padding: 22px 24px; }
+      .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
+      html[lang="ja"] .page-hero h1 { font-size: clamp(26px, 7.5vw, 36px); line-height: 1.4; }
+    }
+</style>
+</head>
+<body>
+
+  <div class="announce" data-i18n="announce">
+    <strong>Now taking new clients.</strong> Free 30-min consultation — English or Japanese.
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+      </a>
+      <div class="nav-right">
+        <span class="nav-avail">
+          <span class="avail-dot"></span>
+          <span data-i18n="nav-avail">Taking new clients</span>
+        </span>
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav-cta">
+          Book a call
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="section">
+      <a href="/#services" class="crumb" data-i18n="crumb">← All services</a>
+      <h1 data-i18n="ph-h1">Websites that earn trust<strong>and bring in inquiries.</strong></h1>
+      <p class="lead" data-i18n="ph-lead">A credible website is the first thing a new customer checks. I design and build yours end to end — structure, copy, design, and code — in English and Japanese. No templates, no page builders, no agency layers.</p>
+      <div class="hero-actions">
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--dark" data-i18n="hero-cta">
+          Book a free 30-min call
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="btn-note" data-i18n="hero-note">No commitment — English or Japanese.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-white">
+    <div class="section">
+      <span class="label" data-reveal data-i18n="inc-label">What you get</span>
+      <h2 data-reveal data-i18n="inc-h2">Everything a site needs,<br><span>from strategy to launch.</span></h2>
+      <ul class="inc-list">
+        <li>
+          <span class="inc-num">01</span>
+          <div>
+            <h3 data-i18n="inc-1-h">Structure & copywriting</h3>
+            <p data-i18n="inc-1-p">What to say and in what order — page structure and words written to turn visitors into inquiries, in natural English and Japanese.</p>
+          </div>
+        </li>
+        <li>
+          <span class="inc-num">02</span>
+          <div>
+            <h3 data-i18n="inc-2-h">Custom design</h3>
+            <p data-i18n="inc-2-p">An original design that fits your brand, not a theme. Mobile-first, fast, and consistent down to the details.</p>
+          </div>
+        </li>
+        <li>
+          <span class="inc-num">03</span>
+          <div>
+            <h3 data-i18n="inc-3-h">Build & launch</h3>
+            <p data-i18n="inc-3-p">Clean, fast code with SEO basics, analytics, and contact forms wired in. Most sites launch within a few weeks.</p>
+          </div>
+        </li>
+        <li>
+          <span class="inc-num">04</span>
+          <div>
+            <h3 data-i18n="inc-4-h">Landing pages</h3>
+            <p data-i18n="inc-4-p">Campaign and ad landing pages built around one goal: getting the visitor to book, buy, or inquire.</p>
+          </div>
+        </li>
+        <li>
+          <span class="inc-num">05</span>
+          <div>
+            <h3 data-i18n="inc-5-h">After launch</h3>
+            <p data-i18n="inc-5-p">Updates, small changes, and improvements after launch — you're not left with a site you can't touch.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="callout" data-reveal data-i18n="proof">This site — and <a href="https://growth.hanjo.ai" target="_blank" rel="noopener">growth.hanjo.ai</a> — are my own builds, design to code. <strong>What you're looking at is the portfolio.</strong></p>
+    </div>
+  </div>
+
+  <div>
+    <div class="section">
+      <span class="label" data-reveal data-i18n="how-label">How it works</span>
+      <h2 data-reveal data-i18n="how-h2">Simple to start.<br><span>No retainer required.</span></h2>
+      <ul class="steps">
+        <li class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3 data-i18n="how-1-h">Free call</h3>
+            <p data-i18n="how-1-p">We talk through what the site needs to do — audience, goal, reference sites. 20–30 minutes.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3 data-i18n="how-2-h">Proposal & design</h3>
+            <p data-i18n="how-2-p">You get a clear scope, a clear number, and a design direction to react to. We iterate until it feels right.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3 data-i18n="how-3-h">Build, launch, hand over</h3>
+            <p data-i18n="how-3-p">I build it, we review together, and it goes live — with analytics running and everything documented.</p>
+          </div>
+        </li>
+      </ul>
+      <p class="callout" data-reveal data-i18n="price">Landing pages and small sites are quick; larger builds are scoped clearly up front. <strong>You'll have a number after the first call — no vague proposals.</strong></p>
+    </div>
+  </div>
+
+  <div class="s-dark">
+    <div class="cta-inner">
+      <h2 data-reveal data-i18n="cta-h2">Ready when you are.<strong>Let's talk about your project.</strong></h2>
+      <p data-reveal data-i18n="cta-p">A free 30-minute call, in English or Japanese. I'll tell you what I'd do first — no pitch, no proposal, no pressure.</p>
+      <div data-reveal>
+        <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--light" data-i18n="cta-btn">
+          Book a free call
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <span class="cta-note-dark" data-i18n="cta-note">No commitment — just a conversation</span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <span data-i18n="footer-name">Kei Nakayama</span>
+        <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a>
+        <a href="https://www.linkedin.com/in/kei-nakayama-924b481b5/" target="_blank" rel="noopener">LinkedIn</a>
+        <span data-i18n="footer-location">Los Angeles, CA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      "en": {
+            "crumb": "← All services",
+            "announce": "<strong>Now taking new clients.</strong> Free 30-min consultation — English or Japanese.",
+            "nav-avail": "Taking new clients",
+            "lang-toggle": "JP",
+            "nav-cta": "Book a call <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "hero-cta": "Book a free 30-min call <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "hero-note": "No commitment — English or Japanese.",
+            "inc-label": "What you get",
+            "how-label": "How it works",
+            "how-h2": "Simple to start.<br><span>No retainer required.</span>",
+            "cta-h2": "Ready when you are.<strong>Let's talk about your project.</strong>",
+            "cta-p": "A free 30-minute call, in English or Japanese. I'll tell you what I'd do first — no pitch, no proposal, no pressure.",
+            "cta-btn": "Book a free call <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "cta-note": "No commitment — just a conversation",
+            "footer-name": "Kei Nakayama",
+            "footer-location": "Los Angeles, CA",
+            "ph-h1": "Websites that earn trust<strong>and bring in inquiries.</strong>",
+            "ph-lead": "A credible website is the first thing a new customer checks. I design and build yours end to end — structure, copy, design, and code — in English and Japanese. No templates, no page builders, no agency layers.",
+            "inc-h2": "Everything a site needs,<br><span>from strategy to launch.</span>",
+            "proof": "This site — and <a href=\"https://growth.hanjo.ai\" target=\"_blank\" rel=\"noopener\">growth.hanjo.ai</a> — are my own builds, design to code. <strong>What you're looking at is the portfolio.</strong>",
+            "price": "Landing pages and small sites are quick; larger builds are scoped clearly up front. <strong>You'll have a number after the first call — no vague proposals.</strong>",
+            "inc-1-h": "Structure & copywriting",
+            "inc-1-p": "What to say and in what order — page structure and words written to turn visitors into inquiries, in natural English and Japanese.",
+            "inc-2-h": "Custom design",
+            "inc-2-p": "An original design that fits your brand, not a theme. Mobile-first, fast, and consistent down to the details.",
+            "inc-3-h": "Build & launch",
+            "inc-3-p": "Clean, fast code with SEO basics, analytics, and contact forms wired in. Most sites launch within a few weeks.",
+            "inc-4-h": "Landing pages",
+            "inc-4-p": "Campaign and ad landing pages built around one goal: getting the visitor to book, buy, or inquire.",
+            "inc-5-h": "After launch",
+            "inc-5-p": "Updates, small changes, and improvements after launch — you're not left with a site you can't touch.",
+            "how-1-h": "Free call",
+            "how-1-p": "We talk through what the site needs to do — audience, goal, reference sites. 20–30 minutes.",
+            "how-2-h": "Proposal & design",
+            "how-2-p": "You get a clear scope, a clear number, and a design direction to react to. We iterate until it feels right.",
+            "how-3-h": "Build, launch, hand over",
+            "how-3-p": "I build it, we review together, and it goes live — with analytics running and everything documented."
+      },
+      "ja": {
+            "crumb": "← サービス一覧に戻る",
+            "announce": "<strong>新規のご相談 受付中。</strong>まず30分、無料でどうぞ（日本語OK）。",
+            "nav-avail": "新規受付中",
+            "lang-toggle": "EN",
+            "nav-cta": "無料相談を予約する <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "hero-cta": "無料30分相談を予約する <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "hero-note": "コミットメント不要。日本語でやり取りできます。",
+            "inc-label": "サービス内容",
+            "how-label": "進め方",
+            "how-h2": "まずは<br><span>無料相談から。</span>",
+            "cta-h2": "準備ができたら、<strong>まずは話すことから。</strong>",
+            "cta-p": "30分の無料相談です。日本語でも英語でも。売り込みも提案書もなし——まず何をすべきかを率直にお伝えします。",
+            "cta-btn": "無料相談を予約する <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "cta-note": "コミットメント不要",
+            "footer-name": "Kei Nakayama",
+            "footer-location": "ロサンゼルス、CA",
+            "ph-h1": "信頼される見た目と、<strong>問い合わせが届く導線を。</strong>",
+            "ph-lead": "新しいお客様が最初に確認するのは、ホームページです。構成、文章、デザイン、実装まで、日英どちらも一人で一貫して制作します。テンプレートの流用も、外注も、代理店の中間マージンもありません。",
+            "inc-h2": "戦略から公開まで、<br><span>サイトに必要なすべてを。</span>",
+            "proof": "このサイトも <a href=\"https://growth.hanjo.ai\" target=\"_blank\" rel=\"noopener\">growth.hanjo.ai</a> も、デザインからコードまで自分で作ったものです。<strong>いまご覧いただいているものが、そのままポートフォリオです。</strong>",
+            "price": "LPや小規模サイトは短期間で。規模の大きい案件も、最初に明確なお見積りを出します。<strong>初回の通話後には金額がわかります。</strong>",
+            "inc-1-h": "構成・コピーライティング",
+            "inc-1-p": "何を、どの順番で伝えるか。問い合わせにつながる構成と文章を、自然な日本語と英語で書きます。",
+            "inc-2-h": "オリジナルデザイン",
+            "inc-2-p": "テーマの流用ではなく、ブランドに合わせたオリジナルデザイン。モバイルファーストで、細部まで統一します。",
+            "inc-3-h": "実装・公開",
+            "inc-3-p": "表示の速いクリーンな実装。SEOの基本設定、アクセス解析、問い合わせフォームまで込みです。数週間で公開できることがほとんどです。",
+            "inc-4-h": "ランディングページ",
+            "inc-4-p": "広告・キャンペーン用のLPは「予約・購入・問い合わせ」というひとつのゴールに絞って設計します。",
+            "inc-5-h": "公開後のサポート",
+            "inc-5-p": "公開後の更新や改善にも対応します。「触れないサイト」を渡して終わり、にはしません。",
+            "how-1-h": "無料相談",
+            "how-1-p": "サイトの目的、ターゲット、参考サイトについてお話しします。20〜30分。",
+            "how-2-h": "ご提案・デザイン",
+            "how-2-p": "スコープと金額、デザインの方向性を明確にご提示します。しっくりくるまで一緒に調整します。",
+            "how-3-h": "実装・公開・お引き渡し",
+            "how-3-p": "実装後、一緒に確認して公開。アクセス解析も設定済みの状態でお渡しします。"
+      }
+};
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('hanjo-lang', lang);
+      const strings = T[lang];
+      Object.keys(strings).forEach(key => {
+        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+          el.innerHTML = strings[key];
+        });
+      });
+    }
+    function toggleLang() {
+      applyLang(document.documentElement.lang === 'en' ? 'ja' : 'en');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+    const savedLang = localStorage.getItem('hanjo-lang');
+    if (savedLang && savedLang !== 'en') applyLang(savedLang);
+    else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
+  </script>
+
+</body>
+</html>
