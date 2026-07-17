@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · hanjo · Los Angeles</title>
+  <link rel="icon" type="image/svg+xml" href="/hanjo-logo.svg" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JLHW59CHY6');
+  </script>
+
+  <meta name="description" content="Tell us about your business. Free 30-minute consultation in English or Japanese." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hanjo.ai/contact/" />
+  <meta property="og:title" content="Contact · hanjo · Los Angeles" />
+  <meta property="og:description" content="Tell us about your business. Free 30-minute consultation in English or Japanese." />
+  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #F5F4F0;
+      --white:   #ffffff;
+      --sage:    #3A5C45;
+      --ink:     #111110;
+      --muted:   #6B6B68;
+      --faint:   rgba(17,17,16,0.46);
+      --border:  #E4E2DC;
+      --radius:  14px;
+      --radius-sm: 100px;
+      --max:     720px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white); color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .announce { background: var(--sage); color: rgba(255,255,255,0.8); text-align: center; font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+    .announce strong { color: #ffffff; font-weight: 500; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); animation: fadeIn 0.5s ease both; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { background: none; border: 1px solid var(--border); border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 500; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
+    .lang-toggle:hover { color: var(--ink); border-color: rgba(17,17,16,0.3); background: rgba(17,17,16,0.04); }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 26px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--ink); }
+    .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .page-hero .section { padding: 48px 24px 56px; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 64px 24px; }
+    .page-hero h1 { text-wrap: balance; font-family: 'Playfair Display', serif; font-size: clamp(34px, 4.6vw, 52px); font-weight: 600; line-height: 1.08; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 18px; animation: fadeUp 0.8s 0.05s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .lead { text-wrap: pretty; font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 560px; animation: fadeUp 0.7s 0.2s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; }
+    .f-full { grid-column: 1 / -1; }
+    label.f-label, legend.f-label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.01em; }
+    .f-req { color: var(--sage); }
+    input[type="text"], input[type="email"], input[type="url"], select, textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 14.5px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+    select {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236B6B68' stroke-width='1.6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+    }
+    textarea { min-height: 120px; resize: vertical; line-height: 1.7; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 3px rgba(58,92,69,0.1); }
+    input::placeholder, textarea::placeholder { color: rgba(17,17,16,0.32); }
+    fieldset { border: none; }
+    .pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { position: relative; }
+    .pill input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+    .pill span {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .pill input:checked + span { background: var(--sage); border-color: var(--sage); color: #ffffff; }
+    .pill input:focus-visible + span { box-shadow: 0 0 0 3px rgba(58,92,69,0.25); }
+    .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+    .f-note { font-size: 12px; font-weight: 300; color: var(--faint); margin-top: -8px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 13.5px; font-weight: 600; letter-spacing: 0.03em;
+      text-decoration: none; border: none; cursor: pointer; font-family: inherit;
+      padding: 15px 30px; border-radius: var(--radius-sm);
+      color: #ffffff; background: var(--sage);
+      transition: background 0.2s, transform 0.25s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.25s;
+    }
+    .btn:hover { background: #2e4a38; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(58,92,69,0.22); }
+    .btn:disabled { opacity: 0.6; cursor: wait; transform: none; box-shadow: none; }
+    .form-status { display: none; font-size: 14px; line-height: 1.7; padding: 16px 20px; border-radius: 10px; }
+    .form-status.err { display: block; background: #FFF0EE; border: 1px solid #F5C6C0; color: #8a2a1f; }
+    .form-status a { color: inherit; font-weight: 600; }
+
+    .success { display: none; text-align: left; padding: 8px 0 24px; }
+    .success h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.6vw, 40px); font-weight: 600; line-height: 1.15; margin-bottom: 14px; }
+    .success p { font-size: 15.5px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 28px; }
+    footer { background: var(--white); border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: var(--muted); text-decoration: none; }
+    .footer-meta a:hover { color: var(--sage); }
+
+    html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
+    html[lang="ja"] .page-hero h1, html[lang="ja"] .success h2 { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; line-height: 1.3; line-break: strict; font-size: clamp(26px, 3.8vw, 42px); }
+    html[lang="ja"] .lead, html[lang="ja"] .success p { font-family: 'Noto Sans JP', sans-serif; font-size: 14.5px; line-height: 2.0; letter-spacing: 0.02em; line-break: strict; }
+    html[lang="ja"] .f-label, html[lang="ja"] .pill span, html[lang="ja"] input, html[lang="ja"] select, html[lang="ja"] textarea, html[lang="ja"] .btn, html[lang="ja"] .announce, html[lang="ja"] .crumb, html[lang="ja"] .lang-toggle, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span, html[lang="ja"] .f-note, html[lang="ja"] .form-status { font-family: 'Noto Sans JP', sans-serif; }
+
+    @media (max-width: 640px) {
+      form { grid-template-columns: 1fr; }
+      .nav-inner { padding: 13px 20px; }
+      .section { padding: 48px 20px; }
+      .page-hero .section { padding: 36px 20px 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announce" data-i18n="announce">
+    <strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+      </a>
+      <div class="nav-right">
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="section">
+      <a href="/" class="crumb" data-i18n="crumb">← Back to top</a>
+      <h1 data-i18n="c-h1">Tell us about your business.</h1>
+      <p class="lead" data-i18n="c-lead">The more we know before the call, the more concrete our advice gets. It takes about two minutes, and we reply within one business day.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <form id="inquiry-form" novalidate>
+      <div>
+        <label class="f-label" for="f-name"><span data-i18n="f-name">Your name</span> <span class="f-req">*</span></label>
+        <input type="text" id="f-name" name="name" required autocomplete="name" />
+      </div>
+      <div>
+        <label class="f-label" for="f-email"><span data-i18n="f-email">Email</span> <span class="f-req">*</span></label>
+        <input type="email" id="f-email" name="email" required autocomplete="email" />
+      </div>
+      <div>
+        <label class="f-label" for="f-company" data-i18n="f-company">Company or brand</label>
+        <input type="text" id="f-company" name="company" autocomplete="organization" />
+      </div>
+      <div>
+        <label class="f-label" for="f-website" data-i18n="f-website">Website or Instagram</label>
+        <input type="text" id="f-website" name="website" placeholder="https://" />
+      </div>
+
+      <div class="f-full">
+        <label class="f-label" for="f-type" data-i18n="f-type">What kind of business is it?</label>
+        <select id="f-type" name="businessType">
+          <option value="" data-i18n="o-select">Select one</option>
+          <option value="EC / DTC brand" data-i18n="o-type-1">Online store / DTC brand</option>
+          <option value="Restaurant / food" data-i18n="o-type-2">Restaurant / food</option>
+          <option value="Salon / spa / clinic" data-i18n="o-type-3">Salon / spa / clinic</option>
+          <option value="Local service" data-i18n="o-type-4">Local service business</option>
+          <option value="B2B" data-i18n="o-type-5">B2B</option>
+          <option value="Other" data-i18n="o-type-6">Other</option>
+        </select>
+      </div>
+
+      <fieldset class="f-full">
+        <legend class="f-label"><span data-i18n="f-needs">What do you need help with?</span> <span class="f-req">*</span></legend>
+        <div class="pill-group">
+          <label class="pill"><input type="checkbox" name="needs" value="Website / LP" /><span data-i18n="n-web">Website / landing page</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Online store" /><span data-i18n="n-store">Online store</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Email / SMS (CRM)" /><span data-i18n="n-crm">Email / SMS</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Ads" /><span data-i18n="n-ads">Ads</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Booking / lead recovery" /><span data-i18n="n-recovery">Booking recovery</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Not sure yet" /><span data-i18n="n-unsure">Not sure yet</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="f-full">
+        <legend class="f-label" data-i18n="f-tools">Tools you already use</legend>
+        <div class="pill-group">
+          <label class="pill"><input type="checkbox" name="tools" value="Shopify" /><span>Shopify</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Klaviyo" /><span>Klaviyo</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Mailchimp" /><span>Mailchimp</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Square" /><span>Square</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Meta ads" /><span>Meta ads</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Google ads" /><span>Google ads</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="None yet" /><span data-i18n="tool-none">None yet</span></label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label class="f-label" for="f-revenue" data-i18n="f-revenue">Monthly revenue (optional)</label>
+        <select id="f-revenue" name="revenue">
+          <option value="" data-i18n="o-select">Select one</option>
+          <option value="Pre-launch" data-i18n="o-rev-1">Not launched yet</option>
+          <option value="Under $10k">~ $10k</option>
+          <option value="$10k-50k">$10k – $50k</option>
+          <option value="$50k-200k">$50k – $200k</option>
+          <option value="$200k+">$200k +</option>
+          <option value="Prefer not to say" data-i18n="o-rev-6">Prefer not to say</option>
+        </select>
+      </div>
+      <div>
+        <label class="f-label" for="f-timeline" data-i18n="f-timeline">When would you like to start?</label>
+        <select id="f-timeline" name="timeline">
+          <option value="" data-i18n="o-select">Select one</option>
+          <option value="ASAP" data-i18n="o-time-1">As soon as possible</option>
+          <option value="1-2 months" data-i18n="o-time-2">Within 1 to 2 months</option>
+          <option value="Within 6 months" data-i18n="o-time-3">Within 6 months</option>
+          <option value="Just researching" data-i18n="o-time-4">Just researching</option>
+        </select>
+      </div>
+
+      <fieldset class="f-full">
+        <legend class="f-label" data-i18n="f-lang">Preferred language</legend>
+        <div class="pill-group">
+          <label class="pill"><input type="radio" name="language" value="日本語" /><span>日本語</span></label>
+          <label class="pill"><input type="radio" name="language" value="English" /><span>English</span></label>
+          <label class="pill"><input type="radio" name="language" value="Either" /><span data-i18n="lang-either">Either</span></label>
+        </div>
+      </fieldset>
+
+      <div class="f-full">
+        <label class="f-label" for="f-message" data-i18n="f-message">Anything else you would like to share?</label>
+        <textarea id="f-message" name="message" data-i18n-placeholder="p-message" placeholder="Current challenges, goals, questions. Anything helps."></textarea>
+      </div>
+
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="f-full">
+        <button type="submit" class="btn" id="f-submit" data-i18n="f-submit">Send inquiry</button>
+      </div>
+      <p class="form-status f-full" id="f-error"><span data-i18n="f-error">Something went wrong. Please email us directly at</span> <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a></p>
+    </form>
+
+    <div class="success" id="f-success">
+      <h2 data-i18n="s-h2">Thank you. We received it.</h2>
+      <p data-i18n="s-p">We will reply within one business day. If you would like to talk sooner, you can pick a time right now.</p>
+      <a class="btn" href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" data-i18n="s-cta">Pick a time for the free call</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <span data-i18n="footer-name">Kei Nakayama</span>
+        <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a>
+        <a href="https://www.linkedin.com/in/kei-nakayama-924b481b5/" target="_blank" rel="noopener">LinkedIn</a>
+        <span data-i18n="footer-location">Los Angeles, CA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      "en": {
+        "announce": "<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.",
+        "lang-toggle": "JP",
+        "crumb": "← Back to top",
+        "c-h1": "Tell us about your business.",
+        "c-lead": "The more we know before the call, the more concrete our advice gets. It takes about two minutes, and we reply within one business day.",
+        "f-name": "Your name",
+        "f-email": "Email",
+        "f-company": "Company or brand",
+        "f-website": "Website or Instagram",
+        "f-type": "What kind of business is it?",
+        "o-select": "Select one",
+        "o-type-1": "Online store / DTC brand",
+        "o-type-2": "Restaurant / food",
+        "o-type-3": "Salon / spa / clinic",
+        "o-type-4": "Local service business",
+        "o-type-5": "B2B",
+        "o-type-6": "Other",
+        "f-needs": "What do you need help with?",
+        "n-web": "Website / landing page",
+        "n-store": "Online store",
+        "n-crm": "Email / SMS",
+        "n-ads": "Ads",
+        "n-recovery": "Booking recovery",
+        "n-unsure": "Not sure yet",
+        "f-tools": "Tools you already use",
+        "tool-none": "None yet",
+        "f-revenue": "Monthly revenue (optional)",
+        "o-rev-1": "Not launched yet",
+        "o-rev-6": "Prefer not to say",
+        "f-timeline": "When would you like to start?",
+        "o-time-1": "As soon as possible",
+        "o-time-2": "Within 1 to 2 months",
+        "o-time-3": "Within 6 months",
+        "o-time-4": "Just researching",
+        "f-lang": "Preferred language",
+        "lang-either": "Either",
+        "f-message": "Anything else you would like to share?",
+        "p-message": "Current challenges, goals, questions. Anything helps.",
+        "f-submit": "Send inquiry",
+        "f-error": "Something went wrong. Please email us directly at",
+        "s-h2": "Thank you. We received it.",
+        "s-p": "We will reply within one business day. If you would like to talk sooner, you can pick a time right now.",
+        "s-cta": "Pick a time for the free call",
+        "footer-name": "Kei Nakayama",
+        "footer-location": "Los Angeles, CA"
+      },
+      "ja": {
+        "announce": "<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。",
+        "lang-toggle": "EN",
+        "crumb": "← トップに戻る",
+        "c-h1": "ビジネスについて、お聞かせください。",
+        "c-lead": "事前に詳しく伺えるほど、初回のご相談は具体的になります。ご入力は2分ほど。1営業日以内にご返信します。",
+        "f-name": "お名前",
+        "f-email": "メールアドレス",
+        "f-company": "会社名・ブランド名",
+        "f-website": "ウェブサイト または Instagram",
+        "f-type": "どのようなビジネスですか？",
+        "o-select": "選択してください",
+        "o-type-1": "ECサイト / D2Cブランド",
+        "o-type-2": "飲食店・食品",
+        "o-type-3": "サロン・スパ・クリニック",
+        "o-type-4": "地域密着のサービス業",
+        "o-type-5": "B2B",
+        "o-type-6": "その他",
+        "f-needs": "ご相談内容（複数選択可）",
+        "n-web": "ホームページ / LP",
+        "n-store": "ECサイト",
+        "n-crm": "メール / SMS",
+        "n-ads": "広告運用",
+        "n-recovery": "予約の取りこぼし対策",
+        "n-unsure": "まだ決めていない",
+        "f-tools": "現在お使いのツール",
+        "tool-none": "まだ使っていない",
+        "f-revenue": "月商の目安（任意）",
+        "o-rev-1": "これから立ち上げ",
+        "o-rev-6": "回答しない",
+        "f-timeline": "開始したい時期",
+        "o-time-1": "できるだけ早く",
+        "o-time-2": "1〜2ヶ月以内",
+        "o-time-3": "半年以内",
+        "o-time-4": "情報収集の段階",
+        "f-lang": "ご希望の言語",
+        "lang-either": "どちらでも",
+        "f-message": "そのほか、お聞かせいただけること",
+        "p-message": "現在の課題、目標、ご質問など。どんなことでも参考になります。",
+        "f-submit": "送信する",
+        "f-error": "送信に失敗しました。お手数ですが、こちらまで直接ご連絡ください：",
+        "s-h2": "送信ありがとうございました。",
+        "s-p": "1営業日以内にご返信します。すぐにお話しされたい場合は、いまから日時をご予約いただけます。",
+        "s-cta": "無料相談の日時を予約する",
+        "footer-name": "Kei Nakayama",
+        "footer-location": "ロサンゼルス"
+      }
+    };
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('hanjo-lang', lang);
+      const strings = T[lang];
+      Object.keys(strings).forEach(key => {
+        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+          el.innerHTML = strings[key];
+        });
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const k = el.getAttribute('data-i18n-placeholder');
+        if (strings[k]) el.setAttribute('placeholder', strings[k]);
+      });
+    }
+    function toggleLang() {
+      const next = document.documentElement.lang === 'en' ? 'ja' : 'en';
+      applyLang(next);
+      let rest = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (rest === '') rest = '/';
+      history.replaceState(null, '', '/' + next + rest + location.hash);
+      prefixInternalLinks(next);
+    }
+    function prefixInternalLinks(lang) {
+      document.querySelectorAll('a[href^="/"]').forEach(a => {
+        let href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '') href = '/';
+        a.setAttribute('href', '/' + lang + href);
+      });
+    }
+
+    const langSeg = location.pathname.split('/')[1];
+    const langParam = new URLSearchParams(location.search).get('lang');
+    const forcedLang = (langSeg === 'ja' || langSeg === 'en') ? langSeg
+                     : (langParam === 'ja' || langParam === 'en') ? langParam : null;
+    const savedLang = localStorage.getItem('hanjo-lang');
+    if (forcedLang) applyLang(forcedLang);
+    else if (savedLang && savedLang !== 'en') applyLang(savedLang);
+    else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
+    if (langSeg === 'ja' || langSeg === 'en') prefixInternalLinks(langSeg);
+
+    /* ── SUBMIT ── */
+    const form = document.getElementById('inquiry-form');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = document.getElementById('f-submit');
+      const errBox = document.getElementById('f-error');
+      errBox.classList.remove('err');
+      if (!form.reportValidity()) return;
+
+      const fd = new FormData(form);
+      const data = {
+        name: fd.get('name'),
+        email: fd.get('email'),
+        company: fd.get('company'),
+        website: fd.get('website'),
+        businessType: fd.get('businessType'),
+        needs: fd.getAll('needs'),
+        tools: fd.getAll('tools'),
+        revenue: fd.get('revenue'),
+        timeline: fd.get('timeline'),
+        language: fd.get('language'),
+        message: fd.get('message'),
+        hp: fd.get('hp'),
+      };
+
+      btn.disabled = true;
+      try {
+        const res = await fetch('/api/inquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error('bad status');
+        form.style.display = 'none';
+        document.getElementById('f-success').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (err) {
+        errBox.classList.add('err');
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
