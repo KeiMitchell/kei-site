@@ -107,7 +107,12 @@
       .doc-table th { width: 38%; padding-right: 12px; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; padding: 22px 24px; }
     }
-</style>
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
 
