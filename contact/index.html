@@ -57,6 +57,10 @@
     .nav-right { display: flex; align-items: center; gap: 20px; }
     .lang-toggle { background: none; border: 1px solid var(--border); border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 500; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
     .lang-toggle:hover { color: var(--ink); border-color: rgba(17,17,16,0.3); background: rgba(17,17,16,0.04); }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (max-width: 880px) { .nav-links { display: none; } }
     .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 26px; letter-spacing: 0.03em; transition: color 0.2s; }
     .crumb:hover { color: var(--ink); }
     .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
@@ -119,7 +123,7 @@
       color: #ffffff; background: var(--sage);
       transition: background 0.2s, transform 0.25s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.25s;
     }
-    .btn:hover { background: #2e4a38; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(58,92,69,0.22); }
+    .btn:hover { background: #2e4a38; }
     .btn:disabled { opacity: 0.6; cursor: wait; transform: none; box-shadow: none; }
     .form-status { display: none; font-size: 14px; line-height: 1.7; padding: 16px 20px; border-radius: 10px; }
     .form-status.err { display: block; background: #FFF0EE; border: 1px solid #F5C6C0; color: #8a2a1f; }
@@ -158,6 +162,12 @@
       <a href="/" class="logo" aria-label="hanjo">
         <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
       </a>
+      <div class="nav-links" aria-label="Services">
+        <a href="/crm/">CRM</a>
+        <a href="/web/">Web</a>
+        <a href="https://growth.hanjo.ai/ads/">Ads</a>
+        <a href="https://growth.hanjo.ai/">Recovery</a>
+      </div>
       <div class="nav-right">
         <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
       </div>

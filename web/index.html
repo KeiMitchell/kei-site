@@ -124,6 +124,10 @@
     html[lang="ja"] .callout { font-size: 14px; line-height: 1.95; letter-spacing: 0.02em; }
     html[lang="ja"] .inc-list p, html[lang="ja"] .step p { font-size: 13.5px; line-height: 1.9; letter-spacing: 0.02em; }
     html[lang="ja"] .inc-list h3, html[lang="ja"] .step h3, html[lang="ja"] .btn, html[lang="ja"] .btn-note, html[lang="ja"] .cta-note-dark, html[lang="ja"] .label, html[lang="ja"] .crumb, html[lang="ja"] .nav-avail, html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span, html[lang="ja"] .announce { font-family: 'Noto Sans JP', sans-serif; }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (max-width: 880px) { .nav-links { display: none; } }
     @media (max-width: 560px) {
       .nav-inner { padding: 13px 20px; }
       .nav-avail { display: none; }
@@ -167,6 +171,12 @@
       <a href="/" class="logo" aria-label="hanjo">
         <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
       </a>
+      <div class="nav-links" aria-label="Services">
+        <a href="/crm/">CRM</a>
+        <a href="/web/">Web</a>
+        <a href="https://growth.hanjo.ai/ads/">Ads</a>
+        <a href="https://growth.hanjo.ai/">Recovery</a>
+      </div>
       <div class="nav-right">
         <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
         <a href="/contact/" class="nav-cta" data-i18n="nav-cta">
