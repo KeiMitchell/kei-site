@@ -1270,6 +1270,53 @@
       .hero h1 { font-size: 40px; }
       html[lang="ja"] .hero h1 { font-size: clamp(28px, 8.5vw, 38px); }
     }
+
+    /* ── 3D POP ── */
+    @keyframes heroTilt {
+      from { opacity: 0; transform: translateY(26px) rotateX(12deg); }
+      to   { opacity: 1; transform: translateY(0) rotateX(0); }
+    }
+    .hero-left { perspective: 1200px; }
+    .hero h1 { animation-name: heroTilt; transform-origin: 50% 100%; }
+
+    .line-row { perspective: 900px; }
+    .line-row a {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .line-row-name { transform: translateZ(16px); }
+    .line-row-sub { transform: translateZ(10px); }
+    .line-row-arrow { transform: translateZ(12px); }
+    @keyframes chipFloat {
+      0%, 100% { transform: translateZ(30px) translateY(0) rotate(0deg); }
+      50%      { transform: translateZ(30px) translateY(-5px) rotate(-4deg); }
+    }
+    .line-row-icon { transform: translateZ(30px); animation: chipFloat 3.8s ease-in-out infinite; }
+    .line-row li:nth-child(1) .line-row-icon { animation-delay: 0s; }
+    .line-row li:nth-child(2) .line-row-icon { animation-delay: 0.6s; }
+    .line-row li:nth-child(3) .line-row-icon { animation-delay: 1.2s; }
+    .line-row li:nth-child(4) .line-row-icon { animation-delay: 1.8s; }
+    @keyframes wiggle {
+      0%, 100% { transform: translateZ(30px) rotate(0); }
+      25% { transform: translateZ(42px) rotate(-12deg) scale(1.12); }
+      75% { transform: translateZ(42px) rotate(9deg) scale(1.12); }
+    }
+
+    .btn--dark, .nav-cta {
+      transition: transform 0.25s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.25s, background 0.2s;
+    }
+    .btn--dark:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 14px 28px rgba(58,92,69,0.25), 0 3px 8px rgba(58,92,69,0.18);
+    }
+    .nav-cta:hover { box-shadow: 0 8px 18px rgba(58,92,69,0.22); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero h1 { animation-name: fadeUp; }
+      .line-row-icon { animation: none; }
+      .btn--dark:hover { transform: none; box-shadow: none; }
+    }
   </style>
 </head>
 <body>
@@ -1733,6 +1780,29 @@
     const savedLang = localStorage.getItem('hanjo-lang');
     if (savedLang && savedLang !== 'en') applyLang(savedLang);
     else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
+
+    /* ── 3D CARD TILT ── */
+    (function () {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      document.querySelectorAll('.line-row a').forEach(card => {
+        let raf = null;
+        card.addEventListener('pointermove', e => {
+          if (e.pointerType === 'touch') return;
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width - 0.5;
+          const py = (e.clientY - r.top) / r.height - 0.5;
+          if (raf) cancelAnimationFrame(raf);
+          raf = requestAnimationFrame(() => {
+            card.style.transform =
+              `translateY(-4px) rotateX(${(-py * 8).toFixed(2)}deg) rotateY(${(px * 10).toFixed(2)}deg)`;
+          });
+        });
+        card.addEventListener('pointerleave', () => {
+          if (raf) cancelAnimationFrame(raf);
+          card.style.transform = '';
+        });
+      });
+    })();
   </script>
 
 </body>
