@@ -214,7 +214,10 @@
     .p-icon { width: 26px; height: 26px; flex-shrink: 0; }
     .p-s1 { fill: #C8D6CA; } .p-s2 { fill: #A8C2AC; } .p-s3 { fill: #7FAF88; } .p-s4 { fill: #5A8F64; } .p-s5 { fill: #3B6B3F; }
     html[lang="ja"] .stage-label, html[lang="ja"] .stage-drop, html[lang="ja"] .dot-legend, html[lang="ja"] .funnel-col-label { font-family: 'Noto Sans JP', sans-serif; }
-</style>
+    @media print {
+      [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
 </head>
 <body>
 
@@ -590,6 +593,13 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('[data-reveal],[data-reveal-stagger]').forEach(el => el.classList.add('revealed'));
+    }
+    window.setTimeout(() => {
+      document.querySelectorAll('[data-reveal]:not(.revealed),[data-reveal-stagger]:not(.revealed)').forEach(el => el.classList.add('revealed'));
+    }, 3000);
 
     const langSeg = location.pathname.split('/')[1];
     const langParam = new URLSearchParams(location.search).get('lang');

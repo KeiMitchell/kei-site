@@ -1448,6 +1448,9 @@
     @media (max-width: 560px) {
       .loop-grid { grid-template-columns: 1fr; }
     }
+      @media print {
+      [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -1942,6 +1945,13 @@
     document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
     const growthChart = document.getElementById('growthChart');
     if (growthChart) observer.observe(growthChart);
+
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('[data-reveal],[data-reveal-stagger]').forEach(el => el.classList.add('revealed'));
+    }
+    window.setTimeout(() => {
+      document.querySelectorAll('[data-reveal]:not(.revealed),[data-reveal-stagger]:not(.revealed)').forEach(el => el.classList.add('revealed'));
+    }, 3000);
 
     /* ── LIFECYCLE STRIP ── */
     (function () {
