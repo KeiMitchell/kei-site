@@ -1305,6 +1305,103 @@
       .line-row-icon { animation: none; }
       .btn--dark:hover { transform: none; box-shadow: none; }
     }
+
+    /* ── GROWTH LOOP ── */
+    .section-loop { max-width: 1000px; }
+    .loop-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+    .loop-stage { position: relative; }
+    .loop-stage:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -30px;
+      top: 38px;
+      font-size: 17px;
+      color: var(--sage);
+      opacity: 0.55;
+    }
+    .loop-num {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      color: var(--faint);
+      margin-bottom: 12px;
+    }
+    .loop-word {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 2.2vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+    .loop-svc {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 12px;
+    }
+    .loop-note {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .loop-return { position: relative; height: 56px; margin-top: 38px; }
+    .loop-return svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .loop-return-label {
+      position: absolute;
+      left: 50%; top: 58%;
+      transform: translate(-50%, -50%);
+      background: var(--white);
+      padding: 0 16px;
+      font-size: 12.5px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--sage);
+      white-space: nowrap;
+    }
+    html[lang="ja"] .loop-word { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; }
+    html[lang="ja"] .loop-note, html[lang="ja"] .loop-return-label, html[lang="ja"] .loop-num, html[lang="ja"] .loop-svc { font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ── RESULTS BAND ── */
+    .stat-wrap { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .stat-band { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .stat { padding-right: 30px; }
+    .stat + .stat { border-left: 1px solid var(--border); padding-left: 30px; }
+    .stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(36px, 3.4vw, 52px);
+      font-weight: 700;
+      line-height: 1;
+      color: var(--sage);
+      font-variant-numeric: tabular-nums;
+    }
+    .stat-label { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-top: 12px; }
+    .stat-sub { display: block; font-size: 12.5px; font-weight: 300; color: var(--muted); margin-top: 4px; line-height: 1.6; }
+    html[lang="ja"] .stat-label, html[lang="ja"] .stat-sub { font-family: 'Noto Sans JP', sans-serif; }
+
+    @media (max-width: 880px) {
+      .loop-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+      .loop-stage:not(:last-child)::after { display: none; }
+      .loop-return { display: none; }
+      .stat-band { grid-template-columns: 1fr; gap: 24px; }
+      .stat { padding-right: 0; }
+      .stat + .stat { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 24px; }
+    }
+    @media (max-width: 560px) {
+      .loop-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -1387,6 +1484,71 @@
       </ul>
     </div>
 
+  </div>
+
+  <!-- GROWTH LOOP -->
+  <div class="s-white">
+    <div class="section section-loop">
+      <span class="label" data-reveal data-i18n="loop-label">How it works together</span>
+      <h2 data-reveal data-i18n="loop-h2">Four services.<br><span>One growth loop.</span></h2>
+      <ul class="loop-grid" data-reveal>
+        <li class="loop-stage">
+          <span class="loop-num">01</span>
+          <span class="loop-word" data-i18n="loop-1-w">Attract</span>
+          <span class="loop-svc">hanjo Ads</span>
+          <p class="loop-note" data-i18n="loop-1-n">Ads that reach the right customers, measured in orders rather than clicks.</p>
+        </li>
+        <li class="loop-stage">
+          <span class="loop-num">02</span>
+          <span class="loop-word" data-i18n="loop-2-w">Convert</span>
+          <span class="loop-svc">hanjo Web</span>
+          <p class="loop-note" data-i18n="loop-2-n">A site that turns that attention into bookings and purchases.</p>
+        </li>
+        <li class="loop-stage">
+          <span class="loop-num">03</span>
+          <span class="loop-word" data-i18n="loop-3-w">Retain</span>
+          <span class="loop-svc">hanjo CRM</span>
+          <p class="loop-note" data-i18n="loop-3-n">Email and SMS that bring every customer back for the next order.</p>
+        </li>
+        <li class="loop-stage">
+          <span class="loop-num">04</span>
+          <span class="loop-word" data-i18n="loop-4-w">Recover</span>
+          <span class="loop-svc">hanjo Recovery</span>
+          <p class="loop-note" data-i18n="loop-4-n">The ones who slipped away, followed up and won back.</p>
+        </li>
+      </ul>
+      <div class="loop-return" data-reveal>
+        <svg viewBox="0 0 1000 56" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M985 2 C 985 44, 15 44, 18 8" fill="none" stroke="#3A5C45" stroke-width="1.5" opacity="0.45"/>
+          <path d="M11 18 L18 5 L27 15" fill="none" stroke="#3A5C45" stroke-width="1.5" opacity="0.45"/>
+        </svg>
+        <span class="loop-return-label" data-i18n="loop-return">and customers come back again</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="stat-wrap">
+    <div class="section section-loop">
+      <span class="label" data-reveal data-i18n="stats-label">Results from client work</span>
+      <div class="stat-band" data-reveal>
+        <div class="stat">
+          <span class="stat-value">10×</span>
+          <span class="stat-label" data-i18n="stat-1-l">Active subscribers</span>
+          <span class="stat-sub" data-i18n="stat-1-s">From 30 to 300 in 12 months, for a Japanese pet food brand</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">−40%</span>
+          <span class="stat-label" data-i18n="stat-2-l">Monthly churn</span>
+          <span class="stat-sub" data-i18n="stat-2-s">Reduced from 15% to 9%</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">$10–30k</span>
+          <span class="stat-label" data-i18n="stat-3-l">Revenue recovered each month</span>
+          <span class="stat-sub" data-i18n="stat-3-s">Reinvested straight into acquisition</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- CTA -->
@@ -1516,6 +1678,24 @@
         'cta-btn':  'Book a free call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'cta-note': 'No commitment. Just a conversation.',
         'footer-name':     'Kei Nakayama',
+        'loop-label': 'How it works together',
+        'loop-h2': 'Four services.<br><span>One growth loop.</span>',
+        'loop-1-w': 'Attract',
+        'loop-1-n': 'Ads that reach the right customers, measured in orders rather than clicks.',
+        'loop-2-w': 'Convert',
+        'loop-2-n': 'A site that turns that attention into bookings and purchases.',
+        'loop-3-w': 'Retain',
+        'loop-3-n': 'Email and SMS that bring every customer back for the next order.',
+        'loop-4-w': 'Recover',
+        'loop-4-n': 'The ones who slipped away, followed up and won back.',
+        'loop-return': 'and customers come back again',
+        'stats-label': 'Results from client work',
+        'stat-1-l': 'Active subscribers',
+        'stat-1-s': 'From 30 to 300 in 12 months, for a Japanese pet food brand',
+        'stat-2-l': 'Monthly churn',
+        'stat-2-s': 'Reduced from 15% to 9%',
+        'stat-3-l': 'Revenue recovered each month',
+        'stat-3-s': 'Reinvested straight into acquisition',
         'footer-location': 'Los Angeles, CA',
       },
       ja: {
@@ -1609,6 +1789,24 @@
         'cta-btn':  '無料相談を予約する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'cta-note': 'ご相談のみでも歓迎です。日本語でどうぞ。',
         'footer-name':     'Kei Nakayama',
+        'loop-label': 'サービスのつながり',
+        'loop-h2': '4つのサービスが、<br><span>ひとつの成長サイクルに。</span>',
+        'loop-1-w': '集客',
+        'loop-1-n': '広告で、適切なお客様に届けます。クリック数ではなく、注文数で測ります。',
+        'loop-2-w': '転換',
+        'loop-2-n': 'サイトが、その関心を予約や購入へと変えます。',
+        'loop-3-w': '定着',
+        'loop-3-n': 'メールとSMSで、お客様を次の注文へつなげます。',
+        'loop-4-w': '回復',
+        'loop-4-n': '離れかけたお客様も、丁寧なフォローで呼び戻します。',
+        'loop-return': 'お客様が、また戻ってくる',
+        'stats-label': 'クライアントの実績',
+        'stat-1-l': 'アクティブ定期顧客',
+        'stat-1-s': '日本のペットフードブランドで、12ヶ月で30人から300人に',
+        'stat-2-l': '月間解約率',
+        'stat-2-s': '15%から9%へ改善',
+        'stat-3-l': '月間で回復した売上',
+        'stat-3-s': 'そのまま新規獲得への再投資に',
         'footer-location': 'ロサンゼルス',
       }
     };
@@ -1626,7 +1824,19 @@
     }
 
     function toggleLang() {
-      applyLang(document.documentElement.lang === 'en' ? 'ja' : 'en');
+      const next = document.documentElement.lang === 'en' ? 'ja' : 'en';
+      applyLang(next);
+      let rest = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (rest === '') rest = '/';
+      history.replaceState(null, '', '/' + next + rest + location.hash);
+      prefixInternalLinks(next);
+    }
+    function prefixInternalLinks(lang) {
+      document.querySelectorAll('a[href^="/"]').forEach(a => {
+        let href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '') href = '/';
+        a.setAttribute('href', '/' + lang + href);
+      });
     }
 
     /* ── COUNTER ANIMATION ── */
@@ -1761,9 +1971,15 @@
     })();
 
     /* ── INIT ── */
+    const langSeg = location.pathname.split('/')[1];
+    const langParam = new URLSearchParams(location.search).get('lang');
+    const forcedLang = (langSeg === 'ja' || langSeg === 'en') ? langSeg
+                     : (langParam === 'ja' || langParam === 'en') ? langParam : null;
     const savedLang = localStorage.getItem('hanjo-lang');
-    if (savedLang && savedLang !== 'en') applyLang(savedLang);
+    if (forcedLang) applyLang(forcedLang);
+    else if (savedLang && savedLang !== 'en') applyLang(savedLang);
     else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
+    if (langSeg === 'ja' || langSeg === 'en') prefixInternalLinks(langSeg);
 
     /* ── 3D CARD TILT ── */
     (function () {

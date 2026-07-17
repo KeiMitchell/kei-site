@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    { "source": "/ja", "destination": "/index.html" },
+    { "source": "/en", "destination": "/index.html" },
+    { "source": "/ja/", "destination": "/index.html" },
+    { "source": "/en/", "destination": "/index.html" },
+    { "source": "/ja/crm", "destination": "/crm/index.html" },
+    { "source": "/en/crm", "destination": "/crm/index.html" },
+    { "source": "/ja/crm/", "destination": "/crm/index.html" },
+    { "source": "/en/crm/", "destination": "/crm/index.html" },
+    { "source": "/ja/web", "destination": "/web/index.html" },
+    { "source": "/en/web", "destination": "/web/index.html" },
+    { "source": "/ja/web/", "destination": "/web/index.html" },
+    { "source": "/en/web/", "destination": "/web/index.html" }
+  ]
+}
