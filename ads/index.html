@@ -544,6 +544,8 @@
     }
     .lang-pill:hover { color: var(--black); border-color: rgba(17,17,16,0.3); }
     .lang-toggle[hidden] { display: none; }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 9px 18px; letter-spacing: 0.01em; }
+    .risk-banner { font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
       a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
       outline: 2px solid var(--sage);
       outline-offset: 3px;
@@ -576,7 +578,7 @@
       <button class="lang-btn" id="btn-ja" onclick="setLang('ja')" aria-pressed="false">日本語</button>
     </div>
     <button class="lang-pill" id="lang-pill" onclick="setLang(document.body.classList.contains('lang-ja') ? 'en' : 'ja')" aria-label="Switch language">JP</button>
-    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Free consultation →</a>
+    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </nav>
 
@@ -1016,7 +1018,7 @@
     en: {
       page_title: 'hanjo | AI that optimizes your ads. For real.',
       skip_link: 'Skip to content',
-      nav_cta: 'Free consultation →',
+      nav_cta: 'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       risk_banner: '<strong>Ad algorithm optimization AI.</strong> We feed your ad platform\'s AI the training data it\'s been missing, custom-built around your booking flow, CRM, and ad accounts.',
       hero_badge: 'For beauty salons, spas &amp; service businesses',
       hero_h1: 'AI that optimizes<br>your ads. <em>For real.</em>',
@@ -1164,7 +1166,7 @@
     ja: {
       page_title: 'hanjo | AIが、広告を、最適化する時代へ。',
       skip_link: 'コンテンツへスキップ',
-      nav_cta: '無料相談 →',
+      nav_cta: '無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       risk_banner: '<strong>広告アルゴリズム最適化AI。</strong>広告媒体のAIに不足していた「質の高い学習データ」を供給。予約フロー・CRM・広告アカウントに合わせて構築します。',
       hero_badge: '美容サロン・スパ・サービスビジネスのために',
       hero_h1: 'AIが、広告を、<br><em>最適化する。</em>',

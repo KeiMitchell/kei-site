@@ -34,6 +34,9 @@
     body { background: var(--white); color: var(--ink); font-family: 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .announce { background: var(--sage); color: rgba(255,255,255,0.8); text-align: center; font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+    .announce strong { color: #ffffff; font-weight: 500; }
+    html[lang="ja"] .announce { font-family: 'Noto Sans JP', sans-serif; }
     nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); animation: fadeIn 0.5s ease both; }
     .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
     .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
@@ -116,6 +119,10 @@
 </head>
 <body>
 
+  <div class="announce" data-i18n="announce">
+    <strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.
+  </div>
+
   <nav>
     <div class="nav-inner">
       <a href="/" class="logo" aria-label="hanjo">
@@ -176,6 +183,7 @@
     const T = {
       "en": {
             "lang-toggle": "JP",
+            "announce": "<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.",
             "nav-cta": "Free consultation <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
             "crumb": "← Back to top",
             "footer-about": "About Us",
@@ -200,6 +208,7 @@
       },
       "ja": {
             "lang-toggle": "EN",
+            "announce": "<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。",
             "nav-cta": "無料相談 <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
             "crumb": "← トップに戻る",
             "footer-about": "会社概要",
