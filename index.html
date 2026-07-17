@@ -221,12 +221,64 @@
     }
 
     .hero-left {
-      padding: clamp(48px, 6vw, 88px) clamp(36px, 4.5vw, 72px) clamp(36px, 4.5vw, 64px);
+      padding: clamp(36px, 4.5vw, 64px) clamp(36px, 4.5vw, 72px) clamp(32px, 4vw, 56px);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 880px;
+      max-width: 1000px;
       width: 100%;
+    }
+
+    /* ── BUSINESS LINE STRIP ── */
+    .line-row {
+      list-style: none;
+      margin-top: clamp(30px, 4vw, 48px);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .line-row li { border-right: 1px solid var(--border); }
+    .line-row li:last-child { border-right: none; }
+    .line-row a {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 18px 16px 14px 0;
+      text-decoration: none;
+      color: inherit;
+    }
+    .line-row li:not(:first-child) a { padding-left: 16px; }
+    .line-row-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 1.9vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      transition: opacity 0.2s;
+    }
+    .line-row a:hover .line-row-name { opacity: 0.7; }
+    .line-row-sub {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+    .line-row-arrow {
+      font-size: 13px;
+      color: var(--ink);
+      opacity: 0.55;
+      margin-top: 4px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .line-row a:hover .line-row-arrow { transform: translateX(3px); opacity: 1; }
+    html[lang="ja"] .line-row-sub { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.06em; }
+    @media (max-width: 880px) {
+      .line-row { grid-template-columns: repeat(2, 1fr); }
+      .line-row li:nth-child(2) { border-right: none; }
+      .line-row li:nth-child(n+3) { border-top: 1px solid var(--border); }
+      .line-row li:not(:first-child) a { padding-left: 0; }
+      .line-row li:nth-child(even) a { padding-left: 16px; }
     }
 
     .hero-rule {
@@ -1148,10 +1200,6 @@
         <img src="hanjo-logo.svg" alt="hanjo" height="26" />
       </a>
       <div class="nav-right">
-        <span class="nav-avail">
-          <span class="avail-dot"></span>
-          <span data-i18n="nav-avail">Taking new clients</span>
-        </span>
         <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
         <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="nav-cta" data-i18n="nav-cta">
           Book a call
@@ -1183,58 +1231,40 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <span class="btn-note" data-i18n="hero-cta-note">No commitment — we'll tell you exactly what we'd do first.</span>
-        <a href="#services" class="hero-seework">
-          <span data-i18n="hero-see-work">See our services</span>
-          <svg class="seework-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
       </div>
 
-    </div>
-
-  </div>
-
-  <!-- SERVICES -->
-  <div class="s-white" id="services">
-    <div class="section section--wide">
-      <span class="label" data-reveal data-i18n="services-label">Services</span>
-      <h2 data-reveal data-i18n="services-h2">One team.<br><span>Four growth services.</span></h2>
-
-
-      <ul class="work-grid" data-reveal-stagger>
-        <li class="work-item">
-          <a class="work-item-link" href="/crm/">
-            <h3 class="line-name">hanjo CRM</h3>
-            <span class="line-sub" data-i18n="svc-1-tag">Email &amp; SMS marketing</span>
-            <p data-i18n="svc-1-p">One-time buyers become regulars. Klaviyo flows, campaigns, popups, and churn saves — full-service.</p>
-            <span class="work-more" data-i18n="svc-more">Learn more →</span>
+      <ul class="line-row" id="services">
+        <li>
+          <a href="/crm/">
+            <strong class="line-row-name">hanjo CRM</strong>
+            <span class="line-row-sub" data-i18n="svc-1-tag">Email &amp; SMS marketing</span>
+            <span class="line-row-arrow">→</span>
           </a>
         </li>
-        <li class="work-item">
-          <a class="work-item-link" href="/web/">
-            <h3 class="line-name">hanjo Web</h3>
-            <span class="line-sub" data-i18n="svc-2-tag">Websites &amp; online stores</span>
-            <p data-i18n="svc-2-p">Websites, landing pages, and Shopify stores that earn trust and convert — designed, written, and built end to end.</p>
-            <span class="work-more" data-i18n="svc-more">Learn more →</span>
+        <li>
+          <a href="/web/">
+            <strong class="line-row-name">hanjo Web</strong>
+            <span class="line-row-sub" data-i18n="svc-2-tag">Websites &amp; online stores</span>
+            <span class="line-row-arrow">→</span>
           </a>
         </li>
-        <li class="work-item">
-          <a class="work-item-link" href="https://growth.hanjo.ai/ads/">
-            <h3 class="line-name">hanjo Ads</h3>
-            <span class="line-sub" data-i18n="svc-3-tag">Meta &amp; Google advertising</span>
-            <p data-i18n="svc-3-p">Ad spend measured in orders and bookings, not clicks — creative, landing pages, and tracking included.</p>
-            <span class="work-more" data-i18n="svc-more">Learn more →</span>
+        <li>
+          <a href="https://growth.hanjo.ai/ads/">
+            <strong class="line-row-name">hanjo Ads</strong>
+            <span class="line-row-sub" data-i18n="svc-3-tag">Meta &amp; Google advertising</span>
+            <span class="line-row-arrow">→</span>
           </a>
         </li>
-        <li class="work-item">
-          <a class="work-item-link" href="https://growth.hanjo.ai/">
-            <h3 class="line-name">hanjo Recovery</h3>
-            <span class="line-sub" data-i18n="svc-4-tag">Lost-booking &amp; lead recovery</span>
-            <p data-i18n="svc-4-p">The customers who almost booked, brought back — SMS follow-up integrated with your booking system. Performance-based available.</p>
-            <span class="work-more" data-i18n="svc-more">Learn more →</span>
+        <li>
+          <a href="https://growth.hanjo.ai/">
+            <strong class="line-row-name">hanjo Recovery</strong>
+            <span class="line-row-sub" data-i18n="svc-4-tag">Lost-booking &amp; lead recovery</span>
+            <span class="line-row-arrow">→</span>
           </a>
         </li>
       </ul>
     </div>
+
   </div>
 
   <!-- CTA -->
