@@ -159,6 +159,27 @@
     .footer-meta a, .footer-meta span { color: var(--muted); }
     .footer-meta a:hover { color: var(--sage); }
     .cta-note-dark { color: rgba(255,255,255,0.55); }
+    /* ── FUNNEL INFOGRAPHIC (ported from growth.hanjo.ai) ── */
+    .band { background: var(--white); border-bottom: 1px solid var(--border); }
+    .dot-grid { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; max-width: 600px; }
+    .dot { width: 16px; height: 16px; border-radius: 50%; background: #E0DED8; }
+    .dot.booked { background: var(--sage); }
+    .dot-legend { display: flex; gap: 20px; font-size: 0.875rem; margin-bottom: 48px; }
+    .dot-legend span { display: flex; align-items: center; gap: 8px; }
+    .dot-legend .swatch { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+    .funnel-col-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+    .funnel-stages { display: flex; flex-direction: column; gap: 0; max-width: 640px; }
+    .funnel-stage { margin-bottom: 4px; }
+    .stage-header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
+    .stage-label { font-size: 0.875rem; color: var(--muted); }
+    .stage-count { font-size: 0.9375rem; font-weight: 700; color: var(--ink); white-space: nowrap; }
+    .stage-icons { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+    .stage-drop { font-size: 0.8125rem; color: #C0392B; padding: 3px 0 10px 2px; display: flex; align-items: center; gap: 6px; }
+    .funnel-result .stage-label { font-weight: 600; color: var(--sage); }
+    .funnel-result .stage-count { color: var(--sage); }
+    .p-icon { width: 26px; height: 26px; flex-shrink: 0; }
+    .p-s1 { fill: #C8D6CA; } .p-s2 { fill: #A8C2AC; } .p-s3 { fill: #7FAF88; } .p-s4 { fill: #5A8F64; } .p-s5 { fill: #3B6B3F; }
+    html[lang="ja"] .stage-label, html[lang="ja"] .stage-drop, html[lang="ja"] .dot-legend, html[lang="ja"] .funnel-col-label { font-family: 'Noto Sans JP', sans-serif; }
 </style>
 </head>
 <body>
@@ -202,6 +223,94 @@
     </div>
   </div>
 
+<!-- INFOGRAPHIC -->
+<div class="band">
+    <div class="section">
+    <span class="label" data-i18n="label_problem">The problem, visualized</span>
+    <h2 data-i18n="title_problem">97% of visitors leave<br>without booking.</h2>
+
+    <div class="dot-grid">
+      <div class="dot booked"></div><div class="dot booked"></div><div class="dot booked"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+    <div class="dot-legend">
+      <span><span class="swatch" style="background:var(--sage)"></span><strong data-i18n="legend_booked">3 booked</strong></span>
+      <span><span class="swatch" style="background:#E0DED8"></span><span style="color:var(--gray)" data-i18n="legend_away">97 walked away</span></span>
+    </div>
+
+    <div class="funnel-layout">
+      <div>
+        <div class="funnel-col-label" data-i18n="funnel_col_drop">Where they drop off</div>
+        <div class="funnel-stages">
+
+          <div class="funnel-stage">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r1">Clicked your ad</span>
+              <strong class="stage-count">100</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+          <div class="stage-drop">↘ <span data-i18n="funnel_d1"><strong>−30</strong> landed on wrong page, left immediately</span></div>
+
+          <div class="funnel-stage">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r2">Viewed booking page</span>
+              <strong class="stage-count">70</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+          <div class="stage-drop">↘ <span data-i18n="funnel_d2"><strong>−40</strong> saw the form, felt too much friction</span></div>
+
+          <div class="funnel-stage">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r3">Filled the form</span>
+              <strong class="stage-count">30</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+          <div class="stage-drop">↘ <span data-i18n="funnel_d3"><strong>−17</strong> waited hours for a reply, booked elsewhere</span></div>
+
+          <div class="funnel-stage">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r4">Got timely follow-up</span>
+              <strong class="stage-count">13</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+          <div class="stage-drop">↘ <span data-i18n="funnel_d4"><strong>−10</strong> needed one more nudge but never got it</span></div>
+
+          <div class="funnel-stage funnel-result">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r5">Booked an appointment</span>
+              <strong class="stage-count">3</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s5" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
   <div class="s-white">
     <div class="section">
       <span class="label" data-reveal data-i18n="inc-label">How we recover customers</span>
@@ -236,7 +345,7 @@
           </div>
         </li>
       </ul>
-      <p class="callout" data-reveal data-i18n="proof">Live now for a Beverly Hills head spa on Square. Performance-based, with <strong>every recovered booking tracked and attributed.</strong></p>
+      <p class="callout" data-reveal data-i18n="proof">This system is running today at a head spa in Beverly Hills, on Square. Every booking it recovers is tracked, and fees apply only to confirmed results.</p>
     </div>
   </div>
 
@@ -324,7 +433,7 @@
             "ph-h1": "More new clients. Same ad budget.<strong>No fees. No hassle.</strong>",
             "ph-lead": "Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.",
             "inc-h2": "We reach the visitors<br><span>who almost booked.</span>",
-            "proof": "Live now for a Beverly Hills head spa on Square. Performance-based, with <strong>every recovered booking tracked and attributed.</strong>",
+            "proof": "This system is running today at a head spa in Beverly Hills, on Square. Every booking it recovers is tracked, and fees apply only to confirmed results.",
             "price": "Commission applies only when a customer completes a booking by clicking a link inside our SMS. Not per click. Not per message sent. <strong>Per confirmed booking.</strong> If our messages recover zero customers, you pay zero. Commission rate is agreed before we start, based on your average booking value, discussed in your free call.",
             "how-1-h": "Free consultation",
             "how-1-p": "Your booking flow, where people drop off, and whether this model fits your shop. 20 to 30 minutes.",
@@ -339,7 +448,21 @@
             "inc-3-h": "They come back and book",
             "inc-3-p": "You get new appointments. We take our commission only when a booking is confirmed.",
             "inc-4-h": "You only pay when it works",
-            "inc-4-p": "Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start."
+            "inc-4-p": "Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start.",
+            "label_problem": "The reality",
+            "title_problem": "97% of visitors leave<br>without booking.",
+            "legend_booked": "3 booked",
+            "legend_away": "97 walked away",
+            "funnel_col_drop": "Where they drop off",
+            "funnel_r1": "Clicked your ad",
+            "funnel_r2": "Viewed booking page",
+            "funnel_r3": "Filled the form",
+            "funnel_r4": "Got timely follow-up",
+            "funnel_r5": "Booked an appointment",
+            "funnel_d1": "<strong>−30</strong> landed on wrong page, left immediately",
+            "funnel_d2": "<strong>−40</strong> saw the form, felt too much friction",
+            "funnel_d3": "<strong>−17</strong> waited hours for a reply, booked elsewhere",
+            "funnel_d4": "<strong>−10</strong> needed one more nudge but never got it"
       },
       "ja": {
             "crumb": "← サービス一覧に戻る",
@@ -365,7 +488,7 @@
             "ph-h1": "広告費は増やさずに、新規客を増やす。<strong>費用も手間も、ゼロ。</strong>",
             "ph-lead": "独立系メディカルスパ・美容クリニック向けに特化したサービスです。初期費用・月額費用ゼロ、完全成果報酬。",
             "inc-h2": "hanjoなら離反顧客を<br><span>成約につなげます</span>",
-            "proof": "ビバリーヒルズのヘッドスパ（Square利用）で稼働中です。成果報酬型で、<strong>回復した予約はすべて計測しています。</strong>",
+            "proof": "この仕組みは、ビバリーヒルズのヘッドスパ（Square利用）で現在も稼働しています。回復した予約はすべて計測され、料金は成果が確定した分にのみ発生します。",
             "price": "料金が発生するのは、SMSのリンクから予約が入った時だけです。クリック数でも送信数でもありません。<strong>予約が入った数だけです。</strong>新規のお客様が来なければ、費用はゼロです。料率は始める前に、予約の平均単価をもとに一緒に決めます。",
             "how-1-h": "無料相談",
             "how-1-p": "予約導線とどこで離脱が起きているか、この仕組みが合うお店かどうかをお話しします。20〜30分。",
@@ -380,7 +503,21 @@
             "inc-3-h": "新規成約へ",
             "inc-3-p": "離反顧客への適切なアプローチを行うことで本来離反してしまっていた見込み客を新規の成約へ繋げます。",
             "inc-4-h": "成果が出た分だけ、お支払い",
-            "inc-4-p": "お客様の予約が完了した時だけ手数料が発生します。すべての予約は追跡されており、同じデータを一緒に確認できます。料率は始める前に決めます。"
+            "inc-4-p": "お客様の予約が完了した時だけ手数料が発生します。すべての予約は追跡されており、同じデータを一緒に確認できます。料率は始める前に決めます。",
+            "label_problem": "集客の現実",
+            "title_problem": "来訪客の97%が、<br>予約せずに離反しています。",
+            "legend_booked": "3人が予約",
+            "legend_away": "97人が帰る",
+            "funnel_col_drop": "離脱ポイント",
+            "funnel_r1": "広告をクリック",
+            "funnel_r2": "予約ページを閲覧",
+            "funnel_r3": "フォームを入力",
+            "funnel_r4": "フォローを受けた",
+            "funnel_r5": "予約完了",
+            "funnel_d1": "<strong>−30人</strong> 別ページに飛び、すぐ離脱",
+            "funnel_d2": "<strong>−40人</strong> フォームを見たが手間を感じて離脱",
+            "funnel_d3": "<strong>−17人</strong> 返信を何時間も待った末、他で予約",
+            "funnel_d4": "<strong>−10人</strong> あと一声あれば予約していた"
       }
 };
 
