@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use · hanjo · Los Angeles</title>
+  <link rel="icon" type="image/svg+xml" href="/hanjo-logo.svg" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JLHW59CHY6');
+  </script>
+
+  <meta name="description" content="Terms of use for the hanjo.ai website." />
+  <meta property="og:url" content="https://hanjo.ai/terms/" />
+  <meta property="og:title" content="Terms of Use · hanjo · Los Angeles" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F5F4F0; --white: #ffffff; --sage: #3A5C45; --ink: #111110;
+      --muted: #6B6B68; --faint: rgba(17,17,16,0.46); --border: #E4E2DC;
+      --radius: 14px; --radius-sm: 100px; --max: 720px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--ink); font-family: 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); animation: fadeIn 0.5s ease both; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-links { display: flex; gap: 26px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.01em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ink); }
+    @media (max-width: 880px) { .nav-links { display: none; } }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { background: none; border: 1px solid var(--border); border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 500; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
+    .lang-toggle:hover { color: var(--ink); border-color: rgba(17,17,16,0.3); background: rgba(17,17,16,0.04); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #ffffff; background: var(--sage); text-decoration: none; padding: 9px 18px; border-radius: var(--radius-sm); transition: background 0.2s; letter-spacing: 0.01em; }
+    .nav-cta:hover { background: #2e4a38; }
+    .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .page-hero .section { padding: 44px 24px 48px; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 56px 24px 72px; }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 24px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--ink); }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 44px); font-weight: 600; line-height: 1.1; letter-spacing: -0.015em; color: var(--ink); animation: fadeUp 0.7s 0.05s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .doc p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 18px; text-wrap: pretty; }
+    .doc h2 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin: 34px 0 10px; letter-spacing: -0.01em; }
+    .doc-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .doc-table tr { border-top: 1px solid var(--border); }
+    .doc-table tr:last-child { border-bottom: 1px solid var(--border); }
+    .doc-table th { text-align: left; vertical-align: top; width: 32%; padding: 16px 16px 16px 0; font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+    .doc-table td { padding: 16px 0; font-size: 14.5px; font-weight: 300; color: var(--ink); line-height: 1.8; }
+    footer { background: var(--white); border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: var(--muted); text-decoration: none; }
+    .footer-meta a:hover { color: var(--sage); }
+    html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
+    html[lang="ja"] .page-hero h1 { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; line-height: 1.3; }
+    html[lang="ja"] .doc h2 { font-family: 'Noto Sans JP', sans-serif; font-weight: 600; font-size: 17px; }
+    html[lang="ja"] .doc p, html[lang="ja"] .doc-table td { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 2.0; letter-spacing: 0.02em; line-break: strict; }
+    html[lang="ja"] .doc-table th, html[lang="ja"] .crumb, html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span { font-family: 'Noto Sans JP', sans-serif; }
+    @media (max-width: 640px) {
+      .nav-inner { padding: 13px 20px; }
+      .section { padding: 44px 20px 60px; }
+      .page-hero .section { padding: 34px 20px 40px; }
+      .doc-table th { width: 38%; padding-right: 12px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; padding: 22px 24px; }
+    }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+      </a>
+      <div class="nav-links" aria-label="Services">
+        <a href="/crm/">CRM</a>
+        <a href="/web/">Web</a>
+        <a href="https://growth.hanjo.ai/ads/">Ads</a>
+        <a href="https://growth.hanjo.ai/">Recovery</a>
+      </div>
+      <div class="nav-right">
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
+        <a href="/contact/" class="nav-cta" data-i18n="nav-cta">
+          Free consultation
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="section">
+      <a href="/" class="crumb" data-i18n="crumb">← Back to top</a>
+      <h1 data-i18n="d-h1">Terms of Use</h1>
+    </div>
+  </div>
+
+  <div class="section doc">
+      <p data-i18n="d-intro-1">These terms apply to your use of the hanjo.ai website (the Site), operated by hanjo (we, us). By using the Site, you agree to these terms.</p>
+      <h2 data-i18n="d-s1-h">1. Use of the Site</h2>
+      <p data-i18n="d-s1-b">The Site provides information about our services and a way to contact us. You may use the Site only for lawful purposes.</p>
+      <h2 data-i18n="d-s2-h">2. Intellectual property</h2>
+      <p data-i18n="d-s2-b">All content on the Site, including text, design, logos, and images, belongs to hanjo or its licensors. You may not reproduce or redistribute it without permission, except as allowed by law.</p>
+      <h2 data-i18n="d-s3-h">3. Prohibited conduct</h2>
+      <p data-i18n="d-s3-b">You may not interfere with the operation of the Site, attempt unauthorized access, submit false or misleading information through our forms, or use the Site to send spam.</p>
+      <h2 data-i18n="d-s4-h">4. Disclaimer</h2>
+      <p data-i18n="d-s4-b">The Site is provided as is. While we aim to keep information accurate and current, we make no warranties about completeness or accuracy, and we are not liable for damages arising from use of the Site to the extent permitted by law. Information on the Site is general and does not constitute a guarantee of specific results.</p>
+      <h2 data-i18n="d-s5-h">5. External links</h2>
+      <p data-i18n="d-s5-b">The Site may link to external websites. We are not responsible for their content or practices.</p>
+      <h2 data-i18n="d-s6-h">6. Changes</h2>
+      <p data-i18n="d-s6-b">We may update these terms at any time. Continued use of the Site after changes means you accept the updated terms.</p>
+      <h2 data-i18n="d-s7-h">7. Governing law</h2>
+      <p data-i18n="d-s7-b">These terms are governed by the laws of the State of California, USA.</p>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <a href="/about/" data-i18n="footer-about">About Us</a>
+        <a href="/terms/" data-i18n="footer-terms">Terms of Use</a>
+        <a href="/privacy/" data-i18n="footer-privacy">Privacy Policy</a>
+        <a href="mailto:kei.nakayama@hanjo.ai">kei.nakayama@hanjo.ai</a>
+        <span data-i18n="footer-copy">© 2026 hanjo · Los Angeles</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      "en": {
+            "lang-toggle": "JP",
+            "nav-cta": "Free consultation <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "crumb": "← Back to top",
+            "footer-about": "About Us",
+            "footer-terms": "Terms of Use",
+            "footer-privacy": "Privacy Policy",
+            "footer-copy": "© 2026 hanjo · Los Angeles",
+            "d-h1": "Terms of Use",
+            "d-intro-1": "These terms apply to your use of the hanjo.ai website (the Site), operated by hanjo (we, us). By using the Site, you agree to these terms.",
+            "d-s1-h": "1. Use of the Site",
+            "d-s1-b": "The Site provides information about our services and a way to contact us. You may use the Site only for lawful purposes.",
+            "d-s2-h": "2. Intellectual property",
+            "d-s2-b": "All content on the Site, including text, design, logos, and images, belongs to hanjo or its licensors. You may not reproduce or redistribute it without permission, except as allowed by law.",
+            "d-s3-h": "3. Prohibited conduct",
+            "d-s3-b": "You may not interfere with the operation of the Site, attempt unauthorized access, submit false or misleading information through our forms, or use the Site to send spam.",
+            "d-s4-h": "4. Disclaimer",
+            "d-s4-b": "The Site is provided as is. While we aim to keep information accurate and current, we make no warranties about completeness or accuracy, and we are not liable for damages arising from use of the Site to the extent permitted by law. Information on the Site is general and does not constitute a guarantee of specific results.",
+            "d-s5-h": "5. External links",
+            "d-s5-b": "The Site may link to external websites. We are not responsible for their content or practices.",
+            "d-s6-h": "6. Changes",
+            "d-s6-b": "We may update these terms at any time. Continued use of the Site after changes means you accept the updated terms.",
+            "d-s7-h": "7. Governing law",
+            "d-s7-b": "These terms are governed by the laws of the State of California, USA."
+      },
+      "ja": {
+            "lang-toggle": "EN",
+            "nav-cta": "無料相談 <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "crumb": "← トップに戻る",
+            "footer-about": "会社概要",
+            "footer-terms": "利用規約",
+            "footer-privacy": "プライバシーポリシー",
+            "footer-copy": "© 2026 hanjo · ロサンゼルス",
+            "d-h1": "利用規約",
+            "d-intro-1": "本規約は、hanjo（以下「当方」）が運営するウェブサイト hanjo.ai（以下「本サイト」）の利用条件を定めるものです。本サイトをご利用いただくことで、本規約に同意いただいたものとみなします。",
+            "d-s1-h": "第1条（本サイトの利用）",
+            "d-s1-b": "本サイトは、当方のサービスに関する情報の提供と、お問い合わせの受付を目的としています。法令に反する目的での利用はできません。",
+            "d-s2-h": "第2条（知的財産権）",
+            "d-s2-b": "本サイトに掲載される文章、デザイン、ロゴ、画像などのコンテンツに関する権利は、当方または正当な権利者に帰属します。法令で認められる場合を除き、無断での複製・転載はご遠慮ください。",
+            "d-s3-h": "第3条（禁止事項）",
+            "d-s3-b": "本サイトの運営を妨げる行為、不正アクセス、フォームへの虚偽情報の入力、スパム行為などを禁止します。",
+            "d-s4-h": "第4条（免責事項）",
+            "d-s4-b": "本サイトの情報は現状のまま提供されます。正確性・最新性の維持に努めますが、その完全性を保証するものではなく、本サイトの利用により生じた損害について、法令の許す範囲で責任を負いません。掲載している実績や数値は、特定の成果をお約束するものではありません。",
+            "d-s5-h": "第5条（外部リンク）",
+            "d-s5-b": "本サイトから外部サイトへリンクする場合がありますが、リンク先の内容について当方は責任を負いません。",
+            "d-s6-h": "第6条（規約の変更）",
+            "d-s6-b": "本規約は必要に応じて変更されることがあります。変更後に本サイトを利用された場合、変更後の規約に同意いただいたものとみなします。",
+            "d-s7-h": "第7条（準拠法）",
+            "d-s7-b": "本規約は、アメリカ合衆国カリフォルニア州法に準拠します。"
+      }
+};
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('hanjo-lang', lang);
+      const strings = T[lang];
+      Object.keys(strings).forEach(key => {
+        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+          el.innerHTML = strings[key];
+        });
+      });
+    }
+    function toggleLang() {
+      const next = document.documentElement.lang === 'en' ? 'ja' : 'en';
+      applyLang(next);
+      let rest = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (rest === '') rest = '/';
+      history.replaceState(null, '', '/' + next + rest + location.hash);
+      prefixInternalLinks(next);
+    }
+    function prefixInternalLinks(lang) {
+      document.querySelectorAll('a[href^="/"]').forEach(a => {
+        let href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '') href = '/';
+        a.setAttribute('href', '/' + lang + href);
+      });
+    }
+
+    const langSeg = location.pathname.split('/')[1];
+    const langParam = new URLSearchParams(location.search).get('lang');
+    const forcedLang = (langSeg === 'ja' || langSeg === 'en') ? langSeg
+                     : (langParam === 'ja' || langParam === 'en') ? langParam : null;
+    const savedLang = localStorage.getItem('hanjo-lang');
+    if (forcedLang) applyLang(forcedLang);
+    else if (savedLang && savedLang !== 'en') applyLang(savedLang);
+    else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
+    if (langSeg === 'ja' || langSeg === 'en') prefixInternalLinks(langSeg);
+  </script>
+
+</body>
+</html>

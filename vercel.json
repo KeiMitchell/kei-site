@@ -63,6 +63,54 @@
     {
       "source": "/en/contact/",
       "destination": "/contact/index.html"
+    },
+    {
+      "source": "/ja/about",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/ja/about/",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/ja/terms",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/ja/terms/",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/ja/privacy",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/ja/privacy/",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/en/about",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/en/about/",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/en/terms",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/en/terms/",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/en/privacy",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/en/privacy/",
+      "destination": "/privacy/index.html"
     }
   ]
 }
