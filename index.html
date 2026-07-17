@@ -238,7 +238,33 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
     }
-    .line-row li { border-right: 1px solid var(--border); }
+    .line-row li { border-right: 1px solid var(--border); animation: fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .line-row li:nth-child(1) { animation-delay: 0.55s; }
+    .line-row li:nth-child(2) { animation-delay: 0.65s; }
+    .line-row li:nth-child(3) { animation-delay: 0.75s; }
+    .line-row li:nth-child(4) { animation-delay: 0.85s; }
+    .line-row-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 11px;
+      font-size: 18px; line-height: 1; margin-bottom: 10px;
+    }
+    .line-row li:nth-child(1) .line-row-icon { background: #EBF1ED; }
+    .line-row li:nth-child(2) .line-row-icon { background: #FBF1E1; }
+    .line-row li:nth-child(3) .line-row-icon { background: #FFF0EE; }
+    .line-row li:nth-child(4) .line-row-icon { background: #EDF1F7; }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0); }
+      25% { transform: rotate(-10deg) scale(1.1); }
+      75% { transform: rotate(8deg) scale(1.1); }
+    }
+    .line-row a { transition: transform 0.25s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .line-row a:hover { transform: translateY(-3px); }
+    .line-row a:hover .line-row-icon { animation: wiggle 0.5s ease; }
+    @media (prefers-reduced-motion: reduce) {
+      .line-row li { animation: none; }
+      .line-row a:hover { transform: none; }
+      .line-row a:hover .line-row-icon { animation: none; }
+    }
     .line-row li:last-child { border-right: none; }
     .line-row a {
       display: flex;
@@ -1193,6 +1219,14 @@
     .btn--light { color: var(--sage); }
     .s-dark { background: var(--sage); }
     .hero h1 strong, .page-hero h1 strong { color: var(--sage); }
+    .hero h1 strong {
+      text-decoration-line: underline;
+      text-decoration-style: wavy;
+      text-decoration-color: rgba(58,92,69,0.3);
+      text-decoration-thickness: 3px;
+      text-underline-offset: 12px;
+    }
+    .hero-rule { margin: 18px 0 26px; }
     .s-dark h2 strong, .cta-inner h2 strong { color: #ffffff; }
     .line-row-arrow { color: var(--sage); opacity: 0.8; }
     footer { background: var(--white); border-top: 1px solid var(--border); }
@@ -1239,7 +1273,6 @@
 
       <hr class="hero-rule" />
 
-      <p class="hero-byline" data-i18n="hero-byline">Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA</p>
 
       <p class="hero-desc" data-i18n="hero-desc">
         hanjo is a bilingual digital agency in Los Angeles. We design, build, and run the systems that bring your business new customers — <strong>and bring those customers back.</strong>
@@ -1256,6 +1289,7 @@
       <ul class="line-row" id="services">
         <li>
           <a href="/crm/">
+            <span class="line-row-icon" aria-hidden="true">💌</span>
             <strong class="line-row-name">hanjo CRM</strong>
             <span class="line-row-sub" data-i18n="svc-1-tag">Email &amp; SMS marketing</span>
             <span class="line-row-arrow">→</span>
@@ -1263,6 +1297,7 @@
         </li>
         <li>
           <a href="/web/">
+            <span class="line-row-icon" aria-hidden="true">🖥️</span>
             <strong class="line-row-name">hanjo Web</strong>
             <span class="line-row-sub" data-i18n="svc-2-tag">Websites &amp; online stores</span>
             <span class="line-row-arrow">→</span>
@@ -1270,6 +1305,7 @@
         </li>
         <li>
           <a href="https://growth.hanjo.ai/ads/">
+            <span class="line-row-icon" aria-hidden="true">📣</span>
             <strong class="line-row-name">hanjo Ads</strong>
             <span class="line-row-sub" data-i18n="svc-3-tag">Meta &amp; Google advertising</span>
             <span class="line-row-arrow">→</span>
@@ -1277,6 +1313,7 @@
         </li>
         <li>
           <a href="https://growth.hanjo.ai/">
+            <span class="line-row-icon" aria-hidden="true">🧲</span>
             <strong class="line-row-name">hanjo Recovery</strong>
             <span class="line-row-sub" data-i18n="svc-4-tag">Lost-booking &amp; lead recovery</span>
             <span class="line-row-arrow">→</span>
