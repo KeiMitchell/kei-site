@@ -216,18 +216,16 @@
 
     /* ── HERO ── */
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      align-items: stretch;
-      min-height: calc(100svh - 100px);
+      display: block;
+      min-height: 0;
     }
 
     .hero-left {
-      padding: clamp(32px, 4vw, 56px) clamp(36px, 4.5vw, 72px) clamp(24px, 3vw, 40px);
+      padding: clamp(48px, 6vw, 88px) clamp(36px, 4.5vw, 72px) clamp(36px, 4.5vw, 64px);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      max-width: 780px;
+      max-width: 880px;
       width: 100%;
     }
 
@@ -1217,27 +1215,6 @@
       </div>
     </div>
 
-    <!-- Email collage -->
-    <div class="hero-collage" aria-hidden="true">
-      <div class="hc-inner">
-      <div class="hc-col"><div class="ew-track ew-up" style="animation-duration:56s">
-        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(email-showcase/mira-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(email-showcase/mon-campaign.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(email-showcase/mira-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(email-showcase/andew-product.jpg)"></div>
-      </div></div>
-      <div class="hc-col"><div class="ew-track ew-down" style="animation-duration:62s">
-        <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(email-showcase/andew-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(email-showcase/mon-newspaper.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(email-showcase/mira-replen.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(email-showcase/andew-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(email-showcase/mon-newspaper.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(email-showcase/mira-replen.jpg)"></div>
-      </div></div>
-      </div>
-    </div>
   </div>
 
   <!-- SERVICES -->
@@ -1268,7 +1245,7 @@
           </a>
         </li>
         <li class="work-item">
-          <a class="work-item-link" href="/ads/">
+          <a class="work-item-link" href="https://growth.hanjo.ai/ads/">
             <h3 class="line-name">hanjo Ads</h3>
             <span class="line-sub" data-i18n="svc-3-tag">Meta &amp; Google advertising</span>
             <p data-i18n="svc-3-p">Ad spend measured in orders and bookings, not clicks — creative, landing pages, and tracking included.</p>
@@ -1276,7 +1253,7 @@
           </a>
         </li>
         <li class="work-item">
-          <a class="work-item-link" href="/recovery/">
+          <a class="work-item-link" href="https://growth.hanjo.ai/">
             <h3 class="line-name">hanjo Recovery</h3>
             <span class="line-sub" data-i18n="svc-4-tag">Lost-booking &amp; lead recovery</span>
             <p data-i18n="svc-4-p">The customers who almost booked, brought back — SMS follow-up integrated with your booking system. Performance-based available.</p>
@@ -1284,125 +1261,6 @@
           </a>
         </li>
       </ul>
-    </div>
-  </div>
-
-  <!-- EMAIL SHOWCASE WALL -->
-  <div class="ew-section" id="work">
-    <div class="section">
-      <span class="label" data-reveal data-i18n="wall-label">What email actually does</span>
-      <h2 data-reveal data-i18n="wall-h2">Email is how a brand<br><span>turns a buyer into a regular.</span></h2>
-      <p class="ew-desc" data-reveal data-i18n="wall-desc">Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now — here's the journey we build to grow it.</p>
-    </div>
-
-    <!-- LIFECYCLE STRIP -->
-    <div class="lc-strip">
-      <div class="lc-stats">
-        <div class="lc-stat">
-          <div class="lc-stat-top"><span class="lc-dot lc-c0"></span><span data-i18n="lc-s0">Prospects</span></div>
-          <div class="lc-num" id="lc-n0">0</div>
-        </div>
-        <div class="lc-stat">
-          <div class="lc-stat-top"><span class="lc-dot lc-c1"></span><span data-i18n="lc-s1">First order</span></div>
-          <div class="lc-num" id="lc-n1">0</div>
-        </div>
-        <div class="lc-stat">
-          <div class="lc-stat-top"><span class="lc-dot lc-c2"></span><span data-i18n="lc-s2">Repeat buyers</span></div>
-          <div class="lc-num" id="lc-n2">0</div>
-        </div>
-      </div>
-      <div class="lc-board" id="lc-board" aria-hidden="true">
-        <span class="lc-sim-tag" data-i18n="lc-sim">Live simulation</span>
-        <span class="lc-zone-line" style="left:33.33%"></span>
-        <span class="lc-zone-line" style="left:66.66%"></span>
-        <div class="lc-zone-labels">
-          <span data-i18n="lc-z0">prospect</span><span data-i18n="lc-z1">first order</span><span data-i18n="lc-z2">repeat</span>
-        </div>
-      </div>
-      <p class="lc-sr">An animation showing customers moving from prospect to first-time buyer to repeat buyer, driven by email flows.</p>
-      <div class="lc-flows">
-        <div class="lc-flow" id="lc-f0w">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cf8a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <span data-i18n="lc-f0"><b>Welcome flow</b> <span class="lc-arrow">→ first order</span></span>
-        </div>
-        <div class="lc-flow" id="lc-f1w">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2f6f57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <span data-i18n="lc-f1"><b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span></span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- GAPS -->
-  <div class="s-white">
-    <div class="section">
-      <span class="label" data-reveal data-i18n="gaps-label">What we see constantly</span>
-      <h2 data-reveal data-i18n="gaps-h2">Three gaps that quietly<br><span>cost you customers every month.</span></h2>
-
-      <ul class="gap-list" data-reveal-stagger>
-        <li>
-          <span class="gap-num">01</span>
-          <span data-i18n="gap-1">Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.</span>
-        </li>
-        <li>
-          <span class="gap-num">02</span>
-          <span data-i18n="gap-2">Winback campaigns that go out weeks too late, after the customer has already moved on.</span>
-        </li>
-        <li>
-          <span class="gap-num">03</span>
-          <span data-i18n="gap-3">Cancellation save flows that don't exist, or send one generic email and give up.</span>
-        </li>
-      </ul>
-
-      <p class="callout" data-reveal data-i18n="gaps-callout">
-        These aren't edge cases. They show up at brands doing $1M and brands doing $10M.
-        <strong>Fixing them is usually worth more than your next month of ad spend.</strong>
-      </p>
-    </div>
-  </div>
-
-  <!-- CASE STUDY -->
-  <div class="s-dark">
-    <div class="section section--wide">
-      <span class="label label--dim" data-reveal data-i18n="case-label">Client result</span>
-      <h2 class="light" data-reveal data-i18n="case-h2">Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span></h2>
-
-      <div class="case-wrap" data-reveal-stagger>
-        <div class="case-box">
-          <span class="case-num" data-count="10" data-suffix="×">10×</span>
-          <span class="case-label" data-i18n="case-1-label">Active customers</span>
-          <span class="case-sub" data-i18n="case-1-sub">30 → 300 in 12 months</span>
-        </div>
-
-        <div class="case-box">
-          <span class="case-num" data-count="40" data-prefix="−" data-suffix="%">−40%</span>
-          <span class="case-label" data-i18n="case-2-label">Churn rate</span>
-          <span class="case-sub" data-i18n="case-2-sub">15% → 9% monthly churn</span>
-        </div>
-
-        <div class="chart-box" id="growthChart">
-          <div class="growth-bars">
-            <div class="growth-bar-fill" data-h="10%"></div>
-            <div class="growth-bar-fill" data-h="15%"></div>
-            <div class="growth-bar-fill" data-h="21%"></div>
-            <div class="growth-bar-fill" data-h="28%"></div>
-            <div class="growth-bar-fill" data-h="36%"></div>
-            <div class="growth-bar-fill" data-h="45%"></div>
-            <div class="growth-bar-fill" data-h="54%"></div>
-            <div class="growth-bar-fill" data-h="65%"></div>
-            <div class="growth-bar-fill" data-h="75%"></div>
-            <div class="growth-bar-fill" data-h="85%"></div>
-            <div class="growth-bar-fill" data-h="93%"></div>
-            <div class="growth-bar-fill" data-h="100%"></div>
-          </div>
-          <p class="chart-caption" data-i18n="chart-caption">Monthly active customers · 30 → 300</p>
-        </div>
-
-        <div class="case-box case-story">
-          <span class="case-tag" data-i18n="case-tag">Japanese pet food · Shopify</span>
-          <p data-i18n="case-story">They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren't coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That's how 30 active customers became 300 in twelve months.</p>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -1463,14 +1321,14 @@
           <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-4-h">How long does a typical project take?</h3>
-            <p data-i18n="faq-4-p">A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.</p>
+            <p data-i18n="faq-4-p">An audit takes about a week. Landing pages and email flow builds typically launch in 3–5 weeks; larger sites and stores are scoped up front. Timelines mostly depend on how quickly you can provide feedback and brand assets.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="faq-5-h">What if I'm not on Klaviyo yet?</h3>
-            <p data-i18n="faq-5-p">We'll assess whether Klaviyo makes sense at your stage. If it does, we handle the migration. If you're not ready, we'll tell you what to do first so you don't waste a setup.</p>
+            <h3 data-i18n="faq-5-h">Can we work in Japanese?</h3>
+            <p data-i18n="faq-5-p">Yes — everything from the first call to weekly reports can be in Japanese, English, or both. Customer-facing work is written natively in either language.</p>
           </div>
         </li>
       </ul>
@@ -1629,9 +1487,9 @@
         'faq-2-h':    'What does it cost?',
         'faq-2-p':    'Email projects typically start from $1,500 – $3,000. Websites, stores, and ad management are scoped individually — you\'ll get a clear number on the call, no vague proposals, no surprises.',
         'faq-4-h':    'How long does a typical project take?',
-        'faq-4-p':    'A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.',
-        'faq-5-h':    'What if I\'m not on Klaviyo yet?',
-        'faq-5-p':    'We\'ll assess whether Klaviyo makes sense at your stage. If it does, we handle the migration. If you\'re not ready, we\'ll tell you what to do first so you don\'t waste a setup.',
+        'faq-4-p':    'An audit takes about a week. Landing pages and email flow builds typically launch in 3–5 weeks; larger sites and stores are scoped up front. Timelines mostly depend on how quickly you can provide feedback and brand assets.',
+        'faq-5-h':    'Can we work in Japanese?',
+        'faq-5-p':    'Yes — everything from the first call to weekly reports can be in Japanese, English, or both. Customer-facing work is written natively in either language.',
         'about-label': 'Who\'s behind hanjo',
         'about-h2':    'I tried to build<br><span>one of these brands.</span>',
         'about-p1':    'A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.\n            <strong>I couldn\'t build a product I was proud enough to sell.</strong>',
@@ -1721,9 +1579,9 @@
         'faq-2-h':    '費用はどれくらいですか？',
         'faq-2-p':    'メール関連のプロジェクトは通常 $1,500〜$3,000 から。ホームページ・EC・広告運用は内容に応じてお見積りします。通話中に明確な金額をお伝えします——曖昧な提案書も、後から追加される費用もありません。',
         'faq-4-h':    'プロジェクトの期間は？',
-        'faq-4-p':    'フルのフロー構築は、キックオフからローンチまで3〜5週間が目安です。診断は約1週間。スコープと、フィードバックやアセットを提供するスピードによって変わります。',
-        'faq-5-h':    '日本語でやり取りできますか？',
-        'faq-5-p':    'はい。ブランドの担当者との打ち合わせや日々のやり取りは日本語で進めます。米国の顧客に届けるメールコンテンツは英語で制作します。KlaviyoもShopifyも、慣れていない段階から一緒に進められます。',
+        'faq-4-p':    '診断は約1週間。LPやメールフロー構築は通常3〜5週間で公開します。規模の大きいサイトやECは、最初にスケジュールをご提示します。進行はフィードバックとアセット共有のスピードに大きく左右されます。',
+        'faq-5-h':    '日本語でお願いできますか？',
+        'faq-5-p':    'はい。最初のご相談から週次レポートまで、日本語・英語どちらでも進められます。お客様向けのコンテンツも、それぞれの言語でネイティブに制作します。',
         'about-label': 'hanjoについて',
         'about-h2':    '自分でも一度、<br><span>こういうブランドを作ろうとした。</span>',
         'about-p1':    '数年前、日本でミールキットブランドを始めようとしました。どれだけ大変かを肌で感じるところまでは進みました。仕入れ、パッケージング、物流——最初の1件を届けるまでに解決しなければならない問題の量。<strong>自信を持って売れるプロダクトが、最終的には作れませんでした。</strong>',

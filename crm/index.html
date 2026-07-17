@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hanjo CRM · Email & SMS Marketing — Los Angeles</title>
+  <title>hanjo CRM · Klaviyo Email &amp; SMS Marketing — Los Angeles</title>
   <link rel="icon" type="image/svg+xml" href="/hanjo-logo.svg" />
 
   <!-- Google Analytics -->
@@ -15,12 +15,21 @@
     gtag('config', 'G-JLHW59CHY6');
   </script>
 
-  <meta name="description" content="hanjo CRM: full-service Klaviyo email & SMS marketing. Flows, campaigns, popups, churn saves, SMS programs — EN/JA. Projects from $1,500." />
+  <!-- SEO -->
+  <meta name="description" content="Klaviyo retention specialist for DTC brands on Shopify. I write the copy, design the emails, and build the flows. Projects from $1,500." />
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://hanjo.ai/crm/" />
-  <meta property="og:title" content="hanjo CRM · Email & SMS Marketing — Los Angeles" />
-  <meta property="og:description" content="hanjo CRM: full-service Klaviyo email & SMS marketing. Flows, campaigns, popups, churn saves, SMS programs — EN/JA. Projects from $1,500." />
+  <meta property="og:title" content="hanjo CRM · Klaviyo Email &amp; SMS Marketing — Los Angeles" />
+  <meta property="og:description" content="Klaviyo retention specialist for DTC brands on Shopify. I write the copy, design the emails, and build the flows. Projects from $1,500." />
   <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="hanjo CRM · Klaviyo Email &amp; SMS Marketing — Los Angeles" />
+  <meta name="twitter:description" content="Klaviyo retention specialist for DTC brands on Shopify. I write the copy, design the emails, and build the flows. Projects from $1,500." />
+  <meta name="twitter:image" content="https://hanjo.ai/kei.JPG" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,6 +37,7 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
       --bg:      #f5f2ec;
       --white:   #ffffff;
@@ -35,112 +45,1084 @@
       --muted:   rgba(44,62,55,0.72);
       --faint:   rgba(44,62,55,0.46);
       --border:  rgba(44,62,55,0.12);
+      --shadow:  0 1px 4px rgba(44,62,55,0.06), 0 8px 28px rgba(44,62,55,0.05);
       --radius:  14px;
       --radius-sm: 100px;
       --max:     700px;
+      --wide:    1060px;
     }
+
     html { scroll-behavior: smooth; }
+
     body {
-      background: var(--bg); color: var(--ink);
+      background: var(--bg);
+      color: var(--ink);
       font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 16px; line-height: 1.6;
-      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
-    [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    /* Scroll-reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
     [data-reveal].revealed { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { [data-reveal] { transition: none !important; opacity: 1 !important; transform: none !important; } }
-    .announce { background: var(--ink); color: rgba(245,242,236,0.65); text-align: center; font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+
+    [data-reveal-stagger] > * {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    [data-reveal-stagger].revealed > *:nth-child(1) { transition-delay: 0.00s; }
+    [data-reveal-stagger].revealed > *:nth-child(2) { transition-delay: 0.07s; }
+    [data-reveal-stagger].revealed > *:nth-child(3) { transition-delay: 0.14s; }
+    [data-reveal-stagger].revealed > *:nth-child(4) { transition-delay: 0.21s; }
+    [data-reveal-stagger].revealed > *:nth-child(5) { transition-delay: 0.28s; }
+    [data-reveal-stagger].revealed > *:nth-child(6) { transition-delay: 0.35s; }
+    [data-reveal-stagger].revealed > * { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal],
+      [data-reveal-stagger] > *,
+      .hero h1, .hero-byline, .hero-desc, .hero-actions,
+      .hero-rule, .hero-stats, nav {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 22px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--ink); }
+    .line-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: rgba(44,62,55,0.06); border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px; margin-bottom: 16px; }
+    html[lang="ja"] .crumb, html[lang="ja"] .line-tag { font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ── ANNOUNCE BAR ── */
+    .announce {
+      background: var(--ink);
+      color: rgba(245,242,236,0.65);
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      padding: 9px 20px;
+      line-height: 1.4;
+    }
     .announce strong { color: var(--bg); font-weight: 500; }
-    nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); animation: fadeIn 0.5s ease both; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
-    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
-    .nav-right { display: flex; align-items: center; gap: 20px; }
-    .nav-avail { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--faint); letter-spacing: 0.02em; }
-    .avail-dot { width: 6px; height: 6px; background: #52a46a; border-radius: 50%; flex-shrink: 0; animation: pulse 2.5s ease-in-out infinite; }
-    .lang-toggle { background: none; border: 1px solid var(--border); border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 500; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
-    .lang-toggle:hover { color: var(--ink); border-color: rgba(44,62,55,0.3); background: rgba(44,62,55,0.04); }
-    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--bg); background: var(--ink); text-decoration: none; padding: 9px 18px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.2s; letter-spacing: 0.01em; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      animation: fadeIn 0.5s ease both;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px clamp(36px, 4.5vw, 72px);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-avail {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--faint);
+      letter-spacing: 0.02em;
+    }
+
+    .avail-dot {
+      width: 6px;
+      height: 6px;
+      background: #52a46a;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .lang-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 5px 13px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--faint);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      transition: color 0.2s, border-color 0.2s, background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+      font-family: inherit;
+    }
+    .lang-toggle:hover {
+      color: var(--ink);
+      border-color: rgba(44,62,55,0.3);
+      background: rgba(44,62,55,0.04);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--bg);
+      background: var(--ink);
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.01em;
+    }
     .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
+    .nav-cta svg { transition: transform 0.2s; }
+    .nav-cta:hover svg { transform: translateX(2px); }
+
+    /* ── SECTION WRAPPERS ── */
     .s-white { background: var(--white); }
     .s-dark  { background: var(--ink); }
-    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
-    .label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
-    .label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--border); flex-shrink: 0; }
-    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 40px; }
-    h2 span { display: block; font-weight: 700; font-style: italic; }
-    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 26px; letter-spacing: 0.03em; transition: color 0.2s; }
-    .crumb:hover { color: var(--ink); }
-    .page-hero .section { padding: 56px 24px 64px; }
-    .line-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: rgba(44,62,55,0.06); border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px; margin-bottom: 18px; animation: fadeUp 0.7s 0.05s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .page-hero h1 { text-wrap: balance; font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5.4vw, 58px); font-weight: 600; line-height: 1.06; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 22px; animation: fadeUp 0.8s 0.1s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .page-hero h1 strong { font-weight: 600; font-style: italic; display: block; }
-    .lead { text-wrap: pretty; font-size: 16.5px; font-weight: 300; line-height: 1.7; color: var(--muted); max-width: 560px; margin-bottom: 30px; animation: fadeUp 0.7s 0.25s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; padding: 13px 26px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: stretch;
+      min-height: calc(100svh - 100px);
+    }
+
+    .hero-left {
+      padding: clamp(32px, 4vw, 56px) clamp(36px, 4.5vw, 72px) clamp(24px, 3vw, 40px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 780px;
+      width: 100%;
+    }
+
+    .hero-rule {
+      border: none;
+      border-top: 1px solid rgba(44,62,55,0.28);
+      width: 64px;
+      margin: 18px 0 0;
+      animation: fadeUp 0.7s 0.25s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+
+    .hero-stats {
+      margin-top: clamp(20px, 2.6vw, 32px);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      animation: fadeUp 0.7s 0.6s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .hstat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 14px 16px 0 0;
+      border-right: 1px solid var(--border);
+    }
+    .hstat + .hstat { padding-left: 16px; }
+    .hstat:last-child { border-right: none; padding-right: 0; }
+    .hstat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1;
+      color: #b06f24;
+      font-variant-numeric: tabular-nums;
+    }
+    .hstat-txt { display: flex; flex-direction: column; gap: 1px; }
+    .hstat-label { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .hstat-sub { font-size: 12px; font-weight: 300; color: var(--muted); }
+
+    .hero-collage {
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .hc-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      gap: 24px;
+      padding: 0 28px;
+      justify-content: center;
+    }
+    .hc-col { flex: 0 1 46%; max-width: 300px; min-width: 0; }
+    .hc-col:first-child { margin-top: -30px; }
+    .hc-col:last-child { margin-top: -76px; }
+    .hero-collage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to bottom, var(--bg) 0%, rgba(245,242,236,0) 14%, rgba(245,242,236,0) 86%, var(--bg) 100%);
+    }
+    .hero-collage:hover .ew-track { animation-play-state: paused; }
+
+    @media (min-width: 881px) and (max-height: 830px) {
+      .hero { min-height: 0; }
+      .hero-left { padding-top: 22px; padding-bottom: 16px; }
+      .hero h1 { font-size: clamp(34px, 3.4vw, 44px); }
+      .hero-desc { font-size: 15.5px; margin-bottom: 20px; }
+      .hero-byline { margin-bottom: 13px; }
+      .hero-rule { margin-top: 14px; }
+      .hero-stats { margin-top: 13px; }
+      .hstat { padding-top: 11px; }
+      .hstat-num { font-size: 26px; }
+      .hstat-sub { font-size: 11px; }
+    }
+
+    .hero h1 {
+      text-wrap: balance;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 4.9vw, 64px);
+      font-weight: 600;
+      line-height: 1.04;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 6px;
+      animation: fadeUp 0.8s 0.2s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .hero h1 strong { font-weight: 600; font-style: italic; display: block; }
+
+    .hero-byline {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-top: 12px;
+      margin-bottom: 22px;
+      animation: fadeUp 0.7s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+
+    .hero-desc {
+      text-wrap: pretty;
+      font-size: 16.5px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .hero-desc strong { color: var(--ink); font-weight: 500; }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 11px;
+      animation: fadeUp 0.7s 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
     .btn svg { transition: transform 0.2s; }
     .btn:hover svg { transform: translateX(3px); }
+
     .btn--dark { color: var(--bg); background: var(--ink); }
     .btn--dark:hover { opacity: 0.82; transform: translateY(-1px); }
+
     .btn--light { color: var(--ink); background: var(--bg); }
     .btn--light:hover { background: #ffffff; transform: translateY(-1px); }
-    .btn-note { font-size: 12px; font-weight: 300; color: var(--muted); letter-spacing: 0.02em; }
-    .inc-list { list-style: none; margin-bottom: 32px; }
-    .inc-list li { display: flex; gap: 22px; padding: 22px 0; border-top: 1px solid var(--border); }
-    .inc-list li:last-child { border-bottom: 1px solid var(--border); }
-    .inc-num { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: rgba(44,62,55,0.26); padding-top: 5px; min-width: 20px; flex-shrink: 0; }
-    .inc-list h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.01em; }
-    .inc-list p { font-size: 14.5px; font-weight: 300; color: var(--muted); line-height: 1.65; }
-    .callout { font-size: 15px; font-weight: 300; line-height: 1.68; color: var(--muted); padding: 20px 26px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); }
+
+    .btn-note {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-seework {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .hero-seework:hover { opacity: 0.75; }
+    .seework-chevron { animation: seeworkBounce 1.9s ease-in-out infinite; }
+    .hero-seework:hover .seework-chevron { animation-play-state: paused; transform: translateY(2px); }
+    @keyframes seeworkBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+    @media (prefers-reduced-motion: reduce) { .seework-chevron { animation: none; } }
+
+    /* ── SHARED SECTION ── */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 88px 24px;
+    }
+    .section--wide {
+      max-width: var(--wide);
+      padding: 88px 40px;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .label--dim {
+      color: rgba(245,242,236,0.4);
+    }
+    .label--dim::before { background: rgba(245,242,236,0.18); }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 44px;
+    }
+    h2 span { display: block; font-weight: 700; font-style: italic; }
+    h2.light { color: rgba(245,242,236,0.94); }
+
+    .callout {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.68;
+      color: var(--muted);
+      padding: 20px 26px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
     .callout strong { color: var(--ink); font-weight: 600; }
-    .callout a { color: var(--ink); font-weight: 500; }
-    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; }
-    .step { display: flex; gap: 26px; padding: 26px 30px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); align-items: flex-start; }
-    .step-num { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: rgba(44,62,55,0.26); padding-top: 3px; min-width: 20px; flex-shrink: 0; }
-    .step h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.01em; }
-    .step p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.62; }
-    .cta-inner { max-width: var(--max); margin: 0 auto; padding: 88px 24px 104px; }
-    .cta-inner h2 { font-size: clamp(30px, 5vw, 48px); color: rgba(245,242,236,0.9); margin-bottom: 22px; }
+
+    /* ── GAP LIST ── */
+    .gap-list { list-style: none; margin-bottom: 32px; }
+    .gap-list li {
+      display: flex;
+      gap: 22px;
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .gap-list li:last-child { border-bottom: 1px solid var(--border); }
+    .gap-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(44,62,55,0.26);
+      padding-top: 4px;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── CASE STUDY ── */
+    .case-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .case-box {
+      border: 1px solid rgba(245,242,236,0.11);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+    }
+
+    .case-num {
+      display: block;
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: rgba(245,242,236,0.94);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .case-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(245,242,236,0.65);
+      margin-bottom: 3px;
+    }
+
+    .case-sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,242,236,0.36);
+    }
+
+    .case-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(245,242,236,0.36);
+      border: 1px solid rgba(245,242,236,0.13);
+      border-radius: 99px;
+      padding: 4px 11px;
+      margin-bottom: 18px;
+    }
+
+    .case-story p {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(245,242,236,0.6);
+      line-height: 1.75;
+    }
+
+    /* Growth chart */
+    .chart-box {
+      border: 1px solid rgba(245,242,236,0.11);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .growth-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      height: 72px;
+      margin-bottom: 14px;
+    }
+
+    .growth-bar-fill {
+      flex: 1;
+      border-radius: 3px 3px 0 0;
+      height: 0;
+      background: rgba(245,242,236,0.9);
+      transition: height 0.9s cubic-bezier(0.34,1.08,0.64,1);
+    }
+    .growth-bar-fill:nth-child(1)  { opacity: 0.12; transition-delay: 0.00s; }
+    .growth-bar-fill:nth-child(2)  { opacity: 0.19; transition-delay: 0.05s; }
+    .growth-bar-fill:nth-child(3)  { opacity: 0.27; transition-delay: 0.10s; }
+    .growth-bar-fill:nth-child(4)  { opacity: 0.35; transition-delay: 0.15s; }
+    .growth-bar-fill:nth-child(5)  { opacity: 0.43; transition-delay: 0.20s; }
+    .growth-bar-fill:nth-child(6)  { opacity: 0.52; transition-delay: 0.25s; }
+    .growth-bar-fill:nth-child(7)  { opacity: 0.61; transition-delay: 0.30s; }
+    .growth-bar-fill:nth-child(8)  { opacity: 0.70; transition-delay: 0.35s; }
+    .growth-bar-fill:nth-child(9)  { opacity: 0.79; transition-delay: 0.40s; }
+    .growth-bar-fill:nth-child(10) { opacity: 0.87; transition-delay: 0.45s; }
+    .growth-bar-fill:nth-child(11) { opacity: 0.93; transition-delay: 0.50s; }
+    .growth-bar-fill:nth-child(12) { opacity: 1.00; transition-delay: 0.55s; }
+
+    .chart-caption {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(245,242,236,0.32);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-top: auto;
+    }
+
+    /* ── WORK GRID ── */
+    .work-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .work-item {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 26px 26px;
+      border: 1px solid var(--border);
+    }
+
+    .work-item h3 {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 9px;
+    }
+
+    .work-item p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    /* ── STEPS ── */
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+    .step {
+      display: flex;
+      gap: 26px;
+      padding: 26px 30px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(44,62,55,0.26);
+      padding-top: 3px;
+      min-width: 20px;
+      flex-shrink: 0;
+    }
+
+    .step h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .step p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 44px;
+    }
+
+    .about-photo-col { position: sticky; top: 94px; }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 1px solid var(--border);
+    }
+
+    .about-body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body p strong { color: var(--ink); font-weight: 500; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      padding: 30px 34px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .testimonial-quote {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-attr {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-attr-photo {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    .testimonial-attr-text {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--faint);
+      line-height: 1.5;
+    }
+
+    .testimonial-attr-name { color: var(--ink); font-weight: 600; }
+
+    /* ── CTA SECTION ── */
+    .cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 96px 40px 116px;
+    }
+
+    .cta-inner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: rgba(245,242,236,0.9);
+      margin-bottom: 22px;
+    }
     .cta-inner h2 strong { font-weight: 700; font-style: italic; display: block; color: #ffffff; }
-    .cta-inner > p { font-size: 16px; font-weight: 300; color: rgba(245,242,236,0.55); line-height: 1.72; margin-bottom: 40px; max-width: 460px; }
-    .cta-note-dark { display: block; margin-top: 14px; font-size: 12px; font-weight: 300; color: rgba(245,242,236,0.3); letter-spacing: 0.03em; }
-    footer { background: var(--ink); border-top: 1px solid rgba(245,242,236,0.09); }
-    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .cta-inner > p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(245,242,236,0.55);
+      line-height: 1.72;
+      margin-bottom: 44px;
+      max-width: 460px;
+    }
+
+    .cta-note-dark {
+      display: block;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(245,242,236,0.3);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(245,242,236,0.09);
+    }
+
+    .footer-inner {
+      max-width: var(--wide);
+      margin: 0 auto;
+      padding: 26px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
     .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
     .footer-logo img { filter: brightness(100); opacity: 0.45; }
-    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
-    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: rgba(245,242,236,0.38); text-decoration: none; }
+
+    .footer-meta {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-meta a, .footer-meta span {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      color: rgba(245,242,236,0.38);
+      text-decoration: none;
+    }
     .footer-meta a:hover { color: rgba(245,242,236,0.75); }
-    html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
-    html[lang="ja"] .page-hero h1, html[lang="ja"] h2, html[lang="ja"] .cta-inner h2 { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; line-height: 1.3; line-break: strict; }
-    html[lang="ja"] .page-hero h1 { font-size: clamp(28px, 4.4vw, 46px); }
-    html[lang="ja"] h2 { font-size: clamp(22px, 3vw, 34px); }
-    html[lang="ja"] .page-hero h1 strong, html[lang="ja"] h2 span, html[lang="ja"] .cta-inner h2 strong { font-style: normal; }
-    html[lang="ja"] .lead, html[lang="ja"] .callout, html[lang="ja"] .inc-list p, html[lang="ja"] .step p, html[lang="ja"] .cta-inner > p { font-family: 'Noto Sans JP', sans-serif; line-break: strict; overflow-wrap: break-word; }
-    html[lang="ja"] .lead { font-size: 15px; line-height: 2.0; letter-spacing: 0.02em; }
-    html[lang="ja"] .callout { font-size: 14px; line-height: 1.95; letter-spacing: 0.02em; }
-    html[lang="ja"] .inc-list p, html[lang="ja"] .step p { font-size: 13.5px; line-height: 1.9; letter-spacing: 0.02em; }
-    html[lang="ja"] .inc-list h3, html[lang="ja"] .step h3, html[lang="ja"] .btn, html[lang="ja"] .btn-note, html[lang="ja"] .cta-note-dark, html[lang="ja"] .label, html[lang="ja"] .crumb, html[lang="ja"] .nav-avail, html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span, html[lang="ja"] .announce { font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ── JAPANESE TYPOGRAPHY ── */
+    html[lang="ja"] body {
+      font-family: 'Noto Sans JP', -apple-system, sans-serif;
+      line-height: 1.8;
+    }
+
+    html[lang="ja"] .hero h1,
+    html[lang="ja"] h2,
+    html[lang="ja"] .cta-inner h2 {
+      font-family: 'Shippori Mincho B1', serif;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+    }
+
+    html[lang="ja"] .hero h1 strong,
+    html[lang="ja"] h2 span,
+    html[lang="ja"] .cta-inner h2 strong {
+      font-style: normal;
+    }
+
+    html[lang="ja"] .hero-desc {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .about-body p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.1;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .callout {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      line-height: 1.95;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .gap-list li {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .step h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .step p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .work-item h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .work-item p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .testimonial-quote {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .case-story p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .cta-inner > p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .label {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.12em;
+    }
+
+
+    html[lang="ja"] .hero-byline {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.06em;
+    }
+
+    html[lang="ja"] .btn {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .btn-note,
+    html[lang="ja"] .cta-note-dark {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+
+
+    html[lang="ja"] .case-label {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .case-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .case-tag {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .chart-caption {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .nav-avail,
+    html[lang="ja"] .nav-cta,
+    html[lang="ja"] .footer-meta a,
+    html[lang="ja"] .footer-meta span {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .testimonial-attr-text {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ── JAPANESE LAYOUT OPTIMIZATIONS ── */
+
+    /* Hero h1: reduce size so Japanese doesn't break mid-katakana-word */
+    html[lang="ja"] .hero h1 {
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.3;
+      line-break: strict;       /* prevents ー / small kana breaking off */
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    /* Section h2 */
+    html[lang="ja"] h2 {
+      font-size: clamp(22px, 3vw, 36px);
+      line-height: 1.3;
+      line-break: strict;
+    }
+
+    /* CTA h2 */
+    html[lang="ja"] .cta-inner h2 {
+      font-size: clamp(22px, 3.2vw, 38px);
+      line-break: strict;
+    }
+
+    /* Body text — prevent breaking inside katakana words */
+    html[lang="ja"] .hero-desc,
+    html[lang="ja"] .callout,
+    html[lang="ja"] .step p,
+    html[lang="ja"] .gap-list li,
+    html[lang="ja"] .about-body p,
+    html[lang="ja"] .case-story p,
+    html[lang="ja"] .cta-inner > p {
+      line-break: strict;
+      overflow-wrap: break-word;
+    }
+
+    /* Proof card labels — tighter for Japanese on narrow columns */
+
+    /* Mobile: hero single-column gets more breathing room */
+    @media (max-width: 880px) {
+      html[lang="ja"] .hero h1 {
+        font-size: clamp(30px, 7vw, 44px);
+      }
+      html[lang="ja"] h2 {
+        font-size: clamp(22px, 5vw, 32px);
+      }
+        }
+
+    @media (max-width: 560px) {
+      html[lang="ja"] .hero h1 {
+        font-size: clamp(28px, 8.5vw, 40px);
+        line-height: 1.4;
+      }
+      html[lang="ja"] h2 {
+        font-size: clamp(20px, 6vw, 28px);
+      }
+      html[lang="ja"] .cta-inner h2 {
+        font-size: clamp(22px, 7vw, 32px);
+      }
+      html[lang="ja"] .hero-desc { font-size: 14px; }
+      html[lang="ja"] .about-body p { font-size: 14px; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+      .nav-inner { padding: 15px 24px; }
+      .hero-left { max-width: none; padding: 48px 24px 44px; }
+      .hero-collage {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        height: 430px;
+        padding: 0 20px;
+      }
+      .hc-col:first-child { margin-top: -18px; }
+      .hc-col:last-child { margin-top: -52px; }
+
+      .section--wide { padding: 56px 24px; }
+      .case-wrap { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-photo-col { position: static; max-width: 160px; }
+      .cta-inner { padding: 80px 24px 96px; }
+      .footer-inner { padding: 22px 24px; }
+    }
+
     @media (max-width: 560px) {
       .nav-inner { padding: 13px 20px; }
       .nav-avail { display: none; }
-      .section { padding: 52px 20px; }
-      .page-hero .section { padding: 40px 20px 48px; }
+
+      .hero-left { padding: 28px 20px 24px; }
+      .hero h1 { font-size: 33px; }
+      .hero-collage { height: 340px; gap: 16px; }
+      .hstat { padding-top: 12px; }
+      .hstat-num { font-size: 22px; }
+      .hstat-label { font-size: 11px; }
+      .hstat-sub { display: none; }
+      .hero-byline { margin-bottom: 16px; }
+      .hero-desc { font-size: 15px; margin-bottom: 22px; }
+      .hero-desc { font-size: 15px; }
       .hero-actions .btn { width: 100%; justify-content: center; }
+
+      .section { padding: 52px 20px; }
+      .section--wide { padding: 52px 20px; }
+      h2 { margin-bottom: 32px; }
+
+
+      .work-grid { grid-template-columns: 1fr; }
       .step { padding: 20px 22px; }
-      .cta-inner { padding: 72px 20px 88px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; padding: 22px 24px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
       .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
-      html[lang="ja"] .page-hero h1 { font-size: clamp(26px, 7.5vw, 36px); line-height: 1.4; }
     }
-</style>
+    /* ── EMAIL SHOWCASE WALL ── */
+    .ew-section { background: var(--bg); overflow: hidden; padding-bottom: 64px; scroll-margin-top: 90px; }
+    .ew-section .section { padding-bottom: 4px; text-align: center; }
+    .ew-section .section .label { display: inline-flex; }
+    .ew-section .section .label::before { display: none; }
+    .ew-desc { margin-left: auto; margin-right: auto; }
+    .ew-desc { font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 480px; margin-top: 18px; }
+    .ew-track { display: flex; flex-direction: column; gap: 22px; will-change: transform; }
+    .ew-up   { animation: ewUp linear infinite; }
+    .ew-down { animation: ewDown linear infinite; }
+    @keyframes ewUp   { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+    @keyframes ewDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+    .ew-card { width: 100%; background-size: cover; background-position: top center; background-repeat: no-repeat; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
+    @media (prefers-reduced-motion: reduce) { .ew-up, .ew-down { animation: none; } }
+
+    /* ── LIFECYCLE STRIP ── */
+    .lc-strip { max-width: var(--max); margin: 34px auto 0; padding: 0 24px; }
+    .lc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .lc-stat { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; }
+    .lc-stat-top { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
+    .lc-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+    .lc-c0 { background: #b4ad9e; } .lc-c1 { background: #cf8a3c; } .lc-c2 { background: #2f6f57; }
+    .lc-num { font-size: 30px; font-weight: 500; line-height: 1; margin-top: 7px; font-variant-numeric: tabular-nums; }
+    .lc-board { position: relative; height: 210px; margin-top: 18px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .lc-sim-tag {
+      position: absolute;
+      top: 10px; right: 12px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      pointer-events: none;
+    }
+    .lc-zone-line { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--border); }
+    .lc-zone-labels { position: absolute; left: 0; right: 0; bottom: 12px; display: grid; grid-template-columns: repeat(3, 1fr); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); text-align: center; pointer-events: none; }
+    .lc-bead { position: absolute; width: 12px; height: 12px; border-radius: 50%; transition: left 0.9s cubic-bezier(0.4,0,0.2,1), top 0.9s cubic-bezier(0.4,0,0.2,1), background 0.6s, opacity 0.5s; }
+    .lc-flows { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .lc-flow { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--muted); padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: background 0.45s, border-color 0.45s; }
+    .lc-flow svg { flex: none; }
+    .lc-flow b { color: var(--ink); font-weight: 500; }
+    .lc-flow .lc-arrow { color: var(--faint); }
+    .lc-flow.lc-fire { background: var(--white); border-color: rgba(44,62,55,0.30); }
+    .lc-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 560px) { .lc-flows { grid-template-columns: 1fr; } .lc-num { font-size: 24px; } .lc-stat { padding: 13px 14px; } .lc-board { height: 186px; } }
+    @media (prefers-reduced-motion: reduce) { .lc-bead { transition: none; } }
+  </style>
 </head>
 <body>
 
+  <noscript>
+    <style>
+      [data-reveal], [data-reveal-stagger] > * { opacity: 1; transform: none; }
+    </style>
+  </noscript>
+
+  <!-- ANNOUNCE (scrolls away) + NAV (sticky) -->
   <div class="announce" data-i18n="announce">
-    <strong>Now taking new clients.</strong> Free 30-min consultation — English or Japanese.
+    <strong>Now taking new clients.</strong> Free 30-min Klaviyo audit.
   </div>
   <nav>
     <div class="nav-inner">
@@ -161,126 +1143,379 @@
     </div>
   </nav>
 
-  <div class="page-hero">
-    <div class="section">
-      <a href="/#services" class="crumb" data-i18n="crumb">← All services</a><br>
-      <span class="line-tag">hanjo CRM</span>
-      <h1 data-i18n="ph-h1">Email & SMS that turn one-time buyers<strong>into regulars.</strong></h1>
-      <p class="lead" data-i18n="ph-lead">hanjo CRM is our flagship service. Every customer who leaves, you paid to acquire — then you pay again to replace them. We build the Klaviyo flows and SMS programs that bring them back instead: strategy, copy, design, and build, full-service.</p>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div>
+        <a href="/#services" class="crumb" data-i18n="crumb">← All services</a>
+      </div>
+      <span style="align-self: flex-start;" class="line-tag">hanjo CRM</span>
+      <h1 data-i18n="hero-h1">
+        You work hard<br>to bring customers in.
+        <strong>Klaviyo should keep them.</strong>
+      </h1>
+
+      <hr class="hero-rule" />
+
+      <p class="hero-byline" data-i18n="hero-byline">Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA</p>
+
+      <p class="hero-desc" data-i18n="hero-desc">
+        Every customer who leaves, you paid to acquire — then you pay again to replace them. I build the Klaviyo flows that bring them back instead, tuned for DTC brands on Shopify.
+        <strong>Fix retention, and acquisition finally starts to compound.</strong>
+      </p>
+
       <div class="hero-actions">
         <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--dark" data-i18n="hero-cta">
           Book a free 30-min call
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <span class="btn-note" data-i18n="hero-note">No commitment — English or Japanese.</span>
+        <span class="btn-note" data-i18n="hero-cta-note">No commitment — I'll tell you exactly what I'd fix first.</span>
+        <a href="#work" class="hero-seework">
+          <span data-i18n="hero-see-work">See how the journey works</span>
+          <svg class="seework-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <strong class="hstat-num">$10–30k</strong>
+          <span class="hstat-txt">
+            <span class="hstat-label" data-i18n="proof-1-label">Revenue recovered / month</span>
+            <span class="hstat-sub" data-i18n="proof-1-sub">Redirected back into acquisition</span>
+          </span>
+        </div>
+        <div class="hstat">
+          <strong class="hstat-num" data-count="10" data-suffix="×">10×</strong>
+          <span class="hstat-txt">
+            <span class="hstat-label" data-i18n="proof-2-label">Active customers</span>
+            <span class="hstat-sub" data-i18n="proof-2-sub">30 → 300 in 12 months — pet food brand</span>
+          </span>
+        </div>
+        <div class="hstat">
+          <strong class="hstat-num" data-count="40" data-prefix="−" data-suffix="%">−40%</strong>
+          <span class="hstat-txt">
+            <span class="hstat-label" data-i18n="proof-3-label">Churn reduction</span>
+            <span class="hstat-sub" data-i18n="proof-3-sub">15% → 9% monthly churn</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email collage -->
+    <div class="hero-collage" aria-hidden="true">
+      <div class="hc-inner">
+      <div class="hc-col"><div class="ew-track ew-up" style="animation-duration:56s">
+        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(/email-showcase/mon-campaign.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(/email-showcase/mira-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(/email-showcase/andew-product.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(/email-showcase/mon-campaign.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(/email-showcase/mira-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(/email-showcase/andew-product.jpg)"></div>
+      </div></div>
+      <div class="hc-col"><div class="ew-track ew-down" style="animation-duration:62s">
+        <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(/email-showcase/andew-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(/email-showcase/mon-newspaper.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(/email-showcase/mira-replen.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(/email-showcase/andew-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(/email-showcase/mon-newspaper.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(/email-showcase/mira-replen.jpg)"></div>
+      </div></div>
       </div>
     </div>
   </div>
 
-  <div class="s-white">
+  <!-- EMAIL SHOWCASE WALL -->
+  <div class="ew-section" id="work">
     <div class="section">
-      <span class="label" data-reveal data-i18n="inc-label">What you get</span>
-      <h2 data-reveal data-i18n="inc-h2">The full retention engine,<br><span>not just a welcome email.</span></h2>
-      <ul class="inc-list">
-        <li>
-          <span class="inc-num">01</span>
-          <div>
-            <h3 data-i18n="inc-1-h">Flow audit & rebuild</h3>
-            <p data-i18n="inc-1-p">A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">02</span>
-          <div>
-            <h3 data-i18n="inc-2-h">Customer lifecycle flows</h3>
-            <p data-i18n="inc-2-p">Post-purchase, replenishment, skip/pause saves, reactivation — the full arc, not just onboarding.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">03</span>
-          <div>
-            <h3 data-i18n="inc-3-h">Campaigns</h3>
-            <p data-i18n="inc-3-p">Regular sends your list actually wants: planned, written, designed, and reported on.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">04</span>
-          <div>
-            <h3 data-i18n="inc-4-h">Popups & list growth</h3>
-            <p data-i18n="inc-4-p">Welcome offers, exit intent, mobile-first A/B testing — where most brands quietly leak list growth.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">05</span>
-          <div>
-            <h3 data-i18n="inc-5-h">Cancellation & churn saves</h3>
-            <p data-i18n="inc-5-p">Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">06</span>
-          <div>
-            <h3 data-i18n="inc-6-h">Segmentation & hygiene</h3>
-            <p data-i18n="inc-6-p">Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">07</span>
-          <div>
-            <h3 data-i18n="inc-7-h">SMS programs</h3>
-            <p data-i18n="inc-7-p">Booking recovery, replenishment nudges, and promotions by text — consent-based, TCPA-compliant, 10DLC handled.</p>
-          </div>
-        </li>
-      </ul>
-      <p class="callout" data-reveal data-i18n="proof">A Japanese pet food brand came in with 15% monthly churn and no win-back flows. Twelve months later: <strong>churn at 9%, and 30 active subscribers grown to 300.</strong> Klaviyo is our main platform; Mailchimp and Omnisend work too.</p>
+      <span class="label" data-reveal data-i18n="wall-label">What email actually does</span>
+      <h2 data-reveal data-i18n="wall-h2">Email is how a brand<br><span>turns a buyer into a regular.</span></h2>
+      <p class="ew-desc" data-reveal data-i18n="wall-desc">Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now — here's the journey I build to grow it.</p>
+    </div>
+
+    <!-- LIFECYCLE STRIP -->
+    <div class="lc-strip">
+      <div class="lc-stats">
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c0"></span><span data-i18n="lc-s0">Prospects</span></div>
+          <div class="lc-num" id="lc-n0">0</div>
+        </div>
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c1"></span><span data-i18n="lc-s1">First order</span></div>
+          <div class="lc-num" id="lc-n1">0</div>
+        </div>
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c2"></span><span data-i18n="lc-s2">Repeat buyers</span></div>
+          <div class="lc-num" id="lc-n2">0</div>
+        </div>
+      </div>
+      <div class="lc-board" id="lc-board" aria-hidden="true">
+        <span class="lc-sim-tag" data-i18n="lc-sim">Live simulation</span>
+        <span class="lc-zone-line" style="left:33.33%"></span>
+        <span class="lc-zone-line" style="left:66.66%"></span>
+        <div class="lc-zone-labels">
+          <span data-i18n="lc-z0">prospect</span><span data-i18n="lc-z1">first order</span><span data-i18n="lc-z2">repeat</span>
+        </div>
+      </div>
+      <p class="lc-sr">An animation showing customers moving from prospect to first-time buyer to repeat buyer, driven by email flows.</p>
+      <div class="lc-flows">
+        <div class="lc-flow" id="lc-f0w">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cf8a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-i18n="lc-f0"><b>Welcome flow</b> <span class="lc-arrow">→ first order</span></span>
+        </div>
+        <div class="lc-flow" id="lc-f1w">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2f6f57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-i18n="lc-f1"><b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span></span>
+        </div>
+      </div>
     </div>
   </div>
 
+  <!-- GAPS -->
+  <div class="s-white">
+    <div class="section">
+      <span class="label" data-reveal data-i18n="gaps-label">What I see constantly</span>
+      <h2 data-reveal data-i18n="gaps-h2">Three gaps that quietly<br><span>cost you customers every month.</span></h2>
+
+      <ul class="gap-list" data-reveal-stagger>
+        <li>
+          <span class="gap-num">01</span>
+          <span data-i18n="gap-1">Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.</span>
+        </li>
+        <li>
+          <span class="gap-num">02</span>
+          <span data-i18n="gap-2">Winback campaigns that go out weeks too late, after the customer has already moved on.</span>
+        </li>
+        <li>
+          <span class="gap-num">03</span>
+          <span data-i18n="gap-3">Cancellation save flows that don't exist, or send one generic email and give up.</span>
+        </li>
+      </ul>
+
+      <p class="callout" data-reveal data-i18n="gaps-callout">
+        These aren't edge cases. They show up at brands doing $1M and brands doing $10M.
+        <strong>Fixing them is usually worth more than your next month of ad spend.</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- CASE STUDY -->
+  <div class="s-dark">
+    <div class="section section--wide">
+      <span class="label label--dim" data-reveal data-i18n="case-label">Client result</span>
+      <h2 class="light" data-reveal data-i18n="case-h2">Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span></h2>
+
+      <div class="case-wrap" data-reveal-stagger>
+        <div class="case-box">
+          <span class="case-num" data-count="10" data-suffix="×">10×</span>
+          <span class="case-label" data-i18n="case-1-label">Active customers</span>
+          <span class="case-sub" data-i18n="case-1-sub">30 → 300 in 12 months</span>
+        </div>
+
+        <div class="case-box">
+          <span class="case-num" data-count="40" data-prefix="−" data-suffix="%">−40%</span>
+          <span class="case-label" data-i18n="case-2-label">Churn rate</span>
+          <span class="case-sub" data-i18n="case-2-sub">15% → 9% monthly churn</span>
+        </div>
+
+        <div class="chart-box" id="growthChart">
+          <div class="growth-bars">
+            <div class="growth-bar-fill" data-h="10%"></div>
+            <div class="growth-bar-fill" data-h="15%"></div>
+            <div class="growth-bar-fill" data-h="21%"></div>
+            <div class="growth-bar-fill" data-h="28%"></div>
+            <div class="growth-bar-fill" data-h="36%"></div>
+            <div class="growth-bar-fill" data-h="45%"></div>
+            <div class="growth-bar-fill" data-h="54%"></div>
+            <div class="growth-bar-fill" data-h="65%"></div>
+            <div class="growth-bar-fill" data-h="75%"></div>
+            <div class="growth-bar-fill" data-h="85%"></div>
+            <div class="growth-bar-fill" data-h="93%"></div>
+            <div class="growth-bar-fill" data-h="100%"></div>
+          </div>
+          <p class="chart-caption" data-i18n="chart-caption">Monthly active customers · 30 → 300</p>
+        </div>
+
+        <div class="case-box case-story">
+          <span class="case-tag" data-i18n="case-tag">Japanese pet food · Shopify</span>
+          <p data-i18n="case-story">They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren't coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That's how 30 active customers became 300 in twelve months.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I DO -->
+  <div class="s-white">
+    <div class="section section--wide">
+      <span class="label" data-reveal data-i18n="services-label">What I do</span>
+      <h2 data-reveal data-i18n="services-h2">Full-cycle Klaviyo,<br><span>built for DTC brands.</span></h2>
+
+      <p class="callout" style="margin-bottom: 28px;" data-reveal data-i18n="services-callout">
+        I write the copy, design the emails, and build the flows. You bring the brand assets — I handle everything else. <strong>Already on Klaviyo? Here's the work. Not yet? I'll help you decide if it's time — and handle the migration.</strong>
+      </p>
+
+      <ul class="work-grid" data-reveal-stagger>
+        <li class="work-item">
+          <h3 data-i18n="svc-1-h">Flow audit &amp; rebuild</h3>
+          <p data-i18n="svc-1-p">A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-2-h">Popup optimization</h3>
+          <p data-i18n="svc-2-p">Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-3-h">Customer lifecycle flows</h3>
+          <p data-i18n="svc-3-p">Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-4-h">Cancellation &amp; churn saves</h3>
+          <p data-i18n="svc-4-p">Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-5-h">Winback &amp; re-engagement</h3>
+          <p data-i18n="svc-5-p">Timed to customer behavior, not arbitrary day counts. The difference matters.</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-6-h">Segmentation &amp; list hygiene</h3>
+          <p data-i18n="svc-6-p">Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
   <div>
     <div class="section">
-      <span class="label" data-reveal data-i18n="how-label">How it works</span>
-      <h2 data-reveal data-i18n="how-h2">Simple to start.<br><span>No retainer required.</span></h2>
-      <ul class="steps">
+      <span class="label" data-reveal data-i18n="hiw-label">How it works</span>
+      <h2 data-reveal data-i18n="hiw-h2">Simple to start.<br><span>No retainer required.</span></h2>
+
+      <ul class="steps" data-reveal-stagger>
         <li class="step">
           <span class="step-num">01</span>
           <div>
-            <h3 data-i18n="how-1-h">Free call</h3>
-            <p data-i18n="how-1-p">Your current setup, what's working, where the gaps are. 20–30 minutes.</p>
+            <h3 data-i18n="step-1-h">Quick call</h3>
+            <p data-i18n="step-1-p">We talk through your current setup, what's working, and where the obvious gaps are. 20–30 minutes.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">02</span>
           <div>
-            <h3 data-i18n="how-2-h">Audit</h3>
-            <p data-i18n="how-2-p">We go through your account and tell you what's losing money and what we'd fix first — actual feedback, not a deck.</p>
+            <h3 data-i18n="step-2-h">I look at your current setup</h3>
+            <p data-i18n="step-2-p">Already on Klaviyo? I tell you what's working and what's losing money. Not yet? I tell you if moving over makes sense at your stage. Either way — no deck, no proposal, just actual feedback on what to do first.</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">03</span>
           <div>
-            <h3 data-i18n="how-3-h">Build</h3>
-            <p data-i18n="how-3-p">Flows and campaigns go live in 3–5 weeks. Project-based or ongoing after that.</p>
+            <h3 data-i18n="step-3-h">We decide if it makes sense</h3>
+            <p data-i18n="step-3-p">Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.</p>
           </div>
         </li>
       </ul>
-      <p class="callout" data-reveal data-i18n="price"><strong>Projects typically start from $1,500 – $3,000</strong> depending on scope. Clear number on the call — no vague proposals, no surprises.</p>
     </div>
   </div>
 
+  <!-- FAQ -->
+  <div class="s-white">
+    <div class="section">
+      <span class="label" data-reveal data-i18n="faq-label">Common questions</span>
+      <h2 data-reveal data-i18n="faq-h2">What founders<br><span>usually ask first.</span></h2>
+
+      <ul class="steps" data-reveal-stagger>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-1-h">Do you write the copy and design the emails?</h3>
+            <p data-i18n="faq-1-p">Yes — full-service. I write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and I handle the rest end-to-end.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-2-h">What does it cost?</h3>
+            <p data-i18n="faq-2-p">Projects typically start from $1,500 – $3,000 depending on scope. I'll give you a clear number on the call — no vague proposals, no surprises.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-4-h">How long does a typical project take?</h3>
+            <p data-i18n="faq-4-p">A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-5-h">What if I'm not on Klaviyo yet?</h3>
+            <p data-i18n="faq-5-p">I'll assess whether Klaviyo makes sense at your stage. If it does, I handle the migration. If you're not ready, I'll tell you what to do first so you don't waste a setup.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="s-white">
+    <div class="section section--wide">
+      <span class="label" data-reveal data-i18n="about-label">Why I do this</span>
+      <h2 data-reveal data-i18n="about-h2">I tried to build<br><span>one of these brands.</span></h2>
+
+      <div class="about-grid" data-reveal>
+        <div class="about-photo-col">
+          <img src="/kei.JPG" alt="Kei Nakayama" class="about-photo" />
+        </div>
+        <div class="about-body">
+          <p data-i18n="about-p1">
+            A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.
+            <strong>I couldn't build a product I was proud enough to sell.</strong>
+          </p>
+          <p data-i18n="about-p2">
+            That experience changed how I see the people I work with. The founders who do make it — who find something worth coming back to, build a brand around it, and keep showing up — I have a lot of respect for that.
+          </p>
+          <p data-i18n="about-p3">
+            What I do now is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That's where most Klaviyo setups quietly fall apart. Not because the brand isn't good enough.
+            <strong>Because the email infrastructure wasn't built to support how returning customers actually behave.</strong>
+          </p>
+          <p data-i18n="about-p4">
+            Most of the brands I work with have roots in Japan — the product, the founder, or the customer base. These brands often carry a distinct kind of customer relationship: high trust expectations, a more deliberate repurchase rhythm, a preference for depth over noise. Generic Klaviyo setups don't account for that. I build ones that do.
+          </p>
+          <p data-i18n="about-p5">
+            I work with founders who have already done the hard part. My job is to make sure their retention side is working as hard as they are.
+          </p>
+        </div>
+      </div>
+
+      <blockquote class="testimonial" data-reveal>
+        <p class="testimonial-quote" data-i18n="testimonial-quote">"Kei didn't come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth — not just short-term wins."</p>
+        <div class="testimonial-attr">
+          <img src="/moncheri-logo.png" alt="moncheri kitchen" class="testimonial-attr-photo" />
+          <span class="testimonial-attr-text">
+            <span class="testimonial-attr-name" data-i18n="testimonial-name">Brand Owner</span><br>
+            <span data-i18n="testimonial-brand">Japanese pet food · Shopify</span>
+          </span>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- CTA -->
   <div class="s-dark">
     <div class="cta-inner">
-      <h2 data-reveal data-i18n="cta-h2">Ready when you are.<strong>Let's talk about your project.</strong></h2>
-      <p data-reveal data-i18n="cta-p">A free 30-minute call, in English or Japanese. We'll tell you what we'd do first — no pitch, no proposal, no pressure.</p>
+      <h2 data-reveal data-i18n="cta-h2">
+        If you're spending on acquisition,
+        <strong>this is where most of it leaks.</strong>
+      </h2>
+      <p data-reveal data-i18n="cta-p">I'll look at what you've got — Klaviyo, another platform, or starting fresh — and tell you exactly where customers are leaving and what I'd fix first. No pitch, no proposal, no commitment required.</p>
       <div data-reveal>
         <a href="https://calendly.com/kei-nakayama-hanjo/30min" target="_blank" rel="noopener" class="btn btn--light" data-i18n="cta-btn">
           Book a free call
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <span class="cta-note-dark" data-i18n="cta-note">No commitment — just a conversation</span>
+        <span class="cta-note-dark" data-i18n="cta-note">No commitment — just a conversation about your setup</span>
       </div>
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
       <span class="footer-logo" aria-label="hanjo">
@@ -296,95 +1531,203 @@
   </footer>
 
   <script>
+    /* ── TRANSLATIONS ── */
     const T = {
-      "en": {
-            "crumb": "← All services",
-            "announce": "<strong>Now taking new clients.</strong> Free 30-min consultation — English or Japanese.",
-            "nav-avail": "Taking new clients",
-            "lang-toggle": "JP",
-            "nav-cta": "Book a call <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "hero-cta": "Book a free 30-min call <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "hero-note": "No commitment — English or Japanese.",
-            "inc-label": "What you get",
-            "how-label": "How it works",
-            "how-h2": "Simple to start.<br><span>No retainer required.</span>",
-            "cta-h2": "Ready when you are.<strong>Let's talk about your project.</strong>",
-            "cta-p": "A free 30-minute call, in English or Japanese. We'll tell you what we'd do first — no pitch, no proposal, no pressure.",
-            "cta-btn": "Book a free call <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "cta-note": "No commitment — just a conversation",
-            "footer-name": "Kei Nakayama",
-            "footer-location": "Los Angeles, CA",
-            "ph-h1": "Email & SMS that turn one-time buyers<strong>into regulars.</strong>",
-            "ph-lead": "hanjo CRM is our flagship service. Every customer who leaves, you paid to acquire — then you pay again to replace them. We build the Klaviyo flows and SMS programs that bring them back instead: strategy, copy, design, and build, full-service.",
-            "inc-h2": "The full retention engine,<br><span>not just a welcome email.</span>",
-            "proof": "A Japanese pet food brand came in with 15% monthly churn and no win-back flows. Twelve months later: <strong>churn at 9%, and 30 active subscribers grown to 300.</strong> Klaviyo is our main platform; Mailchimp and Omnisend work too.",
-            "price": "<strong>Projects typically start from $1,500 – $3,000</strong> depending on scope. Clear number on the call — no vague proposals, no surprises.",
-            "inc-1-h": "Flow audit & rebuild",
-            "inc-1-p": "A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.",
-            "inc-2-h": "Customer lifecycle flows",
-            "inc-2-p": "Post-purchase, replenishment, skip/pause saves, reactivation — the full arc, not just onboarding.",
-            "inc-3-h": "Campaigns",
-            "inc-3-p": "Regular sends your list actually wants: planned, written, designed, and reported on.",
-            "inc-4-h": "Popups & list growth",
-            "inc-4-p": "Welcome offers, exit intent, mobile-first A/B testing — where most brands quietly leak list growth.",
-            "inc-5-h": "Cancellation & churn saves",
-            "inc-5-p": "Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.",
-            "inc-6-h": "Segmentation & hygiene",
-            "inc-6-p": "Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.",
-            "inc-7-h": "SMS programs",
-            "inc-7-p": "Booking recovery, replenishment nudges, and promotions by text — consent-based, TCPA-compliant, 10DLC handled.",
-            "how-1-h": "Free call",
-            "how-1-p": "Your current setup, what's working, where the gaps are. 20–30 minutes.",
-            "how-2-h": "Audit",
-            "how-2-p": "We go through your account and tell you what's losing money and what we'd fix first — actual feedback, not a deck.",
-            "how-3-h": "Build",
-            "how-3-p": "Flows and campaigns go live in 3–5 weeks. Project-based or ongoing after that."
+      en: {
+        'crumb':            '← All services',
+        'announce':         '<strong>2 spots open.</strong> Free 30-min Klaviyo audit.',
+        'nav-avail':        '2 spots open',
+        'lang-toggle':      'JP',
+        'nav-cta':          'Book a call <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'chip-avail':       '2 spots open',
+        'hero-h1':          'You work hard<br>to bring customers in.\n        <strong>Klaviyo should keep them.</strong>',
+        'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA',
+        'hero-desc':        'Every customer who leaves, you paid to acquire — then you pay again to replace them. I build the Klaviyo flows that bring them back instead, tuned for DTC brands on Shopify.\n        <strong>Fix retention, and acquisition finally starts to compound.</strong>',
+        'hero-cta':         'Book a free 30-min call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'hero-cta-note':    'No commitment — I\'ll tell you exactly what I\'d fix first.',
+        'hero-see-work':    'See how the journey works',
+        'proof-1-label':    'Revenue recovered / month',
+        'proof-1-sub':      'Redirected back into acquisition',
+        'proof-2-label':    'Active customers',
+        'proof-2-sub':      '30 → 300 in 12 months — pet food brand',
+        'proof-3-label':    'Churn reduction',
+        'proof-3-sub':      '15% → 9% monthly churn',
+        'wall-label':       'What email actually does',
+        'wall-h2':          'Email is how a brand<br><span>turns a buyer into a regular.</span>',
+        'wall-desc':        'Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now — here\'s the journey I build to grow it.',
+        'lc-sim':           'Live simulation',
+        'lc-s0':            'Prospects',
+        'lc-s1':            'First order',
+        'lc-s2':            'Repeat buyers',
+        'lc-z0':            'prospect',
+        'lc-z1':            'first order',
+        'lc-z2':            'repeat',
+        'lc-f0':            '<b>Welcome flow</b> <span class="lc-arrow">→ first order</span>',
+        'lc-f1':            '<b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span>',
+        'gaps-label':       'What I see constantly',
+        'gaps-h2':          'Three gaps that quietly<br><span>cost you customers every month.</span>',
+        'gap-1':            'Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.',
+        'gap-2':            'Winback campaigns that go out weeks too late, after the customer has already moved on.',
+        'gap-3':            'Cancellation save flows that don\'t exist, or send one generic email and give up.',
+        'gaps-callout':     'These aren\'t edge cases. They show up at brands doing $1M and brands doing $10M.\n        <strong>Fixing them is usually worth more than your next month of ad spend.</strong>',
+        'case-label':       'Client result',
+        'case-h2':          'Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span>',
+        'case-1-label':     'Active customers',
+        'case-1-sub':       '30 → 300 in 12 months',
+        'case-2-label':     'Churn rate',
+        'case-2-sub':       '15% → 9% monthly churn',
+        'chart-caption':    'Monthly active customers · 30 → 300',
+        'case-tag':         'Japanese pet food · Shopify',
+        'case-story':       'They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren\'t coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That\'s how 30 active customers became 300 in twelve months.',
+        'services-label':   'What I do',
+        'services-h2':      'Full-cycle Klaviyo,<br><span>built for DTC brands.</span>',
+        'services-callout': 'I write the copy, design the emails, and build the flows. You bring the brand assets — I handle everything else. <strong>Already on Klaviyo? Here\'s the work. Not yet? I\'ll help you decide if it\'s time — and handle the migration.</strong>',
+        'svc-1-h': 'Flow audit &amp; rebuild',
+        'svc-1-p': 'A clear-eyed look at what\'s running, what\'s missing, and what\'s losing money. Then we fix it.',
+        'svc-2-h': 'Popup optimization',
+        'svc-2-p': 'Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.',
+        'svc-3-h': 'Customer lifecycle flows',
+        'svc-3-p': 'Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.',
+        'svc-4-h': 'Cancellation &amp; churn saves',
+        'svc-4-p': 'Segmented by cancel reason, order history, and LTV. Most brands don\'t have these. They should.',
+        'svc-5-h': 'Winback &amp; re-engagement',
+        'svc-5-p': 'Timed to customer behavior, not arbitrary day counts. The difference matters.',
+        'svc-6-h': 'Segmentation &amp; list hygiene',
+        'svc-6-p': 'Healthy lists, suppression logic, engagement tiers — the foundation everything else runs on.',
+        'hiw-label':  'How it works',
+        'hiw-h2':     'Simple to start.<br><span>No retainer required.</span>',
+        'step-1-h':   'Quick call',
+        'step-1-p':   'We talk through your current setup, what\'s working, and where the obvious gaps are. 20–30 minutes.',
+        'step-2-h':   'I look at your current setup',
+        'step-2-p':   'Already on Klaviyo? I tell you what\'s working and what\'s losing money. Not yet? I tell you if moving over makes sense at your stage. Either way — no deck, no proposal, just actual feedback on what to do first.',
+        'step-3-h':   'We decide if it makes sense',
+        'step-3-p':   'Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.',
+        'faq-label':  'Common questions',
+        'faq-h2':     'What founders<br><span>usually ask first.</span>',
+        'faq-1-h':    'Do you write the copy and design the emails?',
+        'faq-1-p':    'Yes — full-service. I write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and I handle the rest end-to-end.',
+        'faq-2-h':    'What does it cost?',
+        'faq-2-p':    'Projects typically start from $1,500 – $3,000 depending on scope. I\'ll give you a clear number on the call — no vague proposals, no surprises.',
+        'faq-4-h':    'How long does a typical project take?',
+        'faq-4-p':    'A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.',
+        'faq-5-h':    'What if I\'m not on Klaviyo yet?',
+        'faq-5-p':    'I\'ll assess whether Klaviyo makes sense at your stage. If it does, I handle the migration. If you\'re not ready, I\'ll tell you what to do first so you don\'t waste a setup.',
+        'about-label': 'Why I do this',
+        'about-h2':    'I tried to build<br><span>one of these brands.</span>',
+        'about-p1':    'A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.\n            <strong>I couldn\'t build a product I was proud enough to sell.</strong>',
+        'about-p2':    'That experience changed how I see the people I work with. The founders who do make it — who find something worth coming back to, build a brand around it, and keep showing up — I have a lot of respect for that.',
+        'about-p3':    'What I do now is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That\'s where most Klaviyo setups quietly fall apart. Not because the brand isn\'t good enough.\n            <strong>Because the email infrastructure wasn\'t built to support how returning customers actually behave.</strong>',
+        'about-p4':    'Most of the brands I work with have roots in Japan — the product, the founder, or the customer base. These brands often carry a distinct kind of customer relationship: high trust expectations, a more deliberate repurchase rhythm, a preference for depth over noise. Generic Klaviyo setups don\'t account for that. I build ones that do.',
+        'about-p5':    'I work with founders who have already done the hard part. My job is to make sure their retention side is working as hard as they are.',
+        'testimonial-quote': '"Kei didn\'t come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth — not just short-term wins."',
+        'testimonial-name':  'Brand Owner',
+        'testimonial-brand': 'Japanese pet food · Shopify',
+        'cta-h2':   'If you\'re spending on acquisition,\n        <strong>this is where most of it leaks.</strong>',
+        'cta-p':    'I\'ll look at what you\'ve got — Klaviyo, another platform, or starting fresh — and tell you exactly where customers are leaving and what I\'d fix first. No pitch, no proposal, no commitment required.',
+        'cta-btn':  'Book a free call <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'cta-note': 'No commitment — just a conversation about your setup',
+        'footer-name':     'Kei Nakayama',
+        'footer-location': 'Los Angeles, CA',
       },
-      "ja": {
-            "crumb": "← サービス一覧に戻る",
-            "announce": "<strong>新規のご相談 受付中。</strong>まず30分、無料でどうぞ（日本語OK）。",
-            "nav-avail": "新規受付中",
-            "lang-toggle": "EN",
-            "nav-cta": "無料相談を予約する <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "hero-cta": "無料30分相談を予約する <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "hero-note": "コミットメント不要。日本語でやり取りできます。",
-            "inc-label": "サービス内容",
-            "how-label": "進め方",
-            "how-h2": "まずは<br><span>無料相談から。</span>",
-            "cta-h2": "準備ができたら、<strong>まずは話すことから。</strong>",
-            "cta-p": "30分の無料相談です。日本語でも英語でも。売り込みも提案書もなし——まず何をすべきかを率直にお伝えします。",
-            "cta-btn": "無料相談を予約する <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "cta-note": "コミットメント不要",
-            "footer-name": "Kei Nakayama",
-            "footer-location": "ロサンゼルス、CA",
-            "ph-h1": "一度きりのお客様を、<strong>リピーターに変える。</strong>",
-            "ph-lead": "hanjo CRMは、私たちの主力サービスです。費用をかけて獲得したお客様が、リピートせずに離れていく——その穴を埋めるのがメールとSMSです。戦略、コピー、デザイン、実装まで、KlaviyoのフローとSMSプログラムをフルサービスで構築します。",
-            "inc-h2": "ウェルカムメールで終わらない、<br><span>リテンションの仕組み全体を。</span>",
-            "proof": "ある日本のペットフードブランドは、月間チャーン15%・ウィンバックなしの状態からスタート。12ヶ月後、<strong>チャーンは9%に下がり、アクティブ定期顧客は30人から300人になりました。</strong>メインはKlaviyoですが、MailchimpやOmnisendにも対応します。",
-            "price": "<strong>プロジェクトは通常 $1,500〜$3,000 から</strong>（スコープによる）。通話中に明確な金額をお伝えします。",
-            "inc-1-h": "フロー診断と再構築",
-            "inc-1-p": "何が動いていて、何が欠けていて、どこで売上を逃しているか。現状を把握し、直します。",
-            "inc-2-h": "ライフサイクルフロー",
-            "inc-2-p": "購入後、補充リマインド、スキップ・一時停止防止、再アクティベーション。オンボーディングだけで終わらせません。",
-            "inc-3-h": "キャンペーン配信",
-            "inc-3-p": "読みたくなる定期配信を、企画からコピー、デザイン、レポートまで。",
-            "inc-4-h": "ポップアップ・リスト獲得",
-            "inc-4-p": "ウェルカムオファー、離脱インテント、モバイル対応のA/Bテスト。多くのブランドがここでリスト獲得を漏らしています。",
-            "inc-5-h": "解約・チャーン防止",
-            "inc-5-p": "解約理由、注文履歴、LTVでセグメント分け。持っているブランドはわずかです。だからこそ効きます。",
-            "inc-6-h": "セグメンテーションとリスト管理",
-            "inc-6-p": "健全なリスト、配信停止ロジック、エンゲージメント階層。すべての土台になる部分です。",
-            "inc-7-h": "SMSプログラム",
-            "inc-7-p": "予約リカバリー、補充リマインド、キャンペーン告知をテキストで。同意ベース・TCPA準拠・10DLC登録も代行します。",
-            "how-1-h": "無料相談",
-            "how-1-p": "現状のセットアップ、うまくいっている点、課題を伺います。20〜30分。",
-            "how-2-h": "診断",
-            "how-2-p": "アカウントを拝見し、どこで売上を逃しているか、何から直すべきかを率直にお伝えします。",
-            "how-3-h": "構築",
-            "how-3-p": "フローとキャンペーンを3〜5週間で公開。その後はプロジェクト単位でも継続でも。"
+      ja: {
+        'crumb':            '← サービス一覧に戻る',
+        'announce':         '<strong>残り2社限定。</strong>まず30分、無料でご相談ください。',
+        'nav-avail':        '残り2社限定',
+        'lang-toggle':      'EN',
+        'nav-cta':          '無料相談を予約する <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'chip-avail':       '残り2社限定',
+        'hero-h1':          '一度きりの来訪客を\n        <strong>リピート顧客に。</strong>',
+        'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; ロサンゼルス、CA',
+        'hero-desc':        '費用をかけて獲得した顧客が、リピートせずに離れていく——その穴を埋めるのがメールです。ShopifyのDTCブランド向けに、コピー・デザイン・フロー構築を丸ごと担当します。\n        <strong>リテンションを整えれば、獲得コストが初めて積み重なっていきます。</strong>',
+        'hero-cta':         '無料30分相談を予約する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'hero-cta-note':    'コミットメント不要。日本語でやり取りできます。',
+        'hero-see-work':    'その仕組みを見る',
+        'proof-1-label':    '月あたり回収できる売上',
+        'proof-1-sub':      '集客コストへの再投資に回る',
+        'proof-2-label':    'アクティブ顧客数',
+        'proof-2-sub':      '30人 → 300人（12ヶ月・ペットフードブランド）',
+        'proof-3-label':    'チャーン削減',
+        'proof-3-sub':      '月間15% → 9%',
+        'wall-label':       'メールの役割',
+        'wall-h2':          'メールが、一度きりの来訪客を<br><span>リピート顧客に変えます。</span>',
+        'wall-desc':        '広告で来てくれるのは一度きり。二度目、十度目の購入を生むのがメールです。育てた顧客リストは、いまブランドが持てる最も価値ある資産のひとつ。その歩みを設計します。',
+        'lc-sim':           'シミュレーション',
+        'lc-s0':            '見込み客',
+        'lc-s1':            '初回購入',
+        'lc-s2':            'リピーター',
+        'lc-z0':            '見込み客',
+        'lc-z1':            '初回購入',
+        'lc-z2':            'リピート',
+        'lc-f0':            '<b>ウェルカムフロー</b> <span class="lc-arrow">→ 初回購入</span>',
+        'lc-f1':            '<b>リピート促進フロー</b> <span class="lc-arrow">→ リピート</span>',
+        'gaps-label':       'よく見られること',
+        'gaps-h2':          'DTCブランドに多い、<br><span>顧客を失い続ける3つのパターン。</span>',
+        'gap-1':            '購入後のフローがウェルカムメールで止まっています。米国の顧客にとっては、その後に接点がないのと同じです。',
+        'gap-2':            'ウィンバックのタイミングが遅すぎます。送る頃には、顧客はすでに他を選んでいます。',
+        'gap-3':            '解約防止フローがありません。あるいは1通送って終わりです。',
+        'gaps-callout':     '米国で展開している日本のブランドに、特によく見られます。メールの仕組みは後回しにされがちで、その間にも顧客は離れ続けています。\n        <strong>ここを整えるだけで、翌月の広告費より価値が出ることが多いです。</strong>',
+        'case-label':       'クライアント事例',
+        'case-h2':          '日本のペットフードブランド。<br><span>12ヶ月でアクティブ顧客が30人から300人に。</span>',
+        'case-1-label':     'アクティブ顧客数',
+        'case-1-sub':       '30人 → 300人（12ヶ月）',
+        'case-2-label':     'チャーン率',
+        'case-2-sub':       '月間15% → 9%',
+        'chart-caption':    '月間アクティブ顧客 · 30人 → 300人',
+        'case-tag':         '日本のペットフード · Shopify',
+        'case-story':       '依頼が来た時点では、チャーンが高く、ウィンバックフローもなく、リピートされないせいで広告費が粗利を圧迫していました。充実した購入後フローと教育コンテンツのシリーズで、離れることを考える前に習慣を作りました。チャーンは15%から9%に下がり、LTVが上がりました。解放された粗利が集客に回り、12ヶ月でアクティブ顧客が30人から300人になりました。',
+        'services-label':   'できること',
+        'services-h2':      'DTCブランドのための、<br><span>LTVを伸ばす仕組みを構築します。</span>',
+        'services-callout': '英語のコピー執筆、メールデザイン、フロー構築まで一貫して対応します。ブランドアセットを共有していただければ、英語コンテンツの制作から設定まで丸ごとお任せいただけます。<strong>Klaviyo導入済みなら改善から。まだなら、導入すべきかの判断も含めて一緒に考えます。</strong>',
+        'svc-1-h': 'フロー診断と再構築',
+        'svc-1-p': '現状を把握し、問題を特定します。そして直します。',
+        'svc-2-h': 'ポップアップ最適化',
+        'svc-2-p': 'ウェルカムオファー、離脱インテント、モバイル対応A/Bテスト。多くのブランドが静かにリスト獲得を漏らしている場所です。',
+        'svc-3-h': 'カスタマーライフサイクルフロー',
+        'svc-3-p': '購入後、補充リマインダー、スキップ・一時停止防止、再アクティベーション。オンボーディングだけでなく、全体のフローをカバーします。',
+        'svc-4-h': '解約・チャーン防止',
+        'svc-4-p': '解約理由、注文履歴、LTVでセグメント分け。ほとんどのブランドが持っていません。持つべきです。',
+        'svc-5-h': 'ウィンバックと再エンゲージメント',
+        'svc-5-p': '任意の日数ではなく、顧客の行動に合わせたタイミングで。その差は大きいです。',
+        'svc-6-h': 'セグメンテーションとリスト管理',
+        'svc-6-p': '健全なリスト、配信停止のロジック、エンゲージメントの階層整備。他のすべての土台になる部分です。',
+        'hiw-label':  '進め方',
+        'hiw-h2':     'まずは<br><span>無料診断から。</span>',
+        'step-1-h':   'まず話す',
+        'step-1-p':   '現状のKlaviyoセットアップ、課題、目標についてお話しします。日本語で進められます。20〜30分。',
+        'step-2-h':   '現状を確認する',
+        'step-2-p':   'Klaviyo導入済みなら、うまくいっていることと改善点をお伝えします。まだなら、今の段階で移行が適切かを判断します。資料も提案書もなし——まず何をすべきかを直接お伝えします。',
+        'step-3-h':   '進め方を決める',
+        'step-3-p':   'プロジェクト単位か継続契約か、状況に応じて。プロジェクトは通常 $1,500〜$3,000（スコープによる）。リテーナーは不要。どちらの方向でも、プレッシャーはかけません。',
+        'faq-label':  'よくある質問',
+        'faq-h2':     'よく聞かれる、<br><span>5つの質問。</span>',
+        'faq-1-h':    '英語のコピー執筆とメールデザインも対応してもらえますか？',
+        'faq-1-p':    'はい、フルサービスで対応します。米国の顧客向けの英語コピーを執筆し、メールをデザインし、フローを構築します。ブランドアセットと方向性を共有していただければ、英語コンテンツの制作から設定まですべて担当します。',
+        'faq-2-h':    '費用はどれくらいですか？',
+        'faq-2-p':    'スコープによりますが、通常 $1,500〜$3,000 から。通話中に明確な金額をお伝えします——曖昧な提案書も、後から追加される費用もありません。',
+        'faq-4-h':    'プロジェクトの期間は？',
+        'faq-4-p':    'フルのフロー構築は、キックオフからローンチまで3〜5週間が目安です。診断は約1週間。スコープと、フィードバックやアセットを提供するスピードによって変わります。',
+        'faq-5-h':    '日本語でやり取りできますか？',
+        'faq-5-p':    'はい。ブランドの担当者との打ち合わせや日々のやり取りは日本語で進めます。米国の顧客に届けるメールコンテンツは英語で制作します。KlaviyoもShopifyも、慣れていない段階から一緒に進められます。',
+        'about-label': 'この仕事をしている理由',
+        'about-h2':    '自分でも一度、<br><span>こういうブランドを作ろうとした。</span>',
+        'about-p1':    '数年前、日本でミールキットブランドを始めようとしました。どれだけ大変かを肌で感じるところまでは進みました。仕入れ、パッケージング、物流——最初の1件を届けるまでに解決しなければならない問題の量。<strong>自信を持って売れるプロダクトが、最終的には作れませんでした。</strong>',
+        'about-p2':    'その経験が、一緒に仕事をする人への見方を変えました。こだわり抜いたプロダクトを作り、それを米国市場に持ち込み、諦めずに続けている創業者たちへの尊敬は大きいです。',
+        'about-p3':    '今はロサンゼルスを拠点に、米国で展開する日本のブランドのKlaviyo運用を担当しています。英語のコピーを書き、メールをデザインし、フローを構築します。日本語でやり取りしながら、米国の顧客に届けるメールコミュニケーションを整えます。',
+        'about-p4':    '日本のブランドが持つ誠実さや世界観は、メールでも伝えられます。汎用的なKlaviyo設定では、その独自性が出ません。米国の顧客が自然に継続して買いたくなる仕組みを、ブランドに合わせて作ります。',
+        'about-p5':    'プロダクト開発とオペレーションに集中したい創業者と仕事をしています。リテンション側は丸ごとお任せください。',
+        'testimonial-quote': '「ブランドと顧客のことを理解した上で動いてくれた。私たちのサブスクリプションモデルがどう動いているかを把握し、短期的な数字ではなく、持続的な成長に意味のある仕組みを作ってくれた。」',
+        'testimonial-name':  'ブランドオーナー',
+        'testimonial-brand': '日本のペットフード · Shopify',
+        'cta-h2':   '米国で獲得した顧客が<br><strong>リピートしていない理由がある。</strong>',
+        'cta-p':    'KlaviyoでもShopifyでも、今の状態を確認します。顧客がどこで離れているか、英語コンテンツを含めて何が必要かを具体的にお伝えします。売り込みも提案書も不要です。日本語でお気軽にどうぞ。',
+        'cta-btn':  '無料相談を予約する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'cta-note': 'コミットメント不要。日本語で話せます。',
+        'footer-name':     'Kei Nakayama',
+        'footer-location': 'ロサンゼルス、CA',
       }
-};
+    };
 
+    /* ── LANGUAGE SWITCH ── */
     function applyLang(lang) {
       document.documentElement.lang = lang;
       localStorage.setItem('hanjo-lang', lang);
@@ -395,23 +1738,145 @@
         });
       });
     }
+
     function toggleLang() {
       applyLang(document.documentElement.lang === 'en' ? 'ja' : 'en');
+    }
+
+    /* ── COUNTER ANIMATION ── */
+    function animateCounter(el) {
+      const target   = parseInt(el.dataset.count);
+      const prefix   = el.dataset.prefix || '';
+      const suffix   = el.dataset.suffix || '';
+      const duration = 1400;
+      let start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        const p     = Math.min((ts - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function animateBars() {
+      document.querySelectorAll('#growthChart .growth-bar-fill').forEach(bar => {
+        bar.style.height = bar.dataset.h;
+      });
     }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
+          const el = entry.target;
+          el.classList.add('revealed');
+          if (el.dataset.count)        animateCounter(el);
+          if (el.id === 'growthChart') animateBars();
+          observer.unobserve(el);
         }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 
+    document.querySelectorAll('[data-reveal]').forEach(el  => observer.observe(el));
+    document.querySelectorAll('[data-reveal-stagger]').forEach(el => observer.observe(el));
+    document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
+    const growthChart = document.getElementById('growthChart');
+    if (growthChart) observer.observe(growthChart);
+
+    /* ── LIFECYCLE STRIP ── */
+    (function () {
+      const board = document.getElementById('lc-board');
+      if (!board) return;
+      const nums  = ['lc-n0', 'lc-n1', 'lc-n2'].map(id => document.getElementById(id));
+      const flows = ['lc-f0w', 'lc-f1w'].map(id => document.getElementById(id));
+      const COLORS = ['#b4ad9e', '#cf8a3c', '#2f6f57'];
+      const BANDS  = [[6, 30], [39, 61], [70, 94]];
+      const beads  = [];
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const TARGET = [11, 7, 7];
+      const FLOW = 2;
+      const place = z => (BANDS[z][0] + Math.random() * (BANDS[z][1] - BANDS[z][0])).toFixed(1) + '%';
+      const topPos = () => (12 + Math.random() * 66).toFixed(1) + '%';
+      const inZone = z => beads.filter(b => b.z === z);
+
+      function counts() {
+        const n = [0, 0, 0];
+        beads.forEach(b => n[b.z]++);
+        nums.forEach((el, i) => { if (el) el.textContent = n[i]; });
+      }
+      function make(z, fade) {
+        const el = document.createElement('div');
+        el.className = 'lc-bead';
+        el.style.background = COLORS[z];
+        el.style.left = place(z);
+        el.style.top = topPos();
+        if (fade) el.style.opacity = '0';
+        board.appendChild(el);
+        beads.push({ el, z });
+        if (fade) setTimeout(() => { el.style.opacity = '1'; }, 30);
+      }
+      function remove(b) {
+        b.el.style.opacity = '0';
+        const idx = beads.indexOf(b);
+        if (idx > -1) beads.splice(idx, 1);
+        setTimeout(() => { if (b.el.parentNode) b.el.parentNode.removeChild(b.el); }, 520);
+      }
+      function fire(i) {
+        const f = flows[i];
+        if (!f) return;
+        f.classList.add('lc-fire');
+        setTimeout(() => f.classList.remove('lc-fire'), 460);
+      }
+      function advance(z) {
+        const pool = inZone(z);
+        if (!pool.length) return false;
+        const k = Math.min(FLOW, pool.length);
+        for (let i = 0; i < k; i++) {
+          const b = pool[i];
+          b.z = z + 1;
+          b.el.style.left = place(b.z);
+          b.el.style.top = topPos();
+          b.el.style.background = COLORS[b.z];
+        }
+        return true;
+      }
+      function tick() {
+        if (advance(1)) fire(1);
+        if (advance(0)) fire(0);
+        const need = Math.min(FLOW, Math.max(0, TARGET[0] - inZone(0).length));
+        for (let i = 0; i < need; i++) make(0, true);
+        const excess = Math.min(FLOW, Math.max(0, inZone(2).length - TARGET[2]));
+        const reps = inZone(2);
+        for (let i = 0; i < excess; i++) remove(reps[i]);
+        counts();
+      }
+
+      TARGET.forEach((count, z) => { for (let i = 0; i < count; i++) make(z, false); });
+      counts();
+
+      if (reduce) return;
+
+      let timer = setInterval(tick, 1500);
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting && !timer) {
+              timer = setInterval(tick, 1500);
+            } else if (!e.isIntersecting && timer) {
+              clearInterval(timer);
+              timer = null;
+            }
+          });
+        }, { threshold: 0.2 });
+        io.observe(board);
+      }
+    })();
+
+    /* ── INIT ── */
     const savedLang = localStorage.getItem('hanjo-lang');
     if (savedLang && savedLang !== 'en') applyLang(savedLang);
-    else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
   </script>
 
 </body>
