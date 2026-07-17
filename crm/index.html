@@ -117,28 +117,31 @@
     .line-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: rgba(17,17,16,0.06); border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px; margin-bottom: 16px; }
     html[lang="ja"] .crumb, html[lang="ja"] .line-tag { font-family: 'Noto Sans JP', sans-serif; }
 
-    .nav-links { display: flex; gap: 32px; }
+    .nav-links { display: flex; gap: 36px; }
     .nav-links a {
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--faint);
+      color: var(--ink);
+      opacity: 0.55;
       text-decoration: none;
-      padding: 4px 0;
+      padding: 5px 0;
       position: relative;
-      transition: color 0.2s;
+      transition: opacity 0.2s, color 0.2s;
     }
     .nav-links a::after {
       content: '';
       position: absolute;
       left: 0; right: 100%; bottom: 0;
-      height: 1px;
+      height: 1.5px;
       background: var(--sage);
       transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover { opacity: 1; }
     .nav-links a:hover::after { right: 0; }
+    .nav-links a.active { opacity: 1; color: var(--sage); }
+    .nav-links a.active::after { right: 0; }
     @media (max-width: 880px) { .nav-links { display: none; } }
     /* ── ANNOUNCE BAR ── */
     .announce {
@@ -1950,6 +1953,13 @@
     else if (savedLang && savedLang !== 'en') applyLang(savedLang);
     else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
     if (langSeg === 'ja' || langSeg === 'en') prefixInternalLinks(langSeg);
+    (function () {
+      var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      document.querySelectorAll('.nav-links a').forEach(function (a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href !== '/' && cur.indexOf(href) === 0) a.classList.add('active');
+      });
+    })();
   </script>
 
 </body>
