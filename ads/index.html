@@ -493,6 +493,45 @@
       .hero h1 { font-size: 2.15rem; }
       .hero-sub { font-size: 0.95rem; }
     }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      padding: 4px 0;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 100%; bottom: 0;
+      height: 1px;
+      background: var(--sage);
+      transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .nav-links a:hover { color: var(--black); }
+    .nav-links a:hover::after { right: 0; }
+    @media (max-width: 880px) { .nav-links { display: none; } }
+    .lang-pill {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 5px 13px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      font-family: inherit;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .lang-pill:hover { color: var(--black); border-color: rgba(17,17,16,0.3); }
+    .lang-toggle[hidden] { display: none; }
   </style>
 </head>
 <body>
@@ -502,13 +541,20 @@
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo"><img src="/logo.svg" alt="hanjo" class="logo-img"></a>
+  <div class="nav-links" aria-label="Services">
+    <a href="/crm/">CRM</a>
+    <a href="/web/">Web</a>
+    <a href="/ads/">Ads</a>
+    <a href="/recovery/">Recovery</a>
+  </div>
   <div class="nav-right">
-    <div class="lang-toggle" role="group" aria-label="Language / 言語">
+    <div class="lang-toggle" role="group" aria-label="Language / 言語" hidden aria-hidden="true">
       <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
       <span class="lang-sep" aria-hidden="true">/</span>
       <button class="lang-btn" id="btn-ja" onclick="setLang('ja')" aria-pressed="false">日本語</button>
     </div>
-    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Talk to us →</a>
+    <button class="lang-pill" id="lang-pill" onclick="setLang(document.body.classList.contains('lang-ja') ? 'en' : 'ja')" aria-label="Switch language">JP</button>
+    <a href="#contact" class="nav-cta" data-i18n="nav_cta">Free consultation →</a>
   </div>
 </nav>
 
@@ -952,7 +998,7 @@
     en: {
       page_title: 'hanjo | AI that optimizes your ads. For real.',
       skip_link: 'Skip to content',
-      nav_cta: 'Talk to us →',
+      nav_cta: 'Free consultation →',
       risk_banner: '<strong>Ad algorithm optimization AI.</strong> We feed your ad platform\'s AI the training data it\'s been missing, custom-built around your booking flow, CRM, and ad accounts.',
       hero_badge: 'For beauty salons, spas &amp; service businesses',
       hero_h1: 'AI that optimizes<br>your ads. <em>For real.</em>',
@@ -1100,7 +1146,7 @@
     ja: {
       page_title: 'hanjo | AIが、広告を、最適化する時代へ。',
       skip_link: 'コンテンツへスキップ',
-      nav_cta: 'お問い合わせ →',
+      nav_cta: '無料相談 →',
       risk_banner: '<strong>広告アルゴリズム最適化AI。</strong>広告媒体のAIに不足していた「質の高い学習データ」を供給。予約フロー・CRM・広告アカウントに合わせて構築します。',
       hero_badge: '美容サロン・スパ・サービスビジネスのために',
       hero_h1: 'AIが、広告を、<br><em>最適化する。</em>',
@@ -1265,6 +1311,8 @@
       if (T[lang][key] !== undefined) el.placeholder = T[lang][key];
     });
     try { localStorage.setItem('hanjo-lang', lang); } catch(e) {}
+    var lp = document.getElementById('lang-pill');
+    if (lp) lp.textContent = (lang === 'ja') ? 'EN' : 'JP';
   }
 
   (function() {
