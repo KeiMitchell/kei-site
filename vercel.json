@@ -127,6 +127,22 @@
     {
       "source": "/en/recovery/",
       "destination": "/recovery/index.html"
+    },
+    {
+      "source": "/ja/ads",
+      "destination": "/ads/index.html"
+    },
+    {
+      "source": "/ja/ads/",
+      "destination": "/ads/index.html"
+    },
+    {
+      "source": "/en/ads",
+      "destination": "/ads/index.html"
+    },
+    {
+      "source": "/en/ads/",
+      "destination": "/ads/index.html"
     }
   ]
 }
