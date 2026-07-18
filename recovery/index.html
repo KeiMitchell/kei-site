@@ -124,23 +124,23 @@
     html[lang="ja"] .callout { font-size: 14px; line-height: 1.95; letter-spacing: 0.02em; }
     html[lang="ja"] .inc-list p, html[lang="ja"] .step p { font-size: 13.5px; line-height: 1.9; letter-spacing: 0.02em; }
     html[lang="ja"] .inc-list h3, html[lang="ja"] .step h3, html[lang="ja"] .btn, html[lang="ja"] .btn-note, html[lang="ja"] .cta-note-dark, html[lang="ja"] .label, html[lang="ja"] .crumb, html[lang="ja"] .nav-avail, html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span, html[lang="ja"] .announce { font-family: 'Noto Sans JP', sans-serif; }
-    .nav-links { display: flex; gap: 36px; }
+    .nav-links { display: flex; gap: 34px; align-items: center; }
     .nav-links a {
-      font-size: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 16.5px;
       font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      letter-spacing: 0.01em;
       color: var(--ink);
-      opacity: 0.55;
+      opacity: 0.66;
       text-decoration: none;
-      padding: 12px 0;
+      padding: 8px 0;
       position: relative;
       transition: opacity 0.2s, color 0.2s;
     }
     .nav-links a::after {
       content: '';
       position: absolute;
-      left: 0; right: 100%; bottom: 0;
+      left: 0; right: 100%; bottom: 3px;
       height: 1.5px;
       background: var(--sage);
       transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
@@ -151,9 +151,8 @@
       opacity: 1;
       color: var(--sage);
       background: rgba(58, 92, 69, 0.1);
-      padding: 7px 14px;
+      padding: 5px 16px 7px;
       border-radius: 99px;
-      letter-spacing: 0.14em;
     }
     .nav-links a.active:hover { color: var(--sage); }
     .nav-links a.active::after { display: none; }
