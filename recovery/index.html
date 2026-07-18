@@ -1,136 +1,587 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hanjo Recovery · Lost-Booking &amp; Lead Recovery · Los Angeles</title>
-  <link rel="icon" type="image/svg+xml" href="/hanjo-logo.svg" />
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JLHW59CHY6');
-  </script>
-
-  <meta name="description" content="hanjo Recovery: a landing page and SMS follow-up that bring back the customers who almost booked. For salons, spas, and clinics in Los Angeles. Performance-based pricing available." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hanjo.ai/recovery/" />
-  <meta property="og:title" content="hanjo Recovery · Lost-Booking &amp; Lead Recovery · Los Angeles" />
-  <meta property="og:description" content="hanjo Recovery: a landing page and SMS follow-up that bring back the customers who almost booked. For salons, spas, and clinics in Los Angeles. Performance-based pricing available." />
-  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
-
+  <title>hanjo | We build your booking funnel. You pay when it works.</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#3A5C45" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600&family=Shippori+Mincho+B1:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg:      #F5F4F0;
-      --white:   #ffffff;
+      --black:   #111110;
+      --gray:    #6B6B68;
+      --light:   #F5F4F0;
+      --white:   #FFFFFF;
       --sage:    #3A5C45;
-      --ink:     #111110;
-      --muted:   rgba(17,17,16,0.72);
-      --faint:   rgba(17,17,16,0.46);
-      --border:  rgba(17,17,16,0.12);
-      --radius:  14px;
-      --radius-sm: 100px;
-      --max:     700px;
+      --sage-lt: #EBF1ED;
+      --sage-md: #C8DACC;
+      --red:     #C0392B;
+      --red-lt:  #FFF0EE;
+      --red-bd:  #F5C6C0;
+      --border:  #E4E2DC;
+      --r:       12px;
     }
+
     html { scroll-behavior: smooth; }
     body {
-      background: var(--bg); color: var(--ink);
-      font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 16px; line-height: 1.6;
-      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
-    [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
-    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
-    @media (prefers-reduced-motion: reduce) { [data-reveal] { transition: none !important; opacity: 1 !important; transform: none !important; } }
-    .announce { background: var(--ink); color: rgba(255,255,255,0.65); text-align: center; font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
-    .announce strong { color: var(--bg); font-weight: 500; }
-    nav { position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
-    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
-    .nav-right { display: flex; align-items: center; gap: 20px; }
-    .nav-avail { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--faint); letter-spacing: 0.02em; }
-    .avail-dot { width: 6px; height: 6px; background: #52a46a; border-radius: 50%; flex-shrink: 0; animation: pulse 2.5s ease-in-out infinite; }
-    .lang-toggle { background: none; border: 1px solid var(--border); border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 500; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
-    .lang-toggle:hover { color: var(--ink); border-color: rgba(17,17,16,0.3); background: rgba(17,17,16,0.04); }
-    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--bg); background: var(--ink); text-decoration: none; padding: 9px 18px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.2s; letter-spacing: 0.01em; }
-    .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
-    .s-white { background: var(--white); }
-    .s-dark  { background: var(--ink); }
-    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
-    .label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
-    .label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--border); flex-shrink: 0; }
-    h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 40px; }
-    h2 span { display: block; font-weight: 700; font-style: italic; }
-    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 26px; letter-spacing: 0.03em; transition: color 0.2s; }
-    .crumb:hover { color: var(--ink); }
-    .page-hero .section { padding: clamp(30px, 4.5vw, 52px) 24px clamp(34px, 4.5vw, 56px); }
-    .line-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: rgba(17,17,16,0.06); border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px; margin-bottom: 18px; animation: fadeUp 0.7s 0.05s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .page-hero h1 { text-wrap: balance; font-family: 'Playfair Display', serif; font-size: clamp(38px, 5.4vw, 58px); font-weight: 600; line-height: 1.06; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 22px; animation: fadeUp 0.8s 0.1s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .page-hero h1 strong { font-weight: 600; font-style: italic; display: block; }
-    .lead { text-wrap: pretty; font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--muted); max-width: 560px; margin-bottom: 24px; animation: fadeUp 0.7s 0.25s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; padding: 13px 26px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94); }
-    .btn svg { transition: transform 0.2s; }
-    .btn:hover svg { transform: translateX(3px); }
-    .btn--dark { color: var(--bg); background: var(--ink); }
-    .btn--dark:hover { opacity: 0.82; transform: translateY(-1px); }
-    .btn--light { color: var(--ink); background: var(--bg); }
-    .btn--light:hover { background: #ffffff; transform: translateY(-1px); }
-    .btn-note { font-size: 12px; font-weight: 300; color: var(--muted); letter-spacing: 0.02em; }
-    .inc-list { list-style: none; margin-bottom: 32px; }
-    .inc-list li { display: flex; gap: 22px; padding: 22px 0; border-top: 1px solid var(--border); }
-    .inc-list li:last-child { border-bottom: 1px solid var(--border); }
-    .inc-num { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: rgba(17,17,16,0.26); padding-top: 5px; min-width: 20px; flex-shrink: 0; }
-    .inc-list h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.01em; }
-    .inc-list p { font-size: 14.5px; font-weight: 300; color: var(--muted); line-height: 1.65; }
-    .callout { font-size: 15px; font-weight: 300; line-height: 1.68; color: var(--muted); padding: 20px 26px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); }
-    .callout strong { color: var(--ink); font-weight: 600; }
-    .callout a { color: var(--ink); font-weight: 500; }
-    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; }
-    .step { display: flex; gap: 26px; padding: 26px 30px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); align-items: flex-start; }
-    .step-num { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: rgba(17,17,16,0.26); padding-top: 3px; min-width: 20px; flex-shrink: 0; }
-    .step h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.01em; }
-    .step p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.62; }
-    .cta-inner { max-width: var(--max); margin: 0 auto; padding: 88px 24px 104px; }
-    .cta-inner h2 { font-size: clamp(30px, 5vw, 48px); color: rgba(255,255,255,0.9); margin-bottom: 22px; }
-    .cta-inner h2 strong { font-weight: 700; font-style: italic; display: block; color: #ffffff; }
-    .cta-inner > p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.72; margin-bottom: 40px; max-width: 460px; }
-    .cta-note-dark { display: block; margin-top: 14px; font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.3); letter-spacing: 0.03em; }
-    footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.09); }
-    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
-    .footer-logo img { filter: brightness(100); opacity: 0.45; }
-    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
-    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: rgba(255,255,255,0.38); text-decoration: none;   padding: 8px 0; display: inline-block; }
-    .footer-meta a:hover { color: rgba(255,255,255,0.75); }
-    html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
-    html[lang="ja"] .page-hero h1, html[lang="ja"] h2, html[lang="ja"] .cta-inner h2 { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; line-height: 1.3; line-break: strict; }
-    html[lang="ja"] .page-hero h1 { font-size: clamp(28px, 4.4vw, 46px); }
-    html[lang="ja"] h2 { font-size: clamp(22px, 3vw, 34px); }
-    html[lang="ja"] .page-hero h1 strong, html[lang="ja"] h2 span, html[lang="ja"] .cta-inner h2 strong { font-style: normal; }
-    html[lang="ja"] .lead, html[lang="ja"] .callout, html[lang="ja"] .inc-list p, html[lang="ja"] .step p, html[lang="ja"] .cta-inner > p { font-family: 'Noto Sans JP', sans-serif; line-break: strict; overflow-wrap: break-word; }
-    html[lang="ja"] .lead { font-size: 15px; line-height: 2.0; letter-spacing: 0.02em; }
-    html[lang="ja"] .callout { font-size: 14px; line-height: 1.95; letter-spacing: 0.02em; }
-    html[lang="ja"] .inc-list p, html[lang="ja"] .step p { font-size: 13.5px; line-height: 1.9; letter-spacing: 0.02em; }
-    html[lang="ja"] .inc-list h3, html[lang="ja"] .step h3, html[lang="ja"] .btn, html[lang="ja"] .btn-note, html[lang="ja"] .cta-note-dark, html[lang="ja"] .label, html[lang="ja"] .crumb, html[lang="ja"] .nav-avail, html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span, html[lang="ja"] .announce { font-family: 'Noto Sans JP', sans-serif; }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1080px; margin: 0 auto; }
+    .label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+    section { padding: 64px 5vw; }
+    @media (min-width: 768px) { section { padding: 96px 5vw; } }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 60px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      text-decoration: none; display: flex; align-items: center;
+    }
+    .logo-img { height: 26px; width: auto; display: block; }
+    .logo-img--footer { height: 30px; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-cta {
+      padding: 9px 18px;
+      background: var(--sage); color: var(--white);
+      border-radius: 100px; font-size: 0.8125rem; font-weight: 500;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: #2e4a38; }
+
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-toggle { display: flex; align-items: center; gap: 2px; }
+    .lang-btn {
+      padding: 2px 4px; cursor: pointer; border: none;
+      background: transparent; color: var(--gray);
+      font-size: 0.7rem; font-weight: 500;
+      font-family: inherit; line-height: 1.4; white-space: nowrap;
+      opacity: 0.4; transition: opacity 0.15s;
+    }
+    .lang-btn.active { opacity: 1; color: var(--text); font-weight: 600; }
+    .lang-btn:hover:not(.active) { opacity: 0.7; }
+    .lang-sep { font-size: 0.65rem; color: var(--border); user-select: none; }
+
+    /* ── BANNER ── */
+    .risk-banner {
+      background: var(--sage); color: var(--white);
+      padding: 12px 5vw; text-align: center;
+      font-size: 0.8125rem; line-height: 1.5;
+    }
+    .risk-banner strong { font-weight: 600; }
+
+    /* ── HERO ── */
+    .hero { background: var(--light); border-bottom: 1px solid var(--border); padding: 72px 5vw 64px; position: relative; overflow: hidden; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      line-height: 1.08; letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { font-style: italic; color: var(--sage); font-size: 1.3em; line-height: 1; }
+    .hero-sub {
+      font-size: 1rem; color: var(--gray);
+      max-width: 520px; margin-bottom: 36px; line-height: 1.7;
+    }
+    .location-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--sage); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      margin-bottom: 26px;
+    }
+    .pin-icon { flex-shrink: 0; margin-top: -1px; }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 14px 24px;
+      background: var(--sage); color: var(--white);
+      border-radius: 100px; font-size: 0.9375rem; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #2e4a38; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 14px 20px;
+      color: var(--black); font-size: 0.9375rem; font-weight: 500;
+      text-decoration: none; border-radius: 100px;
+      border: 1px solid var(--border); background: var(--white);
+      transition: border-color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--sage); }
+
+    /* zero badges: editorial stat strip */
+    .zero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      max-width: 720px;
+    }
+    @media (min-width: 560px) { .zero-grid { grid-template-columns: repeat(3,1fr); } }
+    .zero-badge { padding: 24px 4px; }
+    @media (min-width: 560px) {
+      .zero-badge { padding: 26px 28px 28px; }
+      .zero-badge:first-child { padding-left: 0; }
+      .zero-badge + .zero-badge { border-left: 1px solid var(--border); }
+    }
+    @media (max-width: 559px) {
+      .zero-badge + .zero-badge { border-top: 1px solid var(--border); }
+    }
+    .zero-icon {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 500; line-height: 1;
+      color: var(--sage);
+      margin-bottom: 10px;
+    }
+    .zero-badge strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 1px; }
+    .zero-badge span { font-size: 0.8125rem; color: var(--gray); }
+
+    /* ── INFOGRAPHIC ── */
+    .infographic { border-bottom: 1px solid var(--border); }
+
+    /* dot grid */
+    .dot-grid { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; max-width: 600px; }
+    .dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: #E0DED8;
+    }
+    .dot.booked { background: var(--sage); }
+    .dot-legend { display: flex; gap: 20px; font-size: 0.875rem; margin-bottom: 48px; }
+    .dot-legend span { display: flex; align-items: center; gap: 8px; }
+    .dot-legend .swatch {
+      width: 12px; height: 12px; border-radius: 50%; display: inline-block;
+    }
+
+    /* staged funnel with person icons */
+    .funnel-col-label {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 20px;
+    }
+    .funnel-stages { display: flex; flex-direction: column; gap: 0; max-width: 640px; }
+    .funnel-stage { margin-bottom: 4px; }
+    .stage-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 12px; margin-bottom: 7px;
+    }
+    .stage-label { font-size: 0.875rem; color: var(--gray); }
+    .stage-count { font-size: 0.9375rem; font-weight: 700; color: var(--black); white-space: nowrap; }
+    .stage-icons { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+    .stage-drop {
+      font-size: 0.8125rem; color: var(--red);
+      padding: 3px 0 10px 2px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .funnel-result .stage-label { font-weight: 600; color: var(--sage); }
+    .funnel-result .stage-count { color: var(--sage); }
+    .p-icon { width: 26px; height: 26px; flex-shrink: 0; }
+    .p-s1 { fill: #C8D6CA; }
+    .p-s2 { fill: #A8C2AC; }
+    .p-s3 { fill: #7FAF88; }
+    .p-s4 { fill: #5A8F64; }
+    .p-s5 { fill: #3B6B3F; }
+
+    /* ── RECOVERY SECTION ── */
+    .recovery { background: var(--light); border-bottom: 1px solid var(--border); }
+
+    /* approach flow */
+    .approach-flow { display: flex; flex-direction: column; align-items: stretch; gap: 0; max-width: 520px; }
+    .approach-step { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 28px; }
+    .approach-step h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 6px; }
+    .approach-step p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
+    .approach-step-icons { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .approach-step-result h3 { color: var(--sage); }
+    .approach-connector { display: flex; align-items: center; gap: 10px; padding: 8px 28px; }
+    .approach-connector-line { flex: 1; height: 2px; background: var(--border); }
+    .approach-connector-arrow { font-size: 1.1rem; color: var(--sage); }
+    /* SMS step */
+    .approach-step-sms { background: #1C1C1E; border-color: #333; }
+    .approach-sms-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
+    .sms-card { background: #2C2C2E; border-radius: 16px; padding: 16px; }
+    .sms-card-sender { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .sms-card-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .sms-card-name { font-size: 0.8125rem; font-weight: 600; color: white; }
+    .sms-card-sub { font-size: 0.7rem; color: rgba(255,255,255,0.35); }
+    .sms-card-bubble { background: #3A3A3C; border-radius: 12px 12px 4px 12px; padding: 12px 14px; margin-bottom: 10px; font-size: 0.8125rem; color: white; line-height: 1.6; }
+    .sms-card-cta { background: var(--sage); border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 6px; font-size: 0.875rem; font-weight: 600; color: white; }
+    .sms-card-tap { text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.28); }
+
+    .commission-bar {
+      margin-top: 40px; padding: 20px 24px;
+      background: var(--sage); border-radius: var(--r);
+      display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+    }
+    .commission-bar .icon { font-size: 1.5rem; flex-shrink: 0; padding-top: 2px; }
+    .commission-bar h3 { font-size: 0.9375rem; font-weight: 600; color: white; margin-bottom: 4px; }
+    .commission-bar p { font-size: 0.8125rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+
+    /* ── HANJO VALUE PROPS ── */
+    .how { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 40px;
+    }
+    @media (min-width: 720px) { .value-grid { grid-template-columns: repeat(3,1fr); } }
+    .value-card {
+      padding: 52px 36px 44px;
+      border-bottom: 1px solid var(--border);
+      border-top: 3px solid transparent;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease, border-top-color 0.25s ease;
+    }
+    .value-card.visible { opacity: 1; transform: translateY(0); }
+    .value-card:hover { border-top-color: var(--sage); }
+    .value-card:last-child { border-bottom: none; }
+    @media (min-width: 720px) {
+      .value-card { border-bottom: none; border-right: 1px solid var(--border); }
+      .value-card:last-child { border-right: none; }
+    }
+    .value-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .value-num { font-size: clamp(3rem, 9vw, 4.75rem); font-weight: 700; letter-spacing: -0.04em; color: var(--sage); line-height: 1; }
+
+
+
+    /* ── PRICING / COMPARE ── */
+    .pricing-section { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .pricing-layout {
+      display: grid; grid-template-columns: 1fr; gap: 40px;
+    }
+    @media (min-width: 768px) { .pricing-layout { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; } }
+    .pricing-copy h2 { margin-bottom: 14px; }
+    .pricing-copy p { font-size: 0.9375rem; color: var(--gray); line-height: 1.7; margin-bottom: 12px; }
+    .pricing-example {
+      margin-top: 20px; padding: 18px 20px;
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--r);
+      font-size: 0.9rem; color: var(--gray); line-height: 1.7;
+    }
+    .pricing-example strong { color: var(--black); }
+
+    .compare-table { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .compare-head {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+      padding: 12px 14px; background: var(--sage); color: white;
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    @media (min-width: 480px) { .compare-head { padding: 14px 18px; font-size: 0.75rem; } }
+    .compare-row {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+      padding: 12px 14px; border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem; align-items: center;
+    }
+    @media (min-width: 480px) { .compare-row { padding: 14px 18px; font-size: 0.875rem; } }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row .cl { color: var(--gray); font-size: 0.8125rem; }
+    .compare-row .ch { font-weight: 600; color: var(--sage); }
+    .compare-row .co { color: var(--gray); text-decoration: line-through; font-size: 0.8rem; }
+
+    /* ── ADS AI CROSS-SELL ── */
+    .adsai { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding-top: 0 !important; padding-bottom: 0 !important; }
+    .adsai .container { padding: 64px 0; }
+    @media (min-width: 768px) { .adsai .container { padding: 72px 0; } }
+    .adsai-card {
+      display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center;
+    }
+    @media (min-width: 768px) { .adsai-card { grid-template-columns: 1fr auto; gap: 64px; } }
+    .adsai-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px;
+      text-wrap: balance;
+    }
+    body.lang-ja .adsai-card h2 { font-family: 'Shippori Mincho B1', serif; }
+    .adsai-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; max-width: 560px; text-wrap: pretty; }
+    .adsai-card .btn-primary { flex-shrink: 0; justify-self: start; }
+    @media (min-width: 768px) { .adsai-card .btn-primary { justify-self: end; } }
+
+    /* ── FAQ ── */
+    .faq-list { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .faq-item { padding: 22px 24px; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── TRUST STRIP (under the SMS recovery flow) ── */
+    .trust-strip { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px 30px; }
+    .trust-pill { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); }
+    .trust-pill svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: -1px; }
+    .trust-strip-note { margin-top: 12px; font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+    .trust-strip-note a { color: var(--sage); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .sms-card-consent { text-align: center; font-size: 0.66rem; color: rgba(255,255,255,0.34); margin-top: 9px; line-height: 1.5; }
+    .cta-field-hint { font-size: 0.7rem; color: rgba(255,255,255,0.5); line-height: 1.45; margin-top: 2px; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--sage); color: white;
+      text-align: center; padding: 80px 5vw;
+    }
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 5vw, 2.8rem);
+      line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    .cta-banner p { font-size: 1rem; opacity: 0.82; margin-bottom: 32px; line-height: 1.7; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; background: white; color: var(--sage);
+      border-radius: 100px; font-size: 0.9375rem; font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.1s, box-shadow 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .cta-sub { margin-top: 14px; font-size: 0.8rem; opacity: 0.6; }
+    /* Balanced, beautiful line wrapping */
+    .section-title, .cta-banner h2, .cta-banner p { text-wrap: balance; }
+    .hero-sub, .faq-item p, .pricing-copy p, .trust-strip-note { text-wrap: pretty; }
+
+    /* ── ELIGIBILITY SIMULATOR ── */
+    .sim { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .sim-lead { font-size: 0.95rem; color: var(--gray); line-height: 1.7; max-width: 560px; margin-bottom: 32px; text-wrap: pretty; }
+    .sim-card, .sim-result { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; max-width: 680px; }
+    @media (min-width: 768px) { .sim-card, .sim-result { padding: 36px; } }
+    .sim-card[hidden], .sim-result[hidden], .sim-compat[hidden] { display: none; }
+    .sim-q { margin-bottom: 22px; }
+    .sim-q-label { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
+    .sim-q.missing .sim-q-label { color: var(--red); }
+    .sim-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sim-chip { padding: 9px 16px; border: 1.5px solid var(--border); background: var(--white); border-radius: 100px; font-size: 0.85rem; font-weight: 500; color: var(--black); cursor: pointer; font-family: inherit; transition: border-color 0.12s, background 0.12s, color 0.12s; }
+    .sim-chip:hover { border-color: var(--sage-md); }
+    .sim-chip.selected { border-color: var(--sage); background: var(--sage); color: #fff; }
+    .sim-note { color: var(--red); font-size: 0.8rem; margin-top: 12px; display: none; }
+    .sim-note.show { display: block; }
+    .sim-submit { margin-top: 6px; }
+    .sim-result { text-align: center; }
+    .sim-result-badge { width: 52px; height: 52px; border-radius: 50%; background: var(--sage-lt); color: var(--sage); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .sim-result-badge svg { width: 28px; height: 28px; }
+    .sim-result.weak .sim-result-badge { background: #FBEFE0; color: #B5751B; }
+    .sim-result h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; line-height: 1.2; margin-bottom: 10px; text-wrap: balance; }
+    body.lang-ja .sim-result h3 { font-family: 'Shippori Mincho B1', serif; }
+    .sim-result p { font-size: 0.95rem; color: var(--gray); line-height: 1.7; max-width: 520px; margin: 0 auto 18px; text-wrap: pretty; }
+    .sim-compat { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 22px; }
+    .sim-compat svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: -1px; }
+    .sim-restart { display: block; margin: 16px auto 0; background: none; border: none; color: var(--gray); cursor: pointer; font-size: 0.8rem; font-family: inherit; }
+    .sim-restart:hover { color: var(--sage); text-decoration: underline; }
+    .form-progress { display: flex; align-items: center; gap: 12px; max-width: 440px; margin: 0 auto 14px; }
+    .form-progress-track { flex: 1; height: 4px; border-radius: 100px; background: rgba(255,255,255,0.22); overflow: hidden; }
+    .form-progress-fill { display: block; height: 100%; width: 50%; background: #fff; border-radius: 100px; transition: width 0.3s ease; }
+    .form-progress-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.82); white-space: nowrap; }
+    .form-step[hidden] { display: none; }
+    .cta-back { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 0.85rem; font-family: inherit; margin-top: 12px; }
+    .cta-back:hover { color: #fff; text-decoration: underline; }
+    .cta-banner > .container > p { max-width: 560px; }
+    .cta-form { max-width: 600px; margin: 32px auto 0; text-align: left; }
+    .cta-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cta-full { grid-column: 1 / -1; }
+    .cta-field { display: flex; flex-direction: column; gap: 5px; }
+    .cta-field label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+    .cta-field input, .cta-field select, .cta-field textarea {
+      padding: 11px 13px; border-radius: 8px;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.1); color: white;
+      font-size: 0.9rem; font-family: inherit; outline: none;
+      transition: border-color 0.15s, background 0.15s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.32); }
+    .cta-field select option { color: #222; background: white; }
+    .cta-field input:focus, .cta-field select:focus, .cta-field textarea:focus {
+      border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.16);
+    }
+    .cta-field textarea { resize: vertical; min-height: 88px; }
+    .cta-field input.error, .cta-field select.error, .cta-field textarea.error {
+      border-color: rgba(255,110,110,0.85);
+      background: rgba(255,80,80,0.12);
+    }
+    .cta-field-error { display: none; font-size: 0.72rem; color: rgba(255,190,190,1); margin-top: 3px; }
+    .cta-field-error.show { display: block; }
+    .cta-form-footer { margin-top: 20px; text-align: center; }
+    .cta-thanks { text-align: center; padding: 32px 0 8px; }
+    .cta-thanks .check { font-size: 2.2rem; line-height: 1; margin-bottom: 12px; }
+    .cta-thanks h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 10px; }
+    body.lang-ja .cta-thanks h3 { font-family: 'Shippori Mincho B1', serif; }
+    @media (max-width: 560px) { .cta-form-grid { grid-template-columns: 1fr; } }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 5vw; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-logo { text-decoration: none; display: inline-flex; align-items: center; }
+    footer p { font-size: 0.8rem; color: var(--gray); }
+    .footer-links { font-size: 0.8rem; }
+    .footer-links a { color: var(--gray); text-decoration: underline; text-underline-offset: 2px; }
+    .footer-links a:hover { color: var(--sage); }
+
+    /* ── JAPANESE OVERRIDES ── */
+    body.lang-ja {
+      font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+      word-break: auto-phrase;
+    }
+    body.lang-ja .hero h1 {
+      font-family: 'Shippori Mincho B1', serif;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .hero h1 em {
+      font-style: normal; /* イタリックは日本語フォントに不適 */
+    }
+    /* モバイルでは各節を1行に収め、改行を美しく。緑の強調は色で担保し倍率を抑える */
+    @media (max-width: 560px) {
+      body.lang-ja .hero h1 {
+        font-size: clamp(1.55rem, 7.8vw, 2.05rem);
+        line-height: 1.45;
+      }
+      body.lang-ja .hero h1 em {
+        font-size: 1.1em;
+        display: inline-block;
+        margin-top: 0.15em;
+      }
+    }
+    body.lang-ja .section-title {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .cta-banner h2 {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .cta-banner > .container > p {
+      text-wrap: balance;
+    }
+    body.lang-ja .label,
+    body.lang-ja .funnel-col-label,
+    body.lang-ja .compare-card .compare-label,
+    body.lang-ja .phone-col-label {
+      text-transform: none;
+      letter-spacing: 0.06em;
+    }
+    body.lang-ja .compare-head {
+      text-transform: none;
+      letter-spacing: 0.03em;
+      font-size: 0.75rem;
+    }
+    body.lang-ja .tl-content h3,
+    body.lang-ja .commission-bar h3,
+    body.lang-ja .faq-item h3 {
+      line-height: 1.5;
+    }
+    body.lang-ja .pricing-copy p,
+    body.lang-ja .faq-item p,
+    body.lang-ja .tl-content p {
+      line-height: 1.85;
+    }
+
+    /* ── ANIMATIONS ── */
+
+    /* Cursor glow */
+    .cursor-glow {
+      position: fixed; top: 0; left: 0;
+      width: 640px; height: 640px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(58,92,69,0.09) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+      transform: translate(-50%, -50%);
+      opacity: 0; transition: opacity 0.5s ease;
+      will-change: left, top;
+    }
+    @media (hover: none) { .cursor-glow { display: none; } }
+
+    /* Hero staggered entrance */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .location-badge { animation: rise 0.55s 0.05s ease both; }
+    .hero h1        { animation: rise 0.65s 0.18s ease both; }
+    .hero-sub       { animation: rise 0.55s 0.32s ease both; }
+    .hero-actions   { animation: rise 0.55s 0.44s ease both; }
+    .zero-grid      { animation: rise 0.55s 0.56s ease both; }
+
+    /* CTA shimmer */
+    .btn-primary, .btn-white { position: relative; overflow: hidden; }
+    .btn-primary::after, .btn-white::after {
+      content: '';
+      position: absolute; top: 0; left: -110%;
+      width: 55%; height: 100%;
+      animation: btn-shimmer 2.8s ease-in-out infinite;
+    }
+    .btn-primary::after {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    }
+    .btn-white::after {
+      background: linear-gradient(90deg, transparent, rgba(58,92,69,0.08), transparent);
+    }
+    @keyframes btn-shimmer {
+      0%   { left: -110%; }
+      60%, 100% { left: 160%; }
+    }
+
+    /* ── ACCESSIBILITY ── */
+    .skip-link { position: absolute; left: 8px; top: -52px; z-index: 1100; background: var(--sage); color: #fff; padding: 10px 16px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: top 0.15s; }
+    .skip-link:focus { top: 8px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--sage); outline-offset: 2px; border-radius: 4px;
+    }
+
+    /* Honor the visitor's OS "reduce motion" setting */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+  
+    /* ── hanjo.ai chrome alignment ── */
+    nav { height: auto; padding: 15px clamp(24px, 4.5vw, 72px); }
     .nav-links { display: flex; gap: 34px; align-items: center; }
     .nav-links a {
       font-family: 'Playfair Display', serif;
       font-size: 16.5px;
       font-weight: 600;
       letter-spacing: 0.01em;
-      color: var(--ink);
+      color: var(--black);
       opacity: 0.66;
       text-decoration: none;
       padding: 8px 0;
@@ -157,158 +608,107 @@
     .nav-links a.active:hover { color: var(--sage); }
     .nav-links a.active::after { display: none; }
     @media (max-width: 880px) { .nav-links { display: none; } }
-    @media (max-width: 560px) {
-      .nav-inner { padding: 13px 20px; }
-      .nav-avail { display: none; }
-      .section { padding: 52px 20px; }
-      .page-hero .section { padding: 24px 20px 32px; }
-      .crumb { margin-bottom: 16px; }
-      .page-hero h1 { font-size: 30px; }
-      html[lang="ja"] .page-hero h1 { font-size: 24px; }
-      .lead { font-size: 14.5px; margin-bottom: 20px; }
-      .hero-actions .btn { width: 100%; justify-content: center; }
-      .step { padding: 20px 22px; }
-      .cta-inner { padding: 72px 20px 88px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; padding: 22px 24px; }
-      .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
-      html[lang="ja"] .page-hero h1 { font-size: clamp(26px, 7.5vw, 36px); line-height: 1.4; }
+    .lang-toggle[hidden] { display: none; }
+    .lang-pill {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 5px 13px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gray);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      line-height: 1;
+      font-family: inherit;
+      transition: color 0.2s, border-color 0.2s;
     }
-
-    /* ── growth.hanjo.ai design alignment ── */
-    body { background: var(--white); }
-    nav { background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); }
-    .announce { background: var(--sage); color: rgba(255,255,255,0.8); }
-    .announce strong { color: #ffffff; }
-    .hero, .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
-    .nav-cta, .btn--dark { background: var(--sage); }
-    .nav-cta:hover, .btn--dark:hover { background: #2e4a38; opacity: 1; }
-    .btn--light { color: var(--sage); }
-    .s-dark { background: var(--sage); }
-    .hero h1 strong, .page-hero h1 strong { color: var(--sage); }
-    .s-dark h2 strong, .cta-inner h2 strong { color: #ffffff; }
-    .line-row-arrow { color: var(--sage); opacity: 0.8; }
-    footer { background: var(--white); border-top: 1px solid var(--border); }
-    .footer-logo img { filter: none; opacity: 1; }
-    .footer-meta a, .footer-meta span { color: var(--muted); }
-    .footer-meta a:hover { color: var(--sage); }
-    .cta-note-dark { color: rgba(255,255,255,0.55); }
-    /* ── FUNNEL INFOGRAPHIC (ported from growth.hanjo.ai) ── */
-    .band { background: var(--white); border-bottom: 1px solid var(--border); }
-    .dot-grid { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; max-width: 600px; }
-    .dot { width: 16px; height: 16px; border-radius: 50%; background: #E0DED8; }
-    .dot.booked { background: var(--sage); }
-    .dot-legend { display: flex; gap: 20px; font-size: 0.875rem; margin-bottom: 48px; }
-    .dot-legend span { display: flex; align-items: center; gap: 8px; }
-    .dot-legend .swatch { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-    .funnel-col-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
-    .funnel-stages { display: flex; flex-direction: column; gap: 0; max-width: 640px; }
-    .funnel-stage { margin-bottom: 4px; }
-    .stage-header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 7px; }
-    .stage-label { font-size: 0.875rem; color: var(--muted); }
-    .stage-count { font-size: 0.9375rem; font-weight: 700; color: var(--ink); white-space: nowrap; }
-    .stage-icons { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
-    .stage-drop { font-size: 0.8125rem; color: #C0392B; padding: 3px 0 10px 2px; display: flex; align-items: center; gap: 6px; }
-    .funnel-result .stage-label { font-weight: 600; color: var(--sage); }
-    .funnel-result .stage-count { color: var(--sage); }
-    .p-icon { width: 26px; height: 26px; flex-shrink: 0; }
-    .p-s1 { fill: #C8D6CA; } .p-s2 { fill: #A8C2AC; } .p-s3 { fill: #7FAF88; } .p-s4 { fill: #5A8F64; } .p-s5 { fill: #3B6B3F; }
-    html[lang="ja"] .stage-label, html[lang="ja"] .stage-drop, html[lang="ja"] .dot-legend, html[lang="ja"] .funnel-col-label { font-family: 'Noto Sans JP', sans-serif; }
-    @media print {
-      [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
-    }
-      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    .lang-pill:hover { color: var(--black); border-color: rgba(17,17,16,0.3); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 9px 18px; letter-spacing: 0.01em; }
+    .risk-banner { font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
       outline: 2px solid var(--sage);
       outline-offset: 3px;
       border-radius: 4px;
     }
-  
-    /* ── SMOOTH PAGE TRANSITIONS: header/footer stay put ── */
     @view-transition { navigation: auto; }
     nav { view-transition-name: site-header; }
-    .announce { view-transition-name: site-announce; }
+    .risk-banner { view-transition-name: site-announce; }
     footer { view-transition-name: site-footer; }
     @media (prefers-reduced-motion: reduce) {
       @view-transition { navigation: none; }
     }
-  
-    /* ── SPLIT HERO (CRM-style) ── */
-    .split-hero { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr); max-width: 1280px; margin: 0 auto; align-items: center; }
-    .sh-left { padding: clamp(44px, 5.5vw, 84px) clamp(20px, 3vw, 48px) clamp(44px, 5vw, 72px) clamp(24px, 4.5vw, 72px); }
-    .page-hero h1 { font-size: clamp(38px, 4.4vw, 60px); }
-    html[lang="ja"] .page-hero h1 { font-size: clamp(30px, 3.6vw, 48px); }
-    .sh-right { display: flex; align-items: center; justify-content: center; padding: clamp(28px, 3.5vw, 56px) clamp(24px, 4vw, 64px) clamp(28px, 3.5vw, 56px) 0; }
-    .illus { width: 100%; max-width: 460px; animation: fadeUp 0.9s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    @media (max-width: 940px) {
-      .split-hero { display: block; }
-      .sh-right { display: none; }
-    }
-    .illus-phone { max-width: 330px; background: var(--white); border: 1px solid var(--border); border-radius: 28px; box-shadow: 0 24px 60px rgba(17,17,16,0.08); padding: 16px; }
-    .ip-screen { background: var(--bg); border-radius: 18px; padding: 22px 16px; display: flex; flex-direction: column; gap: 12px; }
-    .ip-bubble { max-width: 86%; font-size: 13px; line-height: 1.55; padding: 10px 14px; border-radius: 16px; }
-    .ip-in { background: var(--white); border: 1px solid var(--border); color: var(--ink); border-bottom-left-radius: 4px; align-self: flex-start; }
-    .ip-out { background: var(--sage); color: #ffffff; border-bottom-right-radius: 4px; align-self: flex-end; }
-    .ip-card { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid rgba(58,92,69,0.35); border-radius: 12px; padding: 10px 16px; font-size: 12.5px; font-weight: 600; color: var(--sage); align-self: center; margin-top: 6px; }
-    html[lang="ja"] .ip-bubble, html[lang="ja"] .ip-card { font-family: 'Noto Sans JP', sans-serif; }
   </style>
 </head>
 <body>
 
-  <div class="announce" data-i18n="announce">
-    <strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.
-  </div>
-  <nav>
-    <div class="nav-inner">
-      <a href="/" class="logo" aria-label="hanjo">
-        <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
-      </a>
-      <div class="nav-links" aria-label="Services">
-        <a href="/crm/">CRM</a>
-        <a href="/web/">Web</a>
-        <a href="/ads/">Ads</a>
-        <a href="/recovery/">Recovery</a>
-      </div>
-      <div class="nav-right">
-        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
-        <a href="/contact/" class="nav-cta" data-i18n="nav-cta">
-          Free consultation
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </nav>
+<a href="#main" class="skip-link" data-i18n="skip_link">Skip to content</a>
 
-  <div class="page-hero">
-    <div class="split-hero">
-    <div class="sh-left">
-      <a href="/#services" class="crumb" data-i18n="crumb">← All services</a><br>
-      <h1 data-i18n="ph-h1">More new clients. Same ad budget.<strong>No fees. No hassle.</strong></h1>
-      <p class="lead" data-i18n="ph-lead">Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.</p>
-      <div class="hero-actions">
-        <a href="/contact/" class="btn btn--dark" data-i18n="hero-cta">
-          Start with a free consultation
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <span class="btn-note" data-i18n="hero-note">We work in both English and Japanese.</span>
-      </div>
-    </div>
+<!-- BANNER -->
+<div class="risk-banner" data-i18n="risk_banner">
+  <strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.
+</div>
 
-    <div class="sh-right" aria-hidden="true">
-      <div class="illus illus-phone">
-        <div class="ip-screen">
-          <div class="ip-bubble ip-in" data-i18n="ill-sms-1">Your appointment is still available. Tap here to finish booking.</div>
-          <div class="ip-bubble ip-out" data-i18n="ill-sms-2">Just booked. Thank you!</div>
-          <div class="ip-card"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 4.5-5.5"/></svg><span data-i18n="ill-sms-3">Booking confirmed</span></div>
-        </div>
-      </div>
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo"><img src="/hanjo-logo.svg" alt="hanjo" class="logo-img"></a>
+  <div class="nav-links" aria-label="Services">
+    <a href="/crm/">CRM</a>
+    <a href="/web/">Web</a>
+    <a href="/ads/">Ads</a>
+    <a href="/recovery/">Recovery</a>
+  </div>
+  <div class="nav-right">
+    <div class="lang-toggle" role="group" aria-label="Language / 言語" hidden aria-hidden="true">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button class="lang-btn" id="btn-ja" onclick="setLang('ja')" aria-pressed="false">日本語</button>
     </div>
+    <button class="lang-pill" id="lang-pill" onclick="setLang(document.body.classList.contains('lang-ja') ? 'en' : 'ja')" aria-label="Switch language">JP</button>
+    <a href="#book" class="nav-cta" data-i18n="nav_cta">Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="main" tabindex="-1">
+  <div class="container">
+    <div class="location-badge">
+      <svg class="pin-icon" width="9" height="11" viewBox="0 0 9 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4.5 0C2.01 0 0 2.01 0 4.5 0 7.88 4.5 11 4.5 11S9 7.88 9 4.5C9 2.01 6.99 0 4.5 0zm0 6.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5z"/>
+      </svg>
+      <span data-i18n="location_badge">Now serving Los Angeles area only</span>
+    </div>
+    <h1 data-i18n="hero_h1">More new clients.<br>Same ad budget.<br><em>No fees. No hassle.</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">
+      Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.
+    </p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary" data-i18n="hero_btn_primary">Get a free audit →</a>
+      <a href="#fit" class="btn-ghost" data-i18n="hero_btn_ghost">See if you're a fit →</a>
+    </div>
+    <div class="zero-grid">
+      <div class="zero-badge">
+        <div class="zero-icon">$0</div>
+        <div><strong data-i18n="zero_1_strong">No setup fee</strong><span data-i18n="zero_1_span">We build everything upfront</span></div>
+      </div>
+      <div class="zero-badge">
+        <div class="zero-icon">$0</div>
+        <div><strong data-i18n="zero_2_strong">No monthly fee</strong><span data-i18n="zero_2_span">Ever, for any reason</span></div>
+      </div>
+      <div class="zero-badge">
+        <div class="zero-icon">✓</div>
+        <div><strong data-i18n="zero_3_strong">Pay on results</strong><span data-i18n="zero_3_span">Commission on confirmed bookings</span></div>
+      </div>
     </div>
   </div>
+</section>
 
 <!-- INFOGRAPHIC -->
-<div class="band">
-    <div class="section">
+<section class="infographic">
+  <div class="container">
     <span class="label" data-i18n="label_problem">The problem, visualized</span>
-    <h2 data-i18n="title_problem">97% of visitors leave<br>without booking.</h2>
+    <h2 class="section-title" data-i18n="title_problem">97% of visitors leave<br>without booking.</h2>
 
     <div class="dot-grid">
       <div class="dot booked"></div><div class="dot booked"></div><div class="dot booked"></div>
@@ -389,277 +789,745 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- RECOVERY -->
+<section class="recovery" id="recovery">
+  <div class="container">
+    <span class="label" data-i18n="label_recovery">How we recover customers</span>
+    <h2 class="section-title" data-i18n="title_recovery">We reach the visitors<br>who almost booked.</h2>
+
+    <div class="approach-flow">
+      <div class="approach-step">
+        <div class="approach-step-icons">
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+        </div>
+        <h3 data-i18n="appr_h1">They showed interest, but never booked</h3>
+        <p data-i18n="appr_p1">Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.</p>
+      </div>
+
+      <div class="approach-connector">
+        <div class="approach-connector-line"></div>
+        <span class="approach-connector-arrow">↓</span>
+        <div class="approach-connector-line"></div>
+      </div>
+
+      <div class="approach-step approach-step-sms">
+        <div class="approach-sms-label" data-i18n="appr_action">We step in at the right moment</div>
+        <div class="sms-card">
+          <div class="sms-card-sender">
+            <div class="sms-card-avatar">🌿</div>
+            <div>
+              <div class="sms-card-name">Serenity Spa</div>
+              <div class="sms-card-sub" data-i18n="sms_sub_label">Text Message</div>
+            </div>
+          </div>
+          <div class="sms-card-bubble" data-i18n="sms_bubble">Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We'd love to have you in. Your spot is saved for the next 2 hours.</div>
+          <div class="sms-card-cta" data-i18n="sms_cta">Book My Appointment →</div>
+          <div class="sms-card-tap" data-i18n="sms_tap">Tap to confirm · Takes 30 seconds</div>
+          <div class="sms-card-consent" data-i18n="sms_consent">✓ Sent because Sarah opted in · Reply STOP to unsubscribe</div>
+        </div>
+      </div>
+
+      <div class="approach-connector">
+        <div class="approach-connector-line"></div>
+        <span class="approach-connector-arrow">↓</span>
+        <div class="approach-connector-line"></div>
+      </div>
+
+      <div class="approach-step approach-step-result">
+        <div class="approach-step-icons">
+          <svg class="p-icon p-s5" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s5" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+        </div>
+        <h3 data-i18n="appr_h2">They come back and book</h3>
+        <p data-i18n="appr_p2">You get new appointments. We take our commission only when a booking is confirmed.</p>
+      </div>
+    </div>
+
+    <div class="commission-bar">
+      <div class="icon">💡</div>
+      <div>
+        <h3 data-i18n="commission_h3">You only pay when it works</h3>
+        <p data-i18n="commission_p">Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start.</p>
+      </div>
+    </div>
+
+    <div class="trust-strip" role="list" aria-label="How we keep messaging compliant">
+      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="trustpill_1">Consent-based</span></span>
+      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m5.4 5.4 13.2 13.2"/></svg><span data-i18n="trustpill_2">One-tap STOP opt-out</span></span>
+      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="trustpill_3">TCPA &amp; CTIA compliant</span></span>
+    </div>
+    <p class="trust-strip-note" data-i18n="trustpill_note">Every text is sent only with the customer's consent and can be stopped in one tap. That's what keeps you protected in California. <a href="#faq">See the compliance FAQ →</a></p>
+  </div>
+</section>
+
+<!-- ELIGIBILITY SIMULATOR -->
+<section class="sim" id="fit">
+  <div class="container">
+    <span class="label" data-i18n="label_fit">Are we a fit?</span>
+    <h2 class="section-title" data-i18n="title_fit">See if your business qualifies<br>in 30 seconds.</h2>
+    <p class="sim-lead" data-i18n="sim_lead">Four quick questions. We'll tell you on the spot whether our system fits your setup, and what it could be recovering for you.</p>
+
+    <div class="sim-card" id="sim-card">
+      <div class="sim-q" data-q="type">
+        <div class="sim-q-label" data-i18n="sim_q1">What kind of business do you run?</div>
+        <div class="sim-chips">
+          <button type="button" class="sim-chip" data-val="medspa" data-i18n="sim_t_medspa">Med spa</button>
+          <button type="button" class="sim-chip" data-val="aesthetic" data-i18n="sim_t_aesthetic">Aesthetic clinic</button>
+          <button type="button" class="sim-chip" data-val="cosmetic" data-i18n="sim_t_cosmetic">Cosmetic / plastic surgery</button>
+          <button type="button" class="sim-chip" data-val="derm" data-i18n="sim_t_derm">Dermatology</button>
+          <button type="button" class="sim-chip" data-val="dental" data-i18n="sim_t_dental">Dental / ortho</button>
+          <button type="button" class="sim-chip" data-val="hair" data-i18n="sim_t_hair">Hair restoration</button>
+          <button type="button" class="sim-chip" data-val="other" data-i18n="sim_t_other">Other service business</button>
+        </div>
+      </div>
+      <div class="sim-q" data-q="ads">
+        <div class="sim-q-label" data-i18n="sim_q2">Do you run paid ads (Meta / Google)?</div>
+        <div class="sim-chips">
+          <button type="button" class="sim-chip" data-val="yes" data-i18n="sim_ads_yes">Yes</button>
+          <button type="button" class="sim-chip" data-val="no" data-i18n="sim_ads_no">Not yet</button>
+        </div>
+      </div>
+      <div class="sim-q" data-q="ticket">
+        <div class="sim-q-label" data-i18n="sim_q3">Average value of a new client?</div>
+        <div class="sim-chips">
+          <button type="button" class="sim-chip" data-val="low" data-i18n="sim_ticket_low">Under $150</button>
+          <button type="button" class="sim-chip" data-val="mid" data-i18n="sim_ticket_mid">$150–500</button>
+          <button type="button" class="sim-chip" data-val="high" data-i18n="sim_ticket_high">$500+</button>
+        </div>
+      </div>
+      <div class="sim-q" data-q="platform">
+        <div class="sim-q-label" data-i18n="sim_q4">How do clients book?</div>
+        <div class="sim-chips">
+          <button type="button" class="sim-chip" data-val="square">Square</button>
+          <button type="button" class="sim-chip" data-val="mindbody">Mindbody</button>
+          <button type="button" class="sim-chip" data-val="vagaro">Vagaro</button>
+          <button type="button" class="sim-chip" data-val="fresha">Fresha</button>
+          <button type="button" class="sim-chip" data-val="other" data-i18n="sim_p_other">Other online</button>
+          <button type="button" class="sim-chip" data-val="none" data-i18n="sim_p_none">Phone / walk-in only</button>
+        </div>
+      </div>
+      <button type="button" class="btn-primary sim-submit" id="sim-submit" data-i18n="sim_submit">See if I qualify →</button>
+      <p class="sim-note" id="sim-note" data-i18n="sim_note">Please answer all four questions.</p>
+    </div>
+
+    <div class="sim-result" id="sim-result" hidden aria-live="polite">
+      <div class="sim-result-badge" id="sim-badge"></div>
+      <h3 id="sim-result-title"></h3>
+      <p id="sim-result-body"></p>
+      <div class="sim-compat" id="sim-compat" hidden></div>
+      <div><a href="#book" class="btn-primary" id="sim-cta"></a></div>
+      <button type="button" class="sim-restart" id="sim-restart" data-i18n="sim_restart">↺ Start over</button>
     </div>
   </div>
+</section>
 
-  <div class="s-white">
-    <div class="section">
-      <span class="label" data-reveal data-i18n="inc-label">How we recover customers</span>
-      <h2 data-reveal data-i18n="inc-h2">We reach the visitors<br><span>who almost booked.</span></h2>
-      <ul class="inc-list">
-        <li>
-          <span class="inc-num">01</span>
-          <div>
-            <h3 data-i18n="inc-1-h">They showed interest, but never booked</h3>
-            <p data-i18n="inc-1-p">Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">02</span>
-          <div>
-            <h3 data-i18n="inc-2-h">We step in at the right moment</h3>
-            <p data-i18n="inc-2-p">Every text is sent only with the customer's consent and can be stopped in one tap. That's what keeps you protected in California.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">03</span>
-          <div>
-            <h3 data-i18n="inc-3-h">They come back and book</h3>
-            <p data-i18n="inc-3-p">You get new appointments. We take our commission only when a booking is confirmed.</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">04</span>
-          <div>
-            <h3 data-i18n="inc-4-h">You only pay when it works</h3>
-            <p data-i18n="inc-4-p">Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start.</p>
-          </div>
-        </li>
-      </ul>
-      <p class="callout" data-reveal data-i18n="proof">This system is running today at a head spa in Beverly Hills, on Square. Every booking it recovers is tracked, and fees apply only to confirmed results.</p>
-    </div>
-  </div>
-
-  <div>
-    <div class="section">
-      <span class="label" data-reveal data-i18n="how-label">How it works</span>
-      <h2 data-reveal data-i18n="how-h2">Simple to start.<br><span>No retainer required.</span></h2>
-      <ul class="steps">
-        <li class="step">
-          <span class="step-num">01</span>
-          <div>
-            <h3 data-i18n="how-1-h">Free consultation</h3>
-            <p data-i18n="how-1-p">Your booking flow, where people drop off, and whether this model fits your shop. 20 to 30 minutes.</p>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-num">02</span>
-          <div>
-            <h3 data-i18n="how-2-h">Build</h3>
-            <p data-i18n="how-2-p">Landing page, SMS sequences, booking integration, and tracking. Typically live within a few weeks.</p>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-num">03</span>
-          <div>
-            <h3 data-i18n="how-3-h">Recover and report</h3>
-            <p data-i18n="how-3-p">Bookings come back, each one attributed. On performance pricing, you pay only on results.</p>
-          </div>
-        </li>
-      </ul>
-      <p class="callout" data-reveal data-i18n="price">Commission applies only when a customer completes a booking by clicking a link inside our SMS. Not per click. Not per message sent. <strong>Per confirmed booking.</strong> If our messages recover zero customers, you pay zero. Commission rate is agreed before we start, based on your average booking value, discussed in your free call.</p>
-    </div>
-  </div>
-
-  <div class="s-dark">
-    <div class="cta-inner">
-      <h2 data-reveal data-i18n="cta-h2">Ready when you are.<strong>Let's talk about your project.</strong></h2>
-      <p data-reveal data-i18n="cta-p">A free 30-minute consultation, in English or Japanese. Before anything else, we would love to hear about your business and the problems on your plate.</p>
-      <div data-reveal>
-        <a href="/contact/" class="btn btn--light" data-i18n="cta-btn">
-          Start with a free consultation
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+<!-- HANJO VALUE PROPS -->
+<section class="how" id="how">
+  <div class="container">
+    <h2 class="section-title" data-i18n="title_how">No fees. No hassle.</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-label" data-i18n="val1_label">Anything except commission</div>
+        <div class="value-num" data-i18n="val1_num">$0</div>
+      </div>
+      <div class="value-card">
+        <div class="value-label" data-i18n="val2_label">Your workload</div>
+        <div class="value-num" data-i18n="val2_num">Minimal</div>
+      </div>
+      <div class="value-card">
+        <div class="value-label" data-i18n="val3_label">SMS sending cost</div>
+        <div class="value-num" data-i18n="val3_num">$0</div>
       </div>
     </div>
   </div>
+</section>
 
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-logo" aria-label="hanjo">
-        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
-      </span>
-      <div class="footer-meta">
-        <a href="/about/" data-i18n="footer-about">About Us</a>
-        <a href="/terms/" data-i18n="footer-terms">Terms of Use</a>
-        <a href="/privacy/" data-i18n="footer-privacy">Privacy Policy</a>
-        <span data-i18n="footer-copy">© 2026 hanjo · Los Angeles</span>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="pricing-layout">
+      <div class="pricing-copy">
+        <span class="label" data-i18n="label_pricing">The numbers</span>
+        <h2 class="section-title" data-i18n="title_pricing">Pay only when a customer books. Keep the rest.</h2>
+        <p data-i18n="pricing_p1">Commission applies only when a customer completes a booking by clicking a link inside our SMS. Not per click. Not per message sent. Per confirmed booking.</p>
+        <p data-i18n="pricing_p2">If our messages recover zero customers, you pay zero. Commission rate is agreed before we start, based on your average booking value, discussed in your free call.</p>
+        <div class="pricing-example" data-i18n="pricing_example">
+          <strong>Example (med spa, $320 avg booking):</strong><br>
+          40 new clients/month through our messages<br>
+          Revenue generated: $12,800<br>
+          You pay hanjo: commission on 40 bookings<br>
+          <strong>Net to you: the difference, kept in full</strong>
+        </div>
+      </div>
+      <div>
+        <div class="compare-table">
+          <div class="compare-head">
+            <span data-i18n="table_col1">What you pay</span>
+            <span>hanjo</span>
+            <span data-i18n="table_col3">Agency</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r1_cl">Setup fee</span>
+            <span class="ch">$0</span>
+            <span class="co">$2,000–5,000</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r2_cl">Monthly retainer</span>
+            <span class="ch">$0</span>
+            <span class="co">$2,500–5,000</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r3_cl">If it doesn't work</span>
+            <span class="ch">$0</span>
+            <span class="co" data-i18n="table_r3_co">Pay anyway</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r4_cl">Per booking</span>
+            <span class="ch" data-i18n="table_r4_ch">% agreed upfront</span>
+            <span class="co" data-i18n="table_r4_co">Not tracked</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r5_cl">Contract</span>
+            <span class="ch" data-i18n="table_r5_ch">Flexible</span>
+            <span class="co" data-i18n="table_r5_co">3–12 months</span>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    const T = {
-      "en": {
-            "crumb": "← All services",
-            "ill-sms-1": "Your appointment is still available. Tap here to finish booking.",
-            "ill-sms-2": "Just booked. Thank you!",
-            "ill-sms-3": "Booking confirmed",
-            "announce": "<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.",
-            "nav-avail": "Taking new clients",
-            "lang-toggle": "JP",
-            "nav-cta": "Free consultation <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "hero-cta": "Start with a free consultation <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "hero-note": "We work in both English and Japanese.",
-            "inc-label": "How we recover customers",
-            "how-label": "How it works",
-            "how-h2": "Simple to start.<br><span>No retainer required.</span>",
-            "cta-h2": "Ready when you are.<strong>Let's talk about your project.</strong>",
-            "cta-p": "A free 30-minute consultation, in English or Japanese. Before anything else, we would love to hear about your business and the problems on your plate.",
-            "cta-btn": "Start with a free consultation <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "cta-note": "No commitment. Just a conversation.",
-            "footer-about": "About Us",
-            "footer-terms": "Terms of Use",
-            "footer-privacy": "Privacy Policy",
-            "footer-copy": "© 2026 hanjo · Los Angeles",
-            "footer-name": "Kei Nakayama",
-            "footer-location": "Los Angeles, CA",
-            "ph-h1": "More new clients. Same ad budget.<strong>No fees. No hassle.</strong>",
-            "ph-lead": "Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.",
-            "inc-h2": "We reach the visitors<br><span>who almost booked.</span>",
-            "proof": "This system is running today at a head spa in Beverly Hills, on Square. Every booking it recovers is tracked, and fees apply only to confirmed results.",
-            "price": "Commission applies only when a customer completes a booking by clicking a link inside our SMS. Not per click. Not per message sent. <strong>Per confirmed booking.</strong> If our messages recover zero customers, you pay zero. Commission rate is agreed before we start, based on your average booking value, discussed in your free call.",
-            "how-1-h": "Free consultation",
-            "how-1-p": "Your booking flow, where people drop off, and whether this model fits your shop. 20 to 30 minutes.",
-            "how-2-h": "Build",
-            "how-2-p": "Landing page, SMS sequences, booking integration, and tracking. Typically live within a few weeks.",
-            "how-3-h": "Recover and report",
-            "how-3-p": "Bookings come back, each one attributed. On performance pricing, you pay only on results.",
-            "inc-1-h": "They showed interest, but never booked",
-            "inc-1-p": "Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.",
-            "inc-2-h": "We step in at the right moment",
-            "inc-2-p": "Every text is sent only with the customer's consent and can be stopped in one tap. That's what keeps you protected in California.",
-            "inc-3-h": "They come back and book",
-            "inc-3-p": "You get new appointments. We take our commission only when a booking is confirmed.",
-            "inc-4-h": "You only pay when it works",
-            "inc-4-p": "Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start.",
-            "label_problem": "The reality",
-            "title_problem": "97% of visitors leave<br>without booking.",
-            "legend_booked": "3 booked",
-            "legend_away": "97 walked away",
-            "funnel_col_drop": "Where they drop off",
-            "funnel_r1": "Clicked your ad",
-            "funnel_r2": "Viewed booking page",
-            "funnel_r3": "Filled the form",
-            "funnel_r4": "Got timely follow-up",
-            "funnel_r5": "Booked an appointment",
-            "funnel_d1": "<strong>−30</strong> landed on wrong page, left immediately",
-            "funnel_d2": "<strong>−40</strong> saw the form, felt too much friction",
-            "funnel_d3": "<strong>−17</strong> waited hours for a reply, booked elsewhere",
-            "funnel_d4": "<strong>−10</strong> needed one more nudge but never got it"
-      },
-      "ja": {
-            "crumb": "← サービス一覧に戻る",
-            "ill-sms-1": "ご予約はまだ間に合います。こちらから完了できます。",
-            "ill-sms-2": "今、予約しました。ありがとうございます！",
-            "ill-sms-3": "ご予約が確定しました",
-            "announce": "<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。",
-            "nav-avail": "新規受付中",
-            "lang-toggle": "EN",
-            "nav-cta": "無料相談 <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "hero-cta": "無料相談をはじめる <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "hero-note": "日本語と英語、どちらでもご相談いただけます。",
-            "inc-label": "取りこぼしを、ゼロに近づける",
-            "how-label": "進め方",
-            "how-h2": "まずは<br><span>無料相談から。</span>",
-            "cta-h2": "準備ができたら、<strong>まずは話すことから。</strong>",
-            "cta-p": "30分の無料相談を、日本語または英語で承ります。まずは、いま抱えている課題を、じっくりお聞かせください。",
-            "cta-btn": "無料相談をはじめる <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
-            "cta-note": "ご相談のみでも歓迎です",
-            "footer-about": "会社概要",
-            "footer-terms": "利用規約",
-            "footer-privacy": "プライバシーポリシー",
-            "footer-copy": "© 2026 hanjo · ロサンゼルス",
-            "footer-name": "Kei Nakayama",
-            "footer-location": "ロサンゼルス",
-            "ph-h1": "広告費は増やさずに、新規客を増やす。<strong>費用も手間も、ゼロ。</strong>",
-            "ph-lead": "独立系メディカルスパ・美容クリニック向けに特化したサービスです。初期費用・月額費用ゼロ、完全成果報酬。",
-            "inc-h2": "hanjoなら離反顧客を<br><span>成約につなげます</span>",
-            "proof": "この仕組みは、ビバリーヒルズのヘッドスパ（Square利用）で現在も稼働しています。回復した予約はすべて計測され、料金は成果が確定した分にのみ発生します。",
-            "price": "料金が発生するのは、SMSのリンクから予約が入った時だけです。クリック数でも送信数でもありません。<strong>予約が入った数だけです。</strong>新規のお客様が来なければ、費用はゼロです。料率は始める前に、予約の平均単価をもとに一緒に決めます。",
-            "how-1-h": "無料相談",
-            "how-1-p": "予約導線とどこで離脱が起きているか、この仕組みが合うお店かどうかをお話しします。20〜30分。",
-            "how-2-h": "構築",
-            "how-2-p": "LP、SMSシーケンス、予約システム連携、計測まで。通常は数週間で稼働します。",
-            "how-3-h": "回復・レポート",
-            "how-3-p": "予約が戻り始めます。すべて計測付きです。成果報酬型なら、成果が出たときだけのお支払いです。",
-            "inc-1-h": "興味はあったものの、予約まで踏み切れなかった",
-            "inc-1-p": "サービスを見て、フォームまで入力した方。でも最後の一歩を踏み出せなかったお客様へアプローチします",
-            "inc-2-h": "私たちが動きます",
-            "inc-2-p": "SMSはお客様の同意がある場合のみ送信し、ワンタップで停止できます。これがカリフォルニアでオーナー様を守る仕組みです。",
-            "inc-3-h": "新規成約へ",
-            "inc-3-p": "離反顧客への適切なアプローチを行うことで本来離反してしまっていた見込み客を新規の成約へ繋げます。",
-            "inc-4-h": "成果が出た分だけ、お支払い",
-            "inc-4-p": "お客様の予約が完了した時だけ手数料が発生します。すべての予約は追跡されており、同じデータを一緒に確認できます。料率は始める前に決めます。",
-            "label_problem": "集客の現実",
-            "title_problem": "来訪客の97%が、<br>予約せずに離反しています。",
-            "legend_booked": "3人が予約",
-            "legend_away": "97人が帰る",
-            "funnel_col_drop": "離脱ポイント",
-            "funnel_r1": "広告をクリック",
-            "funnel_r2": "予約ページを閲覧",
-            "funnel_r3": "フォームを入力",
-            "funnel_r4": "フォローを受けた",
-            "funnel_r5": "予約完了",
-            "funnel_d1": "<strong>−30人</strong> 別ページに飛び、すぐ離脱",
-            "funnel_d2": "<strong>−40人</strong> フォームを見たが手間を感じて離脱",
-            "funnel_d3": "<strong>−17人</strong> 返信を何時間も待った末、他で予約",
-            "funnel_d4": "<strong>−10人</strong> あと一声あれば予約していた"
+<!-- ADS AI CROSS-SELL -->
+<section class="adsai" id="ads-ai">
+  <div class="container">
+    <div class="adsai-card">
+      <div>
+        <span class="label" data-i18n="adsai_label">Also from hanjo</span>
+        <h2 data-i18n="adsai_title">Running Meta ads, or planning to?</h2>
+        <p data-i18n="adsai_p">hanjo Ads AI feeds your ad platform's algorithm the high-quality conversion data it's missing, so delivery concentrates on your most valuable customers and ROAS climbs. If improving your ads is on your list, take a look.</p>
+      </div>
+      <a href="/ads/" class="btn-primary" data-i18n="adsai_btn">Explore hanjo Ads AI →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="label" data-i18n="label_faq">Common questions</span>
+    <h2 class="section-title" data-i18n="title_faq">What med spa owners ask us first.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 data-i18n="faq_law_h3">Is texting customers legal in California? Could I get sued?</h3>
+        <p data-i18n="faq_law_p">Texting is legal when the customer has given consent, and consent is the only basis we ever text on. Every number opts in through your own form with clear, TCPA-compliant wording, and every message follows CTIA messaging guidelines with a one-tap "Reply STOP" that we honor immediately. We never buy lists and never cold-text anyone. That consent-first, TCPA &amp; CTIA–aligned approach is exactly what keeps you protected under California and federal law.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq_data_h3">How is my customers' data protected?</h3>
+        <p data-i18n="faq_data_p">Customer contact details are encrypted, stored securely, and never sold or shared. We use them for a single purpose, helping that person complete their booking, and honor any deletion request in line with California's data-privacy law. You and your customers stay in control of the data at all times.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq1_h3">How do you track which bookings are yours to invoice?</h3>
+        <p data-i18n="faq1_p">Every SMS we send contains a unique tracked link. We only invoice when a customer clicks that specific link and completes a booking. Walk-ins, organic bookings, and repeat customers are never counted. You see the same log we do before approving any invoice.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq2_h3">What if it doesn't bring in any new customers?</h3>
+        <p data-i18n="faq2_p">You pay nothing. We absorb the setup cost and time. Our incentive is entirely aligned with yours: we make money when you make money. If it's not working, we keep optimising, or we walk away with no invoice.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq3_h3">Do I need to give you access to my ad accounts?</h3>
+        <p data-i18n="faq3_p">For ads management, yes: we request partner access to your Meta or Google account. You remain the owner. For the landing page and automation, no ad access is needed. You can start with just the funnel and add ads later.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq4_h3">What booking platforms do you work with?</h3>
+        <p data-i18n="faq4_p">We currently build for Square merchants. If you're on a different platform (Mindbody, Vagaro, Fresha, or anything else), let us know. We're open to developing for your setup so you don't have to make any drastic changes. We'll be upfront about what's possible before we start.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq5_h3">How long until the funnel is live?</h3>
+        <p data-i18n="faq5_p">Two weeks from kickoff. Day 1–3: audit and plan. Day 4–7: landing page built. Day 8–14: automation set up and tested. Day 14: live and tracking from day one.</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq6_h3">Is there a minimum commitment?</h3>
+        <p data-i18n="faq6_p">No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner" id="book">
+  <div class="container">
+    <h2 data-i18n="cta_h2">See how many bookings<br>your form is losing.</h2>
+    <p data-i18n="cta_p">Get a free audit of your booking funnel. We'll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.</p>
+    <form class="cta-form" id="cta-form" novalidate>
+      <input type="hidden" name="business_type" id="sim-out-type">
+      <input type="hidden" name="avg_ticket" id="sim-out-ticket">
+      <input type="hidden" name="runs_ads" id="sim-out-ads">
+      <div class="form-progress">
+        <span class="form-progress-track"><span class="form-progress-fill" id="progress-fill"></span></span>
+        <span class="form-progress-label"><span id="plabel-1" data-i18n="form_step1">Step 1 of 2</span><span id="plabel-2" data-i18n="form_step2" hidden>Step 2 of 2</span></span>
+      </div>
+
+      <!-- STEP 1: low-friction entry -->
+      <div class="form-step" id="step-1">
+        <div class="cta-form-grid">
+          <div class="cta-field">
+            <label data-i18n="form_label_name">Your name</label>
+            <input type="text" name="name" placeholder="Jane Kim" required data-i18n-placeholder="form_ph_name">
+            <span class="cta-field-error" data-i18n="form_err_required">Required</span>
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_email">Email</label>
+            <input type="email" name="email" placeholder="you@yourspa.com" required data-i18n-placeholder="form_ph_email">
+            <span class="cta-field-error" data-i18n="form_err_email">Please enter a valid email</span>
+          </div>
+        </div>
+        <div class="cta-form-footer">
+          <button type="button" class="btn-white" id="step-next" data-i18n="form_continue">Continue →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: details -->
+      <div class="form-step" id="step-2" hidden>
+        <div class="cta-form-grid">
+          <div class="cta-field">
+            <label data-i18n="form_label_spa">Spa name</label>
+            <input type="text" name="spa_name" placeholder="Glow Skin Studio" required data-i18n-placeholder="form_ph_spa">
+            <span class="cta-field-error" data-i18n="form_err_required">Required</span>
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_phone">Phone (optional)</label>
+            <input type="tel" name="phone" placeholder="(310) 555-0100" data-i18n-placeholder="form_ph_phone">
+            <span class="cta-field-hint" data-i18n="form_phone_consent">Optional. Only used if you ask for a call or text, never spam.</span>
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_city">Neighborhood / city (optional)</label>
+            <input type="text" name="city" placeholder="Beverly Hills, West Hollywood…" data-i18n-placeholder="form_ph_city">
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_platform">Booking platform (optional)</label>
+            <select name="platform">
+              <option value="" data-i18n="form_ph_platform">Select your platform</option>
+              <option value="square">Square</option>
+              <option value="mindbody">Mindbody</option>
+              <option value="vagaro">Vagaro</option>
+              <option value="fresha">Fresha</option>
+              <option value="other" data-i18n="form_opt_other">Other</option>
+            </select>
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_adspend">Monthly ad spend (optional)</label>
+            <select name="ad_spend">
+              <option value="" data-i18n="form_ph_adspend">Select range</option>
+              <option value="under_1k">Under $1,000</option>
+              <option value="1k_5k">$1,000 – $5,000</option>
+              <option value="5k_10k">$5,000 – $10,000</option>
+              <option value="over_10k">$10,000+</option>
+            </select>
+          </div>
+          <div class="cta-field cta-full">
+            <label data-i18n="form_label_challenge">What's your biggest challenge? (optional)</label>
+            <textarea name="challenge" placeholder="e.g. Running Meta ads but not seeing new clients book…" data-i18n-placeholder="form_ph_challenge"></textarea>
+          </div>
+        </div>
+        <div class="cta-form-footer">
+          <button type="submit" class="btn-white" data-i18n="cta_btn">Get my free audit →</button>
+          <div><button type="button" class="cta-back" id="step-back" data-i18n="form_back">← Back</button></div>
+          <p class="cta-sub" data-i18n="cta_sub">Free audit. No setup fee, no monthly fee, no obligation to continue.</p>
+        </div>
+      </div>
+    </form>
+    <div class="cta-thanks" id="cta-thanks" style="display:none">
+      <div class="check">✓</div>
+      <h3 data-i18n="thanks_h3">Your free audit is on the way.</h3>
+      <p data-i18n="thanks_p">We'll review your funnel and send your audit within 24 hours. In the meantime, pull your last 30 days of ad spend and count how many clicked but never booked. That's the leak we'll measure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo"><img src="/hanjo-logo.svg" alt="hanjo" class="logo-img logo-img--footer"></a>
+  <p data-i18n="footer_p">© 2026 hanjo. Performance-based funnel agency for spas.</p>
+  <p class="footer-links"><a href="/about/" data-i18n="footer_about">About</a> &nbsp;·&nbsp; <a href="/ads/">hanjo Ads AI →</a> &nbsp;·&nbsp; <a href="/terms/" data-i18n="footer_terms">Terms of Service</a> &nbsp;·&nbsp; <a href="/privacy/" data-i18n="footer_privacy">Privacy Policy</a></p>
+</footer>
+
+<script>
+  const T = {
+    en: {
+      page_title: 'hanjo | More new clients. Same ad budget. Zero cost risk.',
+      nav_cta: 'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      skip_link: 'Skip to content',
+      risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
+      location_badge: 'Now serving Los Angeles area only',
+      hero_h1: 'More new clients.<br>Same ad budget.<br><em>No fees. No hassle.</em>',
+      hero_sub: 'Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.',
+      hero_btn_primary: 'Get a free audit →',
+      hero_btn_ghost: 'See if you\'re a fit →',
+      zero_1_strong: 'No setup fee',
+      zero_1_span: 'We build everything upfront',
+      zero_2_strong: 'No monthly fee',
+      zero_2_span: 'Ever, for any reason',
+      zero_3_strong: 'Pay on results',
+      zero_3_span: 'Commission on confirmed bookings',
+      label_problem: 'The reality',
+      title_problem: '97% of visitors leave<br>without booking.',
+      legend_booked: '3 booked',
+      legend_away: '97 walked away',
+      funnel_col_drop: 'Where they drop off',
+      funnel_r1: 'Clicked your ad',
+      funnel_d1: '<strong>−30</strong> landed on wrong page, left immediately',
+      funnel_r2: 'Viewed booking page',
+      funnel_d2: '<strong>−40</strong> saw the form, felt too much friction',
+      funnel_r3: 'Filled the form',
+      funnel_d3: '<strong>−17</strong> waited hours for a reply, booked elsewhere',
+      funnel_r4: 'Got timely follow-up',
+      funnel_d4: '<strong>−10</strong> needed one more nudge but never got it',
+      funnel_r5: 'Booked an appointment',
+      label_recovery: 'How we recover customers',
+      title_recovery: 'We reach the visitors<br>who almost booked.',
+      appr_h1: 'They showed interest, but never booked',
+      appr_p1: 'Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.',
+      appr_action: 'We step in at the right moment',
+      sms_sub_label: 'Text Message',
+      sms_bubble: 'Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We\'d love to have you in. Your spot is saved for the next 2 hours.',
+      sms_cta: 'Book My Appointment →',
+      sms_tap: 'Tap to confirm · Takes 30 seconds',
+      sms_consent: '✓ Sent because Sarah opted in · Reply STOP to unsubscribe',
+      appr_h2: 'They come back and book',
+      appr_p2: 'You get new appointments. We take our commission only when a booking is confirmed.',
+      commission_h3: 'You only pay when it works',
+      commission_p: 'Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start.',
+      trustpill_1: 'Consent-based',
+      trustpill_2: 'One-tap STOP opt-out',
+      trustpill_3: 'TCPA & CTIA compliant',
+      trustpill_note: 'Every text is sent only with the customer\'s consent and can be stopped in one tap. That\'s what keeps you protected in California. <a href="#faq">See the compliance FAQ →</a>',
+      label_fit: 'Are we a fit?',
+      title_fit: 'See if your business qualifies<br>in 30 seconds.',
+      sim_lead: 'Four quick questions. We\'ll tell you on the spot whether our system fits your setup, and what it could be recovering for you.',
+      sim_q1: 'What kind of business do you run?',
+      sim_t_medspa: 'Med spa',
+      sim_t_aesthetic: 'Aesthetic clinic',
+      sim_t_cosmetic: 'Cosmetic / plastic surgery',
+      sim_t_derm: 'Dermatology',
+      sim_t_dental: 'Dental / ortho',
+      sim_t_hair: 'Hair restoration',
+      sim_t_other: 'Other service business',
+      sim_q2: 'Do you run paid ads (Meta / Google)?',
+      sim_ads_yes: 'Yes',
+      sim_ads_no: 'Not yet',
+      sim_q3: 'Average value of a new client?',
+      sim_ticket_low: 'Under $150',
+      sim_ticket_mid: '$150–500',
+      sim_ticket_high: '$500+',
+      sim_q4: 'How do clients book?',
+      sim_p_other: 'Other online',
+      sim_p_none: 'Phone / walk-in only',
+      sim_submit: 'See if I qualify →',
+      sim_note: 'Please answer all four questions.',
+      sim_strong_title: 'You\'re a strong fit.',
+      sim_strong_body: 'Businesses like yours lose a real share of paid-traffic bookings at the form. On our performance-based model you only pay when we recover one, so a free audit costs you nothing but the answer.',
+      sim_likely_title: 'You\'re likely a fit.',
+      sim_likely_body: 'The model works best with high-value bookings and online traffic. We can usually set up whatever\'s missing, and a free audit will confirm the numbers for your setup.',
+      sim_weak_title: 'We might not be the right fit yet.',
+      sim_weak_body: 'Our system pays off when each new client is worth $150+ and you\'re driving online traffic to a booking. If that\'s where you\'re headed, we\'re glad to take a look anyway.',
+      sim_compat_ok: 'Works with %s',
+      sim_compat_other: 'Works with most online booking systems',
+      sim_compat_none: 'We\'ll help you add online booking that converts',
+      sim_cta_go: 'Get my free audit →',
+      sim_cta_anyway: 'Get a free audit anyway →',
+      sim_restart: '↺ Start over',
+      title_how: 'No fees. No hassle.',
+      val1_label: 'Anything except commission',
+      val1_num: '$0',
+      val2_label: 'Your workload',
+      val2_num: 'Minimal',
+      val3_label: 'SMS sending cost',
+      val3_num: '$0',
+      label_pricing: 'The numbers',
+      title_pricing: 'Pay only when a customer books. Keep the rest.',
+      pricing_p1: 'Commission applies only when a customer completes a booking by clicking a link inside our SMS. Not per click. Not per message sent. Per confirmed booking.',
+      pricing_p2: 'If our messages recover zero customers, you pay zero. Commission rate is agreed before we start, based on your average booking value, discussed in your free call.',
+      pricing_example: '<strong>Example (med spa, $320 avg booking):</strong><br>40 new clients/month through our messages<br>Revenue generated: $12,800<br>You pay hanjo: commission on 40 bookings<br><strong>Net to you: the difference, kept in full</strong>',
+      table_col1: 'What you pay',
+      table_col3: 'Agency',
+      table_r1_cl: 'Setup fee',
+      table_r2_cl: 'Monthly retainer',
+      table_r3_cl: 'If it doesn\'t work',
+      table_r3_co: 'Pay anyway',
+      table_r4_cl: 'Per booking',
+      table_r4_ch: '% agreed upfront',
+      table_r4_co: 'Not tracked',
+      table_r5_cl: 'Contract',
+      table_r5_ch: 'Flexible',
+      table_r5_co: '3–12 months',
+      label_faq: 'Common questions',
+      title_faq: 'What med spa owners ask us first.',
+      faq_law_h3: 'Is texting customers legal in California? Could I get sued?',
+      faq_law_p: 'Texting is legal when the customer has given consent, and consent is the only basis we ever text on. Every number opts in through your own form with clear, TCPA-compliant wording, and every message follows CTIA messaging guidelines with a one-tap "Reply STOP" that we honor immediately. We never buy lists and never cold-text anyone. That consent-first, TCPA & CTIA–aligned approach is exactly what keeps you protected under California and federal law.',
+      faq_data_h3: 'How is my customers\' data protected?',
+      faq_data_p: 'Customer contact details are encrypted, stored securely, and never sold or shared. We use them for a single purpose, helping that person complete their booking, and honor any deletion request in line with California\'s data-privacy law. You and your customers stay in control of the data at all times.',
+      faq1_h3: 'How do you track which bookings are yours to invoice?',
+      faq1_p: 'Every SMS we send contains a unique tracked link. We only invoice when a customer clicks that specific link and completes a booking. Walk-ins, organic bookings, and repeat customers are never counted. You see the same log we do before approving any invoice.',
+      faq2_h3: 'What if it doesn\'t bring in any new customers?',
+      faq2_p: 'You pay nothing. We absorb the setup cost and time. Our incentive is entirely aligned with yours: we make money when you make money. If it\'s not working, we keep optimising, or we walk away with no invoice.',
+      faq3_h3: 'Do I need to give you access to my ad accounts?',
+      faq3_p: 'For ads management, yes: we request partner access to your Meta or Google account. You remain the owner. For the landing page and automation, no ad access is needed. You can start with just the funnel and add ads later.',
+      faq4_h3: 'What booking platforms do you work with?',
+      faq4_p: 'We currently build for Square merchants. If you\'re on a different platform (Mindbody, Vagaro, Fresha, or anything else), let us know. We\'re open to developing for your setup so you don\'t have to make any drastic changes. We\'ll be upfront about what\'s possible before we start.',
+      faq5_h3: 'How long until the funnel is live?',
+      faq5_p: 'Two weeks from kickoff. Day 1–3: audit and plan. Day 4–7: landing page built. Day 8–14: automation set up and tested. Day 14: live and tracking from day one.',
+      faq6_h3: 'Is there a minimum commitment?',
+      faq6_p: 'No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.',
+      cta_h2: 'See how many bookings<br>your form is losing.',
+      cta_p: 'Get a free audit of your booking funnel. We\'ll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.',
+      cta_btn: 'Get my free audit →',
+      cta_sub: 'Free audit. No setup fee, no monthly fee, no obligation to continue.',
+      form_label_name: 'Your name',
+      form_label_spa: 'Spa name',
+      form_label_phone: 'Phone (optional)',
+      form_label_email: 'Email',
+      form_label_city: 'Neighborhood / city (optional)',
+      form_label_platform: 'Booking platform (optional)',
+      form_label_adspend: 'Monthly ad spend (optional)',
+      form_label_challenge: 'What\'s your biggest challenge? (optional)',
+      form_ph_name: 'Jane Kim',
+      form_ph_spa: 'Glow Skin Studio',
+      form_ph_phone: '(310) 555-0100',
+      form_ph_email: 'you@yourspa.com',
+      form_ph_city: 'Beverly Hills, West Hollywood…',
+      form_ph_platform: 'Select your platform',
+      form_ph_adspend: 'Select range',
+      form_ph_challenge: 'e.g. Running Meta ads but not seeing new clients book…',
+      form_opt_other: 'Other',
+      form_phone_consent: 'Optional. Only used if you ask for a call or text, never spam.',
+      form_step1: 'Step 1 of 2',
+      form_step2: 'Step 2 of 2',
+      form_continue: 'Continue →',
+      form_back: '← Back',
+      form_err_required: 'Required',
+      form_err_email: 'Please enter a valid email',
+      thanks_h3: 'Your free audit is on the way.',
+      thanks_p: 'We\'ll review your funnel and send your audit within 24 hours. In the meantime, pull your last 30 days of ad spend and count how many clicked but never booked. That\'s the leak we\'ll measure.',
+      adsai_label: 'Also from hanjo',
+      adsai_title: 'Running Meta ads, or planning to?',
+      adsai_p: 'hanjo Ads AI feeds your ad platform\'s algorithm the high-quality conversion data it\'s missing, so delivery concentrates on your most valuable customers and ROAS climbs. If improving your ads is on your list, take a look.',
+      adsai_btn: 'Explore hanjo Ads AI →',
+      footer_about: 'About',
+      footer_terms: 'Terms of Service',
+      footer_privacy: 'Privacy Policy',
+      footer_p: '© 2026 hanjo. More bookings. Zero cost risk.'
+    },
+    ja: {
+      page_title: 'hanjo | 独立系メディカルスパ・美容クリニック専門｜コストリスクゼロで集客を増やす',
+      nav_cta: '無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      skip_link: '本文へスキップ',
+      risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
+      location_badge: 'LAエリア限定提供中',
+      hero_h1: '広告費は増やさずに、<br>新規客を増やす。<br><em>費用も手間も、ゼロ。</em>',
+      hero_sub: '独立系メディカルスパ・美容クリニック向けに特化したサービスです。初期費用・月額費用ゼロ、完全成果報酬。',
+      hero_btn_primary: '無料診断を受ける →',
+      hero_btn_ghost: '相性をチェック →',
+      zero_1_strong: '初期費用ゼロ',
+      zero_1_span: '全部、無料で作ります',
+      zero_2_strong: '月額費用ゼロ',
+      zero_2_span: '月々かかる費用は一切なし',
+      zero_3_strong: '完全成果報酬',
+      zero_3_span: '予約が入った分だけ',
+      label_problem: '集客の現実',
+      title_problem: '来訪客の97%が、<br>予約せずに離反しています。',
+      legend_booked: '3人が予約',
+      legend_away: '97人が帰る',
+      funnel_col_drop: '離脱ポイント',
+      funnel_r1: '広告をクリック',
+      funnel_d1: '<strong>−30人</strong> 別ページに飛び、すぐ離脱',
+      funnel_r2: '予約ページを閲覧',
+      funnel_d2: '<strong>−40人</strong> フォームを見たが手間を感じて離脱',
+      funnel_r3: 'フォームを入力',
+      funnel_d3: '<strong>−17人</strong> 返信を何時間も待った末、他で予約',
+      funnel_r4: 'フォローを受けた',
+      funnel_d4: '<strong>−10人</strong> あと一声あれば予約していた',
+      funnel_r5: '予約完了',
+      label_recovery: '取りこぼしを、ゼロに近づける',
+      title_recovery: 'hanjoなら離反顧客を成約につなげます',
+      appr_h1: '興味はあったものの、予約まで踏み切れなかった',
+      appr_p1: 'サービスを見て、フォームまで入力した方。でも最後の一歩を踏み出せなかったお客様へアプローチします',
+      appr_action: '私たちが動きます',
+      sms_sub_label: 'Text Message',
+      sms_bubble: 'Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We\'d love to have you in. Your spot is saved for the next 2 hours.',
+      sms_cta: 'Book My Appointment →',
+      sms_tap: 'Tap to confirm · Takes 30 seconds',
+      sms_consent: '✓ Sent because Sarah opted in · Reply STOP to unsubscribe',
+      appr_h2: '新規成約へ',
+      appr_p2: '離反顧客への適切なアプローチを行うことで本来離反してしまっていた見込み客を新規の成約へ繋げます。',
+      commission_h3: '成果が出た分だけ、お支払い',
+      commission_p: 'お客様の予約が完了した時だけ手数料が発生します。すべての予約は追跡されており、同じデータを一緒に確認できます。料率は始める前に決めます。',
+      trustpill_1: '同意ベースで送信',
+      trustpill_2: 'STOPでワンタップ停止',
+      trustpill_3: 'TCPA・CTIA準拠',
+      trustpill_note: 'SMSはお客様の同意がある場合のみ送信し、ワンタップで停止できます。これがカリフォルニアでオーナー様を守る仕組みです。<a href="#faq">コンプライアンスFAQを見る →</a>',
+      label_fit: '相性をチェック',
+      title_fit: 'あなたのビジネスで使えるか、<br>30秒で診断。',
+      sim_lead: '4つの質問に答えるだけ。あなたの環境にこの仕組みが合うか、そして何を取り戻せるかを、その場でお伝えします。',
+      sim_q1: 'どんなビジネスですか？',
+      sim_t_medspa: 'メディカルスパ',
+      sim_t_aesthetic: '美容クリニック',
+      sim_t_cosmetic: '美容外科',
+      sim_t_derm: '皮膚科',
+      sim_t_dental: '歯科・矯正',
+      sim_t_hair: '薄毛・植毛',
+      sim_t_other: 'その他のサービス業',
+      sim_q2: '広告（Meta / Google）を出していますか？',
+      sim_ads_yes: 'はい',
+      sim_ads_no: 'まだ',
+      sim_q3: '新規顧客1人あたりの平均単価は？',
+      sim_ticket_low: '$150未満',
+      sim_ticket_mid: '$150〜500',
+      sim_ticket_high: '$500以上',
+      sim_q4: 'お客様はどのように予約しますか？',
+      sim_p_other: 'その他のオンライン予約',
+      sim_p_none: '電話・来店のみ',
+      sim_submit: '診断する →',
+      sim_note: '4つすべてにお答えください。',
+      sim_strong_title: '相性は抜群です。',
+      sim_strong_body: '御社のようなビジネスは、広告から来た予約をフォームで取りこぼしています。成果報酬型なので、取り戻せた時だけお支払い。無料診断なら、確認しても費用はかかりません。',
+      sim_likely_title: '相性は良さそうです。',
+      sim_likely_body: 'この仕組みは、高単価の予約とオンライン集客があるほど効果を発揮します。足りない部分は当社で用意できることがほとんどです。無料診断で御社の数字を確認しましょう。',
+      sim_weak_title: 'まだ最適なタイミングではないかもしれません。',
+      sim_weak_body: 'この仕組みは、新規顧客1人あたり$150以上で、オンラインから予約に集客している場合に効果を発揮します。その方向を目指しているなら、ぜひ一度拝見します。',
+      sim_compat_ok: '%s に対応',
+      sim_compat_other: 'ほとんどのオンライン予約システムに対応',
+      sim_compat_none: 'コンバージョンするオンライン予約の導入をお手伝いします',
+      sim_cta_go: '無料診断を受ける →',
+      sim_cta_anyway: 'それでも無料診断を受ける →',
+      sim_restart: '↺ 最初からやり直す',
+      title_how: 'コストリスクなし、導入手間なしのhanjo',
+      val1_label: '成約報酬以外',
+      val1_num: '$0',
+      val2_label: '手間、ほぼ',
+      val2_num: 'なし',
+      val3_label: 'SMS送信',
+      val3_num: '$0',
+      label_pricing: '費用のしくみ',
+      title_pricing: 'hanjoが貢献した売上だけが、<br>成果報酬の対象です。',
+      pricing_p1: '料金が発生するのは、SMSのリンクから予約が入った時だけです。クリック数でも送信数でもありません。予約が入った数だけです。',
+      pricing_p2: '新規のお客様が来なければ、費用はゼロです。料率は始める前に、予約の平均単価をもとに一緒に決めます。',
+      pricing_example: '<strong>事例：メディカルスパ（平均予約 $320）</strong><br>SMSから来た新規のお客様：月40名<br>売上：$12,800<br>hanjoへのお支払い：40件分の成果報酬<br><strong>オーナー様の収益：残りすべて</strong>',
+      table_col1: '費用項目',
+      table_col3: '一般エージェンシー',
+      table_r1_cl: '初期費用',
+      table_r2_cl: '月額費用',
+      table_r3_cl: '効果がなかった場合',
+      table_r3_co: '成果に関わらず支払い',
+      table_r4_cl: '予約ごとの費用',
+      table_r4_ch: '事前合意の成果報酬',
+      table_r4_co: '追跡なし',
+      table_r5_cl: '契約',
+      table_r5_ch: 'フレキシブル',
+      table_r5_co: '3〜12ヶ月',
+      label_faq: 'よくある質問',
+      title_faq: 'メディカルスパオーナー様から<br>よくある質問。',
+      faq_law_h3: 'カリフォルニアで顧客にSMSを送るのは合法ですか？訴訟になりませんか？',
+      faq_law_p: 'お客様の同意がある場合、SMSの送信は合法です。そして当社は、同意を得た方にしか送りません。送信先はすべて、TCPAに準拠した明確な文言でフォーム上から受信に同意した番号のみ。各メッセージはCTIAのメッセージングガイドラインに沿い、ワンタップの「STOPと返信」を記載して即時に配信停止を反映します。リストの購入や、見知らぬ相手への一斉送信は一切行いません。この「同意ファースト」かつTCPA・CTIA準拠の設計こそが、カリフォルニア州法・連邦法のもとでオーナー様を守ります。',
+      faq_data_h3: 'お客様のデータはどう守られますか？',
+      faq_data_p: '連絡先は暗号化して安全に保管し、第三者に販売・共有することはありません。利用目的はそのお客様の予約完了のサポートのみ。カリフォルニアのデータプライバシー法に沿って、削除のご要望にも対応します。データの主導権は、常にオーナー様とお客様にあります。',
+      faq1_h3: 'どの予約が請求対象か、どうやってわかりますか？',
+      faq1_p: '送るSMSにはそれぞれ追跡リンクが入っています。そのリンクから予約が完了した場合だけ請求します。飛び込みのお客様やリピーターは対象外です。請求の前に、同じデータを一緒に確認できます。',
+      faq2_h3: 'お客様が増えなかった場合は？',
+      faq2_p: '費用はゼロです。制作にかかるコストはすべて当社が負担します。オーナー様に売上が入った時だけ当社も収益になる仕組みです。だから結果には本気で向き合います。うまくいかなければ、改善を続けるか、費用なしで終了します。',
+      faq3_h3: '広告アカウントへのアクセス権限が必要ですか？',
+      faq3_p: '広告運用も依頼される場合は、MetaまたはGoogleのアカウントへのアクセスをお願いします。アカウントの所有者はオーナー様のままです。LPとSMSだけなら、広告アカウントは不要。まずLPだけで始めて、後から広告を加えることもできます。',
+      faq4_h3: '対応している予約システムは？',
+      faq4_p: '現在はSquareに対応しています。Mindbody・Vagaro・Freshaなど他のシステムをお使いの場合は、一度ご相談ください。大きな変更なしで対応できるよう開発中です。始める前に、正直にお伝えします。',
+      faq5_h3: '稼働まで、どのくらいかかりますか？',
+      faq5_p: '開始から2週間です。最初の3日で診断・設計、4〜7日目でLP制作、8〜14日目で自動化の設定とテスト。14日目から稼働します。',
+      faq6_h3: '最低利用期間はありますか？',
+      faq6_p: '長期契約の縛りはありません。成果が出るまでに90日ほどかかりますが、やめたい場合は30日前にお知らせいただければ対応します。',
+      cta_h2: '予約フォームで、<br>どれだけ逃しているか。',
+      cta_p: '予約フォームの無料診断を実施します。興味を持ったお客様が予約完了の前にどれだけ離脱しているか、そして毎月いくら分の予約を逃しているかを可視化します。費用も、契約の縛りもありません。',
+      cta_btn: '無料診断を申し込む →',
+      cta_sub: '無料診断。初期費用も月額費用もなし、継続の義務もありません。',
+      form_label_name: 'お名前',
+      form_label_spa: 'サロン・クリニック名',
+      form_label_phone: '電話番号（任意）',
+      form_label_email: 'メールアドレス',
+      form_label_city: 'エリア（任意）',
+      form_label_platform: '予約管理システム（任意）',
+      form_label_adspend: '月間広告費（任意）',
+      form_label_challenge: '現在の一番の課題は？（任意）',
+      form_ph_name: '山田 花子',
+      form_ph_spa: 'グロースキンスタジオ',
+      form_ph_phone: '(310) 555-0100',
+      form_ph_email: 'you@yourspa.com',
+      form_ph_city: 'Beverly Hills、West Hollywoodなど',
+      form_ph_platform: '選択してください',
+      form_ph_adspend: '金額帯を選択',
+      form_ph_challenge: '例：Meta広告を出しているが新規顧客が増えない…',
+      form_opt_other: 'その他',
+      form_phone_consent: '任意。ご希望の場合のみお電話・SMSします。スパムは送りません。',
+      form_step1: 'ステップ 1 / 2',
+      form_step2: 'ステップ 2 / 2',
+      form_continue: '次へ →',
+      form_back: '← 戻る',
+      form_err_required: '入力してください',
+      form_err_email: '正しいメールアドレスを入力してください',
+      thanks_h3: '無料診断をお送りします。',
+      thanks_p: 'ファネルを確認し、24時間以内に診断結果をお送りします。お待ちの間に、過去30日間の広告費を確認して、クリックしたのに予約しなかった人数を数えてみてください。それが、私たちが計測する「取りこぼし」です。',
+      adsai_label: 'hanjoのもう一つのサービス',
+      adsai_title: 'Meta広告の成果、もっと伸ばしませんか？',
+      adsai_p: '広告媒体のAIに「質の高い学習データ」を届けてROASを引き上げる、広告アルゴリズム最適化AI「hanjo Ads AI」もご提供しています。広告運用の改善をお考えの方はこちらもご覧ください。',
+      adsai_btn: 'hanjo Ads AIを見る →',
+      footer_about: '会社概要',
+      footer_terms: '利用規約',
+      footer_privacy: 'プライバシーポリシー',
+      footer_p: '© 2026 hanjo. 美容サロン・クリニック専門の成果報酬型集客サービス。'
+    }
+  };
+
+  function setLang(lang) {
+    var be = document.getElementById('btn-en'), bj = document.getElementById('btn-ja');
+    be.classList.toggle('active', lang === 'en'); be.setAttribute('aria-pressed', lang === 'en');
+    bj.classList.toggle('active', lang === 'ja'); bj.setAttribute('aria-pressed', lang === 'ja');
+    document.body.classList.toggle('lang-ja', lang === 'ja');
+    document.documentElement.lang = lang;
+    document.title = T[lang].page_title;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (T[lang][key] !== undefined) {
+        el.innerHTML = T[lang][key];
       }
-};
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (T[lang][key] !== undefined) el.placeholder = T[lang][key];
+    });
+    try { localStorage.setItem('hanjo-lang', lang); } catch(e) {}
+    var lp = document.getElementById('lang-pill');
+    if (lp) lp.textContent = (lang === 'ja') ? 'EN' : 'JP';
+  }
 
-    function applyLang(lang) {
-      document.documentElement.lang = lang;
-      localStorage.setItem('hanjo-lang', lang);
-      const strings = T[lang];
-      Object.keys(strings).forEach(key => {
-        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
-          el.innerHTML = strings[key];
-        });
-      });
-    }
-    function toggleLang() {
-      const next = document.documentElement.lang === 'en' ? 'ja' : 'en';
-      applyLang(next);
-      let rest = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
-      if (rest === '') rest = '/';
-      history.replaceState(null, '', '/' + next + rest + location.hash);
-      prefixInternalLinks(next);
-    }
-    function prefixInternalLinks(lang) {
-      document.querySelectorAll('a[href^="/"]').forEach(a => {
-        let href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+  (function() {
+    var param = new URLSearchParams(window.location.search).get('lang');
+    var saved = null;
+    var seg = location.pathname.split('/')[1];
+    if (seg === 'ja' || seg === 'en') {
+      try { localStorage.setItem('hanjo-lang', seg); } catch(e) {}
+      document.querySelectorAll('a[href^="/"]').forEach(function(a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
         if (href === '') href = '/';
-        a.setAttribute('href', '/' + lang + href);
+        a.setAttribute('href', '/' + seg + href);
       });
     }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
-
-    if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('[data-reveal],[data-reveal-stagger]').forEach(el => el.classList.add('revealed'));
-    }
-    window.setTimeout(() => {
-      document.querySelectorAll('[data-reveal]:not(.revealed),[data-reveal-stagger]:not(.revealed)').forEach(el => el.classList.add('revealed'));
-    }, 3000);
-
-    const langSeg = location.pathname.split('/')[1];
-    const langParam = new URLSearchParams(location.search).get('lang');
-    const forcedLang = (langSeg === 'ja' || langSeg === 'en') ? langSeg
-                     : (langParam === 'ja' || langParam === 'en') ? langParam : null;
-    const savedLang = localStorage.getItem('hanjo-lang');
-    if (forcedLang) applyLang(forcedLang);
-    else if (savedLang && savedLang !== 'en') applyLang(savedLang);
-    else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
-    if (langSeg === 'ja' || langSeg === 'en') prefixInternalLinks(langSeg);
     (function () {
       var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
       document.querySelectorAll('.nav-links a').forEach(function (a) {
@@ -667,7 +1535,239 @@
         if (href !== '/' && cur.indexOf(href) === 0) a.classList.add('active');
       });
     })();
-  </script>
+    try { saved = localStorage.getItem('hanjo-lang'); } catch(e) {}
+    if (!saved) {
+      var bl = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      saved = bl.startsWith('ja') ? 'ja' : 'en';
+    }
+    var lang = (param === 'ja' || param === 'en') ? param : saved;
+    if (lang === 'ja') setLang('ja');
+  })();
+
+  // Accessibility: associate each form label with its input
+  (function() {
+    document.querySelectorAll('.cta-field').forEach(function(field) {
+      var input = field.querySelector('input, select, textarea');
+      var label = field.querySelector('label');
+      if (input && label) {
+        if (!input.id) input.id = 'f-' + (input.name || Math.random().toString(36).slice(2));
+        label.setAttribute('for', input.id);
+      }
+    });
+  })();
+
+  // Two-step CTA form
+  (function() {
+    var form = document.getElementById('cta-form');
+    var thanks = document.getElementById('cta-thanks');
+    if (!form) return;
+    var step1 = document.getElementById('step-1');
+    var step2 = document.getElementById('step-2');
+    var fill = document.getElementById('progress-fill');
+    var plabel1 = document.getElementById('plabel-1');
+    var plabel2 = document.getElementById('plabel-2');
+
+    // Validate the required fields within a given scope (step or whole form)
+    function validate(scope) {
+      var ok = true;
+      scope.querySelectorAll('[required]').forEach(function(field) {
+        var err = field.parentNode.querySelector('.cta-field-error');
+        var empty = !field.value.trim();
+        var badEmail = field.type === 'email' && !empty && !field.validity.valid;
+        var bad = empty || badEmail;
+        field.classList.toggle('error', bad);
+        if (err) err.classList.toggle('show', bad);
+        if (bad) ok = false;
+      });
+      return ok;
+    }
+    // Clear a field's error as soon as the user corrects it
+    form.querySelectorAll('[required]').forEach(function(field) {
+      field.addEventListener('input', function() {
+        field.classList.remove('error');
+        var err = field.parentNode.querySelector('.cta-field-error');
+        if (err) err.classList.remove('show');
+      });
+    });
+
+    function goNext() {
+      if (!validate(step1)) { var f = step1.querySelector('.error'); if (f) f.focus(); return; }
+      step1.setAttribute('hidden', '');
+      step2.removeAttribute('hidden');
+      if (fill) fill.style.width = '100%';
+      if (plabel1) plabel1.setAttribute('hidden', '');
+      if (plabel2) plabel2.removeAttribute('hidden');
+      var first = step2.querySelector('input, select, textarea'); if (first) first.focus();
+    }
+    function goBack() {
+      step2.setAttribute('hidden', '');
+      step1.removeAttribute('hidden');
+      if (fill) fill.style.width = '50%';
+      if (plabel2) plabel2.setAttribute('hidden', '');
+      if (plabel1) plabel1.removeAttribute('hidden');
+    }
+    var nextBtn = document.getElementById('step-next');
+    if (nextBtn) nextBtn.addEventListener('click', goNext);
+    var backBtn = document.getElementById('step-back');
+    if (backBtn) backBtn.addEventListener('click', goBack);
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Enter key on step 1 advances instead of submitting
+      if (step2 && step2.hasAttribute('hidden')) { goNext(); return; }
+      if (!validate(form)) return;
+
+      var btn = form.querySelector('button[type=submit]');
+      var origText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '…';
+      var params = new URLSearchParams(new FormData(form)).toString();
+      fetch('https://script.google.com/macros/s/AKfycbw-2J2ZJi1hsxNnf637nbnWrpVHJhN6K3DlKGWhYpoBqM6N3TfXXnNoSpz3kg9IVsdq1g/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params
+      }).then(function() {
+        form.style.display = 'none';
+        thanks.style.display = 'block';
+      }).catch(function() {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        alert('Something went wrong. Please try again.');
+      });
+    });
+  })();
+
+  // Eligibility simulator
+  (function() {
+    var card = document.getElementById('sim-card');
+    var result = document.getElementById('sim-result');
+    if (!card || !result) return;
+    var answers = { type: null, ads: null, ticket: null, platform: null };
+    var PLATFORM_NAMES = { square: 'Square', mindbody: 'Mindbody', vagaro: 'Vagaro', fresha: 'Fresha' };
+    // Readable labels stored on the lead (so the spreadsheet is human-friendly)
+    var TYPE_LABELS = { medspa: 'Med spa', aesthetic: 'Aesthetic clinic', cosmetic: 'Cosmetic / plastic surgery', derm: 'Dermatology', dental: 'Dental / ortho', hair: 'Hair restoration', other: 'Other service business' };
+    var TICKET_LABELS = { low: 'Under $150', mid: '$150–500', high: '$500+' };
+    var ADS_LABELS = { yes: 'Yes', no: 'Not yet' };
+    var PLATFORM_LABELS = { square: 'Square', mindbody: 'Mindbody', vagaro: 'Vagaro', fresha: 'Fresha', other: 'Other online', none: 'Phone / walk-in only' };
+    var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+    var INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>';
+    function lang() { return document.documentElement.lang === 'ja' ? 'ja' : 'en'; }
+    function t(key) { var L = T[lang()] || T.en; return (L[key] !== undefined ? L[key] : (T.en[key] || '')); }
+
+    card.querySelectorAll('.sim-q').forEach(function(q) {
+      var key = q.getAttribute('data-q');
+      q.querySelectorAll('.sim-chip').forEach(function(chip) {
+        chip.setAttribute('aria-pressed', 'false');
+        chip.addEventListener('click', function() {
+          q.querySelectorAll('.sim-chip').forEach(function(c) { c.classList.remove('selected'); c.setAttribute('aria-pressed', 'false'); });
+          chip.classList.add('selected'); chip.setAttribute('aria-pressed', 'true');
+          answers[key] = chip.getAttribute('data-val');
+          q.classList.remove('missing');
+          document.getElementById('sim-note').classList.remove('show');
+        });
+      });
+    });
+
+    function outcome() {
+      if (answers.ticket === 'low') return 'weak';
+      if (answers.ads === 'yes' && answers.platform !== 'none') return 'strong';
+      return 'likely';
+    }
+
+    function render() {
+      var o = outcome();
+      result.classList.remove('strong', 'likely', 'weak'); result.classList.add(o);
+      document.getElementById('sim-badge').innerHTML = (o === 'weak') ? INFO : CHECK;
+      document.getElementById('sim-result-title').textContent = t('sim_' + o + '_title');
+      document.getElementById('sim-result-body').textContent = t('sim_' + o + '_body');
+      var compat = document.getElementById('sim-compat'), p = answers.platform;
+      if (p && PLATFORM_NAMES[p]) {
+        compat.innerHTML = CHECK + '<span>' + t('sim_compat_ok').replace('%s', PLATFORM_NAMES[p]) + '</span>';
+        compat.removeAttribute('hidden');
+      } else if (p === 'other') {
+        compat.innerHTML = CHECK + '<span>' + t('sim_compat_other') + '</span>';
+        compat.removeAttribute('hidden');
+      } else if (p === 'none') {
+        compat.innerHTML = CHECK + '<span>' + t('sim_compat_none') + '</span>';
+        compat.removeAttribute('hidden');
+      } else {
+        compat.setAttribute('hidden', '');
+      }
+      document.getElementById('sim-cta').textContent = (o === 'weak') ? t('sim_cta_anyway') : t('sim_cta_go');
+    }
+
+    document.getElementById('sim-submit').addEventListener('click', function() {
+      var missing = false;
+      card.querySelectorAll('.sim-q').forEach(function(q) {
+        if (!answers[q.getAttribute('data-q')]) { q.classList.add('missing'); missing = true; }
+      });
+      if (missing) { document.getElementById('sim-note').classList.add('show'); return; }
+      render();
+      // Carry answers into the audit form
+      var setVal = function(id, v) { var el = document.getElementById(id); if (el) el.value = v || ''; };
+      setVal('sim-out-type', TYPE_LABELS[answers.type]); setVal('sim-out-ticket', TICKET_LABELS[answers.ticket]); setVal('sim-out-ads', ADS_LABELS[answers.ads]);
+      var sel = document.querySelector('#cta-form [name=platform]');
+      if (sel && answers.platform && answers.platform !== 'none' && sel.querySelector('option[value="' + answers.platform + '"]')) sel.value = answers.platform;
+      card.setAttribute('hidden', '');
+      result.removeAttribute('hidden');
+      result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    document.getElementById('sim-restart').addEventListener('click', function() {
+      result.setAttribute('hidden', '');
+      card.removeAttribute('hidden');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // Re-translate an open result when the language is switched
+    ['btn-en', 'btn-ja'].forEach(function(id) {
+      var b = document.getElementById(id);
+      if (b) b.addEventListener('click', function() { if (!result.hasAttribute('hidden')) render(); });
+    });
+  })();
+
+  // Staggered reveal for value cards
+  (function() {
+    var grid = document.querySelector('.value-grid');
+    if (!grid) return;
+    var cards = grid.querySelectorAll('.value-card');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          cards.forEach(function(card, i) {
+            setTimeout(function() { card.classList.add('visible'); }, i * 130);
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(grid);
+  })();
+
+  // Smooth cursor glow
+  (function() {
+    if (window.matchMedia('(hover: none)').matches) return;
+    var glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+    var mx = 0, my = 0, gx = 0, gy = 0, active = false;
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX; my = e.clientY;
+      if (!active) { glow.style.opacity = '1'; active = true; }
+    });
+    document.addEventListener('mouseleave', function() { glow.style.opacity = '0'; });
+    document.addEventListener('mouseenter', function() { if (active) glow.style.opacity = '1'; });
+    function tick() {
+      gx += (mx - gx) * 0.07;
+      gy += (my - gy) * 0.07;
+      glow.style.left = gx + 'px';
+      glow.style.top  = gy + 'px';
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+</script>
 
 </body>
 </html>
