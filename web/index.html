@@ -209,6 +209,30 @@
     @media (prefers-reduced-motion: reduce) {
       @view-transition { navigation: none; }
     }
+  
+    /* ── SPLIT HERO (CRM-style) ── */
+    .split-hero { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr); max-width: 1280px; margin: 0 auto; align-items: center; }
+    .sh-left { padding: clamp(44px, 5.5vw, 84px) clamp(20px, 3vw, 48px) clamp(44px, 5vw, 72px) clamp(24px, 4.5vw, 72px); }
+    .page-hero h1 { font-size: clamp(38px, 4.4vw, 60px); }
+    html[lang="ja"] .page-hero h1 { font-size: clamp(30px, 3.6vw, 48px); }
+    .sh-right { display: flex; align-items: center; justify-content: center; padding: clamp(28px, 3.5vw, 56px) clamp(24px, 4vw, 64px) clamp(28px, 3.5vw, 56px) 0; }
+    .illus { width: 100%; max-width: 460px; animation: fadeUp 0.9s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    @media (max-width: 940px) {
+      .split-hero { display: block; }
+      .sh-right { display: none; }
+    }
+    .illus-browser { background: var(--white); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 24px 60px rgba(17,17,16,0.08); overflow: hidden; }
+    .ib-bar { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+    .ib-bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--border); }
+    .ib-body { padding: 26px 28px 30px; }
+    .ib-kicker { width: 90px; height: 8px; border-radius: 4px; background: rgba(58,92,69,0.35); margin-bottom: 16px; }
+    .ib-title { width: 82%; height: 16px; border-radius: 5px; background: rgba(17,17,16,0.82); margin-bottom: 10px; }
+    .ib-title--short { width: 55%; margin-bottom: 18px; }
+    .ib-text { width: 92%; height: 8px; border-radius: 4px; background: rgba(17,17,16,0.14); margin-bottom: 8px; }
+    .ib-text--short { width: 70%; margin-bottom: 20px; }
+    .ib-btn { width: 130px; height: 30px; border-radius: 99px; background: var(--sage); margin-bottom: 24px; }
+    .ib-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .ib-cols span { height: 64px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); }
   </style>
 </head>
 <body>
@@ -238,7 +262,8 @@
   </nav>
 
   <div class="page-hero">
-    <div class="section">
+    <div class="split-hero">
+    <div class="sh-left">
       <a href="/#services" class="crumb" data-i18n="crumb">← All services</a><br>
       <h1 data-i18n="ph-h1">Websites and stores that earn trust<strong>and convert.</strong></h1>
       <p class="lead" data-i18n="ph-lead">hanjo Web covers everything your business shows the world: websites, landing pages, and Shopify stores: structure, copy, design, and code, in English and Japanese. No templates, no page builders, no agency layers.</p>
@@ -249,6 +274,22 @@
         </a>
         <span class="btn-note" data-i18n="hero-note">We work in both English and Japanese.</span>
       </div>
+    </div>
+
+    <div class="sh-right" aria-hidden="true">
+      <div class="illus illus-browser">
+        <div class="ib-bar"><span></span><span></span><span></span></div>
+        <div class="ib-body">
+          <div class="ib-kicker"></div>
+          <div class="ib-title"></div>
+          <div class="ib-title ib-title--short"></div>
+          <div class="ib-text"></div>
+          <div class="ib-text ib-text--short"></div>
+          <div class="ib-btn"></div>
+          <div class="ib-cols"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 

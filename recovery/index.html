@@ -230,6 +230,25 @@
     @media (prefers-reduced-motion: reduce) {
       @view-transition { navigation: none; }
     }
+  
+    /* ── SPLIT HERO (CRM-style) ── */
+    .split-hero { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr); max-width: 1280px; margin: 0 auto; align-items: center; }
+    .sh-left { padding: clamp(44px, 5.5vw, 84px) clamp(20px, 3vw, 48px) clamp(44px, 5vw, 72px) clamp(24px, 4.5vw, 72px); }
+    .page-hero h1 { font-size: clamp(38px, 4.4vw, 60px); }
+    html[lang="ja"] .page-hero h1 { font-size: clamp(30px, 3.6vw, 48px); }
+    .sh-right { display: flex; align-items: center; justify-content: center; padding: clamp(28px, 3.5vw, 56px) clamp(24px, 4vw, 64px) clamp(28px, 3.5vw, 56px) 0; }
+    .illus { width: 100%; max-width: 460px; animation: fadeUp 0.9s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    @media (max-width: 940px) {
+      .split-hero { display: block; }
+      .sh-right { display: none; }
+    }
+    .illus-phone { max-width: 330px; background: var(--white); border: 1px solid var(--border); border-radius: 28px; box-shadow: 0 24px 60px rgba(17,17,16,0.08); padding: 16px; }
+    .ip-screen { background: var(--bg); border-radius: 18px; padding: 22px 16px; display: flex; flex-direction: column; gap: 12px; }
+    .ip-bubble { max-width: 86%; font-size: 13px; line-height: 1.55; padding: 10px 14px; border-radius: 16px; }
+    .ip-in { background: var(--white); border: 1px solid var(--border); color: var(--ink); border-bottom-left-radius: 4px; align-self: flex-start; }
+    .ip-out { background: var(--sage); color: #ffffff; border-bottom-right-radius: 4px; align-self: flex-end; }
+    .ip-card { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid rgba(58,92,69,0.35); border-radius: 12px; padding: 10px 16px; font-size: 12.5px; font-weight: 600; color: var(--sage); align-self: center; margin-top: 6px; }
+    html[lang="ja"] .ip-bubble, html[lang="ja"] .ip-card { font-family: 'Noto Sans JP', sans-serif; }
   </style>
 </head>
 <body>
@@ -259,7 +278,8 @@
   </nav>
 
   <div class="page-hero">
-    <div class="section">
+    <div class="split-hero">
+    <div class="sh-left">
       <a href="/#services" class="crumb" data-i18n="crumb">← All services</a><br>
       <h1 data-i18n="ph-h1">More new clients. Same ad budget.<strong>No fees. No hassle.</strong></h1>
       <p class="lead" data-i18n="ph-lead">Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.</p>
@@ -270,6 +290,17 @@
         </a>
         <span class="btn-note" data-i18n="hero-note">We work in both English and Japanese.</span>
       </div>
+    </div>
+
+    <div class="sh-right" aria-hidden="true">
+      <div class="illus illus-phone">
+        <div class="ip-screen">
+          <div class="ip-bubble ip-in" data-i18n="ill-sms-1">Your appointment is still available. Tap here to finish booking.</div>
+          <div class="ip-bubble ip-out" data-i18n="ill-sms-2">Just booked. Thank you!</div>
+          <div class="ip-card"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8.5 12.5 2.5 2.5 4.5-5.5"/></svg><span data-i18n="ill-sms-3">Booking confirmed</span></div>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 
@@ -461,6 +492,9 @@
     const T = {
       "en": {
             "crumb": "← All services",
+            "ill-sms-1": "Your appointment is still available. Tap here to finish booking.",
+            "ill-sms-2": "Just booked. Thank you!",
+            "ill-sms-3": "Booking confirmed",
             "announce": "<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.",
             "nav-avail": "Taking new clients",
             "lang-toggle": "JP",
@@ -516,6 +550,9 @@
       },
       "ja": {
             "crumb": "← サービス一覧に戻る",
+            "ill-sms-1": "ご予約はまだ間に合います。こちらから完了できます。",
+            "ill-sms-2": "今、予約しました。ありがとうございます！",
+            "ill-sms-3": "ご予約が確定しました",
             "announce": "<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。",
             "nav-avail": "新規受付中",
             "lang-toggle": "EN",
