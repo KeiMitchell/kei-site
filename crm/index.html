@@ -990,8 +990,8 @@
 
     /* Hero h1: reduce size so Japanese doesn't break mid-katakana-word */
     html[lang="ja"] .hero h1 {
-      font-size: clamp(30px, 4vw, 50px);
-      line-height: 1.3;
+      font-size: clamp(38px, 4.6vw, 60px);
+      line-height: 1.28;
       line-break: strict;       /* prevents ー / small kana breaking off */
       word-break: normal;
       overflow-wrap: break-word;
@@ -1027,7 +1027,7 @@
     /* Mobile: hero single-column gets more breathing room */
     @media (max-width: 880px) {
       html[lang="ja"] .hero h1 {
-        font-size: clamp(30px, 7vw, 44px);
+        font-size: clamp(33px, 7.5vw, 48px);
       }
       html[lang="ja"] h2 {
         font-size: clamp(22px, 5vw, 32px);
@@ -1036,8 +1036,8 @@
 
     @media (max-width: 560px) {
       html[lang="ja"] .hero h1 {
-        font-size: clamp(28px, 8.5vw, 40px);
-        line-height: 1.4;
+        font-size: clamp(30px, 9vw, 42px);
+        line-height: 1.38;
       }
       html[lang="ja"] h2 {
         font-size: clamp(20px, 6vw, 28px);
