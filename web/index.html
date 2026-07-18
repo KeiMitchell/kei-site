@@ -240,6 +240,38 @@
     .ib-btn { width: 130px; height: 30px; border-radius: 99px; background: var(--sage); margin-bottom: 24px; }
     .ib-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .ib-cols span { height: 64px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); }
+  
+    /* ── MOCK CLIENT SITE (showcase) ── */
+    .illus { max-width: 500px; }
+    .illus-browser { box-shadow: 0 32px 80px rgba(17,17,16,0.12); }
+    .ib-url { margin-left: 10px; font-style: normal; font-size: 9.5px; letter-spacing: 0.04em; color: var(--faint); background: var(--bg); border-radius: 6px; padding: 3px 10px; flex: 1; max-width: 180px; text-align: center; }
+    .ib-bar { align-items: center; }
+    .mk { --mkbg: #FFF9F2; --mkink: #3E2E25; --mkacc: #C96F4A; --mksand: #F3E5D3; background: #ffffff; }
+    .mk-nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; border-bottom: 1px solid #F0E7DA; }
+    .mk-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: var(--mkink); }
+    .mk-logo-jp { font-family: 'Noto Sans JP', sans-serif; font-size: 8px; font-weight: 500; color: var(--mkacc); vertical-align: middle; margin-left: 2px; }
+    .mk-links { display: flex; gap: 10px; }
+    .mk-links i { width: 22px; height: 3.5px; border-radius: 2px; background: #E4D7C3; }
+    .mk-cta { font-size: 9px; font-weight: 600; color: #fff; background: var(--mkacc); border-radius: 99px; padding: 5px 12px; }
+    .mk-hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 12px; align-items: center; background: var(--mkbg); padding: 18px 18px 16px; }
+    .mk-hero-l { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
+    .mk-kicker { font-size: 6.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mkacc); }
+    .mk-h1 { font-family: 'Playfair Display', serif; font-size: 17.5px; line-height: 1.15; font-weight: 700; color: var(--mkink); }
+    .mk-sub { font-size: 8.5px; line-height: 1.5; color: #8A7A6B; }
+    .mk-btn { font-size: 8.5px; font-weight: 600; color: #fff; background: var(--mkink); border-radius: 99px; padding: 5px 13px; margin-top: 3px; }
+    .mk-arch { position: relative; width: 100%; max-width: 130px; height: 128px; margin-left: auto; background: var(--mksand); border-radius: 65px 65px 10px 10px; overflow: hidden; }
+    .mk-sun { position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 54px; height: 54px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #E2926B, var(--mkacc)); animation: mkFloat 5s ease-in-out infinite; }
+    .mk-hill { position: absolute; bottom: -18px; left: -12px; right: -12px; height: 58px; border-radius: 50% 50% 0 0; background: #E8D3B8; }
+    @keyframes mkFloat { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-5px); } }
+    .mk-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 14px 18px 18px; background: #ffffff; }
+    .mk-card { display: flex; flex-direction: column; gap: 3px; }
+    .mk-img { height: 56px; border-radius: 9px; }
+    .mk-img--1 { background: linear-gradient(135deg, #F2DDBB, #E3B885); }
+    .mk-img--2 { background: linear-gradient(135deg, #D8E3C2, #A8BC80); }
+    .mk-img--3 { background: linear-gradient(135deg, #E5C9B4, #B98868); }
+    .mk-name { font-size: 8px; font-weight: 600; color: var(--mkink); margin-top: 2px; }
+    .mk-price { font-size: 7.5px; color: #A79684; }
+    @media (prefers-reduced-motion: reduce) { .mk-sun { animation: none; } }
   </style>
 </head>
 <body>
@@ -285,15 +317,32 @@
 
     <div class="sh-right" aria-hidden="true">
       <div class="illus illus-browser">
-        <div class="ib-bar"><span></span><span></span><span></span></div>
-        <div class="ib-body">
-          <div class="ib-kicker"></div>
-          <div class="ib-title"></div>
-          <div class="ib-title ib-title--short"></div>
-          <div class="ib-text"></div>
-          <div class="ib-text ib-text--short"></div>
-          <div class="ib-btn"></div>
-          <div class="ib-cols"><span></span><span></span><span></span></div>
+        <div class="ib-bar"><span></span><span></span><span></span><em class="ib-url">amane-bakery.com</em></div>
+        <div class="mk">
+          <div class="mk-nav">
+            <span class="mk-logo">Amane <span class="mk-logo-jp">あまね</span></span>
+            <span class="mk-links"><i></i><i></i><i></i></span>
+            <span class="mk-cta">Order</span>
+          </div>
+          <div class="mk-hero">
+            <div class="mk-hero-l">
+              <span class="mk-kicker">Japanese Bakery · Los Angeles</span>
+              <span class="mk-h1">Fresh from the oven, every morning.</span>
+              <span class="mk-sub">Shokupan, matcha cream, and seasonal wagashi.</span>
+              <span class="mk-btn">Visit us</span>
+            </div>
+            <div class="mk-hero-r">
+              <div class="mk-arch">
+                <div class="mk-sun"></div>
+                <div class="mk-hill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="mk-row">
+            <div class="mk-card"><div class="mk-img mk-img--1"></div><span class="mk-name">Shokupan</span><span class="mk-price">$8</span></div>
+            <div class="mk-card"><div class="mk-img mk-img--2"></div><span class="mk-name">Matcha roll</span><span class="mk-price">$6</span></div>
+            <div class="mk-card"><div class="mk-img mk-img--3"></div><span class="mk-name">An-butter</span><span class="mk-price">$7</span></div>
+          </div>
         </div>
       </div>
     </div>
