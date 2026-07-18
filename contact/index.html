@@ -51,7 +51,7 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .announce { background: var(--sage); color: rgba(255,255,255,0.8); text-align: center; font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
     .announce strong { color: #ffffff; font-weight: 500; }
-    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); animation: fadeIn 0.5s ease both; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
     .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
     .nav-right { display: flex; align-items: center; gap: 20px; }
@@ -187,6 +187,15 @@
       outline: 2px solid var(--sage);
       outline-offset: 3px;
       border-radius: 4px;
+    }
+  
+    /* ── SMOOTH PAGE TRANSITIONS: header/footer stay put ── */
+    @view-transition { navigation: auto; }
+    nav { view-transition-name: site-header; }
+    .announce { view-transition-name: site-announce; }
+    footer { view-transition-name: site-footer; }
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition { navigation: none; }
     }
   </style>
 </head>

@@ -170,7 +170,7 @@
       z-index: 100;
       background: var(--bg);
       border-bottom: 1px solid var(--border);
-      animation: fadeIn 0.5s ease both;
+     
     }
 
     .nav-inner {
@@ -1173,6 +1173,15 @@
       outline: 2px solid var(--sage);
       outline-offset: 3px;
       border-radius: 4px;
+    }
+  
+    /* ── SMOOTH PAGE TRANSITIONS: header/footer stay put ── */
+    @view-transition { navigation: auto; }
+    nav { view-transition-name: site-header; }
+    .announce { view-transition-name: site-announce; }
+    footer { view-transition-name: site-footer; }
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition { navigation: none; }
     }
   </style>
 </head>
