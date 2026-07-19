@@ -621,6 +621,15 @@
     @media (max-width: 560px) { :root { --chrome-h: 128px; } }
     .hero { display: flex; align-items: center; min-height: calc(100svh - var(--chrome-h)); }
     .hero > .container { width: 100%; }
+  
+    /* ── STANDARD FOOTER ── */
+    footer { padding: 0; border-top: 1px solid var(--border); background: #ffffff; display: block; }
+    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: var(--gray); text-decoration: none; padding: 8px 0; display: inline-block; }
+    .footer-meta a:hover { color: var(--sage); }
+    body.lang-ja .footer-meta a, body.lang-ja .footer-meta span { font-family: 'Noto Sans JP', sans-serif; }
   </style>
 
   <script type="speculationrules">
@@ -1119,10 +1128,18 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="/" class="footer-logo"><img src="/hanjo-logo.svg" alt="hanjo" class="logo-img logo-img--footer"></a>
-  <p data-i18n="footer_p">© 2026 hanjo. Ad algorithm optimization AI.</p>
-  <p class="footer-links"><a href="/about/" data-i18n="footer_about">About</a> &nbsp;·&nbsp; <a href="/terms/" data-i18n="footer_terms">Terms of Service</a> &nbsp;·&nbsp; <a href="/privacy/" data-i18n="footer_privacy">Privacy Policy</a></p>
-</footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <a href="/about/" data-i18n="footer-about">About Us</a>
+        <a href="/terms/" data-i18n="footer-terms">Terms of Use</a>
+        <a href="/privacy/" data-i18n="footer-privacy">Privacy Policy</a>
+        <span data-i18n="footer-copy">© 2026 hanjo · Los Angeles</span>
+      </div>
+    </div>
+  </footer>
 
 <script>
   var T = {
@@ -1130,6 +1147,10 @@
       page_title: 'hanjo | AI that optimizes your ads. For real.',
       skip_link: 'Skip to content',
       nav_cta: 'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      'footer-about': 'About Us',
+      'footer-terms': 'Terms of Use',
+      'footer-privacy': 'Privacy Policy',
+      'footer-copy': '© 2026 hanjo · Los Angeles',
       crumb: '← All services',
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       hero_badge: 'For beauty salons, spas &amp; service businesses',
@@ -1279,6 +1300,10 @@
       page_title: 'hanjo | AIが、広告を、最適化する時代へ。',
       skip_link: 'コンテンツへスキップ',
       nav_cta: '無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      'footer-about': '会社概要',
+      'footer-terms': '利用規約',
+      'footer-privacy': 'プライバシーポリシー',
+      'footer-copy': '© 2026 hanjo · ロサンゼルス',
       crumb: '← サービス一覧に戻る',
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       hero_badge: '美容サロン・スパ・サービスビジネスのために',
