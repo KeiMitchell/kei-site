@@ -44,7 +44,7 @@
       --sage:    #3A5C45;
       --ink:     #111110;
       --muted:   rgba(17,17,16,0.72);
-      --faint:   rgba(17,17,16,0.46);
+      --faint:   rgba(17,17,16,0.58);
       --border:  rgba(17,17,16,0.12);
       --shadow:  0 1px 4px rgba(17,17,16,0.06), 0 8px 28px rgba(17,17,16,0.05);
       --radius:  14px;
@@ -110,7 +110,7 @@
     }
 
     .platform-row { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; margin-top: 10px; }
-    .pf-item { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); opacity: 0.62; transition: opacity 0.2s; }
+    .pf-item { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); opacity: 0.72; transition: opacity 0.2s; }
     .pf-item:hover { opacity: 1; }
     .pf-item svg { flex-shrink: 0; }
     .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 22px; letter-spacing: 0.03em; transition: color 0.2s; }
@@ -1380,6 +1380,20 @@
       word-break: auto-phrase;
     }
     p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
+      .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 300;
+      background: var(--sage);
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 0 0 10px 0;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
   </style>
 
   <script type="speculationrules">
@@ -1412,6 +1426,8 @@
   </script>
 </head>
 <body>
+
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <noscript>
     <style>
@@ -1446,7 +1462,7 @@
       </div>
     </div>
   </nav>
-<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Menu">
   <div class="mm-links">
     <a href="/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg><span class="mm-name">Home</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
     <a href="/crm/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="mm-name">CRM</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
@@ -1459,7 +1475,7 @@
 </div>
 
   <!-- HERO -->
-  <div class="hero">
+  <div class="hero" id="main" tabindex="-1">
     <div class="hero-left">
       <div>
         <a href="/#services" class="crumb" data-i18n="crumb">← All services</a>
@@ -1849,6 +1865,7 @@
     /* ── TRANSLATIONS ── */
     const T = {
       en: {
+        'skip': 'Skip to content',
         'crumb':            '← All services',
         'announce':         '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
         'nav-avail':        '2 spots open',
@@ -1949,6 +1966,7 @@
         'footer-location': 'Los Angeles, CA',
       },
       ja: {
+        'skip': '本文へスキップ',
         'crumb':            '← サービス一覧に戻る',
         'announce':         '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
         'nav-avail':        '残り2社限定',
