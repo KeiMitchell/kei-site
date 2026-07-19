@@ -57,7 +57,8 @@
     .nav-right { display: flex; align-items: center; gap: 20px; }
     .lang-toggle { background: none; border: none; padding: 5px 2px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
     .lang-toggle:hover { color: var(--ink); }
-    .nav-links { display: flex; gap: 34px; align-items: center; }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    @media (max-width: 1120px) { .nav-links { gap: 20px; } }
     .nav-links a {
       font-family: 'Playfair Display', serif;
       font-size: 16.5px;
@@ -266,7 +267,7 @@
         font-family: inherit;
         opacity: 0;
         transform: translateY(14px);
-        transition: opacity 0.45s ease 0.33s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.33s, color 0.2s;
+        transition: opacity 0.45s ease 0.5s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, color 0.2s;
       }
       .mm-lang:hover { color: #111110; }
       .mobile-menu.open .mm-lang { opacity: 1; transform: none; }
@@ -324,6 +325,8 @@
       .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
       .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
       .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
+      .mobile-menu.open .mm-links a:nth-child(5) { transition-delay: 0.33s; }
+      .mobile-menu.open .mm-links a:nth-child(6) { transition-delay: 0.4s; }
       @media (prefers-reduced-motion: reduce) {
         .mm-links a { transition: opacity 0.2s; transform: none; }
       }
@@ -417,11 +420,13 @@
       <a href="/" class="logo" aria-label="hanjo">
         <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
       </a>
-      <div class="nav-links" aria-label="Services">
+      <div class="nav-links" aria-label="Site">
+        <a href="/">Home</a>
         <a href="/crm/">CRM</a>
         <a href="/web/">Web</a>
         <a href="/ads/">Ads</a>
         <a href="/recovery/">Recovery</a>
+        <a href="/contact/">Contact</a>
       </div>
       <div class="nav-right">
         <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">JP</button>
@@ -435,10 +440,12 @@
   </nav>
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <div class="mm-links">
+    <a href="/">Home</a>
     <a href="/crm/">CRM</a>
     <a href="/web/">Web</a>
     <a href="/ads/">Ads</a>
     <a href="/recovery/">Recovery</a>
+    <a href="/contact/">Contact</a>
   </div>
     <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
 </div>
@@ -724,7 +731,7 @@
       var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
       document.querySelectorAll('.nav-links a').forEach(function (a) {
         var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
-        if (href !== '/' && cur.indexOf(href) === 0) a.classList.add('active');
+        if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
       });
     })();
 
@@ -784,7 +791,7 @@
     var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
     document.querySelectorAll('.mm-links a').forEach(function (a) {
       var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
-      if (href !== '/' && cur.indexOf(href) === 0) a.classList.add('active');
+      if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
     });
   })();
 </script>
