@@ -738,6 +738,67 @@
     .section-lede { font-size: 16px; font-weight: 300; line-height: 1.75; }
     .btn-white { box-shadow: none; }
     .btn-white:hover { transform: none; box-shadow: none; }
+      /* ── MOBILE MENU ── */
+    .nav-burger { display: none; }
+    @media (max-width: 880px) {
+      .nav-burger {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .nav-burger span {
+        display: block;
+        width: 20px;
+        height: 1.5px;
+        background: #111110;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+      .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+      .mobile-menu {
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: #F5F4F0;
+        padding: 140px 32px 48px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s;
+      }
+      .mobile-menu.open { opacity: 1; visibility: visible; }
+      .mm-links { display: flex; flex-direction: column; }
+      .mm-links a {
+        font-family: 'Playfair Display', serif;
+        font-size: 34px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: #111110;
+        text-decoration: none;
+        padding: 16px 0;
+        border-bottom: 1px solid #E4E2DC;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .mm-links a.active { color: #3A5C45; }
+      .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
+      .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
+      .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
+      .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
+      .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
+      @media (prefers-reduced-motion: reduce) {
+        .mm-links a { transition: opacity 0.2s; transform: none; }
+      }
+    }
+      @media (min-width: 881px) { .crumb { display: none; } }
   </style>
 
   <script type="speculationrules">
@@ -793,9 +854,18 @@
     <div class="nav-right">
       <button class="lang-toggle" id="lang-pill" onclick="setLang(document.body.classList.contains('lang-ja') ? 'en' : 'ja')" aria-label="Switch language">JP</button>
       <a href="#book" class="nav-cta" data-i18n="nav_cta">Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span></button>
     </div>
   </div>
 </nav>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mm-links">
+    <a href="/crm/">CRM</a>
+    <a href="/web/">Web</a>
+    <a href="/ads/">Ads</a>
+    <a href="/recovery/">Recovery</a>
+  </div>
+</div>
 <div hidden aria-hidden="true">
 <div class="legacy-lang" role="group" aria-label="Language / 言語" hidden aria-hidden="true">
       <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
@@ -1923,5 +1993,22 @@
   })();
 </script>
 
+<script>
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var b = document.querySelector('.nav-burger');
+    var open = m.classList.toggle('open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    m.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+  (function () {
+    var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+    document.querySelectorAll('.mm-links a').forEach(function (a) {
+      var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (href !== '/' && cur.indexOf(href) === 0) a.classList.add('active');
+    });
+  })();
+</script>
 </body>
 </html>
