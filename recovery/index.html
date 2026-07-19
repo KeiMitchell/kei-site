@@ -740,6 +740,7 @@
     .btn-white:hover { transform: none; box-shadow: none; }
       /* ── MOBILE MENU ── */
     .nav-burger { display: none; }
+    .mobile-menu { display: none; }
     @media (max-width: 880px) {
       .nav-burger {
         display: inline-flex;
@@ -764,6 +765,7 @@
       .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
       .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
       .mobile-menu {
+        display: block;
         position: fixed;
         inset: 0;
         z-index: 90;
