@@ -210,7 +210,7 @@
     /* ── SPLIT HERO (CRM-style) ── */
     .split-hero { display: flex; flex-direction: column; justify-content: center; max-width: 1280px; margin: 0 auto; width: 100%; }
     .sh-head { padding: clamp(20px, 2.6vw, 36px) clamp(24px, 4.5vw, 72px) 0; }
-    .sh-row { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr); align-items: center; }
+    .sh-row { display: block; }
     .sh-left { padding: clamp(10px, 1.6vw, 24px) clamp(20px, 3vw, 48px) clamp(28px, 3.5vw, 48px) clamp(24px, 4.5vw, 72px); }
     .page-hero h1 { font-size: clamp(34px, 3.9vw, 54px); }
     /* JA keeps the one-line headline; showcase visible in both languages */
@@ -409,45 +409,6 @@
       </div>
     </div>
 
-    <div class="sh-right" aria-hidden="true">
-      <div class="illus illus-browser">
-        <div class="ib-bar"><span></span><span></span><span></span><em class="ib-url">amane-bakery.com</em></div>
-        <div class="mk">
-          <div class="mk-nav">
-            <span class="mk-logo">Amane <span class="mk-logo-jp">あまね</span></span>
-            <span class="mk-links"><i></i><i></i><i></i></span>
-            <span class="mk-cta">Order</span>
-          </div>
-          <div class="mk-hero">
-            <div class="mk-hero-l">
-              <span class="mk-kicker">Japanese Bakery · Los Angeles</span>
-              <span class="mk-h1">Fresh from the oven, every morning.</span>
-              <span class="mk-sub">Shokupan, matcha cream, and seasonal wagashi.</span>
-              <span class="mk-btn">Visit us</span>
-            </div>
-            <div class="mk-hero-r">
-              <div class="mk-arch">
-                <div class="mk-sun"></div>
-                <div class="mk-hill"></div>
-              </div>
-            </div>
-          </div>
-          <div class="mk-row">
-            <div class="mk-card"><div class="mk-img mk-img--1"></div><span class="mk-name">Shokupan</span><span class="mk-price">$8</span></div>
-            <div class="mk-card"><div class="mk-img mk-img--2"></div><span class="mk-name">Matcha roll</span><span class="mk-price">$6</span></div>
-            <div class="mk-card"><div class="mk-img mk-img--3"></div><span class="mk-name">An-butter</span><span class="mk-price">$7</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="mini-phone" aria-hidden="true">
-        <div class="mp-screen">
-          <div class="mp-arch"><span class="mp-sun"></span></div>
-          <div class="mp-bar"></div>
-          <div class="mp-bar mp-bar--short"></div>
-          <div class="mp-btn"></div>
-        </div>
-      </div>
-    </div>
     </div>
     </div>
   </div>
