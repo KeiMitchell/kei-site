@@ -1231,6 +1231,11 @@
     @media (prefers-reduced-motion: reduce) {
       .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover, .btn--light:hover { transform: none; }
     }
+  
+    /* ── FULL-PAGE HERO ── */
+    :root { --chrome-h: 110px; }
+    @media (max-width: 560px) { :root { --chrome-h: 128px; } }
+    .hero { min-height: calc(100svh - var(--chrome-h)); }
   </style>
 
   <script type="speculationrules">

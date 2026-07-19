@@ -690,6 +690,12 @@
     @media (prefers-reduced-motion: reduce) {
       .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover, .btn--light:hover { transform: none; }
     }
+  
+    /* ── FULL-PAGE HERO ── */
+    :root { --chrome-h: 110px; }
+    @media (max-width: 560px) { :root { --chrome-h: 128px; } }
+    .hero { display: flex; align-items: center; min-height: calc(100svh - var(--chrome-h)); }
+    .hero > .container { width: 100%; }
   </style>
 
   <script type="speculationrules">

@@ -319,6 +319,16 @@
     @media (prefers-reduced-motion: reduce) {
       .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover, .btn--light:hover { transform: none; }
     }
+  
+    /* ── FULL-PAGE HERO ── */
+    :root { --chrome-h: 110px; }
+    @media (max-width: 560px) { :root { --chrome-h: 128px; } }
+    .page-hero { display: flex; }
+    .split-hero { min-height: calc(100svh - var(--chrome-h)); width: 100%; }
+    html[lang="ja"] .split-hero { display: flex; flex-direction: column; justify-content: center; }
+    @media (max-width: 940px) {
+      .split-hero { display: flex; flex-direction: column; justify-content: center; }
+    }
   </style>
 
   <script type="speculationrules">
