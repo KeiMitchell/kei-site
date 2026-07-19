@@ -552,7 +552,11 @@
     .lang-toggle[hidden] { display: none; }
     .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 9px 18px; letter-spacing: 0.01em; }
     .risk-banner { font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
-    .hero { padding-top: clamp(30px, 4vw, 48px); padding-bottom: clamp(26px, 3.5vw, 44px); }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--gray); text-decoration: none; margin-bottom: 14px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--black); }
+    body.lang-ja .crumb { font-family: 'Noto Sans JP', sans-serif; }
+
+    .hero { padding-top: clamp(22px, 3vw, 34px); padding-bottom: clamp(22px, 3vw, 36px); }
     .hero h1 { font-size: clamp(2.2rem, 5vw, 3.25rem); margin-bottom: 10px; }
     .location-badge { margin-bottom: 10px; }
     .hero-sub { max-width: 640px; margin-bottom: 14px; line-height: 1.55; }
@@ -608,6 +612,7 @@
 <!-- HERO -->
 <section class="hero" id="main">
   <div class="container">
+    <a href="/#services" class="crumb" data-i18n="crumb">← All services</a>
     <div class="location-badge"><span data-i18n="hero_badge">For beauty salons, spas &amp; service businesses</span></div>
     <h1 data-i18n="hero_h1">AI that optimizes<br>your ads. <em>For real.</em></h1>
     <p class="hero-sub" data-i18n="hero_sub">
@@ -1046,6 +1051,7 @@
       page_title: 'hanjo | AI that optimizes your ads. For real.',
       skip_link: 'Skip to content',
       nav_cta: 'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      crumb: '← All services',
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       hero_badge: 'For beauty salons, spas &amp; service businesses',
       hero_h1: 'AI that optimizes<br>your ads. <em>For real.</em>',
@@ -1194,6 +1200,7 @@
       page_title: 'hanjo | AIが、広告を、最適化する時代へ。',
       skip_link: 'コンテンツへスキップ',
       nav_cta: '無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      crumb: '← サービス一覧に戻る',
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       hero_badge: '美容サロン・スパ・サービスビジネスのために',
       hero_h1: 'AIが、広告を、<br><em>最適化する。</em>',

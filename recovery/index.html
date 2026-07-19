@@ -626,7 +626,11 @@
     .lang-pill:hover { color: var(--black); border-color: rgba(17,17,16,0.3); }
     .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 9px 18px; letter-spacing: 0.01em; }
     .risk-banner { font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
-    .hero { padding-top: clamp(28px, 4vw, 48px); padding-bottom: clamp(24px, 3.5vw, 44px); }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--gray); text-decoration: none; margin-bottom: 14px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--black); }
+    body.lang-ja .crumb { font-family: 'Noto Sans JP', sans-serif; }
+
+    .hero { padding-top: clamp(20px, 2.8vw, 34px); padding-bottom: clamp(20px, 2.8vw, 36px); }
     .hero h1 { margin-bottom: 14px; }
     .hero-sub { margin-bottom: 20px; }
     .hero-actions { margin-bottom: 26px; }
@@ -683,6 +687,7 @@
 <!-- HERO -->
 <section class="hero" id="main" tabindex="-1">
   <div class="container">
+    <a href="/#services" class="crumb" data-i18n="crumb">← All services</a>
     <div class="location-badge">
       <svg class="pin-icon" width="9" height="11" viewBox="0 0 9 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M4.5 0C2.01 0 0 2.01 0 4.5 0 7.88 4.5 11 4.5 11S9 7.88 9 4.5C9 2.01 6.99 0 4.5 0zm0 6.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5z"/>
@@ -1177,6 +1182,7 @@
     en: {
       page_title: 'hanjo | More new clients. Same ad budget. Zero cost risk.',
       nav_cta: 'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      crumb: '← All services',
       skip_link: 'Skip to content',
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       location_badge: 'Now serving Los Angeles area only',
@@ -1341,6 +1347,7 @@
     ja: {
       page_title: 'hanjo | 独立系メディカルスパ・美容クリニック専門｜コストリスクゼロで集客を増やす',
       nav_cta: '無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      crumb: '← サービス一覧に戻る',
       skip_link: '本文へスキップ',
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       location_badge: 'LAエリア限定提供中',
