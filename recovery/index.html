@@ -697,6 +697,8 @@
       .crumb { display: block; margin-bottom: 14px; }
     .location-badge { text-transform: none; letter-spacing: 0.01em; font-size: 13px; font-weight: 500; color: var(--gray); }
     .location-badge .pin-icon { display: none; }
+      .hero h1 { text-wrap: balance; }
+    body.lang-ja .hero h1 { text-wrap: balance; line-break: strict; }
   </style>
 
   <script type="speculationrules">
@@ -774,7 +776,7 @@
       </svg>
       <span data-i18n="location_badge">Now serving Los Angeles area only</span>
     </div>
-    <h1 data-i18n="hero_h1">More new clients.<br>Same ad budget.<br><em>No fees. No hassle.</em></h1>
+    <h1 data-i18n="hero_h1">More new clients.<br>Same ad&nbsp;budget.<br><em>No&nbsp;fees. No&nbsp;hassle.</em></h1>
     <p class="hero-sub" data-i18n="hero_sub">
       Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.
     </p>
@@ -1268,7 +1270,7 @@
 <script>
   const T = {
     en: {
-      page_title: 'hanjo | More new clients. Same ad budget. Zero cost risk.',
+      page_title: 'hanjo | More new clients. Same ad&nbsp;budget. Zero cost risk.',
       nav_cta: 'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       'footer-about': 'About Us',
       'footer-terms': 'Terms of Use',
@@ -1278,7 +1280,7 @@
       skip_link: 'Skip to content',
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       location_badge: 'Now serving Los Angeles area only',
-      hero_h1: 'More new clients.<br>Same ad budget.<br><em>No fees. No hassle.</em>',
+      hero_h1: 'More new clients.<br>Same ad&nbsp;budget.<br><em>No&nbsp;fees. No&nbsp;hassle.</em>',
       hero_sub: 'Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.',
       hero_btn_primary: 'Get a free audit →',
       hero_btn_ghost: 'See if you\'re a fit →',
