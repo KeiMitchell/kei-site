@@ -574,7 +574,13 @@
 
   
     /* ── hanjo.ai chrome alignment ── */
-    nav { height: auto; padding: 15px clamp(24px, 4.5vw, 72px); }
+    nav { height: auto; display: block; padding: 0; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { background: none; border: 1px solid var(--border); border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 500; color: var(--gray); cursor: pointer; letter-spacing: 0.06em; line-height: 1; font-family: inherit; display: inline-flex; align-items: center; transition: color 0.2s, border-color 0.2s; }
+    .lang-toggle:hover { color: var(--black); border-color: rgba(17,17,16,0.3); }
+
     .nav-links { display: flex; gap: 34px; align-items: center; }
     .nav-links a {
       font-family: 'Playfair Display', serif;
@@ -608,7 +614,7 @@
     .nav-links a.active:hover { color: var(--sage); }
     .nav-links a.active::after { display: none; }
     @media (max-width: 880px) { .nav-links { display: none; } }
-    .lang-toggle[hidden] { display: none; }
+    .legacy-lang[hidden], div[hidden] .lang-btn, div[hidden] .lang-sep { display: none; }
     .lang-pill {
       background: none;
       border: 1px solid var(--border);
@@ -734,6 +740,35 @@
       }
     }
   </style>
+
+  <script type="speculationrules">
+  {
+    "prerender": [{
+      "where": { "and": [
+        { "href_matches": "/*" },
+        { "not": { "href_matches": "/api/*" } }
+      ]},
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
+  <script>
+    (function () {
+      if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) return;
+      var seen = {};
+      document.addEventListener('pointerover', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null;
+        if (!a) return;
+        var u = a.href;
+        if (seen[u] || u.indexOf('/api/') !== -1) return;
+        seen[u] = 1;
+        var l = document.createElement('link');
+        l.rel = 'prefetch';
+        l.href = u;
+        document.head.appendChild(l);
+      }, { passive: true });
+    })();
+  </script>
 </head>
 <body>
 
@@ -746,23 +781,29 @@
 
 <!-- NAV -->
 <nav>
-  <a href="/" class="nav-logo"><img src="/hanjo-logo.svg" alt="hanjo" class="logo-img"></a>
-  <div class="nav-links" aria-label="Services">
-    <a href="/crm/">CRM</a>
-    <a href="/web/">Web</a>
-    <a href="/ads/">Ads</a>
-    <a href="/recovery/">Recovery</a>
+  <div class="nav-inner">
+    <a href="/" class="logo" aria-label="hanjo">
+      <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+    </a>
+    <div class="nav-links" aria-label="Services">
+      <a href="/crm/">CRM</a>
+      <a href="/web/">Web</a>
+      <a href="/ads/">Ads</a>
+      <a href="/recovery/">Recovery</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-pill" onclick="setLang(document.body.classList.contains('lang-ja') ? 'en' : 'ja')" aria-label="Switch language">JP</button>
+      <a href="#book" class="nav-cta" data-i18n="nav_cta">Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
   </div>
-  <div class="nav-right">
-    <div class="lang-toggle" role="group" aria-label="Language / 言語" hidden aria-hidden="true">
+</nav>
+<div hidden aria-hidden="true">
+<div class="legacy-lang" role="group" aria-label="Language / 言語" hidden aria-hidden="true">
       <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
       <span class="lang-sep" aria-hidden="true">/</span>
       <button class="lang-btn" id="btn-ja" onclick="setLang('ja')" aria-pressed="false">日本語</button>
     </div>
-    <button class="lang-pill" id="lang-pill" onclick="setLang(document.body.classList.contains('lang-ja') ? 'en' : 'ja')" aria-label="Switch language">JP</button>
-    <a href="#book" class="nav-cta" data-i18n="nav_cta">Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-  </div>
-</nav>
+</div>
 
 
 <!-- HERO -->
