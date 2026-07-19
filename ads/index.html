@@ -624,6 +624,29 @@
     .location-badge .pin-icon { display: none; }
       .hero h1 { text-wrap: balance; }
     body.lang-ja .hero h1 { text-wrap: balance; line-break: strict; }
+      /* ── CTA standardization (matches .btn--dark/.btn--light) ── */
+    .btn-primary, .btn-ghost, .sim-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      padding: 15px 30px;
+      border-radius: 100px;
+      height: 44px;
+    }
+    .btn-ghost {
+      background: #ffffff;
+      color: var(--black);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease, background-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: #ffffff; border-color: rgba(17, 17, 16, 0.32); transform: none; }
+    .btn-ghost svg { transition: transform 0.2s ease; }
+    .btn-ghost:hover svg { transform: translateX(3px); }
   </style>
 
   <script type="speculationrules">
@@ -701,8 +724,8 @@
       hanjo Ads AI feeds Meta and Google the conversion data they normally never see, so delivery concentrates on the customers who actually buy, book, return, and spend. Built for small businesses, from online stores to booking-based services.
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary" data-i18n="hero_btn_primary">Talk to us →</a>
-      <a href="#how" class="btn-ghost" data-i18n="hero_btn_ghost">See how it works →</a>
+      <a href="#contact" class="btn-primary" data-i18n="hero_btn_primary">Talk to us <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#how" class="btn-ghost" data-i18n="hero_btn_ghost">See how it works <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
 
     <div class="platform-row" aria-label="Ad platforms">
@@ -1150,8 +1173,8 @@
       hero_badge: 'For small businesses running Meta &amp; Google ads',
       hero_h1: 'AI that optimizes<br>your&nbsp;ads. <em>For&nbsp;real.</em>',
       hero_sub: 'hanjo Ads AI feeds Meta and Google the conversion data they normally never see, so delivery concentrates on the customers who actually buy, book, return, and spend. Built for small businesses, from online stores to booking-based services.',
-      hero_btn_primary: 'Talk to us →',
-      hero_btn_ghost: 'See how it works →',
+      hero_btn_primary: 'Talk to us <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: 'See how it works <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       stat1_strong: 'ROAS improvement', stat1_span: 'Return on ad spend',
       stat2_strong: 'CPA reduction', stat2_span: 'Cost per acquisition',
       stat3_strong: 'Less manual ops', stat3_span: 'Hands-on adjustment time',
@@ -1303,8 +1326,8 @@
       hero_badge: 'Meta・Google広告を運用する中小企業のために',
       hero_h1: 'AIが、広告を、<br><em>最適化する。</em>',
       hero_sub: 'hanjo Ads AIは、広告媒体が本来受け取れないコンバージョンデータをMetaとGoogleに供給し、実際に購入・予約し、リピートしてくれるお客様へ配信を集中させます。ECから予約型ビジネスまで、中小企業のために設計しています。',
-      hero_btn_primary: 'お問い合わせ →',
-      hero_btn_ghost: '仕組みを見る →',
+      hero_btn_primary: 'お問い合わせ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: '仕組みを見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       stat1_strong: 'ROAS改善', stat1_span: '広告費用対効果',
       stat2_strong: 'CPA削減', stat2_span: '顧客獲得単価',
       stat3_strong: '運用工数削減', stat3_span: '手動調整にかかる時間',

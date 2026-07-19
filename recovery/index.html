@@ -699,6 +699,29 @@
     .location-badge .pin-icon { display: none; }
       .hero h1 { text-wrap: balance; }
     body.lang-ja .hero h1 { text-wrap: balance; line-break: strict; }
+      /* ── CTA standardization (matches .btn--dark/.btn--light) ── */
+    .btn-primary, .btn-ghost, .sim-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      padding: 15px 30px;
+      border-radius: 100px;
+      height: 44px;
+    }
+    .btn-ghost {
+      background: #ffffff;
+      color: var(--black);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease, background-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: #ffffff; border-color: rgba(17, 17, 16, 0.32); transform: none; }
+    .btn-ghost svg { transition: transform 0.2s ease; }
+    .btn-ghost:hover svg { transform: translateX(3px); }
   </style>
 
   <script type="speculationrules">
@@ -781,8 +804,8 @@
       Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.
     </p>
     <div class="hero-actions">
-      <a href="#book" class="btn-primary" data-i18n="hero_btn_primary">Get a free audit →</a>
-      <a href="#fit" class="btn-ghost" data-i18n="hero_btn_ghost">See if you're a fit →</a>
+      <a href="#book" class="btn-primary" data-i18n="hero_btn_primary">Get a free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#fit" class="btn-ghost" data-i18n="hero_btn_ghost">See if you're a fit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
     <div class="zero-grid">
       <div class="zero-badge">
@@ -1013,7 +1036,7 @@
           <button type="button" class="sim-chip" data-val="none" data-i18n="sim_p_none">Phone / walk-in only</button>
         </div>
       </div>
-      <button type="button" class="btn-primary sim-submit" id="sim-submit" data-i18n="sim_submit">See if I qualify →</button>
+      <button type="button" class="btn-primary sim-submit" id="sim-submit" data-i18n="sim_submit">See if I qualify <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
       <p class="sim-note" id="sim-note" data-i18n="sim_note">Please answer all four questions.</p>
     </div>
 
@@ -1238,7 +1261,7 @@
           </div>
         </div>
         <div class="cta-form-footer">
-          <button type="submit" class="btn-white" data-i18n="cta_btn">Get my free audit →</button>
+          <button type="submit" class="btn-white" data-i18n="cta_btn">Get my free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           <div><button type="button" class="cta-back" id="step-back" data-i18n="form_back">← Back</button></div>
           <p class="cta-sub" data-i18n="cta_sub">Free audit. No setup fee, no monthly fee, no obligation to continue.</p>
         </div>
@@ -1282,8 +1305,8 @@
       location_badge: 'Now serving Los Angeles area only',
       hero_h1: 'More new clients.<br>Same ad&nbsp;budget.<br><em>No&nbsp;fees. No&nbsp;hassle.</em>',
       hero_sub: 'Built for independent med spas and aesthetic clinics. No setup fee, no monthly fee. Fully performance-based.',
-      hero_btn_primary: 'Get a free audit →',
-      hero_btn_ghost: 'See if you\'re a fit →',
+      hero_btn_primary: 'Get a free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: 'See if you\'re a fit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       zero_1_strong: 'No setup fee',
       zero_1_span: 'We build everything upfront',
       zero_2_strong: 'No monthly fee',
@@ -1343,7 +1366,7 @@
       sim_q4: 'How do clients book?',
       sim_p_other: 'Other online',
       sim_p_none: 'Phone / walk-in only',
-      sim_submit: 'See if I qualify →',
+      sim_submit: 'See if I qualify <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       sim_note: 'Please answer all four questions.',
       sim_strong_title: 'You\'re a strong fit.',
       sim_strong_body: 'Businesses like yours lose a real share of paid-traffic bookings at the form. On our performance-based model you only pay when we recover one, so a free audit costs you nothing but the answer.',
@@ -1401,7 +1424,7 @@
       faq6_p: 'No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.',
       cta_h2: 'See how many bookings<br>your form is losing.',
       cta_p: 'Get a free audit of your booking funnel. We\'ll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.',
-      cta_btn: 'Get my free audit →',
+      cta_btn: 'Get my free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       cta_sub: 'Free audit. No setup fee, no monthly fee, no obligation to continue.',
       form_label_name: 'Your name',
       form_label_spa: 'Spa name',
@@ -1451,8 +1474,8 @@
       location_badge: 'LAエリア限定提供中',
       hero_h1: '広告費は増やさずに、<br>新規客を増やす。<br><em>費用も手間も、ゼロ。</em>',
       hero_sub: '独立系メディカルスパ・美容クリニック向けに特化したサービスです。初期費用・月額費用ゼロ、完全成果報酬。',
-      hero_btn_primary: '無料診断を受ける →',
-      hero_btn_ghost: '相性をチェック →',
+      hero_btn_primary: '無料診断を受ける <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: '相性をチェック <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       zero_1_strong: '初期費用ゼロ',
       zero_1_span: '全部、無料で作ります',
       zero_2_strong: '月額費用ゼロ',
@@ -1512,7 +1535,7 @@
       sim_q4: 'お客様はどのように予約しますか？',
       sim_p_other: 'その他のオンライン予約',
       sim_p_none: '電話・来店のみ',
-      sim_submit: '診断する →',
+      sim_submit: '診断する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       sim_note: '4つすべてにお答えください。',
       sim_strong_title: '相性は抜群です。',
       sim_strong_body: '御社のようなビジネスは、広告から来た予約をフォームで取りこぼしています。成果報酬型なので、取り戻せた時だけお支払い。無料診断なら、確認しても費用はかかりません。',
@@ -1570,7 +1593,7 @@
       faq6_p: '長期契約の縛りはありません。成果が出るまでに90日ほどかかりますが、やめたい場合は30日前にお知らせいただければ対応します。',
       cta_h2: '予約フォームで、<br>どれだけ逃しているか。',
       cta_p: '予約フォームの無料診断を実施します。興味を持ったお客様が予約完了の前にどれだけ離脱しているか、そして毎月いくら分の予約を逃しているかを可視化します。費用も、契約の縛りもありません。',
-      cta_btn: '無料診断を申し込む →',
+      cta_btn: '無料診断を申し込む <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       cta_sub: '無料診断。初期費用も月額費用もなし、継続の義務もありません。',
       form_label_name: 'お名前',
       form_label_spa: 'サロン・クリニック名',
