@@ -208,12 +208,12 @@
     }
   
     /* ── SPLIT HERO (CRM-style) ── */
-    .split-hero { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr); max-width: 1280px; margin: 0 auto; align-items: center; }
-    .sh-left { padding: clamp(44px, 5.5vw, 84px) clamp(20px, 3vw, 48px) clamp(44px, 5vw, 72px) clamp(24px, 4.5vw, 72px); }
-    .page-hero h1 { font-size: clamp(38px, 4.4vw, 60px); }
-    /* JA: one unbroken headline line; hero goes full-width, illustration off */
-    html[lang="ja"] .split-hero { display: block; }
-    html[lang="ja"] .sh-right { display: none; }
+    .split-hero { display: flex; flex-direction: column; justify-content: center; max-width: 1280px; margin: 0 auto; width: 100%; }
+    .sh-head { padding: clamp(20px, 2.6vw, 36px) clamp(24px, 4.5vw, 72px) 0; }
+    .sh-row { display: grid; grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr); align-items: center; }
+    .sh-left { padding: clamp(10px, 1.6vw, 24px) clamp(20px, 3vw, 48px) clamp(28px, 3.5vw, 48px) clamp(24px, 4.5vw, 72px); }
+    .page-hero h1 { font-size: clamp(34px, 3.9vw, 54px); }
+    /* JA keeps the one-line headline; showcase visible in both languages */
     html[lang="ja"] .page-hero h1 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.35; line-break: strict; }
     html[lang="ja"] .page-hero h1 strong { display: inline; }
     @media (min-width: 941px) {
@@ -222,8 +222,9 @@
     .sh-right { display: flex; align-items: center; justify-content: center; padding: clamp(28px, 3.5vw, 56px) clamp(24px, 4vw, 64px) clamp(28px, 3.5vw, 56px) 0; }
     .illus { width: 100%; max-width: 460px; animation: fadeUp 0.9s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both; }
     @media (max-width: 940px) {
-      .split-hero { display: block; }
-      .sh-right { display: none; }
+      .sh-row { display: flex; flex-direction: column; align-items: stretch; }
+      .sh-right { padding: 0 24px 44px; }
+      .mini-phone { display: none; }
     }
     .illus-browser { background: var(--white); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 24px 60px rgba(17,17,16,0.08); overflow: hidden; }
     .ib-bar { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
@@ -314,10 +315,25 @@
     @media (max-width: 560px) { :root { --chrome-h: 128px; } }
     .page-hero { display: flex; }
     .split-hero { min-height: calc(100svh - var(--chrome-h)); width: 100%; }
-    html[lang="ja"] .split-hero { display: flex; flex-direction: column; justify-content: center; }
-    @media (max-width: 940px) {
-      .split-hero { display: flex; flex-direction: column; justify-content: center; }
+      .sh-right { position: relative; }
+    .mini-phone {
+      position: absolute;
+      left: clamp(-6px, 0.5vw, 18px);
+      bottom: -14px;
+      width: 96px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 7px;
+      box-shadow: 0 18px 40px rgba(17, 17, 16, 0.16);
+      animation: fadeUp 0.9s 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
     }
+    .mp-screen { background: #FFF9F2; border-radius: 12px; padding: 8px 7px 9px; display: flex; flex-direction: column; gap: 5px; }
+    .mp-arch { position: relative; width: 100%; height: 52px; background: #F3E5D3; border-radius: 40px 40px 6px 6px; overflow: hidden; }
+    .mp-sun { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 24px; height: 24px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #E2926B, #C96F4A); }
+    .mp-bar { width: 85%; height: 5px; border-radius: 3px; background: rgba(62, 46, 37, 0.75); }
+    .mp-bar--short { width: 55%; background: rgba(62, 46, 37, 0.25); }
+    .mp-btn { width: 44px; height: 13px; border-radius: 99px; background: #C96F4A; margin-top: 2px; }
   </style>
 
   <script type="speculationrules">
@@ -377,9 +393,12 @@
 
   <div class="page-hero">
     <div class="split-hero">
-    <div class="sh-left">
-      <a href="/#services" class="crumb" data-i18n="crumb">← All services</a><br>
+    <div class="sh-head">
+      <a href="/#services" class="crumb" data-i18n="crumb">← All services</a>
       <h1 data-i18n="ph-h1">Websites and stores that earn&nbsp;trust<strong>and&nbsp;convert.</strong></h1>
+    </div>
+    <div class="sh-row">
+    <div class="sh-left">
       <p class="lead" data-i18n="ph-lead">hanjo Web covers everything your business shows the world: websites, landing pages, and Shopify stores: structure, copy, design, and code, in English and Japanese. No templates, no page builders, no agency layers.</p>
       <div class="hero-actions">
         <a href="/contact/" class="btn btn--dark" data-i18n="hero-cta">
@@ -420,6 +439,15 @@
           </div>
         </div>
       </div>
+      <div class="mini-phone" aria-hidden="true">
+        <div class="mp-screen">
+          <div class="mp-arch"><span class="mp-sun"></span></div>
+          <div class="mp-bar"></div>
+          <div class="mp-bar mp-bar--short"></div>
+          <div class="mp-btn"></div>
+        </div>
+      </div>
+    </div>
     </div>
     </div>
   </div>
