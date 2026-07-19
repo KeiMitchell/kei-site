@@ -61,8 +61,8 @@
     .nav-right { display: flex; align-items: center; gap: 20px; }
     .nav-avail { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--faint); letter-spacing: 0.02em; }
     .avail-dot { width: 6px; height: 6px; background: #52a46a; border-radius: 50%; flex-shrink: 0; animation: pulse 2.5s ease-in-out infinite; }
-    .lang-toggle { background: none; border: 1px solid var(--border); border-radius: 99px; padding: 5px 13px; font-size: 12px; font-weight: 500; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
-    .lang-toggle:hover { color: var(--ink); border-color: rgba(17,17,16,0.3); background: rgba(17,17,16,0.04); }
+    .lang-toggle { background: none; border: none; padding: 5px 2px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
+    .lang-toggle:hover { color: var(--ink); }
     .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--bg); background: var(--ink); text-decoration: none; padding: 9px 18px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.2s; letter-spacing: 0.01em; }
     .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
     .s-white { background: var(--white); }
@@ -150,12 +150,9 @@
     .nav-links a.active {
       opacity: 1;
       color: var(--sage);
-      background: rgba(58, 92, 69, 0.1);
-      padding: 5px 16px 7px;
-      border-radius: 99px;
     }
     .nav-links a.active:hover { color: var(--sage); }
-    .nav-links a.active::after { display: none; }
+    .nav-links a.active::after { right: 0; }
     @media (max-width: 880px) { .nav-links { display: none; } }
     @media (max-width: 560px) {
       .nav-inner { padding: 13px 20px; }
