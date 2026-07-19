@@ -379,6 +379,11 @@
       word-break: auto-phrase;
     }
     p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
+      .agree { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+    .agree input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--sage); cursor: pointer; flex-shrink: 0; }
+    .agree-text { font-size: 13.5px; font-weight: 400; color: var(--muted); }
+    .agree-text a { color: var(--sage); font-weight: 500; text-underline-offset: 3px; }
+    html[lang="ja"] .agree-text { font-family: 'Noto Sans JP', sans-serif; }
   </style>
 
   <script type="speculationrules">
@@ -552,6 +557,13 @@
         <textarea id="f-message" name="message" data-i18n-placeholder="p-message" placeholder="Current challenges, goals, questions. Anything helps."></textarea>
       </div>
 
+      <div class="f-full">
+        <label class="agree">
+          <input type="checkbox" name="privacy" required />
+          <span class="agree-text" data-i18n="f-agree">I agree to the <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+        </label>
+      </div>
+
       <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
       <div class="f-full">
@@ -622,6 +634,7 @@
         "lang-either": "Either",
         "f-message": "Anything else you would like to share?",
         "p-message": "Current challenges, goals, questions. Anything helps.",
+        "f-agree": "I agree to the <a href=\"/privacy/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
         "f-submit": "Send inquiry",
         "f-error": "Something went wrong. Please try again in a moment.",
         "s-h2": "Thank you. We received it.",
@@ -674,6 +687,7 @@
         "lang-either": "どちらでも",
         "f-message": "そのほか、お聞かせいただけること",
         "p-message": "現在の課題、目標、ご質問など。どんなことでも参考になります。",
+        "f-agree": "<a href=\"/privacy/\" target=\"_blank\" rel=\"noopener\">プライバシーポリシー</a>に同意します。",
         "f-submit": "送信する",
         "f-error": "送信に失敗しました。少し時間をおいて、もう一度お試しください。",
         "s-h2": "送信ありがとうございました。",
