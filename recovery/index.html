@@ -331,13 +331,6 @@
     }
     body.lang-ja .adsai-card h2 { font-family: 'Shippori Mincho B1', serif; }
     .adsai-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; max-width: 560px; text-wrap: pretty; }
-    .cta-spec { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; margin: 18px 0 6px; }
-    .cta-spec span { display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.85); }
-    .cta-spec span::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.55); }
-    .cta-founder { display: flex; align-items: center; justify-content: center; gap: 13px; margin: 22px auto 26px; }
-    .cta-founder img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; object-position: center top; border: 1px solid rgba(255,255,255,0.35); }
-    .cta-founder-text { text-align: left; font-size: 0.84rem; line-height: 1.55; color: rgba(255,255,255,0.85); }
-    .cta-founder-text strong { display: block; color: #fff; font-weight: 600; }
     .adsai-card .btn-primary { flex-shrink: 0; justify-self: start; }
     @media (min-width: 768px) { .adsai-card .btn-primary { justify-self: end; } }
 
@@ -1636,15 +1629,6 @@
   <div class="container">
     <h2 data-i18n="cta_h2">See how many bookings<br>your form is losing.</h2>
     <p data-i18n="cta_p">Get a free audit of your booking funnel. We'll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.</p>
-    <div class="cta-spec">
-      <span data-i18n="cta_spec_1">We test your real booking flow</span>
-      <span data-i18n="cta_spec_2">One-page written report</span>
-      <span data-i18n="cta_spec_3">Updated booking form within 2 weeks</span>
-    </div>
-    <div class="cta-founder">
-      <img src="/kei.JPG" alt="Kei Nakayama" />
-      <span class="cta-founder-text"><strong data-i18n="cta_founder_name">Kei Nakayama · Founder</strong><span data-i18n="cta_founder_line">Consultations in English or Japanese. Based in Los Angeles.</span></span>
-    </div>
     <form class="cta-form" id="cta-form" novalidate>
       <input type="hidden" name="business_type" id="sim-out-type">
       <input type="hidden" name="avg_ticket" id="sim-out-ticket">
@@ -1899,11 +1883,6 @@
       faq5_p: 'Two weeks from kickoff. Day 1–3: audit and plan. Day 4–7: landing page built. Day 8–14: automation set up and tested. Day 14: live and tracking from day one.',
       faq6_h3: 'Is there a minimum commitment?',
       faq6_p: 'No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.',
-      cta_spec_1: 'We test your real booking flow',
-      cta_spec_2: 'One-page written report',
-      cta_spec_3: 'Updated booking form within 2 weeks',
-      cta_founder_name: 'Kei Nakayama · Founder',
-      cta_founder_line: 'Consultations in English or Japanese. Based in Los Angeles.',
       cta_h2: 'See how many bookings<br>your form is losing.',
       cta_p: 'Get a free audit of your booking funnel. We\'ll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.',
       cta_btn: 'Get my free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
@@ -2094,11 +2073,6 @@
       faq5_p: '開始から2週間です。最初の3日で診断・設計、4〜7日目でLP制作、8〜14日目で自動化の設定とテスト。14日目から稼働します。',
       faq6_h3: '最低利用期間はありますか？',
       faq6_p: '長期契約の縛りはありません。成果が出るまでに90日ほどかかりますが、やめたい場合は30日前にお知らせいただければ対応します。',
-      cta_spec_1: '実際にご予約を試した上で診断',
-      cta_spec_2: 'A4一枚のレポートをお渡し',
-      cta_spec_3: '2週間以内に改善フォームをお渡し',
-      cta_founder_name: '中山 慧 · 創業者',
-      cta_founder_line: '日本語でそのままご相談ください。ロサンゼルス在住。',
       cta_h2: '予約フォームで、<br>どれだけ逃しているか。',
       cta_p: '予約フォームの無料診断を実施します。興味を持ったお客様が予約完了の前にどれだけ離脱しているか、そして毎月いくら分の予約を逃しているかを可視化します。費用も、契約の縛りもありません。',
       cta_btn: '無料診断を申し込む <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
