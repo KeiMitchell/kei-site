@@ -597,106 +597,99 @@
     .hero-visual { display: none; }
     @media (min-width: 1240px) {
       .hero-visual {
-        display: flex; flex-direction: column; align-items: stretch;
+        display: flex; flex-direction: column;
         position: absolute; right: 0; top: 47%; transform: translateY(-50%);
-        width: 340px; pointer-events: none;
+        width: 330px; pointer-events: none;
       }
     }
-    .hv-card {
-      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
-      padding: 14px 16px; box-shadow: 0 10px 28px rgba(17,17,16,0.05);
+    .hv-form {
+      position: relative; background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 15px 16px 16px;
+      box-shadow: 0 12px 30px rgba(17,17,16,0.06);
+      transform: rotate(-1.1deg); transform-origin: 50% 100%;
+      animation: hvFormDim 9.5s infinite;
+      width: 88%;
     }
-    .hv-form { position: relative; animation: hvFormDim 9.5s infinite; }
-    .hv-head {
-      display: flex; align-items: center; gap: 7px;
-      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--gray); margin-bottom: 11px;
+    .hv-form-title { font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 10px; }
+    .hv-form label { display: block; font-size: 0.66rem; color: var(--gray); margin: 8px 0 3px; }
+    .hv-input {
+      font-size: 0.76rem; color: var(--black); background: var(--light);
+      border: 1px solid var(--border); border-radius: 6px; padding: 5px 9px;
     }
-    .hv-head svg { width: 13px; height: 13px; color: var(--sage); }
-    .hv-field {
-      height: 12px; border: 1px solid var(--border); border-radius: 4px;
-      margin-bottom: 7px; overflow: hidden; background: var(--light);
+    .hv-input.hv-unfilled { color: var(--gray); }
+    .hv-formbtn {
+      margin-top: 11px; text-align: center; font-size: 0.74rem; font-weight: 600;
+      color: #fff; background: rgba(58,92,69,0.45); border-radius: 99px; padding: 7px 0;
     }
-    .hv-field:last-of-type { margin-bottom: 0; }
-    .hv-fill { display: block; height: 100%; background: rgba(58,92,69,0.28); width: 0; border-radius: 3px; }
-    .hv-fill-1 { animation: hvFill1 9.5s infinite; }
-    .hv-fill-2 { animation: hvFill2 9.5s infinite; }
     .hv-drop {
-      position: absolute; top: 12px; right: 14px;
+      position: absolute; top: 13px; right: 14px;
       font-size: 0.66rem; font-weight: 600; color: #a4553d;
       opacity: 0; animation: hvDrop 9.5s infinite;
     }
-    .hv-line { width: 1.5px; height: 20px; margin: 0 0 0 26px; background: var(--border); position: relative; }
-    .hv-line span {
-      position: absolute; left: -2.25px; top: 0; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--sage); opacity: 0;
-    }
-    .hv-line-1 span { animation: hvTravel1 9.5s infinite; }
-    .hv-line-2 span { animation: hvTravel2 9.5s infinite; }
-    .hv-bubble {
-      max-width: 88%; border-radius: 13px; padding: 10px 13px;
-      font-size: 0.78rem; line-height: 1.55;
+    .hv-notif {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+      padding: 10px 12px; margin-left: 10%;
+      box-shadow: 0 10px 26px rgba(17,17,16,0.07);
       opacity: 0;
     }
-    .hv-sms {
-      background: var(--sage); color: #fff; border-bottom-left-radius: 4px;
-      animation: hvIn1 9.5s infinite;
-    }
-    .hv-email {
-      background: var(--white); border: 1px solid var(--border); color: var(--black);
-      border-bottom-left-radius: 4px; margin-top: 8px;
-      animation: hvIn2 9.5s infinite;
-    }
-    .hv-ch {
-      display: block; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; opacity: 0.65; margin-bottom: 3px;
-    }
-    .hv-square { opacity: 0; animation: hvIn3 9.5s infinite; }
-    .hv-sq-row { display: flex; align-items: center; gap: 11px; }
-    .hv-check {
-      width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
-      background: var(--sage); color: #fff;
+    .hv-sms { margin-top: 14px; animation: hvIn1 9.5s infinite; }
+    .hv-email { margin-top: 7px; animation: hvIn2 9.5s infinite; }
+    .hv-notif-ico {
+      width: 26px; height: 26px; border-radius: 7px; flex-shrink: 0;
       display: inline-flex; align-items: center; justify-content: center;
-      animation: hvPulse 9.5s infinite;
+      background: var(--sage); color: #fff; margin-top: 1px;
     }
-    .hv-check svg { width: 13px; height: 13px; }
-    .hv-sq-row strong { display: block; font-size: 0.82rem; font-weight: 600; color: var(--black); line-height: 1.3; }
-    .hv-sq-row em { font-style: normal; font-size: 0.72rem; color: var(--gray); }
-    @keyframes hvFill1 { 0%,3% { width: 0; } 8%,94% { width: 72%; } 100% { width: 0; } }
-    @keyframes hvFill2 { 0%,8% { width: 0; } 13%,94% { width: 46%; } 100% { width: 0; } }
-    @keyframes hvFormDim { 0%,16% { opacity: 1; } 21%,94% { opacity: 0.62; } 100% { opacity: 1; } }
+    .hv-email .hv-notif-ico { background: var(--black); }
+    .hv-notif-ico svg { width: 13px; height: 13px; }
+    .hv-notif-body { min-width: 0; }
+    .hv-notif-body strong { display: block; font-size: 0.72rem; font-weight: 600; color: var(--black); line-height: 1.35; }
+    .hv-notif-body span { display: block; font-size: 0.73rem; color: var(--gray); line-height: 1.45; }
+    .hv-notif time { margin-left: auto; font-size: 0.62rem; color: var(--gray); flex-shrink: 0; }
+    .hv-cal {
+      background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 14px 13px; margin-top: 14px; margin-left: 4%;
+      box-shadow: 0 12px 30px rgba(17,17,16,0.06);
+      transform: rotate(0.8deg); width: 92%;
+    }
+    .hv-cal-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      font-size: 0.74rem; font-weight: 600; color: var(--black); margin-bottom: 9px;
+    }
+    .hv-cal-head em { font-style: normal; font-size: 0.64rem; font-weight: 500; color: var(--gray); }
+    .hv-slot { display: flex; align-items: center; gap: 9px; margin-bottom: 6px; }
+    .hv-slot:last-child { margin-bottom: 0; }
+    .hv-slot time { font-size: 0.66rem; color: var(--gray); width: 30px; flex-shrink: 0; }
+    .hv-slot-free { flex: 1; height: 22px; border: 1px dashed var(--border); border-radius: 6px; }
+    .hv-slot-booked {
+      flex: 1; display: flex; align-items: center; gap: 6px;
+      background: var(--sage); color: #fff; border-radius: 6px;
+      font-size: 0.7rem; font-weight: 500; padding: 5px 9px;
+      opacity: 0; animation: hvBook 9.5s infinite; transform-origin: 0 50%;
+    }
+    .hv-slot-booked svg { width: 11px; height: 11px; flex-shrink: 0; margin-left: auto; }
+    @keyframes hvFormDim { 0%,16% { opacity: 1; } 21%,94% { opacity: 0.55; } 100% { opacity: 1; } }
     @keyframes hvDrop { 0%,17% { opacity: 0; } 21%,94% { opacity: 1; } 100% { opacity: 0; } }
-    @keyframes hvTravel1 { 0%,23% { opacity: 0; top: 0; } 25% { opacity: 1; } 29% { opacity: 1; top: 14px; } 31%,100% { opacity: 0; top: 14px; } }
     @keyframes hvIn1 {
-      0%,29% { opacity: 0; transform: translateY(9px) scale(0.96); }
+      0%,29% { opacity: 0; transform: translateY(-7px) scale(0.97); }
       34%,94% { opacity: 1; transform: translateY(0) scale(1); }
-      98%,100% { opacity: 0; transform: translateY(0) scale(1); }
+      98%,100% { opacity: 0; }
     }
     @keyframes hvIn2 {
-      0%,41% { opacity: 0; transform: translateY(9px) scale(0.96); }
-      46%,94% { opacity: 1; transform: translateY(0) scale(1); }
-      98%,100% { opacity: 0; transform: translateY(0) scale(1); }
+      0%,43% { opacity: 0; transform: translateY(-7px) scale(0.97); }
+      48%,94% { opacity: 1; transform: translateY(0) scale(1); }
+      98%,100% { opacity: 0; }
     }
-    @keyframes hvTravel2 { 0%,52% { opacity: 0; top: 0; } 54% { opacity: 1; } 58% { opacity: 1; top: 14px; } 60%,100% { opacity: 0; top: 14px; } }
-    @keyframes hvIn3 {
-      0%,58% { opacity: 0; transform: translateY(9px) scale(0.96); }
-      63%,94% { opacity: 1; transform: translateY(0) scale(1); }
-      98%,100% { opacity: 0; transform: translateY(0) scale(1); }
-    }
-    @keyframes hvPulse {
-      0%,62% { box-shadow: 0 0 0 0 rgba(58,92,69,0.35); }
-      66% { box-shadow: 0 0 0 0 rgba(58,92,69,0.35); }
-      74% { box-shadow: 0 0 0 12px rgba(58,92,69,0); }
-      100% { box-shadow: 0 0 0 12px rgba(58,92,69,0); }
+    @keyframes hvBook {
+      0%,60% { opacity: 0; transform: scaleX(0.6); }
+      66%,94% { opacity: 1; transform: scaleX(1); }
+      98%,100% { opacity: 0; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .hv-form, .hv-fill-1, .hv-fill-2, .hv-drop, .hv-line span,
-      .hv-bubble, .hv-square, .hv-check { animation: none; }
-      .hv-fill-1 { width: 72%; } .hv-fill-2 { width: 46%; }
-      .hv-form { opacity: 0.62; } .hv-drop { opacity: 1; }
-      .hv-bubble, .hv-square { opacity: 1; transform: none; }
+      .hv-form, .hv-drop, .hv-notif, .hv-slot-booked { animation: none; }
+      .hv-form { opacity: 0.55; } .hv-drop { opacity: 1; }
+      .hv-notif, .hv-slot-booked { opacity: 1; transform: none; }
     }
-
     /* ── hanjo.ai chrome alignment ── */
     nav { height: auto; display: block; padding: 0; }
     .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
@@ -1134,23 +1127,29 @@
       </div>
     </div>
     <div class="hero-visual" aria-hidden="true">
-      <div class="hv-card hv-form">
-        <div class="hv-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg><span data-i18n="hv_form_title">Booking form</span></div>
-        <div class="hv-field"><span class="hv-fill hv-fill-1"></span></div>
-        <div class="hv-field"><span class="hv-fill hv-fill-2"></span></div>
-        <div class="hv-field"></div>
+      <div class="hv-form">
+        <div class="hv-form-title" data-i18n="hv_form_title">Book an appointment</div>
+        <label data-i18n="hv_f1_label">Name</label>
+        <div class="hv-input" data-i18n="hv_f1_value">Misaki Tanaka</div>
+        <label data-i18n="hv_f2_label">Preferred time</label>
+        <div class="hv-input hv-unfilled" data-i18n="hv_f2_value">Select a time</div>
+        <div class="hv-formbtn" data-i18n="hv_form_btn">Confirm booking</div>
         <span class="hv-drop" data-i18n="hv_drop">Left before booking</span>
       </div>
-      <div class="hv-line hv-line-1"><span></span></div>
-      <div class="hv-bubble hv-sms"><span class="hv-ch">SMS</span><span data-i18n="hv_sms">Your spot is still open. Finish booking in one tap.</span></div>
-      <div class="hv-bubble hv-email"><span class="hv-ch" data-i18n="hv_email_ch">Email</span><span data-i18n="hv_email">We are holding your preferred time.</span></div>
-      <div class="hv-line hv-line-2"><span></span></div>
-      <div class="hv-card hv-square">
-        <div class="hv-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg><span data-i18n="hv_sq_label">Square appointments</span></div>
-        <div class="hv-sq-row">
-          <span class="hv-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div><strong data-i18n="hv_sq_new">New booking confirmed</strong><em data-i18n="hv_sq_time">Tomorrow 2:00 PM</em></div>
-        </div>
+      <div class="hv-notif hv-sms">
+        <span class="hv-notif-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+        <div class="hv-notif-body"><strong>Bloom Salon</strong><span data-i18n="hv_sms">Your spot is still open. Finish booking in one tap.</span></div>
+        <time>10:12</time>
+      </div>
+      <div class="hv-notif hv-email">
+        <span class="hv-notif-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+        <div class="hv-notif-body"><strong>Bloom Salon</strong><span data-i18n="hv_email">We are holding your preferred time.</span></div>
+        <time>10:14</time>
+      </div>
+      <div class="hv-cal">
+        <div class="hv-cal-head"><span data-i18n="hv_cal_day">Fri, Jul 24</span><em>Square</em></div>
+        <div class="hv-slot"><time>13:00</time><span class="hv-slot-free"></span></div>
+        <div class="hv-slot"><time>14:00</time><span class="hv-slot-booked"><span data-i18n="hv_cal_booked">Misaki · Head spa 60 min</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div>
       </div>
     </div>
   </div>
@@ -1676,14 +1675,17 @@
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       location_badge: 'Now serving Los Angeles area only',
       hero_h1: 'Lost bookings,<br>brought&nbsp;back.<br><em>No&nbsp;fees. No&nbsp;hassle.</em>',
-      hv_form_title: 'Booking form',
+      hv_form_title: 'Book an appointment',
+      hv_f1_label: 'Name',
+      hv_f1_value: 'Misaki Tanaka',
+      hv_f2_label: 'Preferred time',
+      hv_f2_value: 'Select a time',
+      hv_form_btn: 'Confirm booking',
       hv_drop: 'Left before booking',
       hv_sms: 'Your spot is still open. Finish booking in one tap.',
-      hv_email_ch: 'Email',
       hv_email: 'We are holding your preferred time.',
-      hv_sq_label: 'Square appointments',
-      hv_sq_new: 'New booking confirmed',
-      hv_sq_time: 'Tomorrow 2:00 PM',
+      hv_cal_day: 'Fri, Jul 24',
+      hv_cal_booked: 'Misaki · Head spa 60 min',
       hero_sub: 'We rebuild your booking form and set up automated SMS and email follow-ups. Built for salons, spas, and clinics. No setup fee, no monthly fee, fully performance-based. Works out of the box if you manage bookings online with Square.',
       hero_btn_primary: 'Get a free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       hero_btn_ghost: 'See if you\'re a fit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
@@ -1871,14 +1873,17 @@
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       location_badge: 'LAエリア限定提供中',
       hero_h1: '取りこぼした予約を、<br>売上に戻す。<br><em>費用も手間も、ゼロ。</em>',
-      hv_form_title: '予約フォーム',
+      hv_form_title: 'ご予約',
+      hv_f1_label: 'お名前',
+      hv_f1_value: '田中 美咲',
+      hv_f2_label: 'ご希望日時',
+      hv_f2_value: '日時を選択してください',
+      hv_form_btn: '予約を確定する',
       hv_drop: '予約せずに離脱',
       hv_sms: 'お席をお取りしています。1タップで予約が完了します。',
-      hv_email_ch: 'メール',
       hv_email: 'ご希望の時間帯を確保しています。',
-      hv_sq_label: 'Square 予約カレンダー',
-      hv_sq_new: '新しい予約が確定しました',
-      hv_sq_time: '明日 14:00',
+      hv_cal_day: '7月24日（金）',
+      hv_cal_booked: '田中様・ヘッドスパ 60分',
       hero_sub: '予約フォームの改善と、SMS・メールの自動追客をセットで構築します。美容サロン・クリニックなど、ご予約で成り立つビジネス向け。初期費用・月額費用ゼロ、完全成果報酬。Squareでオンライン予約を管理しているお店なら、そのまま導入できます。',
       hero_btn_primary: '無料診断を受ける <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       hero_btn_ghost: '相性をチェック <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
