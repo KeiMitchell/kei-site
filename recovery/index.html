@@ -316,24 +316,7 @@
     .compare-row .co { color: var(--gray); text-decoration: line-through; font-size: 0.8rem; }
 
     /* ── ADS AI CROSS-SELL ── */
-    .adsai { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding-top: 0 !important; padding-bottom: 0 !important; }
-    .adsai .container { padding: 64px 0; }
-    @media (min-width: 768px) { .adsai .container { padding: 72px 0; } }
-    .adsai-card {
-      display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center;
-    }
-    @media (min-width: 768px) { .adsai-card { grid-template-columns: 1fr auto; gap: 64px; } }
-    .adsai-card h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.35rem, 3vw, 1.9rem);
-      line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 10px;
-      text-wrap: balance;
-    }
-    body.lang-ja .adsai-card h2 { font-family: 'Shippori Mincho B1', serif; }
-    .adsai-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; max-width: 560px; text-wrap: pretty; }
-    .adsai-card .btn-primary { flex-shrink: 0; justify-self: start; }
-    @media (min-width: 768px) { .adsai-card .btn-primary { justify-self: end; } }
-
+    body.lang-ja
     /* ── FAQ ── */
     .faq-list { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
     .faq-item { padding: 22px 24px; border-bottom: 1px solid var(--border); }
@@ -1568,20 +1551,6 @@
   </div>
 </section>
 
-<!-- ADS AI CROSS-SELL -->
-<section class="adsai" id="ads-ai">
-  <div class="container">
-    <div class="adsai-card">
-      <div>
-        <span class="label" data-i18n="adsai_label">Also from hanjo</span>
-        <h2 data-i18n="adsai_title">Running Meta ads, or planning to?</h2>
-        <p data-i18n="adsai_p">hanjo Ads AI feeds your ad platform's algorithm the high-quality conversion data it's missing, so delivery concentrates on your most valuable customers and ROAS climbs. If improving your ads is on your list, take a look.</p>
-      </div>
-      <a href="/ads/" class="btn-primary" data-i18n="adsai_btn">Explore hanjo Ads AI →</a>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section id="faq">
   <div class="container">
@@ -1913,10 +1882,6 @@
       form_err_email: 'Please enter a valid email',
       thanks_h3: 'Your free audit is on the way.',
       thanks_p: 'We\'ll review your funnel and send your audit within 24 hours. In the meantime, pull your last 30 days of ad spend and count how many clicked but never booked. That\'s the leak we\'ll measure.',
-      adsai_label: 'Also from hanjo',
-      adsai_title: 'Running Meta ads, or planning to?',
-      adsai_p: 'hanjo Ads AI feeds your ad platform\'s algorithm the high-quality conversion data it\'s missing, so delivery concentrates on your most valuable customers and ROAS climbs. If improving your ads is on your list, take a look.',
-      adsai_btn: 'Explore hanjo Ads AI →',
       footer_about: 'About',
       footer_terms: 'Terms of Service',
       footer_privacy: 'Privacy Policy',
@@ -2103,10 +2068,6 @@
       form_err_email: '正しいメールアドレスを入力してください',
       thanks_h3: '無料診断をお送りします。',
       thanks_p: 'ファネルを確認し、24時間以内に診断結果をお送りします。お待ちの間に、過去30日間の広告費を確認して、クリックしたのに予約しなかった人数を数えてみてください。それが、私たちが計測する「取りこぼし」です。',
-      adsai_label: 'hanjoのもう一つのサービス',
-      adsai_title: 'Meta広告の成果、もっと伸ばしませんか？',
-      adsai_p: '広告媒体のAIに「質の高い学習データ」を届けてROASを引き上げる、広告アルゴリズム最適化AI「hanjo Ads AI」もご提供しています。広告運用の改善をお考えの方はこちらもご覧ください。',
-      adsai_btn: 'hanjo Ads AIを見る →',
       footer_about: '会社概要',
       footer_terms: '利用規約',
       footer_privacy: 'プライバシーポリシー',
