@@ -331,15 +331,6 @@
     }
     body.lang-ja .adsai-card h2 { font-family: 'Shippori Mincho B1', serif; }
     .adsai-card p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; max-width: 560px; text-wrap: pretty; }
-    .casestudy { background: var(--white, #fff); padding: 88px 0; border-top: 1px solid var(--border); }
-    .cs-card { border: 1px solid var(--border); border-radius: 14px; padding: 36px clamp(24px, 4vw, 44px); background: var(--cream, #F5F4F0); }
-    .cs-meta { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-bottom: 26px; }
-    .cs-meta span { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
-    .cs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    @media (max-width: 820px) { .cs-grid { grid-template-columns: 1fr; } }
-    .cs-col h3 { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
-    .cs-col p { font-size: 0.95rem; line-height: 1.75; color: var(--black); }
-    .cs-note { margin-top: 26px; font-size: 0.8rem; color: var(--gray); }
     .cta-spec { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 26px; margin: 18px 0 6px; }
     .cta-spec span { display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 500; color: rgba(255,255,255,0.85); }
     .cta-spec span::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.55); }
@@ -610,16 +601,43 @@
       animation: hvFormDim 0.7s ease-out 1.4s forwards;
       width: 88%;
     }
-    .hv-form-title { font-size: 0.85rem; font-weight: 600; color: var(--black); margin-bottom: 10px; }
-    .hv-form label { display: block; font-size: 0.66rem; color: var(--gray); margin: 8px 0 3px; }
-    .hv-input {
-      font-size: 0.76rem; color: var(--black); background: var(--light);
-      border: 1px solid var(--border); border-radius: 6px; padding: 5px 9px;
+    .hv-form-title { font-family: 'Playfair Display', serif; font-size: 0.92rem; font-weight: 600; color: var(--black); margin-bottom: 10px; }
+    body.lang-ja .hv-form-title { font-family: 'Shippori Mincho B1', serif; }
+    .hv-svc {
+      display: flex; align-items: center; gap: 9px;
+      border: 1px solid var(--border); border-radius: 9px;
+      padding: 8px 9px; margin-bottom: 6px;
     }
-    .hv-input.hv-unfilled { color: var(--gray); }
-    .hv-formbtn {
-      margin-top: 11px; text-align: center; font-size: 0.74rem; font-weight: 600;
-      color: #fff; background: rgba(58,92,69,0.45); border-radius: 99px; padding: 7px 0;
+    .hv-svc-sel { border-color: rgba(58,92,69,0.55); background: rgba(58,92,69,0.05); }
+    .hv-thumb {
+      width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(58,92,69,0.30), rgba(58,92,69,0.14));
+    }
+    .hv-thumb-b { background: linear-gradient(135deg, rgba(17,17,16,0.16), rgba(17,17,16,0.07)); }
+    .hv-svc-body { min-width: 0; }
+    .hv-svc-body strong { display: block; font-size: 0.72rem; font-weight: 600; color: var(--black); line-height: 1.3; }
+    .hv-svc-body span { display: block; font-size: 0.66rem; color: var(--gray); }
+    .hv-pick {
+      margin-left: auto; flex-shrink: 0;
+      font-size: 0.64rem; font-weight: 600; color: var(--sage);
+      border: 1px solid rgba(58,92,69,0.4); border-radius: 99px; padding: 3px 10px;
+    }
+    .hv-picked {
+      background: var(--sage); border-color: var(--sage); color: #fff;
+      width: 21px; height: 21px; padding: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .hv-picked svg { width: 11px; height: 11px; }
+    .hv-total {
+      display: flex; align-items: center; gap: 7px;
+      border-top: 1px solid var(--border); margin-top: 9px; padding-top: 9px;
+    }
+    .hv-total-label { font-size: 0.66rem; color: var(--gray); }
+    .hv-total strong { font-size: 0.85rem; color: var(--black); }
+    .hv-next {
+      margin-left: auto; font-size: 0.66rem; font-weight: 600;
+      color: var(--gray); background: var(--light); border: 1px solid var(--border);
+      border-radius: 99px; padding: 4px 11px;
     }
     .hv-drop {
       position: absolute; top: 13px; right: 14px;
@@ -1127,12 +1145,21 @@
     </div>
     <div class="hero-visual" aria-hidden="true">
       <div class="hv-form">
-        <div class="hv-form-title" data-i18n="hv_form_title">Book an appointment</div>
-        <label data-i18n="hv_f1_label">Name</label>
-        <div class="hv-input" data-i18n="hv_f1_value">Misaki Tanaka</div>
-        <label data-i18n="hv_f2_label">Preferred time</label>
-        <div class="hv-input hv-unfilled" data-i18n="hv_f2_value">Select a time</div>
-        <div class="hv-formbtn" data-i18n="hv_form_btn">Confirm booking</div>
+        <div class="hv-form-title" data-i18n="hv_form_title">Choose your treatment</div>
+        <div class="hv-svc hv-svc-sel">
+          <span class="hv-thumb"></span>
+          <span class="hv-svc-body"><strong data-i18n="hv_svc1_name">Head spa 60 min</strong><span data-i18n="hv_svc1_meta">$120 · 1 hr</span></span>
+          <span class="hv-pick hv-picked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        </div>
+        <div class="hv-svc">
+          <span class="hv-thumb hv-thumb-b"></span>
+          <span class="hv-svc-body"><strong data-i18n="hv_svc2_name">Scalp facial 90 min</strong><span data-i18n="hv_svc2_meta">$180 · 1.5 hr</span></span>
+          <span class="hv-pick" data-i18n="hv_pick">Select</span>
+        </div>
+        <div class="hv-total">
+          <span class="hv-total-label" data-i18n="hv_total_label">Total</span><strong>$120</strong>
+          <span class="hv-next" data-i18n="hv_next">Choose a time</span>
+        </div>
         <span class="hv-drop" data-i18n="hv_drop">Left before booking</span>
       </div>
       <div class="hv-notif hv-sms">
@@ -1458,36 +1485,6 @@
   </div>
 </section>
 
-<!-- CASE STUDY -->
-<section class="casestudy" id="case">
-  <div class="container">
-    <span class="label" data-i18n="cs_label">Client case</span>
-    <h2 class="section-title" data-i18n="cs_title">A head spa in Los Angeles<br>runs on this today.</h2>
-    <div class="cs-card">
-      <div class="cs-meta">
-        <span data-i18n="cs_meta_1">Head spa · Los Angeles</span>
-        <span data-i18n="cs_meta_2">Square appointments</span>
-        <span data-i18n="cs_meta_3">Performance-based</span>
-      </div>
-      <div class="cs-grid">
-        <div class="cs-col">
-          <h3 data-i18n="cs_c1_h">The problem</h3>
-          <p data-i18n="cs_c1_p">Customers arriving from ads and Instagram were dropping off inside the booking flow, and nobody followed up. No-shows and lapsed regulars received no recovery messages at all.</p>
-        </div>
-        <div class="cs-col">
-          <h3 data-i18n="cs_c2_h">What we built</h3>
-          <p data-i18n="cs_c2_p">A full diagnostic of the booking funnel first, then automated SMS and email recovery connected directly to their Square account: abandoned bookings, reminders, and win-back for lapsed customers, live from day one.</p>
-        </div>
-        <div class="cs-col">
-          <h3 data-i18n="cs_c3_h">The terms</h3>
-          <p data-i18n="cs_c3_p">Zero setup fee, zero monthly fee, no lock-in contract. hanjo is paid a pre-agreed percentage of recovered booking value only. If nothing is recovered, nothing is owed.</p>
-        </div>
-      </div>
-      <p class="cs-note" data-i18n="cs_note">Client name withheld at their request. Details shared in your free consultation.</p>
-    </div>
-  </div>
-</section>
-
 <!-- ADS AI CROSS-SELL -->
 <section class="adsai" id="ads-ai">
   <div class="container">
@@ -1674,12 +1671,14 @@
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       location_badge: 'Now serving Los Angeles area only',
       hero_h1: 'Lost bookings,<br>brought&nbsp;back.<br><em>No&nbsp;fees. No&nbsp;hassle.</em>',
-      hv_form_title: 'Book an appointment',
-      hv_f1_label: 'Name',
-      hv_f1_value: 'Misaki Tanaka',
-      hv_f2_label: 'Preferred time',
-      hv_f2_value: 'Select a time',
-      hv_form_btn: 'Confirm booking',
+      hv_form_title: 'Choose your treatment',
+      hv_svc1_name: 'Head spa 60 min',
+      hv_svc1_meta: '$120 · 1 hr',
+      hv_svc2_name: 'Scalp facial 90 min',
+      hv_svc2_meta: '$180 · 1.5 hr',
+      hv_pick: 'Select',
+      hv_total_label: 'Total',
+      hv_next: 'Choose a time',
       hv_drop: 'Left before booking',
       hv_sms: 'Your spot is still open. Finish booking in one tap.',
       hv_email: 'We are holding your preferred time.',
@@ -1803,18 +1802,6 @@
       faq5_p: 'Two weeks from kickoff. Day 1–3: audit and plan. Day 4–7: landing page built. Day 8–14: automation set up and tested. Day 14: live and tracking from day one.',
       faq6_h3: 'Is there a minimum commitment?',
       faq6_p: 'No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.',
-      cs_label: 'Client case',
-      cs_title: 'A head spa in Los Angeles<br>runs on this today.',
-      cs_meta_1: 'Head spa · Los Angeles',
-      cs_meta_2: 'Square appointments',
-      cs_meta_3: 'Performance-based',
-      cs_c1_h: 'The problem',
-      cs_c1_p: 'Customers arriving from ads and Instagram were dropping off inside the booking flow, and nobody followed up. No-shows and lapsed regulars received no recovery messages at all.',
-      cs_c2_h: 'What we built',
-      cs_c2_p: 'A full diagnostic of the booking funnel first, then automated SMS and email recovery connected directly to their Square account: abandoned bookings, reminders, and win-back for lapsed customers, live from day one.',
-      cs_c3_h: 'The terms',
-      cs_c3_p: 'Zero setup fee, zero monthly fee, no lock-in contract. hanjo is paid a pre-agreed percentage of recovered booking value only. If nothing is recovered, nothing is owed.',
-      cs_note: 'Client name withheld at their request. Details shared in your free consultation.',
       cta_spec_1: 'We test your real booking flow',
       cta_spec_2: 'One-page written report',
       cta_spec_3: 'Updated booking form within 2 weeks',
@@ -1872,12 +1859,14 @@
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       location_badge: 'LAエリア限定提供中',
       hero_h1: '取りこぼした予約を、<br>売上に戻す。<br><em>費用も手間も、ゼロ。</em>',
-      hv_form_title: 'ご予約',
-      hv_f1_label: 'お名前',
-      hv_f1_value: '田中 美咲',
-      hv_f2_label: 'ご希望日時',
-      hv_f2_value: '日時を選択してください',
-      hv_form_btn: '予約を確定する',
+      hv_form_title: 'メニューを選択',
+      hv_svc1_name: 'ヘッドスパ 60分',
+      hv_svc1_meta: '$120・60分',
+      hv_svc2_name: 'スカルプフェイシャル 90分',
+      hv_svc2_meta: '$180・90分',
+      hv_pick: '選択',
+      hv_total_label: '合計',
+      hv_next: '時間を選ぶ',
       hv_drop: '予約せずに離脱',
       hv_sms: 'お席をお取りしています。1タップで予約が完了します。',
       hv_email: 'ご希望の時間帯を確保しています。',
@@ -2001,18 +1990,6 @@
       faq5_p: '開始から2週間です。最初の3日で診断・設計、4〜7日目でLP制作、8〜14日目で自動化の設定とテスト。14日目から稼働します。',
       faq6_h3: '最低利用期間はありますか？',
       faq6_p: '長期契約の縛りはありません。成果が出るまでに90日ほどかかりますが、やめたい場合は30日前にお知らせいただければ対応します。',
-      cs_label: '導入事例',
-      cs_title: 'ロサンゼルスのヘッドスパ専門店で、<br>現在稼働中です。',
-      cs_meta_1: 'ヘッドスパ専門店 · ロサンゼルス',
-      cs_meta_2: 'Square予約',
-      cs_meta_3: '完全成果報酬',
-      cs_c1_h: '課題',
-      cs_c1_p: '広告やInstagramから来たお客様が予約フォームの途中で離脱していても、誰もフォローしていない状態でした。無断キャンセルや足が遠のいた常連のお客様にも、呼び戻しの連絡は一切ありませんでした。',
-      cs_c2_h: '実施したこと',
-      cs_c2_p: 'まず予約導線を診断し、その上でSquareアカウントに直接連携したSMS・メールの自動リカバリーを構築。予約離脱への声かけ、リマインダー、離反したお客様の呼び戻しまで、導入初日から稼働しています。',
-      cs_c3_h: '契約条件',
-      cs_c3_p: '初期費用ゼロ、月額費用ゼロ、契約の縛りなし。hanjoへのお支払いは、取り戻せた予約金額に対する事前合意の成果報酬のみ。何も取り戻せなければ、お支払いもありません。',
-      cs_note: 'クライアント様のご意向により店名は非公開です。詳細は無料相談でお伝えします。',
       cta_spec_1: '実際にご予約を試した上で診断',
       cta_spec_2: 'A4一枚のレポートをお渡し',
       cta_spec_3: '2週間以内に改善フォームをお渡し',
