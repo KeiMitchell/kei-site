@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "design": {
+      "source": "rshankras/claude-code-apple-skills",
+      "sourceType": "github",
+      "skillPath": "skills/design/SKILL.md",
+      "computedHash": "62d484a166f9f43c9a8ba6515a5217b60139b4100f41b66e4e60fbf13036c337"
+    }
+  }
+}
