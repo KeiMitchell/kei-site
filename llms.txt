@@ -1,0 +1,26 @@
+# hanjo
+
+> hanjo is a bilingual (English / Japanese) growth agency based in Los Angeles. It helps small and mid-sized businesses win and keep more customers online, with a specialty in booking-based businesses (beauty salons, head spas, esthetics, dental, and clinics). Work is offered on performance-based terms wherever possible.
+
+hanjo operates four service lines and works in both English and Japanese with US-based and Japan-rooted businesses in the Los Angeles area.
+
+## Services
+
+- [hanjo Recovery](https://hanjo.ai/recovery/): Rebuilds a business's online booking form and adds automated SMS and email follow-ups that recover lost bookings. Built for salons, spas, and clinics on Square. No setup fee, no monthly fee; hanjo is paid a share of the bookings the system brings in. Includes a free booking-flow diagnostic.
+- [hanjo CRM](https://hanjo.ai/crm/): Email and SMS retention for DTC brands on Shopify. hanjo writes the copy, designs the emails, and builds the automated flows that turn first-time buyers into repeat customers.
+- [hanjo Web](https://hanjo.ai/web/): Bilingual (EN/JA) websites, landing pages, and Shopify stores. Strategy, copy, design, and build. Shopify Partner.
+- [hanjo Ads](https://hanjo.ai/ads/): Meta and Google ad optimization that feeds ad-platform algorithms higher-quality conversion data so delivery concentrates on a business's most valuable customers.
+
+## About
+
+- [About hanjo](https://hanjo.ai/about/): Founded by Kei Nakayama. Bilingual growth partner serving the Los Angeles area in English and Japanese.
+- [Contact](https://hanjo.ai/contact/): Intake form for a free consultation, in English or Japanese.
+
+## Key facts
+
+- Location: Los Angeles, California, United States
+- Languages: English and Japanese
+- Founder: Kei Nakayama
+- Specialty vertical: booking-based local businesses (beauty salons, head spas, esthetics, dental, clinics)
+- Pricing model: performance-based where possible (for example, a share of recovered or newly generated booking value; no setup or monthly fee for hanjo Recovery)
+- Booking platform focus: Square (with others by request)
