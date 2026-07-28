@@ -42,7 +42,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Yuji+Syuku&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Klee+One:wght@400;600&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1742,15 +1742,15 @@
 
     /* ── JA HERO: 手書き風の吹き出し ──
        見出しを「米国で事業展開する中小企業」と限定する一言。日本語ページ専用
-       なので英語では非表示にする。手書き感は筆書体の Yuji Syuku（佑字 肅）と
-       わずかな傾き、しっぽの付いた白い吹き出しで出す。本文の Shippori Mincho
-       と同じ毛筆系なので浮かない。 */
+       なので英語では非表示にする。手書き感は硬筆書体の Klee One（600）と
+       わずかな傾き、しっぽの付いた白い吹き出しで出す。 */
     .hero-bubble { display: none; }
     html[lang="ja"] .hero-bubble {
       display: inline-block;
       position: relative;
       align-self: flex-start;
-      font-family: 'Yuji Syuku', 'Shippori Mincho B1', serif;
+      font-family: 'Klee One', 'Shippori Mincho B1', serif;
+      font-weight: 600;
       font-size: clamp(15px, 1.35vw, 19px);
       line-height: 1;
       letter-spacing: 0.04em;
