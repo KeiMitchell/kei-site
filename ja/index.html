@@ -42,7 +42,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Yomogi&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1740,6 +1740,50 @@
       line-break: strict;
     }
 
+    /* ── JA HERO: 手書き風の吹き出し ──
+       見出しを「米国で事業展開する中小企業」と限定する一言。日本語ページ専用
+       なので英語では非表示にする。手書き感は Yomogi と わずかな傾き、しっぽの
+       付いた白い吹き出しで出す。 */
+    .hero-bubble { display: none; }
+    html[lang="ja"] .hero-bubble {
+      display: inline-block;
+      position: relative;
+      align-self: flex-start;
+      font-family: 'Yomogi', 'Noto Sans JP', sans-serif;
+      font-size: clamp(14px, 1.25vw, 18px);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      color: var(--sage);
+      background: #ffffff;
+      border: 1.5px solid var(--sage);
+      border-radius: 999px;
+      padding: 10px 20px 11px;
+      margin-bottom: 20px;
+      transform: rotate(-1.6deg);
+      animation: fadeUp 0.6s 0.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    }
+    /* しっぽ: 枠線の2辺だけ残した四角を45度回して三角に見せる */
+    html[lang="ja"] .hero-bubble::after {
+      content: '';
+      position: absolute;
+      left: 30px;
+      bottom: -7px;
+      width: 12px;
+      height: 12px;
+      background: #ffffff;
+      border-right: 1.5px solid var(--sage);
+      border-bottom: 1.5px solid var(--sage);
+      transform: rotate(45deg);
+    }
+    @media (max-width: 560px) {
+      html[lang="ja"] .hero-bubble {
+        font-size: 13px;
+        padding: 8px 16px 9px;
+        margin-bottom: 14px;
+      }
+      html[lang="ja"] .hero-bubble::after { left: 24px; }
+    }
+
     /* ── JA HERO: 「まるっと支援します。」を1行に ──
        見出し2行目は全角10文字。ヒーロー列の左右パディングは 320px〜560px の
        どの幅でも合計72pxで一定なので、字送り0.02emを含めて10文字が収まるのは
@@ -1995,6 +2039,7 @@
   <!-- HERO -->
   <div class="hero" id="main" tabindex="-1">
     <div class="hero-left">
+      <span class="hero-bubble" data-i18n="hero-bubble">米国で事業展開する</span>
       <h1 data-i18n="hero-h1">中小企業の成長を、
         <strong>まるっと支援します。</strong></h1>
 
@@ -2225,6 +2270,7 @@
     /* ── TRANSLATIONS ── */
     const T = {
       en: {
+        'hero-bubble':      'for businesses expanding in the U.S.',
         'who-label': 'Who we work with',
         'who-h2': 'Three kinds of business<br><span>we know well.</span>',
         'who-1-h': 'Booking-based local businesses',
@@ -2364,6 +2410,7 @@
         'footer-location': 'Los Angeles, CA',
       },
       ja: {
+        'hero-bubble':      '米国で事業展開する',
         'who-label': '得意分野',
         'who-h2': '力になれるのは、<br><span>この3つの事業です。</span>',
         'who-1-h': '予約型のローカルビジネス',
