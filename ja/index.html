@@ -1701,6 +1701,44 @@
     .footer-logo img { height: 22px; display: block; }
     @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
     @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
+    /* ── JAPANESE LINE BREAKING ──
+       Two separate problems were showing up on narrow screens.
+
+       1. Most elements inherited line-break: auto, which lets the browser break
+          before ー and small kana: リピータ / ー, ブランドオーナ / ー.
+          `strict` applies 禁則処理 so those can never start a line.
+
+       2. word-break: auto-phrase was set on body copy as well as headings. In
+          long-form Japanese it degrades rather than helping, and it was the
+          direct cause of コンバージ / ョン on the ads page. Verified by toggling
+          it off in the browser: 3 violations -> 0. It stays on headings, where
+          short display text benefits from breaking at phrase boundaries and
+          compound words like 支援 are kept whole.
+
+       text-wrap: pretty discourages a lone trailing character (アクティブ顧客 / 数).
+
+       Two selector families because ads and recovery drive their Japanese
+       typography off body.lang-ja while the other pages use html[lang="ja"]. */
+    html[lang="ja"] body, body.lang-ja {
+      line-break: strict;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    html[lang="ja"] p, html[lang="ja"] li, html[lang="ja"] span,
+    html[lang="ja"] td, html[lang="ja"] th, html[lang="ja"] dd, html[lang="ja"] dt,
+    body.lang-ja p, body.lang-ja li, body.lang-ja span,
+    body.lang-ja td, body.lang-ja th, body.lang-ja dd, body.lang-ja dt {
+      word-break: normal;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
+    html[lang="ja"] .hero h1, html[lang="ja"] .page-hero h1,
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
+    body.lang-ja .hero h1, body.lang-ja .page-hero h1 {
+      word-break: auto-phrase;
+      line-break: strict;
+    }
   </style>
 
   <script type="speculationrules">
@@ -2059,28 +2097,28 @@
   <!-- WHO WE WORK WITH -->
   <div class="s-white">
     <div class="section section-loop">
-      <span class="label" data-reveal data-i18n="who-label">得意とするお客様</span>
-      <h2 data-reveal data-i18n="who-h2">とくに深く知る、<br><span>3つのビジネス。</span></h2>
+      <span class="label" data-reveal data-i18n="who-label">得意分野</span>
+      <h2 data-reveal data-i18n="who-h2">力になれるのは、<br><span>この3つの事業です。</span></h2>
       <ul class="steps" data-reveal>
         <li class="step">
           <span class="step-num">01</span>
           <div>
             <h3 data-i18n="who-1-h">予約型のローカルビジネス</h3>
-            <p data-i18n="who-1-p">ビューティサロン、ヘッドスパ、エステ、歯科、クリニックなど。オンライン予約を受けている場合、売上がこぼれ落ちているのはたいてい予約フローです。</p>
+            <p data-i18n="who-1-p">美容サロン、ヘッドスパ、エステ、歯科、クリニック。オンラインで予約を受けている事業では、売上のこぼれはたいてい予約フローで起きています。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">02</span>
           <div>
             <h3 data-i18n="who-2-h">Shopifyで販売するD2Cブランド</h3>
-            <p data-i18n="who-2-p">すでに集客と受注があり、毎回新規で埋めるのではなく、リピートで採算を支えたいブランド。</p>
+            <p data-i18n="who-2-p">すでに集客も受注もあるブランド。新規獲得で毎回埋め直すのではなく、リピートで採算が回る状態をつくります。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">03</span>
           <div>
-            <h3 data-i18n="who-3-h">日本語と英語をまたぐビジネス</h3>
-            <p data-i18n="who-3-p">米国市場で販売する日本企業、そしてロサンゼルスで日本語話者のお客様に向き合う米国企業。コピーはあとから翻訳するのではなく、両方の言語で書き起こします。</p>
+            <h3 data-i18n="who-3-h">日本語と英語をまたぐ事業</h3>
+            <p data-i18n="who-3-p">米国市場に売る日本企業と、ロサンゼルスで日本語のお客様に向き合う米国企業。原稿は翻訳ではなく、はじめから両方の言語で書き起こします。</p>
           </div>
         </li>
       </ul>
@@ -2091,55 +2129,55 @@
   <div>
     <div class="section section-loop">
       <span class="label" data-reveal data-i18n="hfaq-label">よくあるご質問</span>
-      <h2 data-reveal data-i18n="hfaq-h2">最初のご相談の前に、<br><span>よく聞かれること。</span></h2>
+      <h2 data-reveal data-i18n="hfaq-h2">よくいただく、<br><span>7つの質問。</span></h2>
       <ul class="steps" data-reveal>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="hfaq-1-h">hanjoは何をしてくれる会社ですか？</h3>
-            <p data-i18n="hfaq-1-p">集客からリピートまで、お客様を連れてきて、また戻ってきてもらうための仕組みを構築・運用します。広告、受け皿となるサイトやストア、関係を続けるメールとSMS、そして離れかけたお客様を取り戻すフォロー。4つのサービスがひとつのループとして機能します。</p>
+            <h3 data-i18n="hfaq-1-h">具体的に何をしてもらえますか？</h3>
+            <p data-i18n="hfaq-1-p">集客から、リピート、離れたお客様の掘り起こしまで。広告、サイト・ECサイト、メールとSMS、予約の取りこぼし回復の4つを、ひとつの流れとして設計し、運用します。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="hfaq-2-h">どんな会社が対象ですか？</h3>
-            <p data-i18n="hfaq-2-p">中小企業全般ですが、とくにサロン・ヘッドスパ・エステ・歯科・クリニックといった予約型のローカルビジネスと、Shopifyで販売するD2Cブランドを得意としています。</p>
+            <h3 data-i18n="hfaq-2-h">どんな事業者が対象ですか？</h3>
+            <p data-i18n="hfaq-2-p">中小企業が中心です。とくに美容サロン・ヘッドスパ・エステ・歯科・クリニックといった予約型のビジネスと、Shopifyで販売するD2Cブランドを得意としています。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="hfaq-3-h">拠点はどこで、どの地域に対応していますか？</h3>
-            <p data-i18n="hfaq-3-p">カリフォルニア州ロサンゼルスを拠点に、ロサンゼルス圏のビジネスへ日本語と英語の両方で対応しています。代表は中山ケイです。</p>
+            <h3 data-i18n="hfaq-3-h">拠点はどこですか？</h3>
+            <p data-i18n="hfaq-3-p">カリフォルニア州ロサンゼルスです。ロサンゼルス圏の事業者さまに、日本語と英語の両方で対応しています。代表は中山 慧。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="hfaq-4-h">日本語で相談できますか？</h3>
-            <p data-i18n="hfaq-4-p">はい。戦略立案、コピー、デザイン、日々のやり取りまで、日本語でも英語でも対応します。無料相談もどちらの言語でも承ります。</p>
+            <p data-i18n="hfaq-4-p">はい。打ち合わせも、原稿も、日々のやり取りも、すべて日本語で進められます。無料相談も日本語で承ります。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="hfaq-5-h">料金はどのような仕組みですか？</h3>
-            <p data-i18n="hfaq-5-p">サービスによって異なります。hanjo Recoveryは成果報酬型で、初期費用も月額費用もなく、仕組みが生んだ予約の一部を報酬としていただきます。その他のサービスは案件ごとにお見積もりし、最初のお打ち合わせのあとに明確な金額をお伝えします。</p>
+            <h3 data-i18n="hfaq-5-h">費用はどれくらいですか？</h3>
+            <p data-i18n="hfaq-5-p">サービスによって異なります。hanjo Recoveryは完全成果報酬で、初期費用も月額費用もいただきません。そのほかは案件ごとのお見積もりで、最初の通話中に明確な金額をお伝えします。曖昧な提案書は出しません。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="hfaq-6-h">4つすべてを頼む必要がありますか？</h3>
-            <p data-i18n="hfaq-6-p">いいえ。多くの場合、いま最も損失が大きい一点から始めます。各サービスは連携するように設計されていますが、単体でも成立します。</p>
+            <h3 data-i18n="hfaq-6-h">4つすべてを依頼する必要はありますか？</h3>
+            <p data-i18n="hfaq-6-p">ありません。いちばん損失の大きいところ一点から始める場合がほとんどです。4つは連携しますが、単体でも成立します。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="hfaq-7-h">どうやって始めればいいですか？</h3>
-            <p data-i18n="hfaq-7-p">まずは30分の無料相談から。日本語でも英語でも構いません。いまどこでお客様を取りこぼしているかを一緒に確認し、4つのうちどれを先に手がけるべきかをお伝えします。どれも不要という結論であれば、そうお伝えします。</p>
+            <h3 data-i18n="hfaq-7-h">まず何をすればいいですか？</h3>
+            <p data-i18n="hfaq-7-p">30分の無料相談です。いまどこでお客様を取りこぼしているかを一緒に確認し、4つのうちどれから着手すべきかをお伝えします。何も必要ないと判断すれば、そうお伝えします。</p>
           </div>
         </li>
       </ul>
@@ -2315,30 +2353,30 @@
         'footer-location': 'Los Angeles, CA',
       },
       ja: {
-        'who-label': '得意とするお客様',
-        'who-h2': 'とくに深く知る、<br><span>3つのビジネス。</span>',
+        'who-label': '得意分野',
+        'who-h2': '力になれるのは、<br><span>この3つの事業です。</span>',
         'who-1-h': '予約型のローカルビジネス',
-        'who-1-p': 'ビューティサロン、ヘッドスパ、エステ、歯科、クリニックなど。オンライン予約を受けている場合、売上がこぼれ落ちているのはたいてい予約フローです。',
+        'who-1-p': '美容サロン、ヘッドスパ、エステ、歯科、クリニック。オンラインで予約を受けている事業では、売上のこぼれはたいてい予約フローで起きています。',
         'who-2-h': 'Shopifyで販売するD2Cブランド',
-        'who-2-p': 'すでに集客と受注があり、毎回新規で埋めるのではなく、リピートで採算を支えたいブランド。',
-        'who-3-h': '日本語と英語をまたぐビジネス',
-        'who-3-p': '米国市場で販売する日本企業、そしてロサンゼルスで日本語話者のお客様に向き合う米国企業。コピーはあとから翻訳するのではなく、両方の言語で書き起こします。',
+        'who-2-p': 'すでに集客も受注もあるブランド。新規獲得で毎回埋め直すのではなく、リピートで採算が回る状態をつくります。',
+        'who-3-h': '日本語と英語をまたぐ事業',
+        'who-3-p': '米国市場に売る日本企業と、ロサンゼルスで日本語のお客様に向き合う米国企業。原稿は翻訳ではなく、はじめから両方の言語で書き起こします。',
         'hfaq-label': 'よくあるご質問',
-        'hfaq-h2': '最初のご相談の前に、<br><span>よく聞かれること。</span>',
-        'hfaq-1-h': 'hanjoは何をしてくれる会社ですか？',
-        'hfaq-1-p': '集客からリピートまで、お客様を連れてきて、また戻ってきてもらうための仕組みを構築・運用します。広告、受け皿となるサイトやストア、関係を続けるメールとSMS、そして離れかけたお客様を取り戻すフォロー。4つのサービスがひとつのループとして機能します。',
-        'hfaq-2-h': 'どんな会社が対象ですか？',
-        'hfaq-2-p': '中小企業全般ですが、とくにサロン・ヘッドスパ・エステ・歯科・クリニックといった予約型のローカルビジネスと、Shopifyで販売するD2Cブランドを得意としています。',
-        'hfaq-3-h': '拠点はどこで、どの地域に対応していますか？',
-        'hfaq-3-p': 'カリフォルニア州ロサンゼルスを拠点に、ロサンゼルス圏のビジネスへ日本語と英語の両方で対応しています。代表は中山ケイです。',
+        'hfaq-h2': 'よくいただく、<br><span>7つの質問。</span>',
+        'hfaq-1-h': '具体的に何をしてもらえますか？',
+        'hfaq-1-p': '集客から、リピート、離れたお客様の掘り起こしまで。広告、サイト・ECサイト、メールとSMS、予約の取りこぼし回復の4つを、ひとつの流れとして設計し、運用します。',
+        'hfaq-2-h': 'どんな事業者が対象ですか？',
+        'hfaq-2-p': '中小企業が中心です。とくに美容サロン・ヘッドスパ・エステ・歯科・クリニックといった予約型のビジネスと、Shopifyで販売するD2Cブランドを得意としています。',
+        'hfaq-3-h': '拠点はどこですか？',
+        'hfaq-3-p': 'カリフォルニア州ロサンゼルスです。ロサンゼルス圏の事業者さまに、日本語と英語の両方で対応しています。代表は中山 慧。',
         'hfaq-4-h': '日本語で相談できますか？',
-        'hfaq-4-p': 'はい。戦略立案、コピー、デザイン、日々のやり取りまで、日本語でも英語でも対応します。無料相談もどちらの言語でも承ります。',
-        'hfaq-5-h': '料金はどのような仕組みですか？',
-        'hfaq-5-p': 'サービスによって異なります。hanjo Recoveryは成果報酬型で、初期費用も月額費用もなく、仕組みが生んだ予約の一部を報酬としていただきます。その他のサービスは案件ごとにお見積もりし、最初のお打ち合わせのあとに明確な金額をお伝えします。',
-        'hfaq-6-h': '4つすべてを頼む必要がありますか？',
-        'hfaq-6-p': 'いいえ。多くの場合、いま最も損失が大きい一点から始めます。各サービスは連携するように設計されていますが、単体でも成立します。',
-        'hfaq-7-h': 'どうやって始めればいいですか？',
-        'hfaq-7-p': 'まずは30分の無料相談から。日本語でも英語でも構いません。いまどこでお客様を取りこぼしているかを一緒に確認し、4つのうちどれを先に手がけるべきかをお伝えします。どれも不要という結論であれば、そうお伝えします。',
+        'hfaq-4-p': 'はい。打ち合わせも、原稿も、日々のやり取りも、すべて日本語で進められます。無料相談も日本語で承ります。',
+        'hfaq-5-h': '費用はどれくらいですか？',
+        'hfaq-5-p': 'サービスによって異なります。hanjo Recoveryは完全成果報酬で、初期費用も月額費用もいただきません。そのほかは案件ごとのお見積もりで、最初の通話中に明確な金額をお伝えします。曖昧な提案書は出しません。',
+        'hfaq-6-h': '4つすべてを依頼する必要はありますか？',
+        'hfaq-6-p': 'ありません。いちばん損失の大きいところ一点から始める場合がほとんどです。4つは連携しますが、単体でも成立します。',
+        'hfaq-7-h': 'まず何をすればいいですか？',
+        'hfaq-7-p': '30分の無料相談です。いまどこでお客様を取りこぼしているかを一緒に確認し、4つのうちどれから着手すべきかをお伝えします。何も必要ないと判断すれば、そうお伝えします。',
         'skip': '本文へスキップ',
         'announce':         '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
         'nav-avail':        '新規受付中',

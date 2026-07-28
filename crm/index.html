@@ -1433,6 +1433,44 @@
     @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
     @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
     @media (max-width: 640px) { .crumb { display: none; } }
+    /* ── JAPANESE LINE BREAKING ──
+       Two separate problems were showing up on narrow screens.
+
+       1. Most elements inherited line-break: auto, which lets the browser break
+          before ー and small kana: リピータ / ー, ブランドオーナ / ー.
+          `strict` applies 禁則処理 so those can never start a line.
+
+       2. word-break: auto-phrase was set on body copy as well as headings. In
+          long-form Japanese it degrades rather than helping, and it was the
+          direct cause of コンバージ / ョン on the ads page. Verified by toggling
+          it off in the browser: 3 violations -> 0. It stays on headings, where
+          short display text benefits from breaking at phrase boundaries and
+          compound words like 支援 are kept whole.
+
+       text-wrap: pretty discourages a lone trailing character (アクティブ顧客 / 数).
+
+       Two selector families because ads and recovery drive their Japanese
+       typography off body.lang-ja while the other pages use html[lang="ja"]. */
+    html[lang="ja"] body, body.lang-ja {
+      line-break: strict;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    html[lang="ja"] p, html[lang="ja"] li, html[lang="ja"] span,
+    html[lang="ja"] td, html[lang="ja"] th, html[lang="ja"] dd, html[lang="ja"] dt,
+    body.lang-ja p, body.lang-ja li, body.lang-ja span,
+    body.lang-ja td, body.lang-ja th, body.lang-ja dd, body.lang-ja dt {
+      word-break: normal;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
+    html[lang="ja"] .hero h1, html[lang="ja"] .page-hero h1,
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
+    body.lang-ja .hero h1, body.lang-ja .page-hero h1 {
+      word-break: auto-phrase;
+      line-break: strict;
+    }
   </style>
 
   <script type="speculationrules">

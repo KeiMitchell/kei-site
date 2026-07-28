@@ -47,7 +47,7 @@ const HEAD_JA = {
   },
   about: {
     title: "hanjoについて · ロサンゼルス",
-    description: "ロサンゼルスを拠点に、日本語と英語で活動するグロースパートナー、hanjoについて。代表は中山ケイ。",
+    description: "ロサンゼルスを拠点に、日本語と英語で活動するグロースパートナー、hanjoについて。代表は中山 慧。",
   },
   contact: {
     title: "お問い合わせ · hanjo · ロサンゼルス",

@@ -541,6 +541,44 @@
     @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
     @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
     @media (max-width: 640px) { .crumb { display: none; } }
+    /* ── JAPANESE LINE BREAKING ──
+       Two separate problems were showing up on narrow screens.
+
+       1. Most elements inherited line-break: auto, which lets the browser break
+          before ー and small kana: リピータ / ー, ブランドオーナ / ー.
+          `strict` applies 禁則処理 so those can never start a line.
+
+       2. word-break: auto-phrase was set on body copy as well as headings. In
+          long-form Japanese it degrades rather than helping, and it was the
+          direct cause of コンバージ / ョン on the ads page. Verified by toggling
+          it off in the browser: 3 violations -> 0. It stays on headings, where
+          short display text benefits from breaking at phrase boundaries and
+          compound words like 支援 are kept whole.
+
+       text-wrap: pretty discourages a lone trailing character (アクティブ顧客 / 数).
+
+       Two selector families because ads and recovery drive their Japanese
+       typography off body.lang-ja while the other pages use html[lang="ja"]. */
+    html[lang="ja"] body, body.lang-ja {
+      line-break: strict;
+      word-break: normal;
+      overflow-wrap: normal;
+    }
+    html[lang="ja"] p, html[lang="ja"] li, html[lang="ja"] span,
+    html[lang="ja"] td, html[lang="ja"] th, html[lang="ja"] dd, html[lang="ja"] dt,
+    body.lang-ja p, body.lang-ja li, body.lang-ja span,
+    body.lang-ja td, body.lang-ja th, body.lang-ja dd, body.lang-ja dt {
+      word-break: normal;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
+    html[lang="ja"] .hero h1, html[lang="ja"] .page-hero h1,
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
+    body.lang-ja .hero h1, body.lang-ja .page-hero h1 {
+      word-break: auto-phrase;
+      line-break: strict;
+    }
   </style>
 
   <script type="speculationrules">
@@ -841,55 +879,55 @@
   <div>
     <div class="section">
       <span class="label" data-reveal data-i18n="faq-label">よくあるご質問</span>
-      <h2 data-reveal data-i18n="faq-h2">着手前に、<br><span>よく聞かれること。</span></h2>
+      <h2 data-reveal data-i18n="faq-h2">よくいただく、<br><span>7つの質問。</span></h2>
       <ul class="steps">
         <li class="step">
           <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-1-h">どんなサイトをつくれますか？</h3>
-            <p data-i18n="faq-1-p">コーポレートサイト、広告・キャンペーン用のランディングページ、Shopifyストア（新規構築と移行の両方）に対応します。構成・コピー・デザイン・実装まで一貫して社内で行います。</p>
+            <p data-i18n="faq-1-p">コーポレートサイト、広告用のランディングページ、Shopifyストア。新規構築も、既存サイトからの移行も対応します。構成・原稿・デザイン・実装まで一貫して社内で行います。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-2-h">英語と日本語の両方に対応していますか？</h3>
-            <p data-i18n="faq-2-p">はい。あとから翻訳するのではなく、英語・日本語それぞれで構成とコピーを書き起こします。どちらの言語でも、はじめからその言語で書かれた文章になります。</p>
+            <p data-i18n="faq-2-p">はい。あとから翻訳するのではなく、それぞれの言語で構成と原稿を書き起こします。どちらも、はじめからその言語で書かれた文章になります。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="faq-3-h">公開までどのくらいかかりますか？</h3>
-            <p data-i18n="faq-3-p">多くのサイトは数週間で公開できます。ランディングページや小規模サイトは短期間で、大規模な構築やストアは着手前に範囲とスケジュールを明確にします。</p>
+            <h3 data-i18n="faq-3-h">公開までどれくらいかかりますか？</h3>
+            <p data-i18n="faq-3-p">多くのサイトは数週間で公開できます。ランディングページや小規模サイトは短期間、大規模な構築やストアは着手前に範囲とスケジュールをお伝えします。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="faq-4-h">費用はどのくらいですか？</h3>
-            <p data-i18n="faq-4-p">最初のお打ち合わせのあとに、範囲と金額をはっきりお伝えします。ランディングページや小規模サイトは短期間で、大規模な構築やストアは事前に範囲を明確にします。曖昧な見積もりは出しません。</p>
+            <h3 data-i18n="faq-4-h">費用はどれくらいですか？</h3>
+            <p data-i18n="faq-4-p">最初の通話のあと、範囲と金額を明確にお伝えします。ランディングページや小規模サイトは短期間、大規模な構築やストアは事前に範囲を確定します。曖昧な提案書は出しません。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="faq-5-h">テンプレートやページビルダーを使いますか？</h3>
-            <p data-i18n="faq-5-p">使いません。テーマの流用ではなく、ブランドに合わせたオリジナルデザインを、軽量で速いコードで実装します。モバイルファーストで、SEOの基本設定・アナリティクス・お問い合わせフォームまで組み込みます。</p>
+            <h3 data-i18n="faq-5-h">テンプレートやページビルダーは使いますか？</h3>
+            <p data-i18n="faq-5-p">使いません。テーマの流用ではなく、ブランドに合わせたオリジナルデザインを、軽量で速いコードで実装します。モバイル優先で、SEOの基本設定・アナリティクス・お問い合わせフォームまで組み込みます。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
-            <h3 data-i18n="faq-6-h">既存のShopifyストアの移行もお願いできますか？</h3>
-            <p data-i18n="faq-6-p">はい。新規構築と移行の両方に対応し、商品ページ・チェックアウト・決済・配送設定まで、米国市場で販売できる状態に整えます。hanjoはShopifyパートナーです。</p>
+            <h3 data-i18n="faq-6-h">既存のShopifyストアの移行もできますか？</h3>
+            <p data-i18n="faq-6-p">はい。商品ページ、チェックアウト、決済、配送設定まで、米国市場で販売できる状態に整えます。hanjoはShopifyパートナーです。</p>
           </div>
         </li>
         <li class="step">
           <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-7-h">公開後のサポートはありますか？</h3>
-            <p data-i18n="faq-7-p">公開後の更新や細かな修正、改善もお引き受けします。触れないサイトをお渡しして終わり、にはしません。</p>
+            <p data-i18n="faq-7-p">あります。更新や細かな修正、改善も継続して対応します。手を入れられないサイトをお渡しして終わりにはしません。</p>
           </div>
         </li>
       </ul>
@@ -988,21 +1026,21 @@
       },
       "ja": {
         "faq-label": "よくあるご質問",
-        "faq-h2": "着手前に、<br><span>よく聞かれること。</span>",
+        "faq-h2": "よくいただく、<br><span>7つの質問。</span>",
         "faq-1-h": "どんなサイトをつくれますか？",
-        "faq-1-p": "コーポレートサイト、広告・キャンペーン用のランディングページ、Shopifyストア（新規構築と移行の両方）に対応します。構成・コピー・デザイン・実装まで一貫して社内で行います。",
+        "faq-1-p": "コーポレートサイト、広告用のランディングページ、Shopifyストア。新規構築も、既存サイトからの移行も対応します。構成・原稿・デザイン・実装まで一貫して社内で行います。",
         "faq-2-h": "英語と日本語の両方に対応していますか？",
-        "faq-2-p": "はい。あとから翻訳するのではなく、英語・日本語それぞれで構成とコピーを書き起こします。どちらの言語でも、はじめからその言語で書かれた文章になります。",
-        "faq-3-h": "公開までどのくらいかかりますか？",
-        "faq-3-p": "多くのサイトは数週間で公開できます。ランディングページや小規模サイトは短期間で、大規模な構築やストアは着手前に範囲とスケジュールを明確にします。",
-        "faq-4-h": "費用はどのくらいですか？",
-        "faq-4-p": "最初のお打ち合わせのあとに、範囲と金額をはっきりお伝えします。ランディングページや小規模サイトは短期間で、大規模な構築やストアは事前に範囲を明確にします。曖昧な見積もりは出しません。",
-        "faq-5-h": "テンプレートやページビルダーを使いますか？",
-        "faq-5-p": "使いません。テーマの流用ではなく、ブランドに合わせたオリジナルデザインを、軽量で速いコードで実装します。モバイルファーストで、SEOの基本設定・アナリティクス・お問い合わせフォームまで組み込みます。",
-        "faq-6-h": "既存のShopifyストアの移行もお願いできますか？",
-        "faq-6-p": "はい。新規構築と移行の両方に対応し、商品ページ・チェックアウト・決済・配送設定まで、米国市場で販売できる状態に整えます。hanjoはShopifyパートナーです。",
+        "faq-2-p": "はい。あとから翻訳するのではなく、それぞれの言語で構成と原稿を書き起こします。どちらも、はじめからその言語で書かれた文章になります。",
+        "faq-3-h": "公開までどれくらいかかりますか？",
+        "faq-3-p": "多くのサイトは数週間で公開できます。ランディングページや小規模サイトは短期間、大規模な構築やストアは着手前に範囲とスケジュールをお伝えします。",
+        "faq-4-h": "費用はどれくらいですか？",
+        "faq-4-p": "最初の通話のあと、範囲と金額を明確にお伝えします。ランディングページや小規模サイトは短期間、大規模な構築やストアは事前に範囲を確定します。曖昧な提案書は出しません。",
+        "faq-5-h": "テンプレートやページビルダーは使いますか？",
+        "faq-5-p": "使いません。テーマの流用ではなく、ブランドに合わせたオリジナルデザインを、軽量で速いコードで実装します。モバイル優先で、SEOの基本設定・アナリティクス・お問い合わせフォームまで組み込みます。",
+        "faq-6-h": "既存のShopifyストアの移行もできますか？",
+        "faq-6-p": "はい。商品ページ、チェックアウト、決済、配送設定まで、米国市場で販売できる状態に整えます。hanjoはShopifyパートナーです。",
         "faq-7-h": "公開後のサポートはありますか？",
-        "faq-7-p": "公開後の更新や細かな修正、改善もお引き受けします。触れないサイトをお渡しして終わり、にはしません。",
+        "faq-7-p": "あります。更新や細かな修正、改善も継続して対応します。手を入れられないサイトをお渡しして終わりにはしません。",
         "skip": "本文へスキップ",
             "crumb": "← サービス一覧に戻る",
             "announce": "<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。",
