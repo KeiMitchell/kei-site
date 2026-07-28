@@ -1738,6 +1738,17 @@
       word-break: auto-phrase;
       line-break: strict;
     }
+
+    /* ── JA HERO: 「まるっと支援します。」を1行に ──
+       見出し2行目は全角10文字。ヒーロー列の左右パディングは 320px〜560px の
+       どの幅でも合計72pxで一定なので、字送り0.02emを含めて10文字が収まるのは
+       フォントサイズが (100vw - 72px) / 10.4 以下のときだけ。8.5vw ではこれを
+       超えるため「まるっと / 支援します。」と折り返していた。 */
+    @media (max-width: 560px) {
+      html[lang="ja"] .hero h1 {
+        font-size: min(38px, calc((100vw - 72px) / 10.4));
+      }
+    }
   </style>
 
   <script type="speculationrules">
