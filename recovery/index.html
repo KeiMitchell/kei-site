@@ -1276,6 +1276,18 @@
     else addEventListener('resize', syncChromeHeight);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncChromeHeight);
   })();
+
+  /* Browsers restore scroll on reload, which drops a visitor part-way down a
+     page they just opened. Start fresh loads and reloads at the top. Back and
+     forward keep their restored position, and #anchors are left alone. */
+  (function () {
+    if (location.hash) return;
+    var entry = performance.getEntriesByType('navigation')[0];
+    if (entry && entry.type === 'back_forward') return;
+    history.scrollRestoration = 'manual';
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+    catch (e) { window.scrollTo(0, 0); }
+  })();
 </script>
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Menu">
   <div class="mm-links">
