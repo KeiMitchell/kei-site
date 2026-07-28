@@ -1504,8 +1504,9 @@
     .btn--light:active { background: #e3e6df; transform: none; }
   
     /* ── FULL-PAGE HERO ── */
-    :root { --chrome-h: 110px; }
-    @media (max-width: 560px) { :root { --chrome-h: 128px; } }
+    /* Fallbacks only: the script after </nav> writes the measured nav height. */
+    :root { --chrome-h: 74px; }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
     .hero { display: flex; align-items: center; min-height: calc(100svh - var(--chrome-h)); }
     .hero-left { width: 100%; }
       /* ── CTA geometry: one standard ── */

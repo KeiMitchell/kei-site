@@ -1227,9 +1227,19 @@
     .btn--light:active { background: #e3e6df; transform: none; }
   
     /* ── FULL-PAGE HERO ── */
-    :root { --chrome-h: 110px; }
-    @media (max-width: 560px) { :root { --chrome-h: 128px; } }
+    /* Fallbacks only: the script after </nav> writes the measured nav height. */
+    :root { --chrome-h: 74px; }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
     .hero { min-height: calc(100svh - var(--chrome-h)); }
+
+    /* ── MOBILE HERO: the collage ran ~113px past the fold. Shorter, so the
+       copy plus the first band of email work land on one screen. ── */
+    @media (max-width: 559px) {
+      .hero-left { padding: 24px 20px 20px; }
+      .hero-collage { height: 232px; }
+      .hc-col:first-child { margin-top: -12px; }
+      .hc-col:last-child { margin-top: -38px; }
+    }
       /* ── CTA geometry: one standard ── */
     .btn--dark, .btn--light {
       font-size: 13.5px;

@@ -311,8 +311,9 @@
     .btn--light:active { background: #e3e6df; transform: none; }
   
     /* ── FULL-PAGE HERO ── */
-    :root { --chrome-h: 110px; }
-    @media (max-width: 560px) { :root { --chrome-h: 128px; } }
+    /* Fallbacks only: the script after </nav> writes the measured nav height. */
+    :root { --chrome-h: 74px; }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
     .page-hero { display: flex; }
     .split-hero { min-height: calc(100svh - var(--chrome-h)); width: 100%; }
       .sh-right { position: relative; }

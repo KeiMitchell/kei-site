@@ -618,10 +618,30 @@
     .btn--light:active { background: #e3e6df; transform: none; }
   
     /* ── FULL-PAGE HERO ── */
-    :root { --chrome-h: 110px; }
-    @media (max-width: 560px) { :root { --chrome-h: 128px; } }
+    /* Fallbacks only: the script after </nav> writes the measured nav height. */
+    :root { --chrome-h: 74px; }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
     .hero { display: flex; align-items: center; min-height: calc(100svh - var(--chrome-h)); }
     .hero > .container { width: 100%; }
+
+    /* ── MOBILE HERO: the stat strip stacked four deep and pushed the hero
+       ~385px past the fold. Two compact columns instead. ── */
+    @media (max-width: 559px) {
+      .location-badge { margin-bottom: 8px; }
+      /* .hero scope so this wins over the later canonical .hero-sub rule */
+      .hero .hero-sub { line-height: 1.55; margin-bottom: 12px; }
+      .hero-actions { margin-bottom: 12px; }
+      .platform-row { margin-bottom: 10px; }
+      .zero-grid { grid-template-columns: 1fr 1fr; }
+      .zero-badge { padding: 11px 4px; }
+      .zero-badge + .zero-badge { border-top: none; }
+      .zero-badge:nth-child(n+3) { border-top: 1px solid var(--border); }
+      .zero-badge:nth-child(even) { border-left: 1px solid var(--border); padding-left: 14px; }
+      .zero-icon { font-size: 1.5rem; margin-bottom: 5px; }
+      .zero-badge strong { font-size: 0.8125rem; }
+      .zero-badge span { font-size: 0.75rem; }
+      .stats-note { margin-top: 10px; font-size: 0.7rem; line-height: 1.45; }
+    }
   
     /* ── STANDARD FOOTER ── */
     footer { padding: 0; border-top: 1px solid var(--border); background: #ffffff; display: block; }

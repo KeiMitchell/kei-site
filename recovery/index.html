@@ -862,10 +862,31 @@
     .btn--light:active { background: #e3e6df; transform: none; }
   
     /* ── FULL-PAGE HERO ── */
-    :root { --chrome-h: 110px; }
-    @media (max-width: 560px) { :root { --chrome-h: 128px; } }
+    /* Fallbacks only: the script after </nav> writes the measured nav height. */
+    :root { --chrome-h: 74px; }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
     .hero { display: flex; align-items: center; min-height: calc(100svh - var(--chrome-h)); }
     .hero > .container { width: 100%; }
+
+    /* ── MOBILE HERO: the three zero badges stacked as tall blocks and pushed
+       the hero ~153px past the fold. Number left, text right instead. ── */
+    @media (max-width: 559px) {
+      .location-badge { margin-bottom: 10px; }
+      /* .hero scope so this wins over the later canonical .hero-sub rule */
+      .hero .hero-sub { line-height: 1.55; margin-bottom: 12px; }
+      .hero-actions { margin-bottom: 12px; }
+      .zero-badge {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        padding: 10px 4px;
+      }
+      .zero-icon { font-size: 1.5rem; margin-bottom: 0; flex: 0 0 42px; }
+      .zero-icon-check { align-self: center; }
+      .zero-icon-check svg { width: 22px; height: 22px; margin-top: 0; }
+      .zero-badge strong { font-size: 0.8125rem; }
+      .zero-badge span { font-size: 0.75rem; }
+    }
   
     /* ── STANDARD FOOTER ── */
     footer { padding: 0; border-top: 1px solid var(--border); background: #ffffff; display: block; }
