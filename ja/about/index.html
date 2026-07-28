@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hanjoについて · ロサンゼルス</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JLHW59CHY6');
+  </script>
+
+  <meta name="description" content="ロサンゼルスを拠点に、日本語と英語で活動するグロースパートナー、hanjoについて。代表は中山ケイ。" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:url" content="https://hanjo.ai/ja/about/" />
+  <meta property="og:title" content="hanjoについて · ロサンゼルス" />
+  <meta property="og:description" content="ロサンゼルスを拠点に、日本語と英語で活動するグロースパートナー、hanjoについて。代表は中山ケイ。" />
+  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="hanjoについて · ロサンゼルス" />
+  <meta name="twitter:description" content="ロサンゼルスを拠点に、日本語と英語で活動するグロースパートナー、hanjoについて。代表は中山ケイ。" />
+  <meta name="twitter:image" content="https://hanjo.ai/kei.JPG" />
+  <link rel="canonical" href="https://hanjo.ai/ja/about/" />
+  <link rel="alternate" hreflang="en" href="https://hanjo.ai/about/" />
+  <link rel="alternate" hreflang="ja" href="https://hanjo.ai/ja/about/" />
+  <link rel="alternate" hreflang="x-default" href="https://hanjo.ai/about/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F5F4F0; --white: #ffffff; --sage: #3A5C45; --ink: #111110;
+      --muted: #6B6B68; --faint: rgba(17,17,16,0.58); --border: #E4E2DC;
+      --radius: 14px; --radius-sm: 100px; --max: 720px;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--ink); font-family: 'Inter', -apple-system, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .announce { background: var(--sage); color: rgba(255,255,255,0.8); text-align: center; font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+    .announce strong { color: #ffffff; font-weight: 500; }
+    html[lang="ja"] .announce { font-family: 'Noto Sans JP', sans-serif; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    @media (max-width: 1120px) { .nav-links { gap: 20px; } }
+    .nav-links a {
+      font-family: 'Playfair Display', serif;
+      font-size: 16.5px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      opacity: 0.66;
+      text-decoration: none;
+      padding: 8px 0;
+      position: relative;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 100%; bottom: 3px;
+      height: 1.5px;
+      background: var(--sage);
+      transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover::after { right: 0; }
+    .nav-links a.active {
+      opacity: 1;
+      color: var(--sage);
+    }
+    .nav-links a.active:hover { color: var(--sage); }
+    .nav-links a.active::after { right: 0; }
+    @media (max-width: 880px) { .nav-links { display: none; } }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { background: none; border: none; padding: 5px 2px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
+    .lang-toggle:hover { color: var(--ink); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #ffffff; background: var(--sage); text-decoration: none; padding: 9px 18px; border-radius: var(--radius-sm); transition: background 0.2s; letter-spacing: 0.01em; }
+    .nav-cta:hover { background: #2e4a38; }
+    .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .page-hero .section { padding: clamp(26px, 3.5vw, 40px) 24px clamp(26px, 3.5vw, 40px); }
+    .section { max-width: var(--max); margin: 0 auto; padding: 56px 24px 72px; }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 24px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--ink); }
+    .page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 44px); font-weight: 600; line-height: 1.1; letter-spacing: -0.015em; color: var(--ink); animation: fadeUp 0.7s 0.05s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .doc p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 18px; text-wrap: pretty; }
+    .doc h2 { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin: 34px 0 10px; letter-spacing: -0.01em; }
+    .doc-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .doc-table tr { border-top: 1px solid var(--border); }
+    .doc-table tr:last-child { border-bottom: 1px solid var(--border); }
+    .doc-table th { text-align: left; vertical-align: top; width: 32%; padding: 16px 16px 16px 0; font-size: 11.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+    .doc-table td { padding: 16px 0; font-size: 14.5px; font-weight: 300; color: var(--ink); line-height: 1.8; }
+    footer { background: var(--white); border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: var(--muted); text-decoration: none;   padding: 8px 0; display: inline-block; }
+    .footer-meta a:hover { color: var(--sage); }
+    html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
+    html[lang="ja"] .page-hero h1 { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; line-height: 1.3; }
+    html[lang="ja"] .doc h2 { font-family: 'Noto Sans JP', sans-serif; font-weight: 600; font-size: 17px; }
+    html[lang="ja"] .doc p, html[lang="ja"] .doc-table td { font-family: 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 2.0; letter-spacing: 0.02em; line-break: strict; }
+    html[lang="ja"] .doc-table th, html[lang="ja"] .crumb, html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span { font-family: 'Noto Sans JP', sans-serif; }
+    @media (max-width: 640px) {
+      .nav-inner { padding: 13px 20px; }
+      .section { padding: 44px 20px 60px; }
+      .page-hero .section { padding: 20px 20px 28px; }
+      .doc-table th { width: 38%; padding-right: 12px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; padding: 22px 24px; }
+    }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  
+    /* ── SMOOTH PAGE TRANSITIONS: header/footer stay put ── */
+    @view-transition { navigation: auto; }
+    nav { view-transition-name: site-header; }
+    .announce { view-transition-name: site-announce; }
+    footer { view-transition-name: site-footer; }
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition { navigation: none; }
+    }
+  
+    /* ── CTA: modern flat ── */
+    .nav-cta, .btn--dark, .btn-primary, form .btn {
+      color: #ffffff;
+      background: var(--sage);
+      border: none;
+      box-shadow: none;
+      transition: background-color 0.18s ease;
+    }
+    .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover {
+      color: #ffffff;
+      background: #2e4a38;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta:active, .btn--dark:active, .btn-primary:active, form .btn:active {
+      background: #263d2f;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta svg, .btn--dark svg, .btn-primary svg, .btn--light svg {
+      transition: transform 0.2s ease;
+    }
+    .nav-cta:hover svg, .btn--dark:hover svg, .btn-primary:hover svg, .btn--light:hover svg {
+      transform: translateX(3px);
+    }
+    .btn--light {
+      color: var(--sage);
+      background: #ffffff;
+      border: none;
+      box-shadow: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      transition: background-color 0.18s ease;
+    }
+    .btn--light:hover { color: var(--sage); background: #eef0ea; transform: none; }
+    .btn--light:active { background: #e3e6df; transform: none; }
+      /* ── MOBILE MENU ── */
+    .nav-burger { display: none; }
+    .mobile-menu { display: none; }
+    @media (max-width: 880px) {
+      .nav-inner { padding: 12px 16px; }
+      .lang-toggle { display: none; }
+      .nav-right { gap: 12px; }
+      .nav-cta { font-size: 12.5px; padding: 9px 16px; }
+      .nav-burger { width: 44px; height: 44px; margin-right: -8px; }
+      .mm-lang {
+        display: block;
+        margin-top: 32px;
+        background: none;
+        border: none;
+        padding: 8px 0;
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: #6B6B68;
+        cursor: pointer;
+        font-family: inherit;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease 0.5s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, color 0.2s;
+      }
+      .mm-lang:hover { color: #111110; }
+      .mobile-menu.open .mm-lang { opacity: 1; transform: none; }
+      .nav-burger {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .nav-burger span {
+        display: block;
+        width: 20px;
+        height: 1.5px;
+        background: #111110;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+      .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+      .mobile-menu {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: #F5F4F0;
+        padding: 140px 32px 48px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s;
+      }
+      .mobile-menu.open { opacity: 1; visibility: visible; }
+      .mm-links { display: flex; flex-direction: column; }
+      .mm-links a {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: #111110;
+        text-decoration: none;
+        padding: 16px 0;
+        border-bottom: 1px solid #E4E2DC;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .mm-links a.active { color: #3A5C45; }
+      .mm-ico { color: #3A5C45; flex-shrink: 0; opacity: 0.85; }
+      .mm-name { flex: 1; }
+      .mm-arrow { color: rgba(17, 17, 16, 0.3); flex-shrink: 0; }
+      .mm-links a.active .mm-arrow { color: #3A5C45; }
+
+      .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
+      .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
+      .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
+      .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
+      .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
+      .mobile-menu.open .mm-links a:nth-child(5) { transition-delay: 0.33s; }
+      .mobile-menu.open .mm-links a:nth-child(6) { transition-delay: 0.4s; }
+      @media (prefers-reduced-motion: reduce) {
+        .mm-links a { transition: opacity 0.2s; transform: none; }
+      }
+    }
+      /* ── MAIN CTA EMPHASIS + SHINE ── */
+    .hero-actions .btn--dark, .hero-actions .btn-primary, .cta-inner .btn--dark, .cta-inner .btn--light, form .btn {
+      font-size: 15px;
+      height: 52px;
+      padding: 0 38px;
+    }
+    .btn--dark, .btn-primary, .nav-cta, form .btn, .btn--light {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .btn--light::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(58, 92, 69, 0.12), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes ctaShine {
+      0%, 58% { left: -80%; }
+      78%, 100% { left: 130%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after, .btn--light::after { animation: none; display: none; }
+    }
+      /* ── NATURAL JA LINE BREAKING (phrase-based where supported) ── */
+    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
+    html[lang="ja"] p, html[lang="ja"] li,
+    html[lang="ja"] .announce, html[lang="ja"] .btn-note, html[lang="ja"] .lead,
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
+    body.lang-ja p, body.lang-ja li, body.lang-ja .risk-banner {
+      word-break: auto-phrase;
+    }
+    p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
+      .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 300;
+      background: var(--sage);
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 0 0 10px 0;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+    /* ── FOOTER CANONICAL (identical metrics on every page) ── */
+    footer { background: #ffffff; border-top: 1px solid var(--border); }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto; padding: 26px 40px;
+      display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
+    .footer-meta a, .footer-meta span {
+      font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
+      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+    }
+    .footer-meta a:hover { color: #111110; }
+    .footer-logo img { height: 22px; display: block; }
+    @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
+  </style>
+
+  <script type="speculationrules">
+  {
+    "prerender": [{
+      "where": { "and": [
+        { "href_matches": "/*" },
+        { "not": { "href_matches": "/api/*" } }
+      ]},
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
+  <script>
+    (function () {
+      if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) return;
+      var seen = {};
+      document.addEventListener('pointerover', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null;
+        if (!a) return;
+        var u = a.href;
+        if (seen[u] || u.indexOf('/api/') !== -1) return;
+        seen[u] = 1;
+        var l = document.createElement('link');
+        l.rel = 'prefetch';
+        l.href = u;
+        document.head.appendChild(l);
+      }, { passive: true });
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "url": "https://hanjo.ai/about/",
+  "name": "About hanjo",
+  "description": "About hanjo, a bilingual English and Japanese growth partner in Los Angeles founded by Kei Nakayama.",
+  "inLanguage": [
+    "en",
+    "ja"
+  ],
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "hanjo",
+    "url": "https://hanjo.ai",
+    "knowsLanguage": [
+      "en",
+      "ja"
+    ],
+    "areaServed": {
+      "@type": "City",
+      "name": "Los Angeles"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Kei Nakayama",
+      "jobTitle": "Founder",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "hanjo",
+        "url": "https://hanjo.ai"
+      }
+    }
+  }
+}
+  </script>
+</head>
+<body class="lang-ja">
+
+  <a class="skip-link" href="#main" data-i18n="skip">本文へスキップ</a>
+
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/ja/" class="logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+      </a>
+      <div class="nav-links" aria-label="Site">
+        <a href="/ja/">Home</a>
+        <a href="/ja/crm/">CRM</a>
+        <a href="/ja/web/">Web</a>
+        <a href="/ja/ads/">Ads</a>
+        <a href="/ja/recovery/">Recovery</a>
+        <a href="/ja/contact/">Contact</a>
+      </div>
+      <div class="nav-right">
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">EN</button>
+        <a href="/ja/contact/" class="nav-cta" data-i18n="nav-cta">無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <script>
+    /* Browsers restore scroll on reload, which drops a visitor part-way down a
+       page they just opened. Start fresh loads and reloads at the top. Back and
+       forward keep their restored position, and #anchors are left alone. */
+    (function () {
+      if (location.hash) return;
+      var entry = performance.getEntriesByType('navigation')[0];
+      if (entry && entry.type === 'back_forward') return;
+      history.scrollRestoration = 'manual';
+      try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+      catch (e) { window.scrollTo(0, 0); }
+    })();
+  </script>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Menu">
+  <div class="mm-links">
+    <a href="/ja/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg><span class="mm-name">Home</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/crm/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="mm-name">CRM</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/web/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="mm-name">Web</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/ads/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span class="mm-name">Ads</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/recovery/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="mm-name">Recovery</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/contact/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span class="mm-name">Contact</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+  </div>
+    <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
+</div>
+
+  <div class="page-hero" id="main" tabindex="-1">
+    <div class="section">
+      <h1 data-i18n="d-h1">会社概要</h1>
+    </div>
+  </div>
+
+  <div class="section doc">
+      <p data-i18n="d-intro-1">hanjoは、ロサンゼルスを拠点とするグロースパートナーです。ホームページ・ECサイトの制作、メール/SMSマーケティング、広告運用、予約・リードの取りこぼし回復まで、中小企業の集客の仕組みづくりを一貫して支援しています。</p>
+      <p data-i18n="d-intro-2">代表の中山 慧（Kei Nakayama）は、日本のD2CブランドのCRM運用や、ロサンゼルスの店舗ビジネスの新規集客の仕組みづくりを手がけてきました。戦略から実装まで、すべての案件を日本語と英語で直接担当します。</p>
+      <table class="doc-table">
+        <tr><th data-i18n="d-th-1">名称</th><td data-i18n="d-td-1">hanjo</td></tr>
+        <tr><th data-i18n="d-th-2">代表</th><td data-i18n="d-td-2">中山 慧（Kei Nakayama）</td></tr>
+        <tr><th data-i18n="d-th-3">所在地</th><td data-i18n="d-td-3">アメリカ合衆国 カリフォルニア州 ロサンゼルス</td></tr>
+        <tr><th data-i18n="d-th-4">事業内容</th><td data-i18n="d-td-4">hanjo CRM（メール・SMSマーケティング）／ hanjo Web（ホームページ・EC制作）／ hanjo Ads（Meta・Google広告運用）／ hanjo Recovery（予約・リードの取りこぼし回復）</td></tr>
+        <tr><th data-i18n="d-th-5">対応言語</th><td data-i18n="d-td-5">日本語・英語</td></tr>
+        <tr><th data-i18n="d-th-6">連絡先</th><td data-i18n="d-td-6"><a href="/ja/contact/">お問い合わせフォーム</a></td></tr>
+      </table>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <a href="/ja/about/" data-i18n="footer-about">会社概要</a>
+        <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
+        <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
+        <span data-i18n="footer-copy">© 2026 hanjo · ロサンゼルス</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      "en": {
+        "skip": "Skip to content",
+            "lang-toggle": "JP",
+            "announce": "<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.",
+            "nav-cta": "Free consultation <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "crumb": "← Back to top",
+            "footer-about": "About Us",
+            "footer-terms": "Terms of Use",
+            "footer-privacy": "Privacy Policy",
+            "footer-copy": "© 2026 hanjo · Los Angeles",
+            "d-h1": "About hanjo",
+            "d-intro-1": "hanjo is a bilingual growth partner based in Los Angeles. We design, build, and run the systems that bring new customers to small businesses, and bring those customers back: websites and online stores, email and SMS marketing, advertising, and booking recovery.",
+            "d-intro-2": "hanjo is run by Kei Nakayama, who has built and operated retention marketing for Japanese DTC brands and customer-acquisition systems for local businesses in Los Angeles. Every project is handled directly, in Japanese and English, from strategy to implementation.",
+            "d-th-1": "Name",
+            "d-td-1": "hanjo",
+            "d-th-2": "Representative",
+            "d-td-2": "Kei Nakayama",
+            "d-th-3": "Location",
+            "d-td-3": "Los Angeles, California, USA",
+            "d-th-4": "Services",
+            "d-td-4": "hanjo CRM (email and SMS marketing) / hanjo Web (websites and online stores) / hanjo Ads (Meta and Google advertising) / hanjo Recovery (lost-booking and lead recovery)",
+            "d-th-5": "Languages",
+            "d-td-5": "Japanese and English",
+            "d-th-6": "Contact",
+            "d-td-6": "<a href=\"/contact/\">Contact form</a>"
+      },
+      "ja": {
+        "skip": "本文へスキップ",
+            "lang-toggle": "EN",
+            "announce": "<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。",
+            "nav-cta": "無料相談 <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+            "crumb": "← トップに戻る",
+            "footer-about": "会社概要",
+            "footer-terms": "利用規約",
+            "footer-privacy": "プライバシーポリシー",
+            "footer-copy": "© 2026 hanjo · ロサンゼルス",
+            "d-h1": "会社概要",
+            "d-intro-1": "hanjoは、ロサンゼルスを拠点とするグロースパートナーです。ホームページ・ECサイトの制作、メール/SMSマーケティング、広告運用、予約・リードの取りこぼし回復まで、中小企業の集客の仕組みづくりを一貫して支援しています。",
+            "d-intro-2": "代表の中山 慧（Kei Nakayama）は、日本のD2CブランドのCRM運用や、ロサンゼルスの店舗ビジネスの新規集客の仕組みづくりを手がけてきました。戦略から実装まで、すべての案件を日本語と英語で直接担当します。",
+            "d-th-1": "名称",
+            "d-td-1": "hanjo",
+            "d-th-2": "代表",
+            "d-td-2": "中山 慧（Kei Nakayama）",
+            "d-th-3": "所在地",
+            "d-td-3": "アメリカ合衆国 カリフォルニア州 ロサンゼルス",
+            "d-th-4": "事業内容",
+            "d-td-4": "hanjo CRM（メール・SMSマーケティング）／ hanjo Web（ホームページ・EC制作）／ hanjo Ads（Meta・Google広告運用）／ hanjo Recovery（予約・リードの取りこぼし回復）",
+            "d-th-5": "対応言語",
+            "d-td-5": "日本語・英語",
+            "d-th-6": "連絡先",
+            "d-td-6": "<a href=\"/contact/\">お問い合わせフォーム</a>"
+      }
+};
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('hanjo-lang', lang);
+      const strings = T[lang];
+      Object.keys(strings).forEach(key => {
+        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+          el.innerHTML = strings[key];
+        });
+      });
+    }
+    function toggleLang() {
+      const next = document.documentElement.lang === 'en' ? 'ja' : 'en';
+      applyLang(next);
+      let rest = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (rest === '') rest = '/';
+      history.replaceState(null, '', '/' + next + rest + location.hash);
+      prefixInternalLinks(next);
+    }
+    function prefixInternalLinks(lang) {
+      document.querySelectorAll('a[href^="/"]').forEach(a => {
+        let href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '') href = '/';
+        a.setAttribute('href', '/' + lang + href);
+      });
+    }
+
+    const langSeg = location.pathname.split('/')[1];
+    const langParam = new URLSearchParams(location.search).get('lang');
+    const forcedLang = (langSeg === 'ja' || langSeg === 'en') ? langSeg
+                     : (langParam === 'ja' || langParam === 'en') ? langParam : null;
+    const savedLang = localStorage.getItem('hanjo-lang');
+    if (forcedLang) applyLang(forcedLang);
+    else if (savedLang && savedLang !== 'en') applyLang(savedLang);
+    else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
+    if (langSeg === 'ja' || langSeg === 'en') prefixInternalLinks(langSeg);
+    (function () {
+      var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      document.querySelectorAll('.nav-links a').forEach(function (a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+      });
+    })();
+  </script>
+
+<script>
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var b = document.querySelector('.nav-burger');
+    var open = m.classList.toggle('open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    m.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+  (function () {
+    var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+    document.querySelectorAll('.mm-links a').forEach(function (a) {
+      var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+    });
+  })();
+</script>
+</body>
+</html>

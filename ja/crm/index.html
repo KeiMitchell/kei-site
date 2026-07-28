@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hanjo CRM · メール & SMSマーケティング · ロサンゼルス</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JLHW59CHY6');
+  </script>
+
+  <!-- SEO -->
+  <meta name="description" content="Shopifyで販売するD2Cブランド向けのメール・SMS運用。コピーからデザイン、自動フローの構築まで一貫して対応し、初回購入者をリピーターに変えます。" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:url" content="https://hanjo.ai/ja/crm/" />
+  <meta property="og:title" content="hanjo CRM · メール &amp; SMSマーケティング · ロサンゼルス" />
+  <meta property="og:description" content="Shopifyで販売するD2Cブランド向けのメール・SMS運用。コピーからデザイン、自動フローの構築まで一貫して対応し、初回購入者をリピーターに変えます。" />
+  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="hanjo CRM · メール &amp; SMSマーケティング · ロサンゼルス" />
+  <meta name="twitter:description" content="Shopifyで販売するD2Cブランド向けのメール・SMS運用。コピーからデザイン、自動フローの構築まで一貫して対応し、初回購入者をリピーターに変えます。" />
+  <meta name="twitter:image" content="https://hanjo.ai/kei.JPG" />
+
+  <link rel="canonical" href="https://hanjo.ai/ja/crm/" />
+  <link rel="alternate" hreflang="en" href="https://hanjo.ai/crm/" />
+  <link rel="alternate" hreflang="ja" href="https://hanjo.ai/ja/crm/" />
+  <link rel="alternate" hreflang="x-default" href="https://hanjo.ai/crm/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #F5F4F0;
+      --white:   #ffffff;
+      --sage:    #3A5C45;
+      --ink:     #111110;
+      --muted:   rgba(17,17,16,0.72);
+      --faint:   rgba(17,17,16,0.58);
+      --border:  #E4E2DC;
+      --shadow:  0 1px 4px rgba(17,17,16,0.06), 0 8px 28px rgba(17,17,16,0.05);
+      --radius:  14px;
+      --radius-sm: 100px;
+      --max:     700px;
+      --wide:    1060px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    /* Scroll-reveal */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+
+    [data-reveal-stagger] > * {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
+                  transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    [data-reveal-stagger].revealed > *:nth-child(1) { transition-delay: 0.00s; }
+    [data-reveal-stagger].revealed > *:nth-child(2) { transition-delay: 0.07s; }
+    [data-reveal-stagger].revealed > *:nth-child(3) { transition-delay: 0.14s; }
+    [data-reveal-stagger].revealed > *:nth-child(4) { transition-delay: 0.21s; }
+    [data-reveal-stagger].revealed > *:nth-child(5) { transition-delay: 0.28s; }
+    [data-reveal-stagger].revealed > *:nth-child(6) { transition-delay: 0.35s; }
+    [data-reveal-stagger].revealed > * { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal],
+      [data-reveal-stagger] > *,
+      .hero h1, .hero-byline, .hero-desc, .hero-actions,
+      .hero-rule, .hero-stats, nav {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    .platform-row { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; margin-top: 10px; }
+    .pf-item { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); opacity: 0.72; transition: opacity 0.2s; }
+    .pf-item:hover { opacity: 1; }
+    .pf-item svg { flex-shrink: 0; }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 22px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--ink); }
+    @media (min-width: 1500px) {
+      .hero { padding-left: calc((100vw - 1400px) / 2); padding-right: calc((100vw - 1400px) / 2); }
+    }
+    .line-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: rgba(17,17,16,0.06); border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px; margin-bottom: 16px; }
+    html[lang="ja"] .crumb, html[lang="ja"] .line-tag { font-family: 'Noto Sans JP', sans-serif; }
+
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    @media (max-width: 1120px) { .nav-links { gap: 20px; } }
+    .nav-links a {
+      font-family: 'Playfair Display', serif;
+      font-size: 16.5px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      opacity: 0.66;
+      text-decoration: none;
+      padding: 8px 0;
+      position: relative;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 100%; bottom: 3px;
+      height: 1.5px;
+      background: var(--sage);
+      transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover::after { right: 0; }
+    .nav-links a.active {
+      opacity: 1;
+      color: var(--sage);
+    }
+    .nav-links a.active:hover { color: var(--sage); }
+    .nav-links a.active::after { right: 0; }
+    @media (max-width: 880px) { .nav-links { display: none; } }
+    /* ── ANNOUNCE BAR ── */
+    .announce {
+      background: var(--ink);
+      color: rgba(255,255,255,0.65);
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      padding: 9px 20px;
+      line-height: 1.4;
+    }
+    .announce strong { color: var(--bg); font-weight: 500; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+     
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px clamp(36px, 4.5vw, 72px);
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      line-height: 0;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-avail {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--faint);
+      letter-spacing: 0.02em;
+    }
+
+    .avail-dot {
+      width: 6px;
+      height: 6px;
+      background: #52a46a;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .lang-toggle {
+      background: none;
+      border: none;
+      padding: 5px 2px;
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--faint);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+      transition: color 0.2s, border-color 0.2s, background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+      font-family: inherit;
+    }
+    .lang-toggle:hover {
+      color: var(--ink);
+      
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--bg);
+      background: var(--ink);
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
+    .nav-cta svg { transition: transform 0.2s; }
+    .nav-cta:hover svg { transform: translateX(2px); }
+
+    /* ── SECTION WRAPPERS ── */
+    .s-white { background: var(--white); }
+    .s-dark  { background: var(--ink); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: stretch;
+      min-height: calc(100svh - var(--chrome-h));
+    }
+
+    .hero-left {
+      padding: clamp(22px, 2.8vw, 40px) clamp(36px, 4.5vw, 72px) clamp(20px, 2.5vw, 32px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 780px;
+      width: 100%;
+    }
+
+    .hero-rule {
+      border: none;
+      border-top: 1px solid rgba(17,17,16,0.28);
+      width: 64px;
+      margin: 18px 0 0;
+      animation: fadeUp 0.7s 0.25s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+
+    .hero-stats {
+      margin-top: clamp(20px, 2.6vw, 32px);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      animation: fadeUp 0.7s 0.6s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .hstat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 14px 16px 0 0;
+      border-right: 1px solid var(--border);
+    }
+    .hstat + .hstat { padding-left: 16px; }
+    .hstat:last-child { border-right: none; padding-right: 0; }
+    .hstat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1;
+      color: #3A5C45;
+      font-variant-numeric: tabular-nums;
+    }
+    .hstat-txt { display: flex; flex-direction: column; gap: 1px; }
+    .hstat-label { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .hstat-sub { font-size: 12px; font-weight: 300; color: var(--muted); }
+
+    .hero-collage {
+      position: relative;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    .hc-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      gap: 24px;
+      padding: 0 28px;
+      justify-content: center;
+    }
+    .hc-col { flex: 0 1 46%; max-width: 300px; min-width: 0; }
+    .hc-col:first-child { margin-top: -30px; }
+    .hc-col:last-child { margin-top: -76px; }
+    .hero-collage::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to bottom, var(--bg) 0%, rgba(255,255,255,0) 14%, rgba(255,255,255,0) 86%, var(--bg) 100%);
+    }
+    .hero-collage:hover .ew-track { animation-play-state: paused; }
+
+    @media (min-width: 881px) and (max-height: 830px) {
+      .hero { min-height: 0; }
+      .hero-left { padding-top: 22px; padding-bottom: 16px; }
+      .hero h1 { font-size: clamp(34px, 3.4vw, 44px); }
+      .hero-desc { font-size: 15.5px; margin-bottom: 20px; }
+      .hero-byline { margin-bottom: 13px; }
+      .hero-rule { margin-top: 14px; }
+      .hero-stats { margin-top: 13px; }
+      .hstat { padding-top: 11px; }
+      .hstat-num { font-size: 26px; }
+      .hstat-sub { font-size: 11px; }
+    }
+
+    .hero h1 {
+      text-wrap: balance;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 4.2vw, 54px);
+      font-weight: 600;
+      line-height: 1.04;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 6px;
+      animation: fadeUp 0.8s 0.2s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .hero h1 strong { font-weight: 600; font-style: italic; display: block; }
+
+    .hero-byline {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-top: 12px;
+      margin-bottom: 22px;
+      animation: fadeUp 0.7s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+
+    .hero-desc {
+      text-wrap: pretty;
+      font-size: 16.5px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 20px;
+      animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+    .hero-desc strong { color: var(--ink); font-weight: 500; }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 11px;
+      animation: fadeUp 0.7s 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .btn svg { transition: transform 0.2s; }
+    .btn:hover svg { transform: translateX(3px); }
+
+    .btn--dark { color: var(--bg); background: var(--ink); }
+    .btn--dark:hover { opacity: 0.82; transform: translateY(-1px); }
+
+    .btn--light { color: var(--ink); background: var(--bg); }
+    .btn--light:hover { background: #ffffff; transform: translateY(-1px); }
+
+    .btn-note {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-seework {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .hero-seework:hover { opacity: 0.75; }
+    .seework-chevron { animation: seeworkBounce 1.9s ease-in-out infinite; }
+    .hero-seework:hover .seework-chevron { animation-play-state: paused; transform: translateY(2px); }
+    @keyframes seeworkBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+    @media (prefers-reduced-motion: reduce) { .seework-chevron { animation: none; } }
+
+    /* ── SHARED SECTION ── */
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 88px 24px;
+    }
+    .section--wide {
+      max-width: var(--wide);
+      padding: 88px 40px;
+    }
+
+    .label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .label--dim {
+      color: rgba(255,255,255,0.4);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 44px;
+    }
+    h2 span { display: block; font-weight: 700; font-style: italic; }
+    h2.light { color: rgba(255,255,255,0.94); }
+
+    .callout {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.68;
+      color: var(--muted);
+      padding: 20px 26px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .callout strong { color: var(--ink); font-weight: 600; }
+
+    /* ── GAP LIST ── */
+    .gap-list { list-style: none; margin-bottom: 32px; }
+    .gap-list li {
+      display: flex;
+      gap: 22px;
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .gap-list li:last-child { border-bottom: 1px solid var(--border); }
+    .gap-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(17,17,16,0.26);
+      padding-top: 4px;
+      min-width: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── CASE STUDY ── */
+    .case-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .case-box {
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+    }
+
+    .case-num {
+      display: block;
+      font-size: clamp(38px, 5vw, 58px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.94);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .case-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 3px;
+    }
+
+    .case-sub {
+      display: block;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.36);
+    }
+
+    .case-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
+    }
+
+    .case-story p {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+    }
+
+    /* Growth chart */
+    .chart-box {
+      border: 1px solid rgba(255,255,255,0.11);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .growth-bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+      height: 72px;
+      margin-bottom: 14px;
+    }
+
+    .growth-bar-fill {
+      flex: 1;
+      border-radius: 3px 3px 0 0;
+      height: 0;
+      background: rgba(255,255,255,0.9);
+      transition: height 0.9s cubic-bezier(0.34,1.08,0.64,1);
+    }
+    .growth-bar-fill:nth-child(1)  { opacity: 0.12; transition-delay: 0.00s; }
+    .growth-bar-fill:nth-child(2)  { opacity: 0.19; transition-delay: 0.05s; }
+    .growth-bar-fill:nth-child(3)  { opacity: 0.27; transition-delay: 0.10s; }
+    .growth-bar-fill:nth-child(4)  { opacity: 0.35; transition-delay: 0.15s; }
+    .growth-bar-fill:nth-child(5)  { opacity: 0.43; transition-delay: 0.20s; }
+    .growth-bar-fill:nth-child(6)  { opacity: 0.52; transition-delay: 0.25s; }
+    .growth-bar-fill:nth-child(7)  { opacity: 0.61; transition-delay: 0.30s; }
+    .growth-bar-fill:nth-child(8)  { opacity: 0.70; transition-delay: 0.35s; }
+    .growth-bar-fill:nth-child(9)  { opacity: 0.79; transition-delay: 0.40s; }
+    .growth-bar-fill:nth-child(10) { opacity: 0.87; transition-delay: 0.45s; }
+    .growth-bar-fill:nth-child(11) { opacity: 0.93; transition-delay: 0.50s; }
+    .growth-bar-fill:nth-child(12) { opacity: 1.00; transition-delay: 0.55s; }
+
+    .chart-caption {
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.32);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-top: auto;
+    }
+
+    /* ── WORK GRID ── */
+    .work-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .work-item {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 26px 26px;
+      border: 1px solid var(--border);
+    }
+
+    .work-item h3 {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 9px;
+    }
+
+    .work-item p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    /* ── STEPS ── */
+    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+
+    .step {
+      display: flex;
+      gap: 26px;
+      padding: 26px 30px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: rgba(17,17,16,0.26);
+      padding-top: 3px;
+      min-width: 20px;
+      flex-shrink: 0;
+    }
+
+    .step h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 5px;
+      letter-spacing: -0.01em;
+    }
+
+    .step p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 56px;
+      align-items: start;
+      margin-bottom: 44px;
+    }
+
+    .about-photo-col { position: sticky; top: 94px; }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 1px solid var(--border);
+    }
+    .about-caption {
+      display: block;
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.5;
+    }
+    .about-caption-role {
+      font-size: 12.5px;
+      font-weight: 400;
+      color: var(--muted, var(--gray));
+    }
+
+    .about-body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body p strong { color: var(--ink); font-weight: 500; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      padding: 30px 34px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .testimonial-quote {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-attr {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .testimonial-attr-photo {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    .testimonial-attr-text {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--faint);
+      line-height: 1.5;
+    }
+
+    .testimonial-attr-name { color: var(--ink); font-weight: 600; }
+
+    /* ── CTA SECTION ── */
+    .cta-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 96px 40px 116px;
+    }
+
+    .cta-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 22px;
+    }
+    .cta-inner h2 strong { font-weight: 700; font-style: italic; display: block; color: #ffffff; }
+
+    .cta-inner > p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.72;
+      margin-bottom: 44px;
+      max-width: 460px;
+    }
+
+    .cta-note-dark {
+      display: block;
+      margin-top: 14px;
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .footer-inner {
+      max-width: var(--wide);
+      margin: 0 auto;
+      padding: 26px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-logo img { filter: brightness(100); opacity: 0.45; }
+
+    .footer-meta {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-meta a, .footer-meta span {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+      color: rgba(255,255,255,0.38);
+      text-decoration: none;
+      padding: 8px 0; display: inline-block; }
+    .footer-meta a:hover { color: rgba(255,255,255,0.75); }
+
+    /* ── JAPANESE TYPOGRAPHY ── */
+    html[lang="ja"] body {
+      font-family: 'Noto Sans JP', -apple-system, sans-serif;
+      line-height: 1.8;
+    }
+
+    html[lang="ja"] .hero h1,
+    html[lang="ja"] h2,
+    html[lang="ja"] .cta-inner h2 {
+      font-family: 'Shippori Mincho B1', serif;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+    }
+
+    html[lang="ja"] .hero h1 strong,
+    html[lang="ja"] h2 span,
+    html[lang="ja"] .cta-inner h2 strong {
+      font-style: normal;
+    }
+
+    html[lang="ja"] .hero-desc {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .about-body p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.1;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .callout {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      line-height: 1.95;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .gap-list li {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .step h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .step p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .work-item h3 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .work-item p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .testimonial-quote {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .case-story p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 14px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .cta-inner > p {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      line-height: 2.0;
+      letter-spacing: 0.02em;
+    }
+
+    html[lang="ja"] .label {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.12em;
+    }
+
+
+    html[lang="ja"] .hero-byline {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.06em;
+    }
+
+    html[lang="ja"] .btn {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .btn-note,
+    html[lang="ja"] .cta-note-dark {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.02em;
+    }
+
+
+
+    html[lang="ja"] .case-label {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .case-sub {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .case-tag {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .chart-caption {
+      font-family: 'Noto Sans JP', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    html[lang="ja"] .nav-avail,
+    html[lang="ja"] .nav-cta,
+    html[lang="ja"] .footer-meta a,
+    html[lang="ja"] .footer-meta span {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    html[lang="ja"] .testimonial-attr-text {
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+
+    /* ── JAPANESE LAYOUT OPTIMIZATIONS ── */
+
+    /* Hero h1: reduce size so Japanese doesn't break mid-katakana-word */
+    html[lang="ja"] .hero h1 {
+      font-size: clamp(38px, 4.6vw, 60px);
+      line-height: 1.28;
+      line-break: strict;       /* prevents ー / small kana breaking off */
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    /* Section h2 */
+    html[lang="ja"] h2 {
+      font-size: clamp(22px, 3vw, 36px);
+      line-height: 1.3;
+      line-break: strict;
+    }
+
+    /* CTA h2 */
+    html[lang="ja"] .cta-inner h2 {
+      font-size: clamp(22px, 3.2vw, 38px);
+      line-break: strict;
+    }
+
+    /* Body text: prevent breaking inside katakana words */
+    html[lang="ja"] .hero-desc,
+    html[lang="ja"] .callout,
+    html[lang="ja"] .step p,
+    html[lang="ja"] .gap-list li,
+    html[lang="ja"] .about-body p,
+    html[lang="ja"] .case-story p,
+    html[lang="ja"] .cta-inner > p {
+      line-break: strict;
+      overflow-wrap: break-word;
+    }
+
+    /* Proof card labels: tighter for Japanese on narrow columns */
+
+    /* Mobile: hero single-column gets more breathing room */
+    @media (max-width: 880px) {
+      html[lang="ja"] .hero h1 {
+        font-size: clamp(33px, 7.5vw, 48px);
+      }
+      html[lang="ja"] h2 {
+        font-size: clamp(22px, 5vw, 32px);
+      }
+        }
+
+    @media (max-width: 560px) {
+      html[lang="ja"] .hero h1 {
+        font-size: clamp(30px, 9vw, 42px);
+        line-height: 1.38;
+      }
+      html[lang="ja"] h2 {
+        font-size: clamp(20px, 6vw, 28px);
+      }
+      html[lang="ja"] .cta-inner h2 {
+        font-size: clamp(22px, 7vw, 32px);
+      }
+      html[lang="ja"] .hero-desc { font-size: 14px; }
+      html[lang="ja"] .about-body p { font-size: 14px; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+      .nav-inner { padding: 15px 24px; }
+      .hero-left { max-width: none; padding: 48px 24px 44px; }
+      .hero-collage {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        height: 430px;
+        padding: 0 20px;
+      }
+      .hc-col:first-child { margin-top: -18px; }
+      .hc-col:last-child { margin-top: -52px; }
+
+      .section--wide { padding: 56px 24px; }
+      .case-wrap { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-photo-col { position: static; max-width: 160px; }
+      .cta-inner { padding: 80px 24px 96px; }
+      .footer-inner { padding: 22px 24px; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-inner { padding: 13px 20px; }
+      .nav-avail { display: none; }
+
+      .hero-left { padding: 28px 20px 24px; }
+      .hero h1 { font-size: 33px; }
+      .hero-collage { height: 340px; gap: 16px; }
+      .hstat { padding-top: 12px; }
+      .hstat-num { font-size: 22px; }
+      .hstat-label { font-size: 11px; }
+      .hstat-sub { display: none; }
+      .hero-byline { margin-bottom: 16px; }
+      .hero-desc { font-size: 15px; margin-bottom: 22px; }
+      .hero-desc { font-size: 15px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+
+      .section { padding: 52px 20px; }
+      .section--wide { padding: 52px 20px; }
+      h2 { margin-bottom: 32px; }
+
+
+      .work-grid { grid-template-columns: 1fr; }
+      .step { padding: 20px 22px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
+    }
+    /* ── EMAIL SHOWCASE WALL ── */
+    .ew-section { background: var(--bg); overflow: hidden; padding-bottom: 64px; scroll-margin-top: 90px; }
+    .ew-section .section { padding-bottom: 4px; text-align: center; }
+    .ew-section .section .label { display: inline-flex; }
+    .ew-section .section .label::before { display: none; }
+    .ew-desc { margin-left: auto; margin-right: auto; }
+    .ew-desc { font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 480px; margin-top: 18px; }
+    .ew-track { display: flex; flex-direction: column; gap: 22px; will-change: transform; }
+    .ew-up   { animation: ewUp linear infinite; }
+    .ew-down { animation: ewDown linear infinite; }
+    @keyframes ewUp   { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+    @keyframes ewDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+    .ew-card { width: 100%; background-size: cover; background-position: top center; background-repeat: no-repeat; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
+    @media (prefers-reduced-motion: reduce) { .ew-up, .ew-down { animation: none; } }
+
+    /* ── LIFECYCLE STRIP ── */
+    .lc-strip { max-width: var(--max); margin: 34px auto 0; padding: 0 24px; }
+    .lc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .lc-stat { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; }
+    .lc-stat-top { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
+    .lc-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+    .lc-c0 { background: #b4ad9e; } .lc-c1 { background: #cf8a3c; } .lc-c2 { background: #2f6f57; }
+    .lc-num { font-size: 30px; font-weight: 500; line-height: 1; margin-top: 7px; font-variant-numeric: tabular-nums; }
+    .lc-board { position: relative; height: 210px; margin-top: 18px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .lc-sim-tag {
+      position: absolute;
+      top: 10px; right: 12px;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      pointer-events: none;
+    }
+    .lc-zone-line { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--border); }
+    .lc-zone-labels { position: absolute; left: 0; right: 0; bottom: 12px; display: grid; grid-template-columns: repeat(3, 1fr); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); text-align: center; pointer-events: none; }
+    .lc-bead { position: absolute; width: 12px; height: 12px; border-radius: 50%; transition: left 0.9s cubic-bezier(0.4,0,0.2,1), top 0.9s cubic-bezier(0.4,0,0.2,1), background 0.6s, opacity 0.5s; }
+    .lc-flows { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+    .lc-flow { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--muted); padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: background 0.45s, border-color 0.45s; }
+    .lc-flow svg { flex: none; }
+    .lc-flow b { color: var(--ink); font-weight: 500; }
+    .lc-flow .lc-arrow { color: var(--faint); }
+    .lc-flow.lc-fire { background: var(--white); border-color: rgba(17,17,16,0.30); }
+    .lc-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 560px) { .lc-flows { grid-template-columns: 1fr; } .lc-num { font-size: 24px; } .lc-stat { padding: 13px 14px; } .lc-board { height: 186px; } }
+    @media (prefers-reduced-motion: reduce) { .lc-bead { transition: none; } }
+
+    /* ── growth.hanjo.ai design alignment ── */
+    body { background: var(--white); }
+    nav { background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); }
+    .announce { background: var(--sage); color: rgba(255,255,255,0.8); }
+    .announce strong { color: #ffffff; }
+    .hero, .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .nav-cta, .btn--dark { background: var(--sage); }
+    .nav-cta:hover, .btn--dark:hover { background: #2e4a38; opacity: 1; }
+    .btn--light { color: var(--sage); }
+    .s-dark { background: var(--sage); }
+    .hero h1 strong, .page-hero h1 strong { color: var(--sage); }
+    .s-dark h2 strong, .cta-inner h2 strong { color: #ffffff; }
+    .line-row-arrow { color: var(--sage); opacity: 0.8; }
+    footer { background: var(--white); border-top: 1px solid var(--border); }
+    .footer-logo img { filter: none; opacity: 1; }
+    .footer-meta a, .footer-meta span { color: var(--muted); }
+    .footer-meta a:hover { color: var(--sage); }
+    .cta-note-dark { color: rgba(255,255,255,0.55); }
+      @media print {
+      [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
+    }
+      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  
+    /* ── SMOOTH PAGE TRANSITIONS: header/footer stay put ── */
+    @view-transition { navigation: auto; }
+    nav { view-transition-name: site-header; }
+    .announce { view-transition-name: site-announce; }
+    footer { view-transition-name: site-footer; }
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition { navigation: none; }
+    }
+  
+    /* ── CTA: modern flat ── */
+    .nav-cta, .btn--dark, .btn-primary, form .btn {
+      color: #ffffff;
+      background: var(--sage);
+      border: none;
+      box-shadow: none;
+      transition: background-color 0.18s ease;
+    }
+    .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover {
+      color: #ffffff;
+      background: #2e4a38;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta:active, .btn--dark:active, .btn-primary:active, form .btn:active {
+      background: #263d2f;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta svg, .btn--dark svg, .btn-primary svg, .btn--light svg {
+      transition: transform 0.2s ease;
+    }
+    .nav-cta:hover svg, .btn--dark:hover svg, .btn-primary:hover svg, .btn--light:hover svg {
+      transform: translateX(3px);
+    }
+    .btn--light {
+      color: var(--sage);
+      background: #ffffff;
+      border: none;
+      box-shadow: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      transition: background-color 0.18s ease;
+    }
+    .btn--light:hover { color: var(--sage); background: #eef0ea; transform: none; }
+    .btn--light:active { background: #e3e6df; transform: none; }
+  
+    /* ── FULL-PAGE HERO ── */
+    /* Fallbacks only: the script after </nav> writes the measured nav height. */
+    :root { --chrome-h: 74px; }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
+    .hero { min-height: calc(100svh - var(--chrome-h)); }
+
+    /* ── MOBILE HERO: the collage ran ~113px past the fold. Shorter, so the
+       copy plus the first band of email work land on one screen. ── */
+    @media (max-width: 559px) {
+      .hero-left { padding: 24px 20px 20px; }
+      .hero-collage { height: 232px; }
+      .hc-col:first-child { margin-top: -12px; }
+      .hc-col:last-child { margin-top: -38px; }
+    }
+      /* ── CTA geometry: one standard ── */
+    .btn--dark, .btn--light {
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      gap: 8px;
+      padding: 15px 30px;
+      border-radius: 100px;
+    }
+      /* ── MOBILE MENU ── */
+    .nav-burger { display: none; }
+    .mobile-menu { display: none; }
+    @media (max-width: 880px) {
+      .nav-inner { padding: 12px 16px; }
+      .lang-toggle { display: none; }
+      .nav-right { gap: 12px; }
+      .nav-cta { font-size: 12.5px; padding: 9px 16px; }
+      .nav-burger { width: 44px; height: 44px; margin-right: -8px; }
+      .mm-lang {
+        display: block;
+        margin-top: 32px;
+        background: none;
+        border: none;
+        padding: 8px 0;
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: #6B6B68;
+        cursor: pointer;
+        font-family: inherit;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease 0.5s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, color 0.2s;
+      }
+      .mm-lang:hover { color: #111110; }
+      .mobile-menu.open .mm-lang { opacity: 1; transform: none; }
+      .nav-burger {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .nav-burger span {
+        display: block;
+        width: 20px;
+        height: 1.5px;
+        background: #111110;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+      .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+      .mobile-menu {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: #F5F4F0;
+        padding: 140px 32px 48px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s;
+      }
+      .mobile-menu.open { opacity: 1; visibility: visible; }
+      .mm-links { display: flex; flex-direction: column; }
+      .mm-links a {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: #111110;
+        text-decoration: none;
+        padding: 16px 0;
+        border-bottom: 1px solid #E4E2DC;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .mm-links a.active { color: #3A5C45; }
+      .mm-ico { color: #3A5C45; flex-shrink: 0; opacity: 0.85; }
+      .mm-name { flex: 1; }
+      .mm-arrow { color: rgba(17, 17, 16, 0.3); flex-shrink: 0; }
+      .mm-links a.active .mm-arrow { color: #3A5C45; }
+
+      .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
+      .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
+      .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
+      .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
+      .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
+      .mobile-menu.open .mm-links a:nth-child(5) { transition-delay: 0.33s; }
+      .mobile-menu.open .mm-links a:nth-child(6) { transition-delay: 0.4s; }
+      @media (prefers-reduced-motion: reduce) {
+        .mm-links a { transition: opacity 0.2s; transform: none; }
+      }
+    }
+      @media (min-width: 881px) { .crumb { display: none; } }
+      /* ── MAIN CTA EMPHASIS + SHINE ── */
+    .hero-actions .btn--dark, .hero-actions .btn-primary, .cta-inner .btn--dark, .cta-inner .btn--light, form .btn {
+      font-size: 15px;
+      height: 52px;
+      padding: 0 38px;
+    }
+    .btn--dark, .btn-primary, .nav-cta, form .btn, .btn--light {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .btn--light::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(58, 92, 69, 0.12), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes ctaShine {
+      0%, 58% { left: -80%; }
+      78%, 100% { left: 130%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after, .btn--light::after { animation: none; display: none; }
+    }
+      /* ── NATURAL JA LINE BREAKING (phrase-based where supported) ── */
+    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
+    html[lang="ja"] p, html[lang="ja"] li,
+    html[lang="ja"] .announce, html[lang="ja"] .btn-note, html[lang="ja"] .lead,
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
+    body.lang-ja p, body.lang-ja li, body.lang-ja .risk-banner {
+      word-break: auto-phrase;
+    }
+    p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
+      .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 300;
+      background: var(--sage);
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 0 0 10px 0;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+    /* ── FOOTER CANONICAL (identical metrics on every page) ── */
+    footer { background: #ffffff; border-top: 1px solid var(--border); }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto; padding: 26px 40px;
+      display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
+    .footer-meta a, .footer-meta span {
+      font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
+      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+    }
+    .footer-meta a:hover { color: #111110; }
+    .footer-logo img { height: 22px; display: block; }
+    @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
+    @media (max-width: 640px) { .crumb { display: none; } }
+  </style>
+
+  <script type="speculationrules">
+  {
+    "prerender": [{
+      "where": { "and": [
+        { "href_matches": "/*" },
+        { "not": { "href_matches": "/api/*" } }
+      ]},
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
+  <script>
+    (function () {
+      if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) return;
+      var seen = {};
+      document.addEventListener('pointerover', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null;
+        if (!a) return;
+        var u = a.href;
+        if (seen[u] || u.indexOf('/api/') !== -1) return;
+        seen[u] = 1;
+        var l = document.createElement('link');
+        l.rel = 'prefetch';
+        l.href = u;
+        document.head.appendChild(l);
+      }, { passive: true });
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "hanjo CRM",
+  "serviceType": "Email and SMS retention marketing",
+  "provider": {
+    "@type": "Organization",
+    "name": "hanjo",
+    "url": "https://hanjo.ai"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Los Angeles"
+  },
+  "url": "https://hanjo.ai/crm/",
+  "description": "Email and SMS retention for direct-to-consumer brands on Shopify. hanjo writes the copy, designs the emails, and builds the automated flows that turn first-time buyers into repeat customers, so acquisition spend compounds instead of replacing churned customers.",
+  "availableLanguage": [
+    "en",
+    "ja"
+  ],
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Direct-to-consumer brands on Shopify"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://hanjo.ai/crm/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you write the copy and design the emails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, full-service. We write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and we handle the rest end-to-end."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does it cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Projects typically start from $1,500 – $3,000 depending on scope. You'll get a clear number on the call. No vague proposals, no surprises."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a typical project take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which email platform will we use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whichever fits your stage and stack. We set it up, or migrate you over, and run it. If you're not ready, we'll tell you what to do first so you don't waste a setup."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body class="lang-ja">
+
+  <a class="skip-link" href="#main" data-i18n="skip">本文へスキップ</a>
+
+  <noscript>
+    <style>
+      [data-reveal], [data-reveal-stagger] > * { opacity: 1; transform: none; }
+</style>
+  </noscript>
+
+  <!-- ANNOUNCE (scrolls away) + NAV (sticky) -->
+  <nav>
+    <div class="nav-inner">
+      <a href="/ja/" class="logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+      </a>
+      <div class="nav-links" aria-label="Site">
+        <a href="/ja/">Home</a>
+        <a href="/ja/crm/">CRM</a>
+        <a href="/ja/web/">Web</a>
+        <a href="/ja/ads/">Ads</a>
+        <a href="/ja/recovery/">Recovery</a>
+        <a href="/ja/contact/">Contact</a>
+      </div>
+      <div class="nav-right">
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">EN</button>
+        <a href="/ja/contact/" class="nav-cta" data-i18n="nav-cta">無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <script>
+    /* Full-page hero: --chrome-h tracks the real nav height (it shifts with
+       language and breakpoint) so the hero ends exactly at the fold. */
+    (function () {
+      var nav = document.querySelector('nav');
+      if (!nav) return;
+      var root = document.documentElement;
+      function syncChromeHeight() {
+        root.style.setProperty('--chrome-h', nav.getBoundingClientRect().height + 'px');
+      }
+      syncChromeHeight();
+      if (window.ResizeObserver) new ResizeObserver(syncChromeHeight).observe(nav);
+      else addEventListener('resize', syncChromeHeight);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncChromeHeight);
+    })();
+
+    /* Browsers restore scroll on reload, which drops a visitor part-way down a
+       page they just opened. Start fresh loads and reloads at the top. Back and
+       forward keep their restored position, and #anchors are left alone. */
+    (function () {
+      if (location.hash) return;
+      var entry = performance.getEntriesByType('navigation')[0];
+      if (entry && entry.type === 'back_forward') return;
+      history.scrollRestoration = 'manual';
+      try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+      catch (e) { window.scrollTo(0, 0); }
+    })();
+  </script>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Menu">
+  <div class="mm-links">
+    <a href="/ja/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg><span class="mm-name">Home</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/crm/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="mm-name">CRM</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/web/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="mm-name">Web</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/ads/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span class="mm-name">Ads</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/recovery/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="mm-name">Recovery</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/contact/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span class="mm-name">Contact</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+  </div>
+    <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
+</div>
+
+  <!-- HERO -->
+  <div class="hero" id="main" tabindex="-1">
+    <div class="hero-left">
+      <div>
+        <a href="/ja/#services" class="crumb" data-i18n="crumb">← サービス一覧に戻る</a>
+      </div>
+      <h1 data-i18n="hero-h1">一度きりの来訪客を
+        <strong>リピート顧客に。</strong></h1>
+
+      <p class="hero-desc" data-i18n="hero-desc">費用をかけて獲得した顧客が、リピートせずに離れていく。その穴を埋めるのがメールです。ShopifyのDTCブランド向けに、コピー・デザイン・フロー構築を丸ごと担当します。
+        <strong>リテンションを整えれば、獲得コストが初めて積み重なっていきます。</strong></p>
+
+      <div class="hero-actions">
+        <a href="/ja/contact/" class="btn btn--dark" data-i18n="hero-cta">無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="#work" class="hero-seework">
+          <span data-i18n="hero-see-work">その仕組みを見る</span>
+          <svg class="seework-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+      </div>
+
+      <div class="platform-row" aria-label="Email platforms">
+        <span class="pf-item"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1 3.6h22L15.9 12 23 20.4H1V3.6z"/></svg><span>Klaviyo</span></span>
+        <span class="pf-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M11.267 0C6.791-.015-1.82 10.246 1.397 12.964l.79.669a3.88 3.88 0 0 0-.22 1.792c.084.84.518 1.644 1.22 2.266.666.59 1.542.964 2.392.964 1.406 3.24 4.62 5.228 8.386 5.34 4.04.12 7.433-1.776 8.854-5.182.093-.24.488-1.316.488-2.267 0-.956-.54-1.352-.885-1.352-.01-.037-.078-.286-.172-.586-.093-.3-.19-.51-.19-.51.375-.563.382-1.065.332-1.35-.053-.353-.2-.653-.496-.964-.296-.311-.902-.63-1.753-.868l-.446-.124c-.002-.019-.024-1.053-.043-1.497-.014-.32-.042-.822-.197-1.315-.186-.668-.508-1.253-.911-1.627 1.112-1.152 1.806-2.422 1.804-3.511-.003-2.095-2.576-2.729-5.746-1.416l-.672.285A678.22 678.22 0 0 0 12.7.504C12.304.159 11.817.002 11.267 0zm.073.873c.166 0 .322.019.465.058.297.084 1.28 1.224 1.28 1.224s-1.826 1.013-3.52 2.426c-2.28 1.757-4.005 4.311-5.037 7.082-.811.158-1.526.618-1.963 1.253-.261-.218-.748-.64-.834-.804-.698-1.326.761-3.902 1.781-5.357C5.834 3.44 9.37.867 11.34.873zm3.286 3.273c.04-.002.06.05.028.074-.143.11-.299.26-.413.414a.04.04 0 0 0 .031.064c.659.004 1.587.235 2.192.574.041.023.012.103-.034.092-.915-.21-2.414-.369-3.97.01-1.39.34-2.45.863-3.224 1.426-.04.028-.086-.023-.055-.06.896-1.035 1.999-1.935 2.987-2.44.034-.018.07.019.052.052-.079.143-.23.447-.278.678-.007.035.032.063.062.042.615-.42 1.684-.868 2.622-.926zm3.023 3.205l.056.001a.896.896 0 0 1 .456.146c.534.355.61 1.216.638 1.845.015.36.059 1.229.074 1.478.034.571.184.651.487.751.17.057.33.098.563.164.706.198 1.125.4 1.39.658.157.162.23.333.253.497.083.608-.472 1.36-1.942 2.041-1.607.746-3.557.935-4.904.785l-.471-.053c-1.078-.145-1.693 1.247-1.046 2.201.417.615 1.552 1.015 2.688 1.015 2.604 0 4.605-1.111 5.35-2.072a.987.987 0 0 0 .06-.085c.036-.055.006-.085-.04-.054-.608.416-3.31 2.069-6.2 1.571 0 0-.351-.057-.672-.182-.255-.1-.788-.344-.853-.891 2.333.72 3.801.039 3.801.039a.072.072 0 0 0 .042-.072.067.067 0 0 0-.074-.06s-1.911.283-3.718-.378c.197-.64.72-.408 1.51-.345a11.045 11.045 0 0 0 3.647-.394c.818-.234 1.892-.697 2.727-1.356.281.618.38 1.299.38 1.299s.219-.04.4.073c.173.106.299.326.213.895-.176 1.063-.628 1.926-1.387 2.72a5.714 5.714 0 0 1-1.666 1.244c-.34.18-.704.334-1.087.46-2.863.935-5.794-.093-6.739-2.3a3.545 3.545 0 0 1-.189-.522c-.403-1.455-.06-3.2 1.008-4.299.065-.07.132-.153.132-.256 0-.087-.055-.179-.102-.243-.374-.543-1.669-1.466-1.409-3.254.187-1.284 1.31-2.189 2.357-2.135.089.004.177.01.266.015.453.027.85.085 1.223.1.625.028 1.187-.063 1.853-.618.225-.187.405-.35.71-.401.028-.005.092-.028.215-.028zm.022 2.18a.42.42 0 0 0-.06.005c-.335.054-.347.468-.228 1.04.068.32.187.595.32.765.175-.02.343-.022.498 0 .089-.205.104-.557.024-.942-.112-.535-.261-.872-.554-.868zm-3.66 1.546a1.724 1.724 0 0 0-1.016.326c-.16.117-.311.28-.29.378.008.032.031.056.088.063.131.015.592-.217 1.122-.25.374-.023.684.094.923.2.239.104.386.173.443.113.037-.038.026-.11-.031-.204-.118-.192-.36-.387-.618-.497a1.601 1.601 0 0 0-.621-.129zm4.082.81c-.171-.003-.313.186-.317.42-.004.236.131.43.303.432.172.003.314-.185.318-.42.004-.236-.132-.429-.304-.432zm-3.58.172c-.05 0-.102.002-.155.008-.311.05-.483.152-.593.247-.094.082-.152.173-.152.237a.075.075 0 0 0 .075.076c.07 0 .228-.063.228-.063a1.98 1.98 0 0 1 1.001-.104c.157.018.23.027.265-.026.01-.016.022-.049-.01-.1-.063-.103-.311-.269-.66-.275zm2.26.4c-.127 0-.235.051-.283.148-.075.154.035.363.246.466.21.104.443.063.52-.09.075-.155-.035-.364-.246-.467a.542.542 0 0 0-.237-.058zm-11.635.024c.048 0 .098 0 .149.003.73.04 1.806.6 2.052 2.19.217 1.41-.128 2.843-1.449 3.069-.123.02-.248.029-.374.026-1.22-.033-2.539-1.132-2.67-2.435-.145-1.44.591-2.548 1.894-2.811.117-.024.252-.04.398-.042zm-.07.927a1.144 1.144 0 0 0-.847.364c-.38.418-.439.988-.366 1.19.027.073.07.094.1.098.064.008.16-.039.22-.2a1.2 1.2 0 0 0 .017-.052 1.58 1.58 0 0 1 .157-.37.689.689 0 0 1 .955-.199c.266.174.369.5.255.81-.058.161-.154.469-.133.721.043.511.357.717.64.738.274.01.466-.143.515-.256.029-.067.005-.107-.011-.125-.043-.053-.113-.037-.18-.021a.638.638 0 0 1-.16.022.347.347 0 0 1-.294-.148c-.078-.12-.073-.3.013-.504.011-.028.025-.058.04-.092.138-.308.368-.825.11-1.317-.195-.37-.513-.602-.894-.65a1.135 1.135 0 0 0-.138-.01z"/></svg><span>Mailchimp</span></span>
+      </div>
+
+
+      <div class="hero-stats">
+        <div class="hstat">
+          <strong class="hstat-num">$10–30k</strong>
+          <span class="hstat-txt">
+            <span class="hstat-label" data-i18n="proof-1-label">月あたり回収できる売上</span>
+            <span class="hstat-sub" data-i18n="proof-1-sub">集客コストへの再投資に回る</span>
+          </span>
+        </div>
+        <div class="hstat">
+          <strong class="hstat-num" data-count="10" data-suffix="×">10×</strong>
+          <span class="hstat-txt">
+            <span class="hstat-label" data-i18n="proof-2-label">アクティブ顧客数</span>
+            <span class="hstat-sub" data-i18n="proof-2-sub">30人 → 300人（12ヶ月・ペットフードブランド）</span>
+          </span>
+        </div>
+        <div class="hstat">
+          <strong class="hstat-num" data-count="40" data-prefix="−" data-suffix="%">−40%</strong>
+          <span class="hstat-txt">
+            <span class="hstat-label" data-i18n="proof-3-label">チャーン削減</span>
+            <span class="hstat-sub" data-i18n="proof-3-sub">月間15% → 9%</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email collage -->
+    <div class="hero-collage" aria-hidden="true">
+      <div class="hc-inner">
+      <div class="hc-col"><div class="ew-track ew-up" style="animation-duration:56s">
+        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(/email-showcase/mon-campaign.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(/email-showcase/mira-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(/email-showcase/andew-product.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(/email-showcase/mon-campaign.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(/email-showcase/mira-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(/email-showcase/andew-product.jpg)"></div>
+      </div></div>
+      <div class="hc-col"><div class="ew-track ew-down" style="animation-duration:62s">
+        <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(/email-showcase/andew-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(/email-showcase/mon-newspaper.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(/email-showcase/mira-replen.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(/email-showcase/andew-welcome.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(/email-showcase/mon-newspaper.jpg)"></div>
+        <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(/email-showcase/mira-replen.jpg)"></div>
+      </div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL SHOWCASE WALL -->
+  <div class="ew-section" id="work">
+    <div class="section">
+      <span class="label" data-reveal data-i18n="wall-label">メールの役割</span>
+      <h2 data-reveal data-i18n="wall-h2">メールが、一度きりの来訪客を<br><span>リピート顧客に変えます。</span></h2>
+      <p class="ew-desc" data-reveal data-i18n="wall-desc">広告で来てくれるのは一度きり。二度目、十度目の購入を生むのがメールです。育てた顧客リストは、いまブランドが持てる最も価値ある資産のひとつ。その歩みを設計します。</p>
+    </div>
+
+    <!-- LIFECYCLE STRIP -->
+    <div class="lc-strip">
+      <div class="lc-stats">
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c0"></span><span data-i18n="lc-s0">見込み客</span></div>
+          <div class="lc-num" id="lc-n0">0</div>
+        </div>
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c1"></span><span data-i18n="lc-s1">初回購入</span></div>
+          <div class="lc-num" id="lc-n1">0</div>
+        </div>
+        <div class="lc-stat">
+          <div class="lc-stat-top"><span class="lc-dot lc-c2"></span><span data-i18n="lc-s2">リピーター</span></div>
+          <div class="lc-num" id="lc-n2">0</div>
+        </div>
+      </div>
+      <div class="lc-board" id="lc-board" aria-hidden="true">
+        <span class="lc-sim-tag" data-i18n="lc-sim">シミュレーション</span>
+        <span class="lc-zone-line" style="left:33.33%"></span>
+        <span class="lc-zone-line" style="left:66.66%"></span>
+        <div class="lc-zone-labels">
+          <span data-i18n="lc-z0">見込み客</span><span data-i18n="lc-z1">初回購入</span><span data-i18n="lc-z2">リピート</span>
+        </div>
+      </div>
+      <p class="lc-sr">An animation showing customers moving from prospect to first-time buyer to repeat buyer, driven by email flows.</p>
+      <div class="lc-flows">
+        <div class="lc-flow" id="lc-f0w">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cf8a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-i18n="lc-f0"><b>ウェルカムフロー</b> <span class="lc-arrow">→ 初回購入</span></span>
+        </div>
+        <div class="lc-flow" id="lc-f1w">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2f6f57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <span data-i18n="lc-f1"><b>リピート促進フロー</b> <span class="lc-arrow">→ リピート</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GAPS -->
+  <div class="s-white">
+    <div class="section">
+      <span class="label" data-reveal data-i18n="gaps-label">よく見られること</span>
+      <h2 data-reveal data-i18n="gaps-h2">DTCブランドに多い、<br><span>顧客を失い続ける3つのパターン。</span></h2>
+
+      <ul class="gap-list" data-reveal-stagger>
+        <li>
+          <span class="gap-num">01</span>
+          <span data-i18n="gap-1">購入後のフローがウェルカムメールで止まっています。米国の顧客にとっては、その後に接点がないのと同じです。</span>
+        </li>
+        <li>
+          <span class="gap-num">02</span>
+          <span data-i18n="gap-2">ウィンバックのタイミングが遅すぎます。送る頃には、顧客はすでに他を選んでいます。</span>
+        </li>
+        <li>
+          <span class="gap-num">03</span>
+          <span data-i18n="gap-3">解約防止フローがありません。あるいは1通送って終わりです。</span>
+        </li>
+      </ul>
+
+      <p class="callout" data-reveal data-i18n="gaps-callout">米国で展開している日本のブランドに、特によく見られます。メールの仕組みは後回しにされがちで、その間にも顧客は離れ続けています。
+        <strong>ここを整えるだけで、翌月の広告費より価値が出ることが多いです。</strong></p>
+    </div>
+  </div>
+
+  <!-- CASE STUDY -->
+  <div class="s-dark">
+    <div class="section section--wide">
+      <span class="label label--dim" data-reveal data-i18n="case-label">クライアント事例</span>
+      <h2 class="light" data-reveal data-i18n="case-h2">日本のペットフードブランド。<br><span>12ヶ月でアクティブ顧客が30人から300人に。</span></h2>
+
+      <div class="case-wrap" data-reveal-stagger>
+        <div class="case-box">
+          <span class="case-num" data-count="10" data-suffix="×">10×</span>
+          <span class="case-label" data-i18n="case-1-label">アクティブ顧客数</span>
+          <span class="case-sub" data-i18n="case-1-sub">30人 → 300人（12ヶ月）</span>
+        </div>
+
+        <div class="case-box">
+          <span class="case-num" data-count="40" data-prefix="−" data-suffix="%">−40%</span>
+          <span class="case-label" data-i18n="case-2-label">チャーン率</span>
+          <span class="case-sub" data-i18n="case-2-sub">月間15% → 9%</span>
+        </div>
+
+        <div class="chart-box" id="growthChart">
+          <div class="growth-bars">
+            <div class="growth-bar-fill" data-h="10%"></div>
+            <div class="growth-bar-fill" data-h="15%"></div>
+            <div class="growth-bar-fill" data-h="21%"></div>
+            <div class="growth-bar-fill" data-h="28%"></div>
+            <div class="growth-bar-fill" data-h="36%"></div>
+            <div class="growth-bar-fill" data-h="45%"></div>
+            <div class="growth-bar-fill" data-h="54%"></div>
+            <div class="growth-bar-fill" data-h="65%"></div>
+            <div class="growth-bar-fill" data-h="75%"></div>
+            <div class="growth-bar-fill" data-h="85%"></div>
+            <div class="growth-bar-fill" data-h="93%"></div>
+            <div class="growth-bar-fill" data-h="100%"></div>
+          </div>
+          <p class="chart-caption" data-i18n="chart-caption">月間アクティブ顧客 · 30人 → 300人</p>
+        </div>
+
+        <div class="case-box case-story">
+          <span class="case-tag" data-i18n="case-tag">日本のペットフード · Shopify</span>
+          <p data-i18n="case-story">依頼が来た時点では、チャーンが高く、ウィンバックフローもなく、リピートされないせいで広告費が粗利を圧迫していました。充実した購入後フローと教育コンテンツのシリーズで、離れることを考える前に習慣を作りました。チャーンは15%から9%に下がり、LTVが上がりました。解放された粗利が集客に回り、12ヶ月でアクティブ顧客が30人から300人になりました。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <div class="s-white">
+    <div class="section section--wide">
+      <span class="label" data-reveal data-i18n="services-label">できること</span>
+      <h2 data-reveal data-i18n="services-h2">DTCブランドのための、<br><span>LTVを伸ばす仕組みを構築します。</span></h2>
+
+      <p class="callout" style="margin-bottom: 28px;" data-reveal data-i18n="services-callout">英語のコピー執筆、メールデザイン、フロー構築まで一貫して対応します。ブランドアセットを共有していただければ、英語コンテンツの制作から設定まで丸ごとお任せいただけます。<strong>すでに配信中なら改善から。まだなら、プラットフォーム選びも含めて一緒に考えます。</strong></p>
+
+      <ul class="work-grid" data-reveal-stagger>
+        <li class="work-item">
+          <h3 data-i18n="svc-1-h">フロー診断と再構築</h3>
+          <p data-i18n="svc-1-p">現状を把握し、問題を特定します。そして直します。</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-2-h">ポップアップ最適化</h3>
+          <p data-i18n="svc-2-p">ウェルカムオファー、離脱インテント、モバイル対応A/Bテスト。多くのブランドが静かにリスト獲得を漏らしている場所です。</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-3-h">カスタマーライフサイクルフロー</h3>
+          <p data-i18n="svc-3-p">購入後、補充リマインダー、スキップ・一時停止防止、再アクティベーション。オンボーディングだけでなく、全体のフローをカバーします。</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-4-h">解約・チャーン防止</h3>
+          <p data-i18n="svc-4-p">解約理由、注文履歴、LTVでセグメント分け。ほとんどのブランドが持っていません。持つべきです。</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-5-h">ウィンバックと再エンゲージメント</h3>
+          <p data-i18n="svc-5-p">任意の日数ではなく、顧客の行動に合わせたタイミングで。その差は大きいです。</p>
+        </li>
+        <li class="work-item">
+          <h3 data-i18n="svc-6-h">セグメンテーションとリスト管理</h3>
+          <p data-i18n="svc-6-p">健全なリスト、配信停止のロジック、エンゲージメントの階層整備。他のすべての土台になる部分です。</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div>
+    <div class="section">
+      <span class="label" data-reveal data-i18n="hiw-label">進め方</span>
+      <h2 data-reveal data-i18n="hiw-h2">まずは<br><span>無料診断から。</span></h2>
+
+      <ul class="steps" data-reveal-stagger>
+        <li class="step">
+          <span class="step-num">01</span>
+          <div>
+            <h3 data-i18n="step-1-h">まず話す</h3>
+            <p data-i18n="step-1-p">現状のメール配信の状況、課題、目標についてお話しします。日本語で進められます。20〜30分。</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <div>
+            <h3 data-i18n="step-2-h">現状を確認する</h3>
+            <p data-i18n="step-2-p">メール配信を始めているなら、うまくいっていることと改善点をお伝えします。まだなら、今の段階で移行が適切かを判断します。資料も提案書も必要ありません。まず何をすべきかを、直接お伝えします。</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <div>
+            <h3 data-i18n="step-3-h">進め方を決める</h3>
+            <p data-i18n="step-3-p">プロジェクト単位か継続契約か、状況に応じて。プロジェクトは通常 $1,500〜$3,000（スコープによる）。リテーナーは不要。どちらの方向でも、プレッシャーはかけません。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="s-white">
+    <div class="section">
+      <span class="label" data-reveal data-i18n="faq-label">よくある質問</span>
+      <h2 data-reveal data-i18n="faq-h2">よく聞かれる、<br><span>5つの質問。</span></h2>
+
+      <ul class="steps" data-reveal-stagger>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-1-h">英語のコピー執筆とメールデザインも対応してもらえますか？</h3>
+            <p data-i18n="faq-1-p">はい、フルサービスで対応します。米国の顧客向けの英語コピーを執筆し、メールをデザインし、フローを構築します。ブランドアセットと方向性を共有していただければ、英語コンテンツの制作から設定まですべて担当します。</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-2-h">費用はどれくらいですか？</h3>
+            <p data-i18n="faq-2-p">スコープによりますが、通常 $1,500〜$3,000 から。通話中に明確な金額をお伝えします。曖昧な提案書や、後からの追加費用はありません。</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-4-h">プロジェクトの期間は？</h3>
+            <p data-i18n="faq-4-p">フルのフロー構築は、キックオフからローンチまで3〜5週間が目安です。診断は約1週間。スコープと、フィードバックやアセットを提供するスピードによって変わります。</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-num">Q</span>
+          <div>
+            <h3 data-i18n="faq-5-h">日本語でやり取りできますか？</h3>
+            <p data-i18n="faq-5-p">はい。ブランドの担当者との打ち合わせや日々のやり取りは日本語で進めます。米国の顧客に届けるメールコンテンツは英語で制作します。メール配信ツールもShopifyも、慣れていない段階から一緒に進められます。</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="s-white">
+    <div class="section section--wide">
+      <span class="label" data-reveal data-i18n="about-label">創業者より</span>
+      <h2 data-reveal data-i18n="about-h2">自分でも一度、<br><span>こういうブランドを作ろうとした。</span></h2>
+
+      <div class="about-grid" data-reveal>
+        <div class="about-photo-col">
+          <img src="/kei.JPG" alt="Kei Nakayama" class="about-photo" />
+          <span class="about-caption"><span data-i18n="about-caption-name">中山 慧</span><br><span class="about-caption-role" data-i18n="about-caption-role">hanjo 創業者</span></span>
+        </div>
+        <div class="about-body">
+          <p data-i18n="about-p1">数年前、日本でミールキットブランドを始めようとしました。どれだけ大変かを肌で感じるところまでは進みました。仕入れ、パッケージング、物流。最初の1件を届けるまでに、解決すべき問題は山ほどありました。<strong>自信を持って売れるプロダクトが、最終的には作れませんでした。</strong></p>
+          <p data-i18n="about-p2">その経験が、一緒に仕事をする人への見方を変えました。こだわり抜いたプロダクトを作り、それを米国市場に持ち込み、諦めずに続けている創業者たちへの尊敬は大きいです。</p>
+          <p data-i18n="about-p3">今はロサンゼルスを拠点に、米国で展開する日本のブランドのメール・SMS運用を担当しています。英語のコピーを書き、メールをデザインし、フローを構築します。日本語でやり取りしながら、米国の顧客に届けるメールコミュニケーションを整えます。</p>
+          <p data-i18n="about-p4">日本のブランドが持つ誠実さや世界観は、メールでも伝えられます。汎用的なメール設定では、その独自性が出ません。米国の顧客が自然に継続して買いたくなる仕組みを、ブランドに合わせて作ります。</p>
+          <p data-i18n="about-p5">私たちは、プロダクト開発とオペレーションに集中したい創業者を支えるチームです。リテンション側は丸ごとお任せください。</p>
+        </div>
+      </div>
+
+      <blockquote class="testimonial" data-reveal>
+        <p class="testimonial-quote" data-i18n="testimonial-quote">「ブランドと顧客のことを理解した上で動いてくれた。私たちのサブスクリプションモデルがどう動いているかを把握し、短期的な数字ではなく、持続的な成長に意味のある仕組みを作ってくれた。」</p>
+        <div class="testimonial-attr">
+          <img src="/moncheri-logo.png" alt="moncheri kitchen" class="testimonial-attr-photo" />
+          <span class="testimonial-attr-text">
+            <span class="testimonial-attr-name" data-i18n="testimonial-name">ブランドオーナー</span><br>
+            <span data-i18n="testimonial-brand">日本のペットフード · Shopify</span>
+          </span>
+        </div>
+      </blockquote>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="s-dark">
+    <div class="cta-inner">
+      <h2 data-reveal data-i18n="cta-h2">米国で獲得した顧客が<br><strong>リピートしていない理由がある。</strong></h2>
+      <p data-reveal data-i18n="cta-p">30分の無料相談を、日本語または英語で承ります。まずは、いまの配信の状況やお悩みを、じっくりお聞かせください。</p>
+      <div data-reveal>
+        <a href="/ja/contact/" class="btn btn--light" data-i18n="cta-btn">無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <a href="/ja/about/" data-i18n="footer-about">会社概要</a>
+        <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
+        <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
+        <span data-i18n="footer-copy">© 2026 hanjo · ロサンゼルス</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── TRANSLATIONS ── */
+    const T = {
+      en: {
+        'skip': 'Skip to content',
+        'crumb':            '← All services',
+        'announce':         '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
+        'nav-avail':        '2 spots open',
+        'lang-toggle':      'JP',
+        'nav-cta':          'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'chip-avail':       '2 spots open',
+        'hero-h1':          'You work hard to bring<br>customers&nbsp;in.\n        <strong>Email should keep&nbsp;them.</strong>',
+        'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA',
+        'hero-desc':        'Every customer who leaves, you paid to acquire. Then you pay again to replace them. We build the email and SMS flows that bring them back instead, tuned for DTC brands on Shopify.\n        <strong>Fix retention, and acquisition finally starts to compound.</strong>',
+        'hero-cta':         'Start with a free consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'hero-see-work':    'See how the journey works',
+        'proof-1-label':    'Revenue recovered / month',
+        'proof-1-sub':      'Redirected back into acquisition',
+        'proof-2-label':    'Active customers',
+        'proof-2-sub':      '30 → 300 in 12 months, pet food brand',
+        'proof-3-label':    'Churn reduction',
+        'proof-3-sub':      '15% → 9% monthly churn',
+        'wall-label':       'What email actually does',
+        'wall-h2':          'Email is how a brand<br><span>turns a buyer into a regular.</span>',
+        'wall-desc':        'Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now. Here\'s the journey we build to grow it.',
+        'lc-sim':           'Live simulation',
+        'lc-s0':            'Prospects',
+        'lc-s1':            'First order',
+        'lc-s2':            'Repeat buyers',
+        'lc-z0':            'prospect',
+        'lc-z1':            'first order',
+        'lc-z2':            'repeat',
+        'lc-f0':            '<b>Welcome flow</b> <span class="lc-arrow">→ first order</span>',
+        'lc-f1':            '<b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span>',
+        'gaps-label':       'What we see constantly',
+        'gaps-h2':          'Three gaps that quietly<br><span>cost you customers every month.</span>',
+        'gap-1':            'Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.',
+        'gap-2':            'Winback campaigns that go out weeks too late, after the customer has already moved on.',
+        'gap-3':            'Cancellation save flows that don\'t exist, or send one generic email and give up.',
+        'gaps-callout':     'These aren\'t edge cases. They show up at brands doing $1M and brands doing $10M.\n        <strong>Fixing them is usually worth more than your next month of ad spend.</strong>',
+        'case-label':       'Client result',
+        'case-h2':          'Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span>',
+        'case-1-label':     'Active customers',
+        'case-1-sub':       '30 → 300 in 12 months',
+        'case-2-label':     'Churn rate',
+        'case-2-sub':       '15% → 9% monthly churn',
+        'chart-caption':    'Monthly active customers · 30 → 300',
+        'case-tag':         'Japanese pet food · Shopify',
+        'case-story':       'They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren\'t coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That\'s how 30 active customers became 300 in twelve months.',
+        'services-label':   'What we do',
+        'services-h2':      'Full-cycle email &amp; SMS,<br><span>built for DTC brands.</span>',
+        'services-callout': 'We write the copy, design the emails, and build the flows. You bring the brand assets. We handle everything else. <strong>Already sending email? Here\'s the work. Not yet? We\'ll help you choose the right platform, and handle the setup.</strong>',
+        'svc-1-h': 'Flow audit &amp; rebuild',
+        'svc-1-p': 'A clear-eyed look at what\'s running, what\'s missing, and what\'s losing money. Then we fix it.',
+        'svc-2-h': 'Popup optimization',
+        'svc-2-p': 'Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.',
+        'svc-3-h': 'Customer lifecycle flows',
+        'svc-3-p': 'Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.',
+        'svc-4-h': 'Cancellation &amp; churn saves',
+        'svc-4-p': 'Segmented by cancel reason, order history, and LTV. Most brands don\'t have these. They should.',
+        'svc-5-h': 'Winback &amp; re-engagement',
+        'svc-5-p': 'Timed to customer behavior, not arbitrary day counts. The difference matters.',
+        'svc-6-h': 'Segmentation &amp; list hygiene',
+        'svc-6-p': 'Healthy lists, suppression logic, engagement tiers: the foundation everything else runs on.',
+        'hiw-label':  'How it works',
+        'hiw-h2':     'Simple to start.<br><span>No retainer required.</span>',
+        'step-1-h':   'Quick call',
+        'step-1-p':   'We talk through your current setup, what\'s working, and where the obvious gaps are. 20–30 minutes.',
+        'step-2-h':   'We look at your current setup',
+        'step-2-p':   'Already sending email? We tell you what\'s working and what\'s losing money. Not yet? We tell you which platform makes sense at your stage. Either way: no deck, no proposal, just actual feedback on what to do first.',
+        'step-3-h':   'We decide if it makes sense',
+        'step-3-p':   'Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.',
+        'faq-label':  'Common questions',
+        'faq-h2':     'What founders<br><span>usually ask first.</span>',
+        'faq-1-h':    'Do you write the copy and design the emails?',
+        'faq-1-p':    'Yes, full-service. We write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and we handle the rest end-to-end.',
+        'faq-2-h':    'What does it cost?',
+        'faq-2-p':    'Projects typically start from $1,500 – $3,000 depending on scope. You\'ll get a clear number on the call. No vague proposals, no surprises.',
+        'faq-4-h':    'How long does a typical project take?',
+        'faq-4-p':    'A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.',
+        'faq-5-h':    'Which email platform will we use?',
+        'faq-5-p':    'Whichever fits your stage and stack. We set it up, or migrate you over, and run it. If you\'re not ready, we\'ll tell you what to do first so you don\'t waste a setup.',
+        'about-label': 'A note from our founder',
+        'about-caption-name': 'Kei Nakayama',
+        'about-caption-role': 'Founder, hanjo',
+        'about-h2':    'I tried to build<br><span>one of these brands.</span>',
+        'about-p1':    'A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.\n            <strong>I couldn\'t build a product I was proud enough to sell.</strong>',
+        'about-p2':    'That experience changed how I see the people I work with. The founders who do make it, who find something worth coming back to, build a brand around it, and keep showing up, have my lasting respect.',
+        'about-p3':    'What we do now at hanjo is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That\'s where most email setups quietly fall apart. Not because the brand isn\'t good enough.\n            <strong>Because the email infrastructure wasn\'t built to support how returning customers actually behave.</strong>',
+        'about-p4':    'Most of the brands we work with have roots in Japan: the product, the founder, or the customer base. These brands often carry a distinct kind of customer relationship: high trust expectations, a more deliberate repurchase rhythm, a preference for depth over noise. Generic email setups don\'t account for that. We build ones that do.',
+        'about-p5':    'We work with founders who have already done the hard part. Our job is to make sure their retention side is working as hard as they are.',
+        'testimonial-quote': '"Kei didn\'t come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth, not just short-term wins."',
+        'testimonial-name':  'Brand Owner',
+        'testimonial-brand': 'Japanese pet food · Shopify',
+        'cta-h2':   'If you\'re spending on acquisition,\n        <strong>this is where most of it leaks.</strong>',
+        'cta-p':    'A free 30-minute consultation, in English or Japanese. Before anything else, we would love to hear how your customers buy today and where things feel stuck.',
+        'cta-btn':  'Start with a free consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'cta-note': 'No commitment. Just a conversation.',
+        'footer-about':    'About Us',
+        'footer-terms':    'Terms of Use',
+        'footer-privacy':  'Privacy Policy',
+        'footer-copy':     '© 2026 hanjo · Los Angeles',
+        'footer-name':     'Kei Nakayama',
+        'footer-location': 'Los Angeles, CA',
+      },
+      ja: {
+        'skip': '本文へスキップ',
+        'crumb':            '← サービス一覧に戻る',
+        'announce':         '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
+        'nav-avail':        '残り2社限定',
+        'lang-toggle':      'EN',
+        'nav-cta':          '無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'chip-avail':       '残り2社限定',
+        'hero-h1':          '一度きりの来訪客を\n        <strong>リピート顧客に。</strong>',
+        'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; ロサンゼルス、CA',
+        'hero-desc':        '費用をかけて獲得した顧客が、リピートせずに離れていく。その穴を埋めるのがメールです。ShopifyのDTCブランド向けに、コピー・デザイン・フロー構築を丸ごと担当します。\n        <strong>リテンションを整えれば、獲得コストが初めて積み重なっていきます。</strong>',
+        'hero-cta':         '無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'hero-see-work':    'その仕組みを見る',
+        'proof-1-label':    '月あたり回収できる売上',
+        'proof-1-sub':      '集客コストへの再投資に回る',
+        'proof-2-label':    'アクティブ顧客数',
+        'proof-2-sub':      '30人 → 300人（12ヶ月・ペットフードブランド）',
+        'proof-3-label':    'チャーン削減',
+        'proof-3-sub':      '月間15% → 9%',
+        'wall-label':       'メールの役割',
+        'wall-h2':          'メールが、一度きりの来訪客を<br><span>リピート顧客に変えます。</span>',
+        'wall-desc':        '広告で来てくれるのは一度きり。二度目、十度目の購入を生むのがメールです。育てた顧客リストは、いまブランドが持てる最も価値ある資産のひとつ。その歩みを設計します。',
+        'lc-sim':           'シミュレーション',
+        'lc-s0':            '見込み客',
+        'lc-s1':            '初回購入',
+        'lc-s2':            'リピーター',
+        'lc-z0':            '見込み客',
+        'lc-z1':            '初回購入',
+        'lc-z2':            'リピート',
+        'lc-f0':            '<b>ウェルカムフロー</b> <span class="lc-arrow">→ 初回購入</span>',
+        'lc-f1':            '<b>リピート促進フロー</b> <span class="lc-arrow">→ リピート</span>',
+        'gaps-label':       'よく見られること',
+        'gaps-h2':          'DTCブランドに多い、<br><span>顧客を失い続ける3つのパターン。</span>',
+        'gap-1':            '購入後のフローがウェルカムメールで止まっています。米国の顧客にとっては、その後に接点がないのと同じです。',
+        'gap-2':            'ウィンバックのタイミングが遅すぎます。送る頃には、顧客はすでに他を選んでいます。',
+        'gap-3':            '解約防止フローがありません。あるいは1通送って終わりです。',
+        'gaps-callout':     '米国で展開している日本のブランドに、特によく見られます。メールの仕組みは後回しにされがちで、その間にも顧客は離れ続けています。\n        <strong>ここを整えるだけで、翌月の広告費より価値が出ることが多いです。</strong>',
+        'case-label':       'クライアント事例',
+        'case-h2':          '日本のペットフードブランド。<br><span>12ヶ月でアクティブ顧客が30人から300人に。</span>',
+        'case-1-label':     'アクティブ顧客数',
+        'case-1-sub':       '30人 → 300人（12ヶ月）',
+        'case-2-label':     'チャーン率',
+        'case-2-sub':       '月間15% → 9%',
+        'chart-caption':    '月間アクティブ顧客 · 30人 → 300人',
+        'case-tag':         '日本のペットフード · Shopify',
+        'case-story':       '依頼が来た時点では、チャーンが高く、ウィンバックフローもなく、リピートされないせいで広告費が粗利を圧迫していました。充実した購入後フローと教育コンテンツのシリーズで、離れることを考える前に習慣を作りました。チャーンは15%から9%に下がり、LTVが上がりました。解放された粗利が集客に回り、12ヶ月でアクティブ顧客が30人から300人になりました。',
+        'services-label':   'できること',
+        'services-h2':      'DTCブランドのための、<br><span>LTVを伸ばす仕組みを構築します。</span>',
+        'services-callout': '英語のコピー執筆、メールデザイン、フロー構築まで一貫して対応します。ブランドアセットを共有していただければ、英語コンテンツの制作から設定まで丸ごとお任せいただけます。<strong>すでに配信中なら改善から。まだなら、プラットフォーム選びも含めて一緒に考えます。</strong>',
+        'svc-1-h': 'フロー診断と再構築',
+        'svc-1-p': '現状を把握し、問題を特定します。そして直します。',
+        'svc-2-h': 'ポップアップ最適化',
+        'svc-2-p': 'ウェルカムオファー、離脱インテント、モバイル対応A/Bテスト。多くのブランドが静かにリスト獲得を漏らしている場所です。',
+        'svc-3-h': 'カスタマーライフサイクルフロー',
+        'svc-3-p': '購入後、補充リマインダー、スキップ・一時停止防止、再アクティベーション。オンボーディングだけでなく、全体のフローをカバーします。',
+        'svc-4-h': '解約・チャーン防止',
+        'svc-4-p': '解約理由、注文履歴、LTVでセグメント分け。ほとんどのブランドが持っていません。持つべきです。',
+        'svc-5-h': 'ウィンバックと再エンゲージメント',
+        'svc-5-p': '任意の日数ではなく、顧客の行動に合わせたタイミングで。その差は大きいです。',
+        'svc-6-h': 'セグメンテーションとリスト管理',
+        'svc-6-p': '健全なリスト、配信停止のロジック、エンゲージメントの階層整備。他のすべての土台になる部分です。',
+        'hiw-label':  '進め方',
+        'hiw-h2':     'まずは<br><span>無料診断から。</span>',
+        'step-1-h':   'まず話す',
+        'step-1-p':   '現状のメール配信の状況、課題、目標についてお話しします。日本語で進められます。20〜30分。',
+        'step-2-h':   '現状を確認する',
+        'step-2-p':   'メール配信を始めているなら、うまくいっていることと改善点をお伝えします。まだなら、今の段階で移行が適切かを判断します。資料も提案書も必要ありません。まず何をすべきかを、直接お伝えします。',
+        'step-3-h':   '進め方を決める',
+        'step-3-p':   'プロジェクト単位か継続契約か、状況に応じて。プロジェクトは通常 $1,500〜$3,000（スコープによる）。リテーナーは不要。どちらの方向でも、プレッシャーはかけません。',
+        'faq-label':  'よくある質問',
+        'faq-h2':     'よく聞かれる、<br><span>5つの質問。</span>',
+        'faq-1-h':    '英語のコピー執筆とメールデザインも対応してもらえますか？',
+        'faq-1-p':    'はい、フルサービスで対応します。米国の顧客向けの英語コピーを執筆し、メールをデザインし、フローを構築します。ブランドアセットと方向性を共有していただければ、英語コンテンツの制作から設定まですべて担当します。',
+        'faq-2-h':    '費用はどれくらいですか？',
+        'faq-2-p':    'スコープによりますが、通常 $1,500〜$3,000 から。通話中に明確な金額をお伝えします。曖昧な提案書や、後からの追加費用はありません。',
+        'faq-4-h':    'プロジェクトの期間は？',
+        'faq-4-p':    'フルのフロー構築は、キックオフからローンチまで3〜5週間が目安です。診断は約1週間。スコープと、フィードバックやアセットを提供するスピードによって変わります。',
+        'faq-5-h':    '日本語でやり取りできますか？',
+        'faq-5-p':    'はい。ブランドの担当者との打ち合わせや日々のやり取りは日本語で進めます。米国の顧客に届けるメールコンテンツは英語で制作します。メール配信ツールもShopifyも、慣れていない段階から一緒に進められます。',
+        'about-label': '創業者より',
+        'about-caption-name': '中山 慧',
+        'about-caption-role': 'hanjo 創業者',
+        'about-h2':    '自分でも一度、<br><span>こういうブランドを作ろうとした。</span>',
+        'about-p1':    '数年前、日本でミールキットブランドを始めようとしました。どれだけ大変かを肌で感じるところまでは進みました。仕入れ、パッケージング、物流。最初の1件を届けるまでに、解決すべき問題は山ほどありました。<strong>自信を持って売れるプロダクトが、最終的には作れませんでした。</strong>',
+        'about-p2':    'その経験が、一緒に仕事をする人への見方を変えました。こだわり抜いたプロダクトを作り、それを米国市場に持ち込み、諦めずに続けている創業者たちへの尊敬は大きいです。',
+        'about-p3':    '今はロサンゼルスを拠点に、米国で展開する日本のブランドのメール・SMS運用を担当しています。英語のコピーを書き、メールをデザインし、フローを構築します。日本語でやり取りしながら、米国の顧客に届けるメールコミュニケーションを整えます。',
+        'about-p4':    '日本のブランドが持つ誠実さや世界観は、メールでも伝えられます。汎用的なメール設定では、その独自性が出ません。米国の顧客が自然に継続して買いたくなる仕組みを、ブランドに合わせて作ります。',
+        'about-p5':    '私たちは、プロダクト開発とオペレーションに集中したい創業者を支えるチームです。リテンション側は丸ごとお任せください。',
+        'testimonial-quote': '「ブランドと顧客のことを理解した上で動いてくれた。私たちのサブスクリプションモデルがどう動いているかを把握し、短期的な数字ではなく、持続的な成長に意味のある仕組みを作ってくれた。」',
+        'testimonial-name':  'ブランドオーナー',
+        'testimonial-brand': '日本のペットフード · Shopify',
+        'cta-h2':   '米国で獲得した顧客が<br><strong>リピートしていない理由がある。</strong>',
+        'cta-p':    '30分の無料相談を、日本語または英語で承ります。まずは、いまの配信の状況やお悩みを、じっくりお聞かせください。',
+        'cta-btn':  '無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+        'cta-note': 'ご相談のみでも歓迎です。日本語でどうぞ。',
+        'footer-name':     'Kei Nakayama',
+        'footer-about':    '会社概要',
+        'footer-terms':    '利用規約',
+        'footer-privacy':  'プライバシーポリシー',
+        'footer-copy':     '© 2026 hanjo · ロサンゼルス',
+        'footer-location': 'ロサンゼルス',
+      }
+    };
+
+    /* ── LANGUAGE SWITCH ── */
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('hanjo-lang', lang);
+      const strings = T[lang];
+      Object.keys(strings).forEach(key => {
+        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+          el.innerHTML = strings[key];
+        });
+      });
+    }
+
+    function toggleLang() {
+      const next = document.documentElement.lang === 'en' ? 'ja' : 'en';
+      applyLang(next);
+      let rest = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (rest === '') rest = '/';
+      history.replaceState(null, '', '/' + next + rest + location.hash);
+      prefixInternalLinks(next);
+    }
+    function prefixInternalLinks(lang) {
+      document.querySelectorAll('a[href^="/"]').forEach(a => {
+        let href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '') href = '/';
+        a.setAttribute('href', '/' + lang + href);
+      });
+    }
+
+    /* ── COUNTER ANIMATION ── */
+    function animateCounter(el) {
+      const target   = parseInt(el.dataset.count);
+      const prefix   = el.dataset.prefix || '';
+      const suffix   = el.dataset.suffix || '';
+      const duration = 1400;
+      let start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        const p     = Math.min((ts - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function animateBars() {
+      document.querySelectorAll('#growthChart .growth-bar-fill').forEach(bar => {
+        bar.style.height = bar.dataset.h;
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.classList.add('revealed');
+          if (el.dataset.count)        animateCounter(el);
+          if (el.id === 'growthChart') animateBars();
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el  => observer.observe(el));
+    document.querySelectorAll('[data-reveal-stagger]').forEach(el => observer.observe(el));
+    document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
+    const growthChart = document.getElementById('growthChart');
+    if (growthChart) observer.observe(growthChart);
+
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('[data-reveal],[data-reveal-stagger]').forEach(el => el.classList.add('revealed'));
+    }
+    window.setTimeout(() => {
+      document.querySelectorAll('[data-reveal]:not(.revealed),[data-reveal-stagger]:not(.revealed)').forEach(el => el.classList.add('revealed'));
+    }, 3000);
+
+    /* ── LIFECYCLE STRIP ── */
+    (function () {
+      const board = document.getElementById('lc-board');
+      if (!board) return;
+      const nums  = ['lc-n0', 'lc-n1', 'lc-n2'].map(id => document.getElementById(id));
+      const flows = ['lc-f0w', 'lc-f1w'].map(id => document.getElementById(id));
+      const COLORS = ['#b4ad9e', '#cf8a3c', '#2f6f57'];
+      const BANDS  = [[6, 30], [39, 61], [70, 94]];
+      const beads  = [];
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const TARGET = [11, 7, 7];
+      const FLOW = 2;
+      const place = z => (BANDS[z][0] + Math.random() * (BANDS[z][1] - BANDS[z][0])).toFixed(1) + '%';
+      const topPos = () => (12 + Math.random() * 66).toFixed(1) + '%';
+      const inZone = z => beads.filter(b => b.z === z);
+
+      function counts() {
+        const n = [0, 0, 0];
+        beads.forEach(b => n[b.z]++);
+        nums.forEach((el, i) => { if (el) el.textContent = n[i]; });
+      }
+      function make(z, fade) {
+        const el = document.createElement('div');
+        el.className = 'lc-bead';
+        el.style.background = COLORS[z];
+        el.style.left = place(z);
+        el.style.top = topPos();
+        if (fade) el.style.opacity = '0';
+        board.appendChild(el);
+        beads.push({ el, z });
+        if (fade) setTimeout(() => { el.style.opacity = '1'; }, 30);
+      }
+      function remove(b) {
+        b.el.style.opacity = '0';
+        const idx = beads.indexOf(b);
+        if (idx > -1) beads.splice(idx, 1);
+        setTimeout(() => { if (b.el.parentNode) b.el.parentNode.removeChild(b.el); }, 520);
+      }
+      function fire(i) {
+        const f = flows[i];
+        if (!f) return;
+        f.classList.add('lc-fire');
+        setTimeout(() => f.classList.remove('lc-fire'), 460);
+      }
+      function advance(z) {
+        const pool = inZone(z);
+        if (!pool.length) return false;
+        const k = Math.min(FLOW, pool.length);
+        for (let i = 0; i < k; i++) {
+          const b = pool[i];
+          b.z = z + 1;
+          b.el.style.left = place(b.z);
+          b.el.style.top = topPos();
+          b.el.style.background = COLORS[b.z];
+        }
+        return true;
+      }
+      function tick() {
+        if (advance(1)) fire(1);
+        if (advance(0)) fire(0);
+        const need = Math.min(FLOW, Math.max(0, TARGET[0] - inZone(0).length));
+        for (let i = 0; i < need; i++) make(0, true);
+        const excess = Math.min(FLOW, Math.max(0, inZone(2).length - TARGET[2]));
+        const reps = inZone(2);
+        for (let i = 0; i < excess; i++) remove(reps[i]);
+        counts();
+      }
+
+      TARGET.forEach((count, z) => { for (let i = 0; i < count; i++) make(z, false); });
+      counts();
+
+      if (reduce) return;
+
+      let timer = setInterval(tick, 1500);
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting && !timer) {
+              timer = setInterval(tick, 1500);
+            } else if (!e.isIntersecting && timer) {
+              clearInterval(timer);
+              timer = null;
+            }
+          });
+        }, { threshold: 0.2 });
+        io.observe(board);
+      }
+    })();
+
+    /* ── INIT ── */
+    const langSeg = location.pathname.split('/')[1];
+    const langParam = new URLSearchParams(location.search).get('lang');
+    const forcedLang = (langSeg === 'ja' || langSeg === 'en') ? langSeg
+                     : (langParam === 'ja' || langParam === 'en') ? langParam : null;
+    const savedLang = localStorage.getItem('hanjo-lang');
+    if (forcedLang) applyLang(forcedLang);
+    else if (savedLang && savedLang !== 'en') applyLang(savedLang);
+    else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
+    if (langSeg === 'ja' || langSeg === 'en') prefixInternalLinks(langSeg);
+    (function () {
+      var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      document.querySelectorAll('.nav-links a').forEach(function (a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+      });
+    })();
+  </script>
+
+<script>
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var b = document.querySelector('.nav-burger');
+    var open = m.classList.toggle('open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    m.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+  (function () {
+    var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+    document.querySelectorAll('.mm-links a').forEach(function (a) {
+      var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>お問い合わせ · hanjo · ロサンゼルス</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JLHW59CHY6');
+  </script>
+
+  <meta name="description" content="事業のことをお聞かせください。30分の無料相談を、日本語でも英語でも承ります。" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:url" content="https://hanjo.ai/ja/contact/" />
+  <meta property="og:title" content="お問い合わせ · hanjo · ロサンゼルス" />
+  <meta property="og:description" content="事業のことをお聞かせください。30分の無料相談を、日本語でも英語でも承ります。" />
+  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="お問い合わせ · hanjo · ロサンゼルス" />
+  <meta name="twitter:description" content="事業のことをお聞かせください。30分の無料相談を、日本語でも英語でも承ります。" />
+  <meta name="twitter:image" content="https://hanjo.ai/kei.JPG" />
+  <link rel="canonical" href="https://hanjo.ai/ja/contact/" />
+  <link rel="alternate" hreflang="en" href="https://hanjo.ai/contact/" />
+  <link rel="alternate" hreflang="ja" href="https://hanjo.ai/ja/contact/" />
+  <link rel="alternate" hreflang="x-default" href="https://hanjo.ai/contact/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #F5F4F0;
+      --white:   #ffffff;
+      --sage:    #3A5C45;
+      --ink:     #111110;
+      --muted:   #6B6B68;
+      --faint:   rgba(17,17,16,0.58);
+      --border:  #E4E2DC;
+      --radius:  14px;
+      --radius-sm: 100px;
+      --max:     720px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white); color: var(--ink);
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      -webkit-font-smoothing: antialiased; overflow-x: hidden;
+    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .announce { background: var(--sage); color: rgba(255,255,255,0.8); text-align: center; font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+    .announce strong { color: #ffffff; font-weight: 500; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { background: none; border: none; padding: 5px 2px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; color: var(--faint); cursor: pointer; letter-spacing: 0.06em; transition: color 0.2s, border-color 0.2s, background 0.15s; display: inline-flex; align-items: center; line-height: 1; font-family: inherit; }
+    .lang-toggle:hover { color: var(--ink); }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    @media (max-width: 1120px) { .nav-links { gap: 20px; } }
+    .nav-links a {
+      font-family: 'Playfair Display', serif;
+      font-size: 16.5px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      opacity: 0.66;
+      text-decoration: none;
+      padding: 8px 0;
+      position: relative;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 100%; bottom: 3px;
+      height: 1.5px;
+      background: var(--sage);
+      transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover::after { right: 0; }
+    .nav-links a.active {
+      opacity: 1;
+      color: var(--sage);
+    }
+    .nav-links a.active:hover { color: var(--sage); }
+    .nav-links a.active::after { right: 0; }
+    @media (max-width: 880px) { .nav-links { display: none; } }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: #ffffff; background: var(--sage); text-decoration: none; padding: 9px 18px; border-radius: var(--radius-sm); transition: background 0.2s; letter-spacing: 0.01em; }
+    .nav-cta:hover { background: #2e4a38; }
+    html[lang="ja"] .nav-cta { font-family: 'Noto Sans JP', sans-serif; }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 26px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--ink); }
+    .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .page-hero .section { padding: clamp(28px, 4vw, 44px) 24px clamp(30px, 4vw, 46px); }
+    .section { max-width: var(--max); margin: 0 auto; padding: 64px 24px; }
+    .page-hero h1 { text-wrap: balance; font-family: 'Playfair Display', serif; font-size: clamp(34px, 4.6vw, 52px); font-weight: 600; line-height: 1.08; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 18px; animation: fadeUp 0.8s 0.05s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+    .lead { text-wrap: pretty; font-size: 16px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 560px; animation: fadeUp 0.7s 0.2s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+
+    form { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; }
+    .f-full { grid-column: 1 / -1; }
+    label.f-label, legend.f-label { display: block; font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 8px; letter-spacing: 0.01em; }
+    .f-req { color: var(--sage); }
+    input[type="text"], input[type="email"], input[type="url"], select, textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 14.5px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+    }
+    select {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236B6B68' stroke-width='1.6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 38px;
+    }
+    textarea { min-height: 120px; resize: vertical; line-height: 1.7; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 3px rgba(58,92,69,0.1); }
+    input::placeholder, textarea::placeholder { color: rgba(17,17,16,0.32); }
+    fieldset { border: none; }
+    .pill-group { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill { position: relative; }
+    .pill input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+    .pill span {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      user-select: none;
+    }
+    .pill input:checked + span { background: var(--sage); border-color: var(--sage); color: #ffffff; }
+    .pill input:focus-visible + span { box-shadow: 0 0 0 3px rgba(58,92,69,0.25); }
+    .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; }
+    .f-note { font-size: 12px; font-weight: 300; color: var(--faint); margin-top: -8px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 13.5px; font-weight: 600; letter-spacing: 0.03em;
+      text-decoration: none; border: none; cursor: pointer; font-family: inherit;
+      padding: 15px 30px; border-radius: var(--radius-sm);
+      color: #ffffff; background: var(--sage);
+      transition: background 0.2s, transform 0.25s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.25s;
+    }
+    .btn:hover { background: #2e4a38; }
+    .btn:disabled { opacity: 0.6; cursor: wait; transform: none; box-shadow: none; }
+    .form-status { display: none; font-size: 14px; line-height: 1.7; padding: 16px 20px; border-radius: 10px; }
+    .form-status.err { display: block; background: #FFF0EE; border: 1px solid #F5C6C0; color: #8a2a1f; }
+    .form-status a { color: inherit; font-weight: 600; }
+
+    .success { display: none; text-align: left; padding: 8px 0 24px; }
+    .success h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3.6vw, 40px); font-weight: 600; line-height: 1.15; margin-bottom: 14px; }
+    .success p { font-size: 15.5px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 28px; }
+    footer { background: var(--white); border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: var(--muted); text-decoration: none;   padding: 8px 0; display: inline-block; }
+    .footer-meta a:hover { color: var(--sage); }
+
+    html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
+    html[lang="ja"] .page-hero h1, html[lang="ja"] .success h2 { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; line-height: 1.3; line-break: strict; font-size: clamp(26px, 3.8vw, 42px); }
+    html[lang="ja"] .lead, html[lang="ja"] .success p { font-family: 'Noto Sans JP', sans-serif; font-size: 14.5px; line-height: 2.0; letter-spacing: 0.02em; line-break: strict; }
+    html[lang="ja"] .f-label, html[lang="ja"] .pill span, html[lang="ja"] input, html[lang="ja"] select, html[lang="ja"] textarea, html[lang="ja"] .btn, html[lang="ja"] .announce, html[lang="ja"] .crumb, html[lang="ja"] .lang-toggle, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span, html[lang="ja"] .f-note, html[lang="ja"] .form-status { font-family: 'Noto Sans JP', sans-serif; }
+
+    @media (max-width: 640px) {
+      form { grid-template-columns: 1fr; }
+      .nav-inner { padding: 13px 20px; }
+      .section { padding: 48px 20px; }
+      .page-hero .section { padding: 22px 20px 30px; }
+      .crumb { margin-bottom: 14px; }
+    }
+      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  
+    /* ── SMOOTH PAGE TRANSITIONS: header/footer stay put ── */
+    @view-transition { navigation: auto; }
+    nav { view-transition-name: site-header; }
+    .announce { view-transition-name: site-announce; }
+    footer { view-transition-name: site-footer; }
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition { navigation: none; }
+    }
+  
+    /* ── CTA: modern flat ── */
+    .nav-cta, .btn--dark, .btn-primary, form .btn {
+      color: #ffffff;
+      background: var(--sage);
+      border: none;
+      box-shadow: none;
+      transition: background-color 0.18s ease;
+    }
+    .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover {
+      color: #ffffff;
+      background: #2e4a38;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta:active, .btn--dark:active, .btn-primary:active, form .btn:active {
+      background: #263d2f;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta svg, .btn--dark svg, .btn-primary svg, .btn--light svg {
+      transition: transform 0.2s ease;
+    }
+    .nav-cta:hover svg, .btn--dark:hover svg, .btn-primary:hover svg, .btn--light:hover svg {
+      transform: translateX(3px);
+    }
+    .btn--light {
+      color: var(--sage);
+      background: #ffffff;
+      border: none;
+      box-shadow: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      transition: background-color 0.18s ease;
+    }
+    .btn--light:hover { color: var(--sage); background: #eef0ea; transform: none; }
+    .btn--light:active { background: #e3e6df; transform: none; }
+      /* ── CTA geometry: one standard ── */
+    .btn--dark, .btn--light {
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      gap: 8px;
+      padding: 15px 30px;
+      border-radius: 100px;
+    }
+      /* ── MOBILE MENU ── */
+    .nav-burger { display: none; }
+    .mobile-menu { display: none; }
+    @media (max-width: 880px) {
+      .nav-inner { padding: 12px 16px; }
+      .lang-toggle { display: none; }
+      .nav-right { gap: 12px; }
+      .nav-cta { font-size: 12.5px; padding: 9px 16px; }
+      .nav-burger { width: 44px; height: 44px; margin-right: -8px; }
+      .mm-lang {
+        display: block;
+        margin-top: 32px;
+        background: none;
+        border: none;
+        padding: 8px 0;
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: #6B6B68;
+        cursor: pointer;
+        font-family: inherit;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease 0.5s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, color 0.2s;
+      }
+      .mm-lang:hover { color: #111110; }
+      .mobile-menu.open .mm-lang { opacity: 1; transform: none; }
+      .nav-burger {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .nav-burger span {
+        display: block;
+        width: 20px;
+        height: 1.5px;
+        background: #111110;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+      .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+      .mobile-menu {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: #F5F4F0;
+        padding: 140px 32px 48px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s;
+      }
+      .mobile-menu.open { opacity: 1; visibility: visible; }
+      .mm-links { display: flex; flex-direction: column; }
+      .mm-links a {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: #111110;
+        text-decoration: none;
+        padding: 16px 0;
+        border-bottom: 1px solid #E4E2DC;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .mm-links a.active { color: #3A5C45; }
+      .mm-ico { color: #3A5C45; flex-shrink: 0; opacity: 0.85; }
+      .mm-name { flex: 1; }
+      .mm-arrow { color: rgba(17, 17, 16, 0.3); flex-shrink: 0; }
+      .mm-links a.active .mm-arrow { color: #3A5C45; }
+
+      .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
+      .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
+      .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
+      .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
+      .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
+      .mobile-menu.open .mm-links a:nth-child(5) { transition-delay: 0.33s; }
+      .mobile-menu.open .mm-links a:nth-child(6) { transition-delay: 0.4s; }
+      @media (prefers-reduced-motion: reduce) {
+        .mm-links a { transition: opacity 0.2s; transform: none; }
+      }
+    }
+      /* ── MAIN CTA EMPHASIS + SHINE ── */
+    .hero-actions .btn--dark, .hero-actions .btn-primary, .cta-inner .btn--dark, .cta-inner .btn--light, form .btn {
+      font-size: 15px;
+      height: 52px;
+      padding: 0 38px;
+    }
+    .btn--dark, .btn-primary, .nav-cta, form .btn, .btn--light {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .btn--light::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(58, 92, 69, 0.12), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes ctaShine {
+      0%, 58% { left: -80%; }
+      78%, 100% { left: 130%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after, .btn--light::after { animation: none; display: none; }
+    }
+      /* ── NATURAL JA LINE BREAKING (phrase-based where supported) ── */
+    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
+    html[lang="ja"] p, html[lang="ja"] li,
+    html[lang="ja"] .announce, html[lang="ja"] .btn-note, html[lang="ja"] .lead,
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
+    body.lang-ja p, body.lang-ja li, body.lang-ja .risk-banner {
+      word-break: auto-phrase;
+    }
+    p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
+      .agree { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+    .agree input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--sage); cursor: pointer; flex-shrink: 0; }
+    .agree-text { font-size: 13.5px; font-weight: 400; color: var(--muted); }
+    .agree-text a { color: var(--sage); font-weight: 500; text-underline-offset: 3px; }
+    html[lang="ja"] .agree-text { font-family: 'Noto Sans JP', sans-serif; }
+      .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 300;
+      background: var(--sage);
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 0 0 10px 0;
+      text-decoration: none;
+    }
+    .skip-link:focus { left: 0; }
+    /* ── FOOTER CANONICAL (identical metrics on every page) ── */
+    footer { background: #ffffff; border-top: 1px solid var(--border); }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto; padding: 26px 40px;
+      display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
+    .footer-meta a, .footer-meta span {
+      font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
+      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+    }
+    .footer-meta a:hover { color: #111110; }
+    .footer-logo img { height: 22px; display: block; }
+    @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
+  </style>
+
+  <script type="speculationrules">
+  {
+    "prerender": [{
+      "where": { "and": [
+        { "href_matches": "/*" },
+        { "not": { "href_matches": "/api/*" } }
+      ]},
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
+  <script>
+    (function () {
+      if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) return;
+      var seen = {};
+      document.addEventListener('pointerover', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null;
+        if (!a) return;
+        var u = a.href;
+        if (seen[u] || u.indexOf('/api/') !== -1) return;
+        seen[u] = 1;
+        var l = document.createElement('link');
+        l.rel = 'prefetch';
+        l.href = u;
+        document.head.appendChild(l);
+      }, { passive: true });
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://hanjo.ai/contact/",
+  "name": "Contact hanjo",
+  "description": "Intake form for a free 30-minute consultation with hanjo, in English or Japanese.",
+  "inLanguage": [
+    "en",
+    "ja"
+  ],
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "hanjo",
+    "url": "https://hanjo.ai",
+    "areaServed": {
+      "@type": "City",
+      "name": "Los Angeles"
+    },
+    "knowsLanguage": [
+      "en",
+      "ja"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "areaServed": "US",
+      "availableLanguage": [
+        "en",
+        "ja"
+      ],
+      "url": "https://hanjo.ai/contact/"
+    }
+  }
+}
+  </script>
+</head>
+<body class="lang-ja">
+
+  <a class="skip-link" href="#main" data-i18n="skip">本文へスキップ</a>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="/ja/" class="logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+      </a>
+      <div class="nav-links" aria-label="Site">
+        <a href="/ja/">Home</a>
+        <a href="/ja/crm/">CRM</a>
+        <a href="/ja/web/">Web</a>
+        <a href="/ja/ads/">Ads</a>
+        <a href="/ja/recovery/">Recovery</a>
+        <a href="/ja/contact/">Contact</a>
+      </div>
+      <div class="nav-right">
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" data-i18n="lang-toggle">EN</button>
+        <a href="#inquiry-form" class="nav-cta" data-i18n="nav-cta">無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <script>
+    /* Browsers restore scroll on reload, which drops a visitor part-way down a
+       page they just opened. Start fresh loads and reloads at the top. Back and
+       forward keep their restored position, and #anchors are left alone. */
+    (function () {
+      if (location.hash) return;
+      var entry = performance.getEntriesByType('navigation')[0];
+      if (entry && entry.type === 'back_forward') return;
+      history.scrollRestoration = 'manual';
+      try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+      catch (e) { window.scrollTo(0, 0); }
+    })();
+  </script>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Menu">
+  <div class="mm-links">
+    <a href="/ja/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg><span class="mm-name">Home</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/crm/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="mm-name">CRM</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/web/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="mm-name">Web</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/ads/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span class="mm-name">Ads</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/recovery/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="mm-name">Recovery</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/contact/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span class="mm-name">Contact</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+  </div>
+    <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
+</div>
+
+  <div class="page-hero" id="main" tabindex="-1">
+    <div class="section">
+      <h1 data-i18n="c-h1">ビジネスについて、お聞かせください。</h1>
+      <p class="lead" data-i18n="c-lead">まずは、お話をお聞かせください。ビジネスのことも、いま引っかかっていることも。1営業日以内にご返信します。</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <form id="inquiry-form" novalidate>
+      <div>
+        <label class="f-label" for="f-name"><span data-i18n="f-name">お名前</span> <span class="f-req">*</span></label>
+        <input type="text" id="f-name" name="name" required autocomplete="name" />
+      </div>
+      <div>
+        <label class="f-label" for="f-email"><span data-i18n="f-email">メールアドレス</span> <span class="f-req">*</span></label>
+        <input type="email" id="f-email" name="email" required autocomplete="email" />
+      </div>
+      <div>
+        <label class="f-label" for="f-company" data-i18n="f-company">会社名・ブランド名</label>
+        <input type="text" id="f-company" name="company" autocomplete="organization" />
+      </div>
+      <div>
+        <label class="f-label" for="f-website" data-i18n="f-website">ウェブサイト または Instagram</label>
+        <input type="text" id="f-website" name="website" placeholder="https://" />
+      </div>
+
+      <div class="f-full">
+        <label class="f-label" for="f-type" data-i18n="f-type">どのようなビジネスですか？</label>
+        <select id="f-type" name="businessType">
+          <option value="" data-i18n="o-select">選択してください</option>
+          <option value="EC / DTC brand" data-i18n="o-type-1">ECサイト / D2Cブランド</option>
+          <option value="Restaurant / food" data-i18n="o-type-2">飲食店・食品</option>
+          <option value="Salon / spa / clinic" data-i18n="o-type-3">サロン・スパ・クリニック</option>
+          <option value="Local service" data-i18n="o-type-4">地域密着のサービス業</option>
+          <option value="B2B" data-i18n="o-type-5">B2B</option>
+          <option value="Other" data-i18n="o-type-6">その他</option>
+        </select>
+      </div>
+
+      <fieldset class="f-full">
+        <legend class="f-label"><span data-i18n="f-needs">ご相談内容（複数選択可）</span> <span class="f-req">*</span></legend>
+        <div class="pill-group">
+          <label class="pill"><input type="checkbox" name="needs" value="Website / LP" /><span data-i18n="n-web">ホームページ / LP</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Online store" /><span data-i18n="n-store">ECサイト</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Email / SMS (CRM)" /><span data-i18n="n-crm">メール / SMS</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Ads" /><span data-i18n="n-ads">広告運用</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Booking / lead recovery" /><span data-i18n="n-recovery">予約の取りこぼし対策</span></label>
+          <label class="pill"><input type="checkbox" name="needs" value="Not sure yet" /><span data-i18n="n-unsure">まだ決めていない</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="f-full">
+        <legend class="f-label" data-i18n="f-tools">現在お使いのツール</legend>
+        <div class="pill-group">
+          <label class="pill"><input type="checkbox" name="tools" value="Shopify" /><span>Shopify</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Klaviyo" /><span>Klaviyo</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Mailchimp" /><span>Mailchimp</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Square" /><span>Square</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Meta ads" /><span>Meta ads</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="Google ads" /><span>Google ads</span></label>
+          <label class="pill"><input type="checkbox" name="tools" value="None yet" /><span data-i18n="tool-none">まだ使っていない</span></label>
+        </div>
+      </fieldset>
+
+      <div>
+        <label class="f-label" for="f-revenue" data-i18n="f-revenue">月商の目安（任意）</label>
+        <select id="f-revenue" name="revenue">
+          <option value="" data-i18n="o-select">選択してください</option>
+          <option value="Pre-launch" data-i18n="o-rev-1">これから立ち上げ</option>
+          <option value="Under $10k">~ $10k</option>
+          <option value="$10k-50k">$10k – $50k</option>
+          <option value="$50k-200k">$50k – $200k</option>
+          <option value="$200k+">$200k +</option>
+          <option value="Prefer not to say" data-i18n="o-rev-6">回答しない</option>
+        </select>
+      </div>
+      <div>
+        <label class="f-label" for="f-timeline" data-i18n="f-timeline">開始したい時期</label>
+        <select id="f-timeline" name="timeline">
+          <option value="" data-i18n="o-select">選択してください</option>
+          <option value="ASAP" data-i18n="o-time-1">できるだけ早く</option>
+          <option value="1-2 months" data-i18n="o-time-2">1〜2ヶ月以内</option>
+          <option value="Within 6 months" data-i18n="o-time-3">半年以内</option>
+          <option value="Just researching" data-i18n="o-time-4">情報収集の段階</option>
+        </select>
+      </div>
+
+      <fieldset class="f-full">
+        <legend class="f-label" data-i18n="f-lang">ご希望の言語</legend>
+        <div class="pill-group">
+          <label class="pill"><input type="radio" name="language" value="日本語" /><span>日本語</span></label>
+          <label class="pill"><input type="radio" name="language" value="English" /><span>English</span></label>
+          <label class="pill"><input type="radio" name="language" value="Either" /><span data-i18n="lang-either">どちらでも</span></label>
+        </div>
+      </fieldset>
+
+      <div class="f-full">
+        <label class="f-label" for="f-message" data-i18n="f-message">そのほか、お聞かせいただけること</label>
+        <textarea id="f-message" name="message" data-i18n-placeholder="p-message" placeholder="現在の課題、目標、ご質問など。どんなことでも参考になります。"></textarea>
+      </div>
+
+      <div class="f-full">
+        <label class="agree">
+          <input type="checkbox" name="privacy" required />
+          <span class="agree-text" data-i18n="f-agree"><a href="/ja/privacy/" target="_blank" rel="noopener">プライバシーポリシー</a>に同意します。</span>
+        </label>
+      </div>
+
+      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="f-full">
+        <button type="submit" class="btn" id="f-submit" data-i18n="f-submit">送信する</button>
+      </div>
+      <p class="form-status f-full" id="f-error" role="alert"><span data-i18n="f-error">送信に失敗しました。少し時間をおいて、もう一度お試しください。</span></p>
+    </form>
+
+    <div class="success" id="f-success" role="status">
+      <h2 data-i18n="s-h2">送信ありがとうございました。</h2>
+      <p data-i18n="s-p">1営業日以内に、日本語または英語でご返信します。</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <a href="/ja/about/" data-i18n="footer-about">会社概要</a>
+        <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
+        <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
+        <span data-i18n="footer-copy">© 2026 hanjo · ロサンゼルス</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const T = {
+      "en": {
+        "skip": "Skip to content",
+        "announce": "<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.",
+        "lang-toggle": "JP",
+        "nav-cta": "Free consultation <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+        "crumb": "← Back to top",
+        "c-h1": "Tell us about your business.",
+        "c-lead": "First, we listen. Tell us about your business and whatever feels stuck right now. We reply within one business day.",
+        "f-name": "Your name",
+        "f-email": "Email",
+        "f-company": "Company or brand",
+        "f-website": "Website or Instagram",
+        "f-type": "What kind of business is it?",
+        "o-select": "Select one",
+        "o-type-1": "Online store / DTC brand",
+        "o-type-2": "Restaurant / food",
+        "o-type-3": "Salon / spa / clinic",
+        "o-type-4": "Local service business",
+        "o-type-5": "B2B",
+        "o-type-6": "Other",
+        "f-needs": "What do you need help with?",
+        "n-web": "Website / landing page",
+        "n-store": "Online store",
+        "n-crm": "Email / SMS",
+        "n-ads": "Ads",
+        "n-recovery": "Booking recovery",
+        "n-unsure": "Not sure yet",
+        "f-tools": "Tools you already use",
+        "tool-none": "None yet",
+        "f-revenue": "Monthly revenue (optional)",
+        "o-rev-1": "Not launched yet",
+        "o-rev-6": "Prefer not to say",
+        "f-timeline": "When would you like to start?",
+        "o-time-1": "As soon as possible",
+        "o-time-2": "Within 1 to 2 months",
+        "o-time-3": "Within 6 months",
+        "o-time-4": "Just researching",
+        "f-lang": "Preferred language",
+        "lang-either": "Either",
+        "f-message": "Anything else you would like to share?",
+        "p-message": "Current challenges, goals, questions. Anything helps.",
+        "f-agree": "I agree to the <a href=\"/privacy/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
+        "f-submit": "Send inquiry",
+        "f-error": "Something went wrong. Please try again in a moment.",
+        "s-h2": "Thank you. We received it.",
+        "s-p": "We will reply within one business day, in English or Japanese.",
+        "s-cta": "Pick a time for the free call",
+        "footer-about": "About Us",
+        "footer-terms": "Terms of Use",
+        "footer-privacy": "Privacy Policy",
+        "footer-copy": "© 2026 hanjo · Los Angeles",
+        "footer-name": "Kei Nakayama",
+        "footer-location": "Los Angeles, CA"
+      },
+      "ja": {
+        "skip": "本文へスキップ",
+        "announce": "<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。",
+        "lang-toggle": "EN",
+        "nav-cta": "無料相談 <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
+        "crumb": "← トップに戻る",
+        "c-h1": "ビジネスについて、お聞かせください。",
+        "c-lead": "まずは、お話をお聞かせください。ビジネスのことも、いま引っかかっていることも。1営業日以内にご返信します。",
+        "f-name": "お名前",
+        "f-email": "メールアドレス",
+        "f-company": "会社名・ブランド名",
+        "f-website": "ウェブサイト または Instagram",
+        "f-type": "どのようなビジネスですか？",
+        "o-select": "選択してください",
+        "o-type-1": "ECサイト / D2Cブランド",
+        "o-type-2": "飲食店・食品",
+        "o-type-3": "サロン・スパ・クリニック",
+        "o-type-4": "地域密着のサービス業",
+        "o-type-5": "B2B",
+        "o-type-6": "その他",
+        "f-needs": "ご相談内容（複数選択可）",
+        "n-web": "ホームページ / LP",
+        "n-store": "ECサイト",
+        "n-crm": "メール / SMS",
+        "n-ads": "広告運用",
+        "n-recovery": "予約の取りこぼし対策",
+        "n-unsure": "まだ決めていない",
+        "f-tools": "現在お使いのツール",
+        "tool-none": "まだ使っていない",
+        "f-revenue": "月商の目安（任意）",
+        "o-rev-1": "これから立ち上げ",
+        "o-rev-6": "回答しない",
+        "f-timeline": "開始したい時期",
+        "o-time-1": "できるだけ早く",
+        "o-time-2": "1〜2ヶ月以内",
+        "o-time-3": "半年以内",
+        "o-time-4": "情報収集の段階",
+        "f-lang": "ご希望の言語",
+        "lang-either": "どちらでも",
+        "f-message": "そのほか、お聞かせいただけること",
+        "p-message": "現在の課題、目標、ご質問など。どんなことでも参考になります。",
+        "f-agree": "<a href=\"/privacy/\" target=\"_blank\" rel=\"noopener\">プライバシーポリシー</a>に同意します。",
+        "f-submit": "送信する",
+        "f-error": "送信に失敗しました。少し時間をおいて、もう一度お試しください。",
+        "s-h2": "送信ありがとうございました。",
+        "s-p": "1営業日以内に、日本語または英語でご返信します。",
+        "s-cta": "無料相談の日時を予約する",
+        "footer-about": "会社概要",
+        "footer-terms": "利用規約",
+        "footer-privacy": "プライバシーポリシー",
+        "footer-copy": "© 2026 hanjo · ロサンゼルス",
+        "footer-name": "Kei Nakayama",
+        "footer-location": "ロサンゼルス"
+      }
+    };
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('hanjo-lang', lang);
+      const strings = T[lang];
+      Object.keys(strings).forEach(key => {
+        document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
+          el.innerHTML = strings[key];
+        });
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const k = el.getAttribute('data-i18n-placeholder');
+        if (strings[k]) el.setAttribute('placeholder', strings[k]);
+      });
+    }
+    function toggleLang() {
+      const next = document.documentElement.lang === 'en' ? 'ja' : 'en';
+      applyLang(next);
+      let rest = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (rest === '') rest = '/';
+      history.replaceState(null, '', '/' + next + rest + location.hash);
+      prefixInternalLinks(next);
+    }
+    function prefixInternalLinks(lang) {
+      document.querySelectorAll('a[href^="/"]').forEach(a => {
+        let href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '') href = '/';
+        a.setAttribute('href', '/' + lang + href);
+      });
+    }
+
+    const langSeg = location.pathname.split('/')[1];
+    const langParam = new URLSearchParams(location.search).get('lang');
+    const forcedLang = (langSeg === 'ja' || langSeg === 'en') ? langSeg
+                     : (langParam === 'ja' || langParam === 'en') ? langParam : null;
+    const savedLang = localStorage.getItem('hanjo-lang');
+    if (forcedLang) applyLang(forcedLang);
+    else if (savedLang && savedLang !== 'en') applyLang(savedLang);
+    else if (!savedLang && (navigator.language || '').toLowerCase().startsWith('ja')) applyLang('ja');
+    if (langSeg === 'ja' || langSeg === 'en') prefixInternalLinks(langSeg);
+    (function () {
+      var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      document.querySelectorAll('.nav-links a').forEach(function (a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+      });
+    })();
+
+    /* ── SUBMIT ── */
+    const form = document.getElementById('inquiry-form');
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const btn = document.getElementById('f-submit');
+      const errBox = document.getElementById('f-error');
+      errBox.classList.remove('err');
+      if (!form.reportValidity()) return;
+
+      const fd = new FormData(form);
+      const data = {
+        name: fd.get('name'),
+        email: fd.get('email'),
+        company: fd.get('company'),
+        website: fd.get('website'),
+        businessType: fd.get('businessType'),
+        needs: fd.getAll('needs'),
+        tools: fd.getAll('tools'),
+        revenue: fd.get('revenue'),
+        timeline: fd.get('timeline'),
+        language: fd.get('language'),
+        message: fd.get('message'),
+        hp: fd.get('hp'),
+      };
+
+      btn.disabled = true;
+      try {
+        const res = await fetch('/api/inquiry', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error('bad status');
+        form.style.display = 'none';
+        document.getElementById('f-success').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (err) {
+        errBox.classList.add('err');
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+<script>
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var b = document.querySelector('.nav-burger');
+    var open = m.classList.toggle('open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    m.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+  (function () {
+    var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+    document.querySelectorAll('.mm-links a').forEach(function (a) {
+      var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+    });
+  })();
+</script>
+</body>
+</html>

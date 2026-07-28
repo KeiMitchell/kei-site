@@ -16,6 +16,10 @@ hanjo operates four service lines and works in both English and Japanese with US
 - [About hanjo](https://hanjo.ai/about/): Founded by Kei Nakayama. Bilingual growth partner serving the Los Angeles area in English and Japanese.
 - [Contact](https://hanjo.ai/contact/): Intake form for a free consultation, in English or Japanese.
 
+## Japanese
+
+Every page exists in Japanese at the same path under `/ja/`, as fully rendered Japanese HTML rather than a client-side translation. For example [https://hanjo.ai/ja/recovery/](https://hanjo.ai/ja/recovery/) and [https://hanjo.ai/ja/crm/](https://hanjo.ai/ja/crm/). The English pages are canonical at the unprefixed path.
+
 ## Key facts
 
 - Location: Los Angeles, California, United States

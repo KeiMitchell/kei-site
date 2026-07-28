@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="ja" id="html-root">
+<head>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JLHW59CHY6');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hanjo | AIが、広告を、最適化する時代へ。</title>
+  <meta name="description" content="hanjo Adsは、広告プラットフォームが本来受け取れない成果データを届け、実際に購入・予約・再来するお客様に配信を集中させます。" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#3A5C45" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:url" content="https://hanjo.ai/ja/ads/" />
+  <meta property="og:title" content="hanjo | AIが、広告を、最適化する時代へ。" />
+  <meta property="og:description" content="hanjo Adsは、広告プラットフォームが本来受け取れない成果データを届け、実際に購入・予約・再来するお客様に配信を集中させます。" />
+  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="hanjo | AIが、広告を、最適化する時代へ。" />
+  <meta name="twitter:description" content="hanjo Adsは、広告プラットフォームが本来受け取れない成果データを届け、実際に購入・予約・再来するお客様に配信を集中させます。" />
+  <meta name="twitter:image" content="https://hanjo.ai/kei.JPG" />
+  <link rel="canonical" href="https://hanjo.ai/ja/ads/" />
+  <link rel="alternate" hreflang="en" href="https://hanjo.ai/ads/" />
+  <link rel="alternate" hreflang="ja" href="https://hanjo.ai/ja/ads/" />
+  <link rel="alternate" hreflang="x-default" href="https://hanjo.ai/ads/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #111110;
+      --gray:    #6B6B68;
+      --light:   #F5F4F0;
+      --white:   #FFFFFF;
+      --sage:    #3A5C45;
+      --sage-lt: #EBF1ED;
+      --sage-md: #C8DACC;
+      --red:     #C0392B;
+      --border:  #E4E2DC;
+      --r:       12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1080px; margin: 0 auto; }
+    .label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+    section { padding: 64px 5vw; }
+    @media (min-width: 768px) { section { padding: 96px 5vw; } }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 60px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; }
+    .logo-img { height: 26px; width: auto; display: block; }
+    .logo-img--footer { height: 30px; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-cta {
+      padding: 9px 18px;
+      background: var(--sage); color: var(--white);
+      border-radius: 100px; font-size: 0.8125rem; font-weight: 500;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: #2e4a38; }
+
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-toggle { display: flex; align-items: center; gap: 2px; }
+    .lang-btn {
+      padding: 2px 4px; cursor: pointer; border: none;
+      background: transparent; color: var(--gray);
+      font-size: 0.7rem; font-weight: 500;
+      font-family: inherit; line-height: 1.4; white-space: nowrap;
+      opacity: 0.4; transition: opacity 0.15s;
+    }
+    .lang-btn.active { opacity: 1; color: var(--black); font-weight: 600; }
+    .lang-btn:hover:not(.active) { opacity: 0.7; }
+    .lang-sep { font-size: 0.65rem; color: var(--border); user-select: none; }
+
+    /* ── BANNER ── */
+    .risk-banner {
+      background: var(--sage); color: var(--white);
+      padding: 12px 5vw; text-align: center;
+      font-size: 0.8125rem; line-height: 1.5;
+    }
+    .risk-banner strong { font-weight: 600; }
+
+    /* ── HERO ── */
+    .hero { background: var(--light); border-bottom: 1px solid var(--border); padding: 72px 5vw 64px; position: relative; overflow: hidden; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      line-height: 1.08; letter-spacing: -0.025em;
+      margin-bottom: 26px;
+    }
+    .hero h1 em { font-style: italic; color: var(--sage); font-size: 1.3em; line-height: 1; display: inline-block; margin-top: 0.12em; }
+    .hero-sub {
+      font-size: 1rem; color: var(--gray);
+      max-width: 520px; margin-bottom: 36px; line-height: 1.7;
+    }
+    .location-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--sage); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .platform-row { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; margin: -14px 0 40px; }
+    .pf-label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray); opacity: 0.75; }
+    .pf-item { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--black); opacity: 0.72; transition: opacity 0.2s; }
+    .pf-item:hover { opacity: 1; }
+    .pf-item svg { flex-shrink: 0; }
+    body.lang-ja .pf-label { font-family: 'Noto Sans JP', sans-serif; letter-spacing: 0.1em; }
+
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 14px 24px;
+      background: var(--sage); color: var(--white);
+      border-radius: 100px; font-size: 0.9375rem; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #2e4a38; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 14px 20px;
+      color: var(--black); font-size: 0.9375rem; font-weight: 500;
+      text-decoration: none; border-radius: 100px;
+      border: 1px solid var(--border); background: var(--white);
+      transition: border-color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--sage); }
+
+    /* stat badges (hero): editorial stat strip */
+    .zero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    @media (min-width: 560px) { .zero-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (min-width: 900px) { .zero-grid { grid-template-columns: repeat(4,1fr); } }
+    .zero-badge { padding: 24px 4px; }
+    @media (max-width: 559px) {
+      .zero-badge + .zero-badge { border-top: 1px solid var(--border); }
+    }
+    @media (min-width: 560px) and (max-width: 899px) {
+      .zero-badge { padding: 26px 28px 28px; }
+      .zero-badge:nth-child(odd) { padding-left: 0; }
+      .zero-badge:nth-child(even) { border-left: 1px solid var(--border); }
+      .zero-badge:nth-child(n+3) { border-top: 1px solid var(--border); }
+    }
+    @media (min-width: 900px) {
+      .zero-badge { padding: 26px 28px 28px; }
+      .zero-badge:first-child { padding-left: 0; }
+      .zero-badge + .zero-badge { border-left: 1px solid var(--border); }
+    }
+    .zero-icon {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 500; line-height: 1;
+      color: var(--sage);
+      margin-bottom: 10px; white-space: nowrap;
+    }
+    .zero-badge strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 1px; }
+    .zero-badge span { font-size: 0.8125rem; color: var(--gray); }
+    .stats-note { margin-top: 14px; font-size: 0.75rem; color: var(--gray); }
+
+    /* ── PROBLEM CARDS ── */
+    .problem { border-bottom: 1px solid var(--border); }
+    .problem-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 720px) { .problem-grid { grid-template-columns: repeat(3,1fr); } }
+    .problem-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 26px 28px; }
+    .problem-card h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 10px; }
+    .problem-card ul { margin: 0 0 0 18px; }
+    .problem-card li { font-size: 0.875rem; color: var(--gray); line-height: 1.6; margin-bottom: 6px; }
+    .section-lede { font-size: 0.95rem; color: var(--gray); line-height: 1.7; max-width: 620px; margin-bottom: 36px; text-wrap: pretty; }
+
+    /* ── WHAT IT IS ── */
+    .what { background: var(--light); border-bottom: 1px solid var(--border); }
+    .commission-bar {
+      margin-top: 40px; padding: 20px 24px;
+      background: var(--sage); border-radius: var(--r);
+      display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+      max-width: 640px;
+    }
+    .commission-bar .icon { font-size: 1.5rem; flex-shrink: 0; padding-top: 2px; }
+    .commission-bar h3 { font-size: 0.9375rem; font-weight: 600; color: white; margin-bottom: 4px; }
+    .commission-bar p { font-size: 0.8125rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+
+    /* ── SALONS / SERVICE BUSINESSES ── */
+    .salons { border-bottom: 1px solid var(--border); }
+    .salons-note { margin-top: 28px; font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
+    .salons-note a { color: var(--sage); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+    /* ── FLYWHEEL (approach flow) ── */
+    .approach-flow { display: flex; flex-direction: column; align-items: stretch; gap: 0; max-width: 640px; }
+    .approach-step { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 28px; }
+    .approach-step h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 6px; }
+    .approach-step p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
+    .approach-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 500; line-height: 1;
+      color: var(--sage); font-style: italic;
+      margin-bottom: 10px;
+    }
+    .approach-connector { display: flex; align-items: center; gap: 10px; padding: 8px 28px; }
+    .approach-connector-line { flex: 1; height: 2px; background: var(--border); }
+    .approach-connector-arrow { font-size: 1.1rem; color: var(--sage); }
+    .approach-step-result { border-color: var(--sage-md); background: var(--sage-lt); }
+    .approach-step-result h3 { color: var(--sage); }
+
+    /* ── VALUE PROPS (what changes) ── */
+    .how { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .value-grid { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 40px; }
+    @media (min-width: 720px) { .value-grid { grid-template-columns: repeat(3,1fr); } }
+    .value-card {
+      padding: 52px 36px 44px;
+      border-bottom: 1px solid var(--border);
+      border-top: 3px solid transparent;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease, border-top-color 0.25s ease;
+    }
+    .value-card.visible { opacity: 1; transform: translateY(0); }
+    .value-card:hover { border-top-color: var(--sage); }
+    .value-card:last-child { border-bottom: none; }
+    @media (min-width: 720px) {
+      .value-card { border-bottom: none; border-right: 1px solid var(--border); }
+      .value-card:last-child { border-right: none; }
+    }
+    .value-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .value-card h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; line-height: 1.25; letter-spacing: -0.01em; margin-bottom: 12px; }
+    .value-card p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── CASE STUDIES ── */
+    .cases { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .case-list { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; background: var(--white); }
+    .case-item { padding: 26px 28px; border-bottom: 1px solid var(--border); }
+    .case-item:last-child { border-bottom: none; }
+    .case-tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sage); margin-bottom: 10px; }
+    .case-item h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+    .case-item p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── ONBOARDING ── */
+    .flow-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 720px) { .flow-grid { grid-template-columns: repeat(4,1fr); } }
+    .flow-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 24px; }
+    .flow-card b { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 10px; }
+    .flow-card h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 6px; }
+    .flow-card p { font-size: 0.8125rem; color: var(--gray); line-height: 1.6; }
+
+    /* ── INTEGRATIONS (editorial list) ── */
+    .integrations { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .trust-strip { margin-top: 10px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 0; max-width: 760px; }
+    .trust-pill { display: inline-flex; align-items: baseline; font-size: 0.95rem; font-weight: 500; color: var(--black); white-space: nowrap; }
+    .trust-pill:not(:last-child)::after { content: '·'; color: var(--sage-md); font-weight: 600; margin: 0 14px; }
+    .trust-strip-note { margin-top: 16px; font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+
+    /* ── PRICING ── */
+    .pricing-section { border-bottom: 1px solid var(--border); }
+    .pricing-layout { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    @media (min-width: 768px) { .pricing-layout { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; } }
+    .pricing-copy h2 { margin-bottom: 14px; }
+    .pricing-copy p { font-size: 0.9375rem; color: var(--gray); line-height: 1.7; margin-bottom: 12px; text-wrap: pretty; }
+    .pricing-example {
+      margin-top: 20px; padding: 18px 20px;
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--r);
+      font-size: 0.9rem; color: var(--gray); line-height: 1.7;
+    }
+    .pricing-example strong { color: var(--black); }
+    .compare-table { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .compare-head {
+      display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+      padding: 12px 14px; background: var(--sage); color: white;
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    @media (min-width: 480px) { .compare-head { padding: 14px 18px; font-size: 0.75rem; } }
+    .compare-row {
+      display: grid; grid-template-columns: 1.2fr 1fr 1fr;
+      padding: 12px 14px; border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem; align-items: center;
+    }
+    @media (min-width: 480px) { .compare-row { padding: 14px 18px; font-size: 0.875rem; } }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row .cl { font-weight: 600; }
+    .compare-row .cm { color: var(--gray); }
+    .compare-row .ch { font-weight: 600; color: var(--sage); }
+
+    /* ── FAQ ── */
+    .faq-list { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .faq-item { padding: 22px 24px; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; text-wrap: pretty; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner { background: var(--sage); color: white; text-align: center; padding: 80px 5vw; }
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 5vw, 2.8rem);
+      line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    .cta-banner p { font-size: 1rem; opacity: 0.82; margin-bottom: 32px; line-height: 1.7; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; background: white; color: var(--sage);
+      border-radius: 100px; font-size: 0.9375rem; font-weight: 600;
+      text-decoration: none; border: none; cursor: pointer; font-family: inherit;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.1s, box-shadow 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .btn-white:disabled { opacity: 0.7; cursor: default; }
+    .cta-sub { margin-top: 14px; font-size: 0.8rem; opacity: 0.6; }
+    .section-title, .cta-banner h2, .cta-banner p { text-wrap: balance; }
+
+    .cta-form { max-width: 600px; margin: 32px auto 0; text-align: left; }
+    .cta-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cta-full { grid-column: 1 / -1; }
+    .cta-field { display: flex; flex-direction: column; gap: 5px; }
+    .cta-field label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+    .cta-field input, .cta-field select, .cta-field textarea {
+      padding: 11px 13px; border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.1); color: white;
+      font-size: 0.9rem; font-family: inherit; outline: none;
+      transition: border-color 0.15s, background 0.15s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.32); }
+    .cta-field select option { color: #222; background: white; }
+    .cta-field input:focus, .cta-field select:focus, .cta-field textarea:focus {
+      border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.16);
+    }
+    .cta-field textarea { resize: vertical; min-height: 88px; }
+    .cta-form-footer { margin-top: 20px; text-align: center; }
+    .cta-thanks { text-align: center; padding: 32px 0 8px; }
+    .cta-thanks .check { font-size: 2.2rem; line-height: 1; margin-bottom: 12px; }
+    .cta-thanks h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 10px; }
+    @media (max-width: 560px) { .cta-form-grid { grid-template-columns: 1fr; } }
+
+    /* ── JAPANESE OVERRIDES ── */
+    body.lang-ja {
+      font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+      word-break: auto-phrase;
+    }
+    body.lang-ja .hero h1 {
+      font-family: 'Shippori Mincho B1', serif;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .hero h1 em { font-style: normal; }
+    @media (max-width: 560px) {
+      body.lang-ja .hero h1 {
+        font-size: clamp(1.55rem, 7.8vw, 2.05rem);
+        line-height: 1.45;
+      }
+      body.lang-ja .hero h1 em {
+        font-size: 1.1em;
+        display: inline-block;
+        margin-top: 0.15em;
+      }
+    }
+    body.lang-ja .section-title {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .cta-banner h2 {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .value-card h3,
+    body.lang-ja .cta-thanks h3 {
+      font-family: 'Shippori Mincho B1', serif;
+      line-height: 1.45;
+    }
+    body.lang-ja .label,
+    body.lang-ja .location-badge,
+    body.lang-ja .case-tag,
+    body.lang-ja .value-label,
+    body.lang-ja .flow-card b {
+      text-transform: none;
+      letter-spacing: 0.06em;
+    }
+    body.lang-ja .compare-head {
+      text-transform: none;
+      letter-spacing: 0.03em;
+      font-size: 0.75rem;
+    }
+    body.lang-ja .approach-step h3,
+    body.lang-ja .commission-bar h3,
+    body.lang-ja .faq-item h3,
+    body.lang-ja .case-item h3 {
+      line-height: 1.5;
+    }
+    body.lang-ja .hero-sub,
+    body.lang-ja .section-lede,
+    body.lang-ja .faq-item p,
+    body.lang-ja .pricing-copy p,
+    body.lang-ja .approach-step p,
+    body.lang-ja .case-item p,
+    body.lang-ja .value-card p {
+      line-height: 1.85;
+    }
+    body.lang-ja .cta-field label { text-transform: none; letter-spacing: 0.04em; }
+
+    /* ── ANIMATIONS ── */
+
+    /* Cursor glow */
+    .cursor-glow {
+      position: fixed; top: 0; left: 0;
+      width: 640px; height: 640px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(58,92,69,0.09) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+      transform: translate(-50%, -50%);
+      opacity: 0; transition: opacity 0.5s ease;
+      will-change: left, top;
+    }
+    @media (hover: none) { .cursor-glow { display: none; } }
+
+    /* Hero staggered entrance */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .location-badge { animation: rise 0.55s 0.05s ease both; }
+    .hero h1        { animation: rise 0.65s 0.18s ease both; }
+    .hero-sub       { animation: rise 0.55s 0.32s ease both; }
+    .hero-actions   { animation: rise 0.55s 0.44s ease both; }
+    .zero-grid      { animation: rise 0.55s 0.56s ease both; }
+    .stats-note     { animation: rise 0.55s 0.68s ease both; }
+
+    /* CTA shimmer */
+    .btn-primary, .btn-white { position: relative; overflow: hidden; }
+    .btn-primary::after, .btn-white::after {
+      content: '';
+      position: absolute; top: 0; left: -110%;
+      width: 55%; height: 100%;
+      animation: btn-shimmer 2.8s ease-in-out infinite;
+    }
+    .btn-primary::after {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    }
+    .btn-white::after {
+      background: linear-gradient(90deg, transparent, rgba(58,92,69,0.08), transparent);
+    }
+    @keyframes btn-shimmer {
+      0%   { left: -110%; }
+      60%, 100% { left: 160%; }
+    }
+
+    /* ── ACCESSIBILITY ── */
+    .skip-link { position: absolute; left: 8px; top: -52px; z-index: 1100; background: var(--sage); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: top 0.15s; }
+    .skip-link:focus { top: 8px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--sage); outline-offset: 2px; border-radius: 4px;
+    }
+
+    /* Honor the visitor's OS "reduce motion" setting */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 5vw; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-logo { text-decoration: none; display: inline-flex; align-items: center; }
+    footer p { font-size: 0.8rem; color: var(--gray); }
+    .footer-links { font-size: 0.8rem; }
+    .footer-links a { color: var(--gray); text-decoration: underline; text-underline-offset: 2px; }
+    .footer-links a:hover { color: var(--sage); }
+
+    /* first-view tuning (hanjo.ai) */
+    @media (max-width: 640px) {
+      .hero { padding-top: 40px; padding-bottom: 40px; }
+      .hero h1 { font-size: 2.15rem; }
+      .hero-sub { font-size: 0.95rem; }
+    }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    @media (max-width: 1120px) { .nav-links { gap: 20px; } }
+    .nav-links a {
+      font-family: 'Playfair Display', serif;
+      font-size: 16.5px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--black);
+      opacity: 0.66;
+      text-decoration: none;
+      padding: 8px 0;
+      position: relative;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 100%; bottom: 3px;
+      height: 1.5px;
+      background: var(--sage);
+      transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover::after { right: 0; }
+    .nav-links a.active {
+      opacity: 1;
+      color: var(--sage);
+    }
+    .nav-links a.active:hover { color: var(--sage); }
+    .nav-links a.active::after { right: 0; }
+    nav { height: auto; display: block; padding: 0; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { background: none; border: none; padding: 5px 2px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; color: var(--gray); cursor: pointer; letter-spacing: 0.06em; line-height: 1; font-family: inherit; display: inline-flex; align-items: center; transition: color 0.2s, border-color 0.2s; }
+    .lang-toggle:hover { color: var(--black); }
+
+    @media (max-width: 880px) { .nav-links { display: none; } }
+    .legacy-lang[hidden], div[hidden] .lang-btn, div[hidden] .lang-sep { display: none; }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 9px 18px; letter-spacing: 0.01em; }
+    .risk-banner { font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+    .risk-banner { color: rgba(255, 255, 255, 0.8); }
+    .risk-banner strong { font-weight: 500; color: #ffffff; }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--gray); text-decoration: none; margin-bottom: 14px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--black); }
+    body.lang-ja .crumb { font-family: 'Noto Sans JP', sans-serif; }
+
+    .hero { padding-top: clamp(22px, 3vw, 34px); padding-bottom: clamp(22px, 3vw, 36px); }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 3.25rem); margin-bottom: 10px; }
+    .location-badge { margin-bottom: 10px; }
+    .hero-sub { max-width: 640px; margin-bottom: 14px; line-height: 1.55; }
+    .hero-actions { margin-bottom: 18px; }
+    .platform-row { margin: 0 0 16px; }
+    .zero-grid { margin-top: 0; }
+      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  
+    /* ── SMOOTH PAGE TRANSITIONS: header/footer stay put ── */
+    @view-transition { navigation: auto; }
+    nav { view-transition-name: site-header; }
+    .risk-banner { view-transition-name: site-announce; }
+    footer { view-transition-name: site-footer; }
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition { navigation: none; }
+    }
+  
+    /* ── CTA: modern flat ── */
+    .nav-cta, .btn--dark, .btn-primary, form .btn {
+      color: #ffffff;
+      background: var(--sage);
+      border: none;
+      box-shadow: none;
+      transition: background-color 0.18s ease;
+    }
+    .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover {
+      color: #ffffff;
+      background: #2e4a38;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta:active, .btn--dark:active, .btn-primary:active, form .btn:active {
+      background: #263d2f;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta svg, .btn--dark svg, .btn-primary svg, .btn--light svg {
+      transition: transform 0.2s ease;
+    }
+    .nav-cta:hover svg, .btn--dark:hover svg, .btn-primary:hover svg, .btn--light:hover svg {
+      transform: translateX(3px);
+    }
+    .btn--light {
+      color: var(--sage);
+      background: #ffffff;
+      border: none;
+      box-shadow: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      transition: background-color 0.18s ease;
+    }
+    .btn--light:hover { color: var(--sage); background: #eef0ea; transform: none; }
+    .btn--light:active { background: #e3e6df; transform: none; }
+  
+    /* ── FULL-PAGE HERO ── */
+    /* Fallbacks only: the script after </nav> writes the measured nav height. */
+    :root { --chrome-h: 74px; }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
+    .hero { display: flex; align-items: center; min-height: calc(100svh - var(--chrome-h)); }
+    .hero > .container { width: 100%; }
+
+    /* ── MOBILE HERO: the stat strip stacked four deep and pushed the hero
+       ~385px past the fold. Two compact columns instead. ── */
+    @media (max-width: 559px) {
+      .location-badge { margin-bottom: 8px; }
+      /* .hero scope so this wins over the later canonical .hero-sub rule */
+      .hero .hero-sub { line-height: 1.55; margin-bottom: 12px; }
+      .hero-actions { margin-bottom: 12px; }
+      .platform-row { margin-bottom: 10px; }
+      .zero-grid { grid-template-columns: 1fr 1fr; }
+      .zero-badge { padding: 11px 4px; }
+      .zero-badge + .zero-badge { border-top: none; }
+      .zero-badge:nth-child(n+3) { border-top: 1px solid var(--border); }
+      .zero-badge:nth-child(even) { border-left: 1px solid var(--border); padding-left: 14px; }
+      .zero-icon { font-size: 1.5rem; margin-bottom: 5px; }
+      .zero-badge strong { font-size: 0.8125rem; }
+      .zero-badge span { font-size: 0.75rem; }
+      .stats-note { margin-top: 10px; font-size: 0.7rem; line-height: 1.45; }
+    }
+  
+    /* ── STANDARD FOOTER ── */
+    footer { padding: 0; border-top: 1px solid var(--border); background: #ffffff; display: block; }
+    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: var(--gray); text-decoration: none; padding: 8px 0; display: inline-block; }
+    .footer-meta a:hover { color: var(--sage); }
+    body.lang-ja .footer-meta a, body.lang-ja .footer-meta span { font-family: 'Noto Sans JP', sans-serif; }
+      .crumb { display: block; margin-bottom: 14px; }
+    .location-badge { text-transform: none; letter-spacing: 0.01em; font-size: 13px; font-weight: 500; color: var(--gray); }
+    .location-badge .pin-icon { display: none; }
+      .hero h1 { text-wrap: balance; }
+    body.lang-ja .hero h1 { text-wrap: balance; line-break: strict; }
+      /* ── CTA standardization (matches .btn--dark/.btn--light) ── */
+    .btn-primary, .btn-ghost, .sim-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      padding: 15px 30px;
+      border-radius: 100px;
+      height: 44px;
+    }
+    .btn-ghost {
+      background: #ffffff;
+      color: var(--black);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease, background-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: #ffffff; border-color: rgba(17, 17, 16, 0.32); transform: none; }
+    .btn-ghost svg { transition: transform 0.2s ease; }
+    .btn-ghost:hover svg { transform: translateX(3px); }
+      /* ── DESIGN LANGUAGE ALIGNMENT (matches the standard pages) ── */
+    .section-title { font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 16, 0.58);
+    }
+    .section-lede { font-size: 16px; font-weight: 300; line-height: 1.75; }
+    .btn-white { box-shadow: none; }
+    .btn-white:hover { transform: none; box-shadow: none; }
+      /* ── MOBILE MENU ── */
+    .nav-burger { display: none; }
+    .mobile-menu { display: none; }
+    @media (max-width: 880px) {
+      .nav-inner { padding: 12px 16px; }
+      .lang-toggle { display: none; }
+      .nav-right { gap: 12px; }
+      .nav-cta { font-size: 12.5px; padding: 9px 16px; }
+      .nav-burger { width: 44px; height: 44px; margin-right: -8px; }
+      .mm-lang {
+        display: block;
+        margin-top: 32px;
+        background: none;
+        border: none;
+        padding: 8px 0;
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: #6B6B68;
+        cursor: pointer;
+        font-family: inherit;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease 0.5s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, color 0.2s;
+      }
+      .mm-lang:hover { color: #111110; }
+      .mobile-menu.open .mm-lang { opacity: 1; transform: none; }
+      .nav-burger {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .nav-burger span {
+        display: block;
+        width: 20px;
+        height: 1.5px;
+        background: #111110;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+      .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+      .mobile-menu {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: #F5F4F0;
+        padding: 140px 32px 48px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s;
+      }
+      .mobile-menu.open { opacity: 1; visibility: visible; }
+      .mm-links { display: flex; flex-direction: column; }
+      .mm-links a {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: #111110;
+        text-decoration: none;
+        padding: 16px 0;
+        border-bottom: 1px solid #E4E2DC;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .mm-links a.active { color: #3A5C45; }
+      .mm-ico { color: #3A5C45; flex-shrink: 0; opacity: 0.85; }
+      .mm-name { flex: 1; }
+      .mm-arrow { color: rgba(17, 17, 16, 0.3); flex-shrink: 0; }
+      .mm-links a.active .mm-arrow { color: #3A5C45; }
+
+      .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
+      .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
+      .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
+      .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
+      .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
+      .mobile-menu.open .mm-links a:nth-child(5) { transition-delay: 0.33s; }
+      .mobile-menu.open .mm-links a:nth-child(6) { transition-delay: 0.4s; }
+      @media (prefers-reduced-motion: reduce) {
+        .mm-links a { transition: opacity 0.2s; transform: none; }
+      }
+    }
+      @media (min-width: 881px) { .crumb { display: none; } }
+      /* ── MAIN CTA EMPHASIS + SHINE ── */
+    .hero-actions .btn--dark, .hero-actions .btn-primary, .cta-inner .btn--dark, .cta-inner .btn--light, form .btn {
+      font-size: 15px;
+      height: 52px;
+      padding: 0 38px;
+    }
+    .btn--dark, .btn-primary, .nav-cta, form .btn, .btn--light {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .btn--light::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(58, 92, 69, 0.12), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes ctaShine {
+      0%, 58% { left: -80%; }
+      78%, 100% { left: 130%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after, .btn--light::after { animation: none; display: none; }
+    }
+      .hero-actions .btn-ghost {
+      font-size: 15px;
+      height: 52px;
+      padding: 0 38px;
+    }
+      /* ── NATURAL JA LINE BREAKING (phrase-based where supported) ── */
+    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
+    html[lang="ja"] p, html[lang="ja"] li,
+    html[lang="ja"] .announce, html[lang="ja"] .btn-note, html[lang="ja"] .lead,
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
+    body.lang-ja p, body.lang-ja li, body.lang-ja .risk-banner {
+      word-break: auto-phrase;
+    }
+    p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
+      .hero { padding-left: 0; padding-right: 0; }
+    .hero > .container { max-width: 1280px; margin: 0 auto; padding-left: clamp(24px, 4.5vw, 72px); padding-right: clamp(24px, 4.5vw, 72px); }
+    .hero h1 { font-size: clamp(38px, 4.2vw, 54px); }
+    .hero-sub { font-size: 16px; font-weight: 300; color: var(--gray); max-width: 560px; line-height: 1.7; }
+    .btn-note { display: block; margin-top: 14px; font-size: 13px; font-weight: 300; color: var(--gray); }
+    body.lang-ja .btn-note { font-family: 'Noto Sans JP', sans-serif; }
+    /* ── FOOTER CANONICAL (identical metrics on every page) ── */
+    footer { background: #ffffff; border-top: 1px solid var(--border); }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto; padding: 26px 40px;
+      display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
+    .footer-meta a, .footer-meta span {
+      font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
+      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+    }
+    .footer-meta a:hover { color: #111110; }
+    .footer-logo img { height: 22px; display: block; }
+    @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
+    @media (max-width: 640px) { .crumb { display: none; } }
+  </style>
+
+  <script type="speculationrules">
+  {
+    "prerender": [{
+      "where": { "and": [
+        { "href_matches": "/*" },
+        { "not": { "href_matches": "/api/*" } }
+      ]},
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
+  <script>
+    (function () {
+      if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) return;
+      var seen = {};
+      document.addEventListener('pointerover', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null;
+        if (!a) return;
+        var u = a.href;
+        if (seen[u] || u.indexOf('/api/') !== -1) return;
+        seen[u] = 1;
+        var l = document.createElement('link');
+        l.rel = 'prefetch';
+        l.href = u;
+        document.head.appendChild(l);
+      }, { passive: true });
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "hanjo Ads",
+  "serviceType": "Paid advertising optimization",
+  "provider": {
+    "@type": "Organization",
+    "name": "hanjo",
+    "url": "https://hanjo.ai"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Los Angeles"
+  },
+  "url": "https://hanjo.ai/ads/",
+  "description": "Meta and Google ad optimization. hanjo Ads feeds the ad platforms the conversion data they normally never see, so delivery concentrates on the customers who actually buy, book, return, and spend. Built for small businesses, from online stores to booking-based services.",
+  "availableLanguage": [
+    "en",
+    "ja"
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "url": "https://hanjo.ai/ads/",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which industries does this work for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Beauty salons, spas, aesthetic clinics, real estate, staffing and recruiting agencies, SaaS, and education: businesses where the real conversion happens off-platform or long after the click see the biggest gains, because that's where default platform learning is weakest."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Our bookings run on Square and we can't add pixels. Does this still work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, that's exactly the case we built for. When your booking platform doesn't allow custom pixels or GTM, we optimize your booking flow to capture the signals the platform can't, then send qualified conversions and lifetime value back to the ad platform server-side. Your ads learn from real customers instead of link clicks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does \"curated conversions\" actually mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only genuinely valuable actions, such as form submissions, booked visits, and closed deals, get sent to the ad platform as conversions. Training the platform exclusively on high-LTV users steers its auto-optimization in the direction you actually want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can we change the conversion point later?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A common pattern is starting with a shallower conversion to accelerate learning, then switching to a deeper one as data accumulates: a staged tuning approach you can iterate on a daily cadence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can it connect to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The CAPIs of Meta, Google, Yahoo, and LINE Ads, plus HubSpot, Pardot, Klaviyo, KARTE, Tealium, Treasure Data, and chat-based CRMs. Some integrations are in beta, so ask us about your stack."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "We don't have engineers in-house. Is that a problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at all. A dedicated lead handles discovery, conversion-point design, and implementation end to end. Because the integration is adapted to your existing booking flow and tools, expect setup to take about a month. We handle the technical work throughout."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it handle multiple accounts or campaigns at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can design unlimited conversion points per initiative, and data can be unified across accounts."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body class="lang-ja">
+
+<a href="#main" class="skip-link" data-i18n="skip_link">コンテンツへスキップ</a>
+
+<!-- BANNER -->
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/ja/" class="logo" aria-label="hanjo">
+      <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+    </a>
+    <div class="nav-links" aria-label="Site">
+      <a href="/ja/">Home</a>
+      <a href="/ja/crm/">CRM</a>
+      <a href="/ja/web/">Web</a>
+      <a href="/ja/ads/">Ads</a>
+      <a href="/ja/recovery/">Recovery</a>
+      <a href="/ja/contact/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-pill" onclick="setLang(document.body.classList.contains('lang-ja') ? 'en' : 'ja')" aria-label="Switch language">EN</button>
+      <a href="#contact" class="nav-cta" data-i18n="nav_cta">無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<script>
+  /* Full-page hero: --chrome-h tracks the real nav height (it shifts with
+     language and breakpoint) so the hero ends exactly at the fold. */
+  (function () {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    var root = document.documentElement;
+    function syncChromeHeight() {
+      root.style.setProperty('--chrome-h', nav.getBoundingClientRect().height + 'px');
+    }
+    syncChromeHeight();
+    if (window.ResizeObserver) new ResizeObserver(syncChromeHeight).observe(nav);
+    else addEventListener('resize', syncChromeHeight);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncChromeHeight);
+  })();
+
+  /* Browsers restore scroll on reload, which drops a visitor part-way down a
+     page they just opened. Start fresh loads and reloads at the top. Back and
+     forward keep their restored position, and #anchors are left alone. */
+  (function () {
+    if (location.hash) return;
+    var entry = performance.getEntriesByType('navigation')[0];
+    if (entry && entry.type === 'back_forward') return;
+    history.scrollRestoration = 'manual';
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+    catch (e) { window.scrollTo(0, 0); }
+  })();
+</script>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Menu">
+  <div class="mm-links">
+    <a href="/ja/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg><span class="mm-name">Home</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/crm/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="mm-name">CRM</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/web/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="mm-name">Web</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/ads/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span class="mm-name">Ads</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/recovery/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="mm-name">Recovery</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/contact/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span class="mm-name">Contact</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+  </div>
+    <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
+</div>
+<div hidden aria-hidden="true">
+<div class="legacy-lang" role="group" aria-label="Language / 言語" hidden aria-hidden="true">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button class="lang-btn" id="btn-ja" onclick="setLang('ja')" aria-pressed="true">日本語</button>
+    </div>
+</div>
+
+
+<!-- HERO -->
+<section class="hero" id="main">
+  <div class="container">
+    <a href="/ja/#services" class="crumb" data-i18n="crumb">← サービス一覧に戻る</a>
+    <div class="location-badge"><span data-i18n="hero_badge">Meta・Google広告を運用する中小企業のために</span></div>
+    <h1 data-i18n="hero_h1">AIが、広告を、<br><em>最適化する。</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">hanjo Ads AIは、広告媒体が本来受け取れないコンバージョンデータをMetaとGoogleに供給し、実際に購入・予約し、リピートしてくれるお客様へ配信を集中させます。ECから予約型ビジネスまで、中小企業のために設計しています。</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary" data-i18n="hero_btn_primary">お問い合わせ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#how" class="btn-ghost" data-i18n="hero_btn_ghost">仕組みを見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+
+    <div class="platform-row" aria-label="Ad platforms">
+      <span class="pf-item"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M23.52 12.27c0-.85-.08-1.66-.22-2.45H12v4.64h6.46a5.53 5.53 0 0 1-2.4 3.63v3h3.88c2.27-2.09 3.58-5.17 3.58-8.82z"/><path d="M12 24c3.24 0 5.96-1.07 7.94-2.91l-3.88-3c-1.08.72-2.45 1.15-4.06 1.15-3.13 0-5.78-2.11-6.73-4.96H1.26v3.09A12 12 0 0 0 12 24z"/><path d="M5.27 14.28A7.2 7.2 0 0 1 4.9 12c0-.79.14-1.56.37-2.28V6.63H1.26a12 12 0 0 0 0 10.74l4.01-3.09z"/><path d="M12 4.77c1.76 0 3.35.61 4.6 1.8l3.44-3.44A11.97 11.97 0 0 0 12 0 12 12 0 0 0 1.26 6.63l4.01 3.09C6.22 6.88 8.87 4.77 12 4.77z"/></svg><span>Google Ads</span></span>
+      <span class="pf-item"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M6.915 4.03c-1.968 0-3.683 1.28-4.871 3.113C.704 9.208 0 11.883 0 14.449c0 .706.07 1.369.21 1.973a6.624 6.624 0 0 0 .265.86 5.297 5.297 0 0 0 .371.761c.696 1.159 1.818 1.927 3.593 1.927 1.497 0 2.633-.671 3.965-2.444.76-1.012 1.144-1.626 2.663-4.32l.756-1.339.186-.325c.061.1.121.196.183.3l2.152 3.595c.724 1.21 1.665 2.556 2.47 3.314 1.046.987 1.992 1.22 3.06 1.22 1.075 0 1.876-.355 2.455-.843a3.743 3.743 0 0 0 .81-.973c.542-.939.861-2.127.861-3.745 0-2.72-.681-5.357-2.084-7.45-1.282-1.912-2.957-2.93-4.716-2.93-1.047 0-2.088.467-3.053 1.308-.652.57-1.257 1.29-1.82 2.05-.69-.875-1.335-1.547-1.958-2.056-1.182-.966-2.315-1.303-3.454-1.303zm10.16 2.053c1.147 0 2.188.758 2.992 1.999 1.132 1.748 1.647 4.195 1.647 6.4 0 1.548-.368 2.9-1.839 2.9-.58 0-1.027-.23-1.664-1.004-.496-.601-1.343-1.878-2.832-4.358l-.617-1.028a44.908 44.908 0 0 0-1.255-1.98c.07-.109.141-.224.211-.327 1.12-1.667 2.118-2.602 3.358-2.602zm-10.201.553c1.265 0 2.058.791 2.675 1.446.307.327.737.871 1.234 1.579l-1.02 1.566c-.757 1.163-1.882 3.017-2.837 4.338-1.191 1.649-1.81 1.817-2.486 1.817-.524 0-1.038-.237-1.383-.794-.263-.426-.464-1.13-.464-2.046 0-2.221.63-4.535 1.66-6.088.454-.687.964-1.226 1.499-1.56.571-.357 1.079-.258 1.122-.258z"/></svg><span>Meta</span></span>
+    </div>
+    <div class="zero-grid">
+      <div class="zero-badge">
+        <div class="zero-icon">3.5×</div>
+        <div><strong data-i18n="stat1_strong">ROAS改善</strong><span data-i18n="stat1_span">広告費用対効果</span></div>
+      </div>
+      <div class="zero-badge">
+        <div class="zero-icon">−60%</div>
+        <div><strong data-i18n="stat2_strong">CPA削減</strong><span data-i18n="stat2_span">顧客獲得単価</span></div>
+      </div>
+      <div class="zero-badge">
+        <div class="zero-icon">−75%</div>
+        <div><strong data-i18n="stat3_strong">運用工数削減</strong><span data-i18n="stat3_span">手動調整にかかる時間</span></div>
+      </div>
+      <div class="zero-badge">
+        <div class="zero-icon">15+</div>
+        <div><strong data-i18n="stat4_strong">連携先</strong><span data-i18n="stat4_span">接続可能なプラットフォーム・ツール</span></div>
+      </div>
+    </div>
+    <p class="stats-note" data-i18n="stats_note">数値は本エンジンの導入実績に基づく代表値です。業種やデータ量により成果は異なります。</p>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="container">
+    <span class="label" data-i18n="label_problem">課題</span>
+    <h2 class="section-title" data-i18n="title_problem">ほとんどの広告主は、<br>広告媒体のAIを活かしきれていない。</h2>
+    <p class="section-lede" data-i18n="problem_lede">広告媒体は機械学習で動いています。そしてその機械学習は、あなたが送るコンバージョンデータ（教師データ）で動いています。多くの「運用改善」は、クリエイティブ調整・キーワード調整・入札調整といった管理画面上の間接的な操作に留まり、最も本質的なレバーである「教師データそのものの品質」には手が付けられていません。その結果、3つの課題が放置されています。</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3 data-i18n="p1_h3">データが足りない</h3>
+        <ul>
+          <li data-i18n="p1_li1">Cookie規制・ATTによるシグナルの欠損</li>
+          <li data-i18n="p1_li2">パラメータ不足によるミスマッチ</li>
+          <li data-i18n="p1_li3">アルゴリズムの学習に必要なCVの絶対数が不足</li>
+        </ul>
+      </div>
+      <div class="problem-card">
+        <h3 data-i18n="p2_h3">データの品質が低い</h3>
+        <ul>
+          <li data-i18n="p2_li1">全てのCVが同じ価値で送信されている</li>
+          <li data-i18n="p2_li2">優良顧客と一見客を区別するシグナルがない</li>
+          <li data-i18n="p2_li3">深いCV地点のデータが媒体に届いていない</li>
+        </ul>
+      </div>
+      <div class="problem-card">
+        <h3 data-i18n="p3_h3">実成果が媒体に戻らない</h3>
+        <ul>
+          <li data-i18n="p3_li1">媒体内データと実際の成果の乖離</li>
+          <li data-i18n="p3_li2">学習状況のブラックボックス化</li>
+          <li data-i18n="p3_li3">誤った学習を修正する仕組みがない</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT IS -->
+<section class="what" id="what">
+  <div class="container">
+    <span class="label" data-i18n="label_what">hanjo Ads AIとは</span>
+    <h2 class="section-title" data-i18n="title_what">広告媒体とCV地点の間で機能する、<br>第二の脳。</h2>
+    <p class="section-lede" data-i18n="what_lede">hanjo Ads AIは、広告媒体と実際にコンバージョンが起こる場所（サイト、フォーム、チャット、CRM）の間に立ち、広告主に代わって教師データ（CVデータ）をコントロールし、ROASを上げ続けます。</p>
+    <div class="commission-bar">
+      <div class="icon">↗</div>
+      <div>
+        <h3 data-i18n="commission_h3">CPAが下がり、優良顧客が増え、売上が伸びる。</h3>
+        <p data-i18n="commission_p">媒体のAIが、計測しやすいCVではなく、ビジネスにとって本当に価値のあるCVから学習するようになります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE BUSINESSES / SALONS -->
+<section class="salons" id="salons">
+  <div class="container">
+    <span class="label" data-i18n="label_salons">得意分野：予約型ビジネス</span>
+    <h2 class="section-title" data-i18n="title_salons">特に強いのは、予約プラットフォームが優良顧客を広告から隠してしまう、サロン・スパ・クリニックです。</h2>
+    <p class="section-lede" data-i18n="salons_lede">MetaやGoogleに広告を出しているビジネスなら、業種を問わず学習データの改善が効きます。中でも効果が大きいのが予約型ビジネスです。Squareなどピクセルを自由に設置できない予約プラットフォームでは、広告は「クリック」までしか学習できず、誰が本当のお客様になったかを媒体が知ることはありません。</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3 data-i18n="s1_h3">クリックは顧客ではない</h3>
+        <ul>
+          <li data-i18n="s1_li1">Square等の予約プラットフォームはカスタムピクセル・GTMを設置できない</li>
+          <li data-i18n="s1_li2">広告が受け取れる最も深いシグナルは「予約ページへのタップ」まで</li>
+          <li data-i18n="s1_li3">Metaは「予約し、再来店し、使ってくれる人」ではなく「クリックする人」に最適化してしまう</li>
+        </ul>
+      </div>
+      <div class="problem-card">
+        <h3 data-i18n="s2_h3">学習する予約フォーム</h3>
+        <ul>
+          <li data-i18n="s2_li1">予約フローを最適化し、お客様一人ひとりの好みや志向を取得</li>
+          <li data-i18n="s2_li2">希望メニュー、来店頻度、重視しているポイント</li>
+          <li data-i18n="s2_li3">プラットフォーム単体では集められない、質の高いシグナル源に</li>
+        </ul>
+      </div>
+      <div class="problem-card">
+        <h3 data-i18n="s3_h3">LTVを広告へ還元</h3>
+        <ul>
+          <li data-i18n="s3_li1">初回来店後の顧客生涯価値（LTV）を計測</li>
+          <li data-i18n="s3_li2">LTVを教師データとして広告媒体へフィードバック</li>
+          <li data-i18n="s3_li3">「誰にアプローチすべきか」そして「誰にすべきでないか」を広告が学習</li>
+        </ul>
+      </div>
+    </div>
+    <p class="salons-note" data-i18n="salons_note">サービスビジネスは私たちのホームグラウンドです。メディカルスパ・クリニック向けの集客支援は <a href="https://growth.hanjo.ai/">growth.hanjo.ai</a> をご覧ください。</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <span class="label" data-i18n="label_how">仕組み</span>
+    <h2 class="section-title" data-i18n="title_how">学習を重ねるほど、<br>広告効果が上がり続ける仕組み。</h2>
+    <div class="approach-flow">
+      <div class="approach-step">
+        <div class="approach-num">01</div>
+        <h3 data-i18n="step1_h3">追跡：ピクセルより深く。</h3>
+        <p data-i18n="step1_p">アプリやドメインをまたぐ導線は、通常、計測が途切れる場所です。サーバーサイドトラッキングにより、ウェブと他アプリの間を移動するユーザーも識別・追跡。コンバージョンまでの道筋を見失いません。</p>
+      </div>
+      <div class="approach-connector"><span class="approach-connector-line"></span><span class="approach-connector-arrow">↓</span></div>
+      <div class="approach-step">
+        <div class="approach-num">02</div>
+        <h3 data-i18n="step2_h3">構造化：あらゆるデータをシグナルに。</h3>
+        <p data-i18n="step2_p">チャットの文章、サイト内行動、フォーム入力、1stパーティ・ゼロパーティデータ。複雑な非構造化データを自動で処理・加工し、使えるシグナルに変換します。</p>
+      </div>
+      <div class="approach-connector"><span class="approach-connector-line"></span><span class="approach-connector-arrow">↓</span></div>
+      <div class="approach-step">
+        <div class="approach-num">03</div>
+        <h3 data-i18n="step3_h3">スコアリング：1CVあたりの将来収益を予測。</h3>
+        <p data-i18n="step3_p">エンジンの核である予測モデルが、各コンバージョンの将来期待収益（pLTV）を推定。広告媒体が実際に利用できる形で、全てのCVをスコアリングします。</p>
+      </div>
+      <div class="approach-connector"><span class="approach-connector-line"></span><span class="approach-connector-arrow">↓</span></div>
+      <div class="approach-step">
+        <div class="approach-num">04</div>
+        <h3 data-i18n="step4_h3">連携：媒体ごとのアルゴリズムに合わせて加工。</h3>
+        <p data-i18n="step4_p">予測されたpLTVスコアを、各媒体のAIが最も学習しやすいシグナル形式に加工・補完。MetaやGoogleにおける媒体内マッチ率を最大化します。</p>
+      </div>
+      <div class="approach-connector"><span class="approach-connector-line"></span><span class="approach-connector-arrow">↓</span></div>
+      <div class="approach-step">
+        <div class="approach-num">05</div>
+        <h3 data-i18n="step5_h3">検証：実成果で答え合わせ。</h3>
+        <p data-i18n="step5_p">その後の実績データが自動で媒体へ還流し、予測スコアと現実を照合。媒体はその差分から学習し、サイクルごとに自らのデータセットを修正していきます。</p>
+      </div>
+      <div class="approach-connector"><span class="approach-connector-line"></span><span class="approach-connector-arrow">↓</span></div>
+      <div class="approach-step approach-step-result">
+        <div class="approach-num">06</div>
+        <h3 data-i18n="step6_h3">集合知化：精度は全アカウントで向上し続ける。</h3>
+        <p data-i18n="step6_p">匿名加工・統計処理されたCVデータが共有予測モデルに集約され、予測精度は向上し続けます。学習するアカウントが増えるほど、モデルは賢くなります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT CHANGES -->
+<section class="how" id="changes">
+  <div class="container">
+    <span class="label" data-i18n="label_changes">運用はこう変わる</span>
+    <h2 class="section-title" style="margin-bottom: 0;" data-i18n="title_changes">繊細な運用作業が消える。<br>やがて、自動で回り出す。</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-label" data-i18n="v1_label">ターゲティング</div>
+        <h3 data-i18n="v1_h3">配信が優良顧客に集中する。</h3>
+        <p data-i18n="v1_p">私たちがスコアリングした高価値CVから媒体のAIが学習。pLTVの高い顧客へ配信が自己最適化され、ROASが積み上がっていきます。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-label" data-i18n="v2_label">運用工数</div>
+        <h3 data-i18n="v2_h3">細かなチューニングは、もう不要。</h3>
+        <p data-i18n="v2_p">ターゲティングはAIが担うため、緻密なキーワード設定やオーディエンス設定は不要になります。クリエイティブは大枠で設定し、量を出し、速く回せます。</p>
+      </div>
+      <div class="value-card">
+        <div class="value-label" data-i18n="v3_label">時間とともに</div>
+        <h3 data-i18n="v3_h3">運用そのものが自動化していく。</h3>
+        <p data-i18n="v3_p">媒体の学習モデルが成熟するにつれ、手動での介入は減っていきます。「誰に届けるか」はAIに任せ、チームは「何を伝えるか」に集中できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="cases" id="cases">
+  <div class="container">
+    <span class="label" data-i18n="label_cases">導入事例</span>
+    <h2 class="section-title" data-i18n="title_cases">「本当のコンバージョン」が後から起こる業種で、<br>成果を出しています。</h2>
+    <div class="case-list">
+      <div class="case-item">
+        <span class="case-tag" data-i18n="case1_tag">教育</span>
+        <h3 data-i18n="case1_h3">アンケート回答から受注を予測。2ヶ月でROAS 180%。</h3>
+        <p data-i18n="case1_p">チャットアプリへの登録を成果地点としていた広告主様。短いアンケートを実装し、回答内容から有料申込に至る確度で各CVを重み付けして媒体に送信しました。高意欲ユーザーだけに配信が寄っていき、2ヶ月間、ROASが毎週上がり続けました。</p>
+      </div>
+      <div class="case-item">
+        <span class="case-tag" data-i18n="case2_tag">医療人材</span>
+        <h3 data-i18n="case2_h3">学習地点の変更で、面談CPAが41%改善。</h3>
+        <p data-i18n="case2_p">元のCV地点はLPのリンクタップ。媒体の学習対象を、実際の採用プロファイル（有資格・20〜40代・半年以内の転職検討）に合致するアンケート回答者へ切り替え、1ヶ月で面談CPAが41%下がりました。</p>
+      </div>
+      <div class="case-item">
+        <span class="case-tag" data-i18n="case3_tag">富裕層向け不動産</span>
+        <h3 data-i18n="case3_h3">商談につながるクラスターを発見。商談CPAが33%改善。</h3>
+        <p data-i18n="case3_p">CRMからのオフラインコンバージョンだけでは商談が生まれない状態でした。フォーム項目（年収・属性・地域）から商談化する特徴量クラスターを特定し、そのシグナルを媒体へ送信。商談CPAを3分の1削減しました。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONBOARDING -->
+<section id="onboarding">
+  <div class="container">
+    <span class="label" data-i18n="label_onboarding">導入の流れ</span>
+    <h2 class="section-title" data-i18n="title_onboarding">キックオフから稼働まで、約1ヶ月。</h2>
+    <p class="section-lede" data-i18n="onboarding_lede">これはピクセルを貼るだけのツールではありません。予約フロー、CRM、広告アカウント、CV地点など、既存の環境に合わせて統合を構築します。この適応作業には相応の工数がかかりますが、それこそが稼働後のデータの信頼性をつくります。セットアップには約1ヶ月をいただくのが標準です。</p>
+    <div class="flow-grid">
+      <div class="flow-card">
+        <b data-i18n="f1_b">STEP 1：ヒアリング</b>
+        <h3 data-i18n="f1_h3">目的と課題を整理</h3>
+        <p data-i18n="f1_p">現在の広告運用とCV計測の状況をお伺いし、最も効果の出る構成をご一緒に特定します。</p>
+      </div>
+      <div class="flow-card">
+        <b data-i18n="f2_b">STEP 2：ご提案</b>
+        <h3 data-i18n="f2_h3">最適なCV地点を設計</h3>
+        <p data-i18n="f2_p">商材・業界に合わせた最適なCV地点と、連携アーキテクチャをご提案します。</p>
+      </div>
+      <div class="flow-card">
+        <b data-i18n="f3_b">STEP 3：ご契約</b>
+        <h3 data-i18n="f3_h3">プランとスケジュールを確定</h3>
+        <p data-i18n="f3_p">ご納得いただけましたら、プラン・構築タイムライン・サポート体制を確定します。</p>
+      </div>
+      <div class="flow-card">
+        <b data-i18n="f4_b">STEP 4：実装</b>
+        <h3 data-i18n="f4_h3">技術セットアップは弊社側で</h3>
+        <p data-i18n="f4_p">Meta CAPIの接続、CRM・チャット連携、CV地点の実装まで、初期構築は弊社が対応します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integrations" id="integrations">
+  <div class="container">
+    <span class="label" data-i18n="label_integrations">連携</span>
+    <h2 class="section-title" data-i18n="title_integrations">標準Webhookで、既存のスタックと接続。</h2>
+    <div class="trust-strip">
+      <span class="trust-pill">Meta CAPI</span>
+      <span class="trust-pill">Google</span>
+      <span class="trust-pill">Yahoo</span>
+      <span class="trust-pill">LINE Ads</span>
+      <span class="trust-pill">HubSpot</span>
+      <span class="trust-pill">Klaviyo</span>
+      <span class="trust-pill">Pardot</span>
+      <span class="trust-pill">KARTE</span>
+      <span class="trust-pill">Tealium</span>
+      <span class="trust-pill">Treasure Data</span>
+      <span class="trust-pill" data-i18n="pill_chatcrm">チャット系CRM</span>
+      <span class="trust-pill" data-i18n="pill_forms">フォームツール</span>
+      <span class="trust-pill">iPaaS / ELT</span>
+    </div>
+    <p class="trust-strip-note" data-i18n="integrations_note">一部のツールは限定対応です。お使いのスタックについてはお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="pricing-layout">
+      <div class="pricing-copy">
+        <span class="label" data-i18n="label_pricing">料金</span>
+        <h2 class="section-title" data-i18n="title_pricing">料金はひとつ。<br>広告費に対する一定割合。</h2>
+        <p data-i18n="pricing_p1">リテイナー費用も、シート課金も、初期費用もありません。月間広告費に対する一定割合のサービスフィーのみ。料率は開始前に合意し、予算が大きくなるほど下がります。</p>
+        <p data-i18n="pricing_p2">インセンティブは常にお客様と同じ方向を向きます。フィーが増えるのは、成果が投資の拡大に値するとお客様自身が判断された時だけです。</p>
+        <div class="pricing-example" data-i18n="pricing_example"><strong>ご請求の仕組み：</strong><br>請求は月1回。当月の実広告費に、合意した料率を乗じた金額のみ<br>エンジン・実装・最適化のすべてを含みます<br><strong>広告費を抑えれば、お支払いも自動的に下がります</strong></div>
+      </div>
+      <div>
+        <div class="compare-table">
+          <div class="compare-head">
+            <span data-i18n="table_col1">プラン</span>
+            <span data-i18n="table_col2">月間広告費</span>
+            <span data-i18n="table_col3">サービスフィー</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r1_cl">スターター</span>
+            <span class="cm" data-i18n="table_r1_cm">$10k未満</span>
+            <span class="ch" data-i18n="table_r1_ch">広告費の%</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r2_cl">グロース</span>
+            <span class="cm">$10k – $50k</span>
+            <span class="ch" data-i18n="table_r2_ch">広告費の%</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r3_cl">スケール</span>
+            <span class="cm">$50k – $100k</span>
+            <span class="ch" data-i18n="table_r3_ch">広告費の%</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r4_cl">プレミアム</span>
+            <span class="cm">$100k+</span>
+            <span class="ch" data-i18n="table_r4_ch">個別お見積り</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="label" data-i18n="label_faq">よくある質問</span>
+    <h2 class="section-title" data-i18n="title_faq">広告主様からよくいただく質問。</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 data-i18n="faq1_h3">どの業界で効果がありますか？</h3>
+        <p data-i18n="faq1_p">美容サロン、スパ、美容クリニック、不動産、人材、SaaS、教育など、本当のコンバージョンがプラットフォームの外や、クリックのずっと後に起こるビジネスほど効果が大きくなります。媒体標準の学習が最も弱い領域だからです。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq2_h3">Squareで予約を受けていて、ピクセルを追加できません。それでも使えますか？</h3>
+        <p data-i18n="faq2_p">はい、まさにそのケースのために作られています。予約プラットフォームがカスタムピクセルやGTMを許可していない場合、予約フローを最適化してプラットフォームが取得できないシグナルを収集し、選別したCVとLTVをサーバーサイドで媒体へ送信します。広告はリンククリックではなく、実際のお客様から学習するようになります。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq3_h3">「選び抜いたCV」とは何ですか？</h3>
+        <p data-i18n="faq3_p">フォーム送信・来店予約・成約など、本当に価値の高いアクションだけをCVとして媒体に送信する仕組みです。高LTVユーザーだけで学習させることで、媒体の自動最適化を狙った方向に導きます。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq4_h3">CV地点は後から変更できますか？</h3>
+        <p data-i18n="faq4_p">はい。まず浅いCVで学習を加速させ、データが溜まり次第より深いCVへ切り替える。こうした段階的なチューニングが可能です。デイリー単位の高速PDCAで運用できます。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq5_h3">何と連携できますか？</h3>
+        <p data-i18n="faq5_p">Meta・Google・Yahoo・LINE広告の各CAPIに加え、HubSpot、Pardot、Klaviyo、KARTE、Tealium、Treasure Data、チャット系CRMと接続可能です。一部はβ対応のため、お使いのスタックについてはお問い合わせください。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq6_h3">社内にエンジニアがいなくても大丈夫ですか？</h3>
+        <p data-i18n="faq6_p">問題ありません。専任担当がヒアリング、CV地点設計、実装までを一貫して対応します。既存の予約フローやツールに合わせて統合を構築するため、セットアップには約1ヶ月を見込んでください。技術作業はすべて弊社が担当します。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq7_h3">複数アカウント・複数施策を同時に扱えますか？</h3>
+        <p data-i18n="faq7_p">はい。施策ごとに無制限にCV地点を設計でき、アカウントをまたいだデータ統合にも対応しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner" id="contact">
+  <div class="container">
+    <h2 data-i18n="cta_h2">あなたのCVデータが持つ力を、<br>確かめてみませんか。</h2>
+    <p data-i18n="cta_p">現在の広告運用について、簡単にお聞かせください。詳細と次のステップをご案内します。費用も義務も一切ありません。</p>
+    <form class="cta-form" id="ads-form" novalidate>
+      <input type="hidden" name="form" value="ads-ai">
+      <div class="cta-form-grid">
+        <div class="cta-field">
+          <label data-i18n="form_label_name">お名前</label>
+          <input type="text" name="name" placeholder="山田 花子" required data-i18n-placeholder="form_ph_name">
+        </div>
+        <div class="cta-field">
+          <label data-i18n="form_label_email">メールアドレス</label>
+          <input type="email" name="email" placeholder="you@yourcompany.com" required>
+        </div>
+        <div class="cta-field">
+          <label data-i18n="form_label_company">会社名（任意）</label>
+          <input type="text" name="company" placeholder="株式会社サンプル" data-i18n-placeholder="form_ph_company">
+        </div>
+        <div class="cta-field">
+          <label data-i18n="form_label_platform">主な広告媒体</label>
+          <select name="platform">
+            <option value="" data-i18n="form_ph_platform">媒体を選択</option>
+            <option value="meta">Meta</option>
+            <option value="google">Google</option>
+            <option value="line">LINE</option>
+            <option value="tiktok">TikTok</option>
+            <option value="yahoo">Yahoo</option>
+            <option value="other" data-i18n="form_opt_other">その他</option>
+          </select>
+        </div>
+        <div class="cta-field">
+          <label data-i18n="form_label_budget">月間広告予算</label>
+          <select name="ad_spend">
+            <option value="" data-i18n="form_ph_budget">範囲を選択</option>
+            <option value="none" data-i18n="form_opt_none">まだ出稿していない</option>
+            <option value="under_10k" data-i18n="form_opt_b1">$10,000未満</option>
+            <option value="10k_30k">$10,000 – $30,000</option>
+            <option value="30k_50k">$30,000 – $50,000</option>
+            <option value="over_50k">$50,000+</option>
+          </select>
+        </div>
+        <div class="cta-field">
+          <label data-i18n="form_label_phone">電話番号（任意）</label>
+          <input type="tel" name="phone" placeholder="(310) 555-0100">
+        </div>
+        <div class="cta-field cta-full">
+          <label data-i18n="form_label_challenge">改善したいことは？（任意）</label>
+          <textarea name="challenge" placeholder="例：Meta広告のCPAが上がり続けている…" data-i18n-placeholder="form_ph_challenge"></textarea>
+        </div>
+      </div>
+      <div class="cta-form-footer">
+        <button type="submit" class="btn-white" data-i18n="form_btn">詳細を問い合わせる →</button>
+        <p class="cta-sub" data-i18n="cta_sub">ご入力いただいた情報は、本お問い合わせへの対応以外には使用しません。</p>
+      </div>
+    </form>
+    <div class="cta-thanks" id="ads-thanks" style="display:none">
+      <div class="check">✓</div>
+      <h3 data-i18n="thanks_h3">ありがとうございます。折り返しご連絡いたします。</h3>
+      <p data-i18n="thanks_p">内容を確認のうえ、1営業日以内にご連絡いたします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <a href="/ja/about/" data-i18n="footer-about">会社概要</a>
+        <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
+        <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
+        <span data-i18n="footer-copy">© 2026 hanjo · ロサンゼルス</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  var T = {
+    en: {
+      page_title: 'hanjo | AI that optimizes your ads. For real.',
+      skip_link: 'Skip to content',
+      nav_cta: 'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      'footer-about': 'About Us',
+      'footer-terms': 'Terms of Use',
+      'footer-privacy': 'Privacy Policy',
+      'footer-copy': '© 2026 hanjo · Los Angeles',
+      crumb: '← All services',
+      risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
+      hero_badge: 'For small businesses running Meta &amp; Google ads',
+      hero_h1: 'AI that optimizes<br>your&nbsp;ads. <em>For&nbsp;real.</em>',
+      hero_sub: 'hanjo Ads AI feeds Meta and Google the conversion data they normally never see, so delivery concentrates on the customers who actually buy, book, return, and spend. Built for small businesses, from online stores to booking-based services.',
+      hero_btn_primary: 'Talk to us <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: 'See how it works <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      stat1_strong: 'ROAS improvement', stat1_span: 'Return on ad spend',
+      stat2_strong: 'CPA reduction', stat2_span: 'Cost per acquisition',
+      stat3_strong: 'Less manual ops', stat3_span: 'Hands-on adjustment time',
+      stat4_strong: 'Integrations', stat4_span: 'Platforms &amp; tools connected',
+      stats_note: 'Representative results across live deployments of the underlying optimization engine. Results vary by vertical and data volume.',
+      label_problem: 'The problem',
+      title_problem: 'Most advertisers never unlock the AI already inside their ad platforms.',
+      problem_lede: 'Every ad platform runs on machine learning, and that machine learning runs on the conversion data you feed it. Most “optimization” stops at creative tweaks, keyword edits, and bid adjustments: indirect moves inside the dashboard. The most fundamental lever, improving the quality of the training data itself, goes untouched. Three problems get left on the table:',
+      p1_h3: 'Not enough data',
+      p1_li1: 'Signal loss from cookie deprecation and ATT',
+      p1_li2: 'Mismatches from missing parameters',
+      p1_li3: 'Too few conversions for the algorithm to learn from',
+      p2_h3: 'Low-quality data',
+      p2_li1: 'Every conversion sent with identical value',
+      p2_li2: 'No signal to tell a great customer from a one-time buyer',
+      p2_li3: 'Deep conversion points never reach the platform',
+      p3_h3: 'Real outcomes never make it back',
+      p3_li1: 'Platform data drifts from actual business results',
+      p3_li2: 'Learning stays a black box',
+      p3_li3: 'No mechanism to correct what the algorithm got wrong',
+      label_what: 'What it is',
+      title_what: 'A second brain between your ad platforms and your conversion points.',
+      what_lede: 'hanjo Ads AI sits between the ad platform and the places where conversions actually happen: your site, your forms, your chat, your CRM. It takes control of the training data (conversion data) on your behalf and keeps pushing ROAS up.',
+      commission_h3: 'CPA falls. High-value customers grow. Revenue follows.',
+      commission_p: 'The platform\'s AI finally learns from the conversions that matter to your business, not just the ones that are easy to measure.',
+      label_salons: 'A specialty: booking businesses',
+      title_salons: 'Especially strong for salons, spas, and clinics, where booking platforms hide your best customers from your ads.',
+      salons_lede: 'Any business advertising on Meta or Google benefits from better training data. It shines brightest for booking businesses like the ones we serve at growth.hanjo.ai: if you take bookings on Square or another platform that does not allow custom pixels, your ads optimize on link clicks, not completed bookings, so the platform never learns who actually became a customer.',
+      s1_h3: 'Clicks aren\'t customers',
+      s1_li1: 'Square and similar platforms don\'t allow custom pixels or GTM',
+      s1_li2: 'The deepest signal your ads see is a tap toward the booking page',
+      s1_li3: 'Meta optimizes for people who click, not people who book, return, and spend',
+      s2_h3: 'Booking forms that learn',
+      s2_li1: 'We optimize your booking flow to capture each customer\'s preferences and likings',
+      s2_li2: 'Treatments they want, how often they visit, what they care about',
+      s2_li3: 'Your form becomes a source of high-quality signal your platform can\'t collect on its own',
+      s3_h3: 'LTV flows back to your ads',
+      s3_li1: 'We track each customer\'s lifetime value after the first visit',
+      s3_li2: 'That LTV feeds back to the ad platform as training data',
+      s3_li3: 'Your ads learn who to approach and, just as importantly, who not to',
+      salons_note: 'Service businesses are our home turf. See how we grow bookings for med spas and clinics at <a href="https://growth.hanjo.ai/">growth.hanjo.ai</a>.',
+      label_how: 'How it works',
+      title_how: 'A self-learning flywheel that keeps improving your ad performance.',
+      step1_h3: 'Track: deeper than pixels can go.',
+      step1_p: 'Cross-app and cross-domain journeys are usually where measurement dies. Server-side tracking identifies and follows users even as they move between the web and other apps, so no conversion path goes dark.',
+      step2_h3: 'Structure: turn everything into signal.',
+      step2_p: 'Chat transcripts, on-site behavior, form inputs, first-party and zero-party data. These messy, unstructured sources are automatically processed and converted into usable, structured signals.',
+      step3_h3: 'Score: predict the revenue behind each conversion.',
+      step3_p: 'The prediction model at the core of the engine estimates pLTV, the future expected revenue of each conversion, and scores every conversion in a form ad platforms can actually use.',
+      step4_h3: 'Sync: tailor the data to each platform\'s algorithm.',
+      step4_p: 'Predicted pLTV scores are enriched and formatted into the exact signal shape each platform\'s AI learns from best, maximizing user match rates inside Meta, Google, and beyond.',
+      step5_h3: 'Verify: close the loop with real outcomes.',
+      step5_p: 'Actual downstream results flow back to the platform automatically, so predicted scores get checked against reality. The platform learns from the difference, correcting its own dataset with every cycle.',
+      step6_h3: 'Compound: collective intelligence raises accuracy for everyone.',
+      step6_p: 'Anonymized, statistically processed conversion data feeds the shared prediction model, so accuracy keeps climbing. The model gets better with every account it learns from.',
+      label_changes: 'What changes',
+      title_changes: 'Fiddly ad ops disappear.<br>Then it runs itself.',
+      v1_label: 'Targeting',
+      v1_h3: 'Delivery locks onto your best customers.',
+      v1_p: 'The platform\'s AI learns from the high-value conversions we score for it. Targeting self-optimizes toward high-pLTV customers, and ROAS compounds.',
+      v2_label: 'Your workload',
+      v2_h3: 'No more micro-tuning.',
+      v2_p: 'AI handles the targeting, so painstaking keyword and audience settings become unnecessary. Set creative broadly, ship more variations, iterate faster.',
+      v3_label: 'Over time',
+      v3_h3: 'Operations automate themselves.',
+      v3_p: 'As the platform\'s learning model matures, manual intervention fades out. AI decides who to reach. Your team focuses on what to say.',
+      label_cases: 'Case studies',
+      title_cases: 'Working across industries where the real conversion happens late.',
+      case1_tag: 'Education',
+      case1_h3: 'Survey answers predicted enrollment: ROAS 180% in two months.',
+      case1_p: 'This advertiser measured success at chat-app registration. We added a short survey and used the answers to weight each conversion by its likelihood of becoming a paid enrollment, sending those weighted signals to the platform. ROAS rose week over week for two months as delivery concentrated on high-intent users only.',
+      case2_tag: 'Healthcare staffing',
+      case2_h3: 'Moving the learning point cut interview CPA by 41%.',
+      case2_p: 'The original conversion point was a landing-page link tap. We switched platform learning to survey respondents who matched the real hiring profile: licensed, aged 20–40, actively switching jobs within six months. Interview CPA dropped 41% within one month.',
+      case3_tag: 'Luxury real estate',
+      case3_h3: 'Found the cluster that books meetings: meeting CPA down 33%.',
+      case3_p: 'Offline conversions from the CRM weren\'t producing sales meetings. From form fields such as income, demographics, and location, we identified the feature cluster that actually converts to meetings and sent that signal to the platform, cutting meeting CPA by a third.',
+      label_onboarding: 'Getting started',
+      title_onboarding: 'Plan for about a month from kickoff to launch.',
+      onboarding_lede: 'This isn\'t a plug-in pixel. The integration is built around your existing setup: your booking flow, your CRM, your ad accounts, your conversion points. That adaptation work is extensive, and it\'s exactly what makes the data trustworthy once you\'re live. Most setups take around a month.',
+      f1_b: 'Step 1: Discovery', f1_h3: 'Map your goals and gaps',
+      f1_p: 'We review your current ad operations and conversion measurement, and identify the highest-leverage setup together.',
+      f2_b: 'Step 2: Proposal', f2_h3: 'Design the right conversion points',
+      f2_p: 'We propose the optimal conversion points and integration architecture for your product and industry.',
+      f3_b: 'Step 3: Agreement', f3_h3: 'Confirm plan and schedule',
+      f3_p: 'Once the proposal fits, we finalize the plan, the build timeline, and your support setup.',
+      f4_b: 'Step 4: Implementation', f4_h3: 'We handle the technical setup',
+      f4_p: 'Meta CAPI connections, CRM and chat integrations, conversion-point wiring. Our side handles the initial build.',
+      label_integrations: 'Integrations',
+      title_integrations: 'Connects to your stack through standard webhooks.',
+      pill_chatcrm: 'Chat CRMs',
+      pill_forms: 'Form tools',
+      integrations_note: 'Some tools are currently in limited availability. Ask us about your specific stack.',
+      label_pricing: 'Pricing',
+      title_pricing: 'One fee. A percentage of your ad spend.',
+      pricing_p1: 'No retainers, no seat fees, no setup line items. You pay a single service fee as a percentage of your monthly ad spend. The rate is agreed before we start and slides down as your budget grows.',
+      pricing_p2: 'Our incentive stays aligned with yours: the fee only grows when you\'ve decided the results justify spending more.',
+      pricing_example: '<strong>How billing works:</strong><br>One invoice, calculated as the agreed % of that month\'s actual spend<br>Engine, implementation, and optimization included<br><strong>Spend less, pay less. Automatically</strong>',
+      table_col1: 'Plan', table_col2: 'Monthly ad spend', table_col3: 'Service fee',
+      table_r1_cl: 'Starter', table_r1_cm: 'Under $10k', table_r1_ch: '% of spend',
+      table_r2_cl: 'Growth', table_r2_ch: '% of spend',
+      table_r3_cl: 'Scale', table_r3_ch: '% of spend',
+      table_r4_cl: 'Premium', table_r4_ch: 'Custom',
+      label_faq: 'Common questions',
+      title_faq: 'What advertisers ask us first.',
+      faq1_h3: 'Which industries does this work for?',
+      faq1_p: 'Beauty salons, spas, aesthetic clinics, real estate, staffing and recruiting agencies, SaaS, and education: businesses where the real conversion happens off-platform or long after the click see the biggest gains, because that\'s where default platform learning is weakest.',
+      faq2_h3: 'Our bookings run on Square and we can\'t add pixels. Does this still work?',
+      faq2_p: 'Yes, that\'s exactly the case we built for. When your booking platform doesn\'t allow custom pixels or GTM, we optimize your booking flow to capture the signals the platform can\'t, then send qualified conversions and lifetime value back to the ad platform server-side. Your ads learn from real customers instead of link clicks.',
+      faq3_h3: 'What does "curated conversions" actually mean?',
+      faq3_p: 'Only genuinely valuable actions, such as form submissions, booked visits, and closed deals, get sent to the ad platform as conversions. Training the platform exclusively on high-LTV users steers its auto-optimization in the direction you actually want.',
+      faq4_h3: 'Can we change the conversion point later?',
+      faq4_p: 'Yes. A common pattern is starting with a shallower conversion to accelerate learning, then switching to a deeper one as data accumulates: a staged tuning approach you can iterate on a daily cadence.',
+      faq5_h3: 'What can it connect to?',
+      faq5_p: 'The CAPIs of Meta, Google, Yahoo, and LINE Ads, plus HubSpot, Pardot, Klaviyo, KARTE, Tealium, Treasure Data, and chat-based CRMs. Some integrations are in beta, so ask us about your stack.',
+      faq6_h3: 'We don\'t have engineers in-house. Is that a problem?',
+      faq6_p: 'Not at all. A dedicated lead handles discovery, conversion-point design, and implementation end to end. Because the integration is adapted to your existing booking flow and tools, expect setup to take about a month. We handle the technical work throughout.',
+      faq7_h3: 'Can it handle multiple accounts or campaigns at once?',
+      faq7_p: 'Yes. You can design unlimited conversion points per initiative, and data can be unified across accounts.',
+      cta_h2: 'See what your conversion data<br>could be doing.',
+      cta_p: 'Tell us a little about your ads and we\'ll follow up with details and next steps. No cost, no commitment.',
+      form_label_name: 'Your name', form_ph_name: 'Jane Kim',
+      form_label_email: 'Email',
+      form_label_company: 'Company (optional)', form_ph_company: 'Acme Inc.',
+      form_label_platform: 'Primary ad platform', form_ph_platform: 'Select your platform', form_opt_other: 'Other',
+      form_label_budget: 'Monthly ad budget', form_ph_budget: 'Select range', form_opt_none: 'Not running ads yet', form_opt_b1: 'Under $10,000',
+      form_label_phone: 'Phone (optional)',
+      form_label_challenge: 'What would you like to improve? (optional)',
+      form_ph_challenge: 'e.g. Running Meta ads but CPA keeps climbing…',
+      form_btn: 'Request details →',
+      cta_sub: 'We only use your information to respond to this inquiry.',
+      thanks_h3: 'Thanks, we\'ll be in touch.',
+      thanks_p: 'We\'ll review your setup and follow up within one business day.',
+      footer_about: 'About',
+      footer_terms: 'Terms of Service',
+      footer_privacy: 'Privacy Policy',
+      footer_p: '© 2026 hanjo. Ad algorithm optimization AI.'
+    },
+    ja: {
+      page_title: 'hanjo | AIが、広告を、最適化する時代へ。',
+      skip_link: 'コンテンツへスキップ',
+      nav_cta: '無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      'footer-about': '会社概要',
+      'footer-terms': '利用規約',
+      'footer-privacy': 'プライバシーポリシー',
+      'footer-copy': '© 2026 hanjo · ロサンゼルス',
+      crumb: '← サービス一覧に戻る',
+      risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
+      hero_badge: 'Meta・Google広告を運用する中小企業のために',
+      hero_h1: 'AIが、広告を、<br><em>最適化する。</em>',
+      hero_sub: 'hanjo Ads AIは、広告媒体が本来受け取れないコンバージョンデータをMetaとGoogleに供給し、実際に購入・予約し、リピートしてくれるお客様へ配信を集中させます。ECから予約型ビジネスまで、中小企業のために設計しています。',
+      hero_btn_primary: 'お問い合わせ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: '仕組みを見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      stat1_strong: 'ROAS改善', stat1_span: '広告費用対効果',
+      stat2_strong: 'CPA削減', stat2_span: '顧客獲得単価',
+      stat3_strong: '運用工数削減', stat3_span: '手動調整にかかる時間',
+      stat4_strong: '連携先', stat4_span: '接続可能なプラットフォーム・ツール',
+      stats_note: '数値は本エンジンの導入実績に基づく代表値です。業種やデータ量により成果は異なります。',
+      label_problem: '課題',
+      title_problem: 'ほとんどの広告主は、<br>広告媒体のAIを活かしきれていない。',
+      problem_lede: '広告媒体は機械学習で動いています。そしてその機械学習は、あなたが送るコンバージョンデータ（教師データ）で動いています。多くの「運用改善」は、クリエイティブ調整・キーワード調整・入札調整といった管理画面上の間接的な操作に留まり、最も本質的なレバーである「教師データそのものの品質」には手が付けられていません。その結果、3つの課題が放置されています。',
+      p1_h3: 'データが足りない',
+      p1_li1: 'Cookie規制・ATTによるシグナルの欠損',
+      p1_li2: 'パラメータ不足によるミスマッチ',
+      p1_li3: 'アルゴリズムの学習に必要なCVの絶対数が不足',
+      p2_h3: 'データの品質が低い',
+      p2_li1: '全てのCVが同じ価値で送信されている',
+      p2_li2: '優良顧客と一見客を区別するシグナルがない',
+      p2_li3: '深いCV地点のデータが媒体に届いていない',
+      p3_h3: '実成果が媒体に戻らない',
+      p3_li1: '媒体内データと実際の成果の乖離',
+      p3_li2: '学習状況のブラックボックス化',
+      p3_li3: '誤った学習を修正する仕組みがない',
+      label_what: 'hanjo Ads AIとは',
+      title_what: '広告媒体とCV地点の間で機能する、<br>第二の脳。',
+      what_lede: 'hanjo Ads AIは、広告媒体と実際にコンバージョンが起こる場所（サイト、フォーム、チャット、CRM）の間に立ち、広告主に代わって教師データ（CVデータ）をコントロールし、ROASを上げ続けます。',
+      commission_h3: 'CPAが下がり、優良顧客が増え、売上が伸びる。',
+      commission_p: '媒体のAIが、計測しやすいCVではなく、ビジネスにとって本当に価値のあるCVから学習するようになります。',
+      label_salons: '得意分野：予約型ビジネス',
+      title_salons: '特に強いのは、予約プラットフォームが優良顧客を広告から隠してしまう、サロン・スパ・クリニックです。',
+      salons_lede: 'MetaやGoogleに広告を出しているビジネスなら、業種を問わず学習データの改善が効きます。中でも効果が大きいのが予約型ビジネスです。Squareなどピクセルを自由に設置できない予約プラットフォームでは、広告は「クリック」までしか学習できず、誰が本当のお客様になったかを媒体が知ることはありません。',
+      s1_h3: 'クリックは顧客ではない',
+      s1_li1: 'Square等の予約プラットフォームはカスタムピクセル・GTMを設置できない',
+      s1_li2: '広告が受け取れる最も深いシグナルは「予約ページへのタップ」まで',
+      s1_li3: 'Metaは「予約し、再来店し、使ってくれる人」ではなく「クリックする人」に最適化してしまう',
+      s2_h3: '学習する予約フォーム',
+      s2_li1: '予約フローを最適化し、お客様一人ひとりの好みや志向を取得',
+      s2_li2: '希望メニュー、来店頻度、重視しているポイント',
+      s2_li3: 'プラットフォーム単体では集められない、質の高いシグナル源に',
+      s3_h3: 'LTVを広告へ還元',
+      s3_li1: '初回来店後の顧客生涯価値（LTV）を計測',
+      s3_li2: 'LTVを教師データとして広告媒体へフィードバック',
+      s3_li3: '「誰にアプローチすべきか」そして「誰にすべきでないか」を広告が学習',
+      salons_note: 'サービスビジネスは私たちのホームグラウンドです。メディカルスパ・クリニック向けの集客支援は <a href="https://growth.hanjo.ai/">growth.hanjo.ai</a> をご覧ください。',
+      label_how: '仕組み',
+      title_how: '学習を重ねるほど、<br>広告効果が上がり続ける仕組み。',
+      step1_h3: '追跡：ピクセルより深く。',
+      step1_p: 'アプリやドメインをまたぐ導線は、通常、計測が途切れる場所です。サーバーサイドトラッキングにより、ウェブと他アプリの間を移動するユーザーも識別・追跡。コンバージョンまでの道筋を見失いません。',
+      step2_h3: '構造化：あらゆるデータをシグナルに。',
+      step2_p: 'チャットの文章、サイト内行動、フォーム入力、1stパーティ・ゼロパーティデータ。複雑な非構造化データを自動で処理・加工し、使えるシグナルに変換します。',
+      step3_h3: 'スコアリング：1CVあたりの将来収益を予測。',
+      step3_p: 'エンジンの核である予測モデルが、各コンバージョンの将来期待収益（pLTV）を推定。広告媒体が実際に利用できる形で、全てのCVをスコアリングします。',
+      step4_h3: '連携：媒体ごとのアルゴリズムに合わせて加工。',
+      step4_p: '予測されたpLTVスコアを、各媒体のAIが最も学習しやすいシグナル形式に加工・補完。MetaやGoogleにおける媒体内マッチ率を最大化します。',
+      step5_h3: '検証：実成果で答え合わせ。',
+      step5_p: 'その後の実績データが自動で媒体へ還流し、予測スコアと現実を照合。媒体はその差分から学習し、サイクルごとに自らのデータセットを修正していきます。',
+      step6_h3: '集合知化：精度は全アカウントで向上し続ける。',
+      step6_p: '匿名加工・統計処理されたCVデータが共有予測モデルに集約され、予測精度は向上し続けます。学習するアカウントが増えるほど、モデルは賢くなります。',
+      label_changes: '運用はこう変わる',
+      title_changes: '繊細な運用作業が消える。<br>やがて、自動で回り出す。',
+      v1_label: 'ターゲティング',
+      v1_h3: '配信が優良顧客に集中する。',
+      v1_p: '私たちがスコアリングした高価値CVから媒体のAIが学習。pLTVの高い顧客へ配信が自己最適化され、ROASが積み上がっていきます。',
+      v2_label: '運用工数',
+      v2_h3: '細かなチューニングは、もう不要。',
+      v2_p: 'ターゲティングはAIが担うため、緻密なキーワード設定やオーディエンス設定は不要になります。クリエイティブは大枠で設定し、量を出し、速く回せます。',
+      v3_label: '時間とともに',
+      v3_h3: '運用そのものが自動化していく。',
+      v3_p: '媒体の学習モデルが成熟するにつれ、手動での介入は減っていきます。「誰に届けるか」はAIに任せ、チームは「何を伝えるか」に集中できます。',
+      label_cases: '導入事例',
+      title_cases: '「本当のコンバージョン」が後から起こる業種で、<br>成果を出しています。',
+      case1_tag: '教育',
+      case1_h3: 'アンケート回答から受注を予測。2ヶ月でROAS 180%。',
+      case1_p: 'チャットアプリへの登録を成果地点としていた広告主様。短いアンケートを実装し、回答内容から有料申込に至る確度で各CVを重み付けして媒体に送信しました。高意欲ユーザーだけに配信が寄っていき、2ヶ月間、ROASが毎週上がり続けました。',
+      case2_tag: '医療人材',
+      case2_h3: '学習地点の変更で、面談CPAが41%改善。',
+      case2_p: '元のCV地点はLPのリンクタップ。媒体の学習対象を、実際の採用プロファイル（有資格・20〜40代・半年以内の転職検討）に合致するアンケート回答者へ切り替え、1ヶ月で面談CPAが41%下がりました。',
+      case3_tag: '富裕層向け不動産',
+      case3_h3: '商談につながるクラスターを発見。商談CPAが33%改善。',
+      case3_p: 'CRMからのオフラインコンバージョンだけでは商談が生まれない状態でした。フォーム項目（年収・属性・地域）から商談化する特徴量クラスターを特定し、そのシグナルを媒体へ送信。商談CPAを3分の1削減しました。',
+      label_onboarding: '導入の流れ',
+      title_onboarding: 'キックオフから稼働まで、約1ヶ月。',
+      onboarding_lede: 'これはピクセルを貼るだけのツールではありません。予約フロー、CRM、広告アカウント、CV地点など、既存の環境に合わせて統合を構築します。この適応作業には相応の工数がかかりますが、それこそが稼働後のデータの信頼性をつくります。セットアップには約1ヶ月をいただくのが標準です。',
+      f1_b: 'STEP 1：ヒアリング', f1_h3: '目的と課題を整理',
+      f1_p: '現在の広告運用とCV計測の状況をお伺いし、最も効果の出る構成をご一緒に特定します。',
+      f2_b: 'STEP 2：ご提案', f2_h3: '最適なCV地点を設計',
+      f2_p: '商材・業界に合わせた最適なCV地点と、連携アーキテクチャをご提案します。',
+      f3_b: 'STEP 3：ご契約', f3_h3: 'プランとスケジュールを確定',
+      f3_p: 'ご納得いただけましたら、プラン・構築タイムライン・サポート体制を確定します。',
+      f4_b: 'STEP 4：実装', f4_h3: '技術セットアップは弊社側で',
+      f4_p: 'Meta CAPIの接続、CRM・チャット連携、CV地点の実装まで、初期構築は弊社が対応します。',
+      label_integrations: '連携',
+      title_integrations: '標準Webhookで、既存のスタックと接続。',
+      pill_chatcrm: 'チャット系CRM',
+      pill_forms: 'フォームツール',
+      integrations_note: '一部のツールは限定対応です。お使いのスタックについてはお問い合わせください。',
+      label_pricing: '料金',
+      title_pricing: '料金はひとつ。<br>広告費に対する一定割合。',
+      pricing_p1: 'リテイナー費用も、シート課金も、初期費用もありません。月間広告費に対する一定割合のサービスフィーのみ。料率は開始前に合意し、予算が大きくなるほど下がります。',
+      pricing_p2: 'インセンティブは常にお客様と同じ方向を向きます。フィーが増えるのは、成果が投資の拡大に値するとお客様自身が判断された時だけです。',
+      pricing_example: '<strong>ご請求の仕組み：</strong><br>請求は月1回。当月の実広告費に、合意した料率を乗じた金額のみ<br>エンジン・実装・最適化のすべてを含みます<br><strong>広告費を抑えれば、お支払いも自動的に下がります</strong>',
+      table_col1: 'プラン', table_col2: '月間広告費', table_col3: 'サービスフィー',
+      table_r1_cl: 'スターター', table_r1_cm: '$10k未満', table_r1_ch: '広告費の%',
+      table_r2_cl: 'グロース', table_r2_ch: '広告費の%',
+      table_r3_cl: 'スケール', table_r3_ch: '広告費の%',
+      table_r4_cl: 'プレミアム', table_r4_ch: '個別お見積り',
+      label_faq: 'よくある質問',
+      title_faq: '広告主様からよくいただく質問。',
+      faq1_h3: 'どの業界で効果がありますか？',
+      faq1_p: '美容サロン、スパ、美容クリニック、不動産、人材、SaaS、教育など、本当のコンバージョンがプラットフォームの外や、クリックのずっと後に起こるビジネスほど効果が大きくなります。媒体標準の学習が最も弱い領域だからです。',
+      faq2_h3: 'Squareで予約を受けていて、ピクセルを追加できません。それでも使えますか？',
+      faq2_p: 'はい、まさにそのケースのために作られています。予約プラットフォームがカスタムピクセルやGTMを許可していない場合、予約フローを最適化してプラットフォームが取得できないシグナルを収集し、選別したCVとLTVをサーバーサイドで媒体へ送信します。広告はリンククリックではなく、実際のお客様から学習するようになります。',
+      faq3_h3: '「選び抜いたCV」とは何ですか？',
+      faq3_p: 'フォーム送信・来店予約・成約など、本当に価値の高いアクションだけをCVとして媒体に送信する仕組みです。高LTVユーザーだけで学習させることで、媒体の自動最適化を狙った方向に導きます。',
+      faq4_h3: 'CV地点は後から変更できますか？',
+      faq4_p: 'はい。まず浅いCVで学習を加速させ、データが溜まり次第より深いCVへ切り替える。こうした段階的なチューニングが可能です。デイリー単位の高速PDCAで運用できます。',
+      faq5_h3: '何と連携できますか？',
+      faq5_p: 'Meta・Google・Yahoo・LINE広告の各CAPIに加え、HubSpot、Pardot、Klaviyo、KARTE、Tealium、Treasure Data、チャット系CRMと接続可能です。一部はβ対応のため、お使いのスタックについてはお問い合わせください。',
+      faq6_h3: '社内にエンジニアがいなくても大丈夫ですか？',
+      faq6_p: '問題ありません。専任担当がヒアリング、CV地点設計、実装までを一貫して対応します。既存の予約フローやツールに合わせて統合を構築するため、セットアップには約1ヶ月を見込んでください。技術作業はすべて弊社が担当します。',
+      faq7_h3: '複数アカウント・複数施策を同時に扱えますか？',
+      faq7_p: 'はい。施策ごとに無制限にCV地点を設計でき、アカウントをまたいだデータ統合にも対応しています。',
+      cta_h2: 'あなたのCVデータが持つ力を、<br>確かめてみませんか。',
+      cta_p: '現在の広告運用について、簡単にお聞かせください。詳細と次のステップをご案内します。費用も義務も一切ありません。',
+      form_label_name: 'お名前', form_ph_name: '山田 花子',
+      form_label_email: 'メールアドレス',
+      form_label_company: '会社名（任意）', form_ph_company: '株式会社サンプル',
+      form_label_platform: '主な広告媒体', form_ph_platform: '媒体を選択', form_opt_other: 'その他',
+      form_label_budget: '月間広告予算', form_ph_budget: '範囲を選択', form_opt_none: 'まだ出稿していない', form_opt_b1: '$10,000未満',
+      form_label_phone: '電話番号（任意）',
+      form_label_challenge: '改善したいことは？（任意）',
+      form_ph_challenge: '例：Meta広告のCPAが上がり続けている…',
+      form_btn: '詳細を問い合わせる →',
+      cta_sub: 'ご入力いただいた情報は、本お問い合わせへの対応以外には使用しません。',
+      thanks_h3: 'ありがとうございます。折り返しご連絡いたします。',
+      thanks_p: '内容を確認のうえ、1営業日以内にご連絡いたします。',
+      footer_about: '会社概要',
+      footer_terms: '利用規約',
+      footer_privacy: 'プライバシーポリシー',
+      footer_p: '© 2026 hanjo. 広告アルゴリズム最適化AI。'
+    }
+  };
+
+  function setLang(lang) {
+    var be = document.getElementById('btn-en'), bj = document.getElementById('btn-ja');
+    be.classList.toggle('active', lang === 'en'); be.setAttribute('aria-pressed', lang === 'en');
+    bj.classList.toggle('active', lang === 'ja'); bj.setAttribute('aria-pressed', lang === 'ja');
+    document.body.classList.toggle('lang-ja', lang === 'ja');
+    document.documentElement.lang = lang;
+    document.title = T[lang].page_title;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (T[lang][key] !== undefined) {
+        el.innerHTML = T[lang][key];
+      }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (T[lang][key] !== undefined) el.placeholder = T[lang][key];
+    });
+    try { localStorage.setItem('hanjo-lang', lang); } catch(e) {}
+    var lp = document.getElementById('lang-pill');
+    if (lp) lp.textContent = (lang === 'ja') ? 'EN' : 'JP';
+  }
+
+  (function() {
+    var param = new URLSearchParams(window.location.search).get('lang');
+    var saved = null;
+    var seg = location.pathname.split('/')[1];
+    if (seg === 'ja' || seg === 'en') {
+      try { localStorage.setItem('hanjo-lang', seg); } catch(e) {}
+      document.querySelectorAll('a[href^="/"]').forEach(function(a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '') href = '/';
+        a.setAttribute('href', '/' + seg + href);
+      });
+    }
+
+    (function () {
+      var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      document.querySelectorAll('.nav-links a').forEach(function (a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+      });
+    })();
+    try { saved = localStorage.getItem('hanjo-lang'); } catch(e) {}
+    if (!saved) {
+      var bl = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      saved = bl.startsWith('ja') ? 'ja' : 'en';
+    }
+    var lang = (param === 'ja' || param === 'en') ? param : saved;
+    if (lang === 'ja') setLang('ja');
+  })();
+
+  // Form submit → Apps Script backend
+  (function() {
+    var form = document.getElementById('ads-form');
+    var thanks = document.getElementById('ads-thanks');
+    if (!form) return;
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      var origText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '…';
+      var params = new URLSearchParams(new FormData(form)).toString();
+      fetch('https://script.google.com/macros/s/AKfycbw-2J2ZJi1hsxNnf637nbnWrpVHJhN6K3DlKGWhYpoBqM6N3TfXXnNoSpz3kg9IVsdq1g/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params
+      }).then(function() {
+        form.style.display = 'none';
+        thanks.style.display = 'block';
+      }).catch(function() {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        alert('Something went wrong. Please try again.');
+      });
+    });
+  })();
+
+  // Staggered reveal for value cards
+  (function() {
+    var grid = document.querySelector('.value-grid');
+    if (!grid) return;
+    var cards = grid.querySelectorAll('.value-card');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          cards.forEach(function(card, i) {
+            setTimeout(function() { card.classList.add('visible'); }, i * 130);
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(grid);
+  })();
+
+  // Smooth cursor glow
+  (function() {
+    if (window.matchMedia('(hover: none)').matches) return;
+    var glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+    var mx = 0, my = 0, gx = 0, gy = 0, active = false;
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX; my = e.clientY;
+      if (!active) { glow.style.opacity = '1'; active = true; }
+    });
+    document.addEventListener('mouseleave', function() { glow.style.opacity = '0'; });
+    document.addEventListener('mouseenter', function() { if (active) glow.style.opacity = '1'; });
+    function tick() {
+      gx += (mx - gx) * 0.07;
+      gy += (my - gy) * 0.07;
+      glow.style.left = gx + 'px';
+      glow.style.top  = gy + 'px';
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+</script>
+
+<script>
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var b = document.querySelector('.nav-burger');
+    var open = m.classList.toggle('open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    m.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+  (function () {
+    var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+    document.querySelectorAll('.mm-links a').forEach(function (a) {
+      var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+    });
+  })();
+</script>
+</body>
+</html>

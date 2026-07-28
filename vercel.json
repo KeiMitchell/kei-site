@@ -1,15 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/ja",
-      "destination": "/index.html"
-    },
-    {
       "source": "/en",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/ja/",
       "destination": "/index.html"
     },
     {
@@ -17,15 +9,15 @@
       "destination": "/index.html"
     },
     {
-      "source": "/ja/crm",
-      "destination": "/crm/index.html"
+      "source": "/ja",
+      "destination": "/ja/index.html"
+    },
+    {
+      "source": "/ja/",
+      "destination": "/ja/index.html"
     },
     {
       "source": "/en/crm",
-      "destination": "/crm/index.html"
-    },
-    {
-      "source": "/ja/crm/",
       "destination": "/crm/index.html"
     },
     {
@@ -33,15 +25,15 @@
       "destination": "/crm/index.html"
     },
     {
-      "source": "/ja/web",
-      "destination": "/web/index.html"
+      "source": "/ja/crm",
+      "destination": "/ja/crm/index.html"
+    },
+    {
+      "source": "/ja/crm/",
+      "destination": "/ja/crm/index.html"
     },
     {
       "source": "/en/web",
-      "destination": "/web/index.html"
-    },
-    {
-      "source": "/ja/web/",
       "destination": "/web/index.html"
     },
     {
@@ -49,76 +41,28 @@
       "destination": "/web/index.html"
     },
     {
-      "source": "/ja/contact",
-      "destination": "/contact/index.html"
+      "source": "/ja/web",
+      "destination": "/ja/web/index.html"
     },
     {
-      "source": "/ja/contact/",
-      "destination": "/contact/index.html"
+      "source": "/ja/web/",
+      "destination": "/ja/web/index.html"
     },
     {
-      "source": "/en/contact",
-      "destination": "/contact/index.html"
+      "source": "/en/ads",
+      "destination": "/ads/index.html"
     },
     {
-      "source": "/en/contact/",
-      "destination": "/contact/index.html"
+      "source": "/en/ads/",
+      "destination": "/ads/index.html"
     },
     {
-      "source": "/ja/about",
-      "destination": "/about/index.html"
+      "source": "/ja/ads",
+      "destination": "/ja/ads/index.html"
     },
     {
-      "source": "/ja/about/",
-      "destination": "/about/index.html"
-    },
-    {
-      "source": "/ja/terms",
-      "destination": "/terms/index.html"
-    },
-    {
-      "source": "/ja/terms/",
-      "destination": "/terms/index.html"
-    },
-    {
-      "source": "/ja/privacy",
-      "destination": "/privacy/index.html"
-    },
-    {
-      "source": "/ja/privacy/",
-      "destination": "/privacy/index.html"
-    },
-    {
-      "source": "/en/about",
-      "destination": "/about/index.html"
-    },
-    {
-      "source": "/en/about/",
-      "destination": "/about/index.html"
-    },
-    {
-      "source": "/en/terms",
-      "destination": "/terms/index.html"
-    },
-    {
-      "source": "/en/terms/",
-      "destination": "/terms/index.html"
-    },
-    {
-      "source": "/en/privacy",
-      "destination": "/privacy/index.html"
-    },
-    {
-      "source": "/en/privacy/",
-      "destination": "/privacy/index.html"
-    },
-    {
-      "source": "/ja/recovery",
-      "destination": "/recovery/index.html"
-    },
-    {
-      "source": "/ja/recovery/",
-      "destination": "/recovery/index.html"
+      "source": "/ja/ads/",
+      "destination": "/ja/ads/index.html"
     },
     {
       "source": "/en/recovery",
@@ -129,20 +73,76 @@
       "destination": "/recovery/index.html"
     },
     {
-      "source": "/ja/ads",
-      "destination": "/ads/index.html"
+      "source": "/ja/recovery",
+      "destination": "/ja/recovery/index.html"
     },
     {
-      "source": "/ja/ads/",
-      "destination": "/ads/index.html"
+      "source": "/ja/recovery/",
+      "destination": "/ja/recovery/index.html"
     },
     {
-      "source": "/en/ads",
-      "destination": "/ads/index.html"
+      "source": "/en/about",
+      "destination": "/about/index.html"
     },
     {
-      "source": "/en/ads/",
-      "destination": "/ads/index.html"
+      "source": "/en/about/",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/ja/about",
+      "destination": "/ja/about/index.html"
+    },
+    {
+      "source": "/ja/about/",
+      "destination": "/ja/about/index.html"
+    },
+    {
+      "source": "/en/contact",
+      "destination": "/contact/index.html"
+    },
+    {
+      "source": "/en/contact/",
+      "destination": "/contact/index.html"
+    },
+    {
+      "source": "/ja/contact",
+      "destination": "/ja/contact/index.html"
+    },
+    {
+      "source": "/ja/contact/",
+      "destination": "/ja/contact/index.html"
+    },
+    {
+      "source": "/en/terms",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/en/terms/",
+      "destination": "/terms/index.html"
+    },
+    {
+      "source": "/ja/terms",
+      "destination": "/ja/terms/index.html"
+    },
+    {
+      "source": "/ja/terms/",
+      "destination": "/ja/terms/index.html"
+    },
+    {
+      "source": "/en/privacy",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/en/privacy/",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/ja/privacy",
+      "destination": "/ja/privacy/index.html"
+    },
+    {
+      "source": "/ja/privacy/",
+      "destination": "/ja/privacy/index.html"
     }
   ]
 }

@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="ja" id="html-root">
+<head>
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JLHW59CHY6');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hanjo | 取りこぼした予約を、売上に戻す｜完全成果報酬の予約リカバリー</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#3A5C45" />
+  <meta name="description" content="予約フォームの再構築と、SMS・メールの自動フォローで、取りこぼした予約を売上に戻します。サロン・スパ・クリニック向け。初期費用も月額費用もない成果報酬型。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta property="og:url" content="https://hanjo.ai/ja/recovery/" />
+  <meta property="og:title" content="hanjo | 取りこぼした予約を、売上に戻す｜完全成果報酬の予約リカバリー" />
+  <meta property="og:description" content="予約フォームの再構築と、SMS・メールの自動フォローで、取りこぼした予約を売上に戻します。サロン・スパ・クリニック向け。初期費用も月額費用もない成果報酬型。" />
+  <meta property="og:image" content="https://hanjo.ai/kei.JPG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="hanjo | 取りこぼした予約を、売上に戻す｜完全成果報酬の予約リカバリー" />
+  <meta name="twitter:description" content="予約フォームの再構築と、SMS・メールの自動フォローで、取りこぼした予約を売上に戻します。サロン・スパ・クリニック向け。初期費用も月額費用もない成果報酬型。" />
+  <meta name="twitter:image" content="https://hanjo.ai/kei.JPG" />
+  <link rel="canonical" href="https://hanjo.ai/ja/recovery/" />
+  <link rel="alternate" hreflang="en" href="https://hanjo.ai/recovery/" />
+  <link rel="alternate" hreflang="ja" href="https://hanjo.ai/ja/recovery/" />
+  <link rel="alternate" hreflang="x-default" href="https://hanjo.ai/recovery/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #111110;
+      --gray:    #6B6B68;
+      --light:   #F5F4F0;
+      --white:   #FFFFFF;
+      --sage:    #3A5C45;
+      --sage-lt: #EBF1ED;
+      --sage-md: #C8DACC;
+      --red:     #C0392B;
+      --red-lt:  #FFF0EE;
+      --red-bd:  #F5C6C0;
+      --border:  #E4E2DC;
+      --r:       12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1080px; margin: 0 auto; }
+    .label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+    }
+    section { padding: 64px 5vw; }
+    @media (min-width: 768px) { section { padding: 96px 5vw; } }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 60px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      text-decoration: none; display: flex; align-items: center;
+    }
+    .logo-img { height: 26px; width: auto; display: block; }
+    .logo-img--footer { height: 30px; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .nav-cta {
+      padding: 9px 18px;
+      background: var(--sage); color: var(--white);
+      border-radius: 100px; font-size: 0.8125rem; font-weight: 500;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: #2e4a38; }
+
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-toggle { display: flex; align-items: center; gap: 2px; }
+    .lang-btn {
+      padding: 2px 4px; cursor: pointer; border: none;
+      background: transparent; color: var(--gray);
+      font-size: 0.7rem; font-weight: 500;
+      font-family: inherit; line-height: 1.4; white-space: nowrap;
+      opacity: 0.4; transition: opacity 0.15s;
+    }
+    .lang-btn.active { opacity: 1; color: var(--text); font-weight: 600; }
+    .lang-btn:hover:not(.active) { opacity: 0.7; }
+    .lang-sep { font-size: 0.65rem; color: var(--border); user-select: none; }
+
+    /* ── BANNER ── */
+    .risk-banner {
+      background: var(--sage); color: var(--white);
+      padding: 12px 5vw; text-align: center;
+      font-size: 0.8125rem; line-height: 1.5;
+    }
+    .risk-banner strong { font-weight: 600; }
+
+    /* ── HERO ── */
+    .hero { background: var(--light); border-bottom: 1px solid var(--border); padding: 72px 5vw 64px; position: relative; overflow: hidden; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      line-height: 1.08; letter-spacing: -0.025em;
+      margin-bottom: 26px;
+    }
+    .hero h1 em { font-style: italic; color: var(--sage); font-size: 1.3em; line-height: 1; display: inline-block; margin-top: 0.12em; }
+    .hero-sub {
+      font-size: 1rem; color: var(--gray);
+      max-width: 520px; margin-bottom: 36px; line-height: 1.7;
+    }
+    .location-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: var(--sage); font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .pin-icon { flex-shrink: 0; margin-top: -1px; }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 14px 24px;
+      background: var(--sage); color: var(--white);
+      border-radius: 100px; font-size: 0.9375rem; font-weight: 500;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .btn-primary:hover { background: #2e4a38; transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 14px 20px;
+      color: var(--black); font-size: 0.9375rem; font-weight: 500;
+      text-decoration: none; border-radius: 100px;
+      border: 1px solid var(--border); background: var(--white);
+      transition: border-color 0.15s;
+    }
+    .btn-ghost:hover { border-color: var(--sage); }
+
+    /* zero badges: editorial stat strip */
+    .zero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      max-width: 720px;
+    }
+    @media (min-width: 560px) { .zero-grid { grid-template-columns: repeat(3,1fr); } }
+    .zero-badge { padding: 24px 4px; }
+    @media (min-width: 560px) {
+      .zero-badge { padding: 26px 28px 28px; }
+      .zero-badge:first-child { padding-left: 0; }
+      .zero-badge + .zero-badge { border-left: 1px solid var(--border); }
+    }
+    @media (max-width: 559px) {
+      .zero-badge + .zero-badge { border-top: 1px solid var(--border); }
+    }
+    .zero-icon {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 500; line-height: 1;
+      color: var(--sage);
+      margin-bottom: 10px;
+    }
+    .zero-icon-check svg { width: 26px; height: 26px; color: var(--sage); display: block; margin-top: 3px; }
+    .zero-badge strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 1px; }
+    .zero-badge span { font-size: 0.8125rem; color: var(--gray); }
+
+    /* ── INFOGRAPHIC ── */
+    .infographic { border-bottom: 1px solid var(--border); }
+
+    /* dot grid */
+    .dot-grid { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; max-width: 600px; }
+    .dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: #E0DED8;
+    }
+    .dot.booked { background: var(--sage); }
+    .dot-legend { display: flex; gap: 20px; font-size: 0.875rem; margin-bottom: 48px; }
+    .dot-legend span { display: flex; align-items: center; gap: 8px; }
+    .dot-legend .swatch {
+      width: 12px; height: 12px; border-radius: 50%; display: inline-block;
+    }
+
+    /* staged funnel with person icons */
+    .funnel-col-label {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gray); margin-bottom: 20px;
+    }
+    .funnel-stages { display: flex; flex-direction: column; gap: 0; max-width: 640px; }
+    .funnel-stage { margin-bottom: 4px; }
+    .stage-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 12px; margin-bottom: 7px;
+    }
+    .stage-label { font-size: 0.875rem; color: var(--gray); }
+    .stage-count { font-size: 0.9375rem; font-weight: 700; color: var(--black); white-space: nowrap; }
+    .stage-icons { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+    .stage-drop {
+      font-size: 0.8125rem; color: var(--red);
+      padding: 3px 0 10px 2px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .funnel-result .stage-label { font-weight: 600; color: var(--sage); }
+    .funnel-result .stage-count { color: var(--sage); }
+    .p-icon { width: 26px; height: 26px; flex-shrink: 0; }
+    .p-s1 { fill: #C8D6CA; }
+    .p-s2 { fill: #A8C2AC; }
+    .p-s3 { fill: #7FAF88; }
+    .p-s4 { fill: #5A8F64; }
+    .p-s5 { fill: #3B6B3F; }
+
+    /* ── RECOVERY SECTION ── */
+    .recovery { background: var(--light); border-bottom: 1px solid var(--border); }
+
+    /* approach flow */
+    .approach-flow { display: flex; flex-direction: column; align-items: stretch; gap: 0; max-width: 520px; }
+    .approach-step { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 28px; }
+    .approach-step h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 6px; }
+    .approach-step p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
+    .approach-step-icons { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+    .approach-step-result h3 { color: var(--sage); }
+    .approach-connector { display: flex; align-items: center; gap: 10px; padding: 8px 28px; }
+    .approach-connector-line { flex: 1; height: 2px; background: var(--border); }
+    .approach-connector-arrow { font-size: 1.1rem; color: var(--sage); }
+    /* SMS step */
+    .approach-step-sms { background: #1C1C1E; border-color: #333; }
+    .approach-sms-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
+    .sms-card { background: #2C2C2E; border-radius: 14px; padding: 16px; }
+    .sms-card-sender { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .sms-card-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .sms-card-name { font-size: 0.8125rem; font-weight: 600; color: white; }
+    .sms-card-sub { font-size: 0.7rem; color: rgba(255,255,255,0.35); }
+    .sms-card-bubble { background: #3A3A3C; border-radius: 10px 12px 4px 12px; padding: 12px 14px; margin-bottom: 10px; font-size: 0.8125rem; color: white; line-height: 1.6; }
+    .sms-card-cta { background: var(--sage); border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 6px; font-size: 0.875rem; font-weight: 600; color: white; }
+    .sms-card-tap { text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.28); }
+
+    .commission-bar {
+      margin-top: 40px; padding: 20px 24px;
+      background: var(--sage); border-radius: var(--r);
+      display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+    }
+    .commission-bar .icon { font-size: 1.5rem; flex-shrink: 0; padding-top: 2px; }
+    .commission-bar h3 { font-size: 0.9375rem; font-weight: 600; color: white; margin-bottom: 4px; }
+    .commission-bar p { font-size: 0.8125rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+
+    /* ── HANJO VALUE PROPS ── */
+    .how { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .value-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 40px;
+    }
+    @media (min-width: 720px) { .value-grid { grid-template-columns: repeat(3,1fr); } }
+    .value-card {
+      padding: 52px 36px 44px;
+      border-bottom: 1px solid var(--border);
+      border-top: 3px solid transparent;
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease, border-top-color 0.25s ease;
+    }
+    .value-card.visible { opacity: 1; transform: translateY(0); }
+    .value-card:hover { border-top-color: var(--sage); }
+    .value-card:last-child { border-bottom: none; }
+    @media (min-width: 720px) {
+      .value-card { border-bottom: none; border-right: 1px solid var(--border); }
+      .value-card:last-child { border-right: none; }
+    }
+    .value-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+    .value-num { font-size: clamp(3rem, 9vw, 4.75rem); font-weight: 700; letter-spacing: -0.04em; color: var(--sage); line-height: 1; }
+
+
+
+    /* ── PRICING / COMPARE ── */
+    .pricing-section { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .pricing-layout {
+      display: grid; grid-template-columns: 1fr; gap: 40px;
+    }
+    @media (min-width: 768px) { .pricing-layout { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; } }
+    .pricing-copy h2 { margin-bottom: 14px; }
+    .pricing-copy p { font-size: 0.9375rem; color: var(--gray); line-height: 1.7; margin-bottom: 12px; }
+    .pricing-example {
+      margin-top: 20px; padding: 18px 20px;
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--r);
+      font-size: 0.9rem; color: var(--gray); line-height: 1.7;
+    }
+    .pricing-example strong { color: var(--black); }
+
+    .compare-table { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .compare-head {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+      padding: 12px 14px; background: var(--sage); color: white;
+      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    @media (min-width: 480px) { .compare-head { padding: 14px 18px; font-size: 0.75rem; } }
+    .compare-row {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
+      padding: 12px 14px; border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem; align-items: center;
+    }
+    @media (min-width: 480px) { .compare-row { padding: 14px 18px; font-size: 0.875rem; } }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row .cl { color: var(--gray); font-size: 0.8125rem; }
+    .compare-row .ch { font-weight: 600; color: var(--sage); }
+    .compare-row .co { color: var(--gray); text-decoration: line-through; font-size: 0.8rem; }
+
+    /* ── ADS AI CROSS-SELL ── */
+    body.lang-ja
+    /* ── FAQ ── */
+    .faq-list { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
+    .faq-item { padding: 22px 24px; border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── TRUST STRIP (under the SMS recovery flow) ── */
+    .trust-strip { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px 30px; }
+    .trust-pill { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); }
+    .trust-pill svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: -1px; }
+    .trust-strip-note { margin-top: 12px; font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+    .trust-strip-note a { color: var(--sage); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .sms-card-consent { text-align: center; font-size: 0.66rem; color: rgba(255,255,255,0.34); margin-top: 9px; line-height: 1.5; }
+    .cta-field-hint { font-size: 0.7rem; color: rgba(255,255,255,0.5); line-height: 1.45; margin-top: 2px; }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: var(--sage); color: white;
+      text-align: center; padding: 80px 5vw;
+    }
+    .cta-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 5vw, 2.8rem);
+      line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    .cta-banner p { font-size: 1rem; opacity: 0.82; margin-bottom: 32px; line-height: 1.7; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .btn-white {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; background: white; color: var(--sage);
+      border-radius: 100px; font-size: 0.9375rem; font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.1s, box-shadow 0.15s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .cta-sub { margin-top: 14px; font-size: 0.8rem; opacity: 0.6; }
+    /* Balanced, beautiful line wrapping */
+    .section-title, .cta-banner h2, .cta-banner p { text-wrap: balance; }
+    .hero-sub, .faq-item p, .pricing-copy p, .trust-strip-note { text-wrap: pretty; }
+
+    /* ── ELIGIBILITY SIMULATOR ── */
+    .sim { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .sim-lead { font-size: 0.95rem; color: var(--gray); line-height: 1.7; max-width: 560px; margin-bottom: 32px; text-wrap: pretty; }
+    .sim-card, .sim-result { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; max-width: 680px; }
+    @media (min-width: 768px) { .sim-card, .sim-result { padding: 36px; } }
+    .sim-card[hidden], .sim-result[hidden], .sim-compat[hidden] { display: none; }
+    .sim-q { margin-bottom: 22px; }
+    .sim-q-label { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
+    .sim-q.missing .sim-q-label { color: var(--red); }
+    .sim-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sim-chip { padding: 9px 16px; border: 1.5px solid var(--border); background: var(--white); border-radius: 100px; font-size: 0.85rem; font-weight: 500; color: var(--black); cursor: pointer; font-family: inherit; transition: border-color 0.12s, background 0.12s, color 0.12s; }
+    .sim-chip:hover { border-color: var(--sage-md); }
+    .sim-chip.selected { border-color: var(--sage); background: var(--sage); color: #fff; }
+    .sim-note { color: var(--red); font-size: 0.8rem; margin-top: 12px; display: none; }
+    .sim-note.show { display: block; }
+    .sim-submit { margin-top: 6px; }
+    .sim-result { text-align: center; }
+    .sim-result-badge { width: 52px; height: 52px; border-radius: 50%; background: var(--sage-lt); color: var(--sage); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .sim-result-badge svg { width: 28px; height: 28px; }
+    .sim-result.weak .sim-result-badge { background: #FBEFE0; color: #B5751B; }
+    .sim-result h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; line-height: 1.2; margin-bottom: 10px; text-wrap: balance; }
+    body.lang-ja .sim-result h3 { font-family: 'Shippori Mincho B1', serif; }
+    .sim-result p { font-size: 0.95rem; color: var(--gray); line-height: 1.7; max-width: 520px; margin: 0 auto 18px; text-wrap: pretty; }
+    .sim-compat { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 22px; }
+    .sim-compat svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: -1px; }
+    .sim-restart { display: block; margin: 16px auto 0; background: none; border: none; color: var(--gray); cursor: pointer; font-size: 0.8rem; font-family: inherit; }
+    .sim-restart:hover { color: var(--sage); text-decoration: underline; }
+    .form-progress { display: flex; align-items: center; gap: 12px; max-width: 440px; margin: 0 auto 14px; }
+    .form-progress-track { flex: 1; height: 4px; border-radius: 100px; background: rgba(255,255,255,0.22); overflow: hidden; }
+    .form-progress-fill { display: block; height: 100%; width: 50%; background: #fff; border-radius: 100px; transition: width 0.3s ease; }
+    .form-progress-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.82); white-space: nowrap; }
+    .form-step[hidden] { display: none; }
+    .cta-back { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 0.85rem; font-family: inherit; margin-top: 12px; }
+    .cta-back:hover { color: #fff; text-decoration: underline; }
+    .cta-banner > .container > p { max-width: 560px; }
+    .cta-form { max-width: 600px; margin: 32px auto 0; text-align: left; }
+    .cta-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .cta-full { grid-column: 1 / -1; }
+    .cta-field { display: flex; flex-direction: column; gap: 5px; }
+    .cta-field label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
+    .cta-field input, .cta-field select, .cta-field textarea {
+      padding: 11px 13px; border-radius: 10px;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.1); color: white;
+      font-size: 0.9rem; font-family: inherit; outline: none;
+      transition: border-color 0.15s, background 0.15s;
+      -webkit-appearance: none; appearance: none;
+    }
+    .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.32); }
+    .cta-field select option { color: #222; background: white; }
+    .cta-field input:focus, .cta-field select:focus, .cta-field textarea:focus {
+      border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.16);
+    }
+    .cta-field textarea { resize: vertical; min-height: 88px; }
+    .cta-field input.error, .cta-field select.error, .cta-field textarea.error {
+      border-color: rgba(255,110,110,0.85);
+      background: rgba(255,80,80,0.12);
+    }
+    .cta-field-error { display: none; font-size: 0.72rem; color: rgba(255,190,190,1); margin-top: 3px; }
+    .cta-field-error.show { display: block; }
+    .cta-form-footer { margin-top: 20px; text-align: center; }
+    .cta-thanks { text-align: center; padding: 32px 0 8px; }
+    .cta-thanks .check { margin-bottom: 12px; }
+    .cta-thanks .check svg { width: 34px; height: 34px; }
+    .cta-thanks h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 10px; }
+    body.lang-ja .cta-thanks h3 { font-family: 'Shippori Mincho B1', serif; }
+    @media (max-width: 560px) { .cta-form-grid { grid-template-columns: 1fr; } }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 5vw; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+    }
+    .footer-logo { text-decoration: none; display: inline-flex; align-items: center; }
+    footer p { font-size: 0.8rem; color: var(--gray); }
+    .footer-links { font-size: 0.8rem; }
+    .footer-links a { color: var(--gray); text-decoration: underline; text-underline-offset: 2px; }
+    .footer-links a:hover { color: var(--sage); }
+
+    /* ── JAPANESE OVERRIDES ── */
+    body.lang-ja {
+      font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
+      word-break: auto-phrase;
+    }
+    body.lang-ja .hero h1 {
+      font-family: 'Shippori Mincho B1', serif;
+      line-height: 1.25;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .hero h1 em {
+      font-style: normal; /* イタリックは日本語フォントに不適 */
+    }
+    /* モバイルでは各節を1行に収め、改行を美しく。緑の強調は色で担保し倍率を抑える */
+    @media (max-width: 560px) {
+      body.lang-ja .hero h1 {
+        font-size: clamp(1.55rem, 7.8vw, 2.05rem);
+        line-height: 1.45;
+      }
+      body.lang-ja .hero h1 em {
+        font-size: 1.1em;
+        display: inline-block;
+        margin-top: 0.15em;
+      }
+    }
+    body.lang-ja .section-title {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(1.45rem, 3.2vw, 2.1rem);
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .cta-banner h2 {
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+    }
+    body.lang-ja .cta-banner > .container > p {
+      text-wrap: balance;
+    }
+    body.lang-ja .label,
+    body.lang-ja .funnel-col-label,
+    body.lang-ja .compare-card .compare-label,
+    body.lang-ja .phone-col-label {
+      text-transform: none;
+      letter-spacing: 0.06em;
+    }
+    body.lang-ja .compare-head {
+      text-transform: none;
+      letter-spacing: 0.03em;
+      font-size: 0.75rem;
+    }
+    body.lang-ja .tl-content h3,
+    body.lang-ja .commission-bar h3,
+    body.lang-ja .faq-item h3 {
+      line-height: 1.5;
+    }
+    body.lang-ja .pricing-copy p,
+    body.lang-ja .faq-item p,
+    body.lang-ja .tl-content p {
+      line-height: 1.85;
+    }
+
+    /* ── ANIMATIONS ── */
+
+    /* Cursor glow */
+    .cursor-glow {
+      position: fixed; top: 0; left: 0;
+      width: 640px; height: 640px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(58,92,69,0.09) 0%, transparent 65%);
+      pointer-events: none; z-index: 0;
+      transform: translate(-50%, -50%);
+      opacity: 0; transition: opacity 0.5s ease;
+      will-change: left, top;
+    }
+    @media (hover: none) { .cursor-glow { display: none; } }
+
+    /* Hero staggered entrance */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .location-badge { animation: rise 0.55s 0.05s ease both; }
+    .hero h1        { animation: rise 0.65s 0.18s ease both; }
+    .hero-sub       { animation: rise 0.55s 0.32s ease both; }
+    .hero-actions   { animation: rise 0.55s 0.44s ease both; }
+    .zero-grid      { animation: rise 0.55s 0.56s ease both; }
+
+    /* CTA shimmer */
+    .btn-primary, .btn-white { position: relative; overflow: hidden; }
+    .btn-primary::after, .btn-white::after {
+      content: '';
+      position: absolute; top: 0; left: -110%;
+      width: 55%; height: 100%;
+      animation: btn-shimmer 2.8s ease-in-out infinite;
+    }
+    .btn-primary::after {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+    }
+    .btn-white::after {
+      background: linear-gradient(90deg, transparent, rgba(58,92,69,0.08), transparent);
+    }
+    @keyframes btn-shimmer {
+      0%   { left: -110%; }
+      60%, 100% { left: 160%; }
+    }
+
+    /* ── ACCESSIBILITY ── */
+    .skip-link { position: absolute; left: 8px; top: -52px; z-index: 1100; background: var(--sage); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: top 0.15s; }
+    .skip-link:focus { top: 8px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--sage); outline-offset: 2px; border-radius: 4px;
+    }
+
+    /* Honor the visitor's OS "reduce motion" setting */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+  
+
+    /* ── hero recovery-story visual ── */
+    .hero .container { position: relative; }
+    .hero-visual { display: none; }
+    @media (min-width: 1240px) {
+      .hero-visual {
+        display: block;
+        position: absolute; right: 0; top: 47%; transform: translateY(-50%);
+        width: 330px; pointer-events: none;
+        animation: hvReveal 1.8s ease-out both;
+      }
+    }
+    .hv-deck { position: relative; height: 248px; }
+    .hv-scene {
+      position: absolute; inset: 0;
+      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
+      padding: 15px 16px;
+      box-shadow: 0 2px 6px rgba(17,17,16,0.04), 0 26px 60px rgba(17,17,16,0.13);
+      display: flex; flex-direction: column;
+    }
+    .hv-deck::after {
+      content: ''; position: absolute; left: 10%; right: 10%; bottom: -30px; height: 32px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(17,17,16,0.12), transparent 68%);
+      filter: blur(8px); z-index: -1;
+    }
+    .hv-a { z-index: 3; animation: hvSceneA 9.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .hv-b { z-index: 2; animation: hvSceneB 9.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .hv-c {
+      z-index: 1; overflow: hidden;
+      animation: hvSceneC 9.6s cubic-bezier(0.22, 1, 0.36, 1) both,
+                 hvFloat 6.5s ease-in-out 11s infinite alternate;
+    }
+    .hv-c::after {
+      content: ''; position: absolute; inset: 0; border-radius: inherit;
+      background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.55) 47%, transparent 62%);
+      transform: translateX(-130%) skewX(-12deg);
+      animation: hvSheen 9.6s ease-in-out both;
+      pointer-events: none;
+    }
+    @keyframes hvFloat {
+      from { transform: translateY(0) scale(1); }
+      to { transform: translateY(-5px) scale(1); }
+    }
+    @keyframes hvSheen {
+      0%, 86% { transform: translateX(-130%) skewX(-12deg); }
+      96%, 100% { transform: translateX(130%) skewX(-12deg); }
+    }
+    @keyframes hvReveal {
+      from { opacity: 0; filter: blur(12px); }
+      to { opacity: 1; filter: blur(0); }
+    }
+    @keyframes hvSceneA {
+      0%, 36% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+      44%, 100% { transform: translateY(30px) scale(0.97); opacity: 0; filter: blur(5px); }
+    }
+    @keyframes hvSceneB {
+      0%, 36% { transform: translateY(-12px) scale(0.955); opacity: 0.8; filter: blur(3px); }
+      44%, 72% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+      80%, 100% { transform: translateY(30px) scale(0.97); opacity: 0; filter: blur(5px); }
+    }
+    @keyframes hvSceneC {
+      0%, 36% { transform: translateY(-24px) scale(0.91); opacity: 0.6; filter: blur(5px); }
+      44%, 72% { transform: translateY(-12px) scale(0.955); opacity: 0.8; filter: blur(3px); }
+      80%, 100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
+    }
+    /* scene A: menu */
+    .hv-form-title { font-family: 'Playfair Display', serif; font-size: 0.92rem; font-weight: 600; color: var(--black); margin-bottom: 10px; }
+    body.lang-ja .hv-form-title { font-family: 'Shippori Mincho B1', serif; }
+    .hv-menu-viewport { flex: 1; overflow: hidden; }
+    .hv-menu-scroll { animation: hvBrowse 9.6s ease-in-out both; }
+    @keyframes hvBrowse {
+      0%, 10% { transform: translateY(0); }
+      20%, 26% { transform: translateY(-22px); }
+      34%, 100% { transform: translateY(-46px); }
+    }
+    .hv-svc {
+      display: flex; align-items: center; gap: 9px;
+      border: 1px solid var(--border); border-radius: 9px;
+      padding: 8px 9px; margin-bottom: 6px;
+    }
+    .hv-menu-scroll .hv-svc:nth-child(2) { animation: hvConsider 9.6s ease both; }
+    @keyframes hvConsider {
+      0%, 20% { border-color: var(--border); background: transparent; }
+      23%, 28% { border-color: rgba(58,92,69,0.55); background: rgba(58,92,69,0.06); }
+      33%, 100% { border-color: var(--border); background: transparent; }
+    }
+    .hv-thumb {
+      width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(58,92,69,0.30), rgba(58,92,69,0.14));
+    }
+    .hv-thumb-b { background: linear-gradient(135deg, rgba(17,17,16,0.16), rgba(17,17,16,0.07)); }
+    .hv-thumb-c { background: linear-gradient(135deg, rgba(164,85,61,0.22), rgba(164,85,61,0.09)); }
+    .hv-svc-body { min-width: 0; }
+    .hv-svc-body strong { display: block; font-size: 0.72rem; font-weight: 600; color: var(--black); line-height: 1.3; }
+    .hv-svc-body span { display: block; font-size: 0.66rem; color: var(--gray); }
+    .hv-pick {
+      margin-left: auto; flex-shrink: 0;
+      font-size: 0.64rem; font-weight: 600; color: var(--sage);
+      border: 1px solid rgba(58,92,69,0.4); border-radius: 99px; padding: 3px 10px;
+    }
+    .hv-total {
+      display: flex; align-items: center; gap: 7px;
+      border-top: 1px solid var(--border); margin-top: 9px; padding-top: 10px;
+    }
+    .hv-total-label { font-size: 0.66rem; color: var(--gray); }
+    .hv-total strong { font-size: 0.85rem; color: var(--black); }
+    .hv-next {
+      margin-left: auto; font-size: 0.66rem; font-weight: 600;
+      color: var(--gray); background: var(--light); border: 1px solid var(--border);
+      border-radius: 99px; padding: 4px 11px;
+    }
+    .hv-drop {
+      position: absolute; top: 14px; right: 15px;
+      font-size: 0.66rem; font-weight: 600; color: #a4553d;
+      opacity: 0; animation: hvDrop 9.6s ease-out both;
+    }
+    @keyframes hvDrop { 0%, 30% { opacity: 0; } 35%, 100% { opacity: 1; } }
+    /* scene B: SMS */
+    .hv-sms-head, .hv-sms-bubble, .hv-sms-stop { animation: hvItemInB 9.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .hv-sms-bubble { animation-delay: 0.25s; }
+    .hv-sms-stop { animation-delay: 0.5s; }
+    @keyframes hvItemInB {
+      0%, 45% { opacity: 0; transform: translateY(9px); }
+      51%, 100% { opacity: 1; transform: translateY(0); }
+    }
+    .hv-sms-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .hv-sms-ava {
+      width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--sage); color: #fff;
+    }
+    .hv-sms-ava svg { width: 14px; height: 14px; }
+    .hv-sms-head strong { font-size: 0.78rem; font-weight: 600; color: var(--black); }
+    .hv-sms-head time { margin-left: auto; font-size: 0.64rem; color: var(--gray); }
+    .hv-sms-bubble {
+      align-self: flex-start; max-width: 92%;
+      background: var(--sage); color: #fff;
+      border-radius: 14px; border-bottom-left-radius: 4px;
+      padding: 10px 13px; font-size: 0.78rem; line-height: 1.55;
+    }
+    .hv-sms-stop { margin-top: auto; font-size: 0.62rem; color: var(--gray); }
+    /* scene C: Square confirmation */
+    .hv-conf-head, .hv-conf-row, .hv-conf-note { animation: hvItemInC 9.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .hv-conf-row:nth-of-type(1) { animation-delay: 0.15s; }
+    .hv-conf-row:nth-of-type(2) { animation-delay: 0.3s; }
+    .hv-conf-row:nth-of-type(3) { animation-delay: 0.45s; }
+    .hv-conf-note { animation-delay: 0.6s; }
+    @keyframes hvItemInC {
+      0%, 81% { opacity: 0; transform: translateY(9px); }
+      87%, 100% { opacity: 1; transform: translateY(0); }
+    }
+    .hv-conf-head { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
+    .hv-conf-check {
+      width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+      background: var(--sage); color: #fff;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .hv-conf-check svg { width: 12px; height: 12px; }
+    .hv-conf-check svg path {
+      stroke-dasharray: 24; stroke-dashoffset: 24;
+      animation: hvCheckDraw 9.6s cubic-bezier(0.33, 1, 0.68, 1) 0.3s both;
+    }
+    @keyframes hvCheckDraw { 0%, 82% { stroke-dashoffset: 24; } 92%, 100% { stroke-dashoffset: 0; } }
+    .hv-conf-head strong { font-size: 0.82rem; font-weight: 600; color: var(--black); }
+    .hv-conf-head em { font-style: normal; margin-left: auto; font-size: 0.64rem; color: var(--gray); }
+    .hv-conf-row {
+      display: flex; justify-content: space-between; gap: 12px;
+      padding: 7px 0; border-top: 1px solid var(--border);
+      font-size: 0.72rem;
+    }
+    .hv-conf-row span { color: var(--gray); }
+    .hv-conf-row strong { font-weight: 600; color: var(--black); text-align: right; }
+    .hv-conf-note { margin-top: auto; font-size: 0.62rem; color: var(--gray); }
+    @media (prefers-reduced-motion: reduce) {
+      .hv-a, .hv-b, .hv-c, .hv-menu-scroll, .hv-drop, .hv-conf-check svg path,
+      .hv-c::after, .hv-menu-scroll .hv-svc:first-child,
+      .hv-sms-head, .hv-sms-bubble, .hv-sms-stop,
+      .hv-conf-head, .hv-conf-row, .hv-conf-note, .hero-visual { animation: none; }
+      .hv-a, .hv-b, .hv-c::after { opacity: 0; }
+      .hv-c { transform: none; }
+      .hv-sms-head, .hv-sms-bubble, .hv-sms-stop,
+      .hv-conf-head, .hv-conf-row, .hv-conf-note { opacity: 1; transform: none; }
+      .hv-conf-check svg path { stroke-dashoffset: 0; }
+    }
+    /* ── hanjo.ai chrome alignment ── */
+    nav { height: auto; display: block; padding: 0; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { background: none; border: none; padding: 5px 2px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; color: var(--gray); cursor: pointer; letter-spacing: 0.06em; line-height: 1; font-family: inherit; display: inline-flex; align-items: center; transition: color 0.2s, border-color 0.2s; }
+    .lang-toggle:hover { color: var(--black); }
+
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    @media (max-width: 1120px) { .nav-links { gap: 20px; } }
+    .nav-links a {
+      font-family: 'Playfair Display', serif;
+      font-size: 16.5px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--black);
+      opacity: 0.66;
+      text-decoration: none;
+      padding: 8px 0;
+      position: relative;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 100%; bottom: 3px;
+      height: 1.5px;
+      background: var(--sage);
+      transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover::after { right: 0; }
+    .nav-links a.active {
+      opacity: 1;
+      color: var(--sage);
+    }
+    .nav-links a.active:hover { color: var(--sage); }
+    .nav-links a.active::after { right: 0; }
+    @media (max-width: 880px) { .nav-links { display: none; } }
+    .legacy-lang[hidden], div[hidden] .lang-btn, div[hidden] .lang-sep { display: none; }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 9px 18px; letter-spacing: 0.01em; }
+    .risk-banner { font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
+    .risk-banner { color: rgba(255, 255, 255, 0.8); }
+    .risk-banner strong { font-weight: 500; color: #ffffff; }
+    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--gray); text-decoration: none; margin-bottom: 14px; letter-spacing: 0.03em; transition: color 0.2s; }
+    .crumb:hover { color: var(--black); }
+    body.lang-ja .crumb { font-family: 'Noto Sans JP', sans-serif; }
+
+    .hero { padding-top: clamp(20px, 2.8vw, 34px); padding-bottom: clamp(20px, 2.8vw, 36px); }
+    .hero h1 { margin-bottom: 14px; }
+    .hero-sub { margin-bottom: 20px; }
+    .hero-actions { margin-bottom: 26px; }
+    .zero-grid { margin-top: 0; }
+    .hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.3rem); margin-bottom: 10px; }
+    .location-badge { margin-bottom: 14px; }
+    .hero-sub { margin-bottom: 14px; }
+    .hero-actions { margin-bottom: 18px; }
+    .zero-badge { padding: 12px 14px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--sage);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+    @view-transition { navigation: auto; }
+    nav { view-transition-name: site-header; }
+    .risk-banner { view-transition-name: site-announce; }
+    footer { view-transition-name: site-footer; }
+    @media (prefers-reduced-motion: reduce) {
+      @view-transition { navigation: none; }
+    }
+  
+    /* ── CTA: modern flat ── */
+    .nav-cta, .btn--dark, .btn-primary, form .btn {
+      color: #ffffff;
+      background: var(--sage);
+      border: none;
+      box-shadow: none;
+      transition: background-color 0.18s ease;
+    }
+    .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover {
+      color: #ffffff;
+      background: #2e4a38;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta:active, .btn--dark:active, .btn-primary:active, form .btn:active {
+      background: #263d2f;
+      transform: none;
+      filter: none;
+      box-shadow: none;
+    }
+    .nav-cta svg, .btn--dark svg, .btn-primary svg, .btn--light svg {
+      transition: transform 0.2s ease;
+    }
+    .nav-cta:hover svg, .btn--dark:hover svg, .btn-primary:hover svg, .btn--light:hover svg {
+      transform: translateX(3px);
+    }
+    .btn--light {
+      color: var(--sage);
+      background: #ffffff;
+      border: none;
+      box-shadow: none;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      transition: background-color 0.18s ease;
+    }
+    .btn--light:hover { color: var(--sage); background: #eef0ea; transform: none; }
+    .btn--light:active { background: #e3e6df; transform: none; }
+  
+    /* ── FULL-PAGE HERO ── */
+    /* Fallbacks only: the script after </nav> writes the measured nav height. */
+    :root { --chrome-h: 74px; }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
+    .hero { display: flex; align-items: center; min-height: calc(100svh - var(--chrome-h)); }
+    .hero > .container { width: 100%; }
+
+    /* ── MOBILE HERO: the three zero badges stacked as tall blocks and pushed
+       the hero ~153px past the fold. Number left, text right instead. ── */
+    @media (max-width: 559px) {
+      .location-badge { margin-bottom: 10px; }
+      /* .hero scope so this wins over the later canonical .hero-sub rule */
+      .hero .hero-sub { line-height: 1.55; margin-bottom: 12px; }
+      .hero-actions { margin-bottom: 12px; }
+      .zero-badge {
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        padding: 10px 4px;
+      }
+      .zero-icon { font-size: 1.5rem; margin-bottom: 0; flex: 0 0 42px; }
+      .zero-icon-check { align-self: center; }
+      .zero-icon-check svg { width: 22px; height: 22px; margin-top: 0; }
+      .zero-badge strong { font-size: 0.8125rem; }
+      .zero-badge span { font-size: 0.75rem; }
+    }
+  
+    /* ── STANDARD FOOTER ── */
+    footer { padding: 0; border-top: 1px solid var(--border); background: #ffffff; display: block; }
+    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: var(--gray); text-decoration: none; padding: 8px 0; display: inline-block; }
+    .footer-meta a:hover { color: var(--sage); }
+    body.lang-ja .footer-meta a, body.lang-ja .footer-meta span { font-family: 'Noto Sans JP', sans-serif; }
+      .crumb { display: block; margin-bottom: 14px; }
+    .location-badge { text-transform: none; letter-spacing: 0.01em; font-size: 13px; font-weight: 500; color: var(--gray); }
+    .location-badge .pin-icon { display: none; }
+      .hero h1 { text-wrap: balance; }
+    body.lang-ja .hero h1 { text-wrap: balance; line-break: strict; }
+      /* ── CTA standardization (matches .btn--dark/.btn--light) ── */
+    .btn-primary, .btn-ghost, .sim-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      padding: 15px 30px;
+      border-radius: 100px;
+      height: 44px;
+    }
+    .btn-ghost {
+      background: #ffffff;
+      color: var(--black);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease, background-color 0.18s ease;
+    }
+    .btn-ghost:hover { background: #ffffff; border-color: rgba(17, 17, 16, 0.32); transform: none; }
+    .btn-ghost svg { transition: transform 0.2s ease; }
+    .btn-ghost:hover svg { transform: translateX(3px); }
+      /* ── DESIGN LANGUAGE ALIGNMENT (matches the standard pages) ── */
+    .section-title { font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 16, 0.58);
+    }
+    .section-lede { font-size: 16px; font-weight: 300; line-height: 1.75; }
+    .btn-white { box-shadow: none; }
+    .btn-white:hover { transform: none; box-shadow: none; }
+      /* ── MOBILE MENU ── */
+    .nav-burger { display: none; }
+    .mobile-menu { display: none; }
+    @media (max-width: 880px) {
+      .nav-inner { padding: 12px 16px; }
+      .lang-toggle { display: none; }
+      .nav-right { gap: 12px; }
+      .nav-cta { font-size: 12.5px; padding: 9px 16px; }
+      .nav-burger { width: 44px; height: 44px; margin-right: -8px; }
+      .mm-lang {
+        display: block;
+        margin-top: 32px;
+        background: none;
+        border: none;
+        padding: 8px 0;
+        font-size: 13.5px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: #6B6B68;
+        cursor: pointer;
+        font-family: inherit;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease 0.5s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, color 0.2s;
+      }
+      .mm-lang:hover { color: #111110; }
+      .mobile-menu.open .mm-lang { opacity: 1; transform: none; }
+      .nav-burger {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        width: 40px;
+        height: 40px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+      .nav-burger span {
+        display: block;
+        width: 20px;
+        height: 1.5px;
+        background: #111110;
+        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+      .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+      .mobile-menu {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 90;
+        background: #F5F4F0;
+        padding: 140px 32px 48px;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s;
+      }
+      .mobile-menu.open { opacity: 1; visibility: visible; }
+      .mm-links { display: flex; flex-direction: column; }
+      .mm-links a {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: #111110;
+        text-decoration: none;
+        padding: 16px 0;
+        border-bottom: 1px solid #E4E2DC;
+        opacity: 0;
+        transform: translateY(14px);
+        transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .mm-links a.active { color: #3A5C45; }
+      .mm-ico { color: #3A5C45; flex-shrink: 0; opacity: 0.85; }
+      .mm-name { flex: 1; }
+      .mm-arrow { color: rgba(17, 17, 16, 0.3); flex-shrink: 0; }
+      .mm-links a.active .mm-arrow { color: #3A5C45; }
+
+      .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
+      .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
+      .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
+      .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
+      .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
+      .mobile-menu.open .mm-links a:nth-child(5) { transition-delay: 0.33s; }
+      .mobile-menu.open .mm-links a:nth-child(6) { transition-delay: 0.4s; }
+      @media (prefers-reduced-motion: reduce) {
+        .mm-links a { transition: opacity 0.2s; transform: none; }
+      }
+    }
+      @media (min-width: 881px) { .crumb { display: none; } }
+      /* ── MAIN CTA EMPHASIS + SHINE ── */
+    .hero-actions .btn--dark, .hero-actions .btn-primary, .cta-inner .btn--dark, .cta-inner .btn--light, form .btn {
+      font-size: 15px;
+      height: 52px;
+      padding: 0 38px;
+    }
+    .btn--dark, .btn-primary, .nav-cta, form .btn, .btn--light {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .btn--light::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      left: -80%;
+      width: 45%;
+      background: linear-gradient(105deg, transparent, rgba(58, 92, 69, 0.12), transparent);
+      transform: skewX(-20deg);
+      animation: ctaShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes ctaShine {
+      0%, 58% { left: -80%; }
+      78%, 100% { left: 130%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after, .btn--light::after { animation: none; display: none; }
+    }
+      .hero-actions .btn-ghost {
+      font-size: 15px;
+      height: 52px;
+      padding: 0 38px;
+    }
+      /* ── NATURAL JA LINE BREAKING (phrase-based where supported) ── */
+    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
+    html[lang="ja"] p, html[lang="ja"] li,
+    html[lang="ja"] .announce, html[lang="ja"] .btn-note, html[lang="ja"] .lead,
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
+    body.lang-ja p, body.lang-ja li, body.lang-ja .risk-banner {
+      word-break: auto-phrase;
+    }
+    p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
+      .hero { padding-left: 0; padding-right: 0; }
+    .hero > .container { max-width: 1280px; margin: 0 auto; padding-left: clamp(24px, 4.5vw, 72px); padding-right: clamp(24px, 4.5vw, 72px); }
+    .hero h1 { font-size: clamp(38px, 4.2vw, 54px); }
+    .hero-sub { font-size: 16px; font-weight: 300; color: var(--gray); max-width: 560px; line-height: 1.7; }
+    .btn-note { display: block; margin-top: 14px; font-size: 13px; font-weight: 300; color: var(--gray); }
+    body.lang-ja .btn-note { font-family: 'Noto Sans JP', sans-serif; }
+    /* ── FOOTER CANONICAL (identical metrics on every page) ── */
+    footer { background: #ffffff; border-top: 1px solid var(--border); }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto; padding: 26px 40px;
+      display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
+    .footer-meta a, .footer-meta span {
+      font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
+      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+    }
+    .footer-meta a:hover { color: #111110; }
+    .footer-logo img { height: 22px; display: block; }
+    @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
+    @media (max-width: 640px) { .crumb { display: none; } }
+  </style>
+
+  <script type="speculationrules">
+  {
+    "prerender": [{
+      "where": { "and": [
+        { "href_matches": "/*" },
+        { "not": { "href_matches": "/api/*" } }
+      ]},
+      "eagerness": "moderate"
+    }]
+  }
+  </script>
+  <script>
+    (function () {
+      if (HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules')) return;
+      var seen = {};
+      document.addEventListener('pointerover', function (e) {
+        var a = e.target && e.target.closest ? e.target.closest('a[href^="/"]') : null;
+        if (!a) return;
+        var u = a.href;
+        if (seen[u] || u.indexOf('/api/') !== -1) return;
+        seen[u] = 1;
+        var l = document.createElement('link');
+        l.rel = 'prefetch';
+        l.href = u;
+        document.head.appendChild(l);
+      }, { passive: true });
+    })();
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "hanjo Recovery",
+  "serviceType": "Booking recovery and funnel optimization",
+  "provider": {
+    "@type": "Organization",
+    "name": "hanjo",
+    "url": "https://hanjo.ai"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Los Angeles"
+  },
+  "url": "https://hanjo.ai/recovery/",
+  "description": "Rebuilds a business's online booking form and adds automated SMS and email follow-ups to recover lost bookings. Built for salons, spas, and clinics on Square. No setup fee, no monthly fee; paid a share of the bookings the system brings in.",
+  "offers": {
+    "@type": "Offer",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "priceCurrency": "USD",
+      "price": "0",
+      "description": "No setup fee, no monthly fee. Performance-based commission on bookings the system generates."
+    }
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is texting customers legal in California? Could I get sued?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Texting is legal when the customer has given consent, and consent is the only basis we ever text on. Every number opts in through your own form with clear, TCPA-compliant wording, and every message follows CTIA messaging guidelines with a one-tap Reply STOP that we honor immediately. We never buy lists and never cold-text anyone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is my customers' data protected?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Customer contact details are encrypted, stored securely, and never sold or shared. We use them for a single purpose, helping that person complete their booking, and honor any deletion request in line with California's data-privacy law."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you track which bookings are yours to invoice?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The booking form we build and every message we send are tracked end to end. We only invoice when a booking is actually confirmed through them. You see the same log we do before approving any invoice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if it doesn't bring in any new customers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You pay nothing. We absorb the setup cost and time. Our incentive is entirely aligned with yours: we make money when you make money. If it's not working, we keep optimising, or we walk away with no invoice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What booking platforms do you work with?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We currently build for Square merchants. If you're on a different platform (Mindbody, Vagaro, Fresha, or anything else), let us know. We're open to developing for your setup. We'll be upfront about what's possible before we start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long until the funnel is live?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Two weeks from kickoff. Day 1 to 3: audit and plan. Day 4 to 7: landing page built. Day 8 to 14: automation set up and tested. Day 14: live and tracking from day one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a minimum commitment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body class="lang-ja">
+
+<a href="#main" class="skip-link" data-i18n="skip_link">本文へスキップ</a>
+
+<!-- BANNER -->
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/ja/" class="logo" aria-label="hanjo">
+      <img src="/hanjo-logo.svg" alt="hanjo" height="26" />
+    </a>
+    <div class="nav-links" aria-label="Site">
+      <a href="/ja/">Home</a>
+      <a href="/ja/crm/">CRM</a>
+      <a href="/ja/web/">Web</a>
+      <a href="/ja/ads/">Ads</a>
+      <a href="/ja/recovery/">Recovery</a>
+      <a href="/ja/contact/">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="lang-toggle" id="lang-pill" onclick="setLang(document.body.classList.contains('lang-ja') ? 'en' : 'ja')" aria-label="Switch language">EN</button>
+      <a href="#book" class="nav-cta" data-i18n="nav_cta">無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="nav-burger" aria-label="Menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<script>
+  /* Full-page hero: --chrome-h tracks the real nav height (it shifts with
+     language and breakpoint) so the hero ends exactly at the fold. */
+  (function () {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    var root = document.documentElement;
+    function syncChromeHeight() {
+      root.style.setProperty('--chrome-h', nav.getBoundingClientRect().height + 'px');
+    }
+    syncChromeHeight();
+    if (window.ResizeObserver) new ResizeObserver(syncChromeHeight).observe(nav);
+    else addEventListener('resize', syncChromeHeight);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncChromeHeight);
+  })();
+
+  /* Browsers restore scroll on reload, which drops a visitor part-way down a
+     page they just opened. Start fresh loads and reloads at the top. Back and
+     forward keep their restored position, and #anchors are left alone. */
+  (function () {
+    if (location.hash) return;
+    var entry = performance.getEntriesByType('navigation')[0];
+    if (entry && entry.type === 'back_forward') return;
+    history.scrollRestoration = 'manual';
+    try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+    catch (e) { window.scrollTo(0, 0); }
+  })();
+</script>
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Menu">
+  <div class="mm-links">
+    <a href="/ja/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z"/></svg><span class="mm-name">Home</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/crm/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="mm-name">CRM</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/web/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span class="mm-name">Web</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/ads/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><span class="mm-name">Ads</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/recovery/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><span class="mm-name">Recovery</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+    <a href="/ja/contact/"><svg class="mm-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg><span class="mm-name">Contact</span><svg class="mm-arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>
+  </div>
+    <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
+</div>
+<div hidden aria-hidden="true">
+<div class="legacy-lang" role="group" aria-label="Language / 言語" hidden aria-hidden="true">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="false">EN</button>
+      <span class="lang-sep" aria-hidden="true">/</span>
+      <button class="lang-btn" id="btn-ja" onclick="setLang('ja')" aria-pressed="true">日本語</button>
+    </div>
+</div>
+
+
+<!-- HERO -->
+<section class="hero" id="main" tabindex="-1">
+  <div class="container">
+    <a href="/ja/#services" class="crumb" data-i18n="crumb">← サービス一覧に戻る</a>
+    <div class="location-badge">
+      <svg class="pin-icon" width="9" height="11" viewBox="0 0 9 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M4.5 0C2.01 0 0 2.01 0 4.5 0 7.88 4.5 11 4.5 11S9 7.88 9 4.5C9 2.01 6.99 0 4.5 0zm0 6.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5z"/>
+      </svg>
+      <span data-i18n="location_badge">LAエリア限定提供中</span>
+    </div>
+    <h1 data-i18n="hero_h1">取りこぼした予約を、<br>売上に戻す。<br><em>費用も手間も、ゼロ。</em></h1>
+    <p class="hero-sub" data-i18n="hero_sub">予約フォームの改善と、SMS・メールの自動追客をセットで構築します。美容サロン・クリニックなど、ご予約で成り立つビジネス向け。初期費用・月額費用ゼロ、完全成果報酬。Squareでオンライン予約を管理しているお店なら、そのまま導入できます。</p>
+    <div class="hero-actions">
+      <a href="#book" class="btn-primary" data-i18n="hero_btn_primary">無料診断を受ける <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#fit" class="btn-ghost" data-i18n="hero_btn_ghost">相性をチェック <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+    <div class="zero-grid">
+      <div class="zero-badge">
+        <div class="zero-icon">$0</div>
+        <div><strong data-i18n="zero_1_strong">初期費用ゼロ</strong><span data-i18n="zero_1_span">全部、無料で作ります</span></div>
+      </div>
+      <div class="zero-badge">
+        <div class="zero-icon">$0</div>
+        <div><strong data-i18n="zero_2_strong">月額費用ゼロ</strong><span data-i18n="zero_2_span">月々かかる費用は一切なし</span></div>
+      </div>
+      <div class="zero-badge">
+        <div class="zero-icon zero-icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+        <div><strong data-i18n="zero_3_strong">完全成果報酬</strong><span data-i18n="zero_3_span">予約が入った分だけ</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hv-deck">
+        <div class="hv-scene hv-c">
+          <div class="hv-conf-head">
+            <span class="hv-conf-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <strong data-i18n="hv_conf_title">予約が確定しました</strong>
+            <em>Square</em>
+          </div>
+          <div class="hv-conf-row"><span data-i18n="hv_conf_l1">メニュー</span><strong data-i18n="hv_conf_v1">ヘッドスパ 60分</strong></div>
+          <div class="hv-conf-row"><span data-i18n="hv_conf_l2">日時</span><strong data-i18n="hv_conf_v2">7月24日（金）14:00</strong></div>
+          <div class="hv-conf-row"><span data-i18n="hv_conf_l3">お客様</span><strong data-i18n="hv_conf_v3">田中様</strong></div>
+          <div class="hv-conf-note" data-i18n="hv_conf_note">Squareのカレンダーに自動で反映されます。</div>
+        </div>
+        <div class="hv-scene hv-b">
+          <div class="hv-sms-head">
+            <span class="hv-sms-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+            <strong>Bloom Salon</strong>
+            <time>10:12</time>
+          </div>
+          <div class="hv-sms-bubble" data-i18n="hv_sms">お席をお取りしています。1タップで予約が完了します。</div>
+          <div class="hv-sms-stop" data-i18n="hv_sms_stop">配信停止は「STOP」と返信</div>
+        </div>
+        <div class="hv-scene hv-a">
+          <div class="hv-form-title" data-i18n="hv_form_title">メニューを選択</div>
+          <div class="hv-menu-viewport">
+            <div class="hv-menu-scroll">
+              <div class="hv-svc">
+                <span class="hv-thumb"></span>
+                <span class="hv-svc-body"><strong data-i18n="hv_svc1_name">ヘッドスパ 60分</strong><span data-i18n="hv_svc1_meta">$120・60分</span></span>
+                <span class="hv-pick" data-i18n="hv_pick">選択</span>
+              </div>
+              <div class="hv-svc">
+                <span class="hv-thumb hv-thumb-b"></span>
+                <span class="hv-svc-body"><strong data-i18n="hv_svc2_name">スカルプフェイシャル 90分</strong><span data-i18n="hv_svc2_meta">$180・90分</span></span>
+                <span class="hv-pick" data-i18n="hv_pick">選択</span>
+              </div>
+              <div class="hv-svc">
+                <span class="hv-thumb hv-thumb-c"></span>
+                <span class="hv-svc-body"><strong data-i18n="hv_svc3_name">ディープクレンジング 45分</strong><span data-i18n="hv_svc3_meta">$95・45分</span></span>
+                <span class="hv-pick" data-i18n="hv_pick">選択</span>
+              </div>
+            </div>
+          </div>
+          <div class="hv-total">
+            <span class="hv-total-label" data-i18n="hv_total_label">合計</span><strong>$0</strong>
+            <span class="hv-next" data-i18n="hv_next">時間を選ぶ</span>
+          </div>
+          <span class="hv-drop" data-i18n="hv_drop">予約せずに離脱</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOGRAPHIC -->
+<section class="infographic">
+  <div class="container">
+    <span class="label" data-i18n="label_problem">集客の現実</span>
+    <h2 class="section-title" data-i18n="title_problem">来訪客の97%が、<br>予約せずに離反しています。</h2>
+
+    <div class="dot-grid">
+      <div class="dot booked"></div><div class="dot booked"></div><div class="dot booked"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+    <div class="dot-legend">
+      <span><span class="swatch" style="background:var(--sage)"></span><strong data-i18n="legend_booked">3人が予約</strong></span>
+      <span><span class="swatch" style="background:#E0DED8"></span><span style="color:var(--gray)" data-i18n="legend_away">97人が帰る</span></span>
+    </div>
+
+    <div class="funnel-layout">
+      <div>
+        <div class="funnel-col-label" data-i18n="funnel_col_drop">離脱ポイント</div>
+        <div class="funnel-stages">
+
+          <div class="funnel-stage">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r1">広告をクリック</span>
+              <strong class="stage-count">100</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+          <div class="stage-drop">↘ <span data-i18n="funnel_d1"><strong>−30人</strong> 別ページに飛び、すぐ離脱</span></div>
+
+          <div class="funnel-stage">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r2">予約ページを閲覧</span>
+              <strong class="stage-count">70</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+          <div class="stage-drop">↘ <span data-i18n="funnel_d2"><strong>−40人</strong> フォームを見たが手間を感じて離脱</span></div>
+
+          <div class="funnel-stage">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r3">フォームを入力</span>
+              <strong class="stage-count">30</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+          <div class="stage-drop">↘ <span data-i18n="funnel_d3"><strong>−17人</strong> 返信を何時間も待った末、他で予約</span></div>
+
+          <div class="funnel-stage">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r4">フォローを受けた</span>
+              <strong class="stage-count">13</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+          <div class="stage-drop">↘ <span data-i18n="funnel_d4"><strong>−10人</strong> あと一声あれば予約していた</span></div>
+
+          <div class="funnel-stage funnel-result">
+            <div class="stage-header">
+              <span class="stage-label" data-i18n="funnel_r5">予約完了</span>
+              <strong class="stage-count">3</strong>
+            </div>
+            <div class="stage-icons"><svg class="p-icon p-s5" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOVERY -->
+<section class="recovery" id="recovery">
+  <div class="container">
+    <span class="label" data-i18n="label_recovery">取りこぼしを、ゼロに近づける</span>
+    <h2 class="section-title" data-i18n="title_recovery">hanjoなら離反顧客を成約につなげます</h2>
+
+    <div class="approach-flow">
+      <div class="approach-step">
+        <div class="approach-step-icons">
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+        </div>
+        <h3 data-i18n="appr_h1">興味はあったものの、予約まで踏み切れなかった</h3>
+        <p data-i18n="appr_p1">サービスを見て、フォームまで入力した方。でも最後の一歩を踏み出せなかったお客様へアプローチします</p>
+      </div>
+
+      <div class="approach-connector">
+        <div class="approach-connector-line"></div>
+        <span class="approach-connector-arrow">↓</span>
+        <div class="approach-connector-line"></div>
+      </div>
+
+      <div class="approach-step approach-step-sms">
+        <div class="approach-sms-label" data-i18n="appr_action">私たちが動きます</div>
+        <div class="sms-card">
+          <div class="sms-card-sender">
+            <div class="sms-card-avatar">🌿</div>
+            <div>
+              <div class="sms-card-name">Serenity Spa</div>
+              <div class="sms-card-sub" data-i18n="sms_sub_label">Text Message</div>
+            </div>
+          </div>
+          <div class="sms-card-bubble" data-i18n="sms_bubble">Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We'd love to have you in. Your spot is saved for the next 2 hours.</div>
+          <div class="sms-card-cta" data-i18n="sms_cta">Book My Appointment →</div>
+          <div class="sms-card-tap" data-i18n="sms_tap">Tap to confirm · Takes 30 seconds</div>
+          <div class="sms-card-consent" data-i18n="sms_consent">✓ Sent because Sarah opted in · Reply STOP to unsubscribe</div>
+        </div>
+      </div>
+
+      <div class="approach-connector">
+        <div class="approach-connector-line"></div>
+        <span class="approach-connector-arrow">↓</span>
+        <div class="approach-connector-line"></div>
+      </div>
+
+      <div class="approach-step approach-step-result">
+        <div class="approach-step-icons">
+          <svg class="p-icon p-s5" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+          <svg class="p-icon p-s5" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
+        </div>
+        <h3 data-i18n="appr_h2">新規成約へ</h3>
+        <p data-i18n="appr_p2">仕組みはシンプルです。フォームで離脱したお客様への自動SMS、ご来店前のリマインダー、足が遠のいたお客様への呼び戻しメール。この3つが自動で回り、離れかけたお客様を成約につなげます。</p>
+      </div>
+    </div>
+
+    <div class="commission-bar">
+      <div class="icon">💡</div>
+      <div>
+        <h3 data-i18n="commission_h3">成果が出た分だけ、お支払い</h3>
+        <p data-i18n="commission_p">お客様の予約が完了した時だけ手数料が発生します。すべての予約は追跡されており、同じデータを一緒に確認できます。料率は始める前に決めます。</p>
+      </div>
+    </div>
+
+    <div class="trust-strip" role="list" aria-label="How we keep messaging compliant">
+      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="trustpill_1">同意ベースで送信</span></span>
+      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m5.4 5.4 13.2 13.2"/></svg><span data-i18n="trustpill_2">STOPでワンタップ停止</span></span>
+      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="trustpill_3">TCPA・CTIA準拠</span></span>
+    </div>
+    <p class="trust-strip-note" data-i18n="trustpill_note">SMSはお客様の同意がある場合のみ送信し、ワンタップで停止できます。これがカリフォルニアでオーナー様を守る仕組みです。<a href="#faq">コンプライアンスFAQを見る →</a></p>
+  </div>
+</section>
+
+<!-- ELIGIBILITY SIMULATOR -->
+<section class="sim" id="fit">
+  <div class="container">
+    <span class="label" data-i18n="label_fit">相性をチェック</span>
+    <h2 class="section-title" data-i18n="title_fit">あなたのビジネスで使えるか、<br>30秒で診断。</h2>
+    <p class="sim-lead" data-i18n="sim_lead">4つの質問に答えるだけ。あなたの環境にこの仕組みが合うか、そして何を取り戻せるかを、その場でお伝えします。</p>
+
+    <div class="sim-card" id="sim-card">
+      <div class="sim-q" data-q="type">
+        <div class="sim-q-label" data-i18n="sim_q1">どんなビジネスですか？</div>
+        <div class="sim-chips">
+          <button type="button" class="sim-chip" data-val="medspa" data-i18n="sim_t_medspa">メディカルスパ</button>
+          <button type="button" class="sim-chip" data-val="aesthetic" data-i18n="sim_t_aesthetic">美容クリニック</button>
+          <button type="button" class="sim-chip" data-val="cosmetic" data-i18n="sim_t_cosmetic">美容外科</button>
+          <button type="button" class="sim-chip" data-val="derm" data-i18n="sim_t_derm">皮膚科</button>
+          <button type="button" class="sim-chip" data-val="dental" data-i18n="sim_t_dental">歯科・矯正</button>
+          <button type="button" class="sim-chip" data-val="hair" data-i18n="sim_t_hair">薄毛・植毛</button>
+          <button type="button" class="sim-chip" data-val="other" data-i18n="sim_t_other">その他のサービス業</button>
+        </div>
+      </div>
+      <div class="sim-q" data-q="ads">
+        <div class="sim-q-label" data-i18n="sim_q2">広告（Meta / Google）を出していますか？</div>
+        <div class="sim-chips">
+          <button type="button" class="sim-chip" data-val="yes" data-i18n="sim_ads_yes">はい</button>
+          <button type="button" class="sim-chip" data-val="no" data-i18n="sim_ads_no">まだ</button>
+        </div>
+      </div>
+      <div class="sim-q" data-q="ticket">
+        <div class="sim-q-label" data-i18n="sim_q3">新規顧客1人あたりの平均単価は？</div>
+        <div class="sim-chips">
+          <button type="button" class="sim-chip" data-val="low" data-i18n="sim_ticket_low">$150未満</button>
+          <button type="button" class="sim-chip" data-val="mid" data-i18n="sim_ticket_mid">$150〜500</button>
+          <button type="button" class="sim-chip" data-val="high" data-i18n="sim_ticket_high">$500以上</button>
+        </div>
+      </div>
+      <div class="sim-q" data-q="platform">
+        <div class="sim-q-label" data-i18n="sim_q4">お客様はどのように予約しますか？</div>
+        <div class="sim-chips">
+          <button type="button" class="sim-chip" data-val="square">Square</button>
+          <button type="button" class="sim-chip" data-val="mindbody">Mindbody</button>
+          <button type="button" class="sim-chip" data-val="vagaro">Vagaro</button>
+          <button type="button" class="sim-chip" data-val="fresha">Fresha</button>
+          <button type="button" class="sim-chip" data-val="other" data-i18n="sim_p_other">その他のオンライン予約</button>
+          <button type="button" class="sim-chip" data-val="none" data-i18n="sim_p_none">電話・来店のみ</button>
+        </div>
+      </div>
+      <button type="button" class="btn-primary sim-submit" id="sim-submit" data-i18n="sim_submit">診断する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <p class="sim-note" id="sim-note" data-i18n="sim_note">4つすべてにお答えください。</p>
+    </div>
+
+    <div class="sim-result" id="sim-result" hidden aria-live="polite">
+      <div class="sim-result-badge" id="sim-badge"></div>
+      <h3 id="sim-result-title"></h3>
+      <p id="sim-result-body"></p>
+      <div class="sim-compat" id="sim-compat" hidden></div>
+      <div><a href="#book" class="btn-primary" id="sim-cta"></a></div>
+      <button type="button" class="sim-restart" id="sim-restart" data-i18n="sim_restart">↺ 最初からやり直す</button>
+    </div>
+  </div>
+</section>
+
+<!-- HANJO VALUE PROPS -->
+<section class="how" id="how">
+  <div class="container">
+    <h2 class="section-title" data-i18n="title_how">フォーム改善もSMS・メール構築も、<br>すべてhanjoが無料で作ります。</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-label" data-i18n="val1_label">成約報酬以外</div>
+        <div class="value-num" data-i18n="val1_num">$0</div>
+      </div>
+      <div class="value-card">
+        <div class="value-label" data-i18n="val2_label">手間、ほぼ</div>
+        <div class="value-num" data-i18n="val2_num">なし</div>
+      </div>
+      <div class="value-card">
+        <div class="value-label" data-i18n="val3_label">SMS送信</div>
+        <div class="value-num" data-i18n="val3_num">$0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="pricing-layout">
+      <div class="pricing-copy">
+        <span class="label" data-i18n="label_pricing">費用のしくみ</span>
+        <h2 class="section-title" data-i18n="title_pricing">hanjoが貢献した売上だけが、<br>成果報酬の対象です。</h2>
+        <p data-i18n="pricing_p1">料金が発生するのは、当社が構築した仕組み（新しい予約フォーム、SMS・メールの追客）から予約が入った時だけです。クリック数でも送信数でもありません。確定した予約の数だけです。</p>
+        <p data-i18n="pricing_p2">予約フォームの制作費や導入費をいただくことはありません。お支払いは、仕組みが生んだ予約の一部だけです。予約が入らなければ、費用はゼロ。料率は始める前に、予約の平均単価をもとに一緒に決めます。</p>
+        <div class="pricing-example" data-i18n="pricing_example"><strong>事例：メディカルスパ（平均予約 $320）</strong><br>新フォーム・追客から入った予約：月40件<br>売上：$12,800<br>hanjoへのお支払い：40件分の成果報酬<br><strong>オーナー様の収益：残りすべて</strong></div>
+      </div>
+      <div>
+        <div class="compare-table">
+          <div class="compare-head">
+            <span data-i18n="table_col1">費用項目</span>
+            <span>hanjo</span>
+            <span data-i18n="table_col3">一般エージェンシー</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r1_cl">初期費用</span>
+            <span class="ch">$0</span>
+            <span class="co">$2,000–5,000</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r2_cl">月額費用</span>
+            <span class="ch">$0</span>
+            <span class="co">$2,500–5,000</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r3_cl">効果がなかった場合</span>
+            <span class="ch">$0</span>
+            <span class="co" data-i18n="table_r3_co">成果に関わらず支払い</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r4_cl">予約ごとの費用</span>
+            <span class="ch" data-i18n="table_r4_ch">事前合意の成果報酬</span>
+            <span class="co" data-i18n="table_r4_co">追跡なし</span>
+          </div>
+          <div class="compare-row">
+            <span class="cl" data-i18n="table_r5_cl">契約</span>
+            <span class="ch" data-i18n="table_r5_ch">フレキシブル</span>
+            <span class="co" data-i18n="table_r5_co">3〜12ヶ月</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <span class="label" data-i18n="label_faq">よくある質問</span>
+    <h2 class="section-title" data-i18n="title_faq">サロン・クリニックのオーナー様から<br>よくある質問。</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3 data-i18n="faq_law_h3">カリフォルニアで顧客にSMSを送るのは合法ですか？訴訟になりませんか？</h3>
+        <p data-i18n="faq_law_p">お客様の同意がある場合、SMSの送信は合法です。そして当社は、同意を得た方にしか送りません。送信先はすべて、TCPAに準拠した明確な文言でフォーム上から受信に同意した番号のみ。各メッセージはCTIAのメッセージングガイドラインに沿い、ワンタップの「STOPと返信」を記載して即時に配信停止を反映します。リストの購入や、見知らぬ相手への一斉送信は一切行いません。この「同意ファースト」かつTCPA・CTIA準拠の設計こそが、カリフォルニア州法・連邦法のもとでオーナー様を守ります。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq_data_h3">お客様のデータはどう守られますか？</h3>
+        <p data-i18n="faq_data_p">連絡先は暗号化して安全に保管し、第三者に販売・共有することはありません。利用目的はそのお客様の予約完了のサポートのみ。カリフォルニアのデータプライバシー法に沿って、削除のご要望にも対応します。データの主導権は、常にオーナー様とお客様にあります。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq1_h3">どの予約が請求対象か、どうやってわかりますか？</h3>
+        <p data-i18n="faq1_p">当社が構築した予約フォームと、送信するメッセージにはすべて計測が入っています。そこから予約が確定した場合だけ請求します。請求の前に、同じデータを一緒に確認できます。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq2_h3">お客様が増えなかった場合は？</h3>
+        <p data-i18n="faq2_p">費用はゼロです。制作にかかるコストはすべて当社が負担します。オーナー様に売上が入った時だけ当社も収益になる仕組みです。だから結果には本気で向き合います。うまくいかなければ、改善を続けるか、費用なしで終了します。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq3_h3">広告アカウントへのアクセス権限が必要ですか？</h3>
+        <p data-i18n="faq3_p">広告運用も依頼される場合は、MetaまたはGoogleのアカウントへのアクセスをお願いします。アカウントの所有者はオーナー様のままです。LPとSMSだけなら、広告アカウントは不要。まずLPだけで始めて、後から広告を加えることもできます。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq4_h3">対応している予約システムは？</h3>
+        <p data-i18n="faq4_p">現在はSquareに対応しています。Mindbody・Vagaro・Freshaなど他のシステムをお使いの場合は、一度ご相談ください。大きな変更なしで対応できるよう開発中です。始める前に、正直にお伝えします。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq5_h3">稼働まで、どのくらいかかりますか？</h3>
+        <p data-i18n="faq5_p">開始から2週間です。最初の3日で診断・設計、4〜7日目でLP制作、8〜14日目で自動化の設定とテスト。14日目から稼働します。</p>
+      </div>
+      <div class="faq-item">
+        <h3 data-i18n="faq6_h3">最低利用期間はありますか？</h3>
+        <p data-i18n="faq6_p">長期契約の縛りはありません。成果が出るまでに90日ほどかかりますが、やめたい場合は30日前にお知らせいただければ対応します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner" id="book">
+  <div class="container">
+    <h2 data-i18n="cta_h2">予約フォームで、<br>どれだけ逃しているか。</h2>
+    <p data-i18n="cta_p">予約フォームの無料診断を実施します。興味を持ったお客様が予約完了の前にどれだけ離脱しているか、そして毎月いくら分の予約を逃しているかを可視化します。費用も、契約の縛りもありません。</p>
+    <form class="cta-form" id="cta-form" novalidate>
+      <input type="hidden" name="business_type" id="sim-out-type">
+      <input type="hidden" name="avg_ticket" id="sim-out-ticket">
+      <input type="hidden" name="runs_ads" id="sim-out-ads">
+      <div class="form-progress">
+        <span class="form-progress-track"><span class="form-progress-fill" id="progress-fill"></span></span>
+        <span class="form-progress-label"><span id="plabel-1" data-i18n="form_step1">ステップ 1 / 2</span><span id="plabel-2" data-i18n="form_step2" hidden>ステップ 2 / 2</span></span>
+      </div>
+
+      <!-- STEP 1: low-friction entry -->
+      <div class="form-step" id="step-1">
+        <div class="cta-form-grid">
+          <div class="cta-field">
+            <label data-i18n="form_label_name">お名前</label>
+            <input type="text" name="name" placeholder="山田 花子" required data-i18n-placeholder="form_ph_name">
+            <span class="cta-field-error" data-i18n="form_err_required">入力してください</span>
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_email">メールアドレス</label>
+            <input type="email" name="email" placeholder="you@yourspa.com" required data-i18n-placeholder="form_ph_email">
+            <span class="cta-field-error" data-i18n="form_err_email">正しいメールアドレスを入力してください</span>
+          </div>
+        </div>
+        <div class="cta-form-footer">
+          <button type="button" class="btn-white" id="step-next" data-i18n="form_continue">次へ →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: details -->
+      <div class="form-step" id="step-2" hidden>
+        <div class="cta-form-grid">
+          <div class="cta-field">
+            <label data-i18n="form_label_spa">サロン・クリニック名</label>
+            <input type="text" name="spa_name" placeholder="グロースキンスタジオ" required data-i18n-placeholder="form_ph_spa">
+            <span class="cta-field-error" data-i18n="form_err_required">入力してください</span>
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_phone">電話番号（任意）</label>
+            <input type="tel" name="phone" placeholder="(310) 555-0100" data-i18n-placeholder="form_ph_phone">
+            <span class="cta-field-hint" data-i18n="form_phone_consent">任意。ご希望の場合のみお電話・SMSします。スパムは送りません。</span>
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_city">エリア（任意）</label>
+            <input type="text" name="city" placeholder="Beverly Hills、West Hollywoodなど" data-i18n-placeholder="form_ph_city">
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_platform">予約管理システム（任意）</label>
+            <select name="platform">
+              <option value="" data-i18n="form_ph_platform">選択してください</option>
+              <option value="square">Square</option>
+              <option value="mindbody">Mindbody</option>
+              <option value="vagaro">Vagaro</option>
+              <option value="fresha">Fresha</option>
+              <option value="other" data-i18n="form_opt_other">その他</option>
+            </select>
+          </div>
+          <div class="cta-field">
+            <label data-i18n="form_label_adspend">月間広告費（任意）</label>
+            <select name="ad_spend">
+              <option value="" data-i18n="form_ph_adspend">金額帯を選択</option>
+              <option value="under_1k">Under $1,000</option>
+              <option value="1k_5k">$1,000 – $5,000</option>
+              <option value="5k_10k">$5,000 – $10,000</option>
+              <option value="over_10k">$10,000+</option>
+            </select>
+          </div>
+          <div class="cta-field cta-full">
+            <label data-i18n="form_label_challenge">現在の一番の課題は？（任意）</label>
+            <textarea name="challenge" placeholder="例：Meta広告を出しているが新規顧客が増えない…" data-i18n-placeholder="form_ph_challenge"></textarea>
+          </div>
+        </div>
+        <div class="cta-form-footer">
+          <button type="submit" class="btn-white" data-i18n="cta_btn">無料診断を申し込む <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <div><button type="button" class="cta-back" id="step-back" data-i18n="form_back">← 戻る</button></div>
+          <p class="cta-sub" data-i18n="cta_sub">無料診断。初期費用も月額費用もなし、継続の義務もありません。</p>
+        </div>
+      </div>
+    </form>
+    <div class="cta-thanks" id="cta-thanks" style="display:none">
+      <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <h3 data-i18n="thanks_h3">無料診断をお送りします。</h3>
+      <p data-i18n="thanks_p">ファネルを確認し、24時間以内に診断結果をお送りします。お待ちの間に、過去30日間の広告費を確認して、クリックしたのに予約しなかった人数を数えてみてください。それが、私たちが計測する「取りこぼし」です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+      <span class="footer-logo" aria-label="hanjo">
+        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
+      </span>
+      <div class="footer-meta">
+        <a href="/ja/about/" data-i18n="footer-about">会社概要</a>
+        <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
+        <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
+        <span data-i18n="footer-copy">© 2026 hanjo · ロサンゼルス</span>
+      </div>
+    </div>
+  </footer>
+
+<script>
+  const T = {
+    en: {
+      page_title: 'hanjo | Lost bookings, brought back. Zero cost risk.',
+      nav_cta: 'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      'footer-about': 'About Us',
+      'footer-terms': 'Terms of Use',
+      'footer-privacy': 'Privacy Policy',
+      'footer-copy': '© 2026 hanjo · Los Angeles',
+      crumb: '← All services',
+      skip_link: 'Skip to content',
+      risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
+      location_badge: 'Now serving Los Angeles area only',
+      hero_h1: 'Lost bookings,<br>brought&nbsp;back.<br><em>No&nbsp;fees. No&nbsp;hassle.</em>',
+      hv_form_title: 'Choose your treatment',
+      hv_svc1_name: 'Head spa 60 min',
+      hv_svc1_meta: '$120 · 1 hr',
+      hv_svc2_name: 'Scalp facial 90 min',
+      hv_svc2_meta: '$180 · 1.5 hr',
+      hv_svc3_name: 'Deep cleansing 45 min',
+      hv_svc3_meta: '$95 · 45 min',
+      hv_pick: 'Select',
+      hv_total_label: 'Total',
+      hv_next: 'Choose a time',
+      hv_drop: 'Left before booking',
+      hv_sms: 'Your spot is still open. Finish booking in one tap.',
+      hv_sms_stop: 'Reply STOP to opt out',
+      hv_conf_title: 'Booking confirmed',
+      hv_conf_l1: 'Service',
+      hv_conf_v1: 'Head spa 60 min',
+      hv_conf_l2: 'Time',
+      hv_conf_v2: 'Fri, Jul 24 · 2:00 PM',
+      hv_conf_l3: 'Client',
+      hv_conf_v3: 'Misaki T.',
+      hv_conf_note: 'Added to your Square calendar automatically.',
+      hero_sub: 'We rebuild your booking form and set up automated SMS and email follow-ups. Built for salons, spas, and clinics. No setup fee, no monthly fee, fully performance-based. Works out of the box if you manage bookings online with Square.',
+      hero_btn_primary: 'Get a free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: 'See if you\'re a fit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      zero_1_strong: 'No setup fee',
+      zero_1_span: 'We build everything upfront',
+      zero_2_strong: 'No monthly fee',
+      zero_2_span: 'Ever, for any reason',
+      zero_3_strong: 'Pay on results',
+      zero_3_span: 'Commission on confirmed bookings',
+      label_problem: 'The reality',
+      title_problem: '97% of visitors leave<br>without booking.',
+      legend_booked: '3 booked',
+      legend_away: '97 walked away',
+      funnel_col_drop: 'Where they drop off',
+      funnel_r1: 'Clicked your ad',
+      funnel_d1: '<strong>−30</strong> landed on wrong page, left immediately',
+      funnel_r2: 'Viewed booking page',
+      funnel_d2: '<strong>−40</strong> saw the form, felt too much friction',
+      funnel_r3: 'Filled the form',
+      funnel_d3: '<strong>−17</strong> waited hours for a reply, booked elsewhere',
+      funnel_r4: 'Got timely follow-up',
+      funnel_d4: '<strong>−10</strong> needed one more nudge but never got it',
+      funnel_r5: 'Booked an appointment',
+      label_recovery: 'How we recover customers',
+      title_recovery: 'We reach the visitors<br>who almost booked.',
+      appr_h1: 'They showed interest, but never booked',
+      appr_p1: 'Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.',
+      appr_action: 'We step in at the right moment',
+      sms_sub_label: 'Text Message',
+      sms_bubble: 'Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We\'d love to have you in. Your spot is saved for the next 2 hours.',
+      sms_cta: 'Book My Appointment →',
+      sms_tap: 'Tap to confirm · Takes 30 seconds',
+      sms_consent: '✓ Sent because Sarah opted in · Reply STOP to unsubscribe',
+      appr_h2: 'They come back and book',
+      appr_p2: 'The system is simple: automated SMS to customers who abandoned your form, reminders before appointments, and win-back emails to regulars who drifted away. You get the bookings back. We take our commission only when a booking is confirmed.',
+      commission_h3: 'You only pay when it works',
+      commission_p: 'Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start.',
+      trustpill_1: 'Consent-based',
+      trustpill_2: 'One-tap STOP opt-out',
+      trustpill_3: 'TCPA & CTIA compliant',
+      trustpill_note: 'Every text is sent only with the customer\'s consent and can be stopped in one tap. That\'s what keeps you protected in California. <a href="#faq">See the compliance FAQ →</a>',
+      label_fit: 'Are we a fit?',
+      title_fit: 'See if your business qualifies<br>in 30 seconds.',
+      sim_lead: 'Four quick questions. We\'ll tell you on the spot whether our system fits your setup, and what it could be recovering for you.',
+      sim_q1: 'What kind of business do you run?',
+      sim_t_medspa: 'Med spa',
+      sim_t_aesthetic: 'Aesthetic clinic',
+      sim_t_cosmetic: 'Cosmetic / plastic surgery',
+      sim_t_derm: 'Dermatology',
+      sim_t_dental: 'Dental / ortho',
+      sim_t_hair: 'Hair restoration',
+      sim_t_other: 'Other service business',
+      sim_q2: 'Do you run paid ads (Meta / Google)?',
+      sim_ads_yes: 'Yes',
+      sim_ads_no: 'Not yet',
+      sim_q3: 'Average value of a new client?',
+      sim_ticket_low: 'Under $150',
+      sim_ticket_mid: '$150–500',
+      sim_ticket_high: '$500+',
+      sim_q4: 'How do clients book?',
+      sim_p_other: 'Other online',
+      sim_p_none: 'Phone / walk-in only',
+      sim_submit: 'See if I qualify <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      sim_note: 'Please answer all four questions.',
+      sim_strong_title: 'You\'re a strong fit.',
+      sim_strong_body: 'Businesses like yours lose a real share of paid-traffic bookings at the form. On our performance-based model you only pay when we recover one, so a free audit costs you nothing but the answer.',
+      sim_likely_title: 'You\'re likely a fit.',
+      sim_likely_body: 'The model works best with high-value bookings and online traffic. We can usually set up whatever\'s missing, and a free audit will confirm the numbers for your setup.',
+      sim_weak_title: 'We might not be the right fit yet.',
+      sim_weak_body: 'Our system pays off when each new client is worth $150+ and you\'re driving online traffic to a booking. If that\'s where you\'re headed, we\'re glad to take a look anyway.',
+      sim_compat_ok: 'Works with %s',
+      sim_compat_other: 'Works with most online booking systems',
+      sim_compat_none: 'We\'ll help you add online booking that converts',
+      sim_cta_go: 'Get my free audit →',
+      sim_cta_anyway: 'Get a free audit anyway →',
+      sim_restart: '↺ Start over',
+      title_how: 'Your form, SMS, and email flows.<br>All built by hanjo, free.',
+      val1_label: 'Anything except commission',
+      val1_num: '$0',
+      val2_label: 'Your workload',
+      val2_num: 'Minimal',
+      val3_label: 'SMS sending cost',
+      val3_num: '$0',
+      label_pricing: 'The numbers',
+      title_pricing: 'Pay only when a customer books. Keep the rest.',
+      pricing_p1: 'Commission applies when a customer completes a booking through the system we build: the new booking form, or a link inside our SMS and email follow-ups. Not per click. Not per message sent. Per confirmed booking.',
+      pricing_p2: 'You never pay for the booking form or the setup itself. You pay a share of the bookings the system brings in, and nothing else. If it brings in none, you pay nothing. Commission rate is agreed before we start, based on your average booking value.',
+      pricing_example: '<strong>Example (med spa, $320 avg booking):</strong><br>40 bookings/month through the new form and our follow-ups<br>Revenue generated: $12,800<br>You pay hanjo: commission on 40 bookings<br><strong>Net to you: the difference, kept in full</strong>',
+      table_col1: 'What you pay',
+      table_col3: 'Agency',
+      table_r1_cl: 'Setup fee',
+      table_r2_cl: 'Monthly retainer',
+      table_r3_cl: 'If it doesn\'t work',
+      table_r3_co: 'Pay anyway',
+      table_r4_cl: 'Per booking',
+      table_r4_ch: '% agreed upfront',
+      table_r4_co: 'Not tracked',
+      table_r5_cl: 'Contract',
+      table_r5_ch: 'Flexible',
+      table_r5_co: '3–12 months',
+      label_faq: 'Common questions',
+      title_faq: 'What salon and clinic owners ask us first.',
+      faq_law_h3: 'Is texting customers legal in California? Could I get sued?',
+      faq_law_p: 'Texting is legal when the customer has given consent, and consent is the only basis we ever text on. Every number opts in through your own form with clear, TCPA-compliant wording, and every message follows CTIA messaging guidelines with a one-tap "Reply STOP" that we honor immediately. We never buy lists and never cold-text anyone. That consent-first, TCPA & CTIA–aligned approach is exactly what keeps you protected under California and federal law.',
+      faq_data_h3: 'How is my customers\' data protected?',
+      faq_data_p: 'Customer contact details are encrypted, stored securely, and never sold or shared. We use them for a single purpose, helping that person complete their booking, and honor any deletion request in line with California\'s data-privacy law. You and your customers stay in control of the data at all times.',
+      faq1_h3: 'How do you track which bookings are yours to invoice?',
+      faq1_p: 'The booking form we build and every message we send are tracked end to end. We only invoice when a booking is actually confirmed through them. You see the same log we do before approving any invoice.',
+      faq2_h3: 'What if it doesn\'t bring in any new customers?',
+      faq2_p: 'You pay nothing. We absorb the setup cost and time. Our incentive is entirely aligned with yours: we make money when you make money. If it\'s not working, we keep optimising, or we walk away with no invoice.',
+      faq3_h3: 'Do I need to give you access to my ad accounts?',
+      faq3_p: 'For ads management, yes: we request partner access to your Meta or Google account. You remain the owner. For the landing page and automation, no ad access is needed. You can start with just the funnel and add ads later.',
+      faq4_h3: 'What booking platforms do you work with?',
+      faq4_p: 'We currently build for Square merchants. If you\'re on a different platform (Mindbody, Vagaro, Fresha, or anything else), let us know. We\'re open to developing for your setup so you don\'t have to make any drastic changes. We\'ll be upfront about what\'s possible before we start.',
+      faq5_h3: 'How long until the funnel is live?',
+      faq5_p: 'Two weeks from kickoff. Day 1–3: audit and plan. Day 4–7: landing page built. Day 8–14: automation set up and tested. Day 14: live and tracking from day one.',
+      faq6_h3: 'Is there a minimum commitment?',
+      faq6_p: 'No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.',
+      cta_h2: 'See how many bookings<br>your form is losing.',
+      cta_p: 'Get a free audit of your booking funnel. We\'ll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.',
+      cta_btn: 'Get my free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      cta_sub: 'Free audit. No setup fee, no monthly fee, no obligation to continue.',
+      form_label_name: 'Your name',
+      form_label_spa: 'Spa name',
+      form_label_phone: 'Phone (optional)',
+      form_label_email: 'Email',
+      form_label_city: 'Neighborhood / city (optional)',
+      form_label_platform: 'Booking platform (optional)',
+      form_label_adspend: 'Monthly ad spend (optional)',
+      form_label_challenge: 'What\'s your biggest challenge? (optional)',
+      form_ph_name: 'Jane Kim',
+      form_ph_spa: 'Glow Skin Studio',
+      form_ph_phone: '(310) 555-0100',
+      form_ph_email: 'you@yourspa.com',
+      form_ph_city: 'Beverly Hills, West Hollywood…',
+      form_ph_platform: 'Select your platform',
+      form_ph_adspend: 'Select range',
+      form_ph_challenge: 'e.g. Running Meta ads but not seeing new clients book…',
+      form_opt_other: 'Other',
+      form_phone_consent: 'Optional. Only used if you ask for a call or text, never spam.',
+      form_step1: 'Step 1 of 2',
+      form_step2: 'Step 2 of 2',
+      form_continue: 'Continue →',
+      form_back: '← Back',
+      form_err_required: 'Required',
+      form_err_email: 'Please enter a valid email',
+      thanks_h3: 'Your free audit is on the way.',
+      thanks_p: 'We\'ll review your funnel and send your audit within 24 hours. In the meantime, pull your last 30 days of ad spend and count how many clicked but never booked. That\'s the leak we\'ll measure.',
+      footer_about: 'About',
+      footer_terms: 'Terms of Service',
+      footer_privacy: 'Privacy Policy',
+      footer_p: '© 2026 hanjo. More bookings. Zero cost risk.'
+    },
+    ja: {
+      page_title: 'hanjo | 取りこぼした予約を、売上に戻す｜完全成果報酬の予約リカバリー',
+      nav_cta: '無料相談 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      'footer-about': '会社概要',
+      'footer-terms': '利用規約',
+      'footer-privacy': 'プライバシーポリシー',
+      'footer-copy': '© 2026 hanjo · ロサンゼルス',
+      crumb: '← サービス一覧に戻る',
+      skip_link: '本文へスキップ',
+      risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
+      location_badge: 'LAエリア限定提供中',
+      hero_h1: '取りこぼした予約を、<br>売上に戻す。<br><em>費用も手間も、ゼロ。</em>',
+      hv_form_title: 'メニューを選択',
+      hv_svc1_name: 'ヘッドスパ 60分',
+      hv_svc1_meta: '$120・60分',
+      hv_svc2_name: 'スカルプフェイシャル 90分',
+      hv_svc2_meta: '$180・90分',
+      hv_svc3_name: 'ディープクレンジング 45分',
+      hv_svc3_meta: '$95・45分',
+      hv_pick: '選択',
+      hv_total_label: '合計',
+      hv_next: '時間を選ぶ',
+      hv_drop: '予約せずに離脱',
+      hv_sms: 'お席をお取りしています。1タップで予約が完了します。',
+      hv_sms_stop: '配信停止は「STOP」と返信',
+      hv_conf_title: '予約が確定しました',
+      hv_conf_l1: 'メニュー',
+      hv_conf_v1: 'ヘッドスパ 60分',
+      hv_conf_l2: '日時',
+      hv_conf_v2: '7月24日（金）14:00',
+      hv_conf_l3: 'お客様',
+      hv_conf_v3: '田中様',
+      hv_conf_note: 'Squareのカレンダーに自動で反映されます。',
+      hero_sub: '予約フォームの改善と、SMS・メールの自動追客をセットで構築します。美容サロン・クリニックなど、ご予約で成り立つビジネス向け。初期費用・月額費用ゼロ、完全成果報酬。Squareでオンライン予約を管理しているお店なら、そのまま導入できます。',
+      hero_btn_primary: '無料診断を受ける <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: '相性をチェック <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      zero_1_strong: '初期費用ゼロ',
+      zero_1_span: '全部、無料で作ります',
+      zero_2_strong: '月額費用ゼロ',
+      zero_2_span: '月々かかる費用は一切なし',
+      zero_3_strong: '完全成果報酬',
+      zero_3_span: '予約が入った分だけ',
+      label_problem: '集客の現実',
+      title_problem: '来訪客の97%が、<br>予約せずに離反しています。',
+      legend_booked: '3人が予約',
+      legend_away: '97人が帰る',
+      funnel_col_drop: '離脱ポイント',
+      funnel_r1: '広告をクリック',
+      funnel_d1: '<strong>−30人</strong> 別ページに飛び、すぐ離脱',
+      funnel_r2: '予約ページを閲覧',
+      funnel_d2: '<strong>−40人</strong> フォームを見たが手間を感じて離脱',
+      funnel_r3: 'フォームを入力',
+      funnel_d3: '<strong>−17人</strong> 返信を何時間も待った末、他で予約',
+      funnel_r4: 'フォローを受けた',
+      funnel_d4: '<strong>−10人</strong> あと一声あれば予約していた',
+      funnel_r5: '予約完了',
+      label_recovery: '取りこぼしを、ゼロに近づける',
+      title_recovery: 'hanjoなら離反顧客を成約につなげます',
+      appr_h1: '興味はあったものの、予約まで踏み切れなかった',
+      appr_p1: 'サービスを見て、フォームまで入力した方。でも最後の一歩を踏み出せなかったお客様へアプローチします',
+      appr_action: '私たちが動きます',
+      sms_sub_label: 'Text Message',
+      sms_bubble: 'Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We\'d love to have you in. Your spot is saved for the next 2 hours.',
+      sms_cta: 'Book My Appointment →',
+      sms_tap: 'Tap to confirm · Takes 30 seconds',
+      sms_consent: '✓ Sent because Sarah opted in · Reply STOP to unsubscribe',
+      appr_h2: '新規成約へ',
+      appr_p2: '仕組みはシンプルです。フォームで離脱したお客様への自動SMS、ご来店前のリマインダー、足が遠のいたお客様への呼び戻しメール。この3つが自動で回り、離れかけたお客様を成約につなげます。',
+      commission_h3: '成果が出た分だけ、お支払い',
+      commission_p: 'お客様の予約が完了した時だけ手数料が発生します。すべての予約は追跡されており、同じデータを一緒に確認できます。料率は始める前に決めます。',
+      trustpill_1: '同意ベースで送信',
+      trustpill_2: 'STOPでワンタップ停止',
+      trustpill_3: 'TCPA・CTIA準拠',
+      trustpill_note: 'SMSはお客様の同意がある場合のみ送信し、ワンタップで停止できます。これがカリフォルニアでオーナー様を守る仕組みです。<a href="#faq">コンプライアンスFAQを見る →</a>',
+      label_fit: '相性をチェック',
+      title_fit: 'あなたのビジネスで使えるか、<br>30秒で診断。',
+      sim_lead: '4つの質問に答えるだけ。あなたの環境にこの仕組みが合うか、そして何を取り戻せるかを、その場でお伝えします。',
+      sim_q1: 'どんなビジネスですか？',
+      sim_t_medspa: 'メディカルスパ',
+      sim_t_aesthetic: '美容クリニック',
+      sim_t_cosmetic: '美容外科',
+      sim_t_derm: '皮膚科',
+      sim_t_dental: '歯科・矯正',
+      sim_t_hair: '薄毛・植毛',
+      sim_t_other: 'その他のサービス業',
+      sim_q2: '広告（Meta / Google）を出していますか？',
+      sim_ads_yes: 'はい',
+      sim_ads_no: 'まだ',
+      sim_q3: '新規顧客1人あたりの平均単価は？',
+      sim_ticket_low: '$150未満',
+      sim_ticket_mid: '$150〜500',
+      sim_ticket_high: '$500以上',
+      sim_q4: 'お客様はどのように予約しますか？',
+      sim_p_other: 'その他のオンライン予約',
+      sim_p_none: '電話・来店のみ',
+      sim_submit: '診断する <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      sim_note: '4つすべてにお答えください。',
+      sim_strong_title: '相性は抜群です。',
+      sim_strong_body: '御社のようなビジネスは、広告から来た予約をフォームで取りこぼしています。成果報酬型なので、取り戻せた時だけお支払い。無料診断なら、確認しても費用はかかりません。',
+      sim_likely_title: '相性は良さそうです。',
+      sim_likely_body: 'この仕組みは、高単価の予約とオンライン集客があるほど効果を発揮します。足りない部分は当社で用意できることがほとんどです。無料診断で御社の数字を確認しましょう。',
+      sim_weak_title: 'まだ最適なタイミングではないかもしれません。',
+      sim_weak_body: 'この仕組みは、新規顧客1人あたり$150以上で、オンラインから予約に集客している場合に効果を発揮します。その方向を目指しているなら、ぜひ一度拝見します。',
+      sim_compat_ok: '%s に対応',
+      sim_compat_other: 'ほとんどのオンライン予約システムに対応',
+      sim_compat_none: 'コンバージョンするオンライン予約の導入をお手伝いします',
+      sim_cta_go: '無料診断を受ける →',
+      sim_cta_anyway: 'それでも無料診断を受ける →',
+      sim_restart: '↺ 最初からやり直す',
+      title_how: 'フォーム改善もSMS・メール構築も、<br>すべてhanjoが無料で作ります。',
+      val1_label: '成約報酬以外',
+      val1_num: '$0',
+      val2_label: '手間、ほぼ',
+      val2_num: 'なし',
+      val3_label: 'SMS送信',
+      val3_num: '$0',
+      label_pricing: '費用のしくみ',
+      title_pricing: 'hanjoが貢献した売上だけが、<br>成果報酬の対象です。',
+      pricing_p1: '料金が発生するのは、当社が構築した仕組み（新しい予約フォーム、SMS・メールの追客）から予約が入った時だけです。クリック数でも送信数でもありません。確定した予約の数だけです。',
+      pricing_p2: '予約フォームの制作費や導入費をいただくことはありません。お支払いは、仕組みが生んだ予約の一部だけです。予約が入らなければ、費用はゼロ。料率は始める前に、予約の平均単価をもとに一緒に決めます。',
+      pricing_example: '<strong>事例：メディカルスパ（平均予約 $320）</strong><br>新フォーム・追客から入った予約：月40件<br>売上：$12,800<br>hanjoへのお支払い：40件分の成果報酬<br><strong>オーナー様の収益：残りすべて</strong>',
+      table_col1: '費用項目',
+      table_col3: '一般エージェンシー',
+      table_r1_cl: '初期費用',
+      table_r2_cl: '月額費用',
+      table_r3_cl: '効果がなかった場合',
+      table_r3_co: '成果に関わらず支払い',
+      table_r4_cl: '予約ごとの費用',
+      table_r4_ch: '事前合意の成果報酬',
+      table_r4_co: '追跡なし',
+      table_r5_cl: '契約',
+      table_r5_ch: 'フレキシブル',
+      table_r5_co: '3〜12ヶ月',
+      label_faq: 'よくある質問',
+      title_faq: 'サロン・クリニックのオーナー様から<br>よくある質問。',
+      faq_law_h3: 'カリフォルニアで顧客にSMSを送るのは合法ですか？訴訟になりませんか？',
+      faq_law_p: 'お客様の同意がある場合、SMSの送信は合法です。そして当社は、同意を得た方にしか送りません。送信先はすべて、TCPAに準拠した明確な文言でフォーム上から受信に同意した番号のみ。各メッセージはCTIAのメッセージングガイドラインに沿い、ワンタップの「STOPと返信」を記載して即時に配信停止を反映します。リストの購入や、見知らぬ相手への一斉送信は一切行いません。この「同意ファースト」かつTCPA・CTIA準拠の設計こそが、カリフォルニア州法・連邦法のもとでオーナー様を守ります。',
+      faq_data_h3: 'お客様のデータはどう守られますか？',
+      faq_data_p: '連絡先は暗号化して安全に保管し、第三者に販売・共有することはありません。利用目的はそのお客様の予約完了のサポートのみ。カリフォルニアのデータプライバシー法に沿って、削除のご要望にも対応します。データの主導権は、常にオーナー様とお客様にあります。',
+      faq1_h3: 'どの予約が請求対象か、どうやってわかりますか？',
+      faq1_p: '当社が構築した予約フォームと、送信するメッセージにはすべて計測が入っています。そこから予約が確定した場合だけ請求します。請求の前に、同じデータを一緒に確認できます。',
+      faq2_h3: 'お客様が増えなかった場合は？',
+      faq2_p: '費用はゼロです。制作にかかるコストはすべて当社が負担します。オーナー様に売上が入った時だけ当社も収益になる仕組みです。だから結果には本気で向き合います。うまくいかなければ、改善を続けるか、費用なしで終了します。',
+      faq3_h3: '広告アカウントへのアクセス権限が必要ですか？',
+      faq3_p: '広告運用も依頼される場合は、MetaまたはGoogleのアカウントへのアクセスをお願いします。アカウントの所有者はオーナー様のままです。LPとSMSだけなら、広告アカウントは不要。まずLPだけで始めて、後から広告を加えることもできます。',
+      faq4_h3: '対応している予約システムは？',
+      faq4_p: '現在はSquareに対応しています。Mindbody・Vagaro・Freshaなど他のシステムをお使いの場合は、一度ご相談ください。大きな変更なしで対応できるよう開発中です。始める前に、正直にお伝えします。',
+      faq5_h3: '稼働まで、どのくらいかかりますか？',
+      faq5_p: '開始から2週間です。最初の3日で診断・設計、4〜7日目でLP制作、8〜14日目で自動化の設定とテスト。14日目から稼働します。',
+      faq6_h3: '最低利用期間はありますか？',
+      faq6_p: '長期契約の縛りはありません。成果が出るまでに90日ほどかかりますが、やめたい場合は30日前にお知らせいただければ対応します。',
+      cta_h2: '予約フォームで、<br>どれだけ逃しているか。',
+      cta_p: '予約フォームの無料診断を実施します。興味を持ったお客様が予約完了の前にどれだけ離脱しているか、そして毎月いくら分の予約を逃しているかを可視化します。費用も、契約の縛りもありません。',
+      cta_btn: '無料診断を申し込む <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      cta_sub: '無料診断。初期費用も月額費用もなし、継続の義務もありません。',
+      form_label_name: 'お名前',
+      form_label_spa: 'サロン・クリニック名',
+      form_label_phone: '電話番号（任意）',
+      form_label_email: 'メールアドレス',
+      form_label_city: 'エリア（任意）',
+      form_label_platform: '予約管理システム（任意）',
+      form_label_adspend: '月間広告費（任意）',
+      form_label_challenge: '現在の一番の課題は？（任意）',
+      form_ph_name: '山田 花子',
+      form_ph_spa: 'グロースキンスタジオ',
+      form_ph_phone: '(310) 555-0100',
+      form_ph_email: 'you@yourspa.com',
+      form_ph_city: 'Beverly Hills、West Hollywoodなど',
+      form_ph_platform: '選択してください',
+      form_ph_adspend: '金額帯を選択',
+      form_ph_challenge: '例：Meta広告を出しているが新規顧客が増えない…',
+      form_opt_other: 'その他',
+      form_phone_consent: '任意。ご希望の場合のみお電話・SMSします。スパムは送りません。',
+      form_step1: 'ステップ 1 / 2',
+      form_step2: 'ステップ 2 / 2',
+      form_continue: '次へ →',
+      form_back: '← 戻る',
+      form_err_required: '入力してください',
+      form_err_email: '正しいメールアドレスを入力してください',
+      thanks_h3: '無料診断をお送りします。',
+      thanks_p: 'ファネルを確認し、24時間以内に診断結果をお送りします。お待ちの間に、過去30日間の広告費を確認して、クリックしたのに予約しなかった人数を数えてみてください。それが、私たちが計測する「取りこぼし」です。',
+      footer_about: '会社概要',
+      footer_terms: '利用規約',
+      footer_privacy: 'プライバシーポリシー',
+      footer_p: '© 2026 hanjo. 美容サロン・クリニック専門の成果報酬型集客サービス。'
+    }
+  };
+
+  function setLang(lang) {
+    var be = document.getElementById('btn-en'), bj = document.getElementById('btn-ja');
+    be.classList.toggle('active', lang === 'en'); be.setAttribute('aria-pressed', lang === 'en');
+    bj.classList.toggle('active', lang === 'ja'); bj.setAttribute('aria-pressed', lang === 'ja');
+    document.body.classList.toggle('lang-ja', lang === 'ja');
+    document.documentElement.lang = lang;
+    document.title = T[lang].page_title;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      if (T[lang][key] !== undefined) {
+        el.innerHTML = T[lang][key];
+      }
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      if (T[lang][key] !== undefined) el.placeholder = T[lang][key];
+    });
+    try { localStorage.setItem('hanjo-lang', lang); } catch(e) {}
+    var lp = document.getElementById('lang-pill');
+    if (lp) lp.textContent = (lang === 'ja') ? 'EN' : 'JP';
+  }
+
+  (function() {
+    var param = new URLSearchParams(window.location.search).get('lang');
+    var saved = null;
+    var seg = location.pathname.split('/')[1];
+    if (seg === 'ja' || seg === 'en') {
+      try { localStorage.setItem('hanjo-lang', seg); } catch(e) {}
+      document.querySelectorAll('a[href^="/"]').forEach(function(a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '') href = '/';
+        a.setAttribute('href', '/' + seg + href);
+      });
+    }
+    (function () {
+      var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+      document.querySelectorAll('.nav-links a').forEach(function (a) {
+        var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+        if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+      });
+    })();
+    try { saved = localStorage.getItem('hanjo-lang'); } catch(e) {}
+    if (!saved) {
+      var bl = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      saved = bl.startsWith('ja') ? 'ja' : 'en';
+    }
+    var lang = (param === 'ja' || param === 'en') ? param : saved;
+    if (lang === 'ja') setLang('ja');
+  })();
+
+  // Accessibility: associate each form label with its input
+  (function() {
+    document.querySelectorAll('.cta-field').forEach(function(field) {
+      var input = field.querySelector('input, select, textarea');
+      var label = field.querySelector('label');
+      if (input && label) {
+        if (!input.id) input.id = 'f-' + (input.name || Math.random().toString(36).slice(2));
+        label.setAttribute('for', input.id);
+      }
+    });
+  })();
+
+  // Two-step CTA form
+  (function() {
+    var form = document.getElementById('cta-form');
+    var thanks = document.getElementById('cta-thanks');
+    if (!form) return;
+    var step1 = document.getElementById('step-1');
+    var step2 = document.getElementById('step-2');
+    var fill = document.getElementById('progress-fill');
+    var plabel1 = document.getElementById('plabel-1');
+    var plabel2 = document.getElementById('plabel-2');
+
+    // Validate the required fields within a given scope (step or whole form)
+    function validate(scope) {
+      var ok = true;
+      scope.querySelectorAll('[required]').forEach(function(field) {
+        var err = field.parentNode.querySelector('.cta-field-error');
+        var empty = !field.value.trim();
+        var badEmail = field.type === 'email' && !empty && !field.validity.valid;
+        var bad = empty || badEmail;
+        field.classList.toggle('error', bad);
+        if (err) err.classList.toggle('show', bad);
+        if (bad) ok = false;
+      });
+      return ok;
+    }
+    // Clear a field's error as soon as the user corrects it
+    form.querySelectorAll('[required]').forEach(function(field) {
+      field.addEventListener('input', function() {
+        field.classList.remove('error');
+        var err = field.parentNode.querySelector('.cta-field-error');
+        if (err) err.classList.remove('show');
+      });
+    });
+
+    function goNext() {
+      if (!validate(step1)) { var f = step1.querySelector('.error'); if (f) f.focus(); return; }
+      step1.setAttribute('hidden', '');
+      step2.removeAttribute('hidden');
+      if (fill) fill.style.width = '100%';
+      if (plabel1) plabel1.setAttribute('hidden', '');
+      if (plabel2) plabel2.removeAttribute('hidden');
+      var first = step2.querySelector('input, select, textarea'); if (first) first.focus();
+    }
+    function goBack() {
+      step2.setAttribute('hidden', '');
+      step1.removeAttribute('hidden');
+      if (fill) fill.style.width = '50%';
+      if (plabel2) plabel2.setAttribute('hidden', '');
+      if (plabel1) plabel1.removeAttribute('hidden');
+    }
+    var nextBtn = document.getElementById('step-next');
+    if (nextBtn) nextBtn.addEventListener('click', goNext);
+    var backBtn = document.getElementById('step-back');
+    if (backBtn) backBtn.addEventListener('click', goBack);
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Enter key on step 1 advances instead of submitting
+      if (step2 && step2.hasAttribute('hidden')) { goNext(); return; }
+      if (!validate(form)) return;
+
+      var btn = form.querySelector('button[type=submit]');
+      var origText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = '…';
+      var params = new URLSearchParams(new FormData(form)).toString();
+      fetch('https://script.google.com/macros/s/AKfycbw-2J2ZJi1hsxNnf637nbnWrpVHJhN6K3DlKGWhYpoBqM6N3TfXXnNoSpz3kg9IVsdq1g/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params
+      }).then(function() {
+        form.style.display = 'none';
+        thanks.style.display = 'block';
+      }).catch(function() {
+        btn.disabled = false;
+        btn.innerHTML = origText;
+        alert('Something went wrong. Please try again.');
+      });
+    });
+  })();
+
+  // Eligibility simulator
+  (function() {
+    var card = document.getElementById('sim-card');
+    var result = document.getElementById('sim-result');
+    if (!card || !result) return;
+    var answers = { type: null, ads: null, ticket: null, platform: null };
+    var PLATFORM_NAMES = { square: 'Square', mindbody: 'Mindbody', vagaro: 'Vagaro', fresha: 'Fresha' };
+    // Readable labels stored on the lead (so the spreadsheet is human-friendly)
+    var TYPE_LABELS = { medspa: 'Med spa', aesthetic: 'Aesthetic clinic', cosmetic: 'Cosmetic / plastic surgery', derm: 'Dermatology', dental: 'Dental / ortho', hair: 'Hair restoration', other: 'Other service business' };
+    var TICKET_LABELS = { low: 'Under $150', mid: '$150–500', high: '$500+' };
+    var ADS_LABELS = { yes: 'Yes', no: 'Not yet' };
+    var PLATFORM_LABELS = { square: 'Square', mindbody: 'Mindbody', vagaro: 'Vagaro', fresha: 'Fresha', other: 'Other online', none: 'Phone / walk-in only' };
+    var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+    var INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg>';
+    function lang() { return document.documentElement.lang === 'ja' ? 'ja' : 'en'; }
+    function t(key) { var L = T[lang()] || T.en; return (L[key] !== undefined ? L[key] : (T.en[key] || '')); }
+
+    card.querySelectorAll('.sim-q').forEach(function(q) {
+      var key = q.getAttribute('data-q');
+      q.querySelectorAll('.sim-chip').forEach(function(chip) {
+        chip.setAttribute('aria-pressed', 'false');
+        chip.addEventListener('click', function() {
+          q.querySelectorAll('.sim-chip').forEach(function(c) { c.classList.remove('selected'); c.setAttribute('aria-pressed', 'false'); });
+          chip.classList.add('selected'); chip.setAttribute('aria-pressed', 'true');
+          answers[key] = chip.getAttribute('data-val');
+          q.classList.remove('missing');
+          document.getElementById('sim-note').classList.remove('show');
+        });
+      });
+    });
+
+    function outcome() {
+      if (answers.ticket === 'low') return 'weak';
+      if (answers.ads === 'yes' && answers.platform !== 'none') return 'strong';
+      return 'likely';
+    }
+
+    function render() {
+      var o = outcome();
+      result.classList.remove('strong', 'likely', 'weak'); result.classList.add(o);
+      document.getElementById('sim-badge').innerHTML = (o === 'weak') ? INFO : CHECK;
+      document.getElementById('sim-result-title').textContent = t('sim_' + o + '_title');
+      document.getElementById('sim-result-body').textContent = t('sim_' + o + '_body');
+      var compat = document.getElementById('sim-compat'), p = answers.platform;
+      if (p && PLATFORM_NAMES[p]) {
+        compat.innerHTML = CHECK + '<span>' + t('sim_compat_ok').replace('%s', PLATFORM_NAMES[p]) + '</span>';
+        compat.removeAttribute('hidden');
+      } else if (p === 'other') {
+        compat.innerHTML = CHECK + '<span>' + t('sim_compat_other') + '</span>';
+        compat.removeAttribute('hidden');
+      } else if (p === 'none') {
+        compat.innerHTML = CHECK + '<span>' + t('sim_compat_none') + '</span>';
+        compat.removeAttribute('hidden');
+      } else {
+        compat.setAttribute('hidden', '');
+      }
+      document.getElementById('sim-cta').textContent = (o === 'weak') ? t('sim_cta_anyway') : t('sim_cta_go');
+    }
+
+    document.getElementById('sim-submit').addEventListener('click', function() {
+      var missing = false;
+      card.querySelectorAll('.sim-q').forEach(function(q) {
+        if (!answers[q.getAttribute('data-q')]) { q.classList.add('missing'); missing = true; }
+      });
+      if (missing) { document.getElementById('sim-note').classList.add('show'); return; }
+      render();
+      // Carry answers into the audit form
+      var setVal = function(id, v) { var el = document.getElementById(id); if (el) el.value = v || ''; };
+      setVal('sim-out-type', TYPE_LABELS[answers.type]); setVal('sim-out-ticket', TICKET_LABELS[answers.ticket]); setVal('sim-out-ads', ADS_LABELS[answers.ads]);
+      var sel = document.querySelector('#cta-form [name=platform]');
+      if (sel && answers.platform && answers.platform !== 'none' && sel.querySelector('option[value="' + answers.platform + '"]')) sel.value = answers.platform;
+      card.setAttribute('hidden', '');
+      result.removeAttribute('hidden');
+      result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    document.getElementById('sim-restart').addEventListener('click', function() {
+      result.setAttribute('hidden', '');
+      card.removeAttribute('hidden');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // Re-translate an open result when the language is switched
+    ['btn-en', 'btn-ja'].forEach(function(id) {
+      var b = document.getElementById(id);
+      if (b) b.addEventListener('click', function() { if (!result.hasAttribute('hidden')) render(); });
+    });
+  })();
+
+  // Staggered reveal for value cards
+  (function() {
+    var grid = document.querySelector('.value-grid');
+    if (!grid) return;
+    var cards = grid.querySelectorAll('.value-card');
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          cards.forEach(function(card, i) {
+            setTimeout(function() { card.classList.add('visible'); }, i * 130);
+          });
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(grid);
+  })();
+
+  // Smooth cursor glow
+  (function() {
+    if (window.matchMedia('(hover: none)').matches) return;
+    var glow = document.createElement('div');
+    glow.className = 'cursor-glow';
+    document.body.appendChild(glow);
+    var mx = 0, my = 0, gx = 0, gy = 0, active = false;
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX; my = e.clientY;
+      if (!active) { glow.style.opacity = '1'; active = true; }
+    });
+    document.addEventListener('mouseleave', function() { glow.style.opacity = '0'; });
+    document.addEventListener('mouseenter', function() { if (active) glow.style.opacity = '1'; });
+    function tick() {
+      gx += (mx - gx) * 0.07;
+      gy += (my - gy) * 0.07;
+      glow.style.left = gx + 'px';
+      glow.style.top  = gy + 'px';
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+</script>
+
+<script>
+  function toggleMenu() {
+    var m = document.getElementById('mobile-menu');
+    var b = document.querySelector('.nav-burger');
+    var open = m.classList.toggle('open');
+    b.setAttribute('aria-expanded', open ? 'true' : 'false');
+    m.setAttribute('aria-hidden', open ? 'false' : 'true');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+  (function () {
+    var cur = location.pathname.replace(/^\/(ja|en)(?=\/|$)/, '');
+    document.querySelectorAll('.mm-links a').forEach(function (a) {
+      var href = a.getAttribute('href').replace(/^\/(ja|en)(?=\/|$)/, '');
+      if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
+    });
+  })();
+</script>
+</body>
+</html>

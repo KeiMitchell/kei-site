@@ -14,7 +14,34 @@ kei-site/
 └── index.html     ← the entire site (HTML + CSS + JS, all inline)
 ```
 
-There is **no build step, no framework, no package.json**. Everything lives in `index.html`. To preview locally, just open the file in a browser.
+There is **no framework and no package.json**, but there *is* one build step: the
+Japanese pages under `ja/` are generated. See below.
+
+## The Japanese pages are generated — regenerate them after any content edit
+
+Each English page ships with a `T` dictionary and `data-i18n` attributes, and the
+runtime swaps in Japanese on the client. Crawlers do not run that script, so every
+`/ja/` URL used to serve English text and Japanese was invisible to search engines
+and to LLMs.
+
+`build-ja.mjs` applies `T.ja` at build time and writes real Japanese HTML into `ja/`,
+using the same rules the runtime uses (`innerHTML` for `[data-i18n]`, `placeholder`
+for `[data-i18n-placeholder]`), plus `<html lang="ja">`, `body.lang-ja`, `/ja/`
+canonical and og:url, `og:locale`, and `/ja/`-prefixed internal links. Japanese
+`<title>` and `<meta description>` come from the `HEAD_JA` map at the top of the
+script, because those live in head attributes and have no `data-i18n` keys.
+
+```bash
+node build-ja.mjs   # rewrites ja/ from the English sources
+```
+
+**Run this whenever you change page copy or add a `data-i18n` key, and commit the
+`ja/` output.** If you skip it, the Japanese pages silently keep the old text. Add
+both the English string and the Japanese one to `T` in the same edit, otherwise the
+build reports the key as having no `ja` string and leaves the English in place.
+
+`vercel.json` maps `/ja/...` to the generated files and `/en/...` to the English
+originals; the unprefixed path is the canonical English URL.
 
 ## How to deploy changes
 ```bash
