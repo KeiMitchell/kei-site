@@ -1472,6 +1472,57 @@
       word-break: auto-phrase;
       line-break: strict;
     }
+
+    /* ── 2026-10 quiet editorial pass (see /DESIGN.md) ──
+       Same copy; plain left-aligned headings, no eyebrow labels, hairline
+       lists instead of card grids, the case study on cream like the home result. */
+    :root { --board: #E8EBE4; --muted-solid: #6B6B68; }
+    .label { display: none !important; }
+    h2 { text-wrap: balance; }
+    h2 span { font-style: normal; }
+    html:not([lang="ja"]) h2 span { display: inline; }
+    .ew-section .section, .ew-section h2, .ew-desc { text-align: left !important; }
+    .ew-section .ew-desc { margin-left: 0 !important; }
+    .ew-desc { font-size: 17px; max-width: 36em; }
+    .cta-inner h2 strong { font-style: normal; }
+
+    .callout { background: var(--board); border: 0; border-radius: 4px; font-size: 16px; font-weight: 400; color: var(--muted-solid); }
+    .gap-num, .step-num { font-size: 13px; letter-spacing: 0; color: var(--faint); font-variant-numeric: tabular-nums; }
+    .gap-list li { font-size: 17px; }
+
+    /* case study: cream, ruled boxes, sage numbers */
+    .s-case { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .s-case h2 { color: var(--ink); }
+    .s-case .case-wrap { gap: 0; border-top: 1px solid var(--ink); }
+    .s-case .case-box, .s-case .chart-box { border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 28px 28px 28px 0; }
+    .s-case .case-num { font-family: 'Playfair Display', serif; color: var(--sage); }
+    .s-case .case-label { color: var(--ink); font-size: 15px; }
+    .s-case .case-sub { color: var(--muted-solid); font-size: 14px; font-weight: 400; }
+    .s-case .case-tag { color: var(--muted-solid); font-size: 13px; letter-spacing: 0; text-transform: none; }
+    .s-case .case-story p { color: var(--muted-solid); font-size: 16px; font-weight: 400; }
+    .s-case .growth-bar-fill { background: var(--sage); transition: none; }
+    .s-case .chart-caption { color: var(--muted-solid); font-size: 13px; letter-spacing: 0; text-transform: none; }
+
+    /* services: two-column ruled list instead of a card grid */
+    .work-grid { gap: 0 48px; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--ink); }
+    .work-item { background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--border) !important; border-radius: 0 !important; padding: 22px 0 !important; box-shadow: none !important; }
+    .work-item h3 { font-size: 17px; }
+    .work-item p { font-size: 16px; font-weight: 400; color: var(--muted-solid); }
+
+    /* steps and FAQ: hairline lists */
+    .steps { gap: 0; border-top: 1px solid var(--border); }
+    .step { background: transparent; border: 0; border-radius: 0; border-bottom: 1px solid var(--border); padding: 24px 0; gap: 22px; }
+    .step h3 { font-size: 17px; }
+    .step p { font-size: 16px; font-weight: 400; color: var(--muted-solid); }
+
+    .testimonial { background: var(--board); border: 0; border-radius: 4px; }
+
+    @media (max-width: 760px) {
+      .work-grid { grid-template-columns: 1fr; }
+      .s-case .case-box, .s-case .chart-box { padding-right: 0; }
+    }
+    .s-case .growth-bars { height: 150px; }
+    .lc-stat, .lc-board, .lc-flow { border-radius: 4px !important; box-shadow: none !important; }
   </style>
 
   <script type="speculationrules">
@@ -1678,14 +1729,14 @@
           </span>
         </div>
         <div class="hstat">
-          <strong class="hstat-num" data-count="10" data-suffix="×">10×</strong>
+          <strong class="hstat-num">10×</strong>
           <span class="hstat-txt">
             <span class="hstat-label" data-i18n="proof-2-label">アクティブ顧客数</span>
             <span class="hstat-sub" data-i18n="proof-2-sub">30人 → 300人（12ヶ月・ペットフードブランド）</span>
           </span>
         </div>
         <div class="hstat">
-          <strong class="hstat-num" data-count="40" data-prefix="−" data-suffix="%">−40%</strong>
+          <strong class="hstat-num">−40%</strong>
           <span class="hstat-txt">
             <span class="hstat-label" data-i18n="proof-3-label">チャーン削減</span>
             <span class="hstat-sub" data-i18n="proof-3-sub">月間15% → 9%</span>
@@ -1790,38 +1841,38 @@
   </div>
 
   <!-- CASE STUDY -->
-  <div class="s-dark">
+  <div class="s-case">
     <div class="section section--wide">
       <span class="label label--dim" data-reveal data-i18n="case-label">クライアント事例</span>
-      <h2 class="light" data-reveal data-i18n="case-h2">日本のペットフードブランド。<br><span>12ヶ月でアクティブ顧客が30人から300人に。</span></h2>
+      <h2 data-reveal data-i18n="case-h2">日本のペットフードブランド。<br><span>12ヶ月でアクティブ顧客が30人から300人に。</span></h2>
 
       <div class="case-wrap" data-reveal-stagger>
         <div class="case-box">
-          <span class="case-num" data-count="10" data-suffix="×">10×</span>
+          <span class="case-num">10×</span>
           <span class="case-label" data-i18n="case-1-label">アクティブ顧客数</span>
           <span class="case-sub" data-i18n="case-1-sub">30人 → 300人（12ヶ月）</span>
         </div>
 
         <div class="case-box">
-          <span class="case-num" data-count="40" data-prefix="−" data-suffix="%">−40%</span>
+          <span class="case-num">−40%</span>
           <span class="case-label" data-i18n="case-2-label">チャーン率</span>
           <span class="case-sub" data-i18n="case-2-sub">月間15% → 9%</span>
         </div>
 
         <div class="chart-box" id="growthChart">
           <div class="growth-bars">
-            <div class="growth-bar-fill" data-h="10%"></div>
-            <div class="growth-bar-fill" data-h="15%"></div>
-            <div class="growth-bar-fill" data-h="21%"></div>
-            <div class="growth-bar-fill" data-h="28%"></div>
-            <div class="growth-bar-fill" data-h="36%"></div>
-            <div class="growth-bar-fill" data-h="45%"></div>
-            <div class="growth-bar-fill" data-h="54%"></div>
-            <div class="growth-bar-fill" data-h="65%"></div>
-            <div class="growth-bar-fill" data-h="75%"></div>
-            <div class="growth-bar-fill" data-h="85%"></div>
-            <div class="growth-bar-fill" data-h="93%"></div>
-            <div class="growth-bar-fill" data-h="100%"></div>
+            <div class="growth-bar-fill" data-h="10%" style="height:10%"></div>
+            <div class="growth-bar-fill" data-h="15%" style="height:15%"></div>
+            <div class="growth-bar-fill" data-h="21%" style="height:21%"></div>
+            <div class="growth-bar-fill" data-h="28%" style="height:28%"></div>
+            <div class="growth-bar-fill" data-h="36%" style="height:36%"></div>
+            <div class="growth-bar-fill" data-h="45%" style="height:45%"></div>
+            <div class="growth-bar-fill" data-h="54%" style="height:54%"></div>
+            <div class="growth-bar-fill" data-h="65%" style="height:65%"></div>
+            <div class="growth-bar-fill" data-h="75%" style="height:75%"></div>
+            <div class="growth-bar-fill" data-h="85%" style="height:85%"></div>
+            <div class="growth-bar-fill" data-h="93%" style="height:93%"></div>
+            <div class="growth-bar-fill" data-h="100%" style="height:100%"></div>
           </div>
           <p class="chart-caption" data-i18n="chart-caption">月間アクティブ顧客 · 30人 → 300人</p>
         </div>
@@ -1911,28 +1962,24 @@
 
       <ul class="steps" data-reveal-stagger>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-1-h">英語のコピー執筆とメールデザインも対応してもらえますか？</h3>
             <p data-i18n="faq-1-p">はい、フルサービスで対応します。米国の顧客向けの英語コピーを執筆し、メールをデザインし、フローを構築します。ブランドアセットと方向性を共有していただければ、英語コンテンツの制作から設定まですべて担当します。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-2-h">費用はどれくらいですか？</h3>
             <p data-i18n="faq-2-p">スコープによりますが、通常 $1,500〜$3,000 から。通話中に明確な金額をお伝えします。曖昧な提案書や、後からの追加費用はありません。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-4-h">プロジェクトの期間は？</h3>
             <p data-i18n="faq-4-p">フルのフロー構築は、キックオフからローンチまで3〜5週間が目安です。診断は約1週間。スコープと、フィードバックやアセットを提供するスピードによって変わります。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-5-h">日本語でやり取りできますか？</h3>
             <p data-i18n="faq-5-p">はい。ブランドの担当者との打ち合わせや日々のやり取りは日本語で進めます。米国の顧客に届けるメールコンテンツは英語で制作します。メール配信ツールもShopifyも、慣れていない段階から一緒に進められます。</p>
@@ -2024,7 +2071,7 @@
         'proof-3-label':    'Churn reduction',
         'proof-3-sub':      '15% → 9% monthly churn',
         'wall-label':       'What email actually does',
-        'wall-h2':          'Email is how a brand<br><span>turns a buyer into a regular.</span>',
+        'wall-h2':          'Email is how a brand <span>turns a buyer into a regular.</span>',
         'wall-desc':        'Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now. Here\'s the journey we build to grow it.',
         'lc-sim':           'Live simulation',
         'lc-s0':            'Prospects',
@@ -2036,13 +2083,13 @@
         'lc-f0':            '<b>Welcome flow</b> <span class="lc-arrow">→ first order</span>',
         'lc-f1':            '<b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span>',
         'gaps-label':       'What we see constantly',
-        'gaps-h2':          'Three gaps that quietly<br><span>cost you customers every month.</span>',
+        'gaps-h2':          'Three gaps that quietly <span>cost you customers every month.</span>',
         'gap-1':            'Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.',
         'gap-2':            'Winback campaigns that go out weeks too late, after the customer has already moved on.',
         'gap-3':            'Cancellation save flows that don\'t exist, or send one generic email and give up.',
         'gaps-callout':     'These aren\'t edge cases. They show up at brands doing $1M and brands doing $10M.\n        <strong>Fixing them is usually worth more than your next month of ad spend.</strong>',
         'case-label':       'Client result',
-        'case-h2':          'Japanese pet food brand.<br><span>30 active customers → 300 in twelve months.</span>',
+        'case-h2':          'Japanese pet food brand. <span>30 active customers → 300 in twelve months.</span>',
         'case-1-label':     'Active customers',
         'case-1-sub':       '30 → 300 in 12 months',
         'case-2-label':     'Churn rate',
@@ -2051,7 +2098,7 @@
         'case-tag':         'Japanese pet food · Shopify',
         'case-story':       'They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren\'t coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That\'s how 30 active customers became 300 in twelve months.',
         'services-label':   'What we do',
-        'services-h2':      'Full-cycle email &amp; SMS,<br><span>built for DTC brands.</span>',
+        'services-h2':      'Full-cycle email &amp; SMS, <span>built for DTC brands.</span>',
         'services-callout': 'We write the copy, design the emails, and build the flows. You bring the brand assets. We handle everything else. <strong>Already sending email? Here\'s the work. Not yet? We\'ll help you choose the right platform, and handle the setup.</strong>',
         'svc-1-h': 'Flow audit &amp; rebuild',
         'svc-1-p': 'A clear-eyed look at what\'s running, what\'s missing, and what\'s losing money. Then we fix it.',
@@ -2066,7 +2113,7 @@
         'svc-6-h': 'Segmentation &amp; list hygiene',
         'svc-6-p': 'Healthy lists, suppression logic, engagement tiers: the foundation everything else runs on.',
         'hiw-label':  'How it works',
-        'hiw-h2':     'Simple to start.<br><span>No retainer required.</span>',
+        'hiw-h2':     'Simple to start. <span>No retainer required.</span>',
         'step-1-h':   'Quick call',
         'step-1-p':   'We talk through your current setup, what\'s working, and where the obvious gaps are. 20–30 minutes.',
         'step-2-h':   'We look at your current setup',
@@ -2074,7 +2121,7 @@
         'step-3-h':   'We decide if it makes sense',
         'step-3-p':   'Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.',
         'faq-label':  'Common questions',
-        'faq-h2':     'What founders<br><span>usually ask first.</span>',
+        'faq-h2':     'What founders <span>usually ask first.</span>',
         'faq-1-h':    'Do you write the copy and design the emails?',
         'faq-1-p':    'Yes, full-service. We write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and we handle the rest end-to-end.',
         'faq-2-h':    'What does it cost?',
@@ -2086,7 +2133,7 @@
         'about-label': 'A note from our founder',
         'about-caption-name': 'Kei Nakayama',
         'about-caption-role': 'Founder, hanjo',
-        'about-h2':    'I tried to build<br><span>one of these brands.</span>',
+        'about-h2':    'I tried to build <span>one of these brands.</span>',
         'about-p1':    'A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.\n            <strong>I couldn\'t build a product I was proud enough to sell.</strong>',
         'about-p2':    'That experience changed how I see the people I work with. The founders who do make it, who find something worth coming back to, build a brand around it, and keep showing up, have my lasting respect.',
         'about-p3':    'What we do now at hanjo is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That\'s where most email setups quietly fall apart. Not because the brand isn\'t good enough.\n            <strong>Because the email infrastructure wasn\'t built to support how returning customers actually behave.</strong>',
