@@ -1167,6 +1167,122 @@
       word-break: auto-phrase;
       line-break: strict;
     }
+
+    /* ── 2026-10 quiet editorial pass (see /DESIGN.md) ──
+       Same content and the same quiz/form hooks; the decoration goes:
+       no shimmer, no entrance animation, no person-icon rows, no dot grid,
+       no pills. Real HEAD SPA EN work replaces the animated mock deck. */
+    :root { --board: #E8EBE4; --r: 6px; }
+
+    /* motion: present on load, hover only */
+    .rx-where, .hero h1, .hero-sub, .hero-actions, .zero-grid { animation: none !important; }
+    .btn-primary::after, .btn-white::after, .nav-cta::after, .btn--dark::after,
+    .btn--light::after, form .btn::after { content: none !important; animation: none !important; }
+    .btn-primary:hover, .btn-white:hover { transform: none; }
+    .value-card { opacity: 1 !important; transform: none !important; border-top: 0 !important; }
+
+    /* type: no eyebrow labels, plain section headings */
+    .label, .funnel-col-label, .approach-sms-label { display: none !important; }
+    .section-title { font-weight: 700; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; margin-bottom: 48px; }
+
+    /* hero: copy left, real work right */
+    .hero { background: var(--light); }
+    .rx-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; }
+    @media (min-width: 1024px) {
+      .rx-grid { grid-template-columns: 6fr 5fr; gap: 64px; align-items: center; }
+    }
+    .rx-where { font-size: 13px; color: var(--gray); margin: 0 0 14px; }
+    .hero h1 { font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.02em; text-wrap: balance; margin-bottom: 22px; }
+    .hero h1 em { display: block; font-size: 1em; line-height: inherit; margin-top: 0; color: var(--sage); }
+    @media (min-width: 561px) {
+      body.lang-ja .hero h1 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.3; }
+    }
+    .hero-sub { font-size: 17px; max-width: 34em; }
+    .btn-primary { border-radius: 99px; padding: 14px 26px; }
+    .btn-ghost { background: transparent; border-color: var(--border); }
+    .zero-grid { max-width: none; }
+    .zero-icon { font-weight: 700; font-size: 32px; letter-spacing: -0.02em; }
+    .zero-badge span { font-size: 13px; }
+    .rx-work { margin: 0; }
+    .rx-shots { background: var(--board); border-radius: 4px; padding: 40px 32px 0; height: 520px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .rx-shot { display: block; border-radius: 6px 6px 0 0; overflow: hidden; background: var(--white); box-shadow: 0 1px 2px rgba(17,17,16,.06), 0 12px 32px -12px rgba(17,17,16,.18); }
+    .rx-shot-2 { margin-top: 56px; }
+    .rx-shot img { display: block; width: 100%; height: auto; }
+    a.rx-shot { transition: transform .15s ease-out; }
+    a.rx-shot:hover { transform: translateY(-3px); }
+    .rx-work figcaption { font-size: 13px; line-height: 1.5; color: var(--gray); margin-top: 12px; max-width: 40em; }
+    @media (max-width: 1023px) {
+      .rx-shots { height: 380px; padding: 28px 20px 0; gap: 16px; }
+    }
+
+    /* problem: the funnel reads as a ruled table of numbers */
+    .dot-grid, .dot-legend, .stage-icons, .approach-step-icons { display: none !important; }
+    .funnel-stages { max-width: 760px; border-top: 1px solid var(--black); }
+    .funnel-stage { margin: 0; padding: 16px 0 6px; }
+    .stage-header { margin: 0; }
+    .stage-label { font-size: 17px; color: var(--black); }
+    .stage-count { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .stage-drop { font-size: 14px; color: var(--gray); padding: 0 0 16px; border-bottom: 1px solid var(--border); }
+    .stage-drop strong { color: var(--red); font-weight: 600; }
+    .funnel-result { border-top: 0; padding-top: 20px; }
+    .funnel-result .stage-count { font-size: 44px; }
+
+    /* recovery flow: flat steps, the SMS shown light like a real phone thread */
+    .approach-flow { max-width: 560px; }
+    .approach-step { border-radius: 4px; padding: 24px 28px; }
+    .approach-step h3 { font-size: 17px; }
+    .approach-step p { font-size: 15px; }
+    .approach-step-sms { background: var(--white); border-color: var(--border); }
+    .sms-card { background: var(--light); border-radius: 6px; }
+    .sms-card-avatar { color: #fff; font-weight: 600; font-size: 14px; }
+    .sms-card-name { color: var(--black); }
+    .sms-card-sub, .sms-card-tap, .sms-card-consent { color: var(--gray); }
+    .sms-card-bubble { background: var(--white); color: var(--black); border: 1px solid var(--border); }
+    .sms-card-cta { border-radius: 99px; }
+    .approach-connector-line { height: 1px; }
+    .commission-bar { border-radius: 4px; padding: 24px 28px; background: var(--board); }
+    .commission-bar h3 { font-size: 17px; color: var(--black); }
+    .commission-bar p { font-size: 15px; color: var(--gray); }
+    .trust-strip { gap: 8px 28px; }
+    .trust-pill { font-size: 14px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--black); }
+    .trust-strip-note { font-size: 14px; }
+
+    /* quiz: rectangular choices, flat card */
+    .sim-card, .sim-result { border-radius: 4px; }
+    .sim-q-label { font-size: 16px; }
+    .sim-chip { border-radius: 4px; border-width: 1px; font-size: 15px; padding: 10px 16px; }
+    .sim-compat { font-size: 14px; letter-spacing: 0; text-transform: none; }
+
+    /* value row: a ruled facts row, not three hero numbers */
+    .value-grid { margin-top: 0; border-top: 1px solid var(--black); }
+    .value-card { padding: 28px 28px 32px 0; }
+    @media (min-width: 720px) { .value-card + .value-card { padding-left: 28px; } }
+    .value-label { font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+    .value-num { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.02em; }
+
+    /* pricing: hairline table */
+    .pricing-copy p { font-size: 16px; }
+    .pricing-example { background: var(--board); border: 0; border-radius: 4px; font-size: 15px; }
+    .compare-table { border: 0; border-radius: 0; background: transparent; border-top: 1px solid var(--black); }
+    .compare-head { background: transparent; color: var(--gray); font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .compare-row { padding: 14px 0; font-size: 15px; }
+    .compare-row .ch { font-variant-numeric: tabular-nums; }
+    .compare-row .cl, .compare-row .co { font-size: 14px; }
+    .compare-row:last-child { border-bottom: 1px solid var(--border); }
+
+    /* FAQ: hairline list */
+    .faq-list { border: 0; border-radius: 0; border-top: 1px solid var(--border); max-width: 860px; }
+    .faq-item { padding: 24px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-item h3 { font-size: 17px; }
+    .faq-item p { font-size: 16px; line-height: 1.65; }
+
+    /* CTA form: quieter fields */
+    .cta-field label { font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 500; }
+    .cta-field input, .cta-field select, .cta-field textarea { border-radius: 4px; border-width: 1px; font-size: 16px; }
+    .form-progress-label { font-size: 13px; letter-spacing: 0; text-transform: none; }
+    .btn-white { box-shadow: none; }
+    .btn-white:hover { box-shadow: none; opacity: .9; }
   </style>
 
   <script type="speculationrules">
@@ -1367,14 +1483,10 @@
 
 <!-- HERO -->
 <section class="hero" id="main" tabindex="-1">
-  <div class="container">
+  <div class="container rx-grid">
+  <div class="rx-copy">
     <a href="/ja/#services" class="crumb" data-i18n="crumb">← サービス一覧に戻る</a>
-    <div class="location-badge">
-      <svg class="pin-icon" width="9" height="11" viewBox="0 0 9 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M4.5 0C2.01 0 0 2.01 0 4.5 0 7.88 4.5 11 4.5 11S9 7.88 9 4.5C9 2.01 6.99 0 4.5 0zm0 6.25a1.75 1.75 0 1 1 0-3.5 1.75 1.75 0 0 1 0 3.5z"/>
-      </svg>
-      <span data-i18n="location_badge">LAエリア限定提供中</span>
-    </div>
+    <p class="rx-where" data-i18n="location_badge">LAエリア限定提供中</p>
     <h1 data-i18n="hero_h1">取りこぼした予約を、<br>売上に戻す。<br><em>費用も手間も、ゼロ。</em></h1>
     <p class="hero-sub" data-i18n="hero_sub">予約フォームの改善と、SMS・メールの自動追客をセットで構築します。美容サロン・クリニックなど、ご予約で成り立つビジネス向け。初期費用・月額費用ゼロ、完全成果報酬。Square・Vagaro・Mindbodyなど、オンライン予約のあるお店なら、予約システムはそのままで導入できます。</p>
     <div class="hero-actions">
@@ -1395,57 +1507,14 @@
         <div><strong data-i18n="zero_3_strong">完全成果報酬</strong><span data-i18n="zero_3_span">予約が入った分だけ</span></div>
       </div>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="hv-deck">
-        <div class="hv-scene hv-c">
-          <div class="hv-conf-head">
-            <span class="hv-conf-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
-            <strong data-i18n="hv_conf_title">予約が確定しました</strong>
-            <em>Square</em>
-          </div>
-          <div class="hv-conf-row"><span data-i18n="hv_conf_l1">メニュー</span><strong data-i18n="hv_conf_v1">ヘッドスパ 60分</strong></div>
-          <div class="hv-conf-row"><span data-i18n="hv_conf_l2">日時</span><strong data-i18n="hv_conf_v2">7月24日（金）14:00</strong></div>
-          <div class="hv-conf-row"><span data-i18n="hv_conf_l3">お客様</span><strong data-i18n="hv_conf_v3">田中様</strong></div>
-          <div class="hv-conf-note" data-i18n="hv_conf_note">Squareのカレンダーに自動で反映されます。</div>
-        </div>
-        <div class="hv-scene hv-b">
-          <div class="hv-sms-head">
-            <span class="hv-sms-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 20l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
-            <strong>Bloom Salon</strong>
-            <time>10:12</time>
-          </div>
-          <div class="hv-sms-bubble" data-i18n="hv_sms">お席をお取りしています。1タップで予約が完了します。</div>
-          <div class="hv-sms-stop" data-i18n="hv_sms_stop">配信停止は「STOP」と返信</div>
-        </div>
-        <div class="hv-scene hv-a">
-          <div class="hv-form-title" data-i18n="hv_form_title">メニューを選択</div>
-          <div class="hv-menu-viewport">
-            <div class="hv-menu-scroll">
-              <div class="hv-svc">
-                <span class="hv-thumb"></span>
-                <span class="hv-svc-body"><strong data-i18n="hv_svc1_name">ヘッドスパ 60分</strong><span data-i18n="hv_svc1_meta">$120・60分</span></span>
-                <span class="hv-pick" data-i18n="hv_pick">選択</span>
-              </div>
-              <div class="hv-svc">
-                <span class="hv-thumb hv-thumb-b"></span>
-                <span class="hv-svc-body"><strong data-i18n="hv_svc2_name">スカルプフェイシャル 90分</strong><span data-i18n="hv_svc2_meta">$180・90分</span></span>
-                <span class="hv-pick" data-i18n="hv_pick">選択</span>
-              </div>
-              <div class="hv-svc">
-                <span class="hv-thumb hv-thumb-c"></span>
-                <span class="hv-svc-body"><strong data-i18n="hv_svc3_name">ディープクレンジング 45分</strong><span data-i18n="hv_svc3_meta">$95・45分</span></span>
-                <span class="hv-pick" data-i18n="hv_pick">選択</span>
-              </div>
-            </div>
-          </div>
-          <div class="hv-total">
-            <span class="hv-total-label" data-i18n="hv_total_label">合計</span><strong>$0</strong>
-            <span class="hv-next" data-i18n="hv_next">時間を選ぶ</span>
-          </div>
-          <span class="hv-drop" data-i18n="hv_drop">予約せずに離脱</span>
-        </div>
+  </div>
+    <figure class="rx-work">
+      <div class="rx-shots">
+        <a class="rx-shot" href="https://www.headspaen.net/" target="_blank" rel="noopener"><img src="/work/headspaen-booking.jpg" alt="HEAD SPA EN booking form on mobile" width="480" height="1038"></a>
+        <div class="rx-shot rx-shot-2"><img src="/work/headspaen-site.jpg" alt="HEAD SPA EN website, treatment menu on mobile" width="480" height="1036"></div>
       </div>
-    </div>
+      <figcaption data-i18n="rx_work_cap">ロサンゼルスの日本式ヘッドスパ、HEAD SPA EN。Squareの前段に予約フォームを作り直し、取りこぼしのフォローまで運用しています。</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1569,13 +1638,13 @@
         <div class="approach-sms-label" data-i18n="appr_action">私たちが動きます</div>
         <div class="sms-card">
           <div class="sms-card-sender">
-            <div class="sms-card-avatar">🌿</div>
+            <div class="sms-card-avatar">S</div>
             <div>
               <div class="sms-card-name">Serenity Spa</div>
               <div class="sms-card-sub" data-i18n="sms_sub_label">Text Message</div>
             </div>
           </div>
-          <div class="sms-card-bubble" data-i18n="sms_bubble">Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We'd love to have you in. Your spot is saved for the next 2 hours.</div>
+          <div class="sms-card-bubble" data-i18n="sms_bubble">Hi Sarah! Thanks for your interest in our Signature Facial.<br><br>We'd love to have you in. Your spot is saved for the next 2 hours.</div>
           <div class="sms-card-cta" data-i18n="sms_cta">Book My Appointment →</div>
           <div class="sms-card-tap" data-i18n="sms_tap">Tap to confirm · Takes 30 seconds</div>
           <div class="sms-card-consent" data-i18n="sms_consent">✓ Sent because Sarah opted in · Reply STOP to unsubscribe</div>
@@ -1599,7 +1668,6 @@
     </div>
 
     <div class="commission-bar">
-      <div class="icon">💡</div>
       <div>
         <h3 data-i18n="commission_h3">成果が出た分だけ、お支払い</h3>
         <p data-i18n="commission_p">お客様の予約が完了した時だけ手数料が発生します。すべての予約は追跡されており、同じデータを一緒に確認できます。料率は始める前に決めます。</p>
@@ -1908,6 +1976,7 @@
       skip_link: 'Skip to content',
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       location_badge: 'Now serving Los Angeles area only',
+      rx_work_cap: 'HEAD SPA EN, a Japanese head spa in Los Angeles. We rebuilt their booking form in front of Square and run the follow-ups.',
       hero_h1: 'Lost bookings,<br>brought&nbsp;back.<br><em>No&nbsp;fees. No&nbsp;hassle.</em>',
       hv_form_title: 'Choose your treatment',
       hv_svc1_name: 'Head spa 60 min',
@@ -1959,7 +2028,7 @@
       appr_p1: 'Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.',
       appr_action: 'We step in at the right moment',
       sms_sub_label: 'Text Message',
-      sms_bubble: 'Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We\'d love to have you in. Your spot is saved for the next 2 hours.',
+      sms_bubble: 'Hi Sarah! Thanks for your interest in our Signature Facial.<br><br>We\'d love to have you in. Your spot is saved for the next 2 hours.',
       sms_cta: 'Book My Appointment →',
       sms_tap: 'Tap to confirm · Takes 30 seconds',
       sms_consent: '✓ Sent because Sarah opted in · Reply STOP to unsubscribe',
@@ -2094,6 +2163,7 @@
       skip_link: '本文へスキップ',
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       location_badge: 'LAエリア限定提供中',
+      rx_work_cap: 'ロサンゼルスの日本式ヘッドスパ、HEAD SPA EN。Squareの前段に予約フォームを作り直し、取りこぼしのフォローまで運用しています。',
       hero_h1: '取りこぼした予約を、<br>売上に戻す。<br><em>費用も手間も、ゼロ。</em>',
       hv_form_title: 'メニューを選択',
       hv_svc1_name: 'ヘッドスパ 60分',
@@ -2145,7 +2215,7 @@
       appr_p1: 'サービスを見て、フォームまで入力した方。でも最後の一歩を踏み出せなかったお客様へアプローチします',
       appr_action: '私たちが動きます',
       sms_sub_label: 'Text Message',
-      sms_bubble: 'Hi Sarah! Thanks for your interest in our Signature Facial ✨<br><br>We\'d love to have you in. Your spot is saved for the next 2 hours.',
+      sms_bubble: 'Hi Sarah! Thanks for your interest in our Signature Facial.<br><br>We\'d love to have you in. Your spot is saved for the next 2 hours.',
       sms_cta: 'Book My Appointment →',
       sms_tap: 'Tap to confirm · Takes 30 seconds',
       sms_consent: '✓ Sent because Sarah opted in · Reply STOP to unsubscribe',
@@ -2522,28 +2592,6 @@
     obs.observe(grid);
   })();
 
-  // Smooth cursor glow
-  (function() {
-    if (window.matchMedia('(hover: none)').matches) return;
-    var glow = document.createElement('div');
-    glow.className = 'cursor-glow';
-    document.body.appendChild(glow);
-    var mx = 0, my = 0, gx = 0, gy = 0, active = false;
-    document.addEventListener('mousemove', function(e) {
-      mx = e.clientX; my = e.clientY;
-      if (!active) { glow.style.opacity = '1'; active = true; }
-    });
-    document.addEventListener('mouseleave', function() { glow.style.opacity = '0'; });
-    document.addEventListener('mouseenter', function() { if (active) glow.style.opacity = '1'; });
-    function tick() {
-      gx += (mx - gx) * 0.07;
-      gy += (my - gy) * 0.07;
-      glow.style.left = gx + 'px';
-      glow.style.top  = gy + 'px';
-      requestAnimationFrame(tick);
-    }
-    tick();
-  })();
 </script>
 
 <script>

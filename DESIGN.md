@@ -61,7 +61,8 @@ Fonts are fixed (Kei's decision 2026-07-20; do not re-propose alternatives).
 Pill badges, wavy underlines, em dashes in visible copy, emoji, letterspaced JA kickers, forced awkward line breaks, decorative label dashes, 3D/glassmorphism CTAs, Times New Roman, generic SaaS hero-metric templates, identical icon-card grids.
 
 ## Pending migration
-- `/recovery/` still uses the ported growth.hanjo.ai design (risk banner, funnel infographic, dot grids, compare table, trust pills). It moves onto this system next so the four lines read as one company.
+- `/recovery/` migrated 2026-10-07: hero shows the real HEAD SPA EN booking form + site on the Board, funnel is a ruled number table (no dot grid or person icons), SMS mock is light, no emoji, no shimmer or cursor glow, quiz chips are 4px rectangles. Quiz and 2-step form hooks unchanged.
+- `/crm/` and `/ads/` still to migrate.
 - `/web/` needs real site work for its hero strip before it can follow the proof rule.
 
 ## Decisions Log
