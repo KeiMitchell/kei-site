@@ -1301,6 +1301,21 @@
     .rx-form-shot figcaption { font-size: 13px; line-height: 1.5; color: var(--gray); margin-top: 12px; }
     @media (max-width: 1023px) { .rx-form-board { padding: 24px 56px; } }
     body.lang-ja .rx-ledger p, body.lang-ja .rx-form-lead { line-height: 1.85; }
+
+    /* email + SMS: two audiences side by side */
+    .rx-back { background: var(--white); border-bottom: 1px solid var(--border); }
+    .rx-back .container { max-width: 1200px; }
+    .rx-back .section-title { margin-bottom: 16px; }
+    .rx-back-lead { font-size: 17px; color: var(--gray); max-width: 36em; margin-bottom: 40px; text-wrap: pretty; }
+    .rx-back-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
+    @media (min-width: 900px) { .rx-back-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
+    .rx-back-grid h3 { font-size: 17px; font-weight: 600; padding-bottom: 14px; border-bottom: 1px solid var(--black); }
+    .rx-back-list { list-style: none; }
+    .rx-back-list li { font-size: 16px; line-height: 1.6; color: var(--gray); padding: 18px 0; border-bottom: 1px solid var(--border); text-wrap: pretty; }
+    .rx-back-note { font-size: 14px; color: var(--gray); margin-top: 28px; max-width: 48em; }
+    body.lang-ja .rx-back-list li, body.lang-ja .rx-back-lead { line-height: 1.85; }
+    .rx-form-result { margin-top: 28px; background: var(--board); border-radius: 4px; padding: 20px 24px; font-size: 16px; line-height: 1.6; color: var(--gray); }
+    .rx-form-result strong { color: var(--black); font-weight: 600; }
   </style>
 
   <script type="speculationrules">
@@ -1676,6 +1691,7 @@
           </div>
         </li>
       </ol>
+      <p class="rx-form-result" data-i18n="fx_result"><strong>What changed after the rebuild:</strong> more guests add extras to their booking, the average booking is worth more, and more of the people who start a booking finish it.</p>
     </div>
     <figure class="rx-form-shot">
       <div class="rx-form-board"><div class="rx-shot"><img src="/work/headspaen-booking-addons.jpg" alt="Rebuilt booking form showing add-ons and a running total" width="480" height="836" loading="lazy"></div></div>
@@ -1758,6 +1774,33 @@
       <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="trustpill_3">TCPA &amp; CTIA compliant</span></span>
     </div>
     <p class="trust-strip-note" data-i18n="trustpill_note">Every text is sent only with the customer's consent and can be stopped in one tap. That's what keeps you protected in California. <a href="#faq">See the compliance FAQ →</a></p>
+  </div>
+</section>
+
+<!-- BRING THEM BACK: email + SMS, two audiences -->
+<section class="rx-back" id="back">
+  <div class="container">
+    <h2 class="section-title" data-i18n="bk_title">Email and SMS that bring them back.</h2>
+    <p class="rx-back-lead" data-i18n="bk_lead">Two kinds of customers slip away: people who almost booked, and people who came once and never returned. Each gets its own messages, sent only with their consent.</p>
+    <div class="rx-back-grid">
+      <div>
+        <h3 data-i18n="bk_a_h">People who almost booked</h3>
+        <ul class="rx-back-list">
+          <li data-i18n="bk_a1">A text and an email soon after they leave the form, with a link that opens it again with their treatment already picked.</li>
+          <li data-i18n="bk_a2">A reminder before the appointment, so a new booking turns into a visit.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="bk_b_h">Customers who came once</h3>
+        <ul class="rx-back-list">
+          <li data-i18n="bk_b1">A thank-you email on the day of the visit, with aftercare for the treatment they had.</li>
+          <li data-i18n="bk_b2">When they are due again, an email that rebooks the same treatment in one tap, with the next open times.</li>
+          <li data-i18n="bk_b3">Last-minute openings by text, only to people who asked to hear about them.</li>
+          <li data-i18n="bk_b4">One last, personal check-in before they drift away for good.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="rx-back-note" data-i18n="bk_note">Every message has a one-tap way to stop, and every booking it brings in is tracked. That record is what commission is counted from.</p>
   </div>
 </section>
 
@@ -2060,6 +2103,18 @@
       skip_link: 'Skip to content',
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       location_badge: 'Now serving Los Angeles area only',
+      fx_result: '<strong>What changed after the rebuild:</strong> more guests add extras to their booking, the average booking is worth more, and more of the people who start a booking finish it.',
+      bk_title: 'Email and SMS that bring them back.',
+      bk_lead: 'Two kinds of customers slip away: people who almost booked, and people who came once and never returned. Each gets its own messages, sent only with their consent.',
+      bk_a_h: 'People who almost booked',
+      bk_a1: 'A text and an email soon after they leave the form, with a link that opens it again with their treatment already picked.',
+      bk_a2: 'A reminder before the appointment, so a new booking turns into a visit.',
+      bk_b_h: 'Customers who came once',
+      bk_b1: 'A thank-you email on the day of the visit, with aftercare for the treatment they had.',
+      bk_b2: 'When they are due again, an email that rebooks the same treatment in one tap, with the next open times.',
+      bk_b3: 'Last-minute openings by text, only to people who asked to hear about them.',
+      bk_b4: 'One last, personal check-in before they drift away for good.',
+      bk_note: 'Every message has a one-tap way to stop, and every booking it brings in is tracked. That record is what commission is counted from.',
       fx_title: 'A booking form that keeps people moving.',
       fx_lead: 'A lot of those visitors give up inside the booking form itself. When we rebuild it, this is what changes.',
       fx1_h: 'Treatments you can choose at a glance',
@@ -2262,6 +2317,18 @@
       skip_link: '本文へスキップ',
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       location_badge: 'LAエリア限定提供中',
+      fx_result: '<strong>作り直したあとの変化：</strong>オプションを追加するお客様が増え、1件あたりの予約単価が上がり、予約を始めた方が最後まで完了する割合も上がりました。',
+      bk_title: 'メールとSMSで、お客様をもう一度。',
+      bk_lead: '離れていくお客様は2種類です。予約の途中でやめた方と、一度来て戻らなかった方。それぞれに合わせたメッセージを、ご本人の同意を得たうえでお送りします。',
+      bk_a_h: '予約の途中でやめた方へ',
+      bk_a1: 'フォームを離れた少しあとに、SMSとメールでご連絡。リンクを開くと、選んでいた施術が選ばれた状態でフォームが開きます。',
+      bk_a2: 'ご予約後は来店前にリマインドを送り、予約を確実なご来店につなげます。',
+      bk_b_h: '一度ご来店された方へ',
+      bk_b1: 'ご来店当日に、受けた施術に合わせたアフターケアを添えたお礼のメール。',
+      bk_b2: '次のご来店時期が近づいたら、同じ施術をワンタップで予約できるメールと、直近の空き枠のご案内。',
+      bk_b3: '直前に空いた枠のお知らせは、希望された方にだけSMSで。',
+      bk_b4: '足が遠のく前に、最後にもう一度だけ、丁寧なご連絡を。',
+      bk_note: 'すべてのメッセージはワンタップで配信停止でき、メッセージ経由のご予約はすべて記録されます。成果報酬はこの記録をもとに計算します。',
       fx_title: '予約フォームを、途中で離れない形に。',
       fx_lead: '実は、予約フォームの途中でやめてしまう方が少なくありません。フォームを作り直すと、ここが変わります。',
       fx1_h: 'ひと目で選べるメニュー',
