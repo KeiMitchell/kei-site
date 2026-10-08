@@ -1814,6 +1814,103 @@
     @media (max-width: 560px) {
       .line-row-sub { font-size: 12px; letter-spacing: 0; }
     }
+
+    /* ── Home 2026-10: quiet editorial (see DESIGN.md) ──
+       Hero = headline + real client work as a contact sheet on the Board tint.
+       Services are a ruled ledger, one big-number result, hairline lists. */
+    :root { --board: #E8EBE4; --muted-solid: #6B6B68; }
+    .hx { display: block; background: var(--bg); padding-top: clamp(56px, 8vw, 104px); }
+    .hx > * { min-width: 0; max-width: 100%; }
+    .hx-top {
+      max-width: 1200px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: 7fr 4fr; gap: 64px; align-items: end;
+    }
+    .hx .hero-desc { font-size: 18px; max-width: 30em; margin: 0 0 24px; }
+    .hx .hero-desc strong { white-space: nowrap; }
+    .hx-strip { margin-top: clamp(48px, 6vw, 72px); background: var(--board); padding-top: 48px; }
+    .hx-row {
+      list-style: none; max-width: 1440px; margin: 0 auto; padding: 0 32px;
+      display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px;
+    }
+    .hx-shot {
+      display: block; height: clamp(300px, 30vw, 420px); overflow: hidden;
+      border-radius: 6px 6px 0 0; background: var(--white);
+      box-shadow: 0 1px 2px rgba(17,17,16,.06), 0 12px 32px -12px rgba(17,17,16,.18);
+    }
+    .hx-shot img { display: block; width: 100%; height: auto; }
+    a.hx-shot { transition: transform .15s ease-out; }
+    a.hx-shot:hover { transform: translateY(-3px); }
+    .hx-cap { display: block; font-size: 13px; line-height: 1.45; color: var(--muted-solid); padding: 14px 0 32px; }
+
+    .hx-sec { max-width: 1200px; margin: 0 auto; padding: 96px 32px; }
+    .hx-sec h2 { margin-bottom: 48px; text-wrap: balance; }
+    .hx-sec h2 span { font-style: normal; }
+    html:not([lang="ja"]) .hx-sec h2 span { display: inline; }
+    .hx-rule { border-top: 1px solid var(--border); }
+
+    .ledger { list-style: none; border-top: 1px solid var(--ink); }
+    .ledger li { border-bottom: 1px solid var(--border); }
+    .ledger a {
+      display: grid; grid-template-columns: 56px minmax(180px, 1.1fr) 2fr 24px; gap: 32px;
+      align-items: baseline; padding: 24px 0; color: inherit; text-decoration: none;
+    }
+    .lg-n { font-size: 13px; color: var(--faint); font-variant-numeric: tabular-nums; }
+    .lg-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; transition: color .15s ease-out; }
+    .lg-what { color: var(--muted-solid); font-size: 16px; line-height: 1.55; }
+    .lg-stage { display: block; font-size: 13px; color: var(--ink); font-weight: 500; margin-bottom: 2px; }
+    .lg-arr { color: var(--sage); transition: transform .15s ease-out; }
+    .ledger a:hover .lg-name { color: var(--sage); }
+    .ledger a:hover .lg-arr { transform: translateX(4px); }
+    .ledger a:focus-visible { outline: 2px solid var(--sage); outline-offset: 4px; }
+
+    .hx-result { background: var(--bg); }
+    .hx-big { display: grid; grid-template-columns: auto 1fr; gap: 64px; align-items: end; }
+    .hx-num {
+      font-family: 'Playfair Display', serif; font-weight: 700; color: var(--sage);
+      font-size: clamp(120px, 20vw, 300px); line-height: .8; letter-spacing: -0.04em;
+    }
+    .hx-cap-block { max-width: 30em; padding-bottom: 24px; }
+    .hx-cap-block h2 { margin-bottom: 12px; }
+    .hx-cap-block p { color: var(--muted-solid); font-size: 17px; }
+    .hx-facts { margin-top: 24px; border-top: 1px solid var(--border); font-size: 15px; }
+    .hx-facts div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .hx-facts dt { color: var(--muted-solid); }
+    .hx-facts dd { font-variant-numeric: tabular-nums; }
+
+    .hx-list { list-style: none; border-top: 1px solid var(--border); max-width: 860px; }
+    .hx-list li { padding: 24px 0; border-bottom: 1px solid var(--border); }
+    .hx-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.005em; }
+    .hx-list p { font-size: 16px; line-height: 1.65; color: var(--muted-solid); }
+
+    html[lang="ja"] .hx-top { grid-template-columns: 1fr; gap: 24px; }
+    html[lang="ja"] .lg-what, html[lang="ja"] .hx-list p { line-height: 1.8; }
+
+    @media (max-width: 900px) {
+      .hx-top { grid-template-columns: 1fr; gap: 24px; }
+      .ledger a { grid-template-columns: 40px 1fr 24px; gap: 4px 16px; }
+      .lg-what { grid-column: 2 / 3; }
+      .lg-arr { grid-row: 1; grid-column: 3; }
+      .hx-big { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media (max-width: 560px) {
+      .hx-top { padding: 0 16px; }
+      .hx .hero-desc { font-size: 16px; }
+      .hx-strip { padding-top: 32px; }
+      .hx-row {
+        grid-template-columns: repeat(5, 62vw); gap: 16px; padding: 0 16px; width: 100%;
+        overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .hx-row::-webkit-scrollbar { display: none; }
+      .hx-row li { scroll-snap-align: start; }
+      .hx-shot { height: 330px; }
+      .hx-sec { padding: 64px 16px; }
+      .hx-sec h2 { margin-bottom: 32px; }
+      .lg-name { font-size: 22px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      a.hx-shot, .lg-arr, .lg-name { transition: none; }
+    }
   </style>
 
   <script type="speculationrules">
@@ -2056,202 +2153,154 @@
     <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
 </div>
 
-  <!-- HERO -->
-  <div class="hero" id="main" tabindex="-1">
-    <div class="hero-left">
-      <span class="hero-bubble" data-i18n="hero-bubble">米国で事業展開する</span>
+  <!-- HERO: headline, then real client work as a contact sheet -->
+  <div class="hero hx" id="main" tabindex="-1">
+    <div class="hx-top">
       <h1 data-i18n="hero-h1">中小企業の成長を、
         <strong>まるっと支援します。</strong></h1>
-
-      <p class="hero-desc" data-i18n="hero-desc">hanjoは、ロサンゼルスを拠点とするグロースパートナーです。新しいお客様との出会いから、リピートされる関係づくりまで。<strong>集客の仕組みを、日本語と英語で丸ごと担います。</strong></p>
-
-      <div class="hero-actions">
+      <div class="hx-side">
+        <p class="hero-desc" data-i18n="hero-desc">hanjoは、ロサンゼルスを拠点とするグロースパートナーです。新しいお客様との出会いから、リピートされる関係づくりまで。<strong>集客の仕組みを、日本語と英語で丸ごと担います。</strong></p>
+        <div class="hero-actions">
         <a href="/ja/contact/" class="btn btn--dark" data-i18n="hero-cta">無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-
-      <ul class="line-row" id="services">
+      </div>
+    </div>
+    <div class="hx-strip">
+      <ul class="hx-row" aria-label="Recent client work">
         <li>
-          <a href="/ja/crm/">
-            <span class="line-row-pict"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-            <strong class="line-row-name">hanjo CRM</strong>
-            <span class="line-row-sub" data-i18n="svc-1-tag">メール・SMSマーケティング</span>
-            <span class="line-row-arrow">→</span>
+          <a class="hx-shot" href="https://www.headspaen.net/" target="_blank" rel="noopener"><img src="/work/headspaen-site.jpg" alt="HEAD SPA EN website on mobile" width="480" height="1036"></a>
+          <span class="hx-cap" data-i18n="work-1">HEAD SPA EN：Webサイトと予約導線</span>
+        </li>
+        <li>
+          <div class="hx-shot"><img src="/email-showcase/mon-campaign.jpg" alt="Seasonal campaign email for a pet food subscription brand" width="480" height="914"></div>
+          <span class="hx-cap" data-i18n="work-2">ペットフード定期便：季節キャンペーン</span>
+        </li>
+        <li>
+          <div class="hx-shot"><img src="/email-showcase/mira-welcome.jpg" alt="Welcome email for a diaper brand" width="480" height="1023"></div>
+          <span class="hx-cap" data-i18n="work-3">おむつブランド：ウェルカムフロー</span>
+        </li>
+        <li>
+          <div class="hx-shot"><img src="/email-showcase/mon-newspaper.jpg" alt="Newsletter email for a pet food subscription brand" width="480" height="1217" loading="lazy"></div>
+          <span class="hx-cap" data-i18n="work-4">ペットフード定期便：ニュースレター</span>
+        </li>
+        <li>
+          <div class="hx-shot"><img src="/email-showcase/andew-product.jpg" alt="Product email for a chocolate brand" width="480" height="866" loading="lazy"></div>
+          <span class="hx-cap" data-i18n="work-5">チョコレートブランド：商品紹介メール</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="s-white">
+    <div class="hx-sec">
+      <h2 data-i18n="loop-h2">4つのサービスが、<br><span>ひとつの成長サイクルに。</span></h2>
+      <ul class="ledger" id="services">
+        <li>
+          <a href="/ja/ads/">
+            <span class="lg-n">01</span>
+            <span class="lg-name">hanjo Ads</span>
+            <span class="lg-what"><span class="lg-stage" data-i18n="loop-1-w">集客</span><span data-i18n="loop-1-n">広告で、適切なお客様に届けます。クリック数ではなく、注文数で測ります。</span></span>
+            <span class="lg-arr" aria-hidden="true">→</span>
           </a>
         </li>
         <li>
           <a href="/ja/web/">
-            <span class="line-row-pict"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
-            <strong class="line-row-name">hanjo Web</strong>
-            <span class="line-row-sub" data-i18n="svc-2-tag">ホームページ・EC制作</span>
-            <span class="line-row-arrow">→</span>
+            <span class="lg-n">02</span>
+            <span class="lg-name">hanjo Web</span>
+            <span class="lg-what"><span class="lg-stage" data-i18n="loop-2-w">転換</span><span data-i18n="loop-2-n">サイトが、その関心を予約や購入へと変えます。</span></span>
+            <span class="lg-arr" aria-hidden="true">→</span>
           </a>
         </li>
         <li>
-          <a href="/ja/ads/">
-            <span class="line-row-pict"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></span>
-            <strong class="line-row-name">hanjo Ads</strong>
-            <span class="line-row-sub" data-i18n="svc-3-tag">Meta・Google広告運用</span>
-            <span class="line-row-arrow">→</span>
+          <a href="/ja/crm/">
+            <span class="lg-n">03</span>
+            <span class="lg-name">hanjo CRM</span>
+            <span class="lg-what"><span class="lg-stage" data-i18n="loop-3-w">定着</span><span data-i18n="loop-3-n">メールとSMSで、お客様を次の注文へつなげます。</span></span>
+            <span class="lg-arr" aria-hidden="true">→</span>
           </a>
         </li>
         <li>
           <a href="/ja/recovery/">
-            <span class="line-row-pict"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></span>
-            <strong class="line-row-name">hanjo Recovery</strong>
-            <span class="line-row-sub" data-i18n="svc-4-tag">予約・リードの<span style="white-space:nowrap">取りこぼし回復</span></span>
-            <span class="line-row-arrow">→</span>
+            <span class="lg-n">04</span>
+            <span class="lg-name">hanjo Recovery</span>
+            <span class="lg-what"><span class="lg-stage" data-i18n="loop-4-w">回復</span><span data-i18n="loop-4-n">離れかけたお客様も、丁寧なフォローで呼び戻します。</span></span>
+            <span class="lg-arr" aria-hidden="true">→</span>
           </a>
         </li>
       </ul>
     </div>
-
   </div>
 
-  <!-- GROWTH LOOP -->
-  <div class="s-white">
-    <div class="section section-loop">
-      <h2 data-reveal data-i18n="loop-h2">4つのサービスが、<br><span>ひとつの成長サイクルに。</span></h2>
-      <ul class="loop-grid" data-reveal>
-        <li class="loop-stage">
-          <span class="loop-num">01</span>
-          <span class="loop-word" data-i18n="loop-1-w">集客</span>
-          <span class="loop-svc">hanjo Ads</span>
-          <p class="loop-note" data-i18n="loop-1-n">広告で、適切なお客様に届けます。クリック数ではなく、注文数で測ります。</p>
-        </li>
-        <li class="loop-stage">
-          <span class="loop-num">02</span>
-          <span class="loop-word" data-i18n="loop-2-w">転換</span>
-          <span class="loop-svc">hanjo Web</span>
-          <p class="loop-note" data-i18n="loop-2-n">サイトが、その関心を予約や購入へと変えます。</p>
-        </li>
-        <li class="loop-stage">
-          <span class="loop-num">03</span>
-          <span class="loop-word" data-i18n="loop-3-w">定着</span>
-          <span class="loop-svc">hanjo CRM</span>
-          <p class="loop-note" data-i18n="loop-3-n">メールとSMSで、お客様を次の注文へつなげます。</p>
-        </li>
-        <li class="loop-stage">
-          <span class="loop-num">04</span>
-          <span class="loop-word" data-i18n="loop-4-w">回復</span>
-          <span class="loop-svc">hanjo Recovery</span>
-          <p class="loop-note" data-i18n="loop-4-n">離れかけたお客様も、丁寧なフォローで呼び戻します。</p>
-        </li>
-      </ul>
-      <div class="loop-return" data-reveal>
-        <div class="loop-return-line" aria-hidden="true"></div>
-        <svg class="loop-return-arrow" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true"><path d="M2.5 9.5 L6.5 3.5 L10.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="loop-return-label" data-i18n="loop-return">お客様が、また戻ってくる</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- RESULTS -->
-  <div class="stat-wrap">
-    <div class="section section-loop">
-      <span class="label" data-reveal data-i18n="stats-label">クライアントの実績</span>
-      <div class="stat-band" data-reveal>
-        <div class="stat">
-          <span class="stat-value">10×</span>
-          <span class="stat-label" data-i18n="stat-1-l">アクティブ顧客数</span>
-          <span class="stat-sub" data-i18n="stat-1-s">日本のペットフードブランドで、12ヶ月で30人から300人に</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value">−40%</span>
-          <span class="stat-label" data-i18n="stat-2-l">月間解約率</span>
-          <span class="stat-sub" data-i18n="stat-2-s">15%から9%へ改善</span>
-        </div>
-        <div class="stat">
-          <span class="stat-value">$10–30k</span>
-          <span class="stat-label" data-i18n="stat-3-l">月間で回復した売上</span>
-          <span class="stat-sub" data-i18n="stat-3-s">そのまま新規獲得への再投資に</span>
-        </div>
+  <!-- RESULT -->
+  <div class="hx-result">
+    <div class="hx-sec hx-big">
+      <div class="hx-num" aria-hidden="true">300</div>
+      <div class="hx-cap-block">
+        <h2 data-i18n="res-h2">アクティブ顧客が、30人から300人に。</h2>
+        <p data-i18n="res-p">Shopifyで販売する日本のペットフードブランド。購入後フローとキャンペーンを12ヶ月続けた結果です。</p>
+        <dl class="hx-facts">
+          <div><dt data-i18n="stat-1-l">アクティブ顧客数</dt><dd>30 → 300</dd></div>
+          <div><dt data-i18n="stat-2-l">月間解約率</dt><dd>15% → 9%</dd></div>
+          <div><dt data-i18n="res-time-l">期間</dt><dd data-i18n="res-time-v">12ヶ月</dd></div>
+        </dl>
       </div>
     </div>
   </div>
 
   <!-- WHO WE WORK WITH -->
   <div class="s-white">
-    <div class="section section-loop">
-      <h2 data-reveal data-i18n="who-h2">力になれるのは、<br><span>この3つの事業です。</span></h2>
-      <ul class="steps" data-reveal>
-        <li class="step">
-          <span class="step-num">01</span>
-          <div>
-            <h3 data-i18n="who-1-h">予約型のローカルビジネス</h3>
-            <p data-i18n="who-1-p">美容サロン、ヘッドスパ、エステ、歯科、クリニック。オンラインで予約を受けている事業では、売上のこぼれはたいてい予約フローで起きています。</p>
-          </div>
+    <div class="hx-sec">
+      <h2 data-i18n="who-h2">力になれるのは、<br><span>この3つの事業です。</span></h2>
+      <ul class="hx-list">
+        <li>
+          <h3 data-i18n="who-1-h">予約型のローカルビジネス</h3>
+          <p data-i18n="who-1-p">美容サロン、ヘッドスパ、エステ、歯科、クリニック。オンラインで予約を受けている事業では、売上のこぼれはたいてい予約フローで起きています。</p>
         </li>
-        <li class="step">
-          <span class="step-num">02</span>
-          <div>
-            <h3 data-i18n="who-2-h">Shopifyで販売するD2Cブランド</h3>
-            <p data-i18n="who-2-p">すでに集客も受注もあるブランド。新規獲得で毎回埋め直すのではなく、リピートで採算が回る状態をつくります。</p>
-          </div>
+        <li>
+          <h3 data-i18n="who-2-h">Shopifyで販売するD2Cブランド</h3>
+          <p data-i18n="who-2-p">すでに集客も受注もあるブランド。新規獲得で毎回埋め直すのではなく、リピートで採算が回る状態をつくります。</p>
         </li>
-        <li class="step">
-          <span class="step-num">03</span>
-          <div>
-            <h3 data-i18n="who-3-h">日本語と英語をまたぐ事業</h3>
-            <p data-i18n="who-3-p">米国市場に売る日本企業と、ロサンゼルスで日本語のお客様に向き合う米国企業。原稿は翻訳ではなく、はじめから両方の言語で書き起こします。</p>
-          </div>
+        <li>
+          <h3 data-i18n="who-3-h">日本語と英語をまたぐ事業</h3>
+          <p data-i18n="who-3-p">米国市場に売る日本企業と、ロサンゼルスで日本語のお客様に向き合う米国企業。原稿は翻訳ではなく、はじめから両方の言語で書き起こします。</p>
         </li>
       </ul>
     </div>
   </div>
 
   <!-- FAQ -->
-  <div>
-    <div class="section section-loop">
-      <h2 data-reveal data-i18n="hfaq-h2">よくいただく、<br><span>7つの質問。</span></h2>
-      <ul class="steps" data-reveal>
-        <li class="step">
-          <span class="step-num">Q</span>
-          <div>
-            <h3 data-i18n="hfaq-1-h">具体的に何をしてもらえますか？</h3>
-            <p data-i18n="hfaq-1-p">集客から、リピート、離れたお客様の掘り起こしまで。広告、サイト・ECサイト、メールとSMS、予約の取りこぼし回復の4つを、ひとつの流れとして設計し、運用します。</p>
-          </div>
+  <div class="s-white hx-rule">
+    <div class="hx-sec">
+      <h2 data-i18n="hfaq-h2">よくいただく、<br><span>7つの質問。</span></h2>
+      <ul class="hx-list hx-faq">
+        <li>
+          <h3 data-i18n="hfaq-1-h">具体的に何をしてもらえますか？</h3>
+          <p data-i18n="hfaq-1-p">集客から、リピート、離れたお客様の掘り起こしまで。広告、サイト・ECサイト、メールとSMS、予約の取りこぼし回復の4つを、ひとつの流れとして設計し、運用します。</p>
         </li>
-        <li class="step">
-          <span class="step-num">Q</span>
-          <div>
-            <h3 data-i18n="hfaq-2-h">どんな事業者が対象ですか？</h3>
-            <p data-i18n="hfaq-2-p">中小企業が中心です。とくに美容サロン・ヘッドスパ・エステ・歯科・クリニックといった予約型のビジネスと、Shopifyで販売するD2Cブランドを得意としています。</p>
-          </div>
+        <li>
+          <h3 data-i18n="hfaq-2-h">どんな事業者が対象ですか？</h3>
+          <p data-i18n="hfaq-2-p">中小企業が中心です。とくに美容サロン・ヘッドスパ・エステ・歯科・クリニックといった予約型のビジネスと、Shopifyで販売するD2Cブランドを得意としています。</p>
         </li>
-        <li class="step">
-          <span class="step-num">Q</span>
-          <div>
-            <h3 data-i18n="hfaq-3-h">拠点はどこですか？</h3>
-            <p data-i18n="hfaq-3-p">カリフォルニア州ロサンゼルスです。ロサンゼルス圏の事業者さまに、日本語と英語の両方で対応しています。代表は中山 慧。</p>
-          </div>
+        <li>
+          <h3 data-i18n="hfaq-3-h">拠点はどこですか？</h3>
+          <p data-i18n="hfaq-3-p">カリフォルニア州ロサンゼルスです。ロサンゼルス圏の事業者さまに、日本語と英語の両方で対応しています。代表は中山 慧。</p>
         </li>
-        <li class="step">
-          <span class="step-num">Q</span>
-          <div>
-            <h3 data-i18n="hfaq-4-h">日本語で相談できますか？</h3>
-            <p data-i18n="hfaq-4-p">はい。打ち合わせも、原稿も、日々のやり取りも、すべて日本語で進められます。無料相談も日本語で承ります。</p>
-          </div>
+        <li>
+          <h3 data-i18n="hfaq-4-h">日本語で相談できますか？</h3>
+          <p data-i18n="hfaq-4-p">はい。打ち合わせも、原稿も、日々のやり取りも、すべて日本語で進められます。無料相談も日本語で承ります。</p>
         </li>
-        <li class="step">
-          <span class="step-num">Q</span>
-          <div>
-            <h3 data-i18n="hfaq-5-h">費用はどれくらいですか？</h3>
-            <p data-i18n="hfaq-5-p">サービスによって異なります。hanjo Recoveryは完全成果報酬で、初期費用も月額費用もいただきません。そのほかは案件ごとのお見積もりで、最初の通話中に明確な金額をお伝えします。曖昧な提案書は出しません。</p>
-          </div>
+        <li>
+          <h3 data-i18n="hfaq-5-h">費用はどれくらいですか？</h3>
+          <p data-i18n="hfaq-5-p">サービスによって異なります。hanjo Recoveryは完全成果報酬で、初期費用も月額費用もいただきません。そのほかは案件ごとのお見積もりで、最初の通話中に明確な金額をお伝えします。曖昧な提案書は出しません。</p>
         </li>
-        <li class="step">
-          <span class="step-num">Q</span>
-          <div>
-            <h3 data-i18n="hfaq-6-h">4つすべてを依頼する必要はありますか？</h3>
-            <p data-i18n="hfaq-6-p">ありません。いちばん損失の大きいところ一点から始める場合がほとんどです。4つは連携しますが、単体でも成立します。</p>
-          </div>
+        <li>
+          <h3 data-i18n="hfaq-6-h">4つすべてを依頼する必要はありますか？</h3>
+          <p data-i18n="hfaq-6-p">ありません。いちばん損失の大きいところ一点から始める場合がほとんどです。4つは連携しますが、単体でも成立します。</p>
         </li>
-        <li class="step">
-          <span class="step-num">Q</span>
-          <div>
-            <h3 data-i18n="hfaq-7-h">まず何をすればいいですか？</h3>
-            <p data-i18n="hfaq-7-p">30分の無料相談です。いまどこでお客様を取りこぼしているかを一緒に確認し、4つのうちどれから着手すべきかをお伝えします。何も必要ないと判断すれば、そうお伝えします。</p>
-          </div>
+        <li>
+          <h3 data-i18n="hfaq-7-h">まず何をすればいいですか？</h3>
+          <p data-i18n="hfaq-7-p">30分の無料相談です。いまどこでお客様を取りこぼしているかを一緒に確認し、4つのうちどれから着手すべきかをお伝えします。何も必要ないと判断すれば、そうお伝えします。</p>
         </li>
       </ul>
     </div>
@@ -2424,6 +2473,15 @@
         'stat-2-s': 'Same brand, from 15% to 9%',
         'stat-3-l': 'Revenue recovered each month',
         'stat-3-s': 'Reinvested straight into acquisition',
+        'work-1': 'HEAD SPA EN, website and booking flow',
+        'work-2': 'Pet food subscription, seasonal campaign',
+        'work-3': 'Diaper brand, welcome flow',
+        'work-4': 'Pet food subscription, newsletter',
+        'work-5': 'Chocolate brand, product email',
+        'res-h2': 'Active customers, up from 30.',
+        'res-p': 'A Japanese pet food brand on Shopify, twelve months of post-purchase flows and campaigns.',
+        'res-time-l': 'Time',
+        'res-time-v': '12 months',
         'footer-location': 'Los Angeles, CA',
       },
       ja: {
@@ -2560,6 +2618,15 @@
         'stat-2-s': '15%から9%へ改善',
         'stat-3-l': '月間で回復した売上',
         'stat-3-s': 'そのまま新規獲得への再投資に',
+        'work-1': 'HEAD SPA EN：Webサイトと予約導線',
+        'work-2': 'ペットフード定期便：季節キャンペーン',
+        'work-3': 'おむつブランド：ウェルカムフロー',
+        'work-4': 'ペットフード定期便：ニュースレター',
+        'work-5': 'チョコレートブランド：商品紹介メール',
+        'res-h2': 'アクティブ顧客が、30人から300人に。',
+        'res-p': 'Shopifyで販売する日本のペットフードブランド。購入後フローとキャンペーンを12ヶ月続けた結果です。',
+        'res-time-l': '期間',
+        'res-time-v': '12ヶ月',
         'footer-about':    '会社概要',
         'footer-terms':    '利用規約',
         'footer-privacy':  'プライバシーポリシー',
