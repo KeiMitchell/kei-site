@@ -33,6 +33,9 @@
   #main :is(.hero-desc, .hero-sub, .lead) { animation: mRise .6s .3s var(--m-ease) both !important; }
   #main .hero-actions { animation: mRise .6s .4s var(--m-ease) both !important; }
   #main :is(.hero-stats, .zero-grid, .platform-row, .hero-seework) { animation: mRise .6s .5s var(--m-ease) both !important; }
+  /* the content right after the hero arrives last, so nothing below the
+     title (a form, a document) is on screen before the title itself */
+  #main + :not(.wx) { animation: mRise .7s .45s var(--m-ease) both; }
 
   /* 2. Work: tiles rise in, staggered, wherever client work appears up top */
   :is(.hx-row > li, .rx-shots > *, .wx-board > *, .hero-collage .hc-col) { animation: mTile .8s var(--m-ease) both !important; }
