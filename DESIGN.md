@@ -53,10 +53,12 @@ Fonts are fixed (Kei's decision 2026-07-20; do not re-propose alternatives).
 - **Chrome:** identical header and footer on every page, `view-transition-name` pinned (site-header/site-footer). First view must fit 720px desktop / 812px mobile.
 
 ## Motion
-- **Approach:** Intentional, home page first (Kei 2026-10-07: "make the top page more fun"). Every motion shows something real; nothing loops forever, nothing decorates.
-- **Home:** headline lines rise in on load (700ms, 120ms apart), lead + CTA follow; work tiles rise in staggered (80ms); on desktop the tiles drift at slightly different rates while the hero scrolls (±~20px); hovering a tile scrolls the image inside its frame to show the whole piece; the big 300 rises into place once on first view (900ms; a count-up was tried and dropped: proportional Playfair digits jitter and shove the caption); ledger rows get a Board-tint sweep and arrow nudge on hover.
-- **Service pages:** still minimal (hover only) until they get their own pass.
-- **Rules:** transform/opacity only, ease-out curves (cubic-bezier(.2,.8,.2,1)), no shimmer, no pulsing, no infinite loops, no cursor effects. Everything is off under `prefers-reduced-motion: reduce`.
+- **One system, every page:** `/motion.css` (loaded last in `<head>`) + `/motion.js` (deferred). Pages do not define their own motion; legacy per-page motion (button shine, scroll fade-ups, cursor glow, marquees, pulsing dots, tilt) is switched off by motion.css.
+- **1. Arrive:** the page hero rises in, in reading order, same timing everywhere: crumb/kicker fade 0s, h1 .05s, accent line .17s, lead .3s, buttons .4s, stats/platform row .5s (700/600ms, cubic-bezier(.2,.8,.2,1)).
+- **2. Work:** client work near the top (home strip, /recovery/ hero shots, /web/ work board, /crm/ email columns) rises in staggered (80ms from .45s); on desktop it drifts at slightly different rates while it scrolls past; hovering a cropped frame scrolls its image to show the whole piece.
+- **3. Number:** a big result rises into place once (home 300). No count-ups: proportional Playfair digits jitter and shove neighbors.
+- **4. Hover:** every button nudges its arrow 3px; buttons never lift or shine. Home ledger rows also get a Board-tint sweep.
+- **Rules:** transform/opacity only, no infinite loops, no cursor effects, everything off under `prefers-reduced-motion: reduce`. New motion goes into motion.css/motion.js, never into a page.
 
 ## Anti-references (Kei's explicit rejections; never reintroduce)
 Pill badges, wavy underlines, em dashes in visible copy, emoji, letterspaced JA kickers, forced awkward line breaks, decorative label dashes, 3D/glassmorphism CTAs, Times New Roman, generic SaaS hero-metric templates, identical icon-card grids.
@@ -71,5 +73,6 @@ Pill badges, wavy underlines, em dashes in visible copy, emoji, letterspaced JA 
 |------|----------|-----------|
 | 2026-07-16 | Cream/sage tokens, Playfair + Inter, four branded lines | Matches growth.hanjo.ai; Kei-approved restructure |
 | 2026-07-20 | Times New Roman experiment reverted | Kei prefers Playfair/Inter |
+| 2026-10-08 | Motion unified into /motion.css + /motion.js across all pages | Kei: animations weren't cohesive across pages |
 | 2026-10-07 | Home motion added at Kei's request (entrance, tile drift, hover read, 300 reveal, ledger sweep) | Kei wanted the top page more fun; kept to motions that show real work or real numbers |
 | 2026-10-07 | Updated by /design-consultation: quiet editorial, real work as hero (Strip), Board tint #E8EBE4, ledger services, single big-number result, no scroll motion, no uppercase labels | Audit found the site read as AI-templated; research showed studios win on visible work. Memorable thing: a real operator is behind it |

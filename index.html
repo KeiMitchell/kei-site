@@ -1911,33 +1911,6 @@
       a.hx-shot, .lg-arr, .lg-name { transition: none; }
     }
 
-    /* ── Home motion (2026-10, Kei: "more fun") ──
-       Every motion shows something real: the headline arrives, the work rises
-       and drifts, a hover reads the whole email, 300 rises into place.
-       Transform/opacity only; all of it off under prefers-reduced-motion. */
-    @keyframes hxRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
-    @keyframes hxTile { from { opacity: 0; transform: translateY(56px); } to { opacity: 1; transform: none; } }
-    @media (prefers-reduced-motion: no-preference) {
-      .hx h1 { animation: hxRise .7s cubic-bezier(.2,.8,.2,1) both; }
-      .hx h1 strong { animation: hxRise .7s .12s cubic-bezier(.2,.8,.2,1) both; }
-      .hx .hero-desc { animation: hxRise .6s .28s cubic-bezier(.2,.8,.2,1) both; }
-      .hx .hero-actions { animation: hxRise .6s .38s cubic-bezier(.2,.8,.2,1) both; }
-      .hx-row li { animation: hxTile .8s cubic-bezier(.2,.8,.2,1) both; }
-      .hx-row li:nth-child(1) { animation-delay: .45s; }
-      .hx-row li:nth-child(2) { animation-delay: .53s; }
-      .hx-row li:nth-child(3) { animation-delay: .61s; }
-      .hx-row li:nth-child(4) { animation-delay: .69s; }
-      .hx-row li:nth-child(5) { animation-delay: .77s; }
-      .hx-row .hx-shot { will-change: transform; }
-    }
-
-    /* hover reads the whole piece: the image scrolls inside its frame */
-    .hx-row { --shot-h: clamp(300px, 30vw, 420px); }
-    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-      .hx-shot img { transition: transform 3.2s cubic-bezier(.45,0,.25,1); }
-      .hx-shot:hover img { transform: translateY(calc(var(--shot-h) - 100%)); transition-duration: 4.2s; }
-    }
-
     /* ledger hover: a board-tint sweep under the row */
     .ledger a {
       margin: 0 -16px; padding-left: 16px; padding-right: 16px;
@@ -1949,10 +1922,6 @@
     @media (max-width: 900px) { .ledger a { margin: 0 -8px; padding-left: 8px; padding-right: 8px; } }
 
     .hx-num { padding-bottom: .24em; margin-bottom: -.24em; }
-    @media (prefers-reduced-motion: no-preference) {
-      .hx-num { transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .9s cubic-bezier(.2,.8,.2,1), clip-path .9s cubic-bezier(.2,.8,.2,1); clip-path: inset(0 0 0 0); }
-      .hx-num.is-waiting { opacity: 0; transform: translateY(18%); clip-path: inset(100% 0 0 0); }
-    }
   </style>
 
   <script type="speculationrules">
@@ -2123,6 +2092,7 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="/motion.css">
 </head>
 <body>
 
@@ -2917,37 +2887,7 @@
       if (href === '/' ? (cur === '/' || cur === '') : cur.indexOf(href) === 0) a.classList.add('active');
     });
   })();
-
-  /* Home motion: 300 rises into place on first view; the work strip drifts
-     at slightly different speeds while the hero scrolls (desktop only). */
-  (function () {
-    if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    var num = document.querySelector('.hx-num');
-    if (num && 'IntersectionObserver' in window) {
-      num.classList.add('is-waiting');
-      var io = new IntersectionObserver(function (entries) {
-        if (!entries[0].isIntersecting) return;
-        io.disconnect();
-        num.classList.remove('is-waiting');
-      }, { threshold: 0.35 });
-      io.observe(num.parentElement);
-    }
-
-    var strip = document.querySelector('.hx-strip');
-    var tiles = document.querySelectorAll('.hx-row .hx-shot');
-    if (!strip || !tiles.length || !matchMedia('(min-width: 900px) and (hover: hover)').matches) return;
-    var rates = [-0.06, 0.04, -0.03, 0.05, -0.05], queued = false;
-    function drift() {
-      queued = false;
-      var r = strip.getBoundingClientRect();
-      if (r.bottom < 0 || r.top > innerHeight) return;
-      var y = Math.min(r.top, innerHeight) - innerHeight * 0.5;
-      tiles.forEach(function (el, i) { el.style.transform = 'translateY(' + (y * rates[i % rates.length]).toFixed(1) + 'px)'; });
-    }
-    addEventListener('scroll', function () { if (!queued) { queued = true; requestAnimationFrame(drift); } }, { passive: true });
-    drift();
-  })();
 </script>
+<script src="/motion.js" defer></script>
 </body>
 </html>

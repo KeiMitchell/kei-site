@@ -1038,6 +1038,7 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="/motion.css">
 </head>
 <body>
 
@@ -1964,29 +1965,6 @@
     }, { threshold: 0.25 });
     obs.observe(grid);
   })();
-
-  // Smooth cursor glow
-  (function() {
-    if (window.matchMedia('(hover: none)').matches) return;
-    var glow = document.createElement('div');
-    glow.className = 'cursor-glow';
-    document.body.appendChild(glow);
-    var mx = 0, my = 0, gx = 0, gy = 0, active = false;
-    document.addEventListener('mousemove', function(e) {
-      mx = e.clientX; my = e.clientY;
-      if (!active) { glow.style.opacity = '1'; active = true; }
-    });
-    document.addEventListener('mouseleave', function() { glow.style.opacity = '0'; });
-    document.addEventListener('mouseenter', function() { if (active) glow.style.opacity = '1'; });
-    function tick() {
-      gx += (mx - gx) * 0.07;
-      gy += (my - gy) * 0.07;
-      glow.style.left = gx + 'px';
-      glow.style.top  = gy + 'px';
-      requestAnimationFrame(tick);
-    }
-    tick();
-  })();
 </script>
 
 <script>
@@ -2006,5 +1984,6 @@
     });
   })();
 </script>
+<script src="/motion.js" defer></script>
 </body>
 </html>

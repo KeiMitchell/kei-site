@@ -585,7 +585,6 @@
        no eyebrow labels, no scroll fade, hairline lists. */
     :root { --board: #E8EBE4; --muted-solid: #6B6B68; }
     [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; transition: none !important; }
-    .illus, .page-hero h1, .lead, .hero-actions { animation: none !important; }
     .btn--dark::after, .btn--light::after, .nav-cta::after { content: none !important; animation: none !important; }
 
     .page-hero { display: block; border-bottom: 0; }
@@ -745,6 +744,7 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="/motion.css">
 </head>
 <body class="lang-ja">
 
@@ -1212,5 +1212,6 @@
     });
   })();
 </script>
+<script src="/motion.js" defer></script>
 </body>
 </html>

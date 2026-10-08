@@ -1175,7 +1175,6 @@
     :root { --board: #E8EBE4; --r: 6px; }
 
     /* motion: present on load, hover only */
-    .rx-where, .hero h1, .hero-sub, .hero-actions, .zero-grid { animation: none !important; }
     .btn-primary::after, .btn-white::after, .nav-cta::after, .btn--dark::after,
     .btn--light::after, form .btn::after { content: none !important; animation: none !important; }
     .btn-primary:hover, .btn-white:hover { transform: none; }
@@ -1439,6 +1438,7 @@
   ]
 }
   </script>
+  <link rel="stylesheet" href="/motion.css">
 </head>
 <body class="lang-ja">
 
@@ -2785,5 +2785,6 @@
     });
   })();
 </script>
+<script src="/motion.js" defer></script>
 </body>
 </html>
