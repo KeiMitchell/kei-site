@@ -1795,6 +1795,25 @@
         font-size: min(38px, calc((100vw - 72px) / 10.4));
       }
     }
+
+    /* ── Quieter pass (2026-10) ──
+       Italic accent lines stay in the hero only, content is visible on load
+       instead of fading up per section, and the tracked micro-labels go. */
+    [data-reveal], [data-reveal-stagger] > * { opacity: 1; transform: none; transition: none; }
+    .hero h1, .hero-desc, .hero-actions, .line-row li { animation: none; }
+
+    .section-loop h2, .cta-inner h2 { text-wrap: balance; }
+    .hero-desc strong { white-space: nowrap; }
+    .section-loop h2 span,
+    .cta-inner h2 strong { font-style: normal; }
+    html:not([lang="ja"]) .section-loop h2 span,
+    html:not([lang="ja"]) .cta-inner h2 strong { display: inline; }
+
+    .line-row-sub { font-size: 13px; letter-spacing: 0; text-transform: none; }
+    .step-num { display: none; }
+    @media (max-width: 560px) {
+      .line-row-sub { font-size: 12px; letter-spacing: 0; }
+    }
   </style>
 
   <script type="speculationrules">
@@ -2091,7 +2110,6 @@
   <!-- GROWTH LOOP -->
   <div class="s-white">
     <div class="section section-loop">
-      <span class="label" data-reveal data-i18n="loop-label">サービスのつながり</span>
       <h2 data-reveal data-i18n="loop-h2">4つのサービスが、<br><span>ひとつの成長サイクルに。</span></h2>
       <ul class="loop-grid" data-reveal>
         <li class="loop-stage">
@@ -2134,7 +2152,7 @@
       <div class="stat-band" data-reveal>
         <div class="stat">
           <span class="stat-value">10×</span>
-          <span class="stat-label" data-i18n="stat-1-l">アクティブ定期顧客</span>
+          <span class="stat-label" data-i18n="stat-1-l">アクティブ顧客数</span>
           <span class="stat-sub" data-i18n="stat-1-s">日本のペットフードブランドで、12ヶ月で30人から300人に</span>
         </div>
         <div class="stat">
@@ -2154,7 +2172,6 @@
   <!-- WHO WE WORK WITH -->
   <div class="s-white">
     <div class="section section-loop">
-      <span class="label" data-reveal data-i18n="who-label">得意分野</span>
       <h2 data-reveal data-i18n="who-h2">力になれるのは、<br><span>この3つの事業です。</span></h2>
       <ul class="steps" data-reveal>
         <li class="step">
@@ -2185,7 +2202,6 @@
   <!-- FAQ -->
   <div>
     <div class="section section-loop">
-      <span class="label" data-reveal data-i18n="hfaq-label">よくあるご質問</span>
       <h2 data-reveal data-i18n="hfaq-h2">よくいただく、<br><span>7つの質問。</span></h2>
       <ul class="steps" data-reveal>
         <li class="step">
@@ -2273,7 +2289,7 @@
       en: {
         'hero-bubble':      'for businesses expanding in the U.S.',
         'who-label': 'Who we work with',
-        'who-h2': 'Three kinds of business<br><span>we know well.</span>',
+        'who-h2': 'Three kinds of business <span>we know well.</span>',
         'who-1-h': 'Booking-based local businesses',
         'who-1-p': 'Beauty salons, head spas, esthetics studios, dental practices, and clinics. If customers book you online, the booking flow is usually where the money leaks.',
         'who-2-h': 'DTC brands on Shopify',
@@ -2281,7 +2297,7 @@
         'who-3-h': 'Businesses working in two languages',
         'who-3-p': 'Japanese businesses selling in the US market, and US businesses serving Japanese-speaking customers in Los Angeles. Copy is written in both languages, not translated after the fact.',
         'hfaq-label': 'Common questions',
-        'hfaq-h2': 'What people ask<br><span>before the first call.</span>',
+        'hfaq-h2': 'What people ask <span>before the first call.</span>',
         'hfaq-1-h': 'What does hanjo actually do?',
         'hfaq-1-p': 'hanjo builds and runs the systems that bring customers to a small business and bring them back: advertising, the website or store they land on, the email and SMS that keeps them, and the follow-up that recovers the ones who slipped away. Four service lines that work as one loop.',
         'hfaq-2-h': 'Who is hanjo for?',
@@ -2303,9 +2319,9 @@
         'nav-cta':          'Free consultation <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'chip-avail':       'Taking new clients',
         'hero-kicker':      'Growth Partner · Los Angeles',
-        'hero-h1':          'Empowering small&nbsp;businesses\n        <strong>to grow&nbsp;online.</strong>',
+        'hero-h1':          'We find your customers,\n        <strong>then bring them back.</strong>',
         'hero-byline':      'Kei Nakayama &nbsp;·&nbsp; Los Angeles, CA',
-        'hero-desc':        'hanjo is your bilingual growth partner in Los Angeles. We build the systems that bring new customers to your business. <strong>Then we bring them back.</strong>',
+        'hero-desc':        'hanjo is a bilingual growth partner in Los Angeles. Ads, websites, email and SMS, and follow-up on lost bookings, run as one system. <strong>In English or Japanese.</strong>',
         'hero-cta':         'Start with a free consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'hero-see-work':    'See our services',
         'proof-1-label':    'Revenue recovered / month',
@@ -2391,7 +2407,7 @@
         'footer-copy':     '© 2026 hanjo · Los Angeles',
         'footer-name':     'Kei Nakayama',
         'loop-label': 'How it works together',
-        'loop-h2': 'Four services.<br><span>One growth loop.</span>',
+        'loop-h2': 'Four services, <span>one growth loop.</span>',
         'loop-1-w': 'Attract',
         'loop-1-n': 'Ads that reach the right customers, measured in orders rather than clicks.',
         'loop-2-w': 'Convert',
@@ -2402,10 +2418,10 @@
         'loop-4-n': 'The ones who slipped away, followed up and won back.',
         'loop-return': 'and customers come back again',
         'stats-label': 'Results from client work',
-        'stat-1-l': 'Active subscribers',
-        'stat-1-s': 'From 30 to 300 in 12 months, for a Japanese pet food brand',
+        'stat-1-l': 'Active customers',
+        'stat-1-s': 'From 30 to 300 in 12 months, for a Japanese pet food brand on Shopify',
         'stat-2-l': 'Monthly churn',
-        'stat-2-s': 'Reduced from 15% to 9%',
+        'stat-2-s': 'Same brand, from 15% to 9%',
         'stat-3-l': 'Revenue recovered each month',
         'stat-3-s': 'Reinvested straight into acquisition',
         'footer-location': 'Los Angeles, CA',
@@ -2538,7 +2554,7 @@
         'loop-4-n': '離れかけたお客様も、丁寧なフォローで呼び戻します。',
         'loop-return': 'お客様が、また戻ってくる',
         'stats-label': 'クライアントの実績',
-        'stat-1-l': 'アクティブ定期顧客',
+        'stat-1-l': 'アクティブ顧客数',
         'stat-1-s': '日本のペットフードブランドで、12ヶ月で30人から300人に',
         'stat-2-l': '月間解約率',
         'stat-2-s': '15%から9%へ改善',
