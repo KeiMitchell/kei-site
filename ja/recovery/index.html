@@ -1283,6 +1283,25 @@
     .form-progress-label { font-size: 13px; letter-spacing: 0; text-transform: none; }
     .btn-white { box-shadow: none; }
     .btn-white:hover { box-shadow: none; opacity: .9; }
+
+    /* the rebuilt form: what changes */
+    .rx-form { background: var(--white); border-bottom: 1px solid var(--border); }
+    .rx-form-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; }
+    @media (min-width: 1024px) { .rx-form-grid { grid-template-columns: 7fr 4fr; gap: 72px; align-items: start; } }
+    .rx-form .section-title { margin-bottom: 16px; }
+    .rx-form-lead { font-size: 17px; color: var(--gray); max-width: 34em; margin-bottom: 32px; text-wrap: pretty; }
+    .rx-ledger { list-style: none; border-top: 1px solid var(--black); }
+    .rx-ledger li { display: flex; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--border); }
+    .rx-n { font-size: 13px; color: var(--gray); font-variant-numeric: tabular-nums; min-width: 28px; padding-top: 2px; }
+    .rx-ledger h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
+    .rx-ledger p { font-size: 16px; color: var(--gray); line-height: 1.6; text-wrap: pretty; }
+    .rx-form-shot { margin: 0; }
+    @media (min-width: 1024px) { .rx-form-shot { position: sticky; top: calc(var(--chrome-h, 72px) + 24px); } }
+    .rx-form-board { background: var(--board); border-radius: 4px; padding: 32px 40px; }
+    .rx-form-board .rx-shot { border-radius: 6px; max-width: 320px; margin: 0 auto; }
+    .rx-form-shot figcaption { font-size: 13px; line-height: 1.5; color: var(--gray); margin-top: 12px; }
+    @media (max-width: 1023px) { .rx-form-board { padding: 24px 56px; } }
+    body.lang-ja .rx-ledger p, body.lang-ja .rx-form-lead { line-height: 1.85; }
   </style>
 
   <script type="speculationrules">
@@ -1603,6 +1622,64 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- THE FORM: what changes when we rebuild it -->
+<section class="rx-form" id="form">
+  <div class="container rx-form-grid">
+    <div>
+      <h2 class="section-title" data-i18n="fx_title">予約フォームを、途中で離れない形に。</h2>
+      <p class="rx-form-lead" data-i18n="fx_lead">実は、予約フォームの途中でやめてしまう方が少なくありません。フォームを作り直すと、ここが変わります。</p>
+      <ol class="rx-ledger">
+        <li>
+          <span class="rx-n">01</span>
+          <div>
+            <h3 data-i18n="fx1_h">ひと目で選べるメニュー</h3>
+            <p data-i18n="fx1_p">すべての施術に写真・料金・所要時間を表示。何を予約するのか、迷わせません。</p>
+          </div>
+        </li>
+        <li>
+          <span class="rx-n">02</span>
+          <div>
+            <h3 data-i18n="fx2_h">施術を選んだ状態でスタート</h3>
+            <p data-i18n="fx2_p">サイトやフォローアップのSMSから来た方は、該当の施術が選ばれた状態でフォームが開きます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="rx-n">03</span>
+          <div>
+            <h3 data-i18n="fx3_h">オプションは、適切なタイミングで</h3>
+            <p data-i18n="fx3_p">オプションはメインの施術を選んだあと、日時を選ぶ前にご案内。最初の選択はシンプルなまま、予約枠もずれません。</p>
+          </div>
+        </li>
+        <li>
+          <span class="rx-n">04</span>
+          <div>
+            <h3 data-i18n="fx4_h">合計金額は、常に画面に</h3>
+            <p data-i18n="fx4_p">施術・所要時間・料金のまとめが最後まで表示され、お会計で驚かせません。</p>
+          </div>
+        </li>
+        <li>
+          <span class="rx-n">05</span>
+          <div>
+            <h3 data-i18n="fx5_h">どこで離れたかが分かる</h3>
+            <p data-i18n="fx5_p">フォーム内の離脱を計測しているので、推測ではなく、お客様が離れている画面から直していきます。</p>
+          </div>
+        </li>
+        <li>
+          <span class="rx-n">06</span>
+          <div>
+            <h3 data-i18n="fx6_h">お店側の運用はそのまま</h3>
+            <p data-i18n="fx6_p">予約はいつも通りSquareのカレンダーに入り、どの広告・どのメッセージから来た予約かも記録されます。</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <figure class="rx-form-shot">
+      <div class="rx-form-board"><div class="rx-shot"><img src="/work/headspaen-booking-addons.jpg" alt="Rebuilt booking form showing add-ons and a running total" width="480" height="836" loading="lazy"></div></div>
+      <figcaption data-i18n="fx_cap">施術を選んだあとの画面。オプション、日時の順に進み、合計は常に表示されます。</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1976,6 +2053,21 @@
       skip_link: 'Skip to content',
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       location_badge: 'Now serving Los Angeles area only',
+      fx_title: 'A booking form that keeps people moving.',
+      fx_lead: 'A lot of those visitors give up inside the booking form itself. When we rebuild it, this is what changes.',
+      fx1_h: 'Treatments you can choose at a glance',
+      fx1_p: 'Every treatment shows a photo, the price, and how long it takes, so nobody has to guess what they are booking.',
+      fx2_h: 'Arrive with the treatment already picked',
+      fx2_p: 'Links from your site and from our follow-up texts open the form with the right treatment selected.',
+      fx3_h: 'Add-ons at the right moment',
+      fx3_p: 'Extras are offered once the main treatment is chosen and before the time is picked, so the first choice stays simple and the slot still fits.',
+      fx4_h: 'The total, always on screen',
+      fx4_p: 'A running summary of the treatment, its length, and the price stays visible to the end. No surprises at checkout.',
+      fx5_h: 'We see where people stop',
+      fx5_p: 'Drop-off is measured inside the form, so we fix the screen that loses people instead of guessing.',
+      fx6_h: 'Nothing changes on your side',
+      fx6_p: 'Bookings land in your Square calendar as usual, and each one is tied back to the ad or message that brought it in.',
+      fx_cap: 'The rebuilt form after a treatment is picked: add-ons first, then the time, with the total always in view.',
       rx_work_cap: 'HEAD SPA EN, a Japanese head spa in Los Angeles. We rebuilt their booking form in front of Square and run the follow-ups.',
       hero_h1: 'Lost bookings,<br>brought&nbsp;back.<br><em>No&nbsp;fees. No&nbsp;hassle.</em>',
       hv_form_title: 'Choose your treatment',
@@ -2163,6 +2255,21 @@
       skip_link: '本文へスキップ',
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       location_badge: 'LAエリア限定提供中',
+      fx_title: '予約フォームを、途中で離れない形に。',
+      fx_lead: '実は、予約フォームの途中でやめてしまう方が少なくありません。フォームを作り直すと、ここが変わります。',
+      fx1_h: 'ひと目で選べるメニュー',
+      fx1_p: 'すべての施術に写真・料金・所要時間を表示。何を予約するのか、迷わせません。',
+      fx2_h: '施術を選んだ状態でスタート',
+      fx2_p: 'サイトやフォローアップのSMSから来た方は、該当の施術が選ばれた状態でフォームが開きます。',
+      fx3_h: 'オプションは、適切なタイミングで',
+      fx3_p: 'オプションはメインの施術を選んだあと、日時を選ぶ前にご案内。最初の選択はシンプルなまま、予約枠もずれません。',
+      fx4_h: '合計金額は、常に画面に',
+      fx4_p: '施術・所要時間・料金のまとめが最後まで表示され、お会計で驚かせません。',
+      fx5_h: 'どこで離れたかが分かる',
+      fx5_p: 'フォーム内の離脱を計測しているので、推測ではなく、お客様が離れている画面から直していきます。',
+      fx6_h: 'お店側の運用はそのまま',
+      fx6_p: '予約はいつも通りSquareのカレンダーに入り、どの広告・どのメッセージから来た予約かも記録されます。',
+      fx_cap: '施術を選んだあとの画面。オプション、日時の順に進み、合計は常に表示されます。',
       rx_work_cap: 'ロサンゼルスの日本式ヘッドスパ、HEAD SPA EN。Squareの前段に予約フォームを作り直し、取りこぼしのフォローまで運用しています。',
       hero_h1: '取りこぼした予約を、<br>売上に戻す。<br><em>費用も手間も、ゼロ。</em>',
       hv_form_title: 'メニューを選択',
