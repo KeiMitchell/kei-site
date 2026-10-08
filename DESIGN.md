@@ -62,8 +62,8 @@ Pill badges, wavy underlines, em dashes in visible copy, emoji, letterspaced JA 
 
 ## Pending migration
 - `/recovery/` migrated 2026-10-07: hero shows the real HEAD SPA EN booking form + site on the Board, funnel is a ruled number table (no dot grid or person icons), SMS mock is light, no emoji, no shimmer or cursor glow, quiz chips are 4px rectangles. Quiz and 2-step form hooks unchanged.
+- `/web/` migrated 2026-10-07: HEAD SPA EN desktop + phone capture on the Board below the hero, captioned with the real scope (site, booking flow, photo/video shoot).
 - `/crm/` and `/ads/` still to migrate.
-- `/web/` needs real site work for its hero strip before it can follow the proof rule.
 
 ## Decisions Log
 | Date | Decision | Rationale |

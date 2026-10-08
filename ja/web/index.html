@@ -579,6 +579,53 @@
       word-break: auto-phrase;
       line-break: strict;
     }
+
+    /* ── 2026-10 quiet editorial pass (see /DESIGN.md) ──
+       Hero copy then real client work on the Board; plain headings,
+       no eyebrow labels, no scroll fade, hairline lists. */
+    :root { --board: #E8EBE4; --muted-solid: #6B6B68; }
+    [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .illus, .page-hero h1, .lead, .hero-actions { animation: none !important; }
+    .btn--dark::after, .btn--light::after, .nav-cta::after { content: none !important; animation: none !important; }
+
+    .page-hero { display: block; border-bottom: 0; }
+    .split-hero { min-height: 0; padding-top: clamp(32px, 5vw, 72px); }
+    .page-hero h1 { font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
+    .lead { font-size: 18px; max-width: 34em; }
+
+    .wx { background: var(--bg); padding: 0 clamp(16px, 4.5vw, 72px) 48px; border-bottom: 1px solid var(--border); }
+    .wx-board {
+      max-width: 1280px; margin: 0 auto; background: var(--board); border-radius: 4px;
+      padding: 48px; display: grid; grid-template-columns: 1fr 220px; gap: 40px; align-items: end;
+    }
+    .wx-desk, .wx-phone { display: block; overflow: hidden; border-radius: 6px; background: var(--white); box-shadow: 0 1px 2px rgba(17,17,16,.06), 0 12px 32px -12px rgba(17,17,16,.18); }
+    .wx-phone { aspect-ratio: 480 / 1000; }
+    .wx-desk img, .wx-phone img { display: block; width: 100%; height: auto; }
+    a.wx-desk { transition: transform .15s ease-out; }
+    a.wx-desk:hover { transform: translateY(-3px); }
+    .wx-cap { max-width: 1280px; margin: 14px auto 0; font-size: 13px; line-height: 1.5; color: var(--muted-solid); }
+    .wx-cap strong { color: var(--ink); font-weight: 600; margin-right: 4px; }
+    .wx-cap a { color: var(--sage); margin-left: 4px; }
+
+    .label { display: none !important; }
+    h2 span { font-style: normal; }
+    html:not([lang="ja"]) h2 span { display: inline; }
+    h2 { text-wrap: balance; }
+    .cta-inner h2 strong { font-style: normal; }
+
+    .inc-num { font-size: 13px; letter-spacing: 0; color: var(--faint); font-variant-numeric: tabular-nums; padding-top: 2px; min-width: 28px; }
+    .inc-list h3, .step h3 { font-size: 17px; }
+    .inc-list p, .step p { font-size: 16px; font-weight: 400; color: var(--muted-solid); }
+    .callout { background: var(--board); border: 0; border-radius: 4px; font-size: 16px; font-weight: 400; color: var(--muted-solid); }
+
+    .steps { gap: 0; border-top: 1px solid var(--border); }
+    .step { background: transparent; border: 0; border-radius: 0; border-bottom: 1px solid var(--border); padding: 24px 0; gap: 22px; }
+    .step-num { font-size: 13px; letter-spacing: 0; color: var(--faint); font-variant-numeric: tabular-nums; min-width: 28px; }
+
+    @media (max-width: 760px) {
+      .wx-board { grid-template-columns: 1fr; padding: 20px; }
+      .wx-phone { display: none; }
+    }
   </style>
 
   <script type="speculationrules">
@@ -786,9 +833,17 @@
     </div>
   </div>
 
+  <!-- WORK: a real client site, desktop and phone -->
+  <div class="wx">
+    <div class="wx-board">
+      <a class="wx-desk" href="https://www.headspaen.net/" target="_blank" rel="noopener"><img src="/work/headspaen-site-desktop.jpg" alt="HEAD SPA EN website on desktop" width="1440" height="900"></a>
+      <div class="wx-phone"><img src="/work/headspaen-site.jpg" alt="HEAD SPA EN website, treatment menu on mobile" width="480" height="1036"></div>
+    </div>
+    <p class="wx-cap"><strong>HEAD SPA EN</strong> <span data-i18n="wx-cap">ロサンゼルスで4店舗を展開する日本式ヘッドスパの、Webサイト・予約導線・写真と動画の撮影を担当しました。</span> <a href="https://www.headspaen.net/" target="_blank" rel="noopener">headspaen.net</a></p>
+  </div>
+
   <div class="s-white">
     <div class="section">
-      <span class="label" data-reveal data-i18n="inc-label">サービス内容</span>
       <h2 data-reveal data-i18n="inc-h2">戦略から公開まで、<br><span>サイトに必要なすべてを。</span></h2>
       <ul class="inc-list">
         <li>
@@ -847,7 +902,6 @@
 
   <div>
     <div class="section">
-      <span class="label" data-reveal data-i18n="how-label">進め方</span>
       <h2 data-reveal data-i18n="how-h2">まずは<br><span>無料相談から。</span></h2>
       <ul class="steps">
         <li class="step">
@@ -878,53 +932,45 @@
 
   <div>
     <div class="section">
-      <span class="label" data-reveal data-i18n="faq-label">よくあるご質問</span>
       <h2 data-reveal data-i18n="faq-h2">よくいただく、<br><span>7つの質問。</span></h2>
       <ul class="steps">
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-1-h">どんなサイトをつくれますか？</h3>
             <p data-i18n="faq-1-p">コーポレートサイト、広告用のランディングページ、Shopifyストア。新規構築も、既存サイトからの移行も対応します。構成・原稿・デザイン・実装まで一貫して社内で行います。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-2-h">英語と日本語の両方に対応していますか？</h3>
             <p data-i18n="faq-2-p">はい。あとから翻訳するのではなく、それぞれの言語で構成と原稿を書き起こします。どちらも、はじめからその言語で書かれた文章になります。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-3-h">公開までどれくらいかかりますか？</h3>
             <p data-i18n="faq-3-p">多くのサイトは数週間で公開できます。ランディングページや小規模サイトは短期間、大規模な構築やストアは着手前に範囲とスケジュールをお伝えします。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-4-h">費用はどれくらいですか？</h3>
             <p data-i18n="faq-4-p">最初の通話のあと、範囲と金額を明確にお伝えします。ランディングページや小規模サイトは短期間、大規模な構築やストアは事前に範囲を確定します。曖昧な提案書は出しません。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-5-h">テンプレートやページビルダーは使いますか？</h3>
             <p data-i18n="faq-5-p">使いません。テーマの流用ではなく、ブランドに合わせたオリジナルデザインを、軽量で速いコードで実装します。モバイル優先で、SEOの基本設定・アナリティクス・お問い合わせフォームまで組み込みます。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-6-h">既存のShopifyストアの移行もできますか？</h3>
             <p data-i18n="faq-6-p">はい。商品ページ、チェックアウト、決済、配送設定まで、米国市場で販売できる状態に整えます。hanjoはShopifyパートナーです。</p>
           </div>
         </li>
         <li class="step">
-          <span class="step-num">Q</span>
           <div>
             <h3 data-i18n="faq-7-h">公開後のサポートはありますか？</h3>
             <p data-i18n="faq-7-p">あります。更新や細かな修正、改善も継続して対応します。手を入れられないサイトをお渡しして終わりにはしません。</p>
@@ -962,7 +1008,7 @@
     const T = {
       "en": {
         "faq-label": "Common questions",
-        "faq-h2": "What clients ask<br><span>before we start.</span>",
+        "faq-h2": "What clients ask <span>before we start.</span>",
         "faq-1-h": "What kinds of sites do you build?",
         "faq-1-p": "Websites, campaign and ad landing pages, and Shopify stores, including new builds and migrations. Structure, copy, design, and code are all handled in house.",
         "faq-2-h": "Do you work in English and Japanese?",
@@ -987,7 +1033,7 @@
             "pf-scope": "Websites, landing pages, and online stores",
             "inc-label": "What you get",
             "how-label": "How it works",
-            "how-h2": "Simple to start.<br><span>No retainer required.</span>",
+            "how-h2": "Simple to start. <span>No retainer required.</span>",
             "cta-h2": "Ready when you are.<strong>Let's talk about your project.</strong>",
             "cta-p": "A free 30-minute consultation, in English or Japanese. Before anything else, we would love to hear about your business and the problems on your plate.",
             "cta-btn": "Start with a free consultation <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
@@ -1000,7 +1046,8 @@
             "footer-location": "Los Angeles, CA",
             "ph-h1": "Websites and stores that earn&nbsp;trust<strong>and&nbsp;convert.</strong>",
             "ph-lead": "hanjo Web covers everything your business shows the world: websites, landing pages, and Shopify stores: structure, copy, design, and code, in English and Japanese. No templates, no page builders, no agency layers.",
-            "inc-h2": "Everything a site needs,<br><span>from strategy to launch.</span>",
+            "inc-h2": "Everything a site needs, <span>from strategy to launch.</span>",
+            "wx-cap": "Website, booking flow, and photo and video shoot for a Japanese head spa with four locations in Los Angeles.",
             "proof": "We designed and built this site, and <a href=\"https://growth.hanjo.ai\" target=\"_blank\" rel=\"noopener\">growth.hanjo.ai</a>, ourselves. We also work inside Shopify with Japanese DTC brands every day. <strong>What you're looking at is the portfolio.</strong>",
             "price": "Landing pages and small sites are quick; larger builds and stores are scoped clearly up front. <strong>You'll have a number after the first call. No vague proposals.</strong>",
             "inc-1-h": "Structure & copywriting",
@@ -1065,6 +1112,7 @@
             "ph-h1": "信頼される見た目と、<strong>成果につながる導線を。</strong>",
             "ph-lead": "hanjo Webは、ビジネスの「顔」となるすべてをお作りします。ホームページ、ランディングページ、そしてShopifyのECサイトまで。構成・文章・デザイン・実装を、日英両言語で一貫して手がけます。テンプレートの流用や外注には頼りません。",
             "inc-h2": "戦略から公開まで、<br><span>サイトに必要なすべてを。</span>",
+            "wx-cap": "ロサンゼルスで4店舗を展開する日本式ヘッドスパの、Webサイト・予約導線・写真と動画の撮影を担当しました。",
             "proof": "このサイトも <a href=\"https://growth.hanjo.ai\" target=\"_blank\" rel=\"noopener\">growth.hanjo.ai</a> も、デザインからコードまで自分たちで作ったものです。日本のD2CブランドのShopifyも日々運用しています。<strong>いまご覧いただいているものが、そのままポートフォリオです。</strong>",
             "price": "ランディングページや小規模なサイトは、短期間で公開できます。規模の大きな案件やECサイトも、着手前に明確なお見積りをご提示します。<strong>初回のご相談で、金額の目安がわかります。</strong>",
             "inc-1-h": "構成・コピーライティング",
