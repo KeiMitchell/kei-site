@@ -54,7 +54,7 @@ Fonts are fixed (Kei's decision 2026-07-20; do not re-propose alternatives).
 
 ## Motion
 - **Approach:** Intentional, home page first (Kei 2026-10-07: "make the top page more fun"). Every motion shows something real; nothing loops forever, nothing decorates.
-- **Home:** headline lines rise in on load (700ms, 120ms apart), lead + CTA follow; work tiles rise in staggered (80ms); on desktop the tiles drift at slightly different rates while the hero scrolls (±~20px); hovering a tile scrolls the image inside its frame to show the whole piece; the big 300 counts up from 30 on first view (1.6s ease-out); ledger rows get a Board-tint sweep and arrow nudge on hover.
+- **Home:** headline lines rise in on load (700ms, 120ms apart), lead + CTA follow; work tiles rise in staggered (80ms); on desktop the tiles drift at slightly different rates while the hero scrolls (±~20px); hovering a tile scrolls the image inside its frame to show the whole piece; the big 300 rises into place once on first view (900ms; a count-up was tried and dropped: proportional Playfair digits jitter and shove the caption); ledger rows get a Board-tint sweep and arrow nudge on hover.
 - **Service pages:** still minimal (hover only) until they get their own pass.
 - **Rules:** transform/opacity only, ease-out curves (cubic-bezier(.2,.8,.2,1)), no shimmer, no pulsing, no infinite loops, no cursor effects. Everything is off under `prefers-reduced-motion: reduce`.
 
@@ -71,5 +71,5 @@ Pill badges, wavy underlines, em dashes in visible copy, emoji, letterspaced JA 
 |------|----------|-----------|
 | 2026-07-16 | Cream/sage tokens, Playfair + Inter, four branded lines | Matches growth.hanjo.ai; Kei-approved restructure |
 | 2026-07-20 | Times New Roman experiment reverted | Kei prefers Playfair/Inter |
-| 2026-10-07 | Home motion added at Kei's request (entrance, tile drift, hover read, 300 count-up, ledger sweep) | Kei wanted the top page more fun; kept to motions that show real work or real numbers |
+| 2026-10-07 | Home motion added at Kei's request (entrance, tile drift, hover read, 300 reveal, ledger sweep) | Kei wanted the top page more fun; kept to motions that show real work or real numbers |
 | 2026-10-07 | Updated by /design-consultation: quiet editorial, real work as hero (Strip), Board tint #E8EBE4, ledger services, single big-number result, no scroll motion, no uppercase labels | Audit found the site read as AI-templated; research showed studios win on visible work. Memorable thing: a real operator is behind it |

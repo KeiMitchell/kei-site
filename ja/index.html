@@ -1914,7 +1914,7 @@
 
     /* ── Home motion (2026-10, Kei: "more fun") ──
        Every motion shows something real: the headline arrives, the work rises
-       and drifts, a hover reads the whole email, 300 counts up from 30.
+       and drifts, a hover reads the whole email, 300 rises into place.
        Transform/opacity only; all of it off under prefers-reduced-motion. */
     @keyframes hxRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
     @keyframes hxTile { from { opacity: 0; transform: translateY(56px); } to { opacity: 1; transform: none; } }
@@ -1949,7 +1949,11 @@
     @media (prefers-reduced-motion: reduce) { .ledger a { transition: none; } }
     @media (max-width: 900px) { .ledger a { margin: 0 -8px; padding-left: 8px; padding-right: 8px; } }
 
-    .hx-num { font-variant-numeric: lining-nums; }
+    .hx-num { padding-bottom: .24em; margin-bottom: -.24em; }
+    @media (prefers-reduced-motion: no-preference) {
+      .hx-num { transition: transform .9s cubic-bezier(.2,.8,.2,1), opacity .9s cubic-bezier(.2,.8,.2,1), clip-path .9s cubic-bezier(.2,.8,.2,1); clip-path: inset(0 0 0 0); }
+      .hx-num.is-waiting { opacity: 0; transform: translateY(18%); clip-path: inset(100% 0 0 0); }
+    }
   </style>
 
   <script type="speculationrules">
@@ -2899,27 +2903,20 @@
     });
   })();
 
-  /* Home motion: 300 counts up from 30 on first view; the work strip drifts
+  /* Home motion: 300 rises into place on first view; the work strip drifts
      at slightly different speeds while the hero scrolls (desktop only). */
   (function () {
     if (!window.matchMedia || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     var num = document.querySelector('.hx-num');
     if (num && 'IntersectionObserver' in window) {
-      var from = 30, to = 300, ran = false;
+      num.classList.add('is-waiting');
       var io = new IntersectionObserver(function (entries) {
-        if (ran || !entries[0].isIntersecting) return;
-        ran = true; io.disconnect();
-        var t0 = performance.now(), dur = 1600;
-        num.textContent = from;
-        (function tick(now) {
-          var p = Math.min(1, (now - t0) / dur);
-          var e = 1 - Math.pow(1 - p, 3);
-          num.textContent = Math.round(from + (to - from) * e);
-          if (p < 1) requestAnimationFrame(tick);
-        })(t0);
-      }, { threshold: 0.5 });
-      io.observe(num);
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+        num.classList.remove('is-waiting');
+      }, { threshold: 0.35 });
+      io.observe(num.parentElement);
     }
 
     var strip = document.querySelector('.hx-strip');
