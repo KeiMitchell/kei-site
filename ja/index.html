@@ -1876,6 +1876,69 @@
     .hx-facts div { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--border); }
     .hx-facts dt { color: var(--muted-solid); }
     .hx-facts dd { font-variant-numeric: tabular-nums; }
+    .hx-facts a { color: var(--sage); text-underline-offset: 3px; }
+
+    .hx-tools { margin-top: 24px; font-size: 15px; color: var(--muted-solid); }
+    .hx-tools span { color: var(--ink); font-weight: 500; margin-right: 6px; }
+
+    .hx-case { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 56px; align-items: end; }
+    .hx-case-img { display: block; background: var(--board); border-radius: 4px; padding: 40px 40px 0; overflow: hidden; }
+    .hx-case-img img {
+      display: block; width: 100%; height: auto; border-radius: 6px 6px 0 0;
+      box-shadow: 0 1px 2px rgba(17,17,16,.06), 0 12px 32px -12px rgba(17,17,16,.18);
+      transition: transform .2s ease-out;
+    }
+    .hx-case-img:hover img { transform: translateY(-4px); }
+    .hx-case-txt h3 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .hx-case-txt p { color: var(--muted-solid); font-size: 17px; line-height: 1.6; }
+
+    .hx-steps { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; border-top: 1px solid var(--ink); }
+    .hx-steps li { padding-top: 20px; }
+    .st-n { display: block; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 26px; color: var(--sage); line-height: 1; margin-bottom: 16px; }
+    .hx-steps h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+    .hx-steps p { font-size: 15px; line-height: 1.6; color: var(--muted-solid); }
+
+    footer.ft { background: var(--white); border-top: 1px solid var(--border); }
+    .ft-top {
+      max-width: 1200px; margin: 0 auto; padding: 64px 32px 48px;
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 32px;
+    }
+    .ft-brand img { height: 22px; display: block; margin-bottom: 16px; }
+    .ft-brand p { font-size: 15px; color: var(--muted-solid); line-height: 1.6; }
+    .ft-clock { margin-top: 8px; font-variant-numeric: tabular-nums; }
+    .ft-clock time { color: var(--ink); margin-left: 4px; }
+    .ft-col { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+    .ft-col h3 { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+    .ft-col a, .ft-col span, .ft-lang {
+      font: inherit; font-size: 15px; color: var(--muted-solid); text-decoration: none;
+      padding: 5px 0; background: none; border: 0; cursor: pointer; text-align: left;
+    }
+    .ft-col span { cursor: default; }
+    .ft-col a:hover, .ft-lang:hover { color: var(--sage); }
+    .ft-bottom {
+      max-width: 1200px; margin: 0 auto; padding: 20px 32px 28px; border-top: 1px solid var(--border);
+      display: flex; gap: 8px 24px; flex-wrap: wrap; font-size: 13px; color: var(--muted-solid);
+    }
+    .ft-bottom span { margin-right: auto; }
+    .ft-bottom a { color: var(--muted-solid); text-decoration: none; }
+    .ft-bottom a:hover { color: var(--sage); }
+    html[lang="ja"] .ft, html[lang="ja"] .hx-steps p { font-family: 'Noto Sans JP', sans-serif; }
+
+    @media (max-width: 900px) {
+      .hx-case { grid-template-columns: 1fr; gap: 28px; }
+      .hx-steps { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+      .ft-top { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+      .ft-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 560px) {
+      .hx-case-img { padding: 20px 20px 0; }
+      .hx-steps { grid-template-columns: 1fr; gap: 0; }
+      .hx-steps li { padding: 20px 0; border-bottom: 1px solid var(--border); }
+      .ft-top { padding: 48px 16px 32px; }
+      .ft-bottom { padding: 20px 16px 28px; }
+      .ft-bottom span { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { .hx-case-img img { transition: none; } }
 
     .hx-list { list-style: none; border-top: 1px solid var(--border); max-width: 860px; }
     .hx-list li { padding: 24px 0; border-bottom: 1px solid var(--border); }
@@ -2242,6 +2305,26 @@
           </a>
         </li>
       </ul>
+      <p class="hx-tools"><span data-i18n="tools-l">対応ツール</span> Shopify, Klaviyo, Square, Meta, Google Ads, LINE.</p>
+    </div>
+  </div>
+
+  <!-- SELECTED WORK: one named case, then the result below it -->
+  <div class="s-white hx-rule">
+    <div class="hx-sec">
+      <h2 data-i18n="work-h2">実績紹介</h2>
+      <article class="hx-case">
+        <a class="hx-case-img" href="https://www.headspaen.net/" target="_blank" rel="noopener"><img src="/work/headspaen-site-desktop.jpg" alt="HEAD SPA EN website on desktop" width="1440" height="900" loading="lazy"></a>
+        <div class="hx-case-txt">
+          <h3>HEAD SPA EN</h3>
+          <p data-i18n="case-1-p">ロサンゼルスで4店舗を展開する日本式ヘッドスパ。Webサイトはテンプレートを使わずゼロから制作し、予約はSquareと連携。写真と動画の撮影も担当しました。</p>
+          <dl class="hx-facts">
+            <div><dt data-i18n="case-l-svc">サービス</dt><dd>hanjo Web, hanjo Recovery</dd></div>
+            <div><dt data-i18n="case-l-scope">担当範囲</dt><dd data-i18n="case-1-scope">サイト制作、予約導線、写真・動画撮影</dd></div>
+            <div><dt data-i18n="case-l-live">公開サイト</dt><dd><a href="https://www.headspaen.net/" target="_blank" rel="noopener">headspaen.net</a></dd></div>
+          </dl>
+        </div>
+      </article>
     </div>
   </div>
 
@@ -2258,6 +2341,19 @@
           <div><dt data-i18n="res-time-l">期間</dt><dd data-i18n="res-time-v">12ヶ月</dd></div>
         </dl>
       </div>
+    </div>
+  </div>
+
+  <!-- HOW AN ENGAGEMENT RUNS -->
+  <div class="s-white">
+    <div class="hx-sec">
+      <h2 data-i18n="proc-h2">ご相談から運用までの流れ</h2>
+      <ol class="hx-steps">
+        <li><span class="st-n">1</span><h3 data-i18n="proc-1-h">無料相談</h3><p data-i18n="proc-1-p">30分、日本語でも英語でも。いまどこでお客様を取りこぼしているかを一緒に確認します。</p></li>
+        <li><span class="st-n">2</span><h3 data-i18n="proc-2-h">お見積もり</h3><p data-i18n="proc-2-p">ご相談のあと、対応範囲と金額を書面でお送りします。</p></li>
+        <li><span class="st-n">3</span><h3 data-i18n="proc-3-h">制作</h3><p data-i18n="proc-3-p">コピー、デザイン、実装まで、貴社のブランドに合わせて仕上げます。必要に応じて日英両方で。</p></li>
+        <li><span class="st-n">4</span><h3 data-i18n="proc-4-h">運用とご報告</h3><p data-i18n="proc-4-p">公開後も一緒に運用し、毎週数字をご報告します。</p></li>
+      </ol>
     </div>
   </div>
 
@@ -2331,19 +2427,52 @@
   </div>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-logo" aria-label="hanjo">
+  <footer class="ft">
+    <div class="ft-top">
+      <div class="ft-brand">
         <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
-      </span>
-      <div class="footer-meta">
+        <p data-i18n="ft-tag">ロサンゼルスの日英グロースパートナー。</p>
+        <p class="ft-clock"><span data-i18n="footer-location">ロサンゼルス</span> <time id="la-time"></time></p>
+      </div>
+      <div class="ft-col">
+        <h3 data-i18n="ft-services">サービス</h3>
+        <a href="/ja/ads/">hanjo Ads</a>
+        <a href="/ja/web/">hanjo Web</a>
+        <a href="/ja/crm/">hanjo CRM</a>
+        <a href="/ja/recovery/">hanjo Recovery</a>
+      </div>
+      <div class="ft-col">
+        <h3 data-i18n="ft-company">会社情報</h3>
         <a href="/ja/about/" data-i18n="footer-about">会社概要</a>
-        <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
-        <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
-        <span data-i18n="footer-copy">© 2026 hanjo · ロサンゼルス</span>
+        <a href="/ja/contact/" data-i18n="ft-contact">お問い合わせ</a>
+        <button type="button" class="ft-lang" onclick="toggleLang()">English / 日本語</button>
+      </div>
+      <div class="ft-col">
+        <h3 data-i18n="ft-cred">認定・対応言語</h3>
+        <span>Shopify Partner</span>
+        <span data-i18n="ft-lang-l">日本語・英語対応</span>
       </div>
     </div>
+    <div class="ft-bottom">
+      <span data-i18n="footer-copy">© 2026 hanjo · ロサンゼルス</span>
+      <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
+      <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
+    </div>
   </footer>
+  <script>
+    /* Local time in Los Angeles, the way studios sign their footer. Minute precision, no animation. */
+    (function () {
+      var el = document.getElementById('la-time');
+      if (!el || !window.Intl) return;
+      function tick() {
+        var ja = document.documentElement.lang === 'ja';
+        el.textContent = new Intl.DateTimeFormat(ja ? 'ja-JP' : 'en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit', hour12: !ja }).format(new Date());
+      }
+      tick();
+      setInterval(tick, 30000);
+      document.addEventListener('click', function (e) { if (e.target.closest('.lang-toggle, .ft-lang, .mm-lang')) setTimeout(tick, 0); });
+    })();
+  </script>
 
   <script>
     /* ── TRANSLATIONS ── */
@@ -2467,6 +2596,28 @@
         'footer-terms':    'Terms of Use',
         'footer-privacy':  'Privacy Policy',
         'footer-copy':     '© 2026 hanjo · Los Angeles',
+        'tools-l': 'We work in',
+        'work-h2': 'Selected work.',
+        'case-1-p': 'Custom-coded website with a Square booking flow, plus the photo and video shoot, for a Japanese head spa with four locations in Los Angeles.',
+        'case-l-svc': 'Services',
+        'case-l-scope': 'Scope',
+        'case-1-scope': 'Site, booking flow, photo and video',
+        'case-l-live': 'Live site',
+        'proc-h2': 'How an engagement runs.',
+        'proc-1-h': 'Free consultation',
+        'proc-1-p': 'Thirty minutes, in English or Japanese. We look at where customers are being lost today.',
+        'proc-2-h': 'A clear proposal',
+        'proc-2-p': 'One scope and one price, in writing, after the call.',
+        'proc-3-h': 'Build',
+        'proc-3-p': 'Copy, design, and build in your brand, in both languages where you need them.',
+        'proc-4-h': 'Run and report',
+        'proc-4-p': 'We keep running it with you and report the numbers every week.',
+        'ft-tag': 'A bilingual growth partner in Los Angeles.',
+        'ft-services': 'Services',
+        'ft-company': 'Company',
+        'ft-contact': 'Contact',
+        'ft-cred': 'Credentials',
+        'ft-lang-l': 'English and Japanese',
         'footer-name':     'Kei Nakayama',
         'loop-label': 'How it works together',
         'loop-h2': 'Four services, <span>one growth loop.</span>',
@@ -2644,6 +2795,28 @@
         'footer-terms':    '利用規約',
         'footer-privacy':  'プライバシーポリシー',
         'footer-copy':     '© 2026 hanjo · ロサンゼルス',
+        'tools-l': '対応ツール',
+        'work-h2': '実績紹介',
+        'case-1-p': 'ロサンゼルスで4店舗を展開する日本式ヘッドスパ。Webサイトはテンプレートを使わずゼロから制作し、予約はSquareと連携。写真と動画の撮影も担当しました。',
+        'case-l-svc': 'サービス',
+        'case-l-scope': '担当範囲',
+        'case-1-scope': 'サイト制作、予約導線、写真・動画撮影',
+        'case-l-live': '公開サイト',
+        'proc-h2': 'ご相談から運用までの流れ',
+        'proc-1-h': '無料相談',
+        'proc-1-p': '30分、日本語でも英語でも。いまどこでお客様を取りこぼしているかを一緒に確認します。',
+        'proc-2-h': 'お見積もり',
+        'proc-2-p': 'ご相談のあと、対応範囲と金額を書面でお送りします。',
+        'proc-3-h': '制作',
+        'proc-3-p': 'コピー、デザイン、実装まで、貴社のブランドに合わせて仕上げます。必要に応じて日英両方で。',
+        'proc-4-h': '運用とご報告',
+        'proc-4-p': '公開後も一緒に運用し、毎週数字をご報告します。',
+        'ft-tag': 'ロサンゼルスの日英グロースパートナー。',
+        'ft-services': 'サービス',
+        'ft-company': '会社情報',
+        'ft-contact': 'お問い合わせ',
+        'ft-cred': '認定・対応言語',
+        'ft-lang-l': '日本語・英語対応',
         'footer-location': 'ロサンゼルス',
       }
     };
