@@ -1905,8 +1905,7 @@
     }
     .ft-brand img { height: 22px; display: block; margin-bottom: 16px; }
     .ft-brand p { font-size: 15px; color: var(--muted-solid); line-height: 1.6; }
-    .ft-clock { margin-top: 8px; font-variant-numeric: tabular-nums; }
-    .ft-clock time { color: var(--ink); margin-left: 4px; }
+    .ft-clock { margin-top: 8px; }
     .ft-col { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
     .ft-col h3 { font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
     .ft-col a, .ft-col span, .ft-lang {
@@ -2432,7 +2431,7 @@
       <div class="ft-brand">
         <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
         <p data-i18n="ft-tag">ロサンゼルスの日英グロースパートナー。</p>
-        <p class="ft-clock"><span data-i18n="footer-location">ロサンゼルス</span> <time id="la-time"></time></p>
+        <p class="ft-clock"><span data-i18n="footer-location">ロサンゼルス</span></p>
       </div>
       <div class="ft-col">
         <h3 data-i18n="ft-services">サービス</h3>
@@ -2459,20 +2458,6 @@
       <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
     </div>
   </footer>
-  <script>
-    /* Local time in Los Angeles, the way studios sign their footer. Minute precision, no animation. */
-    (function () {
-      var el = document.getElementById('la-time');
-      if (!el || !window.Intl) return;
-      function tick() {
-        var ja = document.documentElement.lang === 'ja';
-        el.textContent = new Intl.DateTimeFormat(ja ? 'ja-JP' : 'en-US', { timeZone: 'America/Los_Angeles', hour: 'numeric', minute: '2-digit', hour12: !ja }).format(new Date());
-      }
-      tick();
-      setInterval(tick, 30000);
-      document.addEventListener('click', function (e) { if (e.target.closest('.lang-toggle, .ft-lang, .mm-lang')) setTimeout(tick, 0); });
-    })();
-  </script>
 
   <script>
     /* ── TRANSLATIONS ── */
