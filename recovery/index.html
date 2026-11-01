@@ -805,6 +805,10 @@
       color: var(--sage);
     }
     .nav-links a.active:hover { color: var(--sage); }
+    /* match the home header: JA line-height and toggle color */
+    html[lang="ja"] nav { line-height: 1.8; }
+    nav .lang-toggle { color: rgba(17,17,16,0.58); }
+    nav .lang-toggle:hover { color: #111110; }
     .nav-links a.active::after { right: 0; }
     @media (max-width: 880px) { .nav-links { display: none; } }
     .legacy-lang[hidden], div[hidden] .lang-btn, div[hidden] .lang-sep { display: none; }
