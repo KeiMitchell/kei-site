@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja" id="html-root">
 <head>
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JLHW59CHY6');
-  </script>
+  <!-- Analytics: loads only after consent (see /consent.js) -->
+  <script src="/consent.js" defer></script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -714,6 +708,14 @@
     }
     .section-lede { font-size: 16px; font-weight: 300; line-height: 1.75; }
     .btn-white { box-shadow: none; }
+
+    /* SMS consent + legibility on the dark CTA */
+    .cta-field label.cta-consent { display: flex; gap: 10px; align-items: flex-start; margin-top: 6px; font-size: 12.5px; line-height: 1.5; font-weight: 400; color: rgba(255,255,255,0.86); cursor: pointer; }
+    .cta-field .cta-consent input { width: 16px; height: 16px; padding: 0; margin: 2px 0 0; flex: 0 0 auto; accent-color: #ffffff; cursor: pointer; }
+    .cta-field label { color: rgba(255,255,255,0.9); }
+    .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.62); }
+    .cta-sub { opacity: 0.85; }
+    .cta-back { color: rgba(255,255,255,0.86); }
     .btn-white:hover { transform: none; box-shadow: none; }
       /* ── MOBILE MENU ── */
     .nav-burger { display: none; }
@@ -1563,20 +1565,20 @@
       <input type="hidden" name="form" value="ads-ai">
       <div class="cta-form-grid">
         <div class="cta-field">
-          <label data-i18n="form_label_name">お名前</label>
-          <input type="text" name="name" placeholder="山田 花子" required data-i18n-placeholder="form_ph_name">
+          <label for="f-name" data-i18n="form_label_name">お名前</label>
+          <input id="f-name" type="text" name="name" placeholder="山田 花子" required data-i18n-placeholder="form_ph_name">
         </div>
         <div class="cta-field">
-          <label data-i18n="form_label_email">メールアドレス</label>
-          <input type="email" name="email" placeholder="you@yourcompany.com" required>
+          <label for="f-email" data-i18n="form_label_email">メールアドレス</label>
+          <input id="f-email" type="email" name="email" placeholder="you@yourcompany.com" required>
         </div>
         <div class="cta-field">
-          <label data-i18n="form_label_company">会社名（任意）</label>
-          <input type="text" name="company" placeholder="株式会社サンプル" data-i18n-placeholder="form_ph_company">
+          <label for="f-company" data-i18n="form_label_company">会社名（任意）</label>
+          <input id="f-company" type="text" name="company" placeholder="株式会社サンプル" data-i18n-placeholder="form_ph_company">
         </div>
         <div class="cta-field">
-          <label data-i18n="form_label_platform">主な広告媒体</label>
-          <select name="platform">
+          <label for="f-platform" data-i18n="form_label_platform">主な広告媒体</label>
+          <select id="f-platform" name="platform">
             <option value="" data-i18n="form_ph_platform">媒体を選択</option>
             <option value="meta">Meta</option>
             <option value="google">Google</option>
@@ -1587,8 +1589,8 @@
           </select>
         </div>
         <div class="cta-field">
-          <label data-i18n="form_label_budget">月間広告予算</label>
-          <select name="ad_spend">
+          <label for="f-ad_spend" data-i18n="form_label_budget">月間広告予算</label>
+          <select id="f-ad_spend" name="ad_spend">
             <option value="" data-i18n="form_ph_budget">範囲を選択</option>
             <option value="none" data-i18n="form_opt_none">まだ出稿していない</option>
             <option value="under_10k" data-i18n="form_opt_b1">$10,000未満</option>
@@ -1598,12 +1600,13 @@
           </select>
         </div>
         <div class="cta-field">
-          <label data-i18n="form_label_phone">電話番号（任意）</label>
-          <input type="tel" name="phone" placeholder="(310) 555-0100">
+          <label for="f-phone" data-i18n="form_label_phone">電話番号（任意）</label>
+          <input id="f-phone" type="tel" name="phone" placeholder="(310) 555-0100">
+          <label class="cta-consent" for="f-sms_consent"><input type="checkbox" id="f-sms_consent" name="sms_consent" value="yes (wording 2026-11-09)"><span data-i18n="form_sms_consent">このお問い合わせについて、hanjo からこの番号に電話・SMS（自動送信を含む）で連絡することに同意します。通信料がかかる場合があります。STOP と返信すると停止できます。チェックしなくても送信できます。</span></label>
         </div>
         <div class="cta-field cta-full">
-          <label data-i18n="form_label_challenge">改善したいことは？（任意）</label>
-          <textarea name="challenge" placeholder="例：Meta広告のCPAが上がり続けている…" data-i18n-placeholder="form_ph_challenge"></textarea>
+          <label for="f-challenge" data-i18n="form_label_challenge">改善したいことは？（任意）</label>
+          <textarea id="f-challenge" name="challenge" placeholder="例：Meta広告のCPAが上がり続けている…" data-i18n-placeholder="form_ph_challenge"></textarea>
         </div>
       </div>
       <div class="cta-form-footer">
@@ -1778,6 +1781,7 @@
       form_label_platform: 'Primary ad platform', form_ph_platform: 'Select your platform', form_opt_other: 'Other',
       form_label_budget: 'Monthly ad budget', form_ph_budget: 'Select range', form_opt_none: 'Not running ads yet', form_opt_b1: 'Under $10,000',
       form_label_phone: 'Phone (optional)',
+      form_sms_consent: 'Yes, hanjo may call or text me at this number about my inquiry, including automated texts. Msg &amp; data rates may apply. Reply STOP to opt out. You can submit without checking this.',
       form_label_challenge: 'What would you like to improve? (optional)',
       form_ph_challenge: 'e.g. Running Meta ads but CPA keeps climbing…',
       form_btn: 'Request details →',
@@ -1931,6 +1935,7 @@
       form_label_platform: '主な広告媒体', form_ph_platform: '媒体を選択', form_opt_other: 'その他',
       form_label_budget: '月間広告予算', form_ph_budget: '範囲を選択', form_opt_none: 'まだ出稿していない', form_opt_b1: '$10,000未満',
       form_label_phone: '電話番号（任意）',
+      form_sms_consent: 'このお問い合わせについて、hanjo からこの番号に電話・SMS（自動送信を含む）で連絡することに同意します。通信料がかかる場合があります。STOP と返信すると停止できます。チェックしなくても送信できます。',
       form_label_challenge: '改善したいことは？（任意）',
       form_ph_challenge: '例：Meta広告のCPAが上がり続けている…',
       form_btn: '詳細を問い合わせる →',

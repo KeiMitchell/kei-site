@@ -5,7 +5,7 @@ module.exports = async function handler(req, res) {
 
   const {
     name, email, company, website, businessType,
-    needs, tools, revenue, timeline, language, message, hp,
+    needs, tools, revenue, timeline, language, message, hp, agreed,
   } = req.body || {};
 
   // honeypot: silently accept bots
@@ -15,8 +15,13 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Name and email are required' });
   }
 
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  const ua = String(req.headers['user-agent'] || 'unknown').slice(0, 200);
+
   const list = v => (Array.isArray(v) ? v.join(', ') : v || '');
   const summaryLines = [
+    // Consent record: what was agreed to, when, and from where.
+    `Consent: ${agreed || 'not sent'} | ${new Date().toISOString()} | IP ${ip} | UA ${ua}`,
     company ? `Company: ${company}` : null,
     website ? `Website: ${website}` : null,
     businessType ? `Business type: ${businessType}` : null,

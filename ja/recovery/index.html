@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja" id="html-root">
 <head>
-  <!-- Google Analytics (GA4) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JLHW59CHY6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-JLHW59CHY6');
-  </script>
+  <!-- Analytics: loads only after consent (see /consent.js) -->
+  <script src="/consent.js" defer></script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -960,6 +954,14 @@
     }
     .section-lede { font-size: 16px; font-weight: 300; line-height: 1.75; }
     .btn-white { box-shadow: none; }
+
+    /* SMS consent + legibility on the dark CTA */
+    .cta-field label.cta-consent { display: flex; gap: 10px; align-items: flex-start; margin-top: 6px; font-size: 12.5px; line-height: 1.5; font-weight: 400; color: rgba(255,255,255,0.86); cursor: pointer; }
+    .cta-field .cta-consent input { width: 16px; height: 16px; padding: 0; margin: 2px 0 0; flex: 0 0 auto; accent-color: #ffffff; cursor: pointer; }
+    .cta-field label { color: rgba(255,255,255,0.9); }
+    .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.62); }
+    .cta-sub { opacity: 0.85; }
+    .cta-back { color: rgba(255,255,255,0.86); }
     .btn-white:hover { transform: none; box-shadow: none; }
       /* ── MOBILE MENU ── */
     .nav-burger { display: none; }
@@ -1999,13 +2001,13 @@
       <div class="form-step" id="step-1">
         <div class="cta-form-grid">
           <div class="cta-field">
-            <label data-i18n="form_label_name">お名前</label>
-            <input type="text" name="name" placeholder="山田 花子" required data-i18n-placeholder="form_ph_name">
+            <label for="f-name" data-i18n="form_label_name">お名前</label>
+            <input id="f-name" type="text" name="name" placeholder="山田 花子" required data-i18n-placeholder="form_ph_name">
             <span class="cta-field-error" data-i18n="form_err_required">入力してください</span>
           </div>
           <div class="cta-field">
-            <label data-i18n="form_label_email">メールアドレス</label>
-            <input type="email" name="email" placeholder="you@yourspa.com" required data-i18n-placeholder="form_ph_email">
+            <label for="f-email" data-i18n="form_label_email">メールアドレス</label>
+            <input id="f-email" type="email" name="email" placeholder="you@yourspa.com" required data-i18n-placeholder="form_ph_email">
             <span class="cta-field-error" data-i18n="form_err_email">正しいメールアドレスを入力してください</span>
           </div>
         </div>
@@ -2018,22 +2020,22 @@
       <div class="form-step" id="step-2" hidden>
         <div class="cta-form-grid">
           <div class="cta-field">
-            <label data-i18n="form_label_spa">サロン・クリニック名</label>
-            <input type="text" name="spa_name" placeholder="グロースキンスタジオ" required data-i18n-placeholder="form_ph_spa">
+            <label for="f-spa_name" data-i18n="form_label_spa">サロン・クリニック名</label>
+            <input id="f-spa_name" type="text" name="spa_name" placeholder="グロースキンスタジオ" required data-i18n-placeholder="form_ph_spa">
             <span class="cta-field-error" data-i18n="form_err_required">入力してください</span>
           </div>
           <div class="cta-field">
-            <label data-i18n="form_label_phone">電話番号（任意）</label>
-            <input type="tel" name="phone" placeholder="(310) 555-0100" data-i18n-placeholder="form_ph_phone">
-            <span class="cta-field-hint" data-i18n="form_phone_consent">任意。ご希望の場合のみお電話・SMSします。スパムは送りません。</span>
+            <label for="f-phone" data-i18n="form_label_phone">電話番号（任意）</label>
+            <input id="f-phone" type="tel" name="phone" placeholder="(310) 555-0100" data-i18n-placeholder="form_ph_phone">
+            <label class="cta-consent" for="f-sms_consent"><input type="checkbox" id="f-sms_consent" name="sms_consent" value="yes (wording 2026-11-09)"><span data-i18n="form_phone_consent">このお問い合わせについて、hanjo からこの番号に電話・SMS（自動送信を含む）で連絡することに同意します。通信料がかかる場合があります。STOP と返信すると停止できます。チェックしなくても送信できます。</span></label>
           </div>
           <div class="cta-field">
-            <label data-i18n="form_label_city">エリア（任意）</label>
-            <input type="text" name="city" placeholder="Beverly Hills、West Hollywoodなど" data-i18n-placeholder="form_ph_city">
+            <label for="f-city" data-i18n="form_label_city">エリア（任意）</label>
+            <input id="f-city" type="text" name="city" placeholder="Beverly Hills、West Hollywoodなど" data-i18n-placeholder="form_ph_city">
           </div>
           <div class="cta-field">
-            <label data-i18n="form_label_platform">予約管理システム（任意）</label>
-            <select name="platform">
+            <label for="f-platform" data-i18n="form_label_platform">予約管理システム（任意）</label>
+            <select id="f-platform" name="platform">
               <option value="" data-i18n="form_ph_platform">選択してください</option>
               <option value="square">Square</option>
               <option value="mindbody">Mindbody</option>
@@ -2043,8 +2045,8 @@
             </select>
           </div>
           <div class="cta-field">
-            <label data-i18n="form_label_adspend">月間広告費（任意）</label>
-            <select name="ad_spend">
+            <label for="f-ad_spend" data-i18n="form_label_adspend">月間広告費（任意）</label>
+            <select id="f-ad_spend" name="ad_spend">
               <option value="" data-i18n="form_ph_adspend">金額帯を選択</option>
               <option value="under_1k">Under $1,000</option>
               <option value="1k_5k">$1,000 – $5,000</option>
@@ -2053,8 +2055,8 @@
             </select>
           </div>
           <div class="cta-field cta-full">
-            <label data-i18n="form_label_challenge">現在の一番の課題は？（任意）</label>
-            <textarea name="challenge" placeholder="例：Meta広告を出しているが新規顧客が増えない…" data-i18n-placeholder="form_ph_challenge"></textarea>
+            <label for="f-challenge" data-i18n="form_label_challenge">現在の一番の課題は？（任意）</label>
+            <textarea id="f-challenge" name="challenge" placeholder="例：Meta広告を出しているが新規顧客が増えない…" data-i18n-placeholder="form_ph_challenge"></textarea>
           </div>
         </div>
         <div class="cta-form-footer">
@@ -2289,7 +2291,7 @@
       form_ph_adspend: 'Select range',
       form_ph_challenge: 'e.g. Running Meta ads but not seeing new clients book…',
       form_opt_other: 'Other',
-      form_phone_consent: 'Optional. Only used if you ask for a call or text, never spam.',
+      form_phone_consent: 'Yes, hanjo may call or text me at this number about my inquiry, including automated texts. Msg &amp; data rates may apply. Reply STOP to opt out. You can submit without checking this.',
       form_step1: 'Step 1 of 2',
       form_step2: 'Step 2 of 2',
       form_continue: 'Continue →',
@@ -2503,7 +2505,7 @@
       form_ph_adspend: '金額帯を選択',
       form_ph_challenge: '例：Meta広告を出しているが新規顧客が増えない…',
       form_opt_other: 'その他',
-      form_phone_consent: '任意。ご希望の場合のみお電話・SMSします。スパムは送りません。',
+      form_phone_consent: 'このお問い合わせについて、hanjo からこの番号に電話・SMS（自動送信を含む）で連絡することに同意します。通信料がかかる場合があります。STOP と返信すると停止できます。チェックしなくても送信できます。',
       form_step1: 'ステップ 1 / 2',
       form_step2: 'ステップ 2 / 2',
       form_continue: '次へ →',
