@@ -35,7 +35,7 @@
 
     :root {
       --black:   #111110;
-      --gray:    #6B6B68;
+      --gray:    #5C5C59;
       --light:   #F5F4F0;
       --white:   #FFFFFF;
       --sage:    #3A5C45;
@@ -801,7 +801,7 @@
     .nav-links a.active:hover { color: var(--sage); }
     /* match the home header: JA line-height and toggle color */
     html[lang="ja"] nav { line-height: 1.8; }
-    nav .lang-toggle { color: rgba(17,17,16,0.58); }
+    nav .lang-toggle { color: rgba(17,17,16,0.68); }
     nav .lang-toggle:hover { color: #111110; }
     .nav-links a.active::after { right: 0; }
     @media (max-width: 880px) { .nav-links { display: none; } }
@@ -978,7 +978,7 @@
         font-size: 13.5px;
         font-weight: 500;
         letter-spacing: 0.04em;
-        color: #6B6B68;
+        color: #5C5C59;
         cursor: pointer;
         font-family: inherit;
         opacity: 0;
@@ -1125,7 +1125,7 @@
     .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
     .footer-meta a, .footer-meta span {
       font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
-      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+      color: var(--gray, #5C5C59); text-decoration: none; padding: 8px 0; display: inline-block;
     }
     .footer-meta a:hover { color: #111110; }
     .footer-logo img { height: 22px; display: block; }
@@ -1319,6 +1319,8 @@
     body.lang-ja .rx-back-list li, body.lang-ja .rx-back-lead { line-height: 1.85; }
     .rx-form-result { margin-top: 28px; background: var(--board); border-radius: 4px; padding: 20px 24px; font-size: 16px; line-height: 1.6; color: var(--gray); }
     .rx-form-result strong { color: var(--black); font-weight: 600; }
+      /* focus ring stays visible on the sage sections */
+    .s-dark :focus-visible, .cta-banner :focus-visible { outline-color: #ffffff; }
   </style>
 
   <script type="speculationrules">
@@ -1519,6 +1521,7 @@
 
 
 <!-- HERO -->
+<main>
 <section class="hero" id="main" tabindex="-1">
   <div class="container rx-grid">
   <div class="rx-copy">
@@ -2075,6 +2078,7 @@
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer>
     <div class="footer-inner">
       <span class="footer-logo" aria-label="hanjo">

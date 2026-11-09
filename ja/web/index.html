@@ -41,7 +41,7 @@
       --sage:    #3A5C45;
       --ink:     #111110;
       --muted:   rgba(17,17,16,0.72);
-      --faint:   rgba(17,17,16,0.58);
+      --faint:   rgba(17,17,16,0.68);
       --border:  #E4E2DC;
       --radius:  14px;
       --radius-sm: 100px;
@@ -111,7 +111,7 @@
     .cta-inner { max-width: var(--max); margin: 0 auto; padding: 88px 24px 104px; }
     .cta-inner h2 { font-size: clamp(30px, 5vw, 48px); color: rgba(255,255,255,0.9); margin-bottom: 22px; }
     .cta-inner h2 strong { font-weight: 700; font-style: italic; display: block; color: #ffffff; }
-    .cta-inner > p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.72; margin-bottom: 40px; max-width: 460px; }
+    .cta-inner > p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.72; margin-bottom: 40px; max-width: 460px; }
     .cta-note-dark { display: block; margin-top: 14px; font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.3); letter-spacing: 0.03em; }
     footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.09); }
     .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -370,7 +370,7 @@
         font-size: 13.5px;
         font-weight: 500;
         letter-spacing: 0.04em;
-        color: #6B6B68;
+        color: #5C5C59;
         cursor: pointer;
         font-family: inherit;
         opacity: 0;
@@ -528,7 +528,7 @@
     .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
     .footer-meta a, .footer-meta span {
       font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
-      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+      color: var(--gray, #5C5C59); text-decoration: none; padding: 8px 0; display: inline-block;
     }
     .footer-meta a:hover { color: #111110; }
     .footer-logo img { height: 22px; display: block; }
@@ -577,7 +577,7 @@
     /* ── 2026-10 quiet editorial pass (see /DESIGN.md) ──
        Hero copy then real client work on the Board; plain headings,
        no eyebrow labels, no scroll fade, hairline lists. */
-    :root { --board: #E8EBE4; --muted-solid: #6B6B68; }
+    :root { --board: #E8EBE4; --muted-solid: #5C5C59; }
     [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; transition: none !important; }
     .btn--dark::after, .btn--light::after, .nav-cta::after { content: none !important; animation: none !important; }
 
@@ -620,6 +620,8 @@
       .wx-board { grid-template-columns: 1fr; padding: 20px; }
       .wx-phone { display: none; }
     }
+      /* focus ring stays visible on the sage sections */
+    .s-dark :focus-visible, .cta-banner :focus-visible { outline-color: #ffffff; }
   </style>
 
   <script type="speculationrules">
@@ -804,6 +806,7 @@
     <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
 </div>
 
+  <main>
   <div class="page-hero" id="main" tabindex="-1">
     <div class="split-hero">
     <div class="sh-head">
@@ -980,6 +983,7 @@
     </div>
   </div>
 
+  </main>
   <footer>
     <div class="footer-inner">
       <span class="footer-logo" aria-label="hanjo">

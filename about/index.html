@@ -36,7 +36,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --bg: #F5F4F0; --white: #ffffff; --sage: #3A5C45; --ink: #111110;
-      --muted: #6B6B68; --faint: rgba(17,17,16,0.58); --border: #E4E2DC;
+      --muted: #5C5C59; --faint: rgba(17,17,16,0.68); --border: #E4E2DC;
       --radius: 14px; --radius-sm: 100px; --max: 720px;
     }
     html { scroll-behavior: smooth; }
@@ -187,7 +187,7 @@
         font-size: 13.5px;
         font-weight: 500;
         letter-spacing: 0.04em;
-        color: #6B6B68;
+        color: #5C5C59;
         cursor: pointer;
         font-family: inherit;
         opacity: 0;
@@ -336,7 +336,7 @@
     .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
     .footer-meta a, .footer-meta span {
       font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
-      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+      color: var(--gray, #5C5C59); text-decoration: none; padding: 8px 0; display: inline-block;
     }
     .footer-meta a:hover { color: #111110; }
     .footer-logo img { height: 22px; display: block; }
@@ -380,6 +380,8 @@
       word-break: auto-phrase;
       line-break: strict;
     }
+      /* focus ring stays visible on the sage sections */
+    .s-dark :focus-visible, .cta-banner :focus-visible { outline-color: #ffffff; }
   </style>
 
   <script type="speculationrules">
@@ -501,6 +503,7 @@
     <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
 </div>
 
+  <main>
   <div class="page-hero" id="main" tabindex="-1">
     <div class="section">
       <h1 data-i18n="d-h1">About hanjo</h1>
@@ -522,6 +525,7 @@
 
   </div>
 
+  </main>
   <footer>
     <div class="footer-inner">
       <span class="footer-logo" aria-label="hanjo">

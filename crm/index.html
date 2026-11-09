@@ -46,7 +46,7 @@
       --sage:    #3A5C45;
       --ink:     #111110;
       --muted:   rgba(17,17,16,0.72);
-      --faint:   rgba(17,17,16,0.58);
+      --faint:   rgba(17,17,16,0.68);
       --border:  #E4E2DC;
       --shadow:  0 1px 4px rgba(17,17,16,0.06), 0 8px 28px rgba(17,17,16,0.05);
       --radius:  14px;
@@ -792,7 +792,7 @@
     .cta-inner > p {
       font-size: 16px;
       font-weight: 300;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.82);
       line-height: 1.72;
       margin-bottom: 44px;
       max-width: 460px;
@@ -1270,7 +1270,7 @@
         font-size: 13.5px;
         font-weight: 500;
         letter-spacing: 0.04em;
-        color: #6B6B68;
+        color: #5C5C59;
         cursor: pointer;
         font-family: inherit;
         opacity: 0;
@@ -1420,7 +1420,7 @@
     .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
     .footer-meta a, .footer-meta span {
       font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
-      color: var(--gray, #6B6B68); text-decoration: none; padding: 8px 0; display: inline-block;
+      color: var(--gray, #5C5C59); text-decoration: none; padding: 8px 0; display: inline-block;
     }
     .footer-meta a:hover { color: #111110; }
     .footer-logo img { height: 22px; display: block; }
@@ -1469,7 +1469,7 @@
     /* ── 2026-10 quiet editorial pass (see /DESIGN.md) ──
        Same copy; plain left-aligned headings, no eyebrow labels, hairline
        lists instead of card grids, the case study on cream like the home result. */
-    :root { --board: #E8EBE4; --muted-solid: #6B6B68; }
+    :root { --board: #E8EBE4; --muted-solid: #5C5C59; }
     .label { display: none !important; }
     h2 { text-wrap: balance; }
     h2 span { font-style: normal; }
@@ -1516,6 +1516,8 @@
     }
     .s-case .growth-bars { height: 150px; }
     .lc-stat, .lc-board, .lc-flow { border-radius: 4px !important; box-shadow: none !important; }
+      /* focus ring stays visible on the sage sections */
+    .s-dark :focus-visible, .cta-banner :focus-visible { outline-color: #ffffff; }
   </style>
 
   <script type="speculationrules">
@@ -1691,6 +1693,7 @@
 </div>
 
   <!-- HERO -->
+  <main>
   <div class="hero" id="main" tabindex="-1">
     <div class="hero-left">
       <div>
@@ -2059,6 +2062,7 @@
   </div>
 
   <!-- FOOTER -->
+  </main>
   <footer>
     <div class="footer-inner">
       <span class="footer-logo" aria-label="hanjo">
