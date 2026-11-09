@@ -708,9 +708,7 @@
     .section-lede { font-size: 16px; font-weight: 300; line-height: 1.75; }
     .btn-white { box-shadow: none; }
 
-    /* SMS consent + legibility on the dark CTA */
-    .cta-field label.cta-consent { display: flex; gap: 10px; align-items: flex-start; margin-top: 6px; font-size: 12.5px; line-height: 1.5; font-weight: 400; color: rgba(255,255,255,0.86); cursor: pointer; }
-    .cta-field .cta-consent input { width: 16px; height: 16px; padding: 0; margin: 2px 0 0; flex: 0 0 auto; accent-color: #ffffff; cursor: pointer; }
+    /* legibility on the dark CTA */
     .cta-field label { color: rgba(255,255,255,0.9); }
     .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.62); }
     .cta-sub { opacity: 0.85; }
@@ -1605,11 +1603,6 @@
             <option value="over_50k">$50,000+</option>
           </select>
         </div>
-        <div class="cta-field">
-          <label for="f-phone" data-i18n="form_label_phone">Phone (optional)</label>
-          <input id="f-phone" type="tel" name="phone" placeholder="(310) 555-0100">
-          <label class="cta-consent" for="f-sms_consent"><input type="checkbox" id="f-sms_consent" name="sms_consent" value="yes (wording 2026-11-09)"><span data-i18n="form_sms_consent">Yes, hanjo may call or text me at this number about my inquiry, including automated texts. Msg &amp; data rates may apply. Reply STOP to opt out. You can submit without checking this.</span></label>
-        </div>
         <div class="cta-field cta-full">
           <label for="f-challenge" data-i18n="form_label_challenge">What would you like to improve? (optional)</label>
           <textarea id="f-challenge" name="challenge" placeholder="e.g. Running Meta ads but CPA keeps climbing…" data-i18n-placeholder="form_ph_challenge"></textarea>
@@ -1786,8 +1779,6 @@
       form_label_company: 'Company (optional)', form_ph_company: 'Acme Inc.',
       form_label_platform: 'Primary ad platform', form_ph_platform: 'Select your platform', form_opt_other: 'Other',
       form_label_budget: 'Monthly ad budget', form_ph_budget: 'Select range', form_opt_none: 'Not running ads yet', form_opt_b1: 'Under $10,000',
-      form_label_phone: 'Phone (optional)',
-      form_sms_consent: 'Yes, hanjo may call or text me at this number about my inquiry, including automated texts. Msg &amp; data rates may apply. Reply STOP to opt out. You can submit without checking this.',
       form_label_challenge: 'What would you like to improve? (optional)',
       form_ph_challenge: 'e.g. Running Meta ads but CPA keeps climbing…',
       form_btn: 'Request details →',
@@ -1940,8 +1931,6 @@
       form_label_company: '会社名（任意）', form_ph_company: '株式会社サンプル',
       form_label_platform: '主な広告媒体', form_ph_platform: '媒体を選択', form_opt_other: 'その他',
       form_label_budget: '月間広告予算', form_ph_budget: '範囲を選択', form_opt_none: 'まだ出稿していない', form_opt_b1: '$10,000未満',
-      form_label_phone: '電話番号（任意）',
-      form_sms_consent: 'このお問い合わせについて、hanjo からこの番号に電話・SMS（自動送信を含む）で連絡することに同意します。通信料がかかる場合があります。STOP と返信すると停止できます。チェックしなくても送信できます。',
       form_label_challenge: '改善したいことは？（任意）',
       form_ph_challenge: '例：Meta広告のCPAが上がり続けている…',
       form_btn: '詳細を問い合わせる →',

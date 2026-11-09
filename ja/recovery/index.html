@@ -955,9 +955,7 @@
     .section-lede { font-size: 16px; font-weight: 300; line-height: 1.75; }
     .btn-white { box-shadow: none; }
 
-    /* SMS consent + legibility on the dark CTA */
-    .cta-field label.cta-consent { display: flex; gap: 10px; align-items: flex-start; margin-top: 6px; font-size: 12.5px; line-height: 1.5; font-weight: 400; color: rgba(255,255,255,0.86); cursor: pointer; }
-    .cta-field .cta-consent input { width: 16px; height: 16px; padding: 0; margin: 2px 0 0; flex: 0 0 auto; accent-color: #ffffff; cursor: pointer; }
+    /* legibility on the dark CTA */
     .cta-field label { color: rgba(255,255,255,0.9); }
     .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.62); }
     .cta-sub { opacity: 0.85; }
@@ -2025,11 +2023,6 @@
             <span class="cta-field-error" data-i18n="form_err_required">入力してください</span>
           </div>
           <div class="cta-field">
-            <label for="f-phone" data-i18n="form_label_phone">電話番号（任意）</label>
-            <input id="f-phone" type="tel" name="phone" placeholder="(310) 555-0100" data-i18n-placeholder="form_ph_phone">
-            <label class="cta-consent" for="f-sms_consent"><input type="checkbox" id="f-sms_consent" name="sms_consent" value="yes (wording 2026-11-09)"><span data-i18n="form_phone_consent">このお問い合わせについて、hanjo からこの番号に電話・SMS（自動送信を含む）で連絡することに同意します。通信料がかかる場合があります。STOP と返信すると停止できます。チェックしなくても送信できます。</span></label>
-          </div>
-          <div class="cta-field">
             <label for="f-city" data-i18n="form_label_city">エリア（任意）</label>
             <input id="f-city" type="text" name="city" placeholder="Beverly Hills、West Hollywoodなど" data-i18n-placeholder="form_ph_city">
           </div>
@@ -2276,7 +2269,6 @@
       cta_sub: 'Free audit. No setup fee, no monthly fee, no obligation to continue.',
       form_label_name: 'Your name',
       form_label_spa: 'Spa name',
-      form_label_phone: 'Phone (optional)',
       form_label_email: 'Email',
       form_label_city: 'Neighborhood / city (optional)',
       form_label_platform: 'Booking platform (optional)',
@@ -2284,14 +2276,12 @@
       form_label_challenge: 'What\'s your biggest challenge? (optional)',
       form_ph_name: 'Jane Kim',
       form_ph_spa: 'Glow Skin Studio',
-      form_ph_phone: '(310) 555-0100',
       form_ph_email: 'you@yourspa.com',
       form_ph_city: 'Beverly Hills, West Hollywood…',
       form_ph_platform: 'Select your platform',
       form_ph_adspend: 'Select range',
       form_ph_challenge: 'e.g. Running Meta ads but not seeing new clients book…',
       form_opt_other: 'Other',
-      form_phone_consent: 'Yes, hanjo may call or text me at this number about my inquiry, including automated texts. Msg &amp; data rates may apply. Reply STOP to opt out. You can submit without checking this.',
       form_step1: 'Step 1 of 2',
       form_step2: 'Step 2 of 2',
       form_continue: 'Continue →',
@@ -2490,7 +2480,6 @@
       cta_sub: '無料診断。初期費用も月額費用もなし、継続の義務もありません。',
       form_label_name: 'お名前',
       form_label_spa: 'サロン・クリニック名',
-      form_label_phone: '電話番号（任意）',
       form_label_email: 'メールアドレス',
       form_label_city: 'エリア（任意）',
       form_label_platform: '予約管理システム（任意）',
@@ -2498,14 +2487,12 @@
       form_label_challenge: '現在の一番の課題は？（任意）',
       form_ph_name: '山田 花子',
       form_ph_spa: 'グロースキンスタジオ',
-      form_ph_phone: '(310) 555-0100',
       form_ph_email: 'you@yourspa.com',
       form_ph_city: 'Beverly Hills、West Hollywoodなど',
       form_ph_platform: '選択してください',
       form_ph_adspend: '金額帯を選択',
       form_ph_challenge: '例：Meta広告を出しているが新規顧客が増えない…',
       form_opt_other: 'その他',
-      form_phone_consent: 'このお問い合わせについて、hanjo からこの番号に電話・SMS（自動送信を含む）で連絡することに同意します。通信料がかかる場合があります。STOP と返信すると停止できます。チェックしなくても送信できます。',
       form_step1: 'ステップ 1 / 2',
       form_step2: 'ステップ 2 / 2',
       form_continue: '次へ →',
