@@ -138,6 +138,14 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://hanjo.ai/accessibility/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://hanjo.ai/accessibility/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://hanjo.ai/ja/accessibility/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://hanjo.ai/accessibility/"/>
+    <lastmod>2026-07-28</lastmod>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://hanjo.ai/ja/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://hanjo.ai/privacy/"/>
     <xhtml:link rel="alternate" hreflang="ja" href="https://hanjo.ai/ja/privacy/"/>

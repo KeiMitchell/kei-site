@@ -143,6 +143,22 @@
     {
       "source": "/ja/privacy/",
       "destination": "/ja/privacy/index.html"
+    },
+    {
+      "source": "/en/accessibility",
+      "destination": "/accessibility/index.html"
+    },
+    {
+      "source": "/en/accessibility/",
+      "destination": "/accessibility/index.html"
+    },
+    {
+      "source": "/ja/accessibility",
+      "destination": "/ja/accessibility/index.html"
+    },
+    {
+      "source": "/ja/accessibility/",
+      "destination": "/ja/accessibility/index.html"
     }
   ]
 }

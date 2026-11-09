@@ -17,7 +17,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node
 import { dirname, join } from "node:path";
 import vm from "node:vm";
 
-const PAGES = ["", "crm", "web", "ads", "recovery", "about", "contact", "terms", "privacy"];
+const PAGES = ["", "crm", "web", "ads", "recovery", "about", "contact", "terms", "privacy", "accessibility"];
 const ORIGIN = "https://hanjo.ai";
 
 /*
@@ -60,6 +60,10 @@ const HEAD_JA = {
   privacy: {
     title: "プライバシーポリシー · hanjo · ロサンゼルス",
     description: "hanjo.ai ウェブサイトのプライバシーポリシー。",
+  },
+  accessibility: {
+    title: "アクセシビリティ · hanjo · ロサンゼルス",
+    description: "hanjo.ai のアクセシビリティ方針。WCAG 2.1 AA を目標とした対応内容と、不具合のご連絡方法。",
   },
 };
 
