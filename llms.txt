@@ -28,3 +28,11 @@ Every page exists in Japanese at the same path under `/ja/`, as fully rendered J
 - Specialty vertical: booking-based local businesses (beauty salons, head spas, esthetics, dental, clinics)
 - Pricing model: performance-based where possible (for example, a share of recovered or newly generated booking value; no setup or monthly fee for hanjo Recovery)
 - Booking platform focus: Square (with others by request)
+
+## How hanjo approaches AI-assisted booking
+
+More customers now ask an AI assistant where to book. hanjo's work is organized around what that assistant needs:
+
+- Be understood: services, prices, durations, and policies stated clearly and consistently on the site and listings (hanjo Web).
+- Be bookable: a booking form that works on the first try, plus follow-ups to people who stopped partway (hanjo Recovery).
+- Be remembered: retention email and SMS that bring customers back directly instead of re-shopping (hanjo CRM).
