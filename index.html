@@ -1932,6 +1932,10 @@
     }
     @media (prefers-reduced-motion: reduce) { .hx-case-img img { transition: none; } }
 
+    .hx-lede { max-width: 680px; margin: -24px 0 40px; font-size: 17px; line-height: 1.7; color: var(--muted-solid); }
+    html[lang="ja"] .hx-lede { line-height: 1.9; }
+    .hx-more { display: inline-block; margin-top: 10px; font-size: 14px; font-weight: 500; color: var(--sage, #3A5C45); text-decoration: none; }
+    .hx-more:hover { text-decoration: underline; text-underline-offset: 3px; }
     .hx-list { list-style: none; border-top: 1px solid var(--border); max-width: 860px; }
     .hx-list li { padding: 24px 0; border-bottom: 1px solid var(--border); }
     .hx-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.005em; }
@@ -2314,6 +2318,31 @@
     </div>
   </div>
 
+  <!-- AGENT-READY: why the loop matters when customers ask an AI where to book -->
+  <div class="s-white hx-rule">
+    <div class="hx-sec">
+      <h2 data-i18n="ai-h2">Be the business AI recommends, <span>and the one it can book.</span></h2>
+      <p class="hx-lede" data-i18n="ai-p">More people now ask an AI assistant where to book instead of scrolling through search results. The assistant picks the places it can understand, trust, and book without a phone call. We make your business one of them, then make sure customers come back to you directly.</p>
+      <ul class="hx-list">
+        <li>
+          <h3 data-i18n="ai-1-h">Be understood</h3>
+          <p data-i18n="ai-1-p">Clear services, prices, durations, and policies on your site and listings, written so a person or an assistant reads them the same way. Vague copy gets skipped.</p>
+          <a class="hx-more" href="/web/">hanjo Web <span aria-hidden="true">→</span></a>
+        </li>
+        <li>
+          <h3 data-i18n="ai-2-h">Be bookable</h3>
+          <p data-i18n="ai-2-p">A booking form that works on the first try, and follow-ups that catch the people who stopped halfway. If nobody answers, the customer, or their assistant, moves on to the next name.</p>
+          <a class="hx-more" href="/recovery/">hanjo Recovery <span aria-hidden="true">→</span></a>
+        </li>
+        <li>
+          <h3 data-i18n="ai-3-h">Be remembered</h3>
+          <p data-i18n="ai-3-p">An assistant can compare ten salons on price and open slots. It can't know your client's usual treatment, their stylist, or when they're due back. We use what you know to bring them back before they shop around again.</p>
+          <a class="hx-more" href="/crm/">hanjo CRM <span aria-hidden="true">→</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <!-- SELECTED WORK: one named case, then the result below it -->
   <div class="s-white hx-rule">
     <div class="hx-sec">
@@ -2477,6 +2506,14 @@
     /* ── TRANSLATIONS ── */
     const T = {
       en: {
+        'ai-h2': 'Be the business AI recommends, <span>and the one it can book.</span>',
+        'ai-p': 'More people now ask an AI assistant where to book instead of scrolling through search results. The assistant picks the places it can understand, trust, and book without a phone call. We make your business one of them, then make sure customers come back to you directly.',
+        'ai-1-h': 'Be understood',
+        'ai-1-p': 'Clear services, prices, durations, and policies on your site and listings, written so a person or an assistant reads them the same way. Vague copy gets skipped.',
+        'ai-2-h': 'Be bookable',
+        'ai-2-p': 'A booking form that works on the first try, and follow-ups that catch the people who stopped halfway. If nobody answers, the customer, or their assistant, moves on to the next name.',
+        'ai-3-h': 'Be remembered',
+        'ai-3-p': "An assistant can compare ten salons on price and open slots. It can't know your client's usual treatment, their stylist, or when they're due back. We use what you know to bring them back before they shop around again.",
         'hero-bubble':      'for businesses expanding in the U.S.',
         'who-label': 'Who we work with',
         'who-h2': 'Three kinds of business <span>we know well.</span>',
@@ -2649,6 +2686,14 @@
         'footer-location': 'Los Angeles, CA',
       },
       ja: {
+        'ai-h2': 'AIに選ばれ、<br><span>そのまま予約される店舗へ。</span>',
+        'ai-p': 'どこを予約するかを、検索ではなくAIアシスタントに尋ねる人が増えています。AIが候補に挙げるのは、内容が読み取れて、信頼できて、電話なしで予約まで進められる店舗です。hanjoはその候補に入る状態をつくり、次からは直接戻ってきていただける関係を育てます。',
+        'ai-1-h': '伝わる',
+        'ai-1-p': 'メニュー・料金・所要時間・ポリシーを、サイトと掲載情報でそろえて明記します。人が読んでもAIが読んでも、同じように伝わる状態にします。',
+        'ai-2-h': '予約できる',
+        'ai-2-p': '迷わず進める予約フォームと、途中で止まった方へのフォローアップ。返事がなければ、お客様もAIも次の候補へ移ってしまいます。',
+        'ai-3-h': '覚えている',
+        'ai-3-p': '料金と空き枠の比較はAIにもできます。けれど、いつもの施術や担当スタッフ、次に来ていただきたい時期を知っているのはお店だけです。その情報を生かして、比較される前に戻ってきていただきます。',
         'hero-bubble':      '米国で事業展開する',
         'who-label': '得意分野',
         'who-h2': '力になれるのは、<br><span>この3つの事業です。</span>',
