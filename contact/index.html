@@ -468,6 +468,59 @@
     }
       /* focus ring stays visible on the sage sections */
     .s-dark :focus-visible, .cta-banner :focus-visible { outline-color: #ffffff; }
+
+    /* ── Two-step inquiry (2026-11): taps first, contact details second ── */
+    #inquiry-form { display: block; }
+    input[type="text"], input[type="email"], textarea { font-size: 16px; }
+    .f-progress { height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; margin-bottom: 36px; }
+    .f-progress i { display: block; height: 100%; width: 100%; background: var(--sage); transform-origin: left; transform: scaleX(.5); transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+    #inquiry-form.on-2 .f-progress i { transform: scaleX(1); }
+    .fs { transition: opacity .35s, transform .45s cubic-bezier(.2,.8,.2,1); }
+    .fs.is-entering { opacity: 0; transform: translateX(24px); }
+    .fs fieldset { border: 0; padding: 0; margin: 0 0 34px; min-width: 0; }
+    .fs-step { font-size: 13px; font-weight: 500; color: var(--sage); margin-bottom: 10px; }
+    .fs-q { display: block; font-family: 'Playfair Display', serif; font-size: clamp(24px, 3vw, 30px); font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 6px; padding: 0; }
+    .fs-q--sm { font-size: clamp(19px, 2.2vw, 22px); margin-bottom: 14px; }
+    html[lang="ja"] .fs-q { font-family: 'Shippori Mincho B1', serif; font-weight: 600; letter-spacing: .02em; }
+    .fs-hint { font-size: 14px; color: var(--muted); margin-bottom: 18px; }
+    .f-opt { font-family: 'Inter', 'Noto Sans JP', sans-serif; font-size: 13px; font-weight: 400; color: var(--faint); letter-spacing: 0; }
+    .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+    .tile { position: relative; display: block; }
+    .tile input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; z-index: 1; }
+    .tile-in { position: relative; display: block; height: 100%; padding: 16px 44px 16px 16px; background: var(--white); border: 1px solid var(--border); border-radius: 14px; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+    .tile-ico { display: block; color: var(--sage); margin-bottom: 10px; }
+    .tile-in b { display: block; font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--ink); }
+    html[lang="ja"] .tile-in b { word-break: auto-phrase; }
+    .tile-in small { display: block; margin-top: 3px; font-size: 13px; color: var(--muted); }
+    .tile-tick { position: absolute; top: 14px; right: 14px; padding: 3px; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--border); color: transparent; transition: background-color .15s, color .15s, border-color .15s; }
+    .tile:hover .tile-in { border-color: rgba(58,92,69,.45); }
+    .tile input:checked + .tile-in { border-color: var(--sage); box-shadow: inset 0 0 0 1px var(--sage); background: #F6F8F5; }
+    .tile input:checked + .tile-in .tile-tick { background: var(--sage); border-color: var(--sage); color: #fff; }
+    .tile input:focus-visible + .tile-in { box-shadow: 0 0 0 3px rgba(58,92,69,.3); }
+    .pill span { font-size: 14px; padding: 10px 18px; }
+    .f-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 16px; margin-top: 22px; }
+    .f-grid .f-full { grid-column: 1 / -1; }
+    .fs-actions { display: flex; align-items: center; gap: 22px; margin-top: 28px; }
+    .fs-actions .btn { font-size: 15px; padding: 16px 32px; min-height: 52px; }
+    .f-back { background: none; border: 0; padding: 8px 0; font-size: 14px; font-weight: 500; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 4px; }
+    .f-back:hover { color: var(--ink); }
+    .f-consent { margin-top: 16px; font-size: 12.5px; line-height: 1.6; color: var(--faint); }
+    .f-consent a { color: inherit; text-underline-offset: 3px; }
+    .f-err { display: none; margin-top: 8px; font-size: 13px; color: #8a2a1f; }
+    .is-invalid .f-err, .f-err.is-shown { display: block; }
+    .is-invalid input { border-color: #C9776B; }
+    #inquiry-form .form-status { margin-top: 18px; }
+    @media (max-width: 640px) {
+      .tiles { grid-template-columns: 1fr; }
+      .tile-in { display: grid; grid-template-columns: 22px 1fr; column-gap: 12px; align-items: center; padding: 14px 48px 14px 14px; }
+      .tile-ico { grid-row: 1 / 3; margin: 0; }
+      .tile-in small { margin-top: 1px; }
+      .tile-tick { top: 50%; translate: 0 -50%; }
+      .f-grid { grid-template-columns: 1fr; }
+      .fs-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+      .fs-actions .btn { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { .fs, .f-progress i { transition: none; } }
   </style>
 
   <script type="speculationrules">
@@ -593,117 +646,75 @@
   <div class="page-hero" id="main" tabindex="-1">
     <div class="section">
       <h1 data-i18n="c-h1">Tell us about your business.</h1>
-      <p class="lead" data-i18n="c-lead">First, we listen. Tell us about your business and whatever feels stuck right now.</p>
+      <p class="lead" data-i18n="c-lead">Two quick steps, about a minute. We reply by email, in English or Japanese.</p>
     </div>
   </div>
 
   <div class="section">
     <form id="inquiry-form" novalidate>
-      <div>
-        <label class="f-label" for="f-name"><span data-i18n="f-name">Your name</span> <span class="f-req">*</span></label>
-        <input type="text" id="f-name" name="name" required autocomplete="name" />
-      </div>
-      <div>
-        <label class="f-label" for="f-email"><span data-i18n="f-email">Email</span> <span class="f-req">*</span></label>
-        <input type="email" id="f-email" name="email" required autocomplete="email" />
-      </div>
-      <div>
-        <label class="f-label" for="f-company" data-i18n="f-company">Company or brand</label>
-        <input type="text" id="f-company" name="company" autocomplete="organization" />
-      </div>
-      <div>
-        <label class="f-label" for="f-website" data-i18n="f-website">Website or Instagram</label>
-        <input type="text" id="f-website" name="website" placeholder="https://" />
-      </div>
+      <div class="f-progress" aria-hidden="true"><i></i></div>
 
-      <div class="f-full">
-        <label class="f-label" for="f-type" data-i18n="f-type">What kind of business is it?</label>
-        <select id="f-type" name="businessType">
-          <option value="" data-i18n="o-select">Select one</option>
-          <option value="EC / DTC brand" data-i18n="o-type-1">Online store / DTC brand</option>
-          <option value="Restaurant / food" data-i18n="o-type-2">Restaurant / food</option>
-          <option value="Salon / spa / clinic" data-i18n="o-type-3">Salon / spa / clinic</option>
-          <option value="Local service" data-i18n="o-type-4">Local service business</option>
-          <option value="B2B" data-i18n="o-type-5">B2B</option>
-          <option value="Other" data-i18n="o-type-6">Other</option>
-        </select>
-      </div>
-
-      <fieldset class="f-full">
-        <legend class="f-label"><span data-i18n="f-needs">What do you need help with?</span> <span class="f-req">*</span></legend>
-        <div class="pill-group">
-          <label class="pill"><input type="checkbox" name="needs" value="Website / LP" /><span data-i18n="n-web">Website / landing page</span></label>
-          <label class="pill"><input type="checkbox" name="needs" value="Online store" /><span data-i18n="n-store">Online store</span></label>
-          <label class="pill"><input type="checkbox" name="needs" value="Email / SMS (CRM)" /><span data-i18n="n-crm">Email / SMS</span></label>
-          <label class="pill"><input type="checkbox" name="needs" value="Ads" /><span data-i18n="n-ads">Ads</span></label>
-          <label class="pill"><input type="checkbox" name="needs" value="Booking / lead recovery" /><span data-i18n="n-recovery">Booking recovery</span></label>
-          <label class="pill"><input type="checkbox" name="needs" value="Not sure yet" /><span data-i18n="n-unsure">Not sure yet</span></label>
+      <div class="fs is-on" data-fs="1">
+        <p class="fs-step" data-i18n="s1-label">Step 1 of 2</p>
+        <fieldset>
+          <legend class="fs-q" data-i18n="q-needs">What can we help with?</legend>
+          <p class="fs-hint" data-i18n="q-needs-hint">Pick any that apply.</p>
+          <div class="tiles">
+            <label class="tile"><input type="checkbox" name="needs" value="Ads" /><span class="tile-in"><svg class="tile-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><b data-i18n="t-ads">Getting more customers</b><small data-i18n="t-ads-s">Ads</small><svg class="tile-tick" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></label>
+            <label class="tile"><input type="checkbox" name="needs" value="Website / LP" /><span class="tile-in"><svg class="tile-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><b data-i18n="t-web">A website or online store</b><small data-i18n="t-web-s">Web</small><svg class="tile-tick" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></label>
+            <label class="tile"><input type="checkbox" name="needs" value="Email / SMS (CRM)" /><span class="tile-in"><svg class="tile-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><b data-i18n="t-crm">Getting customers to come back</b><small data-i18n="t-crm-s">Email and SMS</small><svg class="tile-tick" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></label>
+            <label class="tile"><input type="checkbox" name="needs" value="Booking / lead recovery" /><span class="tile-in"><svg class="tile-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><b data-i18n="t-rec">Bookings that never finish</b><small data-i18n="t-rec-s">Follow-up</small><svg class="tile-tick" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></label>
+            <label class="tile"><input type="checkbox" name="needs" value="Not sure yet" /><span class="tile-in"><svg class="tile-ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5h.01"/></svg><b data-i18n="t-uns">Not sure yet</b><small data-i18n="t-uns-s">We'll work it out together</small><svg class="tile-tick" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span></label>
+          </div>
+          <p class="f-err" id="e-needs" role="alert" data-i18n="e-needs">Pick at least one.</p>
+        </fieldset>
+        <fieldset>
+          <legend class="fs-q fs-q--sm"><span data-i18n="q-type">What kind of business?</span> <span class="f-opt" data-i18n="f-opt">(optional)</span></legend>
+          <div class="pill-group">
+            <label class="pill"><input type="radio" name="businessType" value="EC / DTC brand" /><span data-i18n="o-type-1">Online store</span></label>
+            <label class="pill"><input type="radio" name="businessType" value="Salon / spa / clinic" /><span data-i18n="o-type-3">Salon, spa or clinic</span></label>
+            <label class="pill"><input type="radio" name="businessType" value="Restaurant / food" /><span data-i18n="o-type-2">Restaurant</span></label>
+            <label class="pill"><input type="radio" name="businessType" value="Local service" /><span data-i18n="o-type-4">Local service</span></label>
+            <label class="pill"><input type="radio" name="businessType" value="B2B" /><span data-i18n="o-type-5">B2B</span></label>
+            <label class="pill"><input type="radio" name="businessType" value="Other" /><span data-i18n="o-type-6">Other</span></label>
+          </div>
+        </fieldset>
+        <div class="fs-actions">
+          <button type="button" class="btn" id="f-next"><span data-i18n="f-next">Next</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         </div>
-      </fieldset>
+      </div>
 
-      <fieldset class="f-full">
-        <legend class="f-label" data-i18n="f-tools">Tools you already use</legend>
-        <div class="pill-group">
-          <label class="pill"><input type="checkbox" name="tools" value="Shopify" /><span>Shopify</span></label>
-          <label class="pill"><input type="checkbox" name="tools" value="Klaviyo" /><span>Klaviyo</span></label>
-          <label class="pill"><input type="checkbox" name="tools" value="Mailchimp" /><span>Mailchimp</span></label>
-          <label class="pill"><input type="checkbox" name="tools" value="Square" /><span>Square</span></label>
-          <label class="pill"><input type="checkbox" name="tools" value="Meta ads" /><span>Meta ads</span></label>
-          <label class="pill"><input type="checkbox" name="tools" value="Google ads" /><span>Google ads</span></label>
-          <label class="pill"><input type="checkbox" name="tools" value="None yet" /><span data-i18n="tool-none">None yet</span></label>
+      <div class="fs" data-fs="2" hidden>
+        <p class="fs-step" data-i18n="s2-label">Step 2 of 2</p>
+        <h2 class="fs-q" data-i18n="q-contact">Where should we reply?</h2>
+        <div class="f-grid">
+          <div>
+            <label class="f-label" for="f-name" data-i18n="f-name">Your name</label>
+            <input type="text" id="f-name" name="name" required autocomplete="name" aria-describedby="e-name" />
+            <p class="f-err" id="e-name" data-i18n="e-name">Please enter your name.</p>
+          </div>
+          <div>
+            <label class="f-label" for="f-email" data-i18n="f-email">Email</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email" inputmode="email" aria-describedby="e-email" />
+            <p class="f-err" id="e-email" data-i18n="e-email">Please enter a valid email.</p>
+          </div>
+          <div class="f-full">
+            <label class="f-label" for="f-website"><span data-i18n="f-website">Website or Instagram</span> <span class="f-opt" data-i18n="f-opt">(optional)</span></label>
+            <input type="text" id="f-website" name="website" autocomplete="url" inputmode="url" />
+          </div>
+          <div class="f-full">
+            <label class="f-label" for="f-message"><span data-i18n="f-message2">Anything we should know?</span> <span class="f-opt" data-i18n="f-opt">(optional)</span></label>
+            <textarea id="f-message" name="message" rows="3" data-i18n-placeholder="p-message" placeholder="Current challenges, goals, questions. Anything helps."></textarea>
+          </div>
         </div>
-      </fieldset>
-
-      <div>
-        <label class="f-label" for="f-revenue" data-i18n="f-revenue">Monthly revenue (optional)</label>
-        <select id="f-revenue" name="revenue">
-          <option value="" data-i18n="o-select">Select one</option>
-          <option value="Pre-launch" data-i18n="o-rev-1">Not launched yet</option>
-          <option value="Under $10k">~ $10k</option>
-          <option value="$10k-50k">$10k – $50k</option>
-          <option value="$50k-200k">$50k – $200k</option>
-          <option value="$200k+">$200k +</option>
-          <option value="Prefer not to say" data-i18n="o-rev-6">Prefer not to say</option>
-        </select>
-      </div>
-      <div>
-        <label class="f-label" for="f-timeline" data-i18n="f-timeline">When would you like to start?</label>
-        <select id="f-timeline" name="timeline">
-          <option value="" data-i18n="o-select">Select one</option>
-          <option value="ASAP" data-i18n="o-time-1">As soon as possible</option>
-          <option value="1-2 months" data-i18n="o-time-2">Within 1 to 2 months</option>
-          <option value="Within 6 months" data-i18n="o-time-3">Within 6 months</option>
-          <option value="Just researching" data-i18n="o-time-4">Just researching</option>
-        </select>
-      </div>
-
-      <fieldset class="f-full">
-        <legend class="f-label" data-i18n="f-lang">Preferred language</legend>
-        <div class="pill-group">
-          <label class="pill"><input type="radio" name="language" value="日本語" /><span>日本語</span></label>
-          <label class="pill"><input type="radio" name="language" value="English" /><span>English</span></label>
-          <label class="pill"><input type="radio" name="language" value="Either" /><span data-i18n="lang-either">Either</span></label>
+        <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="fs-actions">
+          <button type="submit" class="btn" id="f-submit"><span data-i18n="f-submit">Send inquiry</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <button type="button" class="f-back" id="f-back" data-i18n="f-back">Back</button>
         </div>
-      </fieldset>
-
-      <div class="f-full">
-        <label class="f-label" for="f-message" data-i18n="f-message">Anything else you would like to share?</label>
-        <textarea id="f-message" name="message" data-i18n-placeholder="p-message" placeholder="Current challenges, goals, questions. Anything helps."></textarea>
+        <p class="f-consent" data-i18n="f-consent">By sending, you agree to our <a href="/terms/" target="_blank" rel="noopener">Terms of Service</a> and <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+        <p class="form-status" id="f-error" role="alert"><span data-i18n="f-error">Something went wrong. Please try again in a moment.</span></p>
       </div>
-
-      <div class="f-full">
-        <label class="agree">
-          <input type="checkbox" name="privacy" required />
-          <span class="agree-text" data-i18n="f-agree">I agree to the <a href="/terms/" target="_blank" rel="noopener">Terms of Service</a> and <a href="/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</span>
-        </label>
-      </div>
-
-      <input class="hp" type="text" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-      <div class="f-full">
-        <button type="submit" class="btn" id="f-submit" data-i18n="f-submit">Send inquiry</button>
-      </div>
-      <p class="form-status f-full" id="f-error" role="alert"><span data-i18n="f-error">Something went wrong. Please try again in a moment.</span></p>
     </form>
 
     <div class="success" id="f-success" role="status">
@@ -731,25 +742,50 @@
   <script>
     const T = {
       "en": {
+        "c-lead": "Two quick steps, about a minute. We reply by email, in English or Japanese.",
+        "s1-label": "Step 1 of 2",
+        "s2-label": "Step 2 of 2",
+        "q-needs": "What can we help with?",
+        "q-needs-hint": "Pick any that apply.",
+        "t-ads": "Getting more customers",
+        "t-ads-s": "Ads",
+        "t-web": "A website or online store",
+        "t-web-s": "Web",
+        "t-crm": "Getting customers to come back",
+        "t-crm-s": "Email and SMS",
+        "t-rec": "Bookings that never finish",
+        "t-rec-s": "Follow-up",
+        "t-uns": "Not sure yet",
+        "t-uns-s": "We'll work it out together",
+        "q-type": "What kind of business?",
+        "f-opt": "(optional)",
+        "o-type-1": "Online store",
+        "o-type-3": "Salon, spa or clinic",
+        "o-type-2": "Restaurant",
+        "o-type-4": "Local service",
+        "o-type-5": "B2B",
+        "o-type-6": "Other",
+        "f-next": "Next",
+        "f-back": "Back",
+        "q-contact": "Where should we reply?",
+        "f-name": "Your name",
+        "f-email": "Email",
+        "f-website": "Website or Instagram",
+        "f-message2": "Anything we should know?",
+        "f-submit": "Send inquiry",
+        "f-consent": "By sending, you agree to our <a href=\"/terms/\" target=\"_blank\" rel=\"noopener\">Terms of Service</a> and <a href=\"/privacy/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
+        "e-needs": "Pick at least one.",
+        "e-name": "Please enter your name.",
+        "e-email": "Please enter a valid email.",
         "skip": "Skip to content",
         "announce": "<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.",
         "lang-toggle": "JP",
         "nav-cta": "Free consultation <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
         "crumb": "← Back to top",
         "c-h1": "Tell us about your business.",
-        "c-lead": "First, we listen. Tell us about your business and whatever feels stuck right now.",
-        "f-name": "Your name",
-        "f-email": "Email",
         "f-company": "Company or brand",
-        "f-website": "Website or Instagram",
         "f-type": "What kind of business is it?",
         "o-select": "Select one",
-        "o-type-1": "Online store / DTC brand",
-        "o-type-2": "Restaurant / food",
-        "o-type-3": "Salon / spa / clinic",
-        "o-type-4": "Local service business",
-        "o-type-5": "B2B",
-        "o-type-6": "Other",
         "f-needs": "What do you need help with?",
         "n-web": "Website / landing page",
         "n-store": "Online store",
@@ -772,7 +808,6 @@
         "f-message": "Anything else you would like to share?",
         "p-message": "Current challenges, goals, questions. Anything helps.",
         "f-agree": "I agree to the <a href=\"/terms/\" target=\"_blank\" rel=\"noopener\">Terms of Service</a> and <a href=\"/privacy/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>.",
-        "f-submit": "Send inquiry",
         "f-error": "Something went wrong. Please try again in a moment.",
         "s-h2": "Thank you. We received it.",
         "s-p": "We will reply by email, in English or Japanese.",
@@ -786,25 +821,50 @@
         "footer-location": "Los Angeles, CA"
       },
       "ja": {
+        "c-lead": "2ステップ、1分ほどで終わります。返信はメールで、日本語または英語でお送りします。",
+        "s1-label": "ステップ 1/2",
+        "s2-label": "ステップ 2/2",
+        "q-needs": "どんなことでお困りですか？",
+        "q-needs-hint": "当てはまるものをすべて選んでください。",
+        "t-ads": "新しいお客様を増やしたい",
+        "t-ads-s": "広告",
+        "t-web": "Webサイト・ネットショップ",
+        "t-web-s": "Web制作",
+        "t-crm": "お客様にまた来てほしい",
+        "t-crm-s": "メール・SMS",
+        "t-rec": "予約の取りこぼしを減らしたい",
+        "t-rec-s": "予約フォロー",
+        "t-uns": "まだはっきりしない",
+        "t-uns-s": "一緒に整理します",
+        "q-type": "業種を教えてください",
+        "f-opt": "（任意）",
+        "o-type-1": "ネットショップ",
+        "o-type-3": "サロン・スパ・クリニック",
+        "o-type-2": "飲食店",
+        "o-type-4": "地域のサービス業",
+        "o-type-5": "BtoB",
+        "o-type-6": "その他",
+        "f-next": "次へ",
+        "f-back": "戻る",
+        "q-contact": "ご連絡先を教えてください",
+        "f-name": "お名前",
+        "f-email": "メールアドレス",
+        "f-website": "WebサイトまたはInstagram",
+        "f-message2": "ほかに伝えておきたいこと",
+        "f-submit": "送信する",
+        "f-consent": "送信すると、<a href=\"/terms/\" target=\"_blank\" rel=\"noopener\">利用規約</a>と<a href=\"/privacy/\" target=\"_blank\" rel=\"noopener\">プライバシーポリシー</a>に同意したものとみなされます。",
+        "e-needs": "1つ以上選んでください。",
+        "e-name": "お名前を入力してください。",
+        "e-email": "メールアドレスを正しく入力してください。",
         "skip": "本文へスキップ",
         "announce": "<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。",
         "lang-toggle": "EN",
         "nav-cta": "無料相談 <svg width=\"13\" height=\"13\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
         "crumb": "← トップに戻る",
         "c-h1": "ビジネスについて、お聞かせください。",
-        "c-lead": "まずは、お話をお聞かせください。ビジネスのことも、いま引っかかっていることも。",
-        "f-name": "お名前",
-        "f-email": "メールアドレス",
         "f-company": "会社名・ブランド名",
-        "f-website": "ウェブサイト または Instagram",
         "f-type": "どのようなビジネスですか？",
         "o-select": "選択してください",
-        "o-type-1": "ECサイト / D2Cブランド",
-        "o-type-2": "飲食店・食品",
-        "o-type-3": "サロン・スパ・クリニック",
-        "o-type-4": "地域密着のサービス業",
-        "o-type-5": "B2B",
-        "o-type-6": "その他",
         "f-needs": "ご相談内容（複数選択可）",
         "n-web": "ホームページ / LP",
         "n-store": "ECサイト",
@@ -827,7 +887,6 @@
         "f-message": "そのほか、お聞かせいただけること",
         "p-message": "現在の課題、目標、ご質問など。どんなことでも参考になります。",
         "f-agree": "<a href=\"/terms/\" target=\"_blank\" rel=\"noopener\">利用規約</a>と<a href=\"/privacy/\" target=\"_blank\" rel=\"noopener\">プライバシーポリシー</a>に同意します。",
-        "f-submit": "送信する",
         "f-error": "送信に失敗しました。少し時間をおいて、もう一度お試しください。",
         "s-h2": "送信ありがとうございました。",
         "s-p": "日本語または英語で、メールにてご返信します。",
@@ -891,28 +950,85 @@
 
     /* ── SUBMIT ── */
     const form = document.getElementById('inquiry-form');
+    const steps = form.querySelectorAll('.fs');
+    const reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function show(n) {
+      steps.forEach(function (el) {
+        const on = el.dataset.fs === String(n);
+        el.hidden = !on;
+        el.classList.toggle('is-on', on);
+        if (on && !reduceMotion) {
+          el.classList.add('is-entering'); void el.offsetWidth; el.classList.remove('is-entering');
+        }
+      });
+      form.classList.toggle('on-2', n === 2);
+      const top = form.getBoundingClientRect().top + window.scrollY - 120;
+      if (window.scrollY > top) window.scrollTo({ top: top, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+
+    /* Step 1: what they need ("Not sure yet" and specific needs exclude each other) */
+    const needsErr = document.getElementById('e-needs');
+    const needBoxes = form.querySelectorAll('input[name="needs"]');
+    needBoxes.forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        if (cb.checked) {
+          needBoxes.forEach(function (o) {
+            if (o !== cb && (cb.value === 'Not sure yet' || o.value === 'Not sure yet')) o.checked = false;
+          });
+        }
+        needsErr.classList.remove('is-shown');
+      });
+    });
+    document.getElementById('f-next').addEventListener('click', function () {
+      if (!form.querySelector('input[name="needs"]:checked')) {
+        needsErr.classList.add('is-shown');
+        needBoxes[0].focus();
+        return;
+      }
+      show(2);
+      setTimeout(function () { document.getElementById('f-name').focus({ preventScroll: true }); }, 60);
+    });
+    document.getElementById('f-back').addEventListener('click', function () { show(1); });
+
+    /* Step 2: inline checks, shown after the field is left or on send */
+    function check(input) {
+      const v = input.value.trim();
+      const ok = input.type === 'email' ? /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) : v.length > 0;
+      input.parentElement.classList.toggle('is-invalid', !ok);
+      input.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      return ok;
+    }
+    ['f-name', 'f-email'].forEach(function (id) {
+      const el = document.getElementById(id);
+      el.addEventListener('blur', function () { if (el.value) check(el); });
+      el.addEventListener('input', function () { if (el.parentElement.classList.contains('is-invalid')) check(el); });
+    });
+
     form.addEventListener('submit', async e => {
       e.preventDefault();
+      if (!form.classList.contains('on-2')) { document.getElementById('f-next').click(); return; }
       const btn = document.getElementById('f-submit');
       const errBox = document.getElementById('f-error');
       errBox.classList.remove('err');
-      if (!form.reportValidity()) return;
+      const nameOk = check(document.getElementById('f-name'));
+      const emailOk = check(document.getElementById('f-email'));
+      if (!nameOk || !emailOk) { document.getElementById(nameOk ? 'f-email' : 'f-name').focus(); return; }
 
       const fd = new FormData(form);
       const data = {
         name: fd.get('name'),
         email: fd.get('email'),
-        company: fd.get('company'),
+        company: '',
         website: fd.get('website'),
-        businessType: fd.get('businessType'),
+        businessType: fd.get('businessType') || '',
         needs: fd.getAll('needs'),
-        tools: fd.getAll('tools'),
-        revenue: fd.get('revenue'),
-        timeline: fd.get('timeline'),
-        language: fd.get('language'),
+        tools: [],
+        revenue: '',
+        timeline: '',
+        language: document.documentElement.lang === 'ja' ? '日本語' : 'English',
         message: fd.get('message'),
         hp: fd.get('hp'),
-        agreed: fd.get('privacy') ? 'terms+privacy 2026-11-09' : '',
+        agreed: 'terms+privacy (by sending) 2026-11-17',
       };
 
       btn.disabled = true;
