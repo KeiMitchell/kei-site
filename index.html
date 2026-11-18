@@ -2219,8 +2219,9 @@
       background: #fff; color: var(--ink); border: 1px solid var(--hair);
       box-shadow: 0 6px 18px -8px rgba(17,17,16,.25);
       transition: background-color .4s, color .4s, border-color .4s, transform .5s var(--out);
-      z-index: 2;
+      z-index: 4;
     }
+    .pl-node::after { content: ''; position: absolute; inset: -1px; border-radius: 50%; border: 1.5px solid var(--sage); opacity: 0; pointer-events: none; }
     .pl-node svg { width: 42%; height: 42%; }
     .pl-node b { position: absolute; white-space: nowrap; font-size: max(12px, 2.8cqw); font-weight: 500; color: var(--muted); }
     .pl-node--1 { left: 50%; top: 10%; } .pl-node--1 b { bottom: 118%; }
@@ -2229,7 +2230,7 @@
     .pl-node--4 { left: 10%; top: 50%; } .pl-node--4 b { right: 118%; }
     .pl-node.is-lit { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1.08); }
     .pl-token { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
-    .pl-token i { position: absolute; left: 50%; top: 10%; width: 4.2cqw; height: 4.2cqw; translate: -50% -50%; border-radius: 50%; background: #C8643B; box-shadow: 0 0 0 1.4cqw rgba(200,100,59,.16); }
+    .pl-token i { position: absolute; left: 50%; top: 10%; width: 4.2cqw; height: 4.2cqw; translate: -50% -50%; border-radius: 50%; background: var(--sage-d); border: max(2px, .6cqw) solid #fff; box-shadow: 0 2px 8px rgba(17,17,16,.25); }
     .pl-ring-center { position: absolute; inset: 27%; display: grid; place-items: center; }
 
     /* Hero: one trip round the loop on load, replays on hover */

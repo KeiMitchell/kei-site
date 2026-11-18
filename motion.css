@@ -78,6 +78,13 @@
   @keyframes plMsg2 { 0%, 25% { opacity: 0; transform: translateY(10px); } 29%, 45% { opacity: 1; transform: none; } 50%, 100% { opacity: 0; transform: translateY(-10px); } }
   @keyframes plMsg3 { 0%, 50% { opacity: 0; transform: translateY(10px); } 54%, 70% { opacity: 1; transform: none; } 75%, 100% { opacity: 0; transform: translateY(-10px); } }
   @keyframes plMsg4 { 0%, 75% { opacity: 0; transform: translateY(10px); } 79%, 100% { opacity: 1; transform: none; } }
+  /* arrival: the dot slips behind the station, which sends out one ripple */
+  @keyframes plPing { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.7); } }
+  .pl-ring--hero.is-play .pl-node--1::after { animation: plPing .9s var(--m-ease) .3s both, plPing .9s var(--m-ease) 6.7s both; }
+  .pl-ring--hero.is-play .pl-node--2::after { animation: plPing .9s var(--m-ease) 1.9s both; }
+  .pl-ring--hero.is-play .pl-node--3::after { animation: plPing .9s var(--m-ease) 3.5s both; }
+  .pl-ring--hero.is-play .pl-node--4::after { animation: plPing .9s var(--m-ease) 5.1s both; }
+  .pl-ring--story .pl-node.is-lit::after { animation: plPing .9s var(--m-ease) both; }
 
   /* 4. Hover: one arrow nudge for every button */
   :is(.btn, .btn--dark, .btn--light, .btn-primary, .btn-white, .btn-ghost, .nav-cta) svg { transition: transform .15s var(--m-ease); }
