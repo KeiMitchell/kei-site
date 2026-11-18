@@ -235,3 +235,15 @@ html[lang="ja"] .pl-ring--where .pl-ring-center { font-family: 'Shippori Mincho 
 .pl .doc-table th { font-size: 13px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--muted); }
 .pl .doc-table td { font-size: 16px; }
 .pl-sec--form { max-width: 760px; padding-top: 56px; }
+
+/* Text-only heroes sit close to their content (contact, about, legal) */
+.pl-hero.pl-hero--text { padding-top: 56px; padding-bottom: 8px; row-gap: 0; }
+.pl-hero--text .pl-lede { margin-top: 16px; }
+.pl-sec--form { padding-top: 36px; border-top: 0; }
+.pl-sec--form .f-progress { margin-bottom: 28px; }
+@media (max-width: 767px) {
+  .pl-hero.pl-hero--text { padding-top: 32px; padding-bottom: 0; }
+  .pl-sec--form { padding-top: 24px; }
+}
+.pl-sec.pl-sec--form { max-width: 1240px; }
+.pl-sec--form > * { max-width: 760px; }

@@ -2168,15 +2168,15 @@
     html[lang="ja"] .pl-h2 { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.4; }
     .pl-story .pl-h2 { font-size: clamp(32px, 3.4vw, 48px); margin-bottom: 36px; }
     .pl-steps { list-style: none; margin: 0; padding: 0; }
-    .pl-step { position: relative; padding: 16px 0 16px 24px; cursor: pointer; opacity: .38; transition: opacity .4s; }
-    .pl-step::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--hair); }
-    .pl-step::after { content: ''; position: absolute; left: -0.5px; top: 0; bottom: 0; width: 2px; background: var(--sage); transform: scaleY(0); transform-origin: top; transition: transform .5s var(--out); }
+    .pl-steps { position: relative; }
+    .pl-steps::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: var(--hair); }
+    .pl-steps-ind { position: absolute; left: -0.5px; top: 0; width: 2px; height: var(--h, 0px); background: var(--sage); transform: translateY(var(--y, 0px)); transition: transform .7s cubic-bezier(.65, 0, .35, 1), height .7s cubic-bezier(.65, 0, .35, 1); }
+    .pl-step { position: relative; padding: 14px 0 14px 24px; cursor: pointer; opacity: .34; transition: opacity .6s ease; }
+    .pl-step:hover { opacity: .6; }
     .pl-step.is-on { opacity: 1; }
-    .pl-step.is-on::after { transform: none; }
     .pl-step-svc { font-size: 13px; font-weight: 500; color: var(--sage); }
-    .pl-step h3 { margin: 6px 0 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.2; }
-    .pl-step p { margin: 0; max-height: 0; overflow: hidden; opacity: 0; font-size: 16px; line-height: 1.6; color: var(--muted); transition: max-height .5s var(--out), opacity .4s, margin .4s; }
-    .pl-step.is-on p { max-height: 160px; opacity: 1; margin-top: 8px; }
+    .pl-step h3 { margin: 6px 0 0; font-size: clamp(21px, 1.9vw, 26px); line-height: 1.2; }
+    .pl-step p { margin: 6px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--muted); }
     .pl-bar { display: none; }
     .pl-ring--story { max-width: min(600px, calc(100svh - var(--chrome-h, 64px) - 120px)); }
     .pl-ring--story .pl-ring-center { display: none; }
@@ -2187,8 +2187,8 @@
       background: var(--bg); border-radius: 6cqw; box-shadow: var(--soft), 0 0 0 1px var(--hair);
       overflow: hidden; container-type: inline-size; z-index: 1;
     }
-    .pl-scr { position: absolute; inset: 0; padding: 8cqw 7cqw; font-size: 5cqw; line-height: 1.4; opacity: 0; transform: translateY(4%); transition: opacity .4s, transform .5s var(--out); }
-    .pl-scr.is-on { opacity: 1; transform: none; }
+    .pl-scr { position: absolute; inset: 0; padding: 8cqw 7cqw; font-size: 5cqw; line-height: 1.4; opacity: 0; transform: translateY(2.5%) scale(.985); transition: opacity .35s ease, transform .35s ease; }
+    .pl-scr.is-on { opacity: 1; transform: none; transition: opacity .55s ease .18s, transform .8s cubic-bezier(.2, .8, .2, 1) .18s; }
     .pl-scr b { font-weight: 600; }
     .pl-scr small { display: block; font-size: .8em; color: var(--muted); }
     .pl-check { display: grid; place-items: center; flex: none; width: 11cqw; height: 11cqw; border-radius: 50%; background: var(--sage); color: #fff; }
@@ -2255,10 +2255,10 @@
       .pl-ring--story .pl-ring-svg, .pl-ring--story .pl-node, .pl-ring--story .pl-token { display: none; }
       .pl-screen { width: auto; height: 100%; max-width: 78vw; border-radius: 22px; }
       .pl-steps { grid-row: 3; display: grid; min-height: 136px; }
-      .pl-step { grid-area: 1 / 1; padding: 0; opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
-      .pl-step::before, .pl-step::after { display: none; }
+      .pl-step { grid-area: 1 / 1; padding: 0; opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility .45s; }
+      .pl-steps::before, .pl-steps-ind { display: none; }
       .pl-step.is-on { opacity: 1; visibility: visible; }
-      .pl-step p { max-height: none; opacity: 1; margin-top: 6px; font-size: 15px; }
+      .pl-step p { margin-top: 6px; font-size: 15px; }
       .pl-step h3 { font-size: 22px; }
       .pl-bar { grid-row: 4; display: block; height: 2px; background: var(--hair); }
       .pl-bar i { display: block; height: 100%; background: var(--sage); transform-origin: left; transform: scaleX(var(--p, 0)); }
@@ -2887,7 +2887,9 @@
         }
       }
 
-      /* Story: scroll position moves the customer round the loop */
+      /* Story: scroll position moves the customer round the loop.
+         The scroll sets a target; the dot and arc ease toward it every frame,
+         so a mouse wheel's steps become one glide. */
       var story = root.querySelector('.pl-story');
       if (story) {
         var steps = story.querySelectorAll('.pl-step');
@@ -2896,36 +2898,56 @@
         var token = story.querySelector('.pl-token');
         var arc = story.querySelector('.pl-ring-prog');
         var bar = story.querySelector('.pl-bar');
-        var current = -1;
+        var list = story.querySelector('.pl-steps');
+        var ind = document.createElement('i');
+        ind.className = 'pl-steps-ind';
+        ind.setAttribute('aria-hidden', 'true');
+        if (list) list.appendChild(ind);
+        var current = -1, target = 0, turn = 0, raf = null;
+        var placeInd = function () {
+          var el = steps[current];
+          if (!el) return;
+          ind.style.setProperty('--y', el.offsetTop + 'px');
+          ind.style.setProperty('--h', el.offsetHeight + 'px');
+        };
         var setStep = function (n) {
           if (n === current) return;
           current = n;
           steps.forEach(function (el, i) { el.classList.toggle('is-on', i === n); });
+          placeInd();
           screens.forEach(function (el, i) { if (i !== n) el.classList.remove('is-on'); });
           var s = screens[n];
           if (s) { s.classList.remove('is-on'); void s.offsetWidth; s.classList.add('is-on'); }
+          if (bar) bar.style.setProperty('--p', ((n + 1) / steps.length).toFixed(3));
         };
-        var queued = false;
+        var paint = function () {
+          if (token) token.style.transform = 'rotate(' + (turn * 90).toFixed(2) + 'deg)';
+          if (arc) arc.style.strokeDashoffset = (100 - turn * 25).toFixed(2);
+          nodes.forEach(function (el, i) { el.classList.toggle('is-lit', i === 0 || turn > i - 0.04); });
+        };
+        var glide = function () {
+          var d = target - turn;
+          turn = Math.abs(d) < 0.002 || reduce ? target : turn + d * 0.12;
+          paint();
+          raf = turn === target ? null : requestAnimationFrame(glide);
+        };
         var read = function () {
-          queued = false;
           var r = story.getBoundingClientRect();
           var span = r.height - innerHeight;
           var p = span > 0 ? Math.min(Math.max(-r.top / span, 0), 0.999) : 0;
           var n = Math.floor(p * steps.length);
-          /* Token eases into each station and rests there for most of its quarter */
+          /* the dot travels in the first 40% of each quarter, then rests there */
           var local = p * steps.length - n;
-          var ease = Math.min(local / 0.35, 1);
-          ease = 1 - Math.pow(1 - ease, 3);
-          var turn = n === 0 ? 0 : (n - 1 + ease);
-          if (token) token.style.transform = 'rotate(' + (turn * 90).toFixed(2) + 'deg)';
-          if (arc) arc.style.strokeDashoffset = (100 - turn * 25).toFixed(2);
-          nodes.forEach(function (el, i) { el.classList.toggle('is-lit', i < n || (i === n && (n === 0 || ease > 0.95))); });
-          if (bar) bar.style.setProperty('--p', ((n + 1) / steps.length).toFixed(3));
+          var t = Math.min(local / 0.4, 1);
+          t = t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+          target = n === 0 ? 0 : (n - 1 + t);
           setStep(n);
+          if (!raf) raf = requestAnimationFrame(glide);
         };
-        addEventListener('scroll', function () { if (!queued) { queued = true; requestAnimationFrame(read); } }, { passive: true });
-        addEventListener('resize', read);
-        read();
+        addEventListener('scroll', read, { passive: true });
+        addEventListener('resize', function () { read(); placeInd(); });
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeInd);
+        read(); turn = target; paint();
         steps.forEach(function (el, i) {
           el.addEventListener('click', function () {
             var top = story.getBoundingClientRect().top + scrollY;
@@ -2935,18 +2957,6 @@
         });
       }
 
-      /* One-time reveals: 30 → 300, the process line */
-      if (!reduce && 'IntersectionObserver' in window) {
-        root.querySelectorAll('[data-pl-rise], [data-pl-track]').forEach(function (el) {
-          el.classList.add('is-waiting');
-          var io = new IntersectionObserver(function (entries) {
-            if (!entries[0].isIntersecting) return;
-            io.disconnect();
-            el.classList.remove('is-waiting');
-          }, { threshold: 0.4 });
-          io.observe(el);
-        });
-      }
     })();
 
     const langSeg = location.pathname.split('/')[1];

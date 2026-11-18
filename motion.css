@@ -6,6 +6,7 @@
    3. Number   a big result rises into place once
    4. Hover    buttons nudge their arrow; nothing lifts, nothing shines
    5. Loop     the four-service loop: one trip round, stopping at each station
+   6. Reveal   a result or a process line arrives once as it scrolls in
 
    Transform and opacity only. No loops, no shine, no cursor effects.
    Everything here is off under prefers-reduced-motion. */
@@ -55,36 +56,95 @@
   [data-m-num].is-waiting { opacity: 0; transform: translateY(18%); clip-path: inset(100% 0 0 0); }
 
 
-  /* 5. Loop: the hanjo loop (Ads, Web, CRM, Recovery). A customer takes one
-     trip round it on arrival and stops at each station; hover replays it
-     (motion.js-free: the page toggles .is-play). */
-  .pl-ring--hero.is-play .pl-token { animation: plTrip 6.4s var(--out) .3s both; }
-  .pl-ring--hero.is-play .pl-ring-prog { animation: plArc 6.4s var(--out) .3s both; }
-  .pl-ring--hero.is-play .pl-node--1 { animation: plLit 6.4s .3s both; --on: 0%; }
-  .pl-ring--hero.is-play .pl-node--2 { animation: plLit2 6.4s .3s both; }
-  .pl-ring--hero.is-play .pl-node--3 { animation: plLit3 6.4s .3s both; }
-  .pl-ring--hero.is-play .pl-node--4 { animation: plLit4 6.4s .3s both; }
-  .pl-ring--hero.is-play .pl-msg--1 { animation: plMsg 6.4s .3s both; }
-  .pl-ring--hero.is-play .pl-msg--2 { animation: plMsg2 6.4s .3s both; }
-  .pl-ring--hero.is-play .pl-msg--3 { animation: plMsg3 6.4s .3s both; }
-  .pl-ring--hero.is-play .pl-msg--4 { animation: plMsg4 6.4s .3s both; }
-  @keyframes plTrip { 0%, 10% { transform: rotate(0); } 25%, 35% { transform: rotate(90deg); } 50%, 60% { transform: rotate(180deg); } 75%, 85% { transform: rotate(270deg); } 100% { transform: rotate(360deg); } }
-  @keyframes plArc { 0%, 10% { stroke-dashoffset: 100; } 25%, 35% { stroke-dashoffset: 75; } 50%, 60% { stroke-dashoffset: 50; } 75%, 85% { stroke-dashoffset: 25; } 100% { stroke-dashoffset: 0; } }
-  @keyframes plLit { 0%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); } }
-  @keyframes plLit2 { 0%, 24% { background: #fff; color: var(--ink); } 25%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); } }
-  @keyframes plLit3 { 0%, 49% { background: #fff; color: var(--ink); } 50%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); } }
-  @keyframes plLit4 { 0%, 74% { background: #fff; color: var(--ink); } 75%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); } }
-  @keyframes plMsg { 0% { opacity: 0; transform: translateY(10px); } 4%, 20% { opacity: 1; transform: none; } 25%, 100% { opacity: 0; transform: translateY(-10px); } }
-  @keyframes plMsg2 { 0%, 25% { opacity: 0; transform: translateY(10px); } 29%, 45% { opacity: 1; transform: none; } 50%, 100% { opacity: 0; transform: translateY(-10px); } }
-  @keyframes plMsg3 { 0%, 50% { opacity: 0; transform: translateY(10px); } 54%, 70% { opacity: 1; transform: none; } 75%, 100% { opacity: 0; transform: translateY(-10px); } }
-  @keyframes plMsg4 { 0%, 75% { opacity: 0; transform: translateY(10px); } 79%, 100% { opacity: 1; transform: none; } }
-  /* arrival: the dot slips behind the station, which sends out one ripple */
-  @keyframes plPing { 0% { opacity: .7; transform: scale(1); } 100% { opacity: 0; transform: scale(1.7); } }
-  .pl-ring--hero.is-play .pl-node--1::after { animation: plPing .9s var(--m-ease) .3s both, plPing .9s var(--m-ease) 6.7s both; }
-  .pl-ring--hero.is-play .pl-node--2::after { animation: plPing .9s var(--m-ease) 1.9s both; }
-  .pl-ring--hero.is-play .pl-node--3::after { animation: plPing .9s var(--m-ease) 3.5s both; }
-  .pl-ring--hero.is-play .pl-node--4::after { animation: plPing .9s var(--m-ease) 5.1s both; }
-  .pl-ring--story .pl-node.is-lit::after { animation: plPing .9s var(--m-ease) both; }
+  /* 5. Loop: the hanjo loop (Ads, Web, CRM, Recovery). After the headline
+     lands, a customer takes one unhurried trip round: eases out of each
+     station, glides, settles, rests while that station's moment shows, and
+     finally closes the loop at Ads. Hover replays it (the page toggles .is-play).
+     One 8s timeline; every element keys off the same percentages:
+     travel 6-17 / 31-42 / 56-67 / 81-92, arrivals at 17, 42, 67, 92. */
+  .pl-ring--hero.is-play :is(.pl-token, .pl-ring-prog, .pl-node, .pl-msg),
+  .pl-ring--hero.is-play .pl-node::after { animation-duration: 8s; animation-delay: .7s; animation-fill-mode: both; animation-timing-function: linear; }
+  .pl-ring--hero.is-play .pl-token { animation-name: plTrip; }
+  .pl-ring--hero.is-play .pl-ring-prog { animation-name: plArc; }
+  .pl-ring--hero.is-play .pl-node--1 { animation-name: plLit1; }
+  .pl-ring--hero.is-play .pl-node--2 { animation-name: plLit2; }
+  .pl-ring--hero.is-play .pl-node--3 { animation-name: plLit3; }
+  .pl-ring--hero.is-play .pl-node--4 { animation-name: plLit4; }
+  .pl-ring--hero.is-play .pl-node--1::after { animation-name: plPing1; }
+  .pl-ring--hero.is-play .pl-node--2::after { animation-name: plPing2; }
+  .pl-ring--hero.is-play .pl-node--3::after { animation-name: plPing3; }
+  .pl-ring--hero.is-play .pl-node--4::after { animation-name: plPing4; }
+  .pl-ring--hero.is-play .pl-msg--1 { animation-name: plMsg1; }
+  .pl-ring--hero.is-play .pl-msg--2 { animation-name: plMsg2; }
+  .pl-ring--hero.is-play .pl-msg--3 { animation-name: plMsg3; }
+  .pl-ring--hero.is-play .pl-msg--4 { animation-name: plMsg4; }
+
+  /* travel: ease in and out of every station (each segment gets its own curve) */
+  @keyframes plTrip {
+    0%, 6%   { transform: rotate(0deg);   animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+    17%, 31% { transform: rotate(90deg);  animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+    42%, 56% { transform: rotate(180deg); animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+    67%, 81% { transform: rotate(270deg); animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+    92%, 100% { transform: rotate(360deg); }
+  }
+  @keyframes plArc {
+    0%, 6%   { stroke-dashoffset: 100; animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+    17%, 31% { stroke-dashoffset: 75;  animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+    42%, 56% { stroke-dashoffset: 50;  animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+    67%, 81% { stroke-dashoffset: 25;  animation-timing-function: cubic-bezier(.65, 0, .35, 1); }
+    92%, 100% { stroke-dashoffset: 0; }
+  }
+  /* stations: fade to sage over ~250ms as the dot settles, with a small give */
+  @keyframes plLit1 {
+    0%   { background: #fff; color: var(--ink); border-color: var(--hair); transform: scale(1); }
+    3%   { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1.06); }
+    6%, 89% { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1); }
+    93%  { transform: scale(1.06); }
+    96%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1); }
+  }
+  @keyframes plLit2 {
+    0%, 15.5% { background: #fff; color: var(--ink); border-color: var(--hair); transform: scale(1); }
+    18.5% { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1.06); }
+    22%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1); }
+  }
+  @keyframes plLit3 {
+    0%, 40.5% { background: #fff; color: var(--ink); border-color: var(--hair); transform: scale(1); }
+    43.5% { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1.06); }
+    47%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1); }
+  }
+  @keyframes plLit4 {
+    0%, 65.5% { background: #fff; color: var(--ink); border-color: var(--hair); transform: scale(1); }
+    68.5% { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1.06); }
+    72%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1); }
+  }
+  /* one soft ring on arrival */
+  @keyframes plPing1 { 0% { opacity: .45; transform: scale(1); } 12% { opacity: 0; transform: scale(1.55); } 12.1%, 92% { opacity: 0; transform: scale(1); } 92.1% { opacity: .45; transform: scale(1); } 100% { opacity: 0; transform: scale(1.55); } }
+  @keyframes plPing2 { 0%, 17% { opacity: 0; transform: scale(1); } 17.1% { opacity: .45; transform: scale(1); } 29% { opacity: 0; transform: scale(1.55); } 100% { opacity: 0; } }
+  @keyframes plPing3 { 0%, 42% { opacity: 0; transform: scale(1); } 42.1% { opacity: .45; transform: scale(1); } 54% { opacity: 0; transform: scale(1.55); } 100% { opacity: 0; } }
+  @keyframes plPing4 { 0%, 67% { opacity: 0; transform: scale(1); } 67.1% { opacity: .45; transform: scale(1); } 79% { opacity: 0; transform: scale(1.55); } 100% { opacity: 0; } }
+  /* the moment card: the old one leaves while the dot travels, the new one
+     arrives just after the dot settles, so they never cross */
+  @keyframes plMsg1 { 0%, 1% { opacity: 0; transform: translateY(6px); animation-timing-function: cubic-bezier(.2, .8, .2, 1); } 5%, 8% { opacity: 1; transform: none; animation-timing-function: ease-in; } 12%, 100% { opacity: 0; transform: translateY(-4px); } }
+  @keyframes plMsg2 { 0%, 18% { opacity: 0; transform: translateY(6px); animation-timing-function: cubic-bezier(.2, .8, .2, 1); } 22%, 33% { opacity: 1; transform: none; animation-timing-function: ease-in; } 37%, 100% { opacity: 0; transform: translateY(-4px); } }
+  @keyframes plMsg3 { 0%, 43% { opacity: 0; transform: translateY(6px); animation-timing-function: cubic-bezier(.2, .8, .2, 1); } 47%, 58% { opacity: 1; transform: none; animation-timing-function: ease-in; } 62%, 100% { opacity: 0; transform: translateY(-4px); } }
+  @keyframes plMsg4 { 0%, 68% { opacity: 0; transform: translateY(6px); animation-timing-function: cubic-bezier(.2, .8, .2, 1); } 72%, 100% { opacity: 1; transform: none; } }
+
+  /* story ring: stations light as the scroll brings the dot to them */
+  @keyframes plPingOnce { 0% { opacity: .45; transform: scale(1); } 100% { opacity: 0; transform: scale(1.55); } }
+  .pl-ring--story .pl-node.is-lit::after { animation: plPingOnce 1.1s cubic-bezier(.2, .8, .2, 1) both; }
+
+  /* 6. Reveal: once, when it scrolls into view (motion.js adds .is-waiting) */
+  [data-pl-rise] > * { transition: transform 1.1s cubic-bezier(.2, .8, .2, 1), opacity .8s ease; }
+  [data-pl-rise] > :nth-child(2) { transition-delay: .12s; }
+  [data-pl-rise] > :nth-child(3) { transition-delay: .24s; }
+  [data-pl-rise].is-waiting > * { opacity: 0; transform: translateY(24%); }
+  [data-pl-track]::before { transition: transform 1.6s cubic-bezier(.65, 0, .35, 1) .1s; }
+  [data-pl-track].is-waiting::before { transform: scaleX(0); }
+  [data-pl-track] > li { transition: opacity .7s ease, transform .9s cubic-bezier(.2, .8, .2, 1); }
+  [data-pl-track] > li:nth-child(2) { transition-delay: .35s; }
+  [data-pl-track] > li:nth-child(3) { transition-delay: .7s; }
+  [data-pl-track] > li:nth-child(4) { transition-delay: 1.05s; }
+  [data-pl-track].is-waiting > li { opacity: 0; transform: translateY(12px); }
 
   /* 4. Hover: one arrow nudge for every button */
   :is(.btn, .btn--dark, .btn--light, .btn-primary, .btn-white, .btn-ghost, .nav-cta) svg { transition: transform .15s var(--m-ease); }

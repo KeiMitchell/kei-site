@@ -68,4 +68,18 @@
       io.observe(num.parentElement || num);
     });
   }
+
+  /* Reveal: a result or a process line arrives once as it scrolls in */
+  if ('IntersectionObserver' in window) {
+    document.querySelectorAll('[data-pl-rise], [data-pl-track]').forEach(function (el) {
+      if (el.getBoundingClientRect().top < innerHeight * 0.85) return;
+      el.classList.add('is-waiting');
+      var io = new IntersectionObserver(function (entries) {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+        el.classList.remove('is-waiting');
+      }, { threshold: 0.35 });
+      io.observe(el);
+    });
+  }
 })();
