@@ -72,20 +72,6 @@
     .lang-toggle:hover { color: var(--ink); }
     .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; color: var(--bg); background: var(--ink); text-decoration: none; padding: 9px 18px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.2s; letter-spacing: 0.01em; }
     .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
-    .s-white { background: var(--white); }
-    .s-dark  { background: var(--ink); }
-    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
-    .label { font-size: 11px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--faint); margin-bottom: 22px; display: flex; align-items: center; gap: 10px; }
-    h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; color: var(--ink); margin-bottom: 40px; }
-    h2 span { display: block; font-weight: 700; font-style: italic; }
-    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 26px; letter-spacing: 0.03em; transition: color 0.2s; }
-    .crumb:hover { color: var(--ink); }
-    .page-hero .section { padding: clamp(30px, 4.5vw, 52px) 24px clamp(34px, 4.5vw, 56px); }
-    .line-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: rgba(17,17,16,0.06); border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px; margin-bottom: 18px; animation: fadeUp 0.7s 0.05s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .page-hero h1 { text-wrap: balance; font-family: 'Playfair Display', serif; font-size: clamp(38px, 5.4vw, 58px); font-weight: 600; line-height: 1.06; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 22px; animation: fadeUp 0.8s 0.1s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .page-hero h1 strong { font-weight: 600; font-style: italic; display: block; }
-    .lead { text-wrap: pretty; font-size: 16px; font-weight: 300; line-height: 1.7; color: var(--muted); max-width: 560px; margin-bottom: 24px; animation: fadeUp 0.7s 0.25s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    .hero-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 11px; animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both; }
     .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; text-decoration: none; padding: 13px 26px; border-radius: var(--radius-sm); transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94); }
     .btn svg { transition: transform 0.2s; }
     .btn:hover svg { transform: translateX(3px); }
@@ -94,25 +80,6 @@
     .btn--light { color: var(--ink); background: var(--bg); }
     .btn--light:hover { background: #ffffff; transform: translateY(-1px); }
     .btn-note { font-size: 12px; font-weight: 300; color: var(--muted); letter-spacing: 0.02em; }
-    .inc-list { list-style: none; margin-bottom: 32px; }
-    .inc-list li { display: flex; gap: 22px; padding: 22px 0; border-top: 1px solid var(--border); }
-    .inc-list li:last-child { border-bottom: 1px solid var(--border); }
-    .inc-num { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: rgba(17,17,16,0.26); padding-top: 5px; min-width: 20px; flex-shrink: 0; }
-    .inc-list h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.01em; }
-    .inc-list p { font-size: 14.5px; font-weight: 300; color: var(--muted); line-height: 1.65; }
-    .callout { font-size: 15px; font-weight: 300; line-height: 1.68; color: var(--muted); padding: 20px 26px; background: var(--bg); border-radius: var(--radius); border: 1px solid var(--border); }
-    .callout strong { color: var(--ink); font-weight: 600; }
-    .callout a { color: var(--ink); font-weight: 500; }
-    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 28px; }
-    .step { display: flex; gap: 26px; padding: 26px 30px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); align-items: flex-start; }
-    .step-num { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; color: rgba(17,17,16,0.26); padding-top: 3px; min-width: 20px; flex-shrink: 0; }
-    .step h3 { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 5px; letter-spacing: -0.01em; }
-    .step p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.62; }
-    .cta-inner { max-width: var(--max); margin: 0 auto; padding: 88px 24px 104px; }
-    .cta-inner h2 { font-size: clamp(30px, 5vw, 48px); color: rgba(255,255,255,0.9); margin-bottom: 22px; }
-    .cta-inner h2 strong { font-weight: 700; font-style: italic; display: block; color: #ffffff; }
-    .cta-inner > p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.82); line-height: 1.72; margin-bottom: 40px; max-width: 460px; }
-    .cta-note-dark { display: block; margin-top: 14px; font-size: 12px; font-weight: 300; color: rgba(255,255,255,0.3); letter-spacing: 0.03em; }
     footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.09); }
     .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
     .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
@@ -121,14 +88,6 @@
     .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: rgba(255,255,255,0.38); text-decoration: none;   padding: 8px 0; display: inline-block; }
     .footer-meta a:hover { color: rgba(255,255,255,0.75); }
     html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
-    html[lang="ja"] .page-hero h1, html[lang="ja"] h2, html[lang="ja"] .cta-inner h2 { font-family: 'Shippori Mincho B1', serif; letter-spacing: 0.02em; line-height: 1.3; line-break: strict; }
-    html[lang="ja"] .page-hero h1 { font-size: clamp(28px, 4.4vw, 46px); }
-    html[lang="ja"] h2 { font-size: clamp(22px, 3vw, 34px); }
-    html[lang="ja"] .page-hero h1 strong, html[lang="ja"] h2 span, html[lang="ja"] .cta-inner h2 strong { font-style: normal; }
-    html[lang="ja"] .lead, html[lang="ja"] .callout, html[lang="ja"] .inc-list p, html[lang="ja"] .step p, html[lang="ja"] .cta-inner > p { font-family: 'Noto Sans JP', sans-serif; line-break: strict; overflow-wrap: break-word; }
-    html[lang="ja"] .lead { font-size: 15px; line-height: 2.0; letter-spacing: 0.02em; }
-    html[lang="ja"] .callout { font-size: 14px; line-height: 1.95; letter-spacing: 0.02em; }
-    html[lang="ja"] .inc-list p, html[lang="ja"] .step p { font-size: 13.5px; line-height: 1.9; letter-spacing: 0.02em; }
     html[lang="ja"] .inc-list h3, html[lang="ja"] .step h3, html[lang="ja"] .btn, html[lang="ja"] .btn-note, html[lang="ja"] .cta-note-dark, html[lang="ja"] .label, html[lang="ja"] .crumb, html[lang="ja"] .nav-avail, html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span, html[lang="ja"] .announce { font-family: 'Noto Sans JP', sans-serif; }
     .nav-links { display: flex; gap: 30px; align-items: center; }
     @media (max-width: 1120px) { .nav-links { gap: 20px; } }
@@ -164,18 +123,8 @@
     @media (max-width: 560px) {
       .nav-inner { padding: 13px 20px; }
       .nav-avail { display: none; }
-      .section { padding: 52px 20px; }
-      .page-hero .section { padding: 24px 20px 32px; }
-      .crumb { margin-bottom: 16px; }
-      .page-hero h1 { font-size: 30px; }
-      html[lang="ja"] .page-hero h1 { font-size: 24px; }
-      .lead { font-size: 14.5px; margin-bottom: 20px; }
-      .hero-actions .btn { width: 100%; justify-content: center; }
-      .step { padding: 20px 22px; }
-      .cta-inner { padding: 72px 20px 88px; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; padding: 22px 24px; }
       .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
-      html[lang="ja"] .page-hero h1 { font-size: clamp(26px, 7.5vw, 36px); line-height: 1.4; }
     }
 
     /* ── growth.hanjo.ai design alignment ── */
@@ -183,19 +132,13 @@
     nav { background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); }
     .announce { background: var(--sage); color: rgba(255,255,255,0.8); }
     .announce strong { color: #ffffff; }
-    .hero, .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
     .nav-cta, .btn--dark { background: var(--sage); }
     .nav-cta:hover, .btn--dark:hover { background: #2e4a38; opacity: 1; }
     .btn--light { color: var(--sage); }
-    .s-dark { background: var(--sage); }
-    .hero h1 strong, .page-hero h1 strong { color: var(--sage); }
-    .s-dark h2 strong, .cta-inner h2 strong { color: #ffffff; }
-    .line-row-arrow { color: var(--sage); opacity: 0.8; }
     footer { background: var(--white); border-top: 1px solid var(--border); }
     .footer-logo img { filter: none; opacity: 1; }
     .footer-meta a, .footer-meta span { color: var(--muted); }
     .footer-meta a:hover { color: var(--sage); }
-    .cta-note-dark { color: rgba(255,255,255,0.55); }
     @media print {
       [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
     }
@@ -214,43 +157,7 @@
       @view-transition { navigation: none; }
     }
   
-    /* ── SPLIT HERO (CRM-style) ── */
-    .split-hero { display: flex; flex-direction: column; justify-content: center; max-width: 1280px; margin: 0 auto; width: 100%; }
-    .sh-head { padding: clamp(20px, 2.6vw, 36px) clamp(24px, 4.5vw, 72px) 0; }
-    .sh-row { display: block; }
-    .sh-left { padding: clamp(10px, 1.6vw, 24px) clamp(20px, 3vw, 48px) clamp(28px, 3.5vw, 48px) clamp(24px, 4.5vw, 72px); }
-    .page-hero h1 { font-size: clamp(38px, 4.2vw, 54px); }
-    /* JA keeps the one-line headline; showcase visible in both languages */
-    html[lang="ja"] .page-hero h1 { font-size: clamp(28px, 3.4vw, 46px); line-height: 1.35; line-break: strict; }
-    html[lang="ja"] .page-hero h1 strong { display: inline; }
-    @media (min-width: 941px) {
-      html[lang="ja"] .page-hero h1 { white-space: nowrap; }
-    }
-    .sh-right { display: flex; align-items: center; justify-content: center; padding: clamp(28px, 3.5vw, 56px) clamp(24px, 4vw, 64px) clamp(28px, 3.5vw, 56px) 0; }
-    .illus { width: 100%; max-width: 460px; animation: fadeUp 0.9s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both; }
-    @media (max-width: 940px) {
-      .sh-row { display: flex; flex-direction: column; align-items: stretch; }
-      .sh-right { padding: 0 24px 44px; }
-      .mini-phone { display: none; }
-    }
-    .illus-browser { background: var(--white); border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 24px 60px rgba(17,17,16,0.08); overflow: hidden; }
-    .ib-bar { display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
-    .ib-bar span { width: 9px; height: 9px; border-radius: 50%; background: var(--border); }
-    .ib-body { padding: 26px 28px 30px; }
-    .ib-kicker { width: 90px; height: 8px; border-radius: 4px; background: rgba(58,92,69,0.35); margin-bottom: 16px; }
-    .ib-title { width: 82%; height: 16px; border-radius: 5px; background: rgba(17,17,16,0.82); margin-bottom: 10px; }
-    .ib-title--short { width: 55%; margin-bottom: 18px; }
-    .ib-text { width: 92%; height: 8px; border-radius: 4px; background: rgba(17,17,16,0.14); margin-bottom: 8px; }
-    .ib-text--short { width: 70%; margin-bottom: 20px; }
-    .ib-btn { width: 130px; height: 30px; border-radius: 99px; background: var(--sage); margin-bottom: 24px; }
-    .ib-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .ib-cols span { height: 64px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); }
-  
     /* ── MOCK CLIENT SITE (showcase) ── */
-    .illus { max-width: 500px; }
-    .illus-browser { box-shadow: 0 32px 80px #E4E2DC; }
-    .ib-url { margin-left: 10px; font-style: normal; font-size: 9.5px; letter-spacing: 0.04em; color: var(--faint); background: var(--bg); border-radius: 6px; padding: 3px 10px; flex: 1; max-width: 180px; text-align: center; }
-    .ib-bar { align-items: center; }
     .mk { --mkbg: #FFF9F2; --mkink: #3E2E25; --mkacc: #C96F4A; --mksand: #F3E5D3; background: #ffffff; }
     .mk-nav { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; border-bottom: 1px solid #F0E7DA; }
     .mk-logo { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; color: var(--mkink); }
@@ -321,27 +228,6 @@
     /* Fallbacks only: the script after </nav> writes the measured nav height. */
     :root { --chrome-h: 74px; }
     @media (max-width: 880px) { :root { --chrome-h: 65px; } }
-    .page-hero { display: flex; }
-    .split-hero { min-height: calc(100svh - var(--chrome-h)); width: 100%; }
-      .sh-right { position: relative; }
-    .mini-phone {
-      position: absolute;
-      left: clamp(-6px, 0.5vw, 18px);
-      bottom: -14px;
-      width: 96px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 7px;
-      box-shadow: 0 18px 40px rgba(17, 17, 16, 0.16);
-      animation: fadeUp 0.9s 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
-    }
-    .mp-screen { background: #FFF9F2; border-radius: 12px; padding: 8px 7px 9px; display: flex; flex-direction: column; gap: 5px; }
-    .mp-arch { position: relative; width: 100%; height: 52px; background: #F3E5D3; border-radius: 40px 40px 6px 6px; overflow: hidden; }
-    .mp-sun { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 24px; height: 24px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #E2926B, #C96F4A); }
-    .mp-bar { width: 85%; height: 5px; border-radius: 3px; background: rgba(62, 46, 37, 0.75); }
-    .mp-bar--short { width: 55%; background: rgba(62, 46, 37, 0.25); }
-    .mp-btn { width: 44px; height: 13px; border-radius: 99px; background: #C96F4A; margin-top: 2px; }
       /* ── CTA geometry: one standard ── */
     .btn--dark, .btn--light {
       font-size: 13.5px;
@@ -447,13 +333,7 @@
         .mm-links a { transition: opacity 0.2s; transform: none; }
       }
     }
-      @media (min-width: 881px) { .crumb { display: none; } }
       /* ── MAIN CTA EMPHASIS + SHINE ── */
-    .hero-actions .btn--dark, .hero-actions .btn-primary, .cta-inner .btn--dark, .cta-inner .btn--light, form .btn {
-      font-size: 15px;
-      height: 52px;
-      padding: 0 38px;
-    }
     .btn--dark, .btn-primary, .nav-cta, form .btn, .btn--light {
       position: relative;
       overflow: hidden;
@@ -496,14 +376,6 @@
       word-break: auto-phrase;
     }
     p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
-      .platform-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 22px; }
-    .pf-item { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); opacity: 0.72; transition: opacity 0.2s; }
-    .pf-item:hover { opacity: 1; }
-    .pf-item svg { flex-shrink: 0; }
-    .pf-sep { width: 1px; height: 16px; background: var(--border); }
-    .pf-text { font-size: 13.5px; font-weight: 300; color: var(--muted); }
-    html[lang="ja"] .pf-text { font-family: 'Noto Sans JP', sans-serif; }
-      .pf-item--shopify { opacity: 1; }
       .skip-link {
       position: absolute;
       left: -9999px;
@@ -534,7 +406,6 @@
     .footer-logo img { height: 22px; display: block; }
     @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
     @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
-    @media (max-width: 640px) { .crumb { display: none; } }
     /* ── JAPANESE LINE BREAKING ──
        Two separate problems were showing up on narrow screens.
 
@@ -581,47 +452,36 @@
     [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; transition: none !important; }
     .btn--dark::after, .btn--light::after, .nav-cta::after { content: none !important; animation: none !important; }
 
-    .page-hero { display: block; border-bottom: 0; }
-    .split-hero { min-height: 0; padding-top: clamp(32px, 5vw, 72px); }
-    .page-hero h1 { font-weight: 700; letter-spacing: -0.02em; text-wrap: balance; }
-    .lead { font-size: 18px; max-width: 34em; }
-
-    .wx { background: var(--bg); padding: 0 clamp(16px, 4.5vw, 72px) 48px; border-bottom: 1px solid var(--border); }
-    .wx-board {
-      max-width: 1280px; margin: 0 auto; background: var(--board); border-radius: 4px;
-      padding: 48px; display: grid; grid-template-columns: 1fr 220px; gap: 40px; align-items: end;
-    }
     .wx-desk, .wx-phone { display: block; overflow: hidden; border-radius: 6px; background: var(--white); box-shadow: 0 1px 2px rgba(17,17,16,.06), 0 12px 32px -12px rgba(17,17,16,.18); }
     .wx-phone { aspect-ratio: 480 / 1000; }
     .wx-desk img, .wx-phone img { display: block; width: 100%; height: auto; }
     a.wx-desk { transition: transform .15s ease-out; }
     a.wx-desk:hover { transform: translateY(-3px); }
-    .wx-cap { max-width: 1280px; margin: 14px auto 0; font-size: 13px; line-height: 1.5; color: var(--muted-solid); }
+
+    /* ── 2026-11: shared .pl components (brand.css) ── */
+    .pl-h2 { margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.06; text-wrap: balance; }
+    html[lang="ja"] .pl-h2 { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.4; }
+    html[lang="ja"] .pl-h2 span, html[lang="ja"] .pl-cta h2 span { word-break: auto-phrase; }
+    .pl .wb-hero { padding-bottom: 72px; }
+    @media (min-width: 1024px) { .pl .wb-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); } }
+    .pl-hero-vis .wx-board {
+      background: var(--sage-l); border-radius: 4px; padding: 28px;
+      display: grid; grid-template-columns: minmax(0, 1fr) 27%; gap: 20px; align-items: end;
+    }
+    .wx-cap { margin: 14px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
     .wx-cap strong { color: var(--ink); font-weight: 600; margin-right: 4px; }
     .wx-cap a { color: var(--sage); margin-left: 4px; }
-    .inc-badge { display: block; height: 24px; width: auto; margin-top: 12px; }
-
-    .label { display: none !important; }
-    h2 span { font-style: normal; }
-    html:not([lang="ja"]) h2 span { display: inline; }
-    h2 { text-wrap: balance; }
-    .cta-inner h2 strong { font-style: normal; }
-
-    .inc-num { font-size: 13px; letter-spacing: 0; color: var(--faint); font-variant-numeric: tabular-nums; padding-top: 2px; min-width: 28px; }
-    .inc-list h3, .step h3 { font-size: 17px; }
-    .inc-list p, .step p { font-size: 16px; font-weight: 400; color: var(--muted-solid); }
-    .callout { background: var(--board); border: 0; border-radius: 4px; font-size: 16px; font-weight: 400; color: var(--muted-solid); }
-
-    .steps { gap: 0; border-top: 1px solid var(--border); }
-    .step { background: transparent; border: 0; border-radius: 0; border-bottom: 1px solid var(--border); padding: 24px 0; gap: 22px; }
-    .step-num { font-size: 13px; letter-spacing: 0; color: var(--faint); font-variant-numeric: tabular-nums; min-width: 28px; }
-
+    .inc-badge { display: block; height: 24px; width: auto; margin-top: 14px; }
+    .wb-note { max-width: 720px; margin: 56px 0 0; padding-top: 24px; border-top: 1px solid var(--hair); font-size: 17px; line-height: 1.65; color: var(--muted); }
+    .wb-note strong { color: var(--ink); font-weight: 600; }
+    @media (min-width: 1024px) { .pl .wb-track3 { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 760px) {
-      .wx-board { grid-template-columns: 1fr; padding: 20px; }
+      .pl-hero-vis .wx-board { grid-template-columns: minmax(0, 1fr); padding: 16px; }
       .wx-phone { display: none; }
     }
-      /* focus ring stays visible on the sage sections */
-    .s-dark :focus-visible, .cta-banner :focus-visible { outline-color: #ffffff; }
+    @media (max-width: 640px) { .pl .wb-hero { padding-bottom: 48px; } }
+    /* keep the "Recovery" label inside a 375px screen */
+    @media (max-width: 767px) { .pl .pl-ring--where { max-width: 256px; } }
   </style>
 
   <script type="speculationrules">
@@ -807,183 +667,89 @@
     <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
 </div>
 
-  <main>
-  <div class="page-hero" id="main" tabindex="-1">
-    <div class="split-hero">
-    <div class="sh-head">
-      <a href="/ja/#services" class="crumb" data-i18n="crumb">← サービス一覧に戻る</a>
-      <h1 data-i18n="ph-h1">信頼される見た目と、<strong>成果につながる導線を。</strong></h1>
-    </div>
-    <div class="sh-row">
-    <div class="sh-left">
-      <p class="lead" data-i18n="ph-lead">hanjo Webは、ビジネスの「顔」となるすべてをお作りします。ホームページ、ランディングページ、そしてShopifyのECサイトまで。構成・文章・デザイン・実装を、日英両言語で一貫して手がけます。テンプレートの流用や外注には頼りません。</p>
-      <div class="hero-actions">
-        <a href="/ja/contact/" class="btn btn--dark" data-i18n="hero-cta">無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  <main class="pl">
+  <section class="pl-hero wb-hero" id="main" tabindex="-1">
+    <div class="pl-hero-txt">
+      <a href="/ja/#services" class="pl-crumb" data-i18n="crumb">← サービス一覧に戻る</a>
+      <h1 class="pl-h1" data-i18n="ph-h1">信頼される見た目と、<strong>成果につながる導線を。</strong></h1>
+      <p class="pl-lede" data-i18n="ph-lead">hanjo Webは、ビジネスの「顔」となるすべてをお作りします。ホームページ、ランディングページ、そしてShopifyのECサイトまで。構成・文章・デザイン・実装を、日英両言語で一貫して手がけます。テンプレートの流用や外注には頼りません。</p>
+      <div class="pl-actions">
+        <a href="/ja/contact/" class="pl-btn" data-i18n="hero-cta">無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
     </div>
-
-    </div>
-    </div>
-  </div>
-
-  <!-- WORK: a real client site, desktop and phone -->
-  <div class="wx">
-    <div class="wx-board">
-      <a class="wx-desk" href="https://www.headspaen.net/" target="_blank" rel="noopener"><img src="/work/headspaen-site-desktop.jpg" alt="HEAD SPA EN website on desktop" width="1440" height="900"></a>
-      <div class="wx-phone"><img src="/work/headspaen-site.jpg" alt="HEAD SPA EN website, treatment menu on mobile" width="480" height="1036"></div>
-    </div>
-    <p class="wx-cap"><strong>HEAD SPA EN</strong> <span data-i18n="wx-cap">ロサンゼルスで4店舗を展開する日本式ヘッドスパ。Webサイトはテンプレートを使わずゼロから制作し、予約はSquareと連携。写真と動画の撮影も担当しました。</span> <a href="https://www.headspaen.net/" target="_blank" rel="noopener">headspaen.net</a></p>
-  </div>
-
-  <div class="s-white">
-    <div class="section">
-      <h2 data-reveal data-i18n="inc-h2">戦略から公開まで、<br><span>サイトに必要なすべてを。</span></h2>
-      <ul class="inc-list">
-        <li>
-          <span class="inc-num">01</span>
-          <div>
-            <h3 data-i18n="inc-1-h">構成・コピーライティング</h3>
-            <p data-i18n="inc-1-p">何を、どの順番で伝えるか。問い合わせにつながる構成と文章を、自然な日本語と英語で書きます。</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">02</span>
-          <div>
-            <h3 data-i18n="inc-2-h">オリジナルデザイン</h3>
-            <p data-i18n="inc-2-p">テーマの流用ではなく、ブランドに合わせたオリジナルデザイン。モバイルファーストで、細部まで統一します。</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">03</span>
-          <div>
-            <h3 data-i18n="inc-3-h">実装・公開</h3>
-            <p data-i18n="inc-3-p">表示の速いクリーンな実装。SEOの基本設定、アクセス解析、問い合わせフォームまで込みです。数週間で公開できることがほとんどです。</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">04</span>
-          <div>
-            <h3 data-i18n="inc-4-h">ランディングページ</h3>
-            <p data-i18n="inc-4-p">広告・キャンペーン用のLPは「予約・購入・問い合わせ」というひとつのゴールに絞って設計します。</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">05</span>
-          <div>
-            <h3 data-i18n="inc-5-h">ShopifyのECサイト</h3>
-            <p data-i18n="inc-5-p">新規構築も移行も。商品ページ、決済、配送設定まで、米国市場で売れる状態に整えます。</p>
-            <img class="inc-badge" src="/shopify-partners.svg" alt="Shopify Partners" height="24">
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">06</span>
-          <div>
-            <h3 data-i18n="inc-6-h">定期購入・リテンション連携</h3>
-            <p data-i18n="inc-6-p">定期購入の設定と、スキップ・一時停止・解約防止のロジック。hanjo CRMと直結させます。</p>
-          </div>
-        </li>
-        <li>
-          <span class="inc-num">07</span>
-          <div>
-            <h3 data-i18n="inc-7-h">公開後のサポート</h3>
-            <p data-i18n="inc-7-p">公開後の更新や改善にも対応します。「触れないサイト」を渡して終わり、にはしません。</p>
-          </div>
-        </li>
-      </ul>
-      <p class="callout" data-reveal data-i18n="proof">このサイトも、デザインからコードまで自分たちで作ったものです。日本のD2CブランドのShopifyも日々運用しています。<strong>いまご覧いただいているものが、そのままポートフォリオです。</strong></p>
-    </div>
-  </div>
-
-  <div>
-    <div class="section">
-      <h2 data-reveal data-i18n="how-h2">まずは<br><span>無料相談から。</span></h2>
-      <ul class="steps">
-        <li class="step">
-          <span class="step-num">01</span>
-          <div>
-            <h3 data-i18n="how-1-h">無料相談</h3>
-            <p data-i18n="how-1-p">サイトの目的、ターゲット、参考サイトについてお話しします。20〜30分。</p>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-num">02</span>
-          <div>
-            <h3 data-i18n="how-2-h">ご提案・デザイン</h3>
-            <p data-i18n="how-2-p">スコープと金額、デザインの方向性を明確にご提示します。しっくりくるまで一緒に調整します。</p>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-num">03</span>
-          <div>
-            <h3 data-i18n="how-3-h">実装・公開・お引き渡し</h3>
-            <p data-i18n="how-3-p">実装後、一緒に確認して公開。アクセス解析も設定済みの状態でお渡しします。</p>
-          </div>
-        </li>
-      </ul>
-      <p class="callout" data-reveal data-i18n="price">ランディングページや小規模なサイトは、短期間で公開できます。規模の大きな案件やECサイトも、着手前に明確なお見積りをご提示します。<strong>初回のご相談で、金額の目安がわかります。</strong></p>
-    </div>
-  </div>
-
-  <div>
-    <div class="section">
-      <h2 data-reveal data-i18n="faq-h2">よくいただく、<br><span>7つの質問。</span></h2>
-      <ul class="steps">
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-1-h">どんなサイトをつくれますか？</h3>
-            <p data-i18n="faq-1-p">コーポレートサイト、広告用のランディングページ、Shopifyストア。新規構築も、既存サイトからの移行も対応します。構成・原稿・デザイン・実装まで一貫して社内で行います。</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-2-h">英語と日本語の両方に対応していますか？</h3>
-            <p data-i18n="faq-2-p">はい。あとから翻訳するのではなく、それぞれの言語で構成と原稿を書き起こします。どちらも、はじめからその言語で書かれた文章になります。</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-3-h">公開までどれくらいかかりますか？</h3>
-            <p data-i18n="faq-3-p">多くのサイトは数週間で公開できます。ランディングページや小規模サイトは短期間、大規模な構築やストアは着手前に範囲とスケジュールをお伝えします。</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-4-h">費用はどれくらいですか？</h3>
-            <p data-i18n="faq-4-p">最初の通話のあと、範囲と金額を明確にお伝えします。ランディングページや小規模サイトは短期間、大規模な構築やストアは事前に範囲を確定します。曖昧な提案書は出しません。</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-5-h">テンプレートやページビルダーは使いますか？</h3>
-            <p data-i18n="faq-5-p">使いません。テーマの流用ではなく、ブランドに合わせたオリジナルデザインを、軽量で速いコードで実装します。モバイル優先で、SEOの基本設定・アナリティクス・お問い合わせフォームまで組み込みます。</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-6-h">既存のShopifyストアの移行もできますか？</h3>
-            <p data-i18n="faq-6-p">はい。商品ページ、チェックアウト、決済、配送設定まで、米国市場で販売できる状態に整えます。hanjoはShopifyパートナーです。</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-7-h">公開後のサポートはありますか？</h3>
-            <p data-i18n="faq-7-p">あります。更新や細かな修正、改善も継続して対応します。手を入れられないサイトをお渡しして終わりにはしません。</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="s-dark">
-    <div class="cta-inner">
-      <h2 data-reveal data-i18n="cta-h2">準備ができたら、<strong>まずは話すことから。</strong></h2>
-      <p data-reveal data-i18n="cta-p">30分の無料相談を、日本語または英語で承ります。まずは、いま抱えている課題を、じっくりお聞かせください。</p>
-      <div data-reveal>
-        <a href="/ja/contact/" class="btn btn--light" data-i18n="cta-btn">無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!-- WORK: a real client site, desktop and phone -->
+    <div class="pl-hero-vis">
+      <div class="wx-board">
+        <a class="wx-desk" href="https://www.headspaen.net/" target="_blank" rel="noopener"><img src="/work/headspaen-site-desktop.jpg" alt="HEAD SPA EN website on desktop" width="1440" height="900"></a>
+        <div class="wx-phone"><img src="/work/headspaen-site.jpg" alt="HEAD SPA EN website, treatment menu on mobile" width="480" height="1036"></div>
       </div>
+      <p class="wx-cap"><strong>HEAD SPA EN</strong> <span data-i18n="wx-cap">ロサンゼルスで4店舗を展開する日本式ヘッドスパ。Webサイトはテンプレートを使わずゼロから制作し、予約はSquareと連携。写真と動画の撮影も担当しました。</span> <a href="https://www.headspaen.net/" target="_blank" rel="noopener">headspaen.net</a></p>
     </div>
-  </div>
+  </section>
 
+  <section class="pl-sec pl-sec--line pl-where" aria-labelledby="where-h">
+    <div class="pl-sec-head">
+      <h2 id="where-h" class="pl-h2" data-i18n="where-h">4つでひとつの流れ、<span>その中のWeb。</span></h2>
+      <p class="pl-sub" data-i18n="where-p">広告で出会ったお客様が、予約や購入を決める場所がWebサイトです。その先はCRMで再来につなげ、離れかけたお客様にはRecoveryでフォローを届けます。</p>
+    </div>
+    <div class="pl-ring pl-ring--where" aria-hidden="true">
+      <svg class="pl-ring-svg" viewBox="0 0 400 400"><circle class="pl-ring-track" cx="200" cy="200" r="160"/><circle class="pl-ring-prog" cx="200" cy="200" r="160" pathLength="100" transform="rotate(-90 200 200)"/></svg>
+      <a class="pl-node pl-node--1" href="/ja/ads/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><b>Ads</b></a>
+      <span class="pl-node pl-node--2 is-current"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><b>Web</b></span>
+      <a class="pl-node pl-node--3" href="/ja/crm/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg><b>CRM</b></a>
+      <a class="pl-node pl-node--4" href="/ja/recovery/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><b>Recovery</b></a>
+      <div class="pl-ring-center"><span data-i18n="where-c">このページは</span><em>hanjo Web</em></div>
+    </div>
+  </section>
+
+  <section class="pl-sec pl-sec--line" aria-labelledby="inc-h">
+    <div class="pl-sec-head">
+      <h2 id="inc-h" class="pl-h2" data-i18n="inc-h2">戦略から公開まで、<span>サイトに必要なすべてを。</span></h2>
+    </div>
+    <ul class="pl-who">
+      <li><h3 data-i18n="inc-1-h">構成・コピーライティング</h3><p data-i18n="inc-1-p">何を、どの順番で伝えるか。問い合わせにつながる構成と文章を、自然な日本語と英語で書きます。</p></li>
+      <li><h3 data-i18n="inc-2-h">オリジナルデザイン</h3><p data-i18n="inc-2-p">テーマの流用ではなく、ブランドに合わせたオリジナルデザイン。モバイルファーストで、細部まで統一します。</p></li>
+      <li><h3 data-i18n="inc-3-h">実装・公開</h3><p data-i18n="inc-3-p">表示の速いクリーンな実装。SEOの基本設定、アクセス解析、問い合わせフォームまで込みです。数週間で公開できることがほとんどです。</p></li>
+      <li><h3 data-i18n="inc-4-h">ランディングページ</h3><p data-i18n="inc-4-p">広告・キャンペーン用のLPは「予約・購入・問い合わせ」というひとつのゴールに絞って設計します。</p></li>
+      <li><h3 data-i18n="inc-5-h">ShopifyのECサイト</h3><p data-i18n="inc-5-p">新規構築も移行も。商品ページ、決済、配送設定まで、米国市場で売れる状態に整えます。</p><img class="inc-badge" src="/shopify-partners.svg" alt="Shopify Partners" height="24"></li>
+      <li><h3 data-i18n="inc-6-h">定期購入・リテンション連携</h3><p data-i18n="inc-6-p">定期購入の設定と、スキップ・一時停止・解約防止のロジック。hanjo CRMと直結させます。</p></li>
+      <li><h3 data-i18n="inc-7-h">公開後のサポート</h3><p data-i18n="inc-7-p">公開後の更新や改善にも対応します。「触れないサイト」を渡して終わり、にはしません。</p></li>
+    </ul>
+    <p class="wb-note" data-i18n="proof">このサイトも、デザインからコードまで自分たちで作ったものです。日本のD2CブランドのShopifyも日々運用しています。<strong>いまご覧いただいているものが、そのままポートフォリオです。</strong></p>
+  </section>
+
+  <section class="pl-sec pl-sec--line" aria-labelledby="how-h">
+    <div class="pl-sec-head">
+      <h2 id="how-h" class="pl-h2" data-i18n="how-h2">まずは<span>無料相談から。</span></h2>
+    </div>
+    <ol class="pl-track wb-track3" data-pl-track>
+      <li><h3 data-i18n="how-1-h">無料相談</h3><p data-i18n="how-1-p">サイトの目的、ターゲット、参考サイトについてお話しします。20〜30分。</p></li>
+      <li><h3 data-i18n="how-2-h">ご提案・デザイン</h3><p data-i18n="how-2-p">スコープと金額、デザインの方向性を明確にご提示します。しっくりくるまで一緒に調整します。</p></li>
+      <li><h3 data-i18n="how-3-h">実装・公開・お引き渡し</h3><p data-i18n="how-3-p">実装後、一緒に確認して公開。アクセス解析も設定済みの状態でお渡しします。</p></li>
+    </ol>
+    <p class="wb-note" data-i18n="price">ランディングページや小規模なサイトは、短期間で公開できます。規模の大きな案件やECサイトも、着手前に明確なお見積りをご提示します。<strong>初回のご相談で、金額の目安がわかります。</strong></p>
+  </section>
+
+  <section class="pl-sec pl-sec--line pl-sec--faq" aria-labelledby="faq-h">
+    <div class="pl-sec-head">
+      <h2 id="faq-h" class="pl-h2" data-i18n="faq-h2">よくいただく、<span>7つの質問。</span></h2>
+    </div>
+    <div class="pl-faq">
+      <details><summary data-i18n="faq-1-h">どんなサイトをつくれますか？</summary><p data-i18n="faq-1-p">コーポレートサイト、広告用のランディングページ、Shopifyストア。新規構築も、既存サイトからの移行も対応します。構成・原稿・デザイン・実装まで一貫して社内で行います。</p></details>
+      <details><summary data-i18n="faq-2-h">英語と日本語の両方に対応していますか？</summary><p data-i18n="faq-2-p">はい。あとから翻訳するのではなく、それぞれの言語で構成と原稿を書き起こします。どちらも、はじめからその言語で書かれた文章になります。</p></details>
+      <details><summary data-i18n="faq-3-h">公開までどれくらいかかりますか？</summary><p data-i18n="faq-3-p">多くのサイトは数週間で公開できます。ランディングページや小規模サイトは短期間、大規模な構築やストアは着手前に範囲とスケジュールをお伝えします。</p></details>
+      <details><summary data-i18n="faq-4-h">費用はどれくらいですか？</summary><p data-i18n="faq-4-p">最初の通話のあと、範囲と金額を明確にお伝えします。ランディングページや小規模サイトは短期間、大規模な構築やストアは事前に範囲を確定します。曖昧な提案書は出しません。</p></details>
+      <details><summary data-i18n="faq-5-h">テンプレートやページビルダーは使いますか？</summary><p data-i18n="faq-5-p">使いません。テーマの流用ではなく、ブランドに合わせたオリジナルデザインを、軽量で速いコードで実装します。モバイル優先で、SEOの基本設定・アナリティクス・お問い合わせフォームまで組み込みます。</p></details>
+      <details><summary data-i18n="faq-6-h">既存のShopifyストアの移行もできますか？</summary><p data-i18n="faq-6-p">はい。商品ページ、チェックアウト、決済、配送設定まで、米国市場で販売できる状態に整えます。hanjoはShopifyパートナーです。</p></details>
+      <details><summary data-i18n="faq-7-h">公開後のサポートはありますか？</summary><p data-i18n="faq-7-p">あります。更新や細かな修正、改善も継続して対応します。手を入れられないサイトをお渡しして終わりにはしません。</p></details>
+    </div>
+  </section>
+
+  <section class="pl-cta">
+    <h2><span data-i18n="cta-h-1">準備ができたら、</span> <em data-i18n="cta-h-2">まずは話すことから。</em></h2>
+    <p data-i18n="cta-p">30分の無料相談を、日本語または英語で承ります。まずは、いま抱えている課題を、じっくりお聞かせください。</p>
+    <a href="/ja/contact/" class="pl-btn pl-btn--light" data-i18n="cta-btn">無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </section>
   </main>
   <footer>
     <div class="footer-inner">
@@ -1030,7 +796,11 @@
             "inc-label": "What you get",
             "how-label": "How it works",
             "how-h2": "Simple to start. <span>No retainer required.</span>",
-            "cta-h2": "Ready when you are.<strong>Let's talk about your project.</strong>",
+            "cta-h-1": "Ready when you are.",
+            "cta-h-2": "Let's talk about your project.",
+            "where-h": "One part of <span>one loop.</span>",
+            "where-p": "Ads bring people in, and the site is where they decide to book or buy. After that, CRM brings them back and Recovery follows up with the ones who slipped away.",
+            "where-c": "You are here:",
             "cta-p": "A free 30-minute consultation, in English or Japanese. Before anything else, we would love to hear about your business and the problems on your plate.",
             "cta-btn": "Start with a free consultation <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
             "cta-note": "No commitment. Just a conversation.",
@@ -1070,7 +840,7 @@
       },
       "ja": {
         "faq-label": "よくあるご質問",
-        "faq-h2": "よくいただく、<br><span>7つの質問。</span>",
+        "faq-h2": "よくいただく、<span>7つの質問。</span>",
         "faq-1-h": "どんなサイトをつくれますか？",
         "faq-1-p": "コーポレートサイト、広告用のランディングページ、Shopifyストア。新規構築も、既存サイトからの移行も対応します。構成・原稿・デザイン・実装まで一貫して社内で行います。",
         "faq-2-h": "英語と日本語の両方に対応していますか？",
@@ -1095,8 +865,12 @@
             "pf-scope": "ホームページも、ECサイトも。",
             "inc-label": "サービス内容",
             "how-label": "進め方",
-            "how-h2": "まずは<br><span>無料相談から。</span>",
-            "cta-h2": "準備ができたら、<strong>まずは話すことから。</strong>",
+            "how-h2": "まずは<span>無料相談から。</span>",
+            "cta-h-1": "準備ができたら、",
+            "cta-h-2": "まずは話すことから。",
+            "where-h": "4つでひとつの流れ、<span>その中のWeb。</span>",
+            "where-p": "広告で出会ったお客様が、予約や購入を決める場所がWebサイトです。その先はCRMで再来につなげ、離れかけたお客様にはRecoveryでフォローを届けます。",
+            "where-c": "このページは",
             "cta-p": "30分の無料相談を、日本語または英語で承ります。まずは、いま抱えている課題を、じっくりお聞かせください。",
             "cta-btn": "無料相談をはじめる <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg>",
             "cta-note": "ご相談のみでも歓迎です",
@@ -1109,7 +883,7 @@
             "footer-location": "ロサンゼルス",
             "ph-h1": "信頼される見た目と、<strong>成果につながる導線を。</strong>",
             "ph-lead": "hanjo Webは、ビジネスの「顔」となるすべてをお作りします。ホームページ、ランディングページ、そしてShopifyのECサイトまで。構成・文章・デザイン・実装を、日英両言語で一貫して手がけます。テンプレートの流用や外注には頼りません。",
-            "inc-h2": "戦略から公開まで、<br><span>サイトに必要なすべてを。</span>",
+            "inc-h2": "戦略から公開まで、<span>サイトに必要なすべてを。</span>",
             "wx-cap": "ロサンゼルスで4店舗を展開する日本式ヘッドスパ。Webサイトはテンプレートを使わずゼロから制作し、予約はSquareと連携。写真と動画の撮影も担当しました。",
             "proof": "このサイトも、デザインからコードまで自分たちで作ったものです。日本のD2CブランドのShopifyも日々運用しています。<strong>いまご覧いただいているものが、そのままポートフォリオです。</strong>",
             "price": "ランディングページや小規模なサイトは、短期間で公開できます。規模の大きな案件やECサイトも、着手前に明確なお見積りをご提示します。<strong>初回のご相談で、金額の目安がわかります。</strong>",

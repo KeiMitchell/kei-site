@@ -48,12 +48,11 @@
       --muted:   rgba(17,17,16,0.72);
       --faint:   rgba(17,17,16,0.68);
       --border:  #E4E2DC;
-      --shadow:  0 1px 4px rgba(17,17,16,0.06), 0 8px 28px rgba(17,17,16,0.05);
-      --radius:  14px;
       --radius-sm: 100px;
-      --max:     700px;
       --wide:    1060px;
+      --chrome-h: 74px;
     }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
 
     html { scroll-behavior: smooth; }
 
@@ -67,62 +66,22 @@
       overflow-x: hidden;
     }
 
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px clamp(36px, 4.5vw, 72px);
     }
-    /* Scroll-reveal */
-    [data-reveal] {
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.7s cubic-bezier(0.25,0.46,0.45,0.94),
-                  transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    [data-reveal].revealed { opacity: 1; transform: translateY(0); }
-
-    [data-reveal-stagger] > * {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.55s cubic-bezier(0.25,0.46,0.45,0.94),
-                  transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    [data-reveal-stagger].revealed > *:nth-child(1) { transition-delay: 0.00s; }
-    [data-reveal-stagger].revealed > *:nth-child(2) { transition-delay: 0.07s; }
-    [data-reveal-stagger].revealed > *:nth-child(3) { transition-delay: 0.14s; }
-    [data-reveal-stagger].revealed > *:nth-child(4) { transition-delay: 0.21s; }
-    [data-reveal-stagger].revealed > *:nth-child(5) { transition-delay: 0.28s; }
-    [data-reveal-stagger].revealed > *:nth-child(6) { transition-delay: 0.35s; }
-    [data-reveal-stagger].revealed > * { opacity: 1; transform: translateY(0); }
-
-    @media (prefers-reduced-motion: reduce) {
-      [data-reveal],
-      [data-reveal-stagger] > *,
-      .hero h1, .hero-byline, .hero-desc, .hero-actions,
-      .hero-rule, .hero-stats, nav {
-        animation: none !important;
-        transition: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    }
-
-    .platform-row { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; margin-top: 10px; }
-    .pf-item { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); opacity: 0.72; transition: opacity 0.2s; }
-    .pf-item:hover { opacity: 1; }
-    .pf-item svg { flex-shrink: 0; }
-    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--faint); text-decoration: none; margin-bottom: 22px; letter-spacing: 0.03em; transition: color 0.2s; }
-    .crumb:hover { color: var(--ink); }
-    @media (min-width: 1500px) {
-      .hero { padding-left: calc((100vw - 1400px) / 2); padding-right: calc((100vw - 1400px) / 2); }
-    }
-    .line-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); background: rgba(17,17,16,0.06); border: 1px solid var(--border); border-radius: 99px; padding: 6px 14px; margin-bottom: 16px; }
-    html[lang="ja"] .crumb, html[lang="ja"] .line-tag { font-family: 'Noto Sans JP', sans-serif; }
-
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
     .nav-links { display: flex; gap: 30px; align-items: center; }
     @media (max-width: 1120px) { .nav-links { gap: 20px; } }
     .nav-links a {
@@ -147,1112 +106,77 @@
     }
     .nav-links a:hover { opacity: 1; }
     .nav-links a:hover::after { right: 0; }
-    .nav-links a.active {
-      opacity: 1;
-      color: var(--sage);
-    }
+    .nav-links a.active { opacity: 1; color: var(--sage); }
     .nav-links a.active:hover { color: var(--sage); }
     .nav-links a.active::after { right: 0; }
     @media (max-width: 880px) { .nav-links { display: none; } }
-    /* ── ANNOUNCE BAR ── */
-    .announce {
-      background: var(--ink);
-      color: rgba(255,255,255,0.65);
-      text-align: center;
-      font-size: 12.5px;
-      font-weight: 400;
-      letter-spacing: 0.01em;
-      padding: 9px 20px;
-      line-height: 1.4;
-    }
-    .announce strong { color: var(--bg); font-weight: 500; }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-     
-    }
-
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px clamp(36px, 4.5vw, 72px);
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      line-height: 0;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-avail {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--faint);
-      letter-spacing: 0.02em;
-    }
-
-    .avail-dot {
-      width: 6px;
-      height: 6px;
-      background: #52a46a;
-      border-radius: 50%;
-      flex-shrink: 0;
-      animation: pulse 2.5s ease-in-out infinite;
-    }
-
+    .nav-right { display: flex; align-items: center; gap: 20px; }
     .lang-toggle {
       background: none;
       border: none;
       padding: 5px 2px;
       font-size: 12.5px;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.06em;
       color: var(--faint);
       cursor: pointer;
-      letter-spacing: 0.06em;
-      transition: color 0.2s, border-color 0.2s, background 0.15s;
+      transition: color 0.2s;
       display: inline-flex;
       align-items: center;
       line-height: 1;
       font-family: inherit;
     }
-    .lang-toggle:hover {
-      color: var(--ink);
-      
-    }
-
+    .lang-toggle:hover { color: var(--ink); }
     .nav-cta {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 13px;
       font-weight: 500;
-      color: var(--bg);
-      background: var(--ink);
+      color: #ffffff;
+      background: var(--sage);
       text-decoration: none;
       padding: 9px 18px;
       border-radius: var(--radius-sm);
-      transition: opacity 0.2s, transform 0.2s;
+      transition: background-color 0.18s ease;
       letter-spacing: 0.01em;
     }
-    .nav-cta:hover { opacity: 0.82; transform: translateY(-1px); }
-    .nav-cta svg { transition: transform 0.2s; }
-    .nav-cta:hover svg { transform: translateX(2px); }
+    .nav-cta:hover { background: #2e4a38; }
+    .nav-cta:active { background: #263d2f; }
+    .nav-cta svg { transition: transform 0.2s ease; }
+    .nav-cta:hover svg { transform: translateX(3px); }
 
-    /* ── SECTION WRAPPERS ── */
-    .s-white { background: var(--white); }
-    .s-dark  { background: var(--ink); }
-
-    /* ── HERO ── */
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      align-items: stretch;
-      min-height: calc(100svh - var(--chrome-h));
-    }
-
-    .hero-left {
-      padding: clamp(22px, 2.8vw, 40px) clamp(36px, 4.5vw, 72px) clamp(20px, 2.5vw, 32px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 780px;
-      width: 100%;
-    }
-
-    .hero-rule {
-      border: none;
-      border-top: 1px solid rgba(17,17,16,0.28);
-      width: 64px;
-      margin: 18px 0 0;
-      animation: fadeUp 0.7s 0.25s cubic-bezier(0.25,0.46,0.45,0.94) both;
-    }
-
-    .hero-stats {
-      margin-top: clamp(20px, 2.6vw, 32px);
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      animation: fadeUp 0.7s 0.6s cubic-bezier(0.25,0.46,0.45,0.94) both;
-    }
-    .hstat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      padding: 14px 16px 0 0;
-      border-right: 1px solid var(--border);
-    }
-    .hstat + .hstat { padding-left: 16px; }
-    .hstat:last-child { border-right: none; padding-right: 0; }
-    .hstat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 1;
-      color: #3A5C45;
-      font-variant-numeric: tabular-nums;
-    }
-    .hstat-txt { display: flex; flex-direction: column; gap: 1px; }
-    .hstat-label { font-size: 13px; font-weight: 600; color: var(--ink); }
-    .hstat-sub { font-size: 12px; font-weight: 300; color: var(--muted); }
-
-    .hero-collage {
-      position: relative;
-      background: var(--bg);
-      overflow: hidden;
-    }
-    .hc-inner {
+    /* ── SKIP LINK + FOCUS ── */
+    .skip-link {
       position: absolute;
-      inset: 0;
-      display: flex;
-      gap: 24px;
-      padding: 0 28px;
-      justify-content: center;
-    }
-    .hc-col { flex: 0 1 46%; max-width: 300px; min-width: 0; }
-    .hc-col:first-child { margin-top: -30px; }
-    .hc-col:last-child { margin-top: -76px; }
-    .hero-collage::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(to bottom, var(--bg) 0%, rgba(255,255,255,0) 14%, rgba(255,255,255,0) 86%, var(--bg) 100%);
-    }
-    .hero-collage:hover .ew-track { animation-play-state: paused; }
-
-    @media (min-width: 881px) and (max-height: 830px) {
-      .hero { min-height: 0; }
-      .hero-left { padding-top: 22px; padding-bottom: 16px; }
-      .hero h1 { font-size: clamp(34px, 3.4vw, 44px); }
-      .hero-desc { font-size: 15.5px; margin-bottom: 20px; }
-      .hero-byline { margin-bottom: 13px; }
-      .hero-rule { margin-top: 14px; }
-      .hero-stats { margin-top: 13px; }
-      .hstat { padding-top: 11px; }
-      .hstat-num { font-size: 26px; }
-      .hstat-sub { font-size: 11px; }
-    }
-
-    .hero h1 {
-      text-wrap: balance;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(40px, 4.2vw, 54px);
-      font-weight: 600;
-      line-height: 1.04;
-      letter-spacing: -0.015em;
-      color: var(--ink);
-      margin-bottom: 6px;
-      animation: fadeUp 0.8s 0.2s cubic-bezier(0.25,0.46,0.45,0.94) both;
-    }
-    .hero h1 strong { font-weight: 600; font-style: italic; display: block; }
-
-    .hero-byline {
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--faint);
-      margin-top: 12px;
-      margin-bottom: 22px;
-      animation: fadeUp 0.7s 0.3s cubic-bezier(0.25,0.46,0.45,0.94) both;
-    }
-
-    .hero-desc {
-      text-wrap: pretty;
-      font-size: 16.5px;
-      font-weight: 300;
-      line-height: 1.65;
-      color: var(--muted);
-      max-width: 500px;
-      margin-bottom: 20px;
-      animation: fadeUp 0.7s 0.4s cubic-bezier(0.25,0.46,0.45,0.94) both;
-    }
-    .hero-desc strong { color: var(--ink); font-weight: 500; }
-
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 11px;
-      animation: fadeUp 0.7s 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.02em;
+      left: -9999px;
+      top: 0;
+      z-index: 300;
+      background: var(--sage);
+      color: #ffffff;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 0 0 10px 0;
       text-decoration: none;
-      padding: 13px 26px;
-      border-radius: var(--radius-sm);
-      transition: opacity 0.2s, transform 0.22s cubic-bezier(0.25,0.46,0.45,0.94);
     }
-    .btn svg { transition: transform 0.2s; }
-    .btn:hover svg { transform: translateX(3px); }
-
-    .btn--dark { color: var(--bg); background: var(--ink); }
-    .btn--dark:hover { opacity: 0.82; transform: translateY(-1px); }
-
-    .btn--light { color: var(--ink); background: var(--bg); }
-    .btn--light:hover { background: #ffffff; transform: translateY(-1px); }
-
-    .btn-note {
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-    }
-
-    .hero-seework {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.01em;
-      color: var(--ink);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .hero-seework:hover { opacity: 0.75; }
-    .seework-chevron { animation: seeworkBounce 1.9s ease-in-out infinite; }
-    .hero-seework:hover .seework-chevron { animation-play-state: paused; transform: translateY(2px); }
-    @keyframes seeworkBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
-    @media (prefers-reduced-motion: reduce) { .seework-chevron { animation: none; } }
-
-    /* ── SHARED SECTION ── */
-    .section {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 88px 24px;
-    }
-    .section--wide {
-      max-width: var(--wide);
-      padding: 88px 40px;
-    }
-
-    .label {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--faint);
-      margin-bottom: 22px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .label--dim {
-      color: rgba(255,255,255,0.4);
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 4vw, 42px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: var(--ink);
-      margin-bottom: 44px;
-    }
-    h2 span { display: block; font-weight: 700; font-style: italic; }
-    h2.light { color: rgba(255,255,255,0.94); }
-
-    .callout {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.68;
-      color: var(--muted);
-      padding: 20px 26px;
-      background: var(--bg);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-    }
-    .callout strong { color: var(--ink); font-weight: 600; }
-
-    /* ── GAP LIST ── */
-    .gap-list { list-style: none; margin-bottom: 32px; }
-    .gap-list li {
-      display: flex;
-      gap: 22px;
-      padding: 22px 0;
-      border-top: 1px solid var(--border);
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-    .gap-list li:last-child { border-bottom: 1px solid var(--border); }
-    .gap-num {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: rgba(17,17,16,0.26);
-      padding-top: 4px;
-      min-width: 18px;
-      flex-shrink: 0;
-    }
-
-    /* ── CASE STUDY ── */
-    .case-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 48px;
-    }
-
-    .case-box {
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: var(--radius);
-      padding: 32px 36px;
-    }
-
-    .case-num {
-      display: block;
-      font-size: clamp(38px, 5vw, 58px);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      color: rgba(255,255,255,0.94);
-      line-height: 1;
-      margin-bottom: 10px;
-    }
-
-    .case-label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 3px;
-    }
-
-    .case-sub {
-      display: block;
-      font-size: 12px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.36);
-    }
-
-    .case-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.42);
-      letter-spacing: 0.14em;
-      margin-bottom: 16px;
-    }
-
-    .case-story p {
-      font-size: 15px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.75;
-    }
-
-    /* Growth chart */
-    .chart-box {
-      border: 1px solid rgba(255,255,255,0.11);
-      border-radius: var(--radius);
-      padding: 32px 36px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .growth-bars {
-      display: flex;
-      align-items: flex-end;
-      gap: 5px;
-      height: 72px;
-      margin-bottom: 14px;
-    }
-
-    .growth-bar-fill {
-      flex: 1;
-      border-radius: 3px 3px 0 0;
-      height: 0;
-      background: rgba(255,255,255,0.9);
-      transition: height 0.9s cubic-bezier(0.34,1.08,0.64,1);
-    }
-    .growth-bar-fill:nth-child(1)  { opacity: 0.12; transition-delay: 0.00s; }
-    .growth-bar-fill:nth-child(2)  { opacity: 0.19; transition-delay: 0.05s; }
-    .growth-bar-fill:nth-child(3)  { opacity: 0.27; transition-delay: 0.10s; }
-    .growth-bar-fill:nth-child(4)  { opacity: 0.35; transition-delay: 0.15s; }
-    .growth-bar-fill:nth-child(5)  { opacity: 0.43; transition-delay: 0.20s; }
-    .growth-bar-fill:nth-child(6)  { opacity: 0.52; transition-delay: 0.25s; }
-    .growth-bar-fill:nth-child(7)  { opacity: 0.61; transition-delay: 0.30s; }
-    .growth-bar-fill:nth-child(8)  { opacity: 0.70; transition-delay: 0.35s; }
-    .growth-bar-fill:nth-child(9)  { opacity: 0.79; transition-delay: 0.40s; }
-    .growth-bar-fill:nth-child(10) { opacity: 0.87; transition-delay: 0.45s; }
-    .growth-bar-fill:nth-child(11) { opacity: 0.93; transition-delay: 0.50s; }
-    .growth-bar-fill:nth-child(12) { opacity: 1.00; transition-delay: 0.55s; }
-
-    .chart-caption {
-      font-size: 11px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.32);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      margin-top: auto;
-    }
-
-    /* ── WORK GRID ── */
-    .work-grid {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .work-item {
-      background: var(--bg);
-      border-radius: var(--radius);
-      padding: 26px 26px;
-      border: 1px solid var(--border);
-    }
-
-    .work-item h3 {
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      line-height: 1.4;
-      margin-bottom: 9px;
-    }
-
-    .work-item p {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.62;
-    }
-
-    /* ── STEPS ── */
-    .steps { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-
-    .step {
-      display: flex;
-      gap: 26px;
-      padding: 26px 30px;
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      align-items: flex-start;
-    }
-
-    .step-num {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: rgba(17,17,16,0.26);
-      padding-top: 3px;
-      min-width: 20px;
-      flex-shrink: 0;
-    }
-
-    .step h3 {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--ink);
-      margin-bottom: 5px;
-      letter-spacing: -0.01em;
-    }
-
-    .step p {
-      font-size: 14px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.62;
-    }
-
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 56px;
-      align-items: start;
-      margin-bottom: 44px;
-    }
-
-    .about-photo-col { position: sticky; top: 94px; }
-
-    .about-photo {
-      width: 100%;
-      aspect-ratio: 1;
-      border-radius: var(--radius);
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      border: 1px solid var(--border);
-    }
-    .about-caption {
-      display: block;
-      margin-top: 14px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--black);
-      line-height: 1.5;
-    }
-    .about-caption-role {
-      font-size: 12.5px;
-      font-weight: 400;
-      color: var(--muted, var(--gray));
-    }
-
-    .about-body p {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 16px;
-    }
-    .about-body p:last-child { margin-bottom: 0; }
-    .about-body p strong { color: var(--ink); font-weight: 500; }
-
-    /* ── TESTIMONIAL ── */
-    .testimonial {
-      padding: 30px 34px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-    }
-
-    .testimonial-quote {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1.75;
-      font-style: italic;
-      margin-bottom: 18px;
-    }
-
-    .testimonial-attr {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .testimonial-attr-photo {
-      height: 24px;
-      width: auto;
-      object-fit: contain;
-      flex-shrink: 0;
-      opacity: 0.6;
-    }
-
-    .testimonial-attr-text {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      color: var(--faint);
-      line-height: 1.5;
-    }
-
-    .testimonial-attr-name { color: var(--ink); font-weight: 600; }
-
-    /* ── CTA SECTION ── */
-    .cta-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 96px 40px 116px;
-    }
-
-    .cta-inner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(30px, 5vw, 52px);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 22px;
-    }
-    .cta-inner h2 strong { font-weight: 700; font-style: italic; display: block; color: #ffffff; }
-
-    .cta-inner > p {
-      font-size: 16px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.82);
-      line-height: 1.72;
-      margin-bottom: 44px;
-      max-width: 460px;
-    }
-
-    .cta-note-dark {
-      display: block;
-      margin-top: 14px;
-      font-size: 12px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.03em;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      border-top: 1px solid rgba(255,255,255,0.09);
-    }
-
-    .footer-inner {
-      max-width: var(--wide);
-      margin: 0 auto;
-      padding: 26px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
-    .footer-logo img { filter: brightness(100); opacity: 0.45; }
-
-    .footer-meta {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .footer-meta a, .footer-meta span {
-      font-size: 12px;
-      font-weight: 300;
-      letter-spacing: 0.03em;
-      color: rgba(255,255,255,0.38);
-      text-decoration: none;
-      padding: 8px 0; display: inline-block; }
-    .footer-meta a:hover { color: rgba(255,255,255,0.75); }
-
-    /* ── JAPANESE TYPOGRAPHY ── */
-    html[lang="ja"] body {
-      font-family: 'Noto Sans JP', -apple-system, sans-serif;
-      line-height: 1.8;
-    }
-
-    html[lang="ja"] .hero h1,
-    html[lang="ja"] h2,
-    html[lang="ja"] .cta-inner h2 {
-      font-family: 'Shippori Mincho B1', serif;
-      letter-spacing: 0.02em;
-      line-height: 1.25;
-    }
-
-    html[lang="ja"] .hero h1 strong,
-    html[lang="ja"] h2 span,
-    html[lang="ja"] .cta-inner h2 strong {
-      font-style: normal;
-    }
-
-    html[lang="ja"] .hero-desc {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px;
-      line-height: 2.0;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .about-body p {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px;
-      line-height: 2.1;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .callout {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 14px;
-      line-height: 1.95;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .gap-list li {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px;
-      line-height: 1.9;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .step h3 {
-      font-family: 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .step p {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px;
-      line-height: 1.9;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .work-item h3 {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .work-item p {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 12px;
-      line-height: 1.9;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .testimonial-quote {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px;
-      font-style: normal;
-      line-height: 2.0;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .case-story p {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 14px;
-      line-height: 2.0;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .cta-inner > p {
-      font-family: 'Noto Sans JP', sans-serif;
-      font-size: 15px;
-      line-height: 2.0;
-      letter-spacing: 0.02em;
-    }
-
-    html[lang="ja"] .label {
-      font-family: 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.12em;
-    }
-
-
-    html[lang="ja"] .hero-byline {
-      font-family: 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.06em;
-    }
-
-    html[lang="ja"] .btn {
-      font-family: 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.04em;
-    }
-
-    html[lang="ja"] .btn-note,
-    html[lang="ja"] .cta-note-dark {
-      font-family: 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.02em;
-    }
-
-
-
-    html[lang="ja"] .case-label {
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    html[lang="ja"] .case-sub {
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    html[lang="ja"] .case-tag {
-      font-family: 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.04em;
-    }
-
-    html[lang="ja"] .chart-caption {
-      font-family: 'Noto Sans JP', sans-serif;
-      letter-spacing: 0.04em;
-    }
-
-    html[lang="ja"] .nav-avail,
-    html[lang="ja"] .nav-cta,
-    html[lang="ja"] .footer-meta a,
-    html[lang="ja"] .footer-meta span {
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    html[lang="ja"] .testimonial-attr-text {
-      font-family: 'Noto Sans JP', sans-serif;
-    }
-
-    /* ── JAPANESE LAYOUT OPTIMIZATIONS ── */
-
-    /* Hero h1: reduce size so Japanese doesn't break mid-katakana-word */
-    html[lang="ja"] .hero h1 {
-      font-size: clamp(38px, 4.6vw, 60px);
-      line-height: 1.28;
-      line-break: strict;       /* prevents ー / small kana breaking off */
-      word-break: normal;
-      overflow-wrap: break-word;
-    }
-
-    /* Section h2 */
-    html[lang="ja"] h2 {
-      font-size: clamp(22px, 3vw, 36px);
-      line-height: 1.3;
-      line-break: strict;
-    }
-
-    /* CTA h2 */
-    html[lang="ja"] .cta-inner h2 {
-      font-size: clamp(22px, 3.2vw, 38px);
-      line-break: strict;
-    }
-
-    /* Body text: prevent breaking inside katakana words */
-    html[lang="ja"] .hero-desc,
-    html[lang="ja"] .callout,
-    html[lang="ja"] .step p,
-    html[lang="ja"] .gap-list li,
-    html[lang="ja"] .about-body p,
-    html[lang="ja"] .case-story p,
-    html[lang="ja"] .cta-inner > p {
-      line-break: strict;
-      overflow-wrap: break-word;
-    }
-
-    /* Proof card labels: tighter for Japanese on narrow columns */
-
-    /* Mobile: hero single-column gets more breathing room */
-    @media (max-width: 880px) {
-      html[lang="ja"] .hero h1 {
-        font-size: clamp(33px, 7.5vw, 48px);
-      }
-      html[lang="ja"] h2 {
-        font-size: clamp(22px, 5vw, 32px);
-      }
-        }
-
-    @media (max-width: 560px) {
-      html[lang="ja"] .hero h1 {
-        font-size: clamp(30px, 9vw, 42px);
-        line-height: 1.38;
-      }
-      html[lang="ja"] h2 {
-        font-size: clamp(20px, 6vw, 28px);
-      }
-      html[lang="ja"] .cta-inner h2 {
-        font-size: clamp(22px, 7vw, 32px);
-      }
-      html[lang="ja"] .hero-desc { font-size: 14px; }
-      html[lang="ja"] .about-body p { font-size: 14px; }
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 880px) {
-      .hero {
-        grid-template-columns: 1fr;
-        min-height: 0;
-      }
-      .nav-inner { padding: 15px 24px; }
-      .hero-left { max-width: none; padding: 48px 24px 44px; }
-      .hero-collage {
-        border-left: none;
-        border-top: 1px solid var(--border);
-        height: 430px;
-        padding: 0 20px;
-      }
-      .hc-col:first-child { margin-top: -18px; }
-      .hc-col:last-child { margin-top: -52px; }
-
-      .section--wide { padding: 56px 24px; }
-      .case-wrap { grid-template-columns: 1fr; }
-      .work-grid { grid-template-columns: 1fr 1fr; }
-      .about-grid { grid-template-columns: 1fr; gap: 28px; }
-      .about-photo-col { position: static; max-width: 160px; }
-      .cta-inner { padding: 80px 24px 96px; }
-      .footer-inner { padding: 22px 24px; }
-    }
-
-    @media (max-width: 560px) {
-      .nav-inner { padding: 13px 20px; }
-      .nav-avail { display: none; }
-
-      .hero-left { padding: 28px 20px 24px; }
-      .hero h1 { font-size: 33px; }
-      .hero-collage { height: 340px; gap: 16px; }
-      .hstat { padding-top: 12px; }
-      .hstat-num { font-size: 22px; }
-      .hstat-label { font-size: 11px; }
-      .hstat-sub { display: none; }
-      .hero-byline { margin-bottom: 16px; }
-      .hero-desc { font-size: 15px; margin-bottom: 22px; }
-      .hero-desc { font-size: 15px; }
-      .hero-actions .btn { width: 100%; justify-content: center; }
-
-      .section { padding: 52px 20px; }
-      .section--wide { padding: 52px 20px; }
-      h2 { margin-bottom: 32px; }
-
-
-      .work-grid { grid-template-columns: 1fr; }
-      .step { padding: 20px 22px; }
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .footer-meta { flex-direction: column; gap: 6px; align-items: flex-start; }
-    }
-    /* ── EMAIL SHOWCASE WALL ── */
-    .ew-section { background: var(--bg); overflow: hidden; padding-bottom: 64px; scroll-margin-top: 90px; }
-    .ew-section .section { padding-bottom: 4px; text-align: center; }
-    .ew-section .section .label { display: inline-flex; }
-    .ew-section .section .label::before { display: none; }
-    .ew-desc { margin-left: auto; margin-right: auto; }
-    .ew-desc { font-size: 17px; font-weight: 300; line-height: 1.75; color: var(--muted); max-width: 480px; margin-top: 18px; }
-    .ew-track { display: flex; flex-direction: column; gap: 22px; will-change: transform; }
-    .ew-up   { animation: ewUp linear infinite; }
-    .ew-down { animation: ewDown linear infinite; }
-    @keyframes ewUp   { from { transform: translateY(0); } to { transform: translateY(-50%); } }
-    @keyframes ewDown { from { transform: translateY(-50%); } to { transform: translateY(0); } }
-    .ew-card { width: 100%; background-size: cover; background-position: top center; background-repeat: no-repeat; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--border); }
-    @media (prefers-reduced-motion: reduce) { .ew-up, .ew-down { animation: none; } }
-
-    /* ── LIFECYCLE STRIP ── */
-    .lc-strip { max-width: var(--max); margin: 34px auto 0; padding: 0 24px; }
-    .lc-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .lc-stat { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: 16px 18px; }
-    .lc-stat-top { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
-    .lc-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
-    .lc-c0 { background: #b4ad9e; } .lc-c1 { background: #cf8a3c; } .lc-c2 { background: #2f6f57; }
-    .lc-num { font-size: 30px; font-weight: 500; line-height: 1; margin-top: 7px; font-variant-numeric: tabular-nums; }
-    .lc-board { position: relative; height: 210px; margin-top: 18px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-    .lc-sim-tag {
-      position: absolute;
-      top: 10px; right: 12px;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--faint);
-      pointer-events: none;
-    }
-    .lc-zone-line { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px dashed var(--border); }
-    .lc-zone-labels { position: absolute; left: 0; right: 0; bottom: 12px; display: grid; grid-template-columns: repeat(3, 1fr); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); text-align: center; pointer-events: none; }
-    .lc-bead { position: absolute; width: 12px; height: 12px; border-radius: 50%; transition: left 0.9s cubic-bezier(0.4,0,0.2,1), top 0.9s cubic-bezier(0.4,0,0.2,1), background 0.6s, opacity 0.5s; }
-    .lc-flows { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
-    .lc-flow { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--muted); padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: background 0.45s, border-color 0.45s; }
-    .lc-flow svg { flex: none; }
-    .lc-flow b { color: var(--ink); font-weight: 500; }
-    .lc-flow .lc-arrow { color: var(--faint); }
-    .lc-flow.lc-fire { background: var(--white); border-color: rgba(17,17,16,0.30); }
-    .lc-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    @media (max-width: 560px) { .lc-flows { grid-template-columns: 1fr; } .lc-num { font-size: 24px; } .lc-stat { padding: 13px 14px; } .lc-board { height: 186px; } }
-    @media (prefers-reduced-motion: reduce) { .lc-bead { transition: none; } }
-
-    /* ── growth.hanjo.ai design alignment ── */
-    body { background: var(--white); }
-    nav { background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); }
-    .announce { background: var(--sage); color: rgba(255,255,255,0.8); }
-    .announce strong { color: #ffffff; }
-    .hero, .page-hero { background: var(--bg); border-bottom: 1px solid var(--border); }
-    .nav-cta, .btn--dark { background: var(--sage); }
-    .nav-cta:hover, .btn--dark:hover { background: #2e4a38; opacity: 1; }
-    .btn--light { color: var(--sage); }
-    .s-dark { background: var(--sage); }
-    .hero h1 strong, .page-hero h1 strong { color: var(--sage); }
-    .s-dark h2 strong, .cta-inner h2 strong { color: #ffffff; }
-    .line-row-arrow { color: var(--sage); opacity: 0.8; }
-    footer { background: var(--white); border-top: 1px solid var(--border); }
-    .footer-logo img { filter: none; opacity: 1; }
-    .footer-meta a, .footer-meta span { color: var(--muted); }
-    .footer-meta a:hover { color: var(--sage); }
-    .cta-note-dark { color: rgba(255,255,255,0.55); }
-      @media print {
-      [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
-    }
-      a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    .skip-link:focus { left: 0; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
       outline: 2px solid var(--sage);
       outline-offset: 3px;
       border-radius: 4px;
     }
-  
+    .pl-proof :focus-visible, .pl-cta :focus-visible { outline-color: #ffffff; }
+
     /* ── SMOOTH PAGE TRANSITIONS: header/footer stay put ── */
     @view-transition { navigation: auto; }
     nav { view-transition-name: site-header; }
-    .announce { view-transition-name: site-announce; }
     footer { view-transition-name: site-footer; }
     @media (prefers-reduced-motion: reduce) {
       @view-transition { navigation: none; }
     }
-  
-    /* ── CTA: modern flat ── */
-    .nav-cta, .btn--dark, .btn-primary, form .btn {
-      color: #ffffff;
-      background: var(--sage);
-      border: none;
-      box-shadow: none;
-      transition: background-color 0.18s ease;
-    }
-    .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover {
-      color: #ffffff;
-      background: #2e4a38;
-      transform: none;
-      filter: none;
-      box-shadow: none;
-    }
-    .nav-cta:active, .btn--dark:active, .btn-primary:active, form .btn:active {
-      background: #263d2f;
-      transform: none;
-      filter: none;
-      box-shadow: none;
-    }
-    .nav-cta svg, .btn--dark svg, .btn-primary svg, .btn--light svg {
-      transition: transform 0.2s ease;
-    }
-    .nav-cta:hover svg, .btn--dark:hover svg, .btn-primary:hover svg, .btn--light:hover svg {
-      transform: translateX(3px);
-    }
-    .btn--light {
-      color: var(--sage);
-      background: #ffffff;
-      border: none;
-      box-shadow: none;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-      transition: background-color 0.18s ease;
-    }
-    .btn--light:hover { color: var(--sage); background: #eef0ea; transform: none; }
-    .btn--light:active { background: #e3e6df; transform: none; }
-  
-    /* ── FULL-PAGE HERO ── */
-    /* Fallbacks only: the script after </nav> writes the measured nav height. */
-    :root { --chrome-h: 74px; }
-    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
-    .hero { min-height: calc(100svh - var(--chrome-h)); }
 
-    /* ── MOBILE HERO: the collage ran ~113px past the fold. Shorter, so the
-       copy plus the first band of email work land on one screen. ── */
-    @media (max-width: 559px) {
-      .hero-left { padding: 24px 20px 20px; }
-      .hero-collage { height: 232px; }
-      .hc-col:first-child { margin-top: -12px; }
-      .hc-col:last-child { margin-top: -38px; }
-    }
-      /* ── CTA geometry: one standard ── */
-    .btn--dark, .btn--light {
-      font-size: 13.5px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      line-height: 1;
-      gap: 8px;
-      padding: 15px 30px;
-      border-radius: 100px;
-    }
-      /* ── MOBILE MENU ── */
+    /* ── MOBILE MENU ── */
     .nav-burger { display: none; }
     .mobile-menu { display: none; }
     @media (max-width: 880px) {
@@ -1260,7 +184,6 @@
       .lang-toggle { display: none; }
       .nav-right { gap: 12px; }
       .nav-cta { font-size: 12.5px; padding: 9px 16px; }
-      .nav-burger { width: 44px; height: 44px; margin-right: -8px; }
       .mm-lang {
         display: block;
         margin-top: 32px;
@@ -1285,8 +208,9 @@
         justify-content: center;
         align-items: center;
         gap: 6px;
-        width: 40px;
-        height: 40px;
+        width: 44px;
+        height: 44px;
+        margin-right: -8px;
         background: none;
         border: none;
         cursor: pointer;
@@ -1335,7 +259,6 @@
       .mm-name { flex: 1; }
       .mm-arrow { color: rgba(17, 17, 16, 0.3); flex-shrink: 0; }
       .mm-links a.active .mm-arrow { color: #3A5C45; }
-
       .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
       .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
       .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
@@ -1347,76 +270,15 @@
         .mm-links a { transition: opacity 0.2s; transform: none; }
       }
     }
-      @media (min-width: 881px) { .crumb { display: none; } }
-      /* ── MAIN CTA EMPHASIS + SHINE ── */
-    .hero-actions .btn--dark, .hero-actions .btn-primary, .cta-inner .btn--dark, .cta-inner .btn--light, form .btn {
-      font-size: 15px;
-      height: 52px;
-      padding: 0 38px;
-    }
-    .btn--dark, .btn-primary, .nav-cta, form .btn, .btn--light {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      left: -80%;
-      width: 45%;
-      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-      transform: skewX(-20deg);
-      animation: ctaShine 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .btn--light::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      left: -80%;
-      width: 45%;
-      background: linear-gradient(105deg, transparent, rgba(58, 92, 69, 0.12), transparent);
-      transform: skewX(-20deg);
-      animation: ctaShine 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes ctaShine {
-      0%, 58% { left: -80%; }
-      78%, 100% { left: 130%; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after, .btn--light::after { animation: none; display: none; }
-    }
-      /* ── NATURAL JA LINE BREAKING (phrase-based where supported) ── */
-    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
-    html[lang="ja"] p, html[lang="ja"] li,
-    html[lang="ja"] .announce, html[lang="ja"] .btn-note, html[lang="ja"] .lead,
-    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
-    body.lang-ja p, body.lang-ja li, body.lang-ja .risk-banner {
-      word-break: auto-phrase;
-    }
-    p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
-      .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      z-index: 300;
-      background: var(--sage);
-      color: #ffffff;
-      padding: 12px 20px;
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 0 0 10px 0;
-      text-decoration: none;
-    }
-    .skip-link:focus { left: 0; }
-    /* ── FOOTER CANONICAL (identical metrics on every page) ── */
+
+    /* ── FOOTER (identical metrics on every page) ── */
     footer { background: #ffffff; border-top: 1px solid var(--border); }
     .footer-inner {
       max-width: 1060px; margin: 0 auto; padding: 26px 40px;
       display: flex; flex-direction: row; justify-content: space-between; align-items: center;
       gap: 16px; flex-wrap: wrap;
     }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
     .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
     .footer-meta a, .footer-meta span {
       font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
@@ -1426,30 +288,149 @@
     .footer-logo img { height: 22px; display: block; }
     @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
     @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
-    @media (max-width: 640px) { .crumb { display: none; } }
-    /* ── JAPANESE LINE BREAKING ──
-       Two separate problems were showing up on narrow screens.
 
-       1. Most elements inherited line-break: auto, which lets the browser break
-          before ー and small kana: リピータ / ー, ブランドオーナ / ー.
-          `strict` applies 禁則処理 so those can never start a line.
+    /* ── CRM PAGE (2026-11 redesign, shared .pl components from /brand.css) ── */
+    .pl-h2 { margin: 0; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.06; text-wrap: balance; }
+    html[lang="ja"] .pl-h2 { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.4; }
+    .pl-sub strong { color: var(--ink); font-weight: 500; }
+    .pl-lede strong { color: var(--ink); font-weight: 500; }
 
-       2. word-break: auto-phrase was set on body copy as well as headings. In
-          long-form Japanese it degrades rather than helping, and it was the
-          direct cause of コンバージ / ョン on the ads page. Verified by toggling
-          it off in the browser: 3 violations -> 0. It stays on headings, where
-          short display text benefits from breaking at phrase boundaries and
-          compound words like 支援 are kept whole.
-
-       text-wrap: pretty discourages a lone trailing character (アクティブ顧客 / 数).
-
-       Two selector families because ads and recovery drive their Japanese
-       typography off body.lang-ja while the other pages use html[lang="ja"]. */
-    html[lang="ja"] body, body.lang-ja {
-      line-break: strict;
-      word-break: normal;
-      overflow-wrap: normal;
+    /* hero: the email collage sits in the visual column */
+    .pl-hero-vis .hero-collage { position: relative; height: min(680px, 74svh); overflow: hidden; }
+    .hc-inner { position: absolute; inset: 0; display: flex; gap: 24px; justify-content: center; }
+    .hc-col { flex: 0 1 46%; max-width: 300px; min-width: 0; }
+    .hc-col:first-child { margin-top: -30px; }
+    .hc-col:last-child { margin-top: -76px; }
+    .hero-collage::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to bottom, var(--bg) 0%, rgba(245,244,240,0) 14%, rgba(245,244,240,0) 86%, var(--bg) 100%);
     }
+    .ew-track { display: flex; flex-direction: column; gap: 22px; }
+    .ew-card { width: 100%; background-size: cover; background-position: top center; background-repeat: no-repeat; border-radius: 12px; box-shadow: 0 1px 2px rgba(17,17,16,.05), 0 24px 48px -24px rgba(17,17,16,.22), 0 0 0 1px var(--border); }
+
+    /* hero stats: a quiet ledger row under the actions */
+    .hero-stats { margin-top: 44px; border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 560px; }
+    .hstat { display: flex; flex-direction: column; gap: 4px; padding: 16px 16px 0 0; border-right: 1px solid var(--border); }
+    .hstat + .hstat { padding-left: 16px; }
+    .hstat:last-child { border-right: none; padding-right: 0; }
+    .hstat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; line-height: 1; color: var(--sage); font-variant-numeric: tabular-nums; }
+    .hstat-txt { display: flex; flex-direction: column; gap: 1px; }
+    .hstat-label { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .hstat-sub { font-size: 12.5px; color: var(--muted); }
+
+    /* platform logos inside .pl-tools */
+    .pl-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 26px; }
+    .platform-row { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+    .pf-item { display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 500; color: var(--ink); opacity: 0.72; }
+    .pf-item svg { flex-shrink: 0; }
+
+    /* lifecycle strip: the live journey widget, now in tokens */
+    .lc-strip { margin-top: 64px; }
+    .lc-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+    .lc-stat { padding: 18px 20px 18px 0; }
+    .lc-stat + .lc-stat { border-left: 1px solid var(--border); padding-left: 20px; }
+    .lc-stat-top { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--muted); }
+    .lc-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+    .lc-c0 { background: #D9D6CD; } .lc-c1 { background: #C9D8C5; } .lc-c2 { background: #3A5C45; }
+    .lc-num { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 700; line-height: 1; margin-top: 10px; font-variant-numeric: tabular-nums; }
+    .lc-board { position: relative; height: 240px; margin-top: 8px; background: #ffffff; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .lc-sim-tag { position: absolute; top: 12px; right: 14px; font-size: 12.5px; color: var(--muted); pointer-events: none; }
+    .lc-zone-line { position: absolute; top: 0; bottom: 0; width: 0; border-left: 1px solid var(--border); }
+    .lc-zone-labels { position: absolute; left: 0; right: 0; bottom: 12px; display: grid; grid-template-columns: repeat(3, 1fr); font-size: 12.5px; color: var(--muted); text-align: center; pointer-events: none; }
+    .lc-bead { position: absolute; width: 12px; height: 12px; border-radius: 50%; transition: left 0.9s cubic-bezier(0.4,0,0.2,1), top 0.9s cubic-bezier(0.4,0,0.2,1), background 0.6s, opacity 0.5s; }
+    .lc-flows { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; margin-top: 8px; }
+    .lc-flow { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--muted); padding: 14px 0; border-bottom: 1px solid var(--border); transition: color 0.45s; }
+    .lc-flow svg { flex: none; }
+    .lc-flow b { color: var(--ink); font-weight: 600; }
+    .lc-flow.lc-fire { color: var(--ink); }
+    .lc-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (prefers-reduced-motion: reduce) { .lc-bead { transition: none; } }
+
+    /* gaps: plain statements, no titles */
+    .crm-gaps li p { font-size: 17px; color: var(--ink); }
+
+    /* case study in the dark band */
+    .pl-proof-vis { min-width: 0; }
+    .pl-proof-tag { margin: 0 0 16px !important; font-size: 14px !important; color: rgba(255,255,255,.65) !important; }
+    .pl-proof-txt h2 span { color: #C9D8C5; font-style: italic; }
+    html[lang="ja"] .pl-proof-txt h2 span { font-style: normal; }
+    .pl-facts { flex-wrap: wrap; row-gap: 20px; }
+    .pl-facts dd.pl-fact-sub { margin-top: 2px; font-family: inherit; font-size: 13px; color: rgba(255,255,255,.65); }
+    .growth-bars { display: flex; align-items: flex-end; gap: 5px; height: 120px; margin-top: 40px; max-width: 520px; }
+    .growth-bar-fill { flex: 1; border-radius: 2px 2px 0 0; background: #ffffff; }
+    .growth-bar-fill:nth-child(1)  { opacity: 0.14; }
+    .growth-bar-fill:nth-child(2)  { opacity: 0.2; }
+    .growth-bar-fill:nth-child(3)  { opacity: 0.27; }
+    .growth-bar-fill:nth-child(4)  { opacity: 0.34; }
+    .growth-bar-fill:nth-child(5)  { opacity: 0.41; }
+    .growth-bar-fill:nth-child(6)  { opacity: 0.48; }
+    .growth-bar-fill:nth-child(7)  { opacity: 0.55; }
+    .growth-bar-fill:nth-child(8)  { opacity: 0.62; }
+    .growth-bar-fill:nth-child(9)  { opacity: 0.7; }
+    .growth-bar-fill:nth-child(10) { opacity: 0.78; }
+    .growth-bar-fill:nth-child(11) { opacity: 0.86; }
+    .growth-bar-fill:nth-child(12) { opacity: 0.94; }
+    .chart-caption { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,.65); }
+
+    /* process: three steps across */
+    @media (min-width: 1024px) { .pl-track.crm-track { grid-template-columns: repeat(3, 1fr); } }
+
+    /* about + testimonial */
+    .about-grid { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 56px; align-items: start; margin-top: 64px; }
+    .about-photo-col { position: sticky; top: calc(var(--chrome-h) + 32px); }
+    .about-photo { width: 100%; aspect-ratio: 1; border-radius: 4px; object-fit: cover; object-position: center top; display: block; }
+    .about-caption { display: block; margin-top: 14px; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.5; }
+    .about-caption-role { font-size: 13px; font-weight: 400; color: var(--muted); }
+    .about-body { max-width: 680px; }
+    .about-body p { font-size: 17px; color: var(--muted); line-height: 1.75; margin-bottom: 18px; }
+    .about-body p:last-child { margin-bottom: 0; }
+    .about-body p strong { color: var(--ink); font-weight: 500; }
+    .testimonial { margin: 72px 0 0 256px; max-width: 680px; padding-top: 28px; border-top: 1px solid var(--ink); }
+    .testimonial-quote { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(20px, 1.8vw, 24px); font-style: italic; line-height: 1.5; color: var(--ink); margin-bottom: 22px; }
+    .testimonial-attr { display: flex; align-items: center; gap: 12px; }
+    .testimonial-attr-photo { height: 24px; width: auto; object-fit: contain; flex-shrink: 0; opacity: 0.7; }
+    .testimonial-attr-text { font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .testimonial-attr-name { color: var(--ink); font-weight: 600; }
+
+    @media (max-width: 1023px) {
+      .pl-hero-vis .hero-collage { height: 440px; }
+      .testimonial { margin-left: 0; }
+    }
+    @media (max-width: 767px) {
+      .about-grid { grid-template-columns: 1fr; gap: 28px; margin-top: 40px; }
+      .about-photo-col { position: static; max-width: 160px; }
+      .lc-flows { grid-template-columns: 1fr; }
+      .lc-num { font-size: 26px; }
+      .lc-stat { padding-right: 12px; }
+      .lc-stat + .lc-stat { padding-left: 12px; }
+      .lc-board { height: 200px; }
+      .testimonial { margin-top: 48px; }
+    }
+    @media (max-width: 559px) {
+      .pl-hero-vis .hero-collage { height: 300px; }
+      .hc-inner { gap: 16px; }
+      .hc-col:first-child { margin-top: -12px; }
+      .hc-col:last-child { margin-top: -38px; }
+      .hero-stats { margin-top: 32px; }
+      .hstat-num { font-size: 22px; }
+      .hstat-label { font-size: 11.5px; }
+      .hstat-sub { display: none; }
+    }
+
+    /* ── JAPANESE TYPOGRAPHY ── */
+    html[lang="ja"] body { font-family: 'Noto Sans JP', -apple-system, sans-serif; line-height: 1.8; }
+    html[lang="ja"] .nav-cta, html[lang="ja"] .footer-meta a, html[lang="ja"] .footer-meta span { font-family: 'Noto Sans JP', sans-serif; }
+    html[lang="ja"] .pl-lede, html[lang="ja"] .pl-sub, html[lang="ja"] .about-body p,
+    html[lang="ja"] .pl-proof-txt p, html[lang="ja"] .pl-who p, html[lang="ja"] .pl-track p, html[lang="ja"] .pl-faq p { line-height: 1.95; letter-spacing: 0.02em; }
+    html[lang="ja"] .pl-lede { font-size: 16.5px; }
+    html[lang="ja"] .about-body p { font-size: 16px; line-height: 2.05; }
+    html[lang="ja"] .testimonial-quote { font-family: 'Shippori Mincho B1', serif; font-style: normal; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.9; }
+
+    /* ── JAPANESE LINE BREAKING ──
+       `strict` applies 禁則処理 so ー and small kana never start a line.
+       auto-phrase stays on headings only; in body copy it caused bad breaks. */
+    p, li, .pl-lede { text-wrap: pretty; }
+    html[lang="ja"] body, body.lang-ja { line-break: strict; word-break: normal; overflow-wrap: normal; }
     html[lang="ja"] p, html[lang="ja"] li, html[lang="ja"] span,
     html[lang="ja"] td, html[lang="ja"] th, html[lang="ja"] dd, html[lang="ja"] dt,
     body.lang-ja p, body.lang-ja li, body.lang-ja span,
@@ -1459,65 +440,10 @@
       text-wrap: pretty;
     }
     html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
-    html[lang="ja"] .hero h1, html[lang="ja"] .page-hero h1,
-    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
-    body.lang-ja .hero h1, body.lang-ja .page-hero h1 {
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3 {
       word-break: auto-phrase;
       line-break: strict;
     }
-
-    /* ── 2026-10 quiet editorial pass (see /DESIGN.md) ──
-       Same copy; plain left-aligned headings, no eyebrow labels, hairline
-       lists instead of card grids, the case study on cream like the home result. */
-    :root { --board: #E8EBE4; --muted-solid: #5C5C59; }
-    .label { display: none !important; }
-    h2 { text-wrap: balance; }
-    h2 span { font-style: normal; }
-    html:not([lang="ja"]) h2 span { display: inline; }
-    .ew-section .section, .ew-section h2, .ew-desc { text-align: left !important; }
-    .ew-section .ew-desc { margin-left: 0 !important; }
-    .ew-desc { font-size: 17px; max-width: 36em; }
-    .cta-inner h2 strong { font-style: normal; }
-
-    .callout { background: var(--board); border: 0; border-radius: 4px; font-size: 16px; font-weight: 400; color: var(--muted-solid); }
-    .gap-num, .step-num { font-size: 13px; letter-spacing: 0; color: var(--faint); font-variant-numeric: tabular-nums; }
-    .gap-list li { font-size: 17px; }
-
-    /* case study: cream, ruled boxes, sage numbers */
-    .s-case { background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .s-case h2 { color: var(--ink); }
-    .s-case .case-wrap { gap: 0; border-top: 1px solid var(--ink); }
-    .s-case .case-box, .s-case .chart-box { border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 28px 28px 28px 0; }
-    .s-case .case-num { font-family: 'Playfair Display', serif; color: var(--sage); }
-    .s-case .case-label { color: var(--ink); font-size: 15px; }
-    .s-case .case-sub { color: var(--muted-solid); font-size: 14px; font-weight: 400; }
-    .s-case .case-tag { color: var(--muted-solid); font-size: 13px; letter-spacing: 0; text-transform: none; }
-    .s-case .case-story p { color: var(--muted-solid); font-size: 16px; font-weight: 400; }
-    .s-case .growth-bar-fill { background: var(--sage); transition: none; }
-    .s-case .chart-caption { color: var(--muted-solid); font-size: 13px; letter-spacing: 0; text-transform: none; }
-
-    /* services: two-column ruled list instead of a card grid */
-    .work-grid { gap: 0 48px; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--ink); }
-    .work-item { background: transparent !important; border: 0 !important; border-bottom: 1px solid var(--border) !important; border-radius: 0 !important; padding: 22px 0 !important; box-shadow: none !important; }
-    .work-item h3 { font-size: 17px; }
-    .work-item p { font-size: 16px; font-weight: 400; color: var(--muted-solid); }
-
-    /* steps and FAQ: hairline lists */
-    .steps { gap: 0; border-top: 1px solid var(--border); }
-    .step { background: transparent; border: 0; border-radius: 0; border-bottom: 1px solid var(--border); padding: 24px 0; gap: 22px; }
-    .step h3 { font-size: 17px; }
-    .step p { font-size: 16px; font-weight: 400; color: var(--muted-solid); }
-
-    .testimonial { background: var(--board); border: 0; border-radius: 4px; }
-
-    @media (max-width: 760px) {
-      .work-grid { grid-template-columns: 1fr; }
-      .s-case .case-box, .s-case .chart-box { padding-right: 0; }
-    }
-    .s-case .growth-bars { height: 150px; }
-    .lc-stat, .lc-board, .lc-flow { border-radius: 4px !important; box-shadow: none !important; }
-      /* focus ring stays visible on the sage sections */
-    .s-dark :focus-visible, .cta-banner :focus-visible { outline-color: #ffffff; }
   </style>
 
   <script type="speculationrules">
@@ -1623,13 +549,8 @@
 
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
-  <noscript>
-    <style>
-      [data-reveal], [data-reveal-stagger] > * { opacity: 1; transform: none; }
-</style>
-  </noscript>
 
-  <!-- ANNOUNCE (scrolls away) + NAV (sticky) -->
+  <!-- NAV (sticky) -->
   <nav>
     <div class="nav-inner">
       <a href="/" class="logo" aria-label="hanjo">
@@ -1693,39 +614,28 @@
     <button class="mm-lang" onclick="document.querySelector('.lang-toggle').click(); toggleMenu();">English / 日本語</button>
 </div>
 
+  <main class="pl">
   <!-- HERO -->
-  <main>
-  <div class="hero" id="main" tabindex="-1">
-    <div class="hero-left">
-      <div>
-        <a href="/#services" class="crumb" data-i18n="crumb">← All services</a>
-      </div>
-      <h1 data-i18n="hero-h1">
+  <section class="pl-hero" id="main" tabindex="-1">
+    <div class="pl-hero-txt">
+      <a href="/#services" class="pl-crumb crumb" data-i18n="crumb">← All services</a>
+      <h1 class="pl-h1" data-i18n="hero-h1">
         You work hard to bring<br>customers&nbsp;in.
         <strong>Email should keep&nbsp;them.</strong>
       </h1>
 
-      <p class="hero-desc" data-i18n="hero-desc">
+      <p class="pl-lede" data-i18n="hero-desc">
         Every customer who leaves, you paid to acquire. Then you pay again to replace them. We build the email and SMS flows that bring them back instead, tuned for DTC brands on Shopify.
         <strong>Fix retention, and acquisition finally starts to compound.</strong>
       </p>
 
-      <div class="hero-actions">
-        <a href="/contact/" class="btn btn--dark" data-i18n="hero-cta">
+      <div class="pl-actions">
+        <a href="/contact/" class="pl-btn" data-i18n="hero-cta">
           Start with a free consultation
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#work" class="hero-seework">
-          <span data-i18n="hero-see-work">See how the journey works</span>
-          <svg class="seework-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-        </a>
+        <a href="#work" class="pl-link" data-i18n="hero-see-work">See how the journey works</a>
       </div>
-
-      <div class="platform-row" aria-label="Email platforms">
-        <span class="pf-item"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1 3.6h22L15.9 12 23 20.4H1V3.6z"/></svg><span>Klaviyo</span></span>
-        <span class="pf-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M11.267 0C6.791-.015-1.82 10.246 1.397 12.964l.79.669a3.88 3.88 0 0 0-.22 1.792c.084.84.518 1.644 1.22 2.266.666.59 1.542.964 2.392.964 1.406 3.24 4.62 5.228 8.386 5.34 4.04.12 7.433-1.776 8.854-5.182.093-.24.488-1.316.488-2.267 0-.956-.54-1.352-.885-1.352-.01-.037-.078-.286-.172-.586-.093-.3-.19-.51-.19-.51.375-.563.382-1.065.332-1.35-.053-.353-.2-.653-.496-.964-.296-.311-.902-.63-1.753-.868l-.446-.124c-.002-.019-.024-1.053-.043-1.497-.014-.32-.042-.822-.197-1.315-.186-.668-.508-1.253-.911-1.627 1.112-1.152 1.806-2.422 1.804-3.511-.003-2.095-2.576-2.729-5.746-1.416l-.672.285A678.22 678.22 0 0 0 12.7.504C12.304.159 11.817.002 11.267 0zm.073.873c.166 0 .322.019.465.058.297.084 1.28 1.224 1.28 1.224s-1.826 1.013-3.52 2.426c-2.28 1.757-4.005 4.311-5.037 7.082-.811.158-1.526.618-1.963 1.253-.261-.218-.748-.64-.834-.804-.698-1.326.761-3.902 1.781-5.357C5.834 3.44 9.37.867 11.34.873zm3.286 3.273c.04-.002.06.05.028.074-.143.11-.299.26-.413.414a.04.04 0 0 0 .031.064c.659.004 1.587.235 2.192.574.041.023.012.103-.034.092-.915-.21-2.414-.369-3.97.01-1.39.34-2.45.863-3.224 1.426-.04.028-.086-.023-.055-.06.896-1.035 1.999-1.935 2.987-2.44.034-.018.07.019.052.052-.079.143-.23.447-.278.678-.007.035.032.063.062.042.615-.42 1.684-.868 2.622-.926zm3.023 3.205l.056.001a.896.896 0 0 1 .456.146c.534.355.61 1.216.638 1.845.015.36.059 1.229.074 1.478.034.571.184.651.487.751.17.057.33.098.563.164.706.198 1.125.4 1.39.658.157.162.23.333.253.497.083.608-.472 1.36-1.942 2.041-1.607.746-3.557.935-4.904.785l-.471-.053c-1.078-.145-1.693 1.247-1.046 2.201.417.615 1.552 1.015 2.688 1.015 2.604 0 4.605-1.111 5.35-2.072a.987.987 0 0 0 .06-.085c.036-.055.006-.085-.04-.054-.608.416-3.31 2.069-6.2 1.571 0 0-.351-.057-.672-.182-.255-.1-.788-.344-.853-.891 2.333.72 3.801.039 3.801.039a.072.072 0 0 0 .042-.072.067.067 0 0 0-.074-.06s-1.911.283-3.718-.378c.197-.64.72-.408 1.51-.345a11.045 11.045 0 0 0 3.647-.394c.818-.234 1.892-.697 2.727-1.356.281.618.38 1.299.38 1.299s.219-.04.4.073c.173.106.299.326.213.895-.176 1.063-.628 1.926-1.387 2.72a5.714 5.714 0 0 1-1.666 1.244c-.34.18-.704.334-1.087.46-2.863.935-5.794-.093-6.739-2.3a3.545 3.545 0 0 1-.189-.522c-.403-1.455-.06-3.2 1.008-4.299.065-.07.132-.153.132-.256 0-.087-.055-.179-.102-.243-.374-.543-1.669-1.466-1.409-3.254.187-1.284 1.31-2.189 2.357-2.135.089.004.177.01.266.015.453.027.85.085 1.223.1.625.028 1.187-.063 1.853-.618.225-.187.405-.35.71-.401.028-.005.092-.028.215-.028zm.022 2.18a.42.42 0 0 0-.06.005c-.335.054-.347.468-.228 1.04.068.32.187.595.32.765.175-.02.343-.022.498 0 .089-.205.104-.557.024-.942-.112-.535-.261-.872-.554-.868zm-3.66 1.546a1.724 1.724 0 0 0-1.016.326c-.16.117-.311.28-.29.378.008.032.031.056.088.063.131.015.592-.217 1.122-.25.374-.023.684.094.923.2.239.104.386.173.443.113.037-.038.026-.11-.031-.204-.118-.192-.36-.387-.618-.497a1.601 1.601 0 0 0-.621-.129zm4.082.81c-.171-.003-.313.186-.317.42-.004.236.131.43.303.432.172.003.314-.185.318-.42.004-.236-.132-.429-.304-.432zm-3.58.172c-.05 0-.102.002-.155.008-.311.05-.483.152-.593.247-.094.082-.152.173-.152.237a.075.075 0 0 0 .075.076c.07 0 .228-.063.228-.063a1.98 1.98 0 0 1 1.001-.104c.157.018.23.027.265-.026.01-.016.022-.049-.01-.1-.063-.103-.311-.269-.66-.275zm2.26.4c-.127 0-.235.051-.283.148-.075.154.035.363.246.466.21.104.443.063.52-.09.075-.155-.035-.364-.246-.467a.542.542 0 0 0-.237-.058zm-11.635.024c.048 0 .098 0 .149.003.73.04 1.806.6 2.052 2.19.217 1.41-.128 2.843-1.449 3.069-.123.02-.248.029-.374.026-1.22-.033-2.539-1.132-2.67-2.435-.145-1.44.591-2.548 1.894-2.811.117-.024.252-.04.398-.042zm-.07.927a1.144 1.144 0 0 0-.847.364c-.38.418-.439.988-.366 1.19.027.073.07.094.1.098.064.008.16-.039.22-.2a1.2 1.2 0 0 0 .017-.052 1.58 1.58 0 0 1 .157-.37.689.689 0 0 1 .955-.199c.266.174.369.5.255.81-.058.161-.154.469-.133.721.043.511.357.717.64.738.274.01.466-.143.515-.256.029-.067.005-.107-.011-.125-.043-.053-.113-.037-.18-.021a.638.638 0 0 1-.16.022.347.347 0 0 1-.294-.148c-.078-.12-.073-.3.013-.504.011-.028.025-.058.04-.092.138-.308.368-.825.11-1.317-.195-.37-.513-.602-.894-.65a1.135 1.135 0 0 0-.138-.01z"/></svg><span>Mailchimp</span></span>
-      </div>
-
 
       <div class="hero-stats">
         <div class="hstat">
@@ -1753,37 +663,55 @@
     </div>
 
     <!-- Email collage -->
-    <div class="hero-collage" aria-hidden="true">
-      <div class="hc-inner">
-      <div class="hc-col"><div class="ew-track ew-up" style="animation-duration:56s">
-        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(/email-showcase/mon-campaign.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(/email-showcase/mira-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(/email-showcase/andew-product.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/914;background-image:url(/email-showcase/mon-campaign.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(/email-showcase/mira-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/866;background-image:url(/email-showcase/andew-product.jpg)"></div>
-      </div></div>
-      <div class="hc-col"><div class="ew-track ew-down" style="animation-duration:62s">
-        <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(/email-showcase/andew-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(/email-showcase/mon-newspaper.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(/email-showcase/mira-replen.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(/email-showcase/andew-welcome.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(/email-showcase/mon-newspaper.jpg)"></div>
-        <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(/email-showcase/mira-replen.jpg)"></div>
-      </div></div>
+    <div class="pl-hero-vis">
+      <div class="hero-collage" aria-hidden="true">
+        <div class="hc-inner">
+        <div class="hc-col"><div class="ew-track">
+          <div class="ew-card" style="aspect-ratio:480/914;background-image:url(/email-showcase/mon-campaign.jpg)"></div>
+          <div class="ew-card" style="aspect-ratio:480/1023;background-image:url(/email-showcase/mira-welcome.jpg)"></div>
+          <div class="ew-card" style="aspect-ratio:480/866;background-image:url(/email-showcase/andew-product.jpg)"></div>
+        </div></div>
+        <div class="hc-col"><div class="ew-track">
+          <div class="ew-card" style="aspect-ratio:480/1188;background-image:url(/email-showcase/andew-welcome.jpg)"></div>
+          <div class="ew-card" style="aspect-ratio:480/1136;background-image:url(/email-showcase/mon-newspaper.jpg)"></div>
+          <div class="ew-card" style="aspect-ratio:480/1005;background-image:url(/email-showcase/mira-replen.jpg)"></div>
+        </div></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- EMAIL SHOWCASE WALL -->
-  <div class="ew-section" id="work">
-    <div class="section">
-      <span class="label" data-reveal data-i18n="wall-label">What email actually does</span>
-      <h2 data-reveal data-i18n="wall-h2">Email is how a brand <span>turns a buyer into a regular.</span></h2>
-      <p class="ew-desc" data-reveal data-i18n="wall-desc">Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now. Here's the journey we build to grow it.</p>
+    <div class="pl-tools" aria-label="Email platforms">
+      <span data-i18n="tools-l">We work in</span>
+      <span class="platform-row">
+        <span class="pf-item"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1 3.6h22L15.9 12 23 20.4H1V3.6z"/></svg><span>Klaviyo</span></span>
+        <span class="pf-item"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M11.267 0C6.791-.015-1.82 10.246 1.397 12.964l.79.669a3.88 3.88 0 0 0-.22 1.792c.084.84.518 1.644 1.22 2.266.666.59 1.542.964 2.392.964 1.406 3.24 4.62 5.228 8.386 5.34 4.04.12 7.433-1.776 8.854-5.182.093-.24.488-1.316.488-2.267 0-.956-.54-1.352-.885-1.352-.01-.037-.078-.286-.172-.586-.093-.3-.19-.51-.19-.51.375-.563.382-1.065.332-1.35-.053-.353-.2-.653-.496-.964-.296-.311-.902-.63-1.753-.868l-.446-.124c-.002-.019-.024-1.053-.043-1.497-.014-.32-.042-.822-.197-1.315-.186-.668-.508-1.253-.911-1.627 1.112-1.152 1.806-2.422 1.804-3.511-.003-2.095-2.576-2.729-5.746-1.416l-.672.285A678.22 678.22 0 0 0 12.7.504C12.304.159 11.817.002 11.267 0zm.073.873c.166 0 .322.019.465.058.297.084 1.28 1.224 1.28 1.224s-1.826 1.013-3.52 2.426c-2.28 1.757-4.005 4.311-5.037 7.082-.811.158-1.526.618-1.963 1.253-.261-.218-.748-.64-.834-.804-.698-1.326.761-3.902 1.781-5.357C5.834 3.44 9.37.867 11.34.873zm3.286 3.273c.04-.002.06.05.028.074-.143.11-.299.26-.413.414a.04.04 0 0 0 .031.064c.659.004 1.587.235 2.192.574.041.023.012.103-.034.092-.915-.21-2.414-.369-3.97.01-1.39.34-2.45.863-3.224 1.426-.04.028-.086-.023-.055-.06.896-1.035 1.999-1.935 2.987-2.44.034-.018.07.019.052.052-.079.143-.23.447-.278.678-.007.035.032.063.062.042.615-.42 1.684-.868 2.622-.926zm3.023 3.205l.056.001a.896.896 0 0 1 .456.146c.534.355.61 1.216.638 1.845.015.36.059 1.229.074 1.478.034.571.184.651.487.751.17.057.33.098.563.164.706.198 1.125.4 1.39.658.157.162.23.333.253.497.083.608-.472 1.36-1.942 2.041-1.607.746-3.557.935-4.904.785l-.471-.053c-1.078-.145-1.693 1.247-1.046 2.201.417.615 1.552 1.015 2.688 1.015 2.604 0 4.605-1.111 5.35-2.072a.987.987 0 0 0 .06-.085c.036-.055.006-.085-.04-.054-.608.416-3.31 2.069-6.2 1.571 0 0-.351-.057-.672-.182-.255-.1-.788-.344-.853-.891 2.333.72 3.801.039 3.801.039a.072.072 0 0 0 .042-.072.067.067 0 0 0-.074-.06s-1.911.283-3.718-.378c.197-.64.72-.408 1.51-.345a11.045 11.045 0 0 0 3.647-.394c.818-.234 1.892-.697 2.727-1.356.281.618.38 1.299.38 1.299s.219-.04.4.073c.173.106.299.326.213.895-.176 1.063-.628 1.926-1.387 2.72a5.714 5.714 0 0 1-1.666 1.244c-.34.18-.704.334-1.087.46-2.863.935-5.794-.093-6.739-2.3a3.545 3.545 0 0 1-.189-.522c-.403-1.455-.06-3.2 1.008-4.299.065-.07.132-.153.132-.256 0-.087-.055-.179-.102-.243-.374-.543-1.669-1.466-1.409-3.254.187-1.284 1.31-2.189 2.357-2.135.089.004.177.01.266.015.453.027.85.085 1.223.1.625.028 1.187-.063 1.853-.618.225-.187.405-.35.71-.401.028-.005.092-.028.215-.028zm.022 2.18a.42.42 0 0 0-.06.005c-.335.054-.347.468-.228 1.04.068.32.187.595.32.765.175-.02.343-.022.498 0 .089-.205.104-.557.024-.942-.112-.535-.261-.872-.554-.868zm-3.66 1.546a1.724 1.724 0 0 0-1.016.326c-.16.117-.311.28-.29.378.008.032.031.056.088.063.131.015.592-.217 1.122-.25.374-.023.684.094.923.2.239.104.386.173.443.113.037-.038.026-.11-.031-.204-.118-.192-.36-.387-.618-.497a1.601 1.601 0 0 0-.621-.129zm4.082.81c-.171-.003-.313.186-.317.42-.004.236.131.43.303.432.172.003.314-.185.318-.42.004-.236-.132-.429-.304-.432zm-3.58.172c-.05 0-.102.002-.155.008-.311.05-.483.152-.593.247-.094.082-.152.173-.152.237a.075.075 0 0 0 .075.076c.07 0 .228-.063.228-.063a1.98 1.98 0 0 1 1.001-.104c.157.018.23.027.265-.026.01-.016.022-.049-.01-.1-.063-.103-.311-.269-.66-.275zm2.26.4c-.127 0-.235.051-.283.148-.075.154.035.363.246.466.21.104.443.063.52-.09.075-.155-.035-.364-.246-.467a.542.542 0 0 0-.237-.058zm-11.635.024c.048 0 .098 0 .149.003.73.04 1.806.6 2.052 2.19.217 1.41-.128 2.843-1.449 3.069-.123.02-.248.029-.374.026-1.22-.033-2.539-1.132-2.67-2.435-.145-1.44.591-2.548 1.894-2.811.117-.024.252-.04.398-.042zm-.07.927a1.144 1.144 0 0 0-.847.364c-.38.418-.439.988-.366 1.19.027.073.07.094.1.098.064.008.16-.039.22-.2a1.2 1.2 0 0 0 .017-.052 1.58 1.58 0 0 1 .157-.37.689.689 0 0 1 .955-.199c.266.174.369.5.255.81-.058.161-.154.469-.133.721.043.511.357.717.64.738.274.01.466-.143.515-.256.029-.067.005-.107-.011-.125-.043-.053-.113-.037-.18-.021a.638.638 0 0 1-.16.022.347.347 0 0 1-.294-.148c-.078-.12-.073-.3.013-.504.011-.028.025-.058.04-.092.138-.308.368-.825.11-1.317-.195-.37-.513-.602-.894-.65a1.135 1.135 0 0 0-.138-.01z"/></svg><span>Mailchimp</span></span>
+      </span>
+    </div>
+  </section>
+
+  <!-- WHERE THIS FITS -->
+  <section class="pl-sec pl-sec--line pl-where" aria-labelledby="where-h">
+    <div class="pl-sec-head">
+      <h2 id="where-h" class="pl-h2" data-i18n="where-h">One part of <span>one loop.</span></h2>
+      <p class="pl-sub" data-i18n="where-p">Ads and the website bring a customer in and turn the visit into a first order. CRM earns the second order, and the tenth. Recovery follows up with the ones who slipped away.</p>
+    </div>
+    <div class="pl-ring pl-ring--where" aria-hidden="true">
+      <svg class="pl-ring-svg" viewBox="0 0 400 400"><circle class="pl-ring-track" cx="200" cy="200" r="160"/><circle class="pl-ring-prog" cx="200" cy="200" r="160" pathLength="100" transform="rotate(-90 200 200)"/></svg>
+      <a class="pl-node pl-node--1" href="/ads/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><b>Ads</b></a>
+      <a class="pl-node pl-node--2" href="/web/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><b>Web</b></a>
+      <span class="pl-node pl-node--3 is-current"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg><b>CRM</b></span>
+      <a class="pl-node pl-node--4" href="/recovery/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><b>Recovery</b></a>
+      <div class="pl-ring-center"><span data-i18n="where-c">You are here:</span><em>hanjo CRM</em></div>
+    </div>
+  </section>
+
+  <!-- WHAT EMAIL DOES + LIFECYCLE STRIP -->
+  <section class="pl-sec pl-sec--line" id="work" aria-labelledby="wall-h">
+    <div class="pl-sec-head">
+      <h2 id="wall-h" class="pl-h2" data-i18n="wall-h2">Email is how a brand <span>turns a buyer into a regular.</span></h2>
+      <p class="pl-sub" data-i18n="wall-desc">Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now. Here's the journey we build to grow it.</p>
     </div>
 
-    <!-- LIFECYCLE STRIP -->
     <div class="lc-strip">
       <div class="lc-stats">
         <div class="lc-stat">
@@ -1810,259 +738,163 @@
       <p class="lc-sr">An animation showing customers moving from prospect to first-time buyer to repeat buyer, driven by email flows.</p>
       <div class="lc-flows">
         <div class="lc-flow" id="lc-f0w">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cf8a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3A5C45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           <span data-i18n="lc-f0"><b>Welcome flow</b> <span class="lc-arrow">→ first order</span></span>
         </div>
         <div class="lc-flow" id="lc-f1w">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2f6f57" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3A5C45" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
           <span data-i18n="lc-f1"><b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span></span>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- GAPS -->
-  <div class="s-white">
-    <div class="section">
-      <span class="label" data-reveal data-i18n="gaps-label">What we see constantly</span>
-      <h2 data-reveal data-i18n="gaps-h2">Three gaps that quietly <span>cost you customers every month.</span></h2>
-
-      <ul class="gap-list" data-reveal-stagger>
-        <li>
-          <span class="gap-num">01</span>
-          <span data-i18n="gap-1">Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.</span>
-        </li>
-        <li>
-          <span class="gap-num">02</span>
-          <span data-i18n="gap-2">Winback campaigns that go out weeks too late, after the customer has already moved on.</span>
-        </li>
-        <li>
-          <span class="gap-num">03</span>
-          <span data-i18n="gap-3">Cancellation save flows that don't exist, or send one generic email and give up.</span>
-        </li>
-      </ul>
-
-      <p class="callout" data-reveal data-i18n="gaps-callout">
+  <section class="pl-sec pl-sec--line" aria-labelledby="gaps-h">
+    <div class="pl-sec-head">
+      <h2 id="gaps-h" class="pl-h2" data-i18n="gaps-h2">Three gaps that quietly <span>cost you customers every month.</span></h2>
+      <p class="pl-sub" data-i18n="gaps-callout">
         These aren't edge cases. They show up at brands doing $1M and brands doing $10M.
         <strong>Fixing them is usually worth more than your next month of ad spend.</strong>
       </p>
     </div>
-  </div>
+    <ul class="pl-who crm-gaps">
+      <li><p data-i18n="gap-1">Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.</p></li>
+      <li><p data-i18n="gap-2">Winback campaigns that go out weeks too late, after the customer has already moved on.</p></li>
+      <li><p data-i18n="gap-3">Cancellation save flows that don't exist, or send one generic email and give up.</p></li>
+    </ul>
+  </section>
 
   <!-- CASE STUDY -->
-  <div class="s-case">
-    <div class="section section--wide">
-      <span class="label label--dim" data-reveal data-i18n="case-label">Client result</span>
-      <h2 data-reveal data-i18n="case-h2">Japanese pet food brand. <span>30 active customers → 300 in twelve months.</span></h2>
-
-      <div class="case-wrap" data-reveal-stagger>
-        <div class="case-box">
-          <span class="case-num">10×</span>
-          <span class="case-label" data-i18n="case-1-label">Active customers</span>
-          <span class="case-sub" data-i18n="case-1-sub">30 → 300 in 12 months</span>
+  <section class="pl-proof" aria-labelledby="case-h">
+    <div class="pl-proof-in">
+      <div class="pl-proof-vis">
+        <div class="pl-big" aria-hidden="true"><span>30</span><svg viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h52M46 4l9 8-9 8"/></svg><span>300</span></div>
+        <div class="growth-bars" aria-hidden="true">
+          <div class="growth-bar-fill" style="height:10%"></div>
+          <div class="growth-bar-fill" style="height:15%"></div>
+          <div class="growth-bar-fill" style="height:21%"></div>
+          <div class="growth-bar-fill" style="height:28%"></div>
+          <div class="growth-bar-fill" style="height:36%"></div>
+          <div class="growth-bar-fill" style="height:45%"></div>
+          <div class="growth-bar-fill" style="height:54%"></div>
+          <div class="growth-bar-fill" style="height:65%"></div>
+          <div class="growth-bar-fill" style="height:75%"></div>
+          <div class="growth-bar-fill" style="height:85%"></div>
+          <div class="growth-bar-fill" style="height:93%"></div>
+          <div class="growth-bar-fill" style="height:100%"></div>
         </div>
-
-        <div class="case-box">
-          <span class="case-num">−40%</span>
-          <span class="case-label" data-i18n="case-2-label">Churn rate</span>
-          <span class="case-sub" data-i18n="case-2-sub">15% → 9% monthly churn</span>
-        </div>
-
-        <div class="chart-box" id="growthChart">
-          <div class="growth-bars">
-            <div class="growth-bar-fill" data-h="10%" style="height:10%"></div>
-            <div class="growth-bar-fill" data-h="15%" style="height:15%"></div>
-            <div class="growth-bar-fill" data-h="21%" style="height:21%"></div>
-            <div class="growth-bar-fill" data-h="28%" style="height:28%"></div>
-            <div class="growth-bar-fill" data-h="36%" style="height:36%"></div>
-            <div class="growth-bar-fill" data-h="45%" style="height:45%"></div>
-            <div class="growth-bar-fill" data-h="54%" style="height:54%"></div>
-            <div class="growth-bar-fill" data-h="65%" style="height:65%"></div>
-            <div class="growth-bar-fill" data-h="75%" style="height:75%"></div>
-            <div class="growth-bar-fill" data-h="85%" style="height:85%"></div>
-            <div class="growth-bar-fill" data-h="93%" style="height:93%"></div>
-            <div class="growth-bar-fill" data-h="100%" style="height:100%"></div>
-          </div>
-          <p class="chart-caption" data-i18n="chart-caption">Monthly active customers · 30 → 300</p>
-        </div>
-
-        <div class="case-box case-story">
-          <span class="case-tag" data-i18n="case-tag">Japanese pet food · Shopify</span>
-          <p data-i18n="case-story">They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren't coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That's how 30 active customers became 300 in twelve months.</p>
-        </div>
+        <p class="chart-caption" data-i18n="chart-caption">Monthly active customers · 30 → 300</p>
+      </div>
+      <div class="pl-proof-txt">
+        <p class="pl-proof-tag" data-i18n="case-tag">Japanese pet food · Shopify</p>
+        <h2 id="case-h" data-i18n="case-h2">Japanese pet food brand. <span>30 active customers → 300 in twelve months.</span></h2>
+        <p data-i18n="case-story">They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren't coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That's how 30 active customers became 300 in twelve months.</p>
+        <dl class="pl-facts">
+          <div><dt data-i18n="case-1-label">Active customers</dt><dd>10×</dd><dd class="pl-fact-sub" data-i18n="case-1-sub">30 → 300 in 12 months</dd></div>
+          <div><dt data-i18n="case-2-label">Churn rate</dt><dd>−40%</dd><dd class="pl-fact-sub" data-i18n="case-2-sub">15% → 9% monthly churn</dd></div>
+        </dl>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- WHAT WE DO -->
-  <div class="s-white">
-    <div class="section section--wide">
-      <span class="label" data-reveal data-i18n="services-label">What we do</span>
-      <h2 data-reveal data-i18n="services-h2">Full-cycle email &amp; SMS, <span>built for DTC brands.</span></h2>
-
-      <p class="callout" style="margin-bottom: 28px;" data-reveal data-i18n="services-callout">
+  <section class="pl-sec" aria-labelledby="svc-h">
+    <div class="pl-sec-head">
+      <h2 id="svc-h" class="pl-h2" data-i18n="services-h2">Full-cycle email &amp; SMS, <span>built for DTC brands.</span></h2>
+      <p class="pl-sub" data-i18n="services-callout">
         We write the copy, design the emails, and build the flows. You bring the brand assets. We handle everything else. <strong>Already sending email? Here's the work. Not yet? We'll help you choose the right platform, and handle the setup.</strong>
       </p>
-
-      <ul class="work-grid" data-reveal-stagger>
-        <li class="work-item">
-          <h3 data-i18n="svc-1-h">Flow audit &amp; rebuild</h3>
-          <p data-i18n="svc-1-p">A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p>
-        </li>
-        <li class="work-item">
-          <h3 data-i18n="svc-2-h">Popup optimization</h3>
-          <p data-i18n="svc-2-p">Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.</p>
-        </li>
-        <li class="work-item">
-          <h3 data-i18n="svc-3-h">Customer lifecycle flows</h3>
-          <p data-i18n="svc-3-p">Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.</p>
-        </li>
-        <li class="work-item">
-          <h3 data-i18n="svc-4-h">Cancellation &amp; churn saves</h3>
-          <p data-i18n="svc-4-p">Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p>
-        </li>
-        <li class="work-item">
-          <h3 data-i18n="svc-5-h">Winback &amp; re-engagement</h3>
-          <p data-i18n="svc-5-p">Timed to customer behavior, not arbitrary day counts. The difference matters.</p>
-        </li>
-        <li class="work-item">
-          <h3 data-i18n="svc-6-h">Segmentation &amp; list hygiene</h3>
-          <p data-i18n="svc-6-p">Healthy lists, suppression logic, engagement tiers: the foundation everything else runs on.</p>
-        </li>
-      </ul>
     </div>
-  </div>
+    <ul class="pl-who">
+      <li><h3 data-i18n="svc-1-h">Flow audit &amp; rebuild</h3><p data-i18n="svc-1-p">A clear-eyed look at what's running, what's missing, and what's losing money. Then we fix it.</p></li>
+      <li><h3 data-i18n="svc-2-h">Popup optimization</h3><p data-i18n="svc-2-p">Welcome offer, exit-intent, mobile-first A/B testing. Where most brands quietly leak list growth.</p></li>
+      <li><h3 data-i18n="svc-3-h">Customer lifecycle flows</h3><p data-i18n="svc-3-p">Post-purchase, replenishment reminders, skip/pause saves, reactivation. The full arc, not just onboarding.</p></li>
+      <li><h3 data-i18n="svc-4-h">Cancellation &amp; churn saves</h3><p data-i18n="svc-4-p">Segmented by cancel reason, order history, and LTV. Most brands don't have these. They should.</p></li>
+      <li><h3 data-i18n="svc-5-h">Winback &amp; re-engagement</h3><p data-i18n="svc-5-p">Timed to customer behavior, not arbitrary day counts. The difference matters.</p></li>
+      <li><h3 data-i18n="svc-6-h">Segmentation &amp; list hygiene</h3><p data-i18n="svc-6-p">Healthy lists, suppression logic, engagement tiers: the foundation everything else runs on.</p></li>
+    </ul>
+  </section>
 
   <!-- HOW IT WORKS -->
-  <div>
-    <div class="section">
-      <span class="label" data-reveal data-i18n="hiw-label">How it works</span>
-      <h2 data-reveal data-i18n="hiw-h2">Simple to start. <span>No retainer required.</span></h2>
-
-      <ul class="steps" data-reveal-stagger>
-        <li class="step">
-          <span class="step-num">01</span>
-          <div>
-            <h3 data-i18n="step-1-h">Quick call</h3>
-            <p data-i18n="step-1-p">We talk through your current setup, what's working, and where the obvious gaps are. 20–30 minutes.</p>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-num">02</span>
-          <div>
-            <h3 data-i18n="step-2-h">We look at your current setup</h3>
-            <p data-i18n="step-2-p">Already sending email? We tell you what's working and what's losing money. Not yet? We tell you which platform makes sense at your stage. Either way: no deck, no proposal, just actual feedback on what to do first.</p>
-          </div>
-        </li>
-        <li class="step">
-          <span class="step-num">03</span>
-          <div>
-            <h3 data-i18n="step-3-h">We decide if it makes sense</h3>
-            <p data-i18n="step-3-p">Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.</p>
-          </div>
-        </li>
-      </ul>
+  <section class="pl-sec pl-sec--line" aria-labelledby="hiw-h">
+    <div class="pl-sec-head">
+      <h2 id="hiw-h" class="pl-h2" data-i18n="hiw-h2">Simple to start. <span>No retainer required.</span></h2>
     </div>
-  </div>
+    <ol class="pl-track crm-track" data-pl-track>
+      <li><h3 data-i18n="step-1-h">Quick call</h3><p data-i18n="step-1-p">We talk through your current setup, what's working, and where the obvious gaps are. 20–30 minutes.</p></li>
+      <li><h3 data-i18n="step-2-h">We look at your current setup</h3><p data-i18n="step-2-p">Already sending email? We tell you what's working and what's losing money. Not yet? We tell you which platform makes sense at your stage. Either way: no deck, no proposal, just actual feedback on what to do first.</p></li>
+      <li><h3 data-i18n="step-3-h">We decide if it makes sense</h3><p data-i18n="step-3-p">Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.</p></li>
+    </ol>
+  </section>
 
   <!-- FAQ -->
-  <div class="s-white">
-    <div class="section">
-      <span class="label" data-reveal data-i18n="faq-label">Common questions</span>
-      <h2 data-reveal data-i18n="faq-h2">What founders <span>usually ask first.</span></h2>
-
-      <ul class="steps" data-reveal-stagger>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-1-h">Do you write the copy and design the emails?</h3>
-            <p data-i18n="faq-1-p">Yes, full-service. We write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and we handle the rest end-to-end.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-2-h">What does it cost?</h3>
-            <p data-i18n="faq-2-p">Projects typically start from $1,500 – $3,000 depending on scope. You'll get a clear number on the call. No vague proposals, no surprises.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-4-h">How long does a typical project take?</h3>
-            <p data-i18n="faq-4-p">A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.</p>
-          </div>
-        </li>
-        <li class="step">
-          <div>
-            <h3 data-i18n="faq-5-h">Which email platform will we use?</h3>
-            <p data-i18n="faq-5-p">Whichever fits your stage and stack. We set it up, or migrate you over, and run it. If you're not ready, we'll tell you what to do first so you don't waste a setup.</p>
-          </div>
-        </li>
-      </ul>
+  <section class="pl-sec pl-sec--line pl-sec--faq" aria-labelledby="faq-h">
+    <div class="pl-sec-head">
+      <h2 id="faq-h" class="pl-h2" data-i18n="faq-h2">What founders <span>usually ask first.</span></h2>
     </div>
-  </div>
+    <div class="pl-faq">
+      <details><summary data-i18n="faq-1-h">Do you write the copy and design the emails?</summary><p data-i18n="faq-1-p">Yes, full-service. We write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and we handle the rest end-to-end.</p></details>
+      <details><summary data-i18n="faq-2-h">What does it cost?</summary><p data-i18n="faq-2-p">Projects typically start from $1,500 – $3,000 depending on scope. You'll get a clear number on the call. No vague proposals, no surprises.</p></details>
+      <details><summary data-i18n="faq-4-h">How long does a typical project take?</summary><p data-i18n="faq-4-p">A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.</p></details>
+      <details><summary data-i18n="faq-5-h">Which email platform will we use?</summary><p data-i18n="faq-5-p">Whichever fits your stage and stack. We set it up, or migrate you over, and run it. If you're not ready, we'll tell you what to do first so you don't waste a setup.</p></details>
+    </div>
+  </section>
 
   <!-- ABOUT -->
-  <div class="s-white">
-    <div class="section section--wide">
-      <span class="label" data-reveal data-i18n="about-label">A note from our founder</span>
-      <h2 data-reveal data-i18n="about-h2">I tried to build <span>one of these brands.</span></h2>
-
-      <div class="about-grid" data-reveal>
-        <div class="about-photo-col">
-          <img src="/kei.JPG" alt="Kei Nakayama" class="about-photo" />
-          <span class="about-caption"><span data-i18n="about-caption-name">Kei Nakayama</span><br><span class="about-caption-role" data-i18n="about-caption-role">Founder, hanjo</span></span>
-        </div>
-        <div class="about-body">
-          <p data-i18n="about-p1">
-            A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.
-            <strong>I couldn't build a product I was proud enough to sell.</strong>
-          </p>
-          <p data-i18n="about-p2">
-            That experience changed how I see the people I work with. The founders who do make it, who find something worth coming back to, build a brand around it, and keep showing up, have my lasting respect.
-          </p>
-          <p data-i18n="about-p3">
-            What we do now at hanjo is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That's where most email setups quietly fall apart. Not because the brand isn't good enough.
-            <strong>Because the email infrastructure wasn't built to support how returning customers actually behave.</strong>
-          </p>
-          <p data-i18n="about-p4">
-            Most of the brands we work with have roots in Japan: the product, the founder, or the customer base. These brands often carry a distinct kind of customer relationship: high trust expectations, a more deliberate repurchase rhythm, a preference for depth over noise. Generic email setups don't account for that. We build ones that do.
-          </p>
-          <p data-i18n="about-p5">
-            We work with founders who have already done the hard part. Our job is to make sure their retention side is working as hard as they are.
-          </p>
-        </div>
-      </div>
-
-      <blockquote class="testimonial" data-reveal>
-        <p class="testimonial-quote" data-i18n="testimonial-quote">"Kei didn't come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth, not just short-term wins."</p>
-        <div class="testimonial-attr">
-          <img src="/moncheri-logo.png" alt="moncheri kitchen" class="testimonial-attr-photo" />
-          <span class="testimonial-attr-text">
-            <span class="testimonial-attr-name" data-i18n="testimonial-name">Brand Owner</span><br>
-            <span data-i18n="testimonial-brand">Japanese pet food · Shopify</span>
-          </span>
-        </div>
-      </blockquote>
+  <section class="pl-sec pl-sec--line" aria-labelledby="about-h">
+    <div class="pl-sec-head">
+      <h2 id="about-h" class="pl-h2" data-i18n="about-h2">I tried to build <span>one of these brands.</span></h2>
     </div>
-  </div>
+
+    <div class="about-grid">
+      <div class="about-photo-col">
+        <img src="/kei.JPG" alt="Kei Nakayama" class="about-photo" />
+        <span class="about-caption"><span data-i18n="about-caption-name">Kei Nakayama</span><br><span class="about-caption-role" data-i18n="about-caption-role">Founder, hanjo</span></span>
+      </div>
+      <div class="about-body">
+        <p data-i18n="about-p1">
+          A few years ago, I tried to start a pre-made meal-kit brand in Japan. I got far enough to understand what it actually takes. The sourcing, the packaging, the logistics, the relentless problem-solving before a single order ships.
+          <strong>I couldn't build a product I was proud enough to sell.</strong>
+        </p>
+        <p data-i18n="about-p2">
+          That experience changed how I see the people I work with. The founders who do make it, who find something worth coming back to, build a brand around it, and keep showing up, have my lasting respect.
+        </p>
+        <p data-i18n="about-p3">
+          What we do now at hanjo is a different kind of problem. Once a brand has a great product, the work becomes keeping the people who find it. That's where most email setups quietly fall apart. Not because the brand isn't good enough.
+          <strong>Because the email infrastructure wasn't built to support how returning customers actually behave.</strong>
+        </p>
+        <p data-i18n="about-p4">
+          Most of the brands we work with have roots in Japan: the product, the founder, or the customer base. These brands often carry a distinct kind of customer relationship: high trust expectations, a more deliberate repurchase rhythm, a preference for depth over noise. Generic email setups don't account for that. We build ones that do.
+        </p>
+        <p data-i18n="about-p5">
+          We work with founders who have already done the hard part. Our job is to make sure their retention side is working as hard as they are.
+        </p>
+      </div>
+    </div>
+
+    <blockquote class="testimonial">
+      <p class="testimonial-quote" data-i18n="testimonial-quote">"Kei didn't come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth, not just short-term wins."</p>
+      <div class="testimonial-attr">
+        <img src="/moncheri-logo.png" alt="moncheri kitchen" class="testimonial-attr-photo" />
+        <span class="testimonial-attr-text">
+          <span class="testimonial-attr-name" data-i18n="testimonial-name">Brand Owner</span><br>
+          <span data-i18n="testimonial-brand">Japanese pet food · Shopify</span>
+        </span>
+      </div>
+    </blockquote>
+  </section>
 
   <!-- CTA -->
-  <div class="s-dark">
-    <div class="cta-inner">
-      <h2 data-reveal data-i18n="cta-h2">
-        If you're spending on acquisition,
-        <strong>this is where most of it leaks.</strong>
-      </h2>
-      <p data-reveal data-i18n="cta-p">A free 30-minute consultation, in English or Japanese. Before anything else, we would love to hear how your customers buy today and where things feel stuck.</p>
-      <div data-reveal>
-        <a href="/contact/" class="btn btn--light" data-i18n="cta-btn">
-          Start with a free consultation
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-  </div>
+  <section class="pl-cta">
+    <h2><span data-i18n="cta-h2-a">If you're spending on acquisition,</span> <em data-i18n="cta-h2-b">this is where most of it leaks.</em></h2>
+    <p data-i18n="cta-p">A free 30-minute consultation, in English or Japanese. Before anything else, we would love to hear how your customers buy today and where things feel stuck.</p>
+    <a href="/contact/" class="pl-btn pl-btn--light" data-i18n="cta-btn">
+      Start with a free consultation
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </section>
 
-  <!-- FOOTER -->
   </main>
   <footer>
     <div class="footer-inner">
@@ -2101,7 +933,6 @@
         'proof-2-sub':      '30 → 300 in 12 months, pet food brand',
         'proof-3-label':    'Churn reduction',
         'proof-3-sub':      '15% → 9% monthly churn',
-        'wall-label':       'What email actually does',
         'wall-h2':          'Email is how a brand <span>turns a buyer into a regular.</span>',
         'wall-desc':        'Acquisition gets a customer in the door once. Email is how you earn the second order, and the tenth. A nurtured customer list is one of the most valuable assets a brand can own right now. Here\'s the journey we build to grow it.',
         'lc-sim':           'Live simulation',
@@ -2113,13 +944,11 @@
         'lc-z2':            'repeat',
         'lc-f0':            '<b>Welcome flow</b> <span class="lc-arrow">→ first order</span>',
         'lc-f1':            '<b>Replenishment flow</b> <span class="lc-arrow">→ repeat</span>',
-        'gaps-label':       'What we see constantly',
         'gaps-h2':          'Three gaps that quietly <span>cost you customers every month.</span>',
         'gap-1':            'Post-purchase flows that stop after the welcome email. The rest of the customer lifecycle goes untouched.',
         'gap-2':            'Winback campaigns that go out weeks too late, after the customer has already moved on.',
         'gap-3':            'Cancellation save flows that don\'t exist, or send one generic email and give up.',
         'gaps-callout':     'These aren\'t edge cases. They show up at brands doing $1M and brands doing $10M.\n        <strong>Fixing them is usually worth more than your next month of ad spend.</strong>',
-        'case-label':       'Client result',
         'case-h2':          'Japanese pet food brand. <span>30 active customers → 300 in twelve months.</span>',
         'case-1-label':     'Active customers',
         'case-1-sub':       '30 → 300 in 12 months',
@@ -2128,7 +957,6 @@
         'chart-caption':    'Monthly active customers · 30 → 300',
         'case-tag':         'Japanese pet food · Shopify',
         'case-story':       'They came in with high churn, no win-back flows, and acquisition costs eating into margin because customers weren\'t coming back. An extensive post-purchase flow and an educational campaign series built habit before customers ever thought about leaving. Churn dropped from 15% to 9%. LTV climbed. That freed-up margin went back into acquisition. That\'s how 30 active customers became 300 in twelve months.',
-        'services-label':   'What we do',
         'services-h2':      'Full-cycle email &amp; SMS, <span>built for DTC brands.</span>',
         'services-callout': 'We write the copy, design the emails, and build the flows. You bring the brand assets. We handle everything else. <strong>Already sending email? Here\'s the work. Not yet? We\'ll help you choose the right platform, and handle the setup.</strong>',
         'svc-1-h': 'Flow audit &amp; rebuild',
@@ -2143,7 +971,6 @@
         'svc-5-p': 'Timed to customer behavior, not arbitrary day counts. The difference matters.',
         'svc-6-h': 'Segmentation &amp; list hygiene',
         'svc-6-p': 'Healthy lists, suppression logic, engagement tiers: the foundation everything else runs on.',
-        'hiw-label':  'How it works',
         'hiw-h2':     'Simple to start. <span>No retainer required.</span>',
         'step-1-h':   'Quick call',
         'step-1-p':   'We talk through your current setup, what\'s working, and where the obvious gaps are. 20–30 minutes.',
@@ -2151,7 +978,6 @@
         'step-2-p':   'Already sending email? We tell you what\'s working and what\'s losing money. Not yet? We tell you which platform makes sense at your stage. Either way: no deck, no proposal, just actual feedback on what to do first.',
         'step-3-h':   'We decide if it makes sense',
         'step-3-p':   'Project-based or ongoing, depending on what you need. Projects typically start from $1,500 – $3,000 depending on scope. No retainer required. No pressure either way.',
-        'faq-label':  'Common questions',
         'faq-h2':     'What founders <span>usually ask first.</span>',
         'faq-1-h':    'Do you write the copy and design the emails?',
         'faq-1-p':    'Yes, full-service. We write all copy and design every email. You supply your brand assets (logo, product photos, brand guidelines) and we handle the rest end-to-end.',
@@ -2161,7 +987,6 @@
         'faq-4-p':    'A full flow build typically takes 3–5 weeks from kickoff to launch. An audit takes about one week. Timelines depend on scope and how quickly you can provide feedback and brand assets.',
         'faq-5-h':    'Which email platform will we use?',
         'faq-5-p':    'Whichever fits your stage and stack. We set it up, or migrate you over, and run it. If you\'re not ready, we\'ll tell you what to do first so you don\'t waste a setup.',
-        'about-label': 'A note from our founder',
         'about-caption-name': 'Kei Nakayama',
         'about-caption-role': 'Founder, hanjo',
         'about-h2':    'I tried to build <span>one of these brands.</span>',
@@ -2173,8 +998,13 @@
         'testimonial-quote': '"Kei didn\'t come in with tactics or hacks. He took the time to understand how our subscription model actually works and built a setup that made sense for sustainable growth, not just short-term wins."',
         'testimonial-name':  'Brand Owner',
         'testimonial-brand': 'Japanese pet food · Shopify',
-        'cta-h2':   'If you\'re spending on acquisition,\n        <strong>this is where most of it leaks.</strong>',
+        'cta-h2-a': 'If you\'re spending on acquisition,',
+        'cta-h2-b': 'this is where most of it leaks.',
         'cta-p':    'A free 30-minute consultation, in English or Japanese. Before anything else, we would love to hear how your customers buy today and where things feel stuck.',
+        'tools-l':  'We work in',
+        'where-h':  'One part of <span>one loop.</span>',
+        'where-p':  'Ads and the website bring a customer in and turn the visit into a first order. CRM earns the second order, and the tenth. Recovery follows up with the ones who slipped away.',
+        'where-c':  'You are here:',
         'cta-btn':  'Start with a free consultation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'cta-note': 'No commitment. Just a conversation.',
         'footer-about':    'About Us',
@@ -2204,8 +1034,7 @@
         'proof-2-sub':      '30人 → 300人（12ヶ月・ペットフードブランド）',
         'proof-3-label':    'チャーン削減',
         'proof-3-sub':      '月間15% → 9%',
-        'wall-label':       'メールの役割',
-        'wall-h2':          'メールが、一度きりの来訪客を<br><span>リピート顧客に変えます。</span>',
+        'wall-h2':          'メールが、一度きりの来訪客を<span>リピート顧客に変えます。</span>',
         'wall-desc':        '広告で来てくれるのは一度きり。二度目、十度目の購入を生むのがメールです。育てた顧客リストは、いまブランドが持てる最も価値ある資産のひとつ。その歩みを設計します。',
         'lc-sim':           'シミュレーション',
         'lc-s0':            '見込み客',
@@ -2216,14 +1045,12 @@
         'lc-z2':            'リピート',
         'lc-f0':            '<b>ウェルカムフロー</b> <span class="lc-arrow">→ 初回購入</span>',
         'lc-f1':            '<b>リピート促進フロー</b> <span class="lc-arrow">→ リピート</span>',
-        'gaps-label':       'よく見られること',
-        'gaps-h2':          'DTCブランドに多い、<br><span>顧客を失い続ける3つのパターン。</span>',
+        'gaps-h2':          'DTCブランドに多い、<span>顧客を失い続ける3つのパターン。</span>',
         'gap-1':            '購入後のフローがウェルカムメールで止まっています。米国の顧客にとっては、その後に接点がないのと同じです。',
         'gap-2':            'ウィンバックのタイミングが遅すぎます。送る頃には、顧客はすでに他を選んでいます。',
         'gap-3':            '解約防止フローがありません。あるいは1通送って終わりです。',
         'gaps-callout':     '米国で展開している日本のブランドに、特によく見られます。メールの仕組みは後回しにされがちで、その間にも顧客は離れ続けています。\n        <strong>ここを整えるだけで、翌月の広告費より価値が出ることが多いです。</strong>',
-        'case-label':       'クライアント事例',
-        'case-h2':          '日本のペットフードブランド。<br><span>12ヶ月でアクティブ顧客が30人から300人に。</span>',
+        'case-h2':          '日本のペットフードブランド。<span>12ヶ月でアクティブ顧客が30人から300人に。</span>',
         'case-1-label':     'アクティブ顧客数',
         'case-1-sub':       '30人 → 300人（12ヶ月）',
         'case-2-label':     'チャーン率',
@@ -2231,8 +1058,7 @@
         'chart-caption':    '月間アクティブ顧客 · 30人 → 300人',
         'case-tag':         '日本のペットフード · Shopify',
         'case-story':       '依頼が来た時点では、チャーンが高く、ウィンバックフローもなく、リピートされないせいで広告費が粗利を圧迫していました。充実した購入後フローと教育コンテンツのシリーズで、離れることを考える前に習慣を作りました。チャーンは15%から9%に下がり、LTVが上がりました。解放された粗利が集客に回り、12ヶ月でアクティブ顧客が30人から300人になりました。',
-        'services-label':   'できること',
-        'services-h2':      'DTCブランドのための、<br><span>LTVを伸ばす仕組みを構築します。</span>',
+        'services-h2':      'DTCブランドのための、<span>LTVを伸ばす仕組みを構築します。</span>',
         'services-callout': '英語のコピー執筆、メールデザイン、フロー構築まで一貫して対応します。ブランドアセットを共有していただければ、英語コンテンツの制作から設定まで丸ごとお任せいただけます。<strong>すでに配信中なら改善から。まだなら、プラットフォーム選びも含めて一緒に考えます。</strong>',
         'svc-1-h': 'フロー診断と再構築',
         'svc-1-p': '現状を把握し、問題を特定します。そして直します。',
@@ -2246,16 +1072,14 @@
         'svc-5-p': '任意の日数ではなく、顧客の行動に合わせたタイミングで。その差は大きいです。',
         'svc-6-h': 'セグメンテーションとリスト管理',
         'svc-6-p': '健全なリスト、配信停止のロジック、エンゲージメントの階層整備。他のすべての土台になる部分です。',
-        'hiw-label':  '進め方',
-        'hiw-h2':     'まずは<br><span>無料診断から。</span>',
+        'hiw-h2':     'まずは<span>無料診断から。</span>',
         'step-1-h':   'まず話す',
         'step-1-p':   '現状のメール配信の状況、課題、目標についてお話しします。日本語で進められます。20〜30分。',
         'step-2-h':   '現状を確認する',
         'step-2-p':   'メール配信を始めているなら、うまくいっていることと改善点をお伝えします。まだなら、今の段階で移行が適切かを判断します。資料も提案書も必要ありません。まず何をすべきかを、直接お伝えします。',
         'step-3-h':   '進め方を決める',
         'step-3-p':   'プロジェクト単位か継続契約か、状況に応じて。プロジェクトは通常 $1,500〜$3,000（スコープによる）。リテーナーは不要。どちらの方向でも、プレッシャーはかけません。',
-        'faq-label':  'よくある質問',
-        'faq-h2':     'よく聞かれる、<br><span>5つの質問。</span>',
+        'faq-h2':     '最初によく聞かれる、<span>4つの質問。</span>',
         'faq-1-h':    '英語のコピー執筆とメールデザインも対応してもらえますか？',
         'faq-1-p':    'はい、フルサービスで対応します。米国の顧客向けの英語コピーを執筆し、メールをデザインし、フローを構築します。ブランドアセットと方向性を共有していただければ、英語コンテンツの制作から設定まですべて担当します。',
         'faq-2-h':    '費用はどれくらいですか？',
@@ -2264,10 +1088,9 @@
         'faq-4-p':    'フルのフロー構築は、キックオフからローンチまで3〜5週間が目安です。診断は約1週間。スコープと、フィードバックやアセットを提供するスピードによって変わります。',
         'faq-5-h':    '日本語でやり取りできますか？',
         'faq-5-p':    'はい。ブランドの担当者との打ち合わせや日々のやり取りは日本語で進めます。米国の顧客に届けるメールコンテンツは英語で制作します。メール配信ツールもShopifyも、慣れていない段階から一緒に進められます。',
-        'about-label': '創業者より',
         'about-caption-name': '中山 慧',
         'about-caption-role': 'hanjo 創業者',
-        'about-h2':    '自分でも一度、<br><span>こういうブランドを作ろうとした。</span>',
+        'about-h2':    '自分でも一度、<span>こういうブランドを作ろうとした。</span>',
         'about-p1':    '数年前、日本でミールキットブランドを始めようとしました。どれだけ大変かを肌で感じるところまでは進みました。仕入れ、パッケージング、物流。最初の1件を届けるまでに、解決すべき問題は山ほどありました。<strong>自信を持って売れるプロダクトが、最終的には作れませんでした。</strong>',
         'about-p2':    'その経験が、一緒に仕事をする人への見方を変えました。こだわり抜いたプロダクトを作り、それを米国市場に持ち込み、諦めずに続けている創業者たちへの尊敬は大きいです。',
         'about-p3':    '今はロサンゼルスを拠点に、米国で展開する日本のブランドのメール・SMS運用を担当しています。英語のコピーを書き、メールをデザインし、フローを構築します。日本語でやり取りしながら、米国の顧客に届けるメールコミュニケーションを整えます。',
@@ -2276,8 +1099,13 @@
         'testimonial-quote': '「ブランドと顧客のことを理解した上で動いてくれた。私たちのサブスクリプションモデルがどう動いているかを把握し、短期的な数字ではなく、持続的な成長に意味のある仕組みを作ってくれた。」',
         'testimonial-name':  'ブランドオーナー',
         'testimonial-brand': '日本のペットフード · Shopify',
-        'cta-h2':   '米国で獲得した顧客が<br><strong>リピートしていない理由がある。</strong>',
+        'cta-h2-a': '米国で獲得した顧客が',
+        'cta-h2-b': 'リピートしていない理由がある。',
         'cta-p':    '30分の無料相談を、日本語または英語で承ります。まずは、いまの配信の状況やお悩みを、じっくりお聞かせください。',
+        'tools-l':  '対応ツール',
+        'where-h':  'ひとつの循環の中の、<span>ひとつの役割。</span>',
+        'where-p':  '広告とWebサイトでお客様を呼び込み、最初の購入につなげます。CRMが担うのは、二度目、十度目の購入です。離れていったお客様には、Recoveryがもう一度声をかけます。',
+        'where-c':  '現在地',
         'cta-btn':  '無料相談をはじめる <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
         'cta-note': 'ご相談のみでも歓迎です。日本語でどうぞ。',
         'footer-name':     'Kei Nakayama',
@@ -2318,61 +1146,13 @@
       });
     }
 
-    /* ── COUNTER ANIMATION ── */
-    function animateCounter(el) {
-      const target   = parseInt(el.dataset.count);
-      const prefix   = el.dataset.prefix || '';
-      const suffix   = el.dataset.suffix || '';
-      const duration = 1400;
-      let start = null;
-      function step(ts) {
-        if (!start) start = ts;
-        const p     = Math.min((ts - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = prefix + Math.round(eased * target) + suffix;
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-
-    function animateBars() {
-      document.querySelectorAll('#growthChart .growth-bar-fill').forEach(bar => {
-        bar.style.height = bar.dataset.h;
-      });
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          el.classList.add('revealed');
-          if (el.dataset.count)        animateCounter(el);
-          if (el.id === 'growthChart') animateBars();
-          observer.unobserve(el);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('[data-reveal]').forEach(el  => observer.observe(el));
-    document.querySelectorAll('[data-reveal-stagger]').forEach(el => observer.observe(el));
-    document.querySelectorAll('[data-count]').forEach(el => observer.observe(el));
-    const growthChart = document.getElementById('growthChart');
-    if (growthChart) observer.observe(growthChart);
-
-    if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('[data-reveal],[data-reveal-stagger]').forEach(el => el.classList.add('revealed'));
-    }
-    window.setTimeout(() => {
-      document.querySelectorAll('[data-reveal]:not(.revealed),[data-reveal-stagger]:not(.revealed)').forEach(el => el.classList.add('revealed'));
-    }, 3000);
-
     /* ── LIFECYCLE STRIP ── */
     (function () {
       const board = document.getElementById('lc-board');
       if (!board) return;
       const nums  = ['lc-n0', 'lc-n1', 'lc-n2'].map(id => document.getElementById(id));
       const flows = ['lc-f0w', 'lc-f1w'].map(id => document.getElementById(id));
-      const COLORS = ['#b4ad9e', '#cf8a3c', '#2f6f57'];
+      const COLORS = ['#D9D6CD', '#C9D8C5', '#3A5C45'];
       const BANDS  = [[6, 30], [39, 61], [70, 94]];
       const beads  = [];
       const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;

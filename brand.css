@@ -209,10 +209,10 @@ html[lang="ja"] .pl-cta h2 { font-size: clamp(30px, 4vw, 56px); line-height: 1.4
 
 /* Body copy (legal pages, about) */
 .pl-prose { max-width: 720px; font-size: 16.5px; line-height: 1.75; color: var(--ink); }
-.pl-prose h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.2; margin: 56px 0 14px; }
-.pl-prose h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 20px; margin: 32px 0 10px; }
-.pl-prose p, .pl-prose ul, .pl-prose ol { margin: 0 0 16px; color: var(--muted); }
-.pl-prose a { color: var(--sage); text-underline-offset: 3px; }
+.pl .pl-prose h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 30px); line-height: 1.2; margin: 56px 0 14px; }
+.pl .pl-prose h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 20px; margin: 32px 0 10px; }
+.pl .pl-prose p, .pl .pl-prose ul, .pl .pl-prose ol { font-size: 16.5px; font-weight: 400; line-height: 1.75; margin: 0 0 16px; color: var(--muted); }
+.pl .pl-prose a { color: var(--sage); text-underline-offset: 3px; }
 html[lang="ja"] .pl-prose h2, html[lang="ja"] .pl-prose h3 { font-family: 'Shippori Mincho B1', serif; font-weight: 600; }
 
 /* Where this fits: the loop with one station marked (service pages) */
@@ -229,4 +229,9 @@ html[lang="ja"] .pl-prose h2, html[lang="ja"] .pl-prose h3 { font-family: 'Shipp
 .pl-ring--where .pl-ring-center em { display: block; font-style: italic; color: var(--sage); }
 html[lang="ja"] .pl-ring--where .pl-ring-center { font-family: 'Shippori Mincho B1', serif; font-size: clamp(15px, 1.6vw, 19px); }
 @media (max-width: 1023px) { .pl-where { grid-template-columns: 1fr; gap: 40px; } }
-@media (max-width: 767px) { .pl-ring--where { max-width: 300px; } }
+@media (max-width: 767px) { .pl-ring--where { max-width: 256px; } }
+
+/* Pages with a text-only hero (about, legal, contact) */
+.pl .doc-table th { font-size: 13px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--muted); }
+.pl .doc-table td { font-size: 16px; }
+.pl-sec--form { max-width: 760px; padding-top: 56px; }

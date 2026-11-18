@@ -30,1298 +30,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Noto+Sans+JP:wght@300;400;500;600&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black:   #111110;
-      --gray:    #5C5C59;
-      --light:   #F5F4F0;
-      --white:   #FFFFFF;
-      --sage:    #3A5C45;
-      --sage-lt: #EBF1ED;
-      --sage-md: #C8DACC;
-      --red:     #C0392B;
-      --red-lt:  #FFF0EE;
-      --red-bd:  #F5C6C0;
-      --border:  #E4E2DC;
-      --r:       12px;
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--white);
-      color: var(--black);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* ── UTILITIES ── */
-    .container { max-width: 1080px; margin: 0 auto; }
-    .label {
-      display: block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.7rem, 4vw, 2.6rem);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 40px;
-    }
-    section { padding: 64px 5vw; }
-    @media (min-width: 768px) { section { padding: 96px 5vw; } }
-
-    /* ── NAV ── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5vw; height: 60px;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      text-decoration: none; display: flex; align-items: center;
-    }
-    .logo-img { height: 26px; width: auto; display: block; }
-    .logo-img--footer { height: 30px; }
-    .nav-right { display: flex; align-items: center; gap: 8px; }
-    .nav-cta {
-      padding: 9px 18px;
-      background: var(--sage); color: var(--white);
-      border-radius: 100px; font-size: 0.8125rem; font-weight: 500;
-      text-decoration: none; white-space: nowrap;
-      transition: background 0.15s;
-    }
-    .nav-cta:hover { background: #2e4a38; }
-
-    /* ── LANGUAGE TOGGLE ── */
-    .lang-toggle { display: flex; align-items: center; gap: 2px; }
-    .lang-btn {
-      padding: 2px 4px; cursor: pointer; border: none;
-      background: transparent; color: var(--gray);
-      font-size: 0.7rem; font-weight: 500;
-      font-family: inherit; line-height: 1.4; white-space: nowrap;
-      opacity: 0.4; transition: opacity 0.15s;
-    }
-    .lang-btn.active { opacity: 1; color: var(--text); font-weight: 600; }
-    .lang-btn:hover:not(.active) { opacity: 0.7; }
-    .lang-sep { font-size: 0.65rem; color: var(--border); user-select: none; }
-
-    /* ── BANNER ── */
-    .risk-banner {
-      background: var(--sage); color: var(--white);
-      padding: 12px 5vw; text-align: center;
-      font-size: 0.8125rem; line-height: 1.5;
-    }
-    .risk-banner strong { font-weight: 600; }
-
-    /* ── HERO ── */
-    .hero { background: var(--light); border-bottom: 1px solid var(--border); padding: 72px 5vw 64px; position: relative; overflow: hidden; }
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 7vw, 4.2rem);
-      line-height: 1.08; letter-spacing: -0.025em;
-      margin-bottom: 26px;
-    }
-    .hero h1 em { font-style: italic; color: var(--sage); font-size: 1.3em; line-height: 1; display: inline-block; margin-top: 0.12em; }
-    .hero-sub {
-      font-size: 1rem; color: var(--gray);
-      max-width: 520px; margin-bottom: 36px; line-height: 1.7;
-    }
-    .location-badge {
-      display: inline-flex; align-items: center; gap: 9px;
-      color: var(--sage); font-size: 0.72rem; font-weight: 600;
-      letter-spacing: 0.16em; text-transform: uppercase;
-      margin-bottom: 14px;
-    }
-    .pin-icon { flex-shrink: 0; margin-top: -1px; }
-
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 14px 24px;
-      background: var(--sage); color: var(--white);
-      border-radius: 100px; font-size: 0.9375rem; font-weight: 500;
-      text-decoration: none;
-      transition: background 0.15s, transform 0.1s;
-    }
-    .btn-primary:hover { background: #2e4a38; transform: translateY(-1px); }
-    .btn-ghost {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 14px 20px;
-      color: var(--black); font-size: 0.9375rem; font-weight: 500;
-      text-decoration: none; border-radius: 100px;
-      border: 1px solid var(--border); background: var(--white);
-      transition: border-color 0.15s;
-    }
-    .btn-ghost:hover { border-color: var(--sage); }
-
-    /* zero badges: editorial stat strip */
-    .zero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      max-width: 720px;
-    }
-    @media (min-width: 560px) { .zero-grid { grid-template-columns: repeat(3,1fr); } }
-    .zero-badge { padding: 24px 4px; }
-    @media (min-width: 560px) {
-      .zero-badge { padding: 26px 28px 28px; }
-      .zero-badge:first-child { padding-left: 0; }
-      .zero-badge + .zero-badge { border-left: 1px solid var(--border); }
-    }
-    @media (max-width: 559px) {
-      .zero-badge + .zero-badge { border-top: 1px solid var(--border); }
-    }
-    .zero-icon {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.9rem; font-weight: 500; line-height: 1;
-      color: var(--sage);
-      margin-bottom: 10px;
-    }
-    .zero-icon-check svg { width: 26px; height: 26px; color: var(--sage); display: block; margin-top: 3px; }
-    .zero-badge strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 1px; }
-    .zero-badge span { font-size: 0.8125rem; color: var(--gray); }
-
-    /* ── INFOGRAPHIC ── */
-    .infographic { border-bottom: 1px solid var(--border); }
-
-    /* dot grid */
-    .dot-grid { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; max-width: 600px; }
-    .dot {
-      width: 16px; height: 16px; border-radius: 50%;
-      background: #E0DED8;
-    }
-    .dot.booked { background: var(--sage); }
-    .dot-legend { display: flex; gap: 20px; font-size: 0.875rem; margin-bottom: 48px; }
-    .dot-legend span { display: flex; align-items: center; gap: 8px; }
-    .dot-legend .swatch {
-      width: 12px; height: 12px; border-radius: 50%; display: inline-block;
-    }
-
-    /* staged funnel with person icons */
-    .funnel-col-label {
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--gray); margin-bottom: 20px;
-    }
-    .funnel-stages { display: flex; flex-direction: column; gap: 0; max-width: 640px; }
-    .funnel-stage { margin-bottom: 4px; }
-    .stage-header {
-      display: flex; align-items: baseline; justify-content: space-between;
-      gap: 12px; margin-bottom: 7px;
-    }
-    .stage-label { font-size: 0.875rem; color: var(--gray); }
-    .stage-count { font-size: 0.9375rem; font-weight: 700; color: var(--black); white-space: nowrap; }
-    .stage-icons { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
-    .stage-drop {
-      font-size: 0.8125rem; color: var(--red);
-      padding: 3px 0 10px 2px;
-      display: flex; align-items: center; gap: 6px;
-    }
-    .funnel-result .stage-label { font-weight: 600; color: var(--sage); }
-    .funnel-result .stage-count { color: var(--sage); }
-    .p-icon { width: 26px; height: 26px; flex-shrink: 0; }
-    .p-s1 { fill: #C8D6CA; }
-    .p-s2 { fill: #A8C2AC; }
-    .p-s3 { fill: #7FAF88; }
-    .p-s4 { fill: #5A8F64; }
-    .p-s5 { fill: #3B6B3F; }
-
-    /* ── RECOVERY SECTION ── */
-    .recovery { background: var(--light); border-bottom: 1px solid var(--border); }
-
-    /* approach flow */
-    .approach-flow { display: flex; flex-direction: column; align-items: stretch; gap: 0; max-width: 520px; }
-    .approach-step { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 24px 28px; }
-    .approach-step h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 6px; }
-    .approach-step p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
-    .approach-step-icons { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
-    .approach-step-result h3 { color: var(--sage); }
-    .approach-connector { display: flex; align-items: center; gap: 10px; padding: 8px 28px; }
-    .approach-connector-line { flex: 1; height: 2px; background: var(--border); }
-    .approach-connector-arrow { font-size: 1.1rem; color: var(--sage); }
-    /* SMS step */
-    .approach-step-sms { background: #1C1C1E; border-color: #333; }
-    .approach-sms-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 16px; }
-    .sms-card { background: #2C2C2E; border-radius: 14px; padding: 16px; }
-    .sms-card-sender { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .sms-card-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sage); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
-    .sms-card-name { font-size: 0.8125rem; font-weight: 600; color: white; }
-    .sms-card-sub { font-size: 0.7rem; color: rgba(255,255,255,0.35); }
-    .sms-card-bubble { background: #3A3A3C; border-radius: 10px 12px 4px 12px; padding: 12px 14px; margin-bottom: 10px; font-size: 0.8125rem; color: white; line-height: 1.6; }
-    .sms-card-cta { background: var(--sage); border-radius: 10px; padding: 12px; text-align: center; margin-bottom: 6px; font-size: 0.875rem; font-weight: 600; color: white; }
-    .sms-card-tap { text-align: center; font-size: 0.7rem; color: rgba(255,255,255,0.28); }
-
-    .commission-bar {
-      margin-top: 40px; padding: 20px 24px;
-      background: var(--sage); border-radius: var(--r);
-      display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap;
-    }
-    .commission-bar .icon { font-size: 1.5rem; flex-shrink: 0; padding-top: 2px; }
-    .commission-bar h3 { font-size: 0.9375rem; font-weight: 600; color: white; margin-bottom: 4px; }
-    .commission-bar p { font-size: 0.8125rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
-
-    /* ── HANJO VALUE PROPS ── */
-    .how { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .value-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      margin-top: 40px;
-    }
-    @media (min-width: 720px) { .value-grid { grid-template-columns: repeat(3,1fr); } }
-    .value-card {
-      padding: 52px 36px 44px;
-      border-bottom: 1px solid var(--border);
-      border-top: 3px solid transparent;
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.55s ease, transform 0.55s ease, border-top-color 0.25s ease;
-    }
-    .value-card.visible { opacity: 1; transform: translateY(0); }
-    .value-card:hover { border-top-color: var(--sage); }
-    .value-card:last-child { border-bottom: none; }
-    @media (min-width: 720px) {
-      .value-card { border-bottom: none; border-right: 1px solid var(--border); }
-      .value-card:last-child { border-right: none; }
-    }
-    .value-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
-    .value-num { font-size: clamp(3rem, 9vw, 4.75rem); font-weight: 700; letter-spacing: -0.04em; color: var(--sage); line-height: 1; }
-
-
-
-    /* ── PRICING / COMPARE ── */
-    .pricing-section { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .pricing-layout {
-      display: grid; grid-template-columns: 1fr; gap: 40px;
-    }
-    @media (min-width: 768px) { .pricing-layout { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; } }
-    .pricing-copy h2 { margin-bottom: 14px; }
-    .pricing-copy p { font-size: 0.9375rem; color: var(--gray); line-height: 1.7; margin-bottom: 12px; }
-    .pricing-example {
-      margin-top: 20px; padding: 18px 20px;
-      background: var(--white); border: 1px solid var(--border); border-radius: var(--r);
-      font-size: 0.9rem; color: var(--gray); line-height: 1.7;
-    }
-    .pricing-example strong { color: var(--black); }
-
-    .compare-table { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
-    .compare-head {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
-      padding: 12px 14px; background: var(--sage); color: white;
-      font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
-    }
-    @media (min-width: 480px) { .compare-head { padding: 14px 18px; font-size: 0.75rem; } }
-    .compare-row {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr;
-      padding: 12px 14px; border-bottom: 1px solid var(--border);
-      font-size: 0.8125rem; align-items: center;
-    }
-    @media (min-width: 480px) { .compare-row { padding: 14px 18px; font-size: 0.875rem; } }
-    .compare-row:last-child { border-bottom: none; }
-    .compare-row .cl { color: var(--gray); font-size: 0.8125rem; }
-    .compare-row .ch { font-weight: 600; color: var(--sage); }
-    .compare-row .co { color: var(--gray); text-decoration: line-through; font-size: 0.8rem; }
-
-    /* ── ADS AI CROSS-SELL ── */
-    body.lang-ja
-    /* ── FAQ ── */
-    .faq-list { border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
-    .faq-item { padding: 22px 24px; border-bottom: 1px solid var(--border); }
-    .faq-item:last-child { border-bottom: none; }
-    .faq-item h3 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 8px; }
-    .faq-item p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
-
-    /* ── TRUST STRIP (under the SMS recovery flow) ── */
-    .trust-strip { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px 30px; }
-    .trust-pill { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); }
-    .trust-pill svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: -1px; }
-    .trust-strip-note { margin-top: 12px; font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
-    .trust-strip-note a { color: var(--sage); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
-    .sms-card-consent { text-align: center; font-size: 0.66rem; color: rgba(255,255,255,0.34); margin-top: 9px; line-height: 1.5; }
-    .cta-field-hint { font-size: 0.7rem; color: rgba(255,255,255,0.5); line-height: 1.45; margin-top: 2px; }
-
-    /* ── CTA BANNER ── */
-    .cta-banner {
-      background: var(--sage); color: white;
-      text-align: center; padding: 80px 5vw;
-    }
-    .cta-banner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.7rem, 5vw, 2.8rem);
-      line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 14px;
-    }
-    .cta-banner p { font-size: 1rem; opacity: 0.82; margin-bottom: 32px; line-height: 1.7; max-width: 440px; margin-left: auto; margin-right: auto; }
-    .btn-white {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px; background: white; color: var(--sage);
-      border-radius: 100px; font-size: 0.9375rem; font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      transition: transform 0.1s, box-shadow 0.15s;
-    }
-    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-    .cta-sub { margin-top: 14px; font-size: 0.8rem; opacity: 0.6; }
-    /* Balanced, beautiful line wrapping */
-    .section-title, .cta-banner h2, .cta-banner p { text-wrap: balance; }
-    .hero-sub, .faq-item p, .pricing-copy p, .trust-strip-note { text-wrap: pretty; }
-
-    /* ── ELIGIBILITY SIMULATOR ── */
-    .sim { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .sim-lead { font-size: 0.95rem; color: var(--gray); line-height: 1.7; max-width: 560px; margin-bottom: 32px; text-wrap: pretty; }
-    .sim-card, .sim-result { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); padding: 28px; max-width: 680px; }
-    @media (min-width: 768px) { .sim-card, .sim-result { padding: 36px; } }
-    .sim-card[hidden], .sim-result[hidden], .sim-compat[hidden] { display: none; }
-    .sim-q { margin-bottom: 22px; }
-    .sim-q-label { font-size: 0.9rem; font-weight: 600; margin-bottom: 12px; }
-    .sim-q.missing .sim-q-label { color: var(--red); }
-    .sim-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .sim-chip { padding: 9px 16px; border: 1.5px solid var(--border); background: var(--white); border-radius: 100px; font-size: 0.85rem; font-weight: 500; color: var(--black); cursor: pointer; font-family: inherit; transition: border-color 0.12s, background 0.12s, color 0.12s; }
-    .sim-chip:hover { border-color: var(--sage-md); }
-    .sim-chip.selected { border-color: var(--sage); background: var(--sage); color: #fff; }
-    .sim-note { color: var(--red); font-size: 0.8rem; margin-top: 12px; display: none; }
-    .sim-note.show { display: block; }
-    .sim-submit { margin-top: 6px; }
-    .sim-result { text-align: center; }
-    .sim-result-badge { width: 52px; height: 52px; border-radius: 50%; background: var(--sage-lt); color: var(--sage); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
-    .sim-result-badge svg { width: 28px; height: 28px; }
-    .sim-result.weak .sim-result-badge { background: #FBEFE0; color: #B5751B; }
-    .sim-result h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; line-height: 1.2; margin-bottom: 10px; text-wrap: balance; }
-    body.lang-ja .sim-result h3 { font-family: 'Shippori Mincho B1', serif; }
-    .sim-result p { font-size: 0.95rem; color: var(--gray); line-height: 1.7; max-width: 520px; margin: 0 auto 18px; text-wrap: pretty; }
-    .sim-compat { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 22px; }
-    .sim-compat svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: -1px; }
-    .sim-restart { display: block; margin: 16px auto 0; background: none; border: none; color: var(--gray); cursor: pointer; font-size: 0.8rem; font-family: inherit; }
-    .sim-restart:hover { color: var(--sage); text-decoration: underline; }
-    .form-progress { display: flex; align-items: center; gap: 12px; max-width: 440px; margin: 0 auto 14px; }
-    .form-progress-track { flex: 1; height: 4px; border-radius: 100px; background: rgba(255,255,255,0.22); overflow: hidden; }
-    .form-progress-fill { display: block; height: 100%; width: 50%; background: #fff; border-radius: 100px; transition: width 0.3s ease; }
-    .form-progress-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.82); white-space: nowrap; }
-    .form-step[hidden] { display: none; }
-    .cta-back { background: none; border: none; color: rgba(255,255,255,0.7); cursor: pointer; font-size: 0.85rem; font-family: inherit; margin-top: 12px; }
-    .cta-back:hover { color: #fff; text-decoration: underline; }
-    .cta-banner > .container > p { max-width: 560px; }
-    .cta-form { max-width: 600px; margin: 32px auto 0; text-align: left; }
-    .cta-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .cta-full { grid-column: 1 / -1; }
-    .cta-field { display: flex; flex-direction: column; gap: 5px; }
-    .cta-field label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.72); }
-    .cta-field input, .cta-field select, .cta-field textarea {
-      padding: 11px 13px; border-radius: 10px;
-      border: 1.5px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.1); color: white;
-      font-size: 0.9rem; font-family: inherit; outline: none;
-      transition: border-color 0.15s, background 0.15s;
-      -webkit-appearance: none; appearance: none;
-    }
-    .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.32); }
-    .cta-field select option { color: #222; background: white; }
-    .cta-field input:focus, .cta-field select:focus, .cta-field textarea:focus {
-      border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.16);
-    }
-    .cta-field textarea { resize: vertical; min-height: 88px; }
-    .cta-field input.error, .cta-field select.error, .cta-field textarea.error {
-      border-color: rgba(255,110,110,0.85);
-      background: rgba(255,80,80,0.12);
-    }
-    .cta-field-error { display: none; font-size: 0.72rem; color: rgba(255,190,190,1); margin-top: 3px; }
-    .cta-field-error.show { display: block; }
-    .cta-form-footer { margin-top: 20px; text-align: center; }
-    .cta-thanks { text-align: center; padding: 32px 0 8px; }
-    .cta-thanks .check { margin-bottom: 12px; }
-    .cta-thanks .check svg { width: 34px; height: 34px; }
-    .cta-thanks h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 10px; }
-    body.lang-ja .cta-thanks h3 { font-family: 'Shippori Mincho B1', serif; }
-    @media (max-width: 560px) { .cta-form-grid { grid-template-columns: 1fr; } }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 28px 5vw; border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-    }
-    .footer-logo { text-decoration: none; display: inline-flex; align-items: center; }
-    footer p { font-size: 0.8rem; color: var(--gray); }
-    .footer-links { font-size: 0.8rem; }
-    .footer-links a { color: var(--gray); text-decoration: underline; text-underline-offset: 2px; }
-    .footer-links a:hover { color: var(--sage); }
-
-    /* ── JAPANESE OVERRIDES ── */
-    body.lang-ja {
-      font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
-      word-break: auto-phrase;
-    }
-    body.lang-ja .hero h1 {
-      font-family: 'Shippori Mincho B1', serif;
-      line-height: 1.25;
-      letter-spacing: 0.01em;
-    }
-    body.lang-ja .hero h1 em {
-      font-style: normal; /* イタリックは日本語フォントに不適 */
-    }
-    /* モバイルでは各節を1行に収め、改行を美しく。緑の強調は色で担保し倍率を抑える */
-    @media (max-width: 560px) {
-      body.lang-ja .hero h1 {
-        font-size: clamp(1.55rem, 7.8vw, 2.05rem);
-        line-height: 1.45;
-      }
-      body.lang-ja .hero h1 em {
-        font-size: 1.1em;
-        display: inline-block;
-        margin-top: 0.15em;
-      }
-    }
-    body.lang-ja .section-title {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: clamp(1.45rem, 3.2vw, 2.1rem);
-      line-height: 1.5;
-      letter-spacing: 0.01em;
-    }
-    body.lang-ja .cta-banner h2 {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: clamp(1.5rem, 4vw, 2.4rem);
-      line-height: 1.45;
-      letter-spacing: 0.01em;
-    }
-    body.lang-ja .cta-banner > .container > p {
-      text-wrap: balance;
-    }
-    body.lang-ja .label,
-    body.lang-ja .funnel-col-label,
-    body.lang-ja .compare-card .compare-label,
-    body.lang-ja .phone-col-label {
-      text-transform: none;
-      letter-spacing: 0.06em;
-    }
-    body.lang-ja .compare-head {
-      text-transform: none;
-      letter-spacing: 0.03em;
-      font-size: 0.75rem;
-    }
-    body.lang-ja .tl-content h3,
-    body.lang-ja .commission-bar h3,
-    body.lang-ja .faq-item h3 {
-      line-height: 1.5;
-    }
-    body.lang-ja .pricing-copy p,
-    body.lang-ja .faq-item p,
-    body.lang-ja .tl-content p {
-      line-height: 1.85;
-    }
-
-    /* ── ANIMATIONS ── */
-
-    /* Cursor glow */
-    .cursor-glow {
-      position: fixed; top: 0; left: 0;
-      width: 640px; height: 640px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(58,92,69,0.09) 0%, transparent 65%);
-      pointer-events: none; z-index: 0;
-      transform: translate(-50%, -50%);
-      opacity: 0; transition: opacity 0.5s ease;
-      will-change: left, top;
-    }
-    @media (hover: none) { .cursor-glow { display: none; } }
-
-    /* Hero staggered entrance */
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .location-badge { animation: rise 0.55s 0.05s ease both; }
-    .hero h1        { animation: rise 0.65s 0.18s ease both; }
-    .hero-sub       { animation: rise 0.55s 0.32s ease both; }
-    .hero-actions   { animation: rise 0.55s 0.44s ease both; }
-    .zero-grid      { animation: rise 0.55s 0.56s ease both; }
-
-    /* CTA shimmer */
-    .btn-primary, .btn-white { position: relative; overflow: hidden; }
-    .btn-primary::after, .btn-white::after {
-      content: '';
-      position: absolute; top: 0; left: -110%;
-      width: 55%; height: 100%;
-      animation: btn-shimmer 2.8s ease-in-out infinite;
-    }
-    .btn-primary::after {
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
-    }
-    .btn-white::after {
-      background: linear-gradient(90deg, transparent, rgba(58,92,69,0.08), transparent);
-    }
-    @keyframes btn-shimmer {
-      0%   { left: -110%; }
-      60%, 100% { left: 160%; }
-    }
-
-    /* ── ACCESSIBILITY ── */
-    .skip-link { position: absolute; left: 8px; top: -52px; z-index: 1100; background: var(--sage); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: top 0.15s; }
-    .skip-link:focus { top: 8px; }
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible {
-      outline: 3px solid var(--sage); outline-offset: 2px; border-radius: 4px;
-    }
-
-    /* Honor the visitor's OS "reduce motion" setting */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-      html { scroll-behavior: auto; }
-    }
-
-  
-
-    /* ── hero recovery-story visual ── */
-    .hero .container { position: relative; }
-    .hero-visual { display: none; }
-    @media (min-width: 1240px) {
-      .hero-visual {
-        display: block;
-        position: absolute; right: 0; top: 47%; transform: translateY(-50%);
-        width: 330px; pointer-events: none;
-        animation: hvReveal 1.8s ease-out both;
-      }
-    }
-    .hv-deck { position: relative; height: 248px; }
-    .hv-scene {
-      position: absolute; inset: 0;
-      background: var(--white); border: 1px solid var(--border); border-radius: 14px;
-      padding: 15px 16px;
-      box-shadow: 0 2px 6px rgba(17,17,16,0.04), 0 26px 60px rgba(17,17,16,0.13);
-      display: flex; flex-direction: column;
-    }
-    .hv-deck::after {
-      content: ''; position: absolute; left: 10%; right: 10%; bottom: -30px; height: 32px;
-      background: radial-gradient(ellipse at 50% 50%, rgba(17,17,16,0.12), transparent 68%);
-      filter: blur(8px); z-index: -1;
-    }
-    .hv-a { z-index: 3; animation: hvSceneA 9.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .hv-b { z-index: 2; animation: hvSceneB 9.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .hv-c {
-      z-index: 1; overflow: hidden;
-      animation: hvSceneC 9.6s cubic-bezier(0.22, 1, 0.36, 1) both,
-                 hvFloat 6.5s ease-in-out 11s infinite alternate;
-    }
-    .hv-c::after {
-      content: ''; position: absolute; inset: 0; border-radius: inherit;
-      background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,0.55) 47%, transparent 62%);
-      transform: translateX(-130%) skewX(-12deg);
-      animation: hvSheen 9.6s ease-in-out both;
-      pointer-events: none;
-    }
-    @keyframes hvFloat {
-      from { transform: translateY(0) scale(1); }
-      to { transform: translateY(-5px) scale(1); }
-    }
-    @keyframes hvSheen {
-      0%, 86% { transform: translateX(-130%) skewX(-12deg); }
-      96%, 100% { transform: translateX(130%) skewX(-12deg); }
-    }
-    @keyframes hvReveal {
-      from { opacity: 0; filter: blur(12px); }
-      to { opacity: 1; filter: blur(0); }
-    }
-    @keyframes hvSceneA {
-      0%, 36% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
-      44%, 100% { transform: translateY(30px) scale(0.97); opacity: 0; filter: blur(5px); }
-    }
-    @keyframes hvSceneB {
-      0%, 36% { transform: translateY(-12px) scale(0.955); opacity: 0.8; filter: blur(3px); }
-      44%, 72% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
-      80%, 100% { transform: translateY(30px) scale(0.97); opacity: 0; filter: blur(5px); }
-    }
-    @keyframes hvSceneC {
-      0%, 36% { transform: translateY(-24px) scale(0.91); opacity: 0.6; filter: blur(5px); }
-      44%, 72% { transform: translateY(-12px) scale(0.955); opacity: 0.8; filter: blur(3px); }
-      80%, 100% { transform: translateY(0) scale(1); opacity: 1; filter: blur(0); }
-    }
-    /* scene A: menu */
-    .hv-form-title { font-family: 'Playfair Display', serif; font-size: 0.92rem; font-weight: 600; color: var(--black); margin-bottom: 10px; }
-    body.lang-ja .hv-form-title { font-family: 'Shippori Mincho B1', serif; }
-    .hv-menu-viewport { flex: 1; overflow: hidden; }
-    .hv-menu-scroll { animation: hvBrowse 9.6s ease-in-out both; }
-    @keyframes hvBrowse {
-      0%, 10% { transform: translateY(0); }
-      20%, 26% { transform: translateY(-22px); }
-      34%, 100% { transform: translateY(-46px); }
-    }
-    .hv-svc {
-      display: flex; align-items: center; gap: 9px;
-      border: 1px solid var(--border); border-radius: 9px;
-      padding: 8px 9px; margin-bottom: 6px;
-    }
-    .hv-menu-scroll .hv-svc:nth-child(2) { animation: hvConsider 9.6s ease both; }
-    @keyframes hvConsider {
-      0%, 20% { border-color: var(--border); background: transparent; }
-      23%, 28% { border-color: rgba(58,92,69,0.55); background: rgba(58,92,69,0.06); }
-      33%, 100% { border-color: var(--border); background: transparent; }
-    }
-    .hv-thumb {
-      width: 30px; height: 30px; border-radius: 7px; flex-shrink: 0;
-      background: linear-gradient(135deg, rgba(58,92,69,0.30), rgba(58,92,69,0.14));
-    }
-    .hv-thumb-b { background: linear-gradient(135deg, rgba(17,17,16,0.16), rgba(17,17,16,0.07)); }
-    .hv-thumb-c { background: linear-gradient(135deg, rgba(164,85,61,0.22), rgba(164,85,61,0.09)); }
-    .hv-svc-body { min-width: 0; }
-    .hv-svc-body strong { display: block; font-size: 0.72rem; font-weight: 600; color: var(--black); line-height: 1.3; }
-    .hv-svc-body span { display: block; font-size: 0.66rem; color: var(--gray); }
-    .hv-pick {
-      margin-left: auto; flex-shrink: 0;
-      font-size: 0.64rem; font-weight: 600; color: var(--sage);
-      border: 1px solid rgba(58,92,69,0.4); border-radius: 99px; padding: 3px 10px;
-    }
-    .hv-total {
-      display: flex; align-items: center; gap: 7px;
-      border-top: 1px solid var(--border); margin-top: 9px; padding-top: 10px;
-    }
-    .hv-total-label { font-size: 0.66rem; color: var(--gray); }
-    .hv-total strong { font-size: 0.85rem; color: var(--black); }
-    .hv-next {
-      margin-left: auto; font-size: 0.66rem; font-weight: 600;
-      color: var(--gray); background: var(--light); border: 1px solid var(--border);
-      border-radius: 99px; padding: 4px 11px;
-    }
-    .hv-drop {
-      position: absolute; top: 14px; right: 15px;
-      font-size: 0.66rem; font-weight: 600; color: #a4553d;
-      opacity: 0; animation: hvDrop 9.6s ease-out both;
-    }
-    @keyframes hvDrop { 0%, 30% { opacity: 0; } 35%, 100% { opacity: 1; } }
-    /* scene B: SMS */
-    .hv-sms-head, .hv-sms-bubble, .hv-sms-stop { animation: hvItemInB 9.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .hv-sms-bubble { animation-delay: 0.25s; }
-    .hv-sms-stop { animation-delay: 0.5s; }
-    @keyframes hvItemInB {
-      0%, 45% { opacity: 0; transform: translateY(9px); }
-      51%, 100% { opacity: 1; transform: translateY(0); }
-    }
-    .hv-sms-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .hv-sms-ava {
-      width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
-      display: inline-flex; align-items: center; justify-content: center;
-      background: var(--sage); color: #fff;
-    }
-    .hv-sms-ava svg { width: 14px; height: 14px; }
-    .hv-sms-head strong { font-size: 0.78rem; font-weight: 600; color: var(--black); }
-    .hv-sms-head time { margin-left: auto; font-size: 0.64rem; color: var(--gray); }
-    .hv-sms-bubble {
-      align-self: flex-start; max-width: 92%;
-      background: var(--sage); color: #fff;
-      border-radius: 14px; border-bottom-left-radius: 4px;
-      padding: 10px 13px; font-size: 0.78rem; line-height: 1.55;
-    }
-    .hv-sms-stop { margin-top: auto; font-size: 0.62rem; color: var(--gray); }
-    /* scene C: Square confirmation */
-    .hv-conf-head, .hv-conf-row, .hv-conf-note { animation: hvItemInC 9.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
-    .hv-conf-row:nth-of-type(1) { animation-delay: 0.15s; }
-    .hv-conf-row:nth-of-type(2) { animation-delay: 0.3s; }
-    .hv-conf-row:nth-of-type(3) { animation-delay: 0.45s; }
-    .hv-conf-note { animation-delay: 0.6s; }
-    @keyframes hvItemInC {
-      0%, 81% { opacity: 0; transform: translateY(9px); }
-      87%, 100% { opacity: 1; transform: translateY(0); }
-    }
-    .hv-conf-head { display: flex; align-items: center; gap: 9px; margin-bottom: 12px; }
-    .hv-conf-check {
-      width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
-      background: var(--sage); color: #fff;
-      display: inline-flex; align-items: center; justify-content: center;
-    }
-    .hv-conf-check svg { width: 12px; height: 12px; }
-    .hv-conf-check svg path {
-      stroke-dasharray: 24; stroke-dashoffset: 24;
-      animation: hvCheckDraw 9.6s cubic-bezier(0.33, 1, 0.68, 1) 0.3s both;
-    }
-    @keyframes hvCheckDraw { 0%, 82% { stroke-dashoffset: 24; } 92%, 100% { stroke-dashoffset: 0; } }
-    .hv-conf-head strong { font-size: 0.82rem; font-weight: 600; color: var(--black); }
-    .hv-conf-head em { font-style: normal; margin-left: auto; font-size: 0.64rem; color: var(--gray); }
-    .hv-conf-row {
-      display: flex; justify-content: space-between; gap: 12px;
-      padding: 7px 0; border-top: 1px solid var(--border);
-      font-size: 0.72rem;
-    }
-    .hv-conf-row span { color: var(--gray); }
-    .hv-conf-row strong { font-weight: 600; color: var(--black); text-align: right; }
-    .hv-conf-note { margin-top: auto; font-size: 0.62rem; color: var(--gray); }
-    @media (prefers-reduced-motion: reduce) {
-      .hv-a, .hv-b, .hv-c, .hv-menu-scroll, .hv-drop, .hv-conf-check svg path,
-      .hv-c::after, .hv-menu-scroll .hv-svc:first-child,
-      .hv-sms-head, .hv-sms-bubble, .hv-sms-stop,
-      .hv-conf-head, .hv-conf-row, .hv-conf-note, .hero-visual { animation: none; }
-      .hv-a, .hv-b, .hv-c::after { opacity: 0; }
-      .hv-c { transform: none; }
-      .hv-sms-head, .hv-sms-bubble, .hv-sms-stop,
-      .hv-conf-head, .hv-conf-row, .hv-conf-note { opacity: 1; transform: none; }
-      .hv-conf-check svg path { stroke-dashoffset: 0; }
-    }
-    /* ── hanjo.ai chrome alignment ── */
-    nav { height: auto; display: block; padding: 0; }
-    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
-    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
-    .nav-right { display: flex; align-items: center; gap: 20px; }
-    .lang-toggle { background: none; border: none; padding: 5px 2px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; color: var(--gray); cursor: pointer; letter-spacing: 0.06em; line-height: 1; font-family: inherit; display: inline-flex; align-items: center; transition: color 0.2s, border-color 0.2s; }
-    .lang-toggle:hover { color: var(--black); }
-
-    .nav-links { display: flex; gap: 30px; align-items: center; }
-    @media (max-width: 1120px) { .nav-links { gap: 20px; } }
-    .nav-links a {
-      font-family: 'Playfair Display', serif;
-      font-size: 16.5px;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      color: var(--black);
-      opacity: 0.66;
-      text-decoration: none;
-      padding: 8px 0;
-      position: relative;
-      transition: opacity 0.2s, color 0.2s;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 100%; bottom: 3px;
-      height: 1.5px;
-      background: var(--sage);
-      transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    .nav-links a:hover { opacity: 1; }
-    .nav-links a:hover::after { right: 0; }
-    .nav-links a.active {
-      opacity: 1;
-      color: var(--sage);
-    }
-    .nav-links a.active:hover { color: var(--sage); }
-    /* match the home header: JA line-height and toggle color */
-    html[lang="ja"] nav { line-height: 1.8; }
-    nav .lang-toggle { color: rgba(17,17,16,0.68); }
-    nav .lang-toggle:hover { color: #111110; }
-    .nav-links a.active::after { right: 0; }
-    @media (max-width: 880px) { .nav-links { display: none; } }
-    .legacy-lang[hidden], div[hidden] .lang-btn, div[hidden] .lang-sep { display: none; }
-    .nav-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; padding: 9px 18px; letter-spacing: 0.01em; }
-    .risk-banner { font-size: 12.5px; padding: 9px 20px; line-height: 1.4; }
-    .risk-banner { color: rgba(255, 255, 255, 0.8); }
-    .risk-banner strong { font-weight: 500; color: #ffffff; }
-    .crumb { display: inline-block; font-size: 12.5px; font-weight: 500; color: var(--gray); text-decoration: none; margin-bottom: 14px; letter-spacing: 0.03em; transition: color 0.2s; }
-    .crumb:hover { color: var(--black); }
-    body.lang-ja .crumb { font-family: 'Noto Sans JP', sans-serif; }
-
-    .hero { padding-top: clamp(20px, 2.8vw, 34px); padding-bottom: clamp(20px, 2.8vw, 36px); }
-    .hero h1 { margin-bottom: 14px; }
-    .hero-sub { margin-bottom: 20px; }
-    .hero-actions { margin-bottom: 26px; }
-    .zero-grid { margin-top: 0; }
-    .hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.3rem); margin-bottom: 10px; }
-    .location-badge { margin-bottom: 14px; }
-    .hero-sub { margin-bottom: 14px; }
-    .hero-actions { margin-bottom: 18px; }
-    .zero-badge { padding: 12px 14px; }
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-      outline: 2px solid var(--sage);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-    @view-transition { navigation: auto; }
-    nav { view-transition-name: site-header; }
-    .risk-banner { view-transition-name: site-announce; }
-    footer { view-transition-name: site-footer; }
-    @media (prefers-reduced-motion: reduce) {
-      @view-transition { navigation: none; }
-    }
-  
-    /* ── CTA: modern flat ── */
-    .nav-cta, .btn--dark, .btn-primary, form .btn {
-      color: #ffffff;
-      background: var(--sage);
-      border: none;
-      box-shadow: none;
-      transition: background-color 0.18s ease;
-    }
-    .nav-cta:hover, .btn--dark:hover, .btn-primary:hover, form .btn:hover {
-      color: #ffffff;
-      background: #2e4a38;
-      transform: none;
-      filter: none;
-      box-shadow: none;
-    }
-    .nav-cta:active, .btn--dark:active, .btn-primary:active, form .btn:active {
-      background: #263d2f;
-      transform: none;
-      filter: none;
-      box-shadow: none;
-    }
-    .nav-cta svg, .btn--dark svg, .btn-primary svg, .btn--light svg {
-      transition: transform 0.2s ease;
-    }
-    .nav-cta:hover svg, .btn--dark:hover svg, .btn-primary:hover svg, .btn--light:hover svg {
-      transform: translateX(3px);
-    }
-    .btn--light {
-      color: var(--sage);
-      background: #ffffff;
-      border: none;
-      box-shadow: none;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-      transition: background-color 0.18s ease;
-    }
-    .btn--light:hover { color: var(--sage); background: #eef0ea; transform: none; }
-    .btn--light:active { background: #e3e6df; transform: none; }
-  
-    /* ── FULL-PAGE HERO ── */
-    /* Fallbacks only: the script after </nav> writes the measured nav height. */
-    :root { --chrome-h: 74px; }
-    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
-    .hero { display: flex; align-items: center; min-height: calc(100svh - var(--chrome-h)); }
-    .hero > .container { width: 100%; }
-
-    /* ── MOBILE HERO: the three zero badges stacked as tall blocks and pushed
-       the hero ~153px past the fold. Number left, text right instead. ── */
-    @media (max-width: 559px) {
-      .location-badge { margin-bottom: 10px; }
-      /* .hero scope so this wins over the later canonical .hero-sub rule */
-      .hero .hero-sub { line-height: 1.55; margin-bottom: 12px; }
-      .hero-actions { margin-bottom: 12px; }
-      .zero-badge {
-        display: flex;
-        align-items: baseline;
-        gap: 14px;
-        padding: 10px 4px;
-      }
-      .zero-icon { font-size: 1.5rem; margin-bottom: 0; flex: 0 0 42px; }
-      .zero-icon-check { align-self: center; }
-      .zero-icon-check svg { width: 22px; height: 22px; margin-top: 0; }
-      .zero-badge strong { font-size: 0.8125rem; }
-      .zero-badge span { font-size: 0.75rem; }
-    }
-  
-    /* ── STANDARD FOOTER ── */
-    footer { padding: 0; border-top: 1px solid var(--border); background: #ffffff; display: block; }
-    .footer-inner { max-width: 1060px; margin: 0 auto; padding: 26px 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
-    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
-    .footer-meta { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
-    .footer-meta a, .footer-meta span { font-size: 12px; font-weight: 300; letter-spacing: 0.03em; color: var(--gray); text-decoration: none; padding: 8px 0; display: inline-block; }
-    .footer-meta a:hover { color: var(--sage); }
-    body.lang-ja .footer-meta a, body.lang-ja .footer-meta span { font-family: 'Noto Sans JP', sans-serif; }
-      .crumb { display: block; margin-bottom: 14px; }
-    .location-badge { text-transform: none; letter-spacing: 0.01em; font-size: 13px; font-weight: 500; color: var(--gray); }
-    .location-badge .pin-icon { display: none; }
-      .hero h1 { text-wrap: balance; }
-    body.lang-ja .hero h1 { text-wrap: balance; line-break: strict; }
-      /* ── CTA standardization (matches .btn--dark/.btn--light) ── */
-    .btn-primary, .btn-ghost, .sim-submit {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 13.5px;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      line-height: 1;
-      padding: 15px 30px;
-      border-radius: 100px;
-      height: 44px;
-    }
-    .btn-ghost {
-      background: #ffffff;
-      color: var(--black);
-      border: 1px solid var(--border);
-      transition: border-color 0.2s ease, background-color 0.18s ease;
-    }
-    .btn-ghost:hover { background: #ffffff; border-color: rgba(17, 17, 16, 0.32); transform: none; }
-    .btn-ghost svg { transition: transform 0.2s ease; }
-    .btn-ghost:hover svg { transform: translateX(3px); }
-      /* ── DESIGN LANGUAGE ALIGNMENT (matches the standard pages) ── */
-    .section-title { font-size: clamp(26px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
-    .label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(17, 17, 16, 0.58);
-    }
-    .section-lede { font-size: 16px; font-weight: 300; line-height: 1.75; }
-    .btn-white { box-shadow: none; }
-
-    /* legibility on the dark CTA */
-    .cta-field label { color: rgba(255,255,255,0.9); }
-    .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(255,255,255,0.62); }
-    .cta-sub { opacity: 0.85; }
-    .cta-back { color: rgba(255,255,255,0.86); }
-    .btn-white:hover { transform: none; box-shadow: none; }
-      /* ── MOBILE MENU ── */
-    .nav-burger { display: none; }
-    .mobile-menu { display: none; }
-    @media (max-width: 880px) {
-      .nav-inner { padding: 12px 16px; }
-      .lang-toggle { display: none; }
-      .nav-right { gap: 12px; }
-      .nav-cta { font-size: 12.5px; padding: 9px 16px; }
-      .nav-burger { width: 44px; height: 44px; margin-right: -8px; }
-      .mm-lang {
-        display: block;
-        margin-top: 32px;
-        background: none;
-        border: none;
-        padding: 8px 0;
-        font-size: 13.5px;
-        font-weight: 500;
-        letter-spacing: 0.04em;
-        color: #5C5C59;
-        cursor: pointer;
-        font-family: inherit;
-        opacity: 0;
-        transform: translateY(14px);
-        transition: opacity 0.45s ease 0.5s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, color 0.2s;
-      }
-      .mm-lang:hover { color: #111110; }
-      .mobile-menu.open .mm-lang { opacity: 1; transform: none; }
-      .nav-burger {
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 6px;
-        width: 40px;
-        height: 40px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-      }
-      .nav-burger span {
-        display: block;
-        width: 20px;
-        height: 1.5px;
-        background: #111110;
-        transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
-      .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
-      .mobile-menu {
-        display: block;
-        position: fixed;
-        inset: 0;
-        z-index: 90;
-        background: #F5F4F0;
-        padding: 140px 32px 48px;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s;
-      }
-      .mobile-menu.open { opacity: 1; visibility: visible; }
-      .mm-links { display: flex; flex-direction: column; }
-      .mm-links a {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        font-family: 'Playfair Display', serif;
-        font-size: 30px;
-        font-weight: 600;
-        letter-spacing: 0.01em;
-        color: #111110;
-        text-decoration: none;
-        padding: 16px 0;
-        border-bottom: 1px solid #E4E2DC;
-        opacity: 0;
-        transform: translateY(14px);
-        transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      }
-      .mm-links a.active { color: #3A5C45; }
-      .mm-ico { color: #3A5C45; flex-shrink: 0; opacity: 0.85; }
-      .mm-name { flex: 1; }
-      .mm-arrow { color: rgba(17, 17, 16, 0.3); flex-shrink: 0; }
-      .mm-links a.active .mm-arrow { color: #3A5C45; }
-
-      .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
-      .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
-      .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
-      .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
-      .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
-      .mobile-menu.open .mm-links a:nth-child(5) { transition-delay: 0.33s; }
-      .mobile-menu.open .mm-links a:nth-child(6) { transition-delay: 0.4s; }
-      @media (prefers-reduced-motion: reduce) {
-        .mm-links a { transition: opacity 0.2s; transform: none; }
-      }
-    }
-      @media (min-width: 881px) { .crumb { display: none; } }
-      /* ── MAIN CTA EMPHASIS + SHINE ── */
-    .hero-actions .btn--dark, .hero-actions .btn-primary, .cta-inner .btn--dark, .cta-inner .btn--light, form .btn {
-      font-size: 15px;
-      height: 52px;
-      padding: 0 38px;
-    }
-    .btn--dark, .btn-primary, .nav-cta, form .btn, .btn--light {
-      position: relative;
-      overflow: hidden;
-    }
-    .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      left: -80%;
-      width: 45%;
-      background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-      transform: skewX(-20deg);
-      animation: ctaShine 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-    .btn--light::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      left: -80%;
-      width: 45%;
-      background: linear-gradient(105deg, transparent, rgba(58, 92, 69, 0.12), transparent);
-      transform: skewX(-20deg);
-      animation: ctaShine 5s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes ctaShine {
-      0%, 58% { left: -80%; }
-      78%, 100% { left: 130%; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .btn--dark::after, .btn-primary::after, .nav-cta::after, form .btn::after, .btn--light::after { animation: none; display: none; }
-    }
-      .hero-actions .btn-ghost {
-      font-size: 15px;
-      height: 52px;
-      padding: 0 38px;
-    }
-      /* ── NATURAL JA LINE BREAKING (phrase-based where supported) ── */
-    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
-    html[lang="ja"] p, html[lang="ja"] li,
-    html[lang="ja"] .announce, html[lang="ja"] .btn-note, html[lang="ja"] .lead,
-    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
-    body.lang-ja p, body.lang-ja li, body.lang-ja .risk-banner {
-      word-break: auto-phrase;
-    }
-    p, li, .lead, .hero-desc, .announce, .btn-note { text-wrap: pretty; }
-      .hero { padding-left: 0; padding-right: 0; }
-    .hero > .container { max-width: 1280px; margin: 0 auto; padding-left: clamp(24px, 4.5vw, 72px); padding-right: clamp(24px, 4.5vw, 72px); }
-    .hero h1 { font-size: clamp(38px, 4.2vw, 54px); }
-    .hero-sub { font-size: 16px; font-weight: 300; color: var(--gray); max-width: 560px; line-height: 1.7; }
-    .btn-note { display: block; margin-top: 14px; font-size: 13px; font-weight: 300; color: var(--gray); }
-    body.lang-ja .btn-note { font-family: 'Noto Sans JP', sans-serif; }
-    /* ── FOOTER CANONICAL (identical metrics on every page) ── */
-    footer { background: #ffffff; border-top: 1px solid var(--border); }
-    .footer-inner {
-      max-width: 1060px; margin: 0 auto; padding: 26px 40px;
-      display: flex; flex-direction: row; justify-content: space-between; align-items: center;
-      gap: 16px; flex-wrap: wrap;
-    }
-    .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
-    .footer-meta a, .footer-meta span {
-      font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
-      color: var(--gray, #5C5C59); text-decoration: none; padding: 8px 0; display: inline-block;
-    }
-    .footer-meta a:hover { color: #111110; }
-    .footer-logo img { height: 22px; display: block; }
-    @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
-    @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
-    @media (max-width: 640px) { .crumb { display: none; } }
-    /* ── JAPANESE LINE BREAKING ──
-       Two separate problems were showing up on narrow screens.
-
-       1. Most elements inherited line-break: auto, which lets the browser break
-          before ー and small kana: リピータ / ー, ブランドオーナ / ー.
-          `strict` applies 禁則処理 so those can never start a line.
-
-       2. word-break: auto-phrase was set on body copy as well as headings. In
-          long-form Japanese it degrades rather than helping, and it was the
-          direct cause of コンバージ / ョン on the ads page. Verified by toggling
-          it off in the browser: 3 violations -> 0. It stays on headings, where
-          short display text benefits from breaking at phrase boundaries and
-          compound words like 支援 are kept whole.
-
-       text-wrap: pretty discourages a lone trailing character (アクティブ顧客 / 数).
-
-       Two selector families because ads and recovery drive their Japanese
-       typography off body.lang-ja while the other pages use html[lang="ja"]. */
-    html[lang="ja"] body, body.lang-ja {
-      line-break: strict;
-      word-break: normal;
-      overflow-wrap: normal;
-    }
-    html[lang="ja"] p, html[lang="ja"] li, html[lang="ja"] span,
-    html[lang="ja"] td, html[lang="ja"] th, html[lang="ja"] dd, html[lang="ja"] dt,
-    body.lang-ja p, body.lang-ja li, body.lang-ja span,
-    body.lang-ja td, body.lang-ja th, body.lang-ja dd, body.lang-ja dt {
-      word-break: normal;
-      line-break: strict;
-      text-wrap: pretty;
-    }
-    html[lang="ja"] h1, html[lang="ja"] h2, html[lang="ja"] h3,
-    html[lang="ja"] .hero h1, html[lang="ja"] .page-hero h1,
-    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3,
-    body.lang-ja .hero h1, body.lang-ja .page-hero h1 {
-      word-break: auto-phrase;
-      line-break: strict;
-    }
-
-    /* ── 2026-10 quiet editorial pass (see /DESIGN.md) ──
-       Same content and the same quiz/form hooks; the decoration goes:
-       no shimmer, no entrance animation, no person-icon rows, no dot grid,
-       no pills. Real HEAD SPA EN work replaces the animated mock deck. */
-    :root { --board: #E8EBE4; --r: 6px; }
-
-    /* motion: present on load, hover only */
-    .btn-primary::after, .btn-white::after, .nav-cta::after, .btn--dark::after,
-    .btn--light::after, form .btn::after { content: none !important; animation: none !important; }
-    .btn-primary:hover, .btn-white:hover { transform: none; }
-    .value-card { opacity: 1 !important; transform: none !important; border-top: 0 !important; }
-
-    /* type: no eyebrow labels, plain section headings */
-    .label, .funnel-col-label, .approach-sms-label { display: none !important; }
-    .section-title { font-weight: 700; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.1; margin-bottom: 48px; }
-
-    /* hero: copy left, real work right */
-    .hero { background: var(--light); }
-    .rx-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; }
-    @media (min-width: 1024px) {
-      .rx-grid { grid-template-columns: 6fr 5fr; gap: 64px; align-items: center; }
-    }
-    .rx-where { font-size: 13px; color: var(--gray); margin: 0 0 14px; }
-    .hero h1 { font-weight: 700; font-size: clamp(40px, 5vw, 64px); line-height: 1.04; letter-spacing: -0.02em; text-wrap: balance; margin-bottom: 22px; }
-    .hero h1 em { display: block; font-size: 1em; line-height: inherit; margin-top: 0; color: var(--sage); }
-    @media (min-width: 561px) {
-      body.lang-ja .hero h1 { font-size: clamp(30px, 3.4vw, 46px); line-height: 1.3; }
-    }
-    .hero-sub { font-size: 17px; max-width: 34em; }
-    .btn-primary { border-radius: 99px; padding: 14px 26px; }
-    .btn-ghost { background: transparent; border-color: var(--border); }
-    .zero-grid { max-width: none; }
-    .zero-icon { font-weight: 700; font-size: 32px; letter-spacing: -0.02em; }
-    .zero-badge span { font-size: 13px; }
-    .rx-work { margin: 0; }
-    .rx-shots { background: var(--board); border-radius: 4px; padding: 40px 32px 0; height: 520px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
-    .rx-shot { display: block; border-radius: 6px 6px 0 0; overflow: hidden; background: var(--white); box-shadow: 0 1px 2px rgba(17,17,16,.06), 0 12px 32px -12px rgba(17,17,16,.18); }
-    .rx-shot-2 { margin-top: 56px; }
-    .rx-shot img { display: block; width: 100%; height: auto; }
-    a.rx-shot { transition: transform .15s ease-out; }
-    a.rx-shot:hover { transform: translateY(-3px); }
-    .rx-work figcaption { font-size: 13px; line-height: 1.5; color: var(--gray); margin-top: 12px; max-width: 40em; }
-    @media (max-width: 1023px) {
-      .rx-shots { height: 380px; padding: 28px 20px 0; gap: 16px; }
-    }
-
-    /* problem: the funnel reads as a ruled table of numbers */
-    .dot-grid, .dot-legend, .stage-icons, .approach-step-icons { display: none !important; }
-    .funnel-stages { max-width: 760px; border-top: 1px solid var(--black); }
-    .funnel-stage { margin: 0; padding: 16px 0 6px; }
-    .stage-header { margin: 0; }
-    .stage-label { font-size: 17px; color: var(--black); }
-    .stage-count { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; font-variant-numeric: tabular-nums; }
-    .stage-drop { font-size: 14px; color: var(--gray); padding: 0 0 16px; border-bottom: 1px solid var(--border); }
-    .stage-drop strong { color: var(--red); font-weight: 600; }
-    .funnel-result { border-top: 0; padding-top: 20px; }
-    .funnel-result .stage-count { font-size: 44px; }
-
-    /* recovery flow: flat steps, the SMS shown light like a real phone thread */
-    .approach-flow { max-width: 560px; }
-    .approach-step { border-radius: 4px; padding: 24px 28px; }
-    .approach-step h3 { font-size: 17px; }
-    .approach-step p { font-size: 15px; }
-    .approach-step-sms { background: var(--white); border-color: var(--border); }
-    .sms-card { background: var(--light); border-radius: 6px; }
-    .sms-card-avatar { color: #fff; font-weight: 600; font-size: 14px; }
-    .sms-card-name { color: var(--black); }
-    .sms-card-sub, .sms-card-tap, .sms-card-consent { color: var(--gray); }
-    .sms-card-bubble { background: var(--white); color: var(--black); border: 1px solid var(--border); }
-    .sms-card-cta { border-radius: 99px; }
-    .approach-connector-line { height: 1px; }
-    .commission-bar { border-radius: 4px; padding: 24px 28px; background: var(--board); }
-    .commission-bar h3 { font-size: 17px; color: var(--black); }
-    .commission-bar p { font-size: 15px; color: var(--gray); }
-    .trust-strip { gap: 8px 28px; }
-    .trust-pill { font-size: 14px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--black); }
-    .trust-strip-note { font-size: 14px; }
-
-    /* quiz: rectangular choices, flat card */
-    .sim-card, .sim-result { border-radius: 4px; }
-    .sim-q-label { font-size: 16px; }
-    .sim-chip { border-radius: 4px; border-width: 1px; font-size: 15px; padding: 10px 16px; }
-    .sim-compat { font-size: 14px; letter-spacing: 0; text-transform: none; }
-
-    /* value row: a ruled facts row, not three hero numbers */
-    .value-grid { margin-top: 0; border-top: 1px solid var(--black); }
-    .value-card { padding: 28px 28px 32px 0; }
-    @media (min-width: 720px) { .value-card + .value-card { padding-left: 28px; } }
-    .value-label { font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 500; }
-    .value-num { font-family: 'Playfair Display', serif; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.02em; }
-
-    /* pricing: hairline table */
-    .pricing-copy p { font-size: 16px; }
-    .pricing-example { background: var(--board); border: 0; border-radius: 4px; font-size: 15px; }
-    .compare-table { border: 0; border-radius: 0; background: transparent; border-top: 1px solid var(--black); }
-    .compare-head { background: transparent; color: var(--gray); font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--border); }
-    .compare-row { padding: 14px 0; font-size: 15px; }
-    .compare-row .ch { font-variant-numeric: tabular-nums; }
-    .compare-row .cl, .compare-row .co { font-size: 14px; }
-    .compare-row:last-child { border-bottom: 1px solid var(--border); }
-
-    /* FAQ: hairline list */
-    .faq-list { border: 0; border-radius: 0; border-top: 1px solid var(--border); max-width: 860px; }
-    .faq-item { padding: 24px 0; }
-    .faq-item:last-child { border-bottom: 1px solid var(--border); }
-    .faq-item h3 { font-size: 17px; }
-    .faq-item p { font-size: 16px; line-height: 1.65; }
-
-    /* CTA form: quieter fields */
-    .cta-field label { font-size: 13px; letter-spacing: 0; text-transform: none; font-weight: 500; }
-    .cta-field input, .cta-field select, .cta-field textarea { border-radius: 4px; border-width: 1px; font-size: 16px; }
-    .form-progress-label { font-size: 13px; letter-spacing: 0; text-transform: none; }
-    .btn-white { box-shadow: none; }
-    .btn-white:hover { box-shadow: none; opacity: .9; }
-
-    /* the rebuilt form: what changes */
-    .rx-form { background: var(--white); border-bottom: 1px solid var(--border); }
-    .rx-form-grid { display: grid; grid-template-columns: 1fr; gap: 40px; max-width: 1200px; }
-    @media (min-width: 1024px) { .rx-form-grid { grid-template-columns: 7fr 4fr; gap: 72px; align-items: start; } }
-    .rx-form .section-title { margin-bottom: 16px; }
-    .rx-form-lead { font-size: 17px; color: var(--gray); max-width: 34em; margin-bottom: 32px; text-wrap: pretty; }
-    .rx-ledger { list-style: none; border-top: 1px solid var(--black); }
-    .rx-ledger li { display: flex; gap: 22px; padding: 22px 0; border-bottom: 1px solid var(--border); }
-    .rx-n { font-size: 13px; color: var(--gray); font-variant-numeric: tabular-nums; min-width: 28px; padding-top: 2px; }
-    .rx-ledger h3 { font-size: 17px; font-weight: 600; margin-bottom: 4px; }
-    .rx-ledger p { font-size: 16px; color: var(--gray); line-height: 1.6; text-wrap: pretty; }
-    .rx-form-shot { margin: 0; }
-    @media (min-width: 1024px) { .rx-form-shot { position: sticky; top: calc(var(--chrome-h, 72px) + 24px); } }
-    .rx-form-board { background: var(--board); border-radius: 4px; padding: 32px 40px; }
-    .rx-form-board .rx-shot { border-radius: 6px; max-width: 320px; margin: 0 auto; }
-    .rx-form-shot figcaption { font-size: 13px; line-height: 1.5; color: var(--gray); margin-top: 12px; }
-    @media (max-width: 1023px) { .rx-form-board { padding: 24px 56px; } }
-    body.lang-ja .rx-ledger p, body.lang-ja .rx-form-lead { line-height: 1.85; }
-
-    /* email + SMS: two audiences side by side */
-    .rx-back { background: var(--white); border-bottom: 1px solid var(--border); }
-    .rx-back .container { max-width: 1200px; }
-    .rx-back .section-title { margin-bottom: 16px; }
-    .rx-back-lead { font-size: 17px; color: var(--gray); max-width: 36em; margin-bottom: 40px; text-wrap: pretty; }
-    .rx-back-grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
-    @media (min-width: 900px) { .rx-back-grid { grid-template-columns: 1fr 1fr; gap: 64px; } }
-    .rx-back-grid h3 { font-size: 17px; font-weight: 600; padding-bottom: 14px; border-bottom: 1px solid var(--black); }
-    .rx-back-list { list-style: none; }
-    .rx-back-list li { font-size: 16px; line-height: 1.6; color: var(--gray); padding: 18px 0; border-bottom: 1px solid var(--border); text-wrap: pretty; }
-    .rx-back-note { font-size: 14px; color: var(--gray); margin-top: 28px; max-width: 48em; }
-    body.lang-ja .rx-back-list li, body.lang-ja .rx-back-lead { line-height: 1.85; }
-    .rx-form-result { margin-top: 28px; background: var(--board); border-radius: 4px; padding: 20px 24px; font-size: 16px; line-height: 1.6; color: var(--gray); }
-    .rx-form-result strong { color: var(--black); font-weight: 600; }
-      /* focus ring stays visible on the sage sections */
-    .s-dark :focus-visible, .cta-banner :focus-visible { outline-color: #ffffff; }
-  </style>
 
   <script type="speculationrules">
   {
@@ -1445,6 +153,357 @@
   </script>
   <link rel="stylesheet" href="/brand.css">
   <link rel="stylesheet" href="/motion.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #F5F4F0;
+      --ink:    #111110;
+      --muted:  #5C5C59;
+      --sage:   #3A5C45;
+      --white:  #FFFFFF;
+      --board:  #E8EBE4;
+      --border: #E4E2DC;
+      --red:    #B3261E;
+      /* older names still read by the nav, menu and footer rules */
+      --black:  #111110;
+      --gray:   #5C5C59;
+      --light:  #F5F4F0;
+      /* fallback only: the script after </nav> writes the measured nav height */
+      --chrome-h: 74px;
+    }
+    @media (max-width: 880px) { :root { --chrome-h: 65px; } }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body.lang-ja { font-family: 'Noto Sans JP', 'Inter', system-ui, sans-serif; }
+    p, li { text-wrap: pretty; }
+
+    /* ── ACCESSIBILITY ── */
+    .skip-link { position: absolute; left: 8px; top: -52px; z-index: 1100; background: var(--sage); color: #fff; padding: 10px 16px; border-radius: 10px; font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: top 0.15s; }
+    .skip-link:focus { top: 8px; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--sage); outline-offset: 3px; border-radius: 4px;
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100; display: block;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    html[lang="ja"] nav { line-height: 1.8; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px clamp(24px, 4.5vw, 72px); }
+    .logo { display: inline-flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .lang-toggle { background: none; border: none; padding: 5px 2px; font-size: 12.5px; font-weight: 600; letter-spacing: 0.06em; color: rgba(17,17,16,0.68); cursor: pointer; line-height: 1; font-family: inherit; display: inline-flex; align-items: center; transition: color 0.2s; }
+    .lang-toggle:hover { color: #111110; }
+    .nav-links { display: flex; gap: 30px; align-items: center; }
+    @media (max-width: 1120px) { .nav-links { gap: 20px; } }
+    .nav-links a {
+      font-family: 'Playfair Display', serif; font-size: 16.5px; font-weight: 600; letter-spacing: 0.01em;
+      color: var(--ink); opacity: 0.66; text-decoration: none; padding: 8px 0; position: relative;
+      transition: opacity 0.2s, color 0.2s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; left: 0; right: 100%; bottom: 3px; height: 1.5px; background: var(--sage);
+      transition: right 0.25s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a:hover::after, .nav-links a.active::after { right: 0; }
+    .nav-links a.active, .nav-links a.active:hover { opacity: 1; color: var(--sage); }
+    @media (max-width: 880px) { .nav-links { display: none; } }
+    .legacy-lang[hidden], div[hidden] .lang-btn, div[hidden] .lang-sep { display: none; }
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px;
+      background: var(--sage); color: #fff; border: none; border-radius: 100px;
+      font-size: 13px; font-weight: 500; letter-spacing: 0.01em; text-decoration: none; white-space: nowrap;
+      transition: background-color 0.18s ease;
+    }
+    .nav-cta:hover { background: #2e4a38; color: #fff; }
+    .nav-cta:active { background: #263d2f; }
+
+    /* ── MOBILE MENU ── */
+    .nav-burger { display: none; }
+    .mobile-menu { display: none; }
+    @media (max-width: 880px) {
+      .nav-inner { padding: 12px 16px; }
+      .lang-toggle { display: none; }
+      .nav-right { gap: 12px; }
+      .nav-cta { font-size: 12.5px; padding: 9px 16px; }
+      .mm-lang {
+        display: block; margin-top: 32px; background: none; border: none; padding: 8px 0;
+        font-size: 13.5px; font-weight: 500; letter-spacing: 0.04em; color: #5C5C59; cursor: pointer; font-family: inherit;
+        opacity: 0; transform: translateY(14px);
+        transition: opacity 0.45s ease 0.5s, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s, color 0.2s;
+      }
+      .mm-lang:hover { color: #111110; }
+      .mobile-menu.open .mm-lang { opacity: 1; transform: none; }
+      .nav-burger {
+        display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+        width: 40px; height: 40px; margin-right: -8px; background: none; border: none; cursor: pointer; padding: 0;
+      }
+      .nav-burger span { display: block; width: 20px; height: 1.5px; background: #111110; transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+      .nav-burger[aria-expanded="true"] span:first-child { transform: translateY(3.75px) rotate(45deg); }
+      .nav-burger[aria-expanded="true"] span:last-child { transform: translateY(-3.75px) rotate(-45deg); }
+      .mobile-menu {
+        display: block; position: fixed; inset: 0; z-index: 90; background: #F5F4F0; padding: 140px 32px 48px;
+        opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s;
+      }
+      .mobile-menu.open { opacity: 1; visibility: visible; }
+      .mm-links { display: flex; flex-direction: column; }
+      .mm-links a {
+        display: flex; align-items: center; gap: 18px;
+        font-family: 'Playfair Display', serif; font-size: 30px; font-weight: 600; letter-spacing: 0.01em;
+        color: #111110; text-decoration: none; padding: 16px 0; border-bottom: 1px solid #E4E2DC;
+        opacity: 0; transform: translateY(14px);
+        transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .mm-links a.active { color: #3A5C45; }
+      .mm-ico { color: #3A5C45; flex-shrink: 0; opacity: 0.85; }
+      .mm-name { flex: 1; }
+      .mm-arrow { color: rgba(17, 17, 16, 0.3); flex-shrink: 0; }
+      .mm-links a.active .mm-arrow { color: #3A5C45; }
+      .mobile-menu.open .mm-links a { opacity: 1; transform: none; }
+      .mobile-menu.open .mm-links a:nth-child(1) { transition-delay: 0.05s; }
+      .mobile-menu.open .mm-links a:nth-child(2) { transition-delay: 0.12s; }
+      .mobile-menu.open .mm-links a:nth-child(3) { transition-delay: 0.19s; }
+      .mobile-menu.open .mm-links a:nth-child(4) { transition-delay: 0.26s; }
+      .mobile-menu.open .mm-links a:nth-child(5) { transition-delay: 0.33s; }
+      .mobile-menu.open .mm-links a:nth-child(6) { transition-delay: 0.4s; }
+      @media (prefers-reduced-motion: reduce) { .mm-links a { transition: opacity 0.2s; transform: none; } }
+    }
+
+    /* ── FOOTER (identical metrics on every page) ── */
+    footer { display: block; padding: 0; background: #ffffff; border-top: 1px solid var(--border); }
+    .footer-inner {
+      max-width: 1060px; margin: 0 auto; padding: 26px 40px;
+      display: flex; flex-direction: row; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-logo { display: inline-flex; align-items: center; line-height: 0; }
+    .footer-logo img { height: 22px; display: block; }
+    .footer-meta { display: flex; flex-direction: row; align-items: center; flex-wrap: wrap; gap: 0 18px; }
+    .footer-meta a, .footer-meta span {
+      font-size: 12px; font-weight: 300; letter-spacing: 0.03em;
+      color: var(--gray); text-decoration: none; padding: 8px 0; display: inline-block;
+    }
+    .footer-meta a:hover { color: #111110; }
+    body.lang-ja .footer-meta a, body.lang-ja .footer-meta span { font-family: 'Noto Sans JP', sans-serif; }
+    @media (max-width: 880px) { .footer-inner { padding: 22px 24px; } }
+    @media (max-width: 640px) { .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; } }
+
+    @view-transition { navigation: auto; }
+    nav { view-transition-name: site-header; }
+    footer { view-transition-name: site-footer; }
+    @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+
+    /* ── JAPANESE LINE BREAKING ──
+       strict 禁則 everywhere; phrase breaking only on headings, where short
+       display text benefits and compounds stay whole. */
+    html[lang="ja"] body, body.lang-ja { line-break: strict; word-break: normal; overflow-wrap: normal; }
+    body.lang-ja p, body.lang-ja li, body.lang-ja span, body.lang-ja dd, body.lang-ja dt {
+      word-break: normal; line-break: strict; text-wrap: pretty;
+    }
+    body.lang-ja h1, body.lang-ja h2, body.lang-ja h3, body.lang-ja summary,
+    body.lang-ja :is(h1, h2, h3, summary) :is(span, em) { word-break: auto-phrase; line-break: strict; }
+
+    /* ── PAGE (2026-11 redesign, shared components from /brand.css) ──
+       Page-only pieces: heading scale, hero work board, the drop-off table,
+       the booking-form ledger, the quiz and the audit form. No page motion:
+       /motion.css owns the hero arrival and /motion.js the work drift. */
+    .pl { --muted: #5C5C59; }
+    .pl-h2 { margin: 0; font-size: clamp(34px, 4.2vw, 56px); line-height: 1.06; text-wrap: balance; }
+    html[lang="ja"] .pl-h2 { font-size: clamp(26px, 3vw, 40px); line-height: 1.45; }
+    .pl-h1 { font-size: clamp(40px, 4.2vw, 60px); line-height: 1.04; text-wrap: balance; }
+    .pl-h1 em { display: block; font-style: italic; font-weight: inherit; color: var(--sage); }
+    html[lang="ja"] .pl-h1 { font-size: clamp(32px, 3.6vw, 50px); }
+    html[lang="ja"] .pl-h1 em { font-style: normal; }
+    .pl-lede { font-weight: 300; }
+    .pl-btn { border: 0; cursor: pointer; font-family: inherit; }
+    .pl-cap { font-size: 13px; }
+
+    /* hero: real HEAD SPA EN work on the board */
+    .rx-work { margin: 0; }
+    .rx-shots { background: var(--board); border-radius: 4px; padding: 40px 32px 0; height: 520px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .rx-shot { display: block; border-radius: 6px 6px 0 0; overflow: hidden; background: #fff; box-shadow: 0 1px 2px rgba(17,17,16,.06), 0 12px 32px -12px rgba(17,17,16,.18); }
+    .rx-shot-2 { margin-top: 56px; }
+    .rx-shot img { display: block; width: 100%; height: auto; }
+    .rx-zero { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 48px; }
+    .rx-zero dt { font-size: 15px; font-weight: 600; color: var(--ink); }
+    .rx-zero dd { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
+    @media (max-width: 1023px) { .rx-shots { height: 380px; padding: 28px 20px 0; gap: 16px; } }
+    @media (max-width: 640px) { .rx-zero { grid-template-columns: 1fr; gap: 12px; } }
+
+    /* the problem: a ruled table of where visitors drop off */
+    .rx-problem .pl-big span:last-child { color: #C9D8C5; }
+    .rx-problem .pl-proof-txt p span { color: inherit; }
+    .rx-funnel-wrap { grid-column: 1 / -1; }
+    .rx-funnel-h { margin: 0 0 14px; font-family: inherit !important; font-size: 15px !important; font-weight: 500 !important; letter-spacing: 0 !important; color: rgba(255,255,255,.7); }
+    .rx-funnel { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,.4); }
+    .rx-funnel li { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+    .rx-f-label { font-size: 17px; color: #fff; }
+    .rx-f-n { font-family: 'Playfair Display', Georgia, serif; font-size: 28px; font-weight: 700; font-variant-numeric: lining-nums tabular-nums; color: #fff; }
+    .rx-f-drop { grid-column: 1 / -1; margin-top: 4px; font-size: 14px; color: rgba(255,255,255,.68); }
+    .rx-f-drop strong { color: #fff; font-weight: 600; }
+    .rx-f-result .rx-f-label, .rx-f-result .rx-f-n { color: #C9D8C5; }
+    .rx-f-result .rx-f-n { font-size: 40px; }
+
+    /* the rebuilt booking form */
+    .rx-form { border-top: 1px solid var(--border); background: #fff; max-width: none; }
+    .rx-form > * { max-width: 1160px; margin-left: auto; margin-right: auto; }
+    .rx-fx { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 72px; align-items: start; margin-top: 64px; }
+    .rx-fx-list { margin: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px; padding-top: 28px; border-top: 1px solid var(--ink); }
+    .rx-fx-list h3 { font-size: 21px; }
+    .rx-note { margin-top: 40px; padding: 20px 24px; background: var(--board); border-radius: 4px; font-size: 16px; line-height: 1.65; color: var(--muted); }
+    .rx-note strong { color: var(--ink); font-weight: 600; }
+    .rx-form-shot { margin: 0; position: sticky; top: calc(var(--chrome-h, 72px) + 24px); }
+    .rx-form-board { background: var(--board); border-radius: 4px; padding: 32px 40px; }
+    .rx-form-board .rx-shot { border-radius: 6px; max-width: 320px; margin: 0 auto; }
+
+    /* recovery steps */
+    .rx-track { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+    .rx-track li:nth-child(3)::before { transition-delay: .8s; }
+    .sms-card { max-width: 340px; margin-top: 18px; padding: 16px; background: #fff; border: 1px solid var(--border); border-radius: 10px; }
+    .sms-card-sender { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .sms-card-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--sage); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600; flex-shrink: 0; }
+    .sms-card-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .sms-card-sub, .sms-card-tap, .sms-card-consent { font-size: 12px; color: var(--muted); }
+    .sms-card-bubble { margin-bottom: 10px; padding: 12px 14px; background: var(--bg); border-radius: 14px 14px 14px 4px; font-size: 14px; line-height: 1.6; color: var(--ink); }
+    .sms-card-cta { margin-bottom: 6px; padding: 11px; background: var(--sage); border-radius: 99px; text-align: center; font-size: 14px; font-weight: 600; color: #fff; }
+    .sms-card-tap { text-align: center; }
+    .sms-card-consent { margin-top: 8px; text-align: center; line-height: 1.5; }
+    .rx-commission { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px; margin-top: 72px; padding-top: 28px; border-top: 1px solid var(--ink); }
+    .rx-commission h3 { margin: 0; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.15; }
+    .rx-commission p { font-size: 16px; line-height: 1.65; color: var(--muted); }
+    .rx-trust { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 28px; margin: 20px 0 0; padding: 14px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .rx-trust li { font-size: 15px; font-weight: 500; color: var(--ink); }
+    .rx-commission .rx-trust-note { margin-top: 14px; font-size: 14px; }
+    .rx-trust-note a { color: var(--sage); font-weight: 500; text-underline-offset: 3px; }
+
+    /* email + SMS, two audiences */
+    .rx-back-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 64px; }
+    .rx-back-grid h3 { margin: 0; padding-bottom: 14px; font-size: 23px; line-height: 1.2; border-bottom: 1px solid var(--ink); }
+    .rx-back-list { list-style: none; }
+    .rx-back-list li { padding: 18px 0; font-size: 16px; line-height: 1.6; color: var(--muted); border-bottom: 1px solid var(--border); }
+    .rx-back-note { margin-top: 28px; max-width: 48em; font-size: 14px; color: var(--muted); }
+
+    /* quiz */
+    .sim-card, .sim-result { max-width: 800px; margin-top: 64px; padding: 40px; background: #fff; border: 1px solid var(--border); border-radius: 10px; }
+    .sim-card[hidden], .sim-result[hidden], .sim-compat[hidden] { display: none; }
+    .sim-q { margin-bottom: 28px; }
+    .sim-q-label { margin-bottom: 12px; font-size: 16px; font-weight: 600; color: var(--ink); }
+    .sim-q.missing .sim-q-label { color: var(--red); }
+    .sim-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sim-chip {
+      min-height: 44px; padding: 10px 16px; background: #fff; border: 1px solid var(--border); border-radius: 10px;
+      font-family: inherit; font-size: 15px; font-weight: 500; color: var(--ink); cursor: pointer;
+      transition: border-color .15s, background-color .15s, color .15s;
+    }
+    .sim-chip:hover { border-color: var(--sage); }
+    .sim-chip.selected { background: var(--sage); border-color: var(--sage); color: #fff; }
+    .sim-note { display: none; margin-top: 12px; font-size: 14px; color: var(--red); }
+    .sim-note.show { display: block; }
+    .sim-submit { margin-top: 8px; }
+    .sim-result { text-align: center; }
+    .sim-result-badge { display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; margin: 0 auto 18px; border-radius: 50%; background: var(--board); color: var(--sage); }
+    .sim-result-badge svg { width: 26px; height: 26px; }
+    .sim-result.weak .sim-result-badge { background: var(--bg); color: var(--muted); }
+    .sim-result h3 { margin-bottom: 12px; font-size: clamp(26px, 2.6vw, 34px); line-height: 1.2; text-wrap: balance; }
+    .sim-result p { max-width: 520px; margin: 0 auto 18px; font-size: 16px; line-height: 1.7; color: var(--muted); }
+    .sim-compat { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px; font-size: 14px; font-weight: 500; color: var(--sage); }
+    .sim-compat svg { width: 15px; height: 15px; flex-shrink: 0; }
+    .sim-restart { display: block; margin: 18px auto 0; padding: 8px; background: none; border: none; font-family: inherit; font-size: 14px; color: var(--muted); cursor: pointer; }
+    .sim-restart:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+
+    /* what it costs you: a ruled facts row */
+    .rx-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 64px 0 0; border-top: 1px solid var(--ink); }
+    .rx-facts > div { padding: 24px 24px 0 0; }
+    .rx-facts > div + div { padding-left: 24px; border-left: 1px solid var(--border); }
+    .rx-facts dt { font-size: 14px; color: var(--muted); }
+    .rx-facts dd { margin: 8px 0 0; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(36px, 4vw, 52px); font-weight: 700; line-height: 1.1; font-variant-numeric: lining-nums tabular-nums; }
+    html[lang="ja"] .rx-facts dd { font-family: 'Shippori Mincho B1', serif; font-weight: 600; }
+
+    /* pricing */
+    .rx-pricing { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; margin-top: 64px; }
+    .rx-pricing-copy > p:not(.rx-note) { margin-bottom: 14px; font-size: 16px; line-height: 1.7; color: var(--muted); }
+    .rx-pricing-copy .rx-note { margin-top: 24px; }
+    .compare-table { border-top: 1px solid var(--ink); }
+    .compare-head, .compare-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 12px; align-items: center; border-bottom: 1px solid var(--border); }
+    .compare-head { padding: 12px 0; font-size: 13px; font-weight: 500; color: var(--muted); }
+    .compare-row { padding: 15px 0; font-size: 15px; }
+    .compare-row .cl, .compare-row .co { font-size: 14px; color: var(--muted); }
+    .compare-row .ch { font-weight: 600; color: var(--sage); font-variant-numeric: tabular-nums; }
+    .compare-row .co { text-decoration: line-through; }
+
+    /* closing band with the audit form */
+    .pl-cta h2 { text-wrap: balance; }
+    .pl-cta > p { max-width: 560px; margin-left: auto; margin-right: auto; text-wrap: balance; }
+    .rx-formcard { max-width: 640px; margin: 0 auto; padding: 36px; background: #fff; color: var(--ink); border-radius: 10px; text-align: left; }
+    .form-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .form-progress-track { flex: 1; height: 3px; background: var(--border); border-radius: 99px; overflow: hidden; }
+    .form-progress-fill { display: block; width: 50%; height: 100%; background: var(--sage); border-radius: 99px; transition: width .3s ease; }
+    .form-progress-label { font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .form-step[hidden] { display: none; }
+    .cta-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 16px; }
+    .cta-full { grid-column: 1 / -1; }
+    .cta-field { display: flex; flex-direction: column; gap: 6px; }
+    .cta-field label { font-size: 13px; font-weight: 500; color: var(--ink); }
+    .cta-field input, .cta-field select, .cta-field textarea {
+      width: 100%; padding: 12px 14px; background: #fff; color: var(--ink);
+      border: 1px solid var(--border); border-radius: 10px;
+      font-family: inherit; font-size: 16px; line-height: 1.4;
+      -webkit-appearance: none; appearance: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .cta-field select {
+      padding-right: 38px;
+      background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235C5C59' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 14px center;
+    }
+    .cta-field textarea { min-height: 96px; resize: vertical; }
+    .cta-field input::placeholder, .cta-field textarea::placeholder { color: rgba(17,17,16,.38); }
+    .cta-field input:focus, .cta-field select:focus, .cta-field textarea:focus { outline: none; border-color: var(--sage); box-shadow: 0 0 0 3px rgba(58,92,69,.16); }
+    .cta-field input.error, .cta-field select.error, .cta-field textarea.error { border-color: var(--red); }
+    .cta-field-error { display: none; font-size: 13px; color: var(--red); }
+    .cta-field-error.show { display: block; }
+    .cta-form-footer { margin-top: 24px; text-align: center; }
+    .cta-back { margin-top: 12px; padding: 8px; background: none; border: none; font-family: inherit; font-size: 14px; color: var(--muted); cursor: pointer; }
+    .cta-back:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+    .pl-cta .cta-sub { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+    .cta-thanks { padding: 16px 0 4px; text-align: center; }
+    .cta-thanks .check { margin-bottom: 12px; color: var(--sage); }
+    .cta-thanks .check svg { width: 34px; height: 34px; }
+    .cta-thanks h3 { margin-bottom: 10px; font-size: 26px; line-height: 1.25; }
+    .pl-cta .cta-thanks p { margin: 0; font-size: 16px; line-height: 1.7; color: var(--muted); }
+
+    body.lang-ja .pl-sub, body.lang-ja .pl-who p, body.lang-ja .rx-back-list li, body.lang-ja .pl-faq p, body.lang-ja .rx-pricing-copy p { line-height: 1.85; }
+
+    @media (max-width: 1023px) {
+      .rx-fx, .rx-pricing, .rx-commission, .rx-back-grid { grid-template-columns: 1fr; gap: 40px; }
+      .rx-form-shot { position: static; }
+      .rx-form-board { padding: 24px 56px; }
+      .rx-track { grid-template-columns: 1fr; gap: 44px; }
+    }
+    @media (max-width: 767px) {
+      .rx-fx-list { grid-template-columns: 1fr; gap: 28px; }
+      .rx-form-board { padding: 24px; }
+      .rx-facts { grid-template-columns: 1fr; }
+      .rx-facts > div, .rx-facts > div + div { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--border); }
+      .sim-card, .sim-result { padding: 24px 18px; }
+      .rx-formcard { padding: 24px 18px; }
+      .cta-form-grid { grid-template-columns: 1fr; }
+      .compare-head, .compare-row { gap: 8px; }
+      .rx-funnel li { column-gap: 16px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -1522,481 +581,306 @@
 
 
 <!-- HERO -->
-<main>
-<section class="hero" id="main" tabindex="-1">
-  <div class="container rx-grid">
-  <div class="rx-copy">
-    <a href="/#services" class="crumb" data-i18n="crumb">← All services</a>
-    <p class="rx-where" data-i18n="location_badge">Now serving Los Angeles area only</p>
-    <h1 data-i18n="hero_h1">Lost bookings,<br>brought&nbsp;back.<br><em>No&nbsp;fees. No&nbsp;hassle.</em></h1>
-    <p class="hero-sub" data-i18n="hero_sub">
-      We rebuild your booking form and set up automated SMS and email follow-ups. Built for salons, spas, and clinics. No setup fee, no monthly fee, fully performance-based. Works with Square, Vagaro, Mindbody and other online booking. Your booking system stays exactly as it is.
-    </p>
-    <div class="hero-actions">
-      <a href="#book" class="btn-primary" data-i18n="hero_btn_primary">Get a free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      <a href="#fit" class="btn-ghost" data-i18n="hero_btn_ghost">See if you're a fit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-    <div class="zero-grid">
-      <div class="zero-badge">
-        <div class="zero-icon">$0</div>
-        <div><strong data-i18n="zero_1_strong">No setup fee</strong><span data-i18n="zero_1_span">We build everything upfront</span></div>
-      </div>
-      <div class="zero-badge">
-        <div class="zero-icon">$0</div>
-        <div><strong data-i18n="zero_2_strong">No monthly fee</strong><span data-i18n="zero_2_span">Ever, for any reason</span></div>
-      </div>
-      <div class="zero-badge">
-        <div class="zero-icon zero-icon-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div><strong data-i18n="zero_3_strong">Pay on results</strong><span data-i18n="zero_3_span">Commission on confirmed bookings</span></div>
-      </div>
+<main class="pl">
+<section class="pl-hero" id="main" tabindex="-1">
+  <div class="pl-hero-txt">
+    <a href="/#services" class="pl-crumb" data-i18n="crumb">← All services</a>
+    <p class="pl-kicker" data-i18n="location_badge">Now serving Los Angeles area only</p>
+    <h1 class="pl-h1" data-i18n="hero_h1">Lost bookings, brought&nbsp;back. <em>No&nbsp;fees. No&nbsp;hassle.</em></h1>
+    <p class="pl-lede" data-i18n="hero_sub">We rebuild your booking form and set up automated SMS and email follow-ups. Built for salons, spas, and clinics. No setup fee, no monthly fee, fully performance-based. Works with Square, Vagaro, Mindbody and other online booking. Your booking system stays exactly as it is.</p>
+    <div class="pl-actions">
+      <a href="#book" class="pl-btn" data-i18n="hero_btn_primary">Get a free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#fit" class="pl-link" data-i18n="hero_btn_ghost">See if you're a fit</a>
     </div>
   </div>
-    <figure class="rx-work">
-      <div class="rx-shots">
-        <a class="rx-shot" href="https://www.headspaen.net/" target="_blank" rel="noopener"><img src="/work/headspaen-booking.jpg" alt="HEAD SPA EN booking form on mobile" width="480" height="1038"></a>
-        <div class="rx-shot rx-shot-2"><img src="/work/headspaen-site.jpg" alt="HEAD SPA EN website, treatment menu on mobile" width="480" height="1036"></div>
-      </div>
-      <figcaption data-i18n="rx_work_cap">HEAD SPA EN, a Japanese head spa in Los Angeles. We rebuilt their booking form in front of Square and run the follow-ups.</figcaption>
-    </figure>
+  <figure class="pl-hero-vis rx-work">
+    <div class="rx-shots">
+      <a class="rx-shot" href="https://www.headspaen.net/" target="_blank" rel="noopener"><img src="/work/headspaen-booking.jpg" alt="HEAD SPA EN booking form on mobile" width="480" height="1038"></a>
+      <div class="rx-shot rx-shot-2"><img src="/work/headspaen-site.jpg" alt="HEAD SPA EN website, treatment menu on mobile" width="480" height="1036"></div>
+    </div>
+    <figcaption class="pl-cap" data-i18n="rx_work_cap">HEAD SPA EN, a Japanese head spa in Los Angeles. We rebuilt their booking form in front of Square and run the follow-ups.</figcaption>
+  </figure>
+  <dl class="pl-tools rx-zero">
+    <div><dt data-i18n="zero_1_strong">No setup fee</dt><dd data-i18n="zero_1_span">We build everything upfront</dd></div>
+    <div><dt data-i18n="zero_2_strong">No monthly fee</dt><dd data-i18n="zero_2_span">Ever, for any reason</dd></div>
+    <div><dt data-i18n="zero_3_strong">Pay on results</dt><dd data-i18n="zero_3_span">Commission on confirmed bookings</dd></div>
+  </dl>
+</section>
+
+<!-- WHERE THIS FITS -->
+<section class="pl-sec pl-sec--line pl-where" aria-labelledby="where-h">
+  <div class="pl-sec-head">
+    <h2 id="where-h" class="pl-h2" data-i18n="where-h">One part of <span>one loop.</span></h2>
+    <p class="pl-sub" data-i18n="where-p">Ads, your website and follow-up email bring people to the point of booking. Recovery catches the ones who stop halfway and helps them finish.</p>
+  </div>
+  <div class="pl-ring pl-ring--where" aria-hidden="true">
+    <svg class="pl-ring-svg" viewBox="0 0 400 400"><circle class="pl-ring-track" cx="200" cy="200" r="160"/><circle class="pl-ring-prog" cx="200" cy="200" r="160" pathLength="100" transform="rotate(-90 200 200)"/></svg>
+    <a class="pl-node pl-node--1" href="/ads/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg><b>Ads</b></a>
+    <a class="pl-node pl-node--2" href="/web/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg><b>Web</b></a>
+    <a class="pl-node pl-node--3" href="/crm/" tabindex="-1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg><b>CRM</b></a>
+    <span class="pl-node pl-node--4 is-current"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg><b>Recovery</b></span>
+    <div class="pl-ring-center"><span data-i18n="where-c">You are here:</span><em>hanjo Recovery</em></div>
   </div>
 </section>
 
-<!-- INFOGRAPHIC -->
-<section class="infographic">
-  <div class="container">
-    <span class="label" data-i18n="label_problem">The problem, visualized</span>
-    <h2 class="section-title" data-i18n="title_problem">97% of visitors leave<br>without booking.</h2>
-
-    <div class="dot-grid">
-      <div class="dot booked"></div><div class="dot booked"></div><div class="dot booked"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+<!-- THE PROBLEM: where visitors drop off -->
+<section class="pl-proof rx-problem" aria-labelledby="problem-h">
+  <div class="pl-proof-in">
+    <div class="pl-big" aria-hidden="true"><span>100</span><svg viewBox="0 0 60 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h52M46 4l9 8-9 8"/></svg><span>3</span></div>
+    <div class="pl-proof-txt">
+      <h2 id="problem-h" data-i18n="title_problem">97% of visitors leave without booking.</h2>
+      <p><span data-i18n="legend_booked">3 booked</span>, <span data-i18n="legend_away">97 walked away</span>.</p>
     </div>
-    <div class="dot-legend">
-      <span><span class="swatch" style="background:var(--sage)"></span><strong data-i18n="legend_booked">3 booked</strong></span>
-      <span><span class="swatch" style="background:#E0DED8"></span><span style="color:var(--gray)" data-i18n="legend_away">97 walked away</span></span>
-    </div>
-
-    <div class="funnel-layout">
-      <div>
-        <div class="funnel-col-label" data-i18n="funnel_col_drop">Where they drop off</div>
-        <div class="funnel-stages">
-
-          <div class="funnel-stage">
-            <div class="stage-header">
-              <span class="stage-label" data-i18n="funnel_r1">Clicked your ad</span>
-              <strong class="stage-count">100</strong>
-            </div>
-            <div class="stage-icons"><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s1" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
-          </div>
-          <div class="stage-drop">↘ <span data-i18n="funnel_d1"><strong>−30</strong> landed on wrong page, left immediately</span></div>
-
-          <div class="funnel-stage">
-            <div class="stage-header">
-              <span class="stage-label" data-i18n="funnel_r2">Viewed booking page</span>
-              <strong class="stage-count">70</strong>
-            </div>
-            <div class="stage-icons"><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s2" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
-          </div>
-          <div class="stage-drop">↘ <span data-i18n="funnel_d2"><strong>−40</strong> saw the form, felt too much friction</span></div>
-
-          <div class="funnel-stage">
-            <div class="stage-header">
-              <span class="stage-label" data-i18n="funnel_r3">Filled the form</span>
-              <strong class="stage-count">30</strong>
-            </div>
-            <div class="stage-icons"><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s3" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
-          </div>
-          <div class="stage-drop">↘ <span data-i18n="funnel_d3"><strong>−17</strong> waited hours for a reply, booked elsewhere</span></div>
-
-          <div class="funnel-stage">
-            <div class="stage-header">
-              <span class="stage-label" data-i18n="funnel_r4">Got timely follow-up</span>
-              <strong class="stage-count">13</strong>
-            </div>
-            <div class="stage-icons"><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg><svg class="p-icon p-s4" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
-          </div>
-          <div class="stage-drop">↘ <span data-i18n="funnel_d4"><strong>−10</strong> needed one more nudge but never got it</span></div>
-
-          <div class="funnel-stage funnel-result">
-            <div class="stage-header">
-              <span class="stage-label" data-i18n="funnel_r5">Booked an appointment</span>
-              <strong class="stage-count">3</strong>
-            </div>
-            <div class="stage-icons"><svg class="p-icon p-s5" viewBox="0 0 10 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg></div>
-          </div>
-
-        </div>
-      </div>
+    <div class="rx-funnel-wrap">
+      <h3 class="rx-funnel-h" data-i18n="funnel_col_drop">Where they drop off</h3>
+      <ol class="rx-funnel">
+        <li><span class="rx-f-label" data-i18n="funnel_r1">Clicked your ad</span><b class="rx-f-n">100</b><span class="rx-f-drop" data-i18n="funnel_d1"><strong>−30</strong> landed on wrong page, left immediately</span></li>
+        <li><span class="rx-f-label" data-i18n="funnel_r2">Viewed booking page</span><b class="rx-f-n">70</b><span class="rx-f-drop" data-i18n="funnel_d2"><strong>−40</strong> saw the form, felt too much friction</span></li>
+        <li><span class="rx-f-label" data-i18n="funnel_r3">Filled the form</span><b class="rx-f-n">30</b><span class="rx-f-drop" data-i18n="funnel_d3"><strong>−17</strong> waited hours for a reply, booked elsewhere</span></li>
+        <li><span class="rx-f-label" data-i18n="funnel_r4">Got timely follow-up</span><b class="rx-f-n">13</b><span class="rx-f-drop" data-i18n="funnel_d4"><strong>−10</strong> needed one more nudge but never got it</span></li>
+        <li class="rx-f-result"><span class="rx-f-label" data-i18n="funnel_r5">Booked an appointment</span><b class="rx-f-n">3</b></li>
+      </ol>
     </div>
   </div>
 </section>
 
 <!-- THE FORM: what changes when we rebuild it -->
-<section class="rx-form" id="form">
-  <div class="container rx-form-grid">
+<section class="pl-sec rx-form" id="form" aria-labelledby="fx-h">
+  <div class="pl-sec-head">
+    <h2 id="fx-h" class="pl-h2" data-i18n="fx_title">A booking form <span>that keeps people moving.</span></h2>
+    <p class="pl-sub" data-i18n="fx_lead">A lot of those visitors give up inside the booking form itself. When we rebuild it, this is what changes.</p>
+  </div>
+  <div class="rx-fx">
     <div>
-      <h2 class="section-title" data-i18n="fx_title">A booking form that keeps people moving.</h2>
-      <p class="rx-form-lead" data-i18n="fx_lead">A lot of those visitors give up inside the booking form itself. When we rebuild it, this is what changes.</p>
-      <ol class="rx-ledger">
-        <li>
-          <span class="rx-n">01</span>
-          <div>
-            <h3 data-i18n="fx1_h">Treatments you can choose at a glance</h3>
-            <p data-i18n="fx1_p">Every treatment shows a photo, the price, and how long it takes, so nobody has to guess what they are booking.</p>
-          </div>
-        </li>
-        <li>
-          <span class="rx-n">02</span>
-          <div>
-            <h3 data-i18n="fx2_h">Arrive with the treatment already picked</h3>
-            <p data-i18n="fx2_p">Links from your site and from our follow-up texts open the form with the right treatment selected.</p>
-          </div>
-        </li>
-        <li>
-          <span class="rx-n">03</span>
-          <div>
-            <h3 data-i18n="fx3_h">Add-ons at the right moment</h3>
-            <p data-i18n="fx3_p">Extras are offered once the main treatment is chosen and before the time is picked, so the first choice stays simple and the slot still fits.</p>
-          </div>
-        </li>
-        <li>
-          <span class="rx-n">04</span>
-          <div>
-            <h3 data-i18n="fx4_h">The total, always on screen</h3>
-            <p data-i18n="fx4_p">A running summary of the treatment, its length, and the price stays visible to the end. No surprises at checkout.</p>
-          </div>
-        </li>
-        <li>
-          <span class="rx-n">05</span>
-          <div>
-            <h3 data-i18n="fx5_h">We see where people stop</h3>
-            <p data-i18n="fx5_p">Drop-off is measured inside the form, so we fix the screen that loses people instead of guessing.</p>
-          </div>
-        </li>
-        <li>
-          <span class="rx-n">06</span>
-          <div>
-            <h3 data-i18n="fx6_h">Nothing changes on your side</h3>
-            <p data-i18n="fx6_p">Bookings land in your Square calendar as usual, and each one is tied back to the ad or message that brought it in.</p>
-          </div>
-        </li>
-      </ol>
-      <p class="rx-form-result" data-i18n="fx_result"><strong>What changed after the rebuild:</strong> more guests add extras to their booking, the average booking is worth more, and more of the people who start a booking finish it.</p>
+      <ul class="pl-who rx-fx-list">
+        <li><h3 data-i18n="fx1_h">Treatments you can choose at a glance</h3><p data-i18n="fx1_p">Every treatment shows a photo, the price, and how long it takes, so nobody has to guess what they are booking.</p></li>
+        <li><h3 data-i18n="fx2_h">Arrive with the treatment already picked</h3><p data-i18n="fx2_p">Links from your site and from our follow-up texts open the form with the right treatment selected.</p></li>
+        <li><h3 data-i18n="fx3_h">Add-ons at the right moment</h3><p data-i18n="fx3_p">Extras are offered once the main treatment is chosen and before the time is picked, so the first choice stays simple and the slot still fits.</p></li>
+        <li><h3 data-i18n="fx4_h">The total, always on screen</h3><p data-i18n="fx4_p">A running summary of the treatment, its length, and the price stays visible to the end. No surprises at checkout.</p></li>
+        <li><h3 data-i18n="fx5_h">We see where people stop</h3><p data-i18n="fx5_p">Drop-off is measured inside the form, so we fix the screen that loses people instead of guessing.</p></li>
+        <li><h3 data-i18n="fx6_h">Nothing changes on your side</h3><p data-i18n="fx6_p">Bookings land in your Square calendar as usual, and each one is tied back to the ad or message that brought it in.</p></li>
+      </ul>
+      <p class="rx-note" data-i18n="fx_result"><strong>What changed after the rebuild:</strong> more guests add extras to their booking, the average booking is worth more, and more of the people who start a booking finish it.</p>
     </div>
     <figure class="rx-form-shot">
       <div class="rx-form-board"><div class="rx-shot"><img src="/work/headspaen-booking-addons.jpg" alt="Rebuilt booking form showing add-ons and a running total" width="480" height="836" loading="lazy"></div></div>
-      <figcaption data-i18n="fx_cap">The rebuilt form after a treatment is picked: add-ons first, then the time, with the total always in view.</figcaption>
+      <figcaption class="pl-cap" data-i18n="fx_cap">The rebuilt form after a treatment is picked: add-ons first, then the time, with the total always in view.</figcaption>
     </figure>
   </div>
 </section>
 
 <!-- RECOVERY -->
-<section class="recovery" id="recovery">
-  <div class="container">
-    <span class="label" data-i18n="label_recovery">How we recover customers</span>
-    <h2 class="section-title" data-i18n="title_recovery">We reach the visitors<br>who almost booked.</h2>
-
-    <div class="approach-flow">
-      <div class="approach-step">
-        <div class="approach-step-icons">
-          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-          <svg class="p-icon p-s3" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-        </div>
-        <h3 data-i18n="appr_h1">They showed interest, but never booked</h3>
-        <p data-i18n="appr_p1">Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.</p>
-      </div>
-
-      <div class="approach-connector">
-        <div class="approach-connector-line"></div>
-        <span class="approach-connector-arrow">↓</span>
-        <div class="approach-connector-line"></div>
-      </div>
-
-      <div class="approach-step approach-step-sms">
-        <div class="approach-sms-label" data-i18n="appr_action">We step in at the right moment</div>
-        <div class="sms-card">
-          <div class="sms-card-sender">
-            <div class="sms-card-avatar">S</div>
-            <div>
-              <div class="sms-card-name">Serenity Spa</div>
-              <div class="sms-card-sub" data-i18n="sms_sub_label">Text Message</div>
-            </div>
+<section class="pl-sec pl-sec--line" id="recovery" aria-labelledby="recovery-h">
+  <div class="pl-sec-head">
+    <h2 id="recovery-h" class="pl-h2" data-i18n="title_recovery">We reach the visitors <span>who almost booked.</span></h2>
+  </div>
+  <ol class="pl-track rx-track" data-pl-track>
+    <li>
+      <h3 data-i18n="appr_h1">They showed interest, but never booked</h3>
+      <p data-i18n="appr_p1">Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.</p>
+    </li>
+    <li>
+      <h3 data-i18n="appr_action">We step in at the right moment</h3>
+      <div class="sms-card">
+        <div class="sms-card-sender">
+          <div class="sms-card-avatar" aria-hidden="true">S</div>
+          <div>
+            <div class="sms-card-name">Serenity Spa</div>
+            <div class="sms-card-sub" data-i18n="sms_sub_label">Text Message</div>
           </div>
-          <div class="sms-card-bubble" data-i18n="sms_bubble">Hi Sarah! Thanks for your interest in our Signature Facial.<br><br>We'd love to have you in. Your spot is saved for the next 2 hours.</div>
-          <div class="sms-card-cta" data-i18n="sms_cta">Book My Appointment →</div>
-          <div class="sms-card-tap" data-i18n="sms_tap">Tap to confirm · Takes 30 seconds</div>
-          <div class="sms-card-consent" data-i18n="sms_consent">✓ Sent because Sarah opted in · Reply STOP to unsubscribe</div>
         </div>
+        <div class="sms-card-bubble" data-i18n="sms_bubble">Hi Sarah! Thanks for your interest in our Signature Facial.<br><br>We'd love to have you in. Your spot is saved for the next 2 hours.</div>
+        <div class="sms-card-cta" data-i18n="sms_cta">Book My Appointment →</div>
+        <div class="sms-card-tap" data-i18n="sms_tap">Tap to confirm · Takes 30 seconds</div>
+        <div class="sms-card-consent" data-i18n="sms_consent">✓ Sent because Sarah opted in · Reply STOP to unsubscribe</div>
       </div>
-
-      <div class="approach-connector">
-        <div class="approach-connector-line"></div>
-        <span class="approach-connector-arrow">↓</span>
-        <div class="approach-connector-line"></div>
-      </div>
-
-      <div class="approach-step approach-step-result">
-        <div class="approach-step-icons">
-          <svg class="p-icon p-s5" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-          <svg class="p-icon p-s5" viewBox="0 0 10 16"><circle cx="5" cy="3.5" r="2.5"/><path d="M0.5 10 Q0.5 7 5 7 Q9.5 7 9.5 10 L9.5 16 H0.5 Z"/></svg>
-        </div>
-        <h3 data-i18n="appr_h2">They come back and book</h3>
-        <p data-i18n="appr_p2">The system is simple: automated SMS to customers who abandoned your form, reminders before appointments, and win-back emails to regulars who drifted away. You get the bookings back. We take our commission only when a booking is confirmed.</p>
-      </div>
+    </li>
+    <li>
+      <h3 data-i18n="appr_h2">They come back and book</h3>
+      <p data-i18n="appr_p2">The system is simple: automated SMS to customers who abandoned your form, reminders before appointments, and win-back emails to regulars who drifted away. You get the bookings back. We take our commission only when a booking is confirmed.</p>
+    </li>
+  </ol>
+  <div class="rx-commission">
+    <h3 data-i18n="commission_h3">You only pay when it works</h3>
+    <div>
+      <p data-i18n="commission_p">Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start.</p>
+      <ul class="rx-trust" aria-label="How we keep messaging compliant">
+        <li data-i18n="trustpill_1">Consent-based</li>
+        <li data-i18n="trustpill_2">One-tap STOP opt-out</li>
+        <li data-i18n="trustpill_3">TCPA &amp; CTIA compliant</li>
+      </ul>
+      <p class="rx-trust-note" data-i18n="trustpill_note">Every text is sent only with the customer's consent and can be stopped in one tap. That's what keeps you protected in California. <a href="#faq">See the compliance FAQ →</a></p>
     </div>
-
-    <div class="commission-bar">
-      <div>
-        <h3 data-i18n="commission_h3">You only pay when it works</h3>
-        <p data-i18n="commission_p">Commission applies only when a visitor completes a booking through us. Every booking is tracked, and you see the same data we do. Rate agreed before we start.</p>
-      </div>
-    </div>
-
-    <div class="trust-strip" role="list" aria-label="How we keep messaging compliant">
-      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="trustpill_1">Consent-based</span></span>
-      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m5.4 5.4 13.2 13.2"/></svg><span data-i18n="trustpill_2">One-tap STOP opt-out</span></span>
-      <span class="trust-pill" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span data-i18n="trustpill_3">TCPA &amp; CTIA compliant</span></span>
-    </div>
-    <p class="trust-strip-note" data-i18n="trustpill_note">Every text is sent only with the customer's consent and can be stopped in one tap. That's what keeps you protected in California. <a href="#faq">See the compliance FAQ →</a></p>
   </div>
 </section>
 
 <!-- BRING THEM BACK: email + SMS, two audiences -->
-<section class="rx-back" id="back">
-  <div class="container">
-    <h2 class="section-title" data-i18n="bk_title">Email and SMS that bring them back.</h2>
-    <p class="rx-back-lead" data-i18n="bk_lead">Two kinds of customers slip away: people who almost booked, and people who came once and never returned. Each gets its own messages, sent only with their consent.</p>
-    <div class="rx-back-grid">
-      <div>
-        <h3 data-i18n="bk_a_h">People who almost booked</h3>
-        <ul class="rx-back-list">
-          <li data-i18n="bk_a1">A text and an email soon after they leave the form, with a link that opens it again with their treatment already picked.</li>
-          <li data-i18n="bk_a2">A reminder before the appointment, so a new booking turns into a visit.</li>
-        </ul>
-      </div>
-      <div>
-        <h3 data-i18n="bk_b_h">Customers who came once</h3>
-        <ul class="rx-back-list">
-          <li data-i18n="bk_b1">A thank-you email on the day of the visit, with aftercare for the treatment they had.</li>
-          <li data-i18n="bk_b2">When they are due again, an email that rebooks the same treatment in one tap, with the next open times.</li>
-          <li data-i18n="bk_b3">Last-minute openings by text, only to people who asked to hear about them.</li>
-          <li data-i18n="bk_b4">One last, personal check-in before they drift away for good.</li>
-        </ul>
-      </div>
-    </div>
-    <p class="rx-back-note" data-i18n="bk_note">Every message has a one-tap way to stop, and every booking it brings in is tracked. That record is what commission is counted from.</p>
+<section class="pl-sec pl-sec--line rx-back" id="back" aria-labelledby="back-h">
+  <div class="pl-sec-head">
+    <h2 id="back-h" class="pl-h2" data-i18n="bk_title">Email and SMS <span>that bring them back.</span></h2>
+    <p class="pl-sub" data-i18n="bk_lead">Two kinds of customers slip away: people who almost booked, and people who came once and never returned. Each gets its own messages, sent only with their consent.</p>
   </div>
+  <div class="rx-back-grid">
+    <div>
+      <h3 data-i18n="bk_a_h">People who almost booked</h3>
+      <ul class="rx-back-list">
+        <li data-i18n="bk_a1">A text and an email soon after they leave the form, with a link that opens it again with their treatment already picked.</li>
+        <li data-i18n="bk_a2">A reminder before the appointment, so a new booking turns into a visit.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 data-i18n="bk_b_h">Customers who came once</h3>
+      <ul class="rx-back-list">
+        <li data-i18n="bk_b1">A thank-you email on the day of the visit, with aftercare for the treatment they had.</li>
+        <li data-i18n="bk_b2">When they are due again, an email that rebooks the same treatment in one tap, with the next open times.</li>
+        <li data-i18n="bk_b3">Last-minute openings by text, only to people who asked to hear about them.</li>
+        <li data-i18n="bk_b4">One last, personal check-in before they drift away for good.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="rx-back-note" data-i18n="bk_note">Every message has a one-tap way to stop, and every booking it brings in is tracked. That record is what commission is counted from.</p>
 </section>
 
 <!-- ELIGIBILITY SIMULATOR -->
-<section class="sim" id="fit">
-  <div class="container">
-    <span class="label" data-i18n="label_fit">Are we a fit?</span>
-    <h2 class="section-title" data-i18n="title_fit">See if your business qualifies<br>in 30 seconds.</h2>
-    <p class="sim-lead" data-i18n="sim_lead">Four quick questions. We'll tell you on the spot whether our system fits your setup, and what it could be recovering for you.</p>
+<section class="pl-sec pl-sec--line sim" id="fit" aria-labelledby="fit-h">
+  <div class="pl-sec-head">
+    <h2 id="fit-h" class="pl-h2" data-i18n="title_fit">See if your business qualifies <span>in 30 seconds.</span></h2>
+    <p class="pl-sub" data-i18n="sim_lead">Four quick questions. We'll tell you on the spot whether our system fits your setup, and what it could be recovering for you.</p>
+  </div>
 
-    <div class="sim-card" id="sim-card">
-      <div class="sim-q" data-q="type">
-        <div class="sim-q-label" data-i18n="sim_q1">What kind of business do you run?</div>
-        <div class="sim-chips">
-          <button type="button" class="sim-chip" data-val="medspa" data-i18n="sim_t_medspa">Med spa</button>
-          <button type="button" class="sim-chip" data-val="aesthetic" data-i18n="sim_t_aesthetic">Aesthetic clinic</button>
-          <button type="button" class="sim-chip" data-val="cosmetic" data-i18n="sim_t_cosmetic">Cosmetic / plastic surgery</button>
-          <button type="button" class="sim-chip" data-val="derm" data-i18n="sim_t_derm">Dermatology</button>
-          <button type="button" class="sim-chip" data-val="dental" data-i18n="sim_t_dental">Dental / ortho</button>
-          <button type="button" class="sim-chip" data-val="hair" data-i18n="sim_t_hair">Hair restoration</button>
-          <button type="button" class="sim-chip" data-val="other" data-i18n="sim_t_other">Other service business</button>
-        </div>
+  <div class="sim-card" id="sim-card">
+    <div class="sim-q" data-q="type">
+      <div class="sim-q-label" data-i18n="sim_q1">What kind of business do you run?</div>
+      <div class="sim-chips">
+        <button type="button" class="sim-chip" data-val="medspa" data-i18n="sim_t_medspa">Med spa</button>
+        <button type="button" class="sim-chip" data-val="aesthetic" data-i18n="sim_t_aesthetic">Aesthetic clinic</button>
+        <button type="button" class="sim-chip" data-val="cosmetic" data-i18n="sim_t_cosmetic">Cosmetic / plastic surgery</button>
+        <button type="button" class="sim-chip" data-val="derm" data-i18n="sim_t_derm">Dermatology</button>
+        <button type="button" class="sim-chip" data-val="dental" data-i18n="sim_t_dental">Dental / ortho</button>
+        <button type="button" class="sim-chip" data-val="hair" data-i18n="sim_t_hair">Hair restoration</button>
+        <button type="button" class="sim-chip" data-val="other" data-i18n="sim_t_other">Other service business</button>
       </div>
-      <div class="sim-q" data-q="ads">
-        <div class="sim-q-label" data-i18n="sim_q2">Do you run paid ads (Meta / Google)?</div>
-        <div class="sim-chips">
-          <button type="button" class="sim-chip" data-val="yes" data-i18n="sim_ads_yes">Yes</button>
-          <button type="button" class="sim-chip" data-val="no" data-i18n="sim_ads_no">Not yet</button>
-        </div>
-      </div>
-      <div class="sim-q" data-q="ticket">
-        <div class="sim-q-label" data-i18n="sim_q3">Average value of a new client?</div>
-        <div class="sim-chips">
-          <button type="button" class="sim-chip" data-val="low" data-i18n="sim_ticket_low">Under $150</button>
-          <button type="button" class="sim-chip" data-val="mid" data-i18n="sim_ticket_mid">$150–500</button>
-          <button type="button" class="sim-chip" data-val="high" data-i18n="sim_ticket_high">$500+</button>
-        </div>
-      </div>
-      <div class="sim-q" data-q="platform">
-        <div class="sim-q-label" data-i18n="sim_q4">How do clients book?</div>
-        <div class="sim-chips">
-          <button type="button" class="sim-chip" data-val="square">Square</button>
-          <button type="button" class="sim-chip" data-val="mindbody">Mindbody</button>
-          <button type="button" class="sim-chip" data-val="vagaro">Vagaro</button>
-          <button type="button" class="sim-chip" data-val="fresha">Fresha</button>
-          <button type="button" class="sim-chip" data-val="other" data-i18n="sim_p_other">Other online</button>
-          <button type="button" class="sim-chip" data-val="none" data-i18n="sim_p_none">Phone / walk-in only</button>
-        </div>
-      </div>
-      <button type="button" class="btn-primary sim-submit" id="sim-submit" data-i18n="sim_submit">See if I qualify <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-      <p class="sim-note" id="sim-note" data-i18n="sim_note">Please answer all four questions.</p>
     </div>
+    <div class="sim-q" data-q="ads">
+      <div class="sim-q-label" data-i18n="sim_q2">Do you run paid ads (Meta / Google)?</div>
+      <div class="sim-chips">
+        <button type="button" class="sim-chip" data-val="yes" data-i18n="sim_ads_yes">Yes</button>
+        <button type="button" class="sim-chip" data-val="no" data-i18n="sim_ads_no">Not yet</button>
+      </div>
+    </div>
+    <div class="sim-q" data-q="ticket">
+      <div class="sim-q-label" data-i18n="sim_q3">Average value of a new client?</div>
+      <div class="sim-chips">
+        <button type="button" class="sim-chip" data-val="low" data-i18n="sim_ticket_low">Under $150</button>
+        <button type="button" class="sim-chip" data-val="mid" data-i18n="sim_ticket_mid">$150–500</button>
+        <button type="button" class="sim-chip" data-val="high" data-i18n="sim_ticket_high">$500+</button>
+      </div>
+    </div>
+    <div class="sim-q" data-q="platform">
+      <div class="sim-q-label" data-i18n="sim_q4">How do clients book?</div>
+      <div class="sim-chips">
+        <button type="button" class="sim-chip" data-val="square">Square</button>
+        <button type="button" class="sim-chip" data-val="mindbody">Mindbody</button>
+        <button type="button" class="sim-chip" data-val="vagaro">Vagaro</button>
+        <button type="button" class="sim-chip" data-val="fresha">Fresha</button>
+        <button type="button" class="sim-chip" data-val="other" data-i18n="sim_p_other">Other online</button>
+        <button type="button" class="sim-chip" data-val="none" data-i18n="sim_p_none">Phone / walk-in only</button>
+      </div>
+    </div>
+    <button type="button" class="pl-btn sim-submit" id="sim-submit" data-i18n="sim_submit">See if I qualify <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    <p class="sim-note" id="sim-note" data-i18n="sim_note">Please answer all four questions.</p>
+  </div>
 
-    <div class="sim-result" id="sim-result" hidden aria-live="polite">
-      <div class="sim-result-badge" id="sim-badge"></div>
-      <h3 id="sim-result-title"></h3>
-      <p id="sim-result-body"></p>
-      <div class="sim-compat" id="sim-compat" hidden></div>
-      <div><a href="#book" class="btn-primary" id="sim-cta"></a></div>
-      <button type="button" class="sim-restart" id="sim-restart" data-i18n="sim_restart">↺ Start over</button>
-    </div>
+  <div class="sim-result" id="sim-result" hidden aria-live="polite">
+    <div class="sim-result-badge" id="sim-badge"></div>
+    <h3 id="sim-result-title"></h3>
+    <p id="sim-result-body"></p>
+    <div class="sim-compat" id="sim-compat" hidden></div>
+    <div><a href="#book" class="pl-btn" id="sim-cta"></a></div>
+    <button type="button" class="sim-restart" id="sim-restart" data-i18n="sim_restart">↺ Start over</button>
   </div>
 </section>
 
 <!-- HANJO VALUE PROPS -->
-<section class="how" id="how">
-  <div class="container">
-    <h2 class="section-title" data-i18n="title_how">Your form, SMS, and email flows.<br>All built by hanjo, free.</h2>
-    <div class="value-grid">
-      <div class="value-card">
-        <div class="value-label" data-i18n="val1_label">Anything except commission</div>
-        <div class="value-num" data-i18n="val1_num">$0</div>
-      </div>
-      <div class="value-card">
-        <div class="value-label" data-i18n="val2_label">Your workload</div>
-        <div class="value-num" data-i18n="val2_num">Minimal</div>
-      </div>
-      <div class="value-card">
-        <div class="value-label" data-i18n="val3_label">SMS sending cost</div>
-        <div class="value-num" data-i18n="val3_num">$0</div>
-      </div>
-    </div>
+<section class="pl-sec pl-sec--line" id="how" aria-labelledby="how-h">
+  <div class="pl-sec-head">
+    <h2 id="how-h" class="pl-h2" data-i18n="title_how">Your form, SMS, and email flows. <span>All built by hanjo, free.</span></h2>
   </div>
+  <dl class="rx-facts">
+    <div><dt data-i18n="val1_label">Anything except commission</dt><dd data-i18n="val1_num">$0</dd></div>
+    <div><dt data-i18n="val2_label">Your workload</dt><dd data-i18n="val2_num">Minimal</dd></div>
+    <div><dt data-i18n="val3_label">SMS sending cost</dt><dd data-i18n="val3_num">$0</dd></div>
+  </dl>
 </section>
 
-
 <!-- PRICING -->
-<section class="pricing-section" id="pricing">
-  <div class="container">
-    <div class="pricing-layout">
-      <div class="pricing-copy">
-        <span class="label" data-i18n="label_pricing">The numbers</span>
-        <h2 class="section-title" data-i18n="title_pricing">Pay only when a customer books. Keep the rest.</h2>
-        <p data-i18n="pricing_p1">Commission applies when a customer completes a booking through the system we build: the new booking form, or a link inside our SMS and email follow-ups. Not per click. Not per message sent. Per confirmed booking.</p>
-        <p data-i18n="pricing_p2">You never pay for the booking form or the setup itself. You pay a share of the bookings the system brings in, and nothing else. If it brings in none, you pay nothing. Commission rate is agreed before we start, based on your average booking value.</p>
-        <div class="pricing-example" data-i18n="pricing_example">
-          <strong>Example (med spa, $320 avg booking):</strong><br>
-          40 new clients/month through our messages<br>
-          Revenue generated: $12,800<br>
-          You pay hanjo: commission on 40 bookings<br>
-          <strong>Net to you: the difference, kept in full</strong>
-        </div>
+<section class="pl-sec pl-sec--line" id="pricing" aria-labelledby="pricing-h">
+  <div class="pl-sec-head">
+    <h2 id="pricing-h" class="pl-h2" data-i18n="title_pricing">Pay only when a customer books. <span>Keep the rest.</span></h2>
+  </div>
+  <div class="rx-pricing">
+    <div class="rx-pricing-copy">
+      <p data-i18n="pricing_p1">Commission applies when a customer completes a booking through the system we build: the new booking form, or a link inside our SMS and email follow-ups. Not per click. Not per message sent. Per confirmed booking.</p>
+      <p data-i18n="pricing_p2">You never pay for the booking form or the setup itself. You pay a share of the bookings the system brings in, and nothing else. If it brings in none, you pay nothing. Commission rate is agreed before we start, based on your average booking value.</p>
+      <p class="rx-note" data-i18n="pricing_example"><strong>Example (med spa, $320 avg booking):</strong><br>40 bookings/month through the new form and our follow-ups<br>Revenue generated: $12,800<br>You pay hanjo: commission on 40 bookings<br><strong>Net to you: the difference, kept in full</strong></p>
+    </div>
+    <div class="compare-table">
+      <div class="compare-head">
+        <span data-i18n="table_col1">What you pay</span>
+        <span>hanjo</span>
+        <span data-i18n="table_col3">Agency</span>
       </div>
-      <div>
-        <div class="compare-table">
-          <div class="compare-head">
-            <span data-i18n="table_col1">What you pay</span>
-            <span>hanjo</span>
-            <span data-i18n="table_col3">Agency</span>
-          </div>
-          <div class="compare-row">
-            <span class="cl" data-i18n="table_r1_cl">Setup fee</span>
-            <span class="ch">$0</span>
-            <span class="co">$2,000–5,000</span>
-          </div>
-          <div class="compare-row">
-            <span class="cl" data-i18n="table_r2_cl">Monthly retainer</span>
-            <span class="ch">$0</span>
-            <span class="co">$2,500–5,000</span>
-          </div>
-          <div class="compare-row">
-            <span class="cl" data-i18n="table_r3_cl">If it doesn't work</span>
-            <span class="ch">$0</span>
-            <span class="co" data-i18n="table_r3_co">Pay anyway</span>
-          </div>
-          <div class="compare-row">
-            <span class="cl" data-i18n="table_r4_cl">Per booking</span>
-            <span class="ch" data-i18n="table_r4_ch">% agreed upfront</span>
-            <span class="co" data-i18n="table_r4_co">Not tracked</span>
-          </div>
-          <div class="compare-row">
-            <span class="cl" data-i18n="table_r5_cl">Contract</span>
-            <span class="ch" data-i18n="table_r5_ch">Flexible</span>
-            <span class="co" data-i18n="table_r5_co">3–12 months</span>
-          </div>
-        </div>
+      <div class="compare-row">
+        <span class="cl" data-i18n="table_r1_cl">Setup fee</span>
+        <span class="ch">$0</span>
+        <span class="co">$2,000–5,000</span>
+      </div>
+      <div class="compare-row">
+        <span class="cl" data-i18n="table_r2_cl">Monthly retainer</span>
+        <span class="ch">$0</span>
+        <span class="co">$2,500–5,000</span>
+      </div>
+      <div class="compare-row">
+        <span class="cl" data-i18n="table_r3_cl">If it doesn't work</span>
+        <span class="ch">$0</span>
+        <span class="co" data-i18n="table_r3_co">Pay anyway</span>
+      </div>
+      <div class="compare-row">
+        <span class="cl" data-i18n="table_r4_cl">Per booking</span>
+        <span class="ch" data-i18n="table_r4_ch">% agreed upfront</span>
+        <span class="co" data-i18n="table_r4_co">Not tracked</span>
+      </div>
+      <div class="compare-row">
+        <span class="cl" data-i18n="table_r5_cl">Contract</span>
+        <span class="ch" data-i18n="table_r5_ch">Flexible</span>
+        <span class="co" data-i18n="table_r5_co">3–12 months</span>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
-  <div class="container">
-    <span class="label" data-i18n="label_faq">Common questions</span>
-    <h2 class="section-title" data-i18n="title_faq">What salon and clinic owners ask us first.</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <h3 data-i18n="faq_law_h3">Is texting customers legal in California? Could I get sued?</h3>
-        <p data-i18n="faq_law_p">Texting is legal when the customer has given consent, and consent is the only basis we ever text on. Every number opts in through your own form with clear, TCPA-compliant wording, and every message follows CTIA messaging guidelines with a one-tap "Reply STOP" that we honor immediately. We never buy lists and never cold-text anyone. That consent-first, TCPA &amp; CTIA–aligned approach is exactly what keeps you protected under California and federal law.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq_data_h3">How is my customers' data protected?</h3>
-        <p data-i18n="faq_data_p">Customer contact details are encrypted, stored securely, and never sold or shared. We use them for a single purpose, helping that person complete their booking, and honor any deletion request in line with California's data-privacy law. You and your customers stay in control of the data at all times.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq1_h3">How do you track which bookings are yours to invoice?</h3>
-        <p data-i18n="faq1_p">The booking form we build and every message we send are tracked end to end. We only invoice when a booking is actually confirmed through them. You see the same log we do before approving any invoice.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq2_h3">What if it doesn't bring in any new customers?</h3>
-        <p data-i18n="faq2_p">You pay nothing. We absorb the setup cost and time. Our incentive is entirely aligned with yours: we make money when you make money. If it's not working, we keep optimising, or we walk away with no invoice.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq3_h3">Do I need to give you access to my ad accounts?</h3>
-        <p data-i18n="faq3_p">For ads management, yes: we request partner access to your Meta or Google account. You remain the owner. For the landing page and automation, no ad access is needed. You can start with just the funnel and add ads later.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq4_h3">What booking platforms do you work with?</h3>
-        <p data-i18n="faq4_p">Square is our deepest integration: recovered bookings land straight on your Square calendar. We also work in front of Vagaro, Mindbody, Fresha and other online booking systems: bookings keep landing in the system you use today, and nothing changes about how you operate. We rebuild the form in front of it and add the automated follow-ups. We'll be upfront about exactly what's possible on your platform before we start.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq5_h3">How long until the funnel is live?</h3>
-        <p data-i18n="faq5_p">Two weeks from kickoff. Day 1–3: audit and plan. Day 4–7: landing page built. Day 8–14: automation set up and tested. Day 14: live and tracking from day one.</p>
-      </div>
-      <div class="faq-item">
-        <h3 data-i18n="faq6_h3">Is there a minimum commitment?</h3>
-        <p data-i18n="faq6_p">No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.</p>
-      </div>
-    </div>
+<section class="pl-sec pl-sec--line pl-sec--faq" id="faq" aria-labelledby="faq-h">
+  <div class="pl-sec-head">
+    <h2 id="faq-h" class="pl-h2" data-i18n="title_faq">What salon and clinic owners <span>ask us first.</span></h2>
+  </div>
+  <div class="pl-faq">
+    <details><summary data-i18n="faq_law_h3">Is texting customers legal in California? Could I get sued?</summary><p data-i18n="faq_law_p">Texting is legal when the customer has given consent, and consent is the only basis we ever text on. Every number opts in through your own form with clear, TCPA-compliant wording, and every message follows CTIA messaging guidelines with a one-tap "Reply STOP" that we honor immediately. We never buy lists and never cold-text anyone. That consent-first, TCPA &amp; CTIA–aligned approach is exactly what keeps you protected under California and federal law.</p></details>
+    <details><summary data-i18n="faq_data_h3">How is my customers' data protected?</summary><p data-i18n="faq_data_p">Customer contact details are encrypted, stored securely, and never sold or shared. We use them for a single purpose, helping that person complete their booking, and honor any deletion request in line with California's data-privacy law. You and your customers stay in control of the data at all times.</p></details>
+    <details><summary data-i18n="faq1_h3">How do you track which bookings are yours to invoice?</summary><p data-i18n="faq1_p">The booking form we build and every message we send are tracked end to end. We only invoice when a booking is actually confirmed through them. You see the same log we do before approving any invoice.</p></details>
+    <details><summary data-i18n="faq2_h3">What if it doesn't bring in any new customers?</summary><p data-i18n="faq2_p">You pay nothing. We absorb the setup cost and time. Our incentive is entirely aligned with yours: we make money when you make money. If it's not working, we keep optimising, or we walk away with no invoice.</p></details>
+    <details><summary data-i18n="faq3_h3">Do I need to give you access to my ad accounts?</summary><p data-i18n="faq3_p">For ads management, yes: we request partner access to your Meta or Google account. You remain the owner. For the landing page and automation, no ad access is needed. You can start with just the funnel and add ads later.</p></details>
+    <details><summary data-i18n="faq4_h3">What booking platforms do you work with?</summary><p data-i18n="faq4_p">Square is our deepest integration: recovered bookings land straight on your Square calendar. We also work in front of Vagaro, Mindbody, Fresha and other online booking systems: bookings keep landing in the system you use today, and nothing changes about how you operate. We rebuild the form in front of it and add the automated follow-ups. We'll be upfront about exactly what's possible on your platform before we start.</p></details>
+    <details><summary data-i18n="faq5_h3">How long until the funnel is live?</summary><p data-i18n="faq5_p">Two weeks from kickoff. Day 1–3: audit and plan. Day 4–7: landing page built. Day 8–14: automation set up and tested. Day 14: live and tracking from day one.</p></details>
+    <details><summary data-i18n="faq6_h3">Is there a minimum commitment?</summary><p data-i18n="faq6_p">No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.</p></details>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-banner" id="book">
-  <div class="container">
-    <h2 data-i18n="cta_h2">See how many bookings<br>your form is losing.</h2>
-    <p data-i18n="cta_p">Get a free audit of your booking funnel. We'll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.</p>
+<!-- CTA + AUDIT FORM -->
+<section class="pl-cta" id="book" aria-labelledby="book-h">
+  <h2 id="book-h" data-i18n="cta_h2"><span>See how many bookings</span> <em>your form is losing.</em></h2>
+  <p data-i18n="cta_p">Get a free audit of your booking funnel. We'll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.</p>
+  <div class="rx-formcard">
     <form class="cta-form" id="cta-form" novalidate>
       <input type="hidden" name="business_type" id="sim-out-type">
       <input type="hidden" name="avg_ticket" id="sim-out-ticket">
@@ -2021,7 +905,7 @@
           </div>
         </div>
         <div class="cta-form-footer">
-          <button type="button" class="btn-white" id="step-next" data-i18n="form_continue">Continue →</button>
+          <button type="button" class="pl-btn" id="step-next" data-i18n="form_continue">Continue →</button>
         </div>
       </div>
 
@@ -2064,7 +948,7 @@
           </div>
         </div>
         <div class="cta-form-footer">
-          <button type="submit" class="btn-white" data-i18n="cta_btn">Get my free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          <button type="submit" class="pl-btn" data-i18n="cta_btn">Get my free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           <div><button type="button" class="cta-back" id="step-back" data-i18n="form_back">← Back</button></div>
           <p class="cta-sub" data-i18n="cta_sub">Free audit. No setup fee, no monthly fee, no obligation to continue.</p>
         </div>
@@ -2078,7 +962,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 </main>
 <footer>
     <div class="footer-inner">
@@ -2110,7 +993,7 @@
       risk_banner: '<strong>Now taking new clients.</strong> Free 30-minute consultation, in English or Japanese.',
       location_badge: 'Now serving Los Angeles area only',
       fx_result: '<strong>What changed after the rebuild:</strong> more guests add extras to their booking, the average booking is worth more, and more of the people who start a booking finish it.',
-      bk_title: 'Email and SMS that bring them back.',
+      bk_title: 'Email and SMS <span>that bring them back.</span>',
       bk_lead: 'Two kinds of customers slip away: people who almost booked, and people who came once and never returned. Each gets its own messages, sent only with their consent.',
       bk_a_h: 'People who almost booked',
       bk_a1: 'A text and an email soon after they leave the form, with a link that opens it again with their treatment already picked.',
@@ -2121,7 +1004,7 @@
       bk_b3: 'Last-minute openings by text, only to people who asked to hear about them.',
       bk_b4: 'One last, personal check-in before they drift away for good.',
       bk_note: 'Every message has a one-tap way to stop, and every booking it brings in is tracked. That record is what commission is counted from.',
-      fx_title: 'A booking form that keeps people moving.',
+      fx_title: 'A booking form <span>that keeps people moving.</span>',
       fx_lead: 'A lot of those visitors give up inside the booking form itself. When we rebuild it, this is what changes.',
       fx1_h: 'Treatments you can choose at a glance',
       fx1_p: 'Every treatment shows a photo, the price, and how long it takes, so nobody has to guess what they are booking.',
@@ -2137,7 +1020,7 @@
       fx6_p: 'Bookings land in your Square calendar as usual, and each one is tied back to the ad or message that brought it in.',
       fx_cap: 'The rebuilt form after a treatment is picked: add-ons first, then the time, with the total always in view.',
       rx_work_cap: 'HEAD SPA EN, a Japanese head spa in Los Angeles. We rebuilt their booking form in front of Square and run the follow-ups.',
-      hero_h1: 'Lost bookings,<br>brought&nbsp;back.<br><em>No&nbsp;fees. No&nbsp;hassle.</em>',
+      hero_h1: 'Lost bookings, brought&nbsp;back. <em>No&nbsp;fees. No&nbsp;hassle.</em>',
       hv_form_title: 'Choose your treatment',
       hv_svc1_name: 'Head spa 60 min',
       hv_svc1_meta: '$120 · 1 hr',
@@ -2161,7 +1044,10 @@
       hv_conf_note: 'Added to your Square calendar automatically.',
       hero_sub: 'We rebuild your booking form and set up automated SMS and email follow-ups. Built for salons, spas, and clinics. No setup fee, no monthly fee, fully performance-based. Works with Square, Vagaro, Mindbody and other online booking. Your booking system stays exactly as it is.',
       hero_btn_primary: 'Get a free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
-      hero_btn_ghost: 'See if you\'re a fit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: 'See if you\'re a fit',
+      'where-h': 'One part of <span>one loop.</span>',
+      'where-p': 'Ads, your website and follow-up email bring people to the point of booking. Recovery catches the ones who stop halfway and helps them finish.',
+      'where-c': 'You are here:',
       zero_1_strong: 'No setup fee',
       zero_1_span: 'We build everything upfront',
       zero_2_strong: 'No monthly fee',
@@ -2169,7 +1055,7 @@
       zero_3_strong: 'Pay on results',
       zero_3_span: 'Commission on confirmed bookings',
       label_problem: 'The reality',
-      title_problem: '97% of visitors leave<br>without booking.',
+      title_problem: '97% of visitors leave without booking.',
       legend_booked: '3 booked',
       legend_away: '97 walked away',
       funnel_col_drop: 'Where they drop off',
@@ -2183,7 +1069,7 @@
       funnel_d4: '<strong>−10</strong> needed one more nudge but never got it',
       funnel_r5: 'Booked an appointment',
       label_recovery: 'How we recover customers',
-      title_recovery: 'We reach the visitors<br>who almost booked.',
+      title_recovery: 'We reach the visitors <span>who almost booked.</span>',
       appr_h1: 'They showed interest, but never booked',
       appr_p1: 'Someone clicked your ad, explored your services, and filled the form. High intent, but they never confirmed the appointment.',
       appr_action: 'We step in at the right moment',
@@ -2201,7 +1087,7 @@
       trustpill_3: 'TCPA & CTIA compliant',
       trustpill_note: 'Every text is sent only with the customer\'s consent and can be stopped in one tap. That\'s what keeps you protected in California. <a href="#faq">See the compliance FAQ →</a>',
       label_fit: 'Are we a fit?',
-      title_fit: 'See if your business qualifies<br>in 30 seconds.',
+      title_fit: 'See if your business qualifies <span>in 30 seconds.</span>',
       sim_lead: 'Four quick questions. We\'ll tell you on the spot whether our system fits your setup, and what it could be recovering for you.',
       sim_q1: 'What kind of business do you run?',
       sim_t_medspa: 'Med spa',
@@ -2235,7 +1121,7 @@
       sim_cta_go: 'Get my free audit →',
       sim_cta_anyway: 'Get a free audit anyway →',
       sim_restart: '↺ Start over',
-      title_how: 'Your form, SMS, and email flows.<br>All built by hanjo, free.',
+      title_how: 'Your form, SMS, and email flows. <span>All built by hanjo, free.</span>',
       val1_label: 'Anything except commission',
       val1_num: '$0',
       val2_label: 'Your workload',
@@ -2243,7 +1129,7 @@
       val3_label: 'SMS sending cost',
       val3_num: '$0',
       label_pricing: 'The numbers',
-      title_pricing: 'Pay only when a customer books. Keep the rest.',
+      title_pricing: 'Pay only when a customer books. <span>Keep the rest.</span>',
       pricing_p1: 'Commission applies when a customer completes a booking through the system we build: the new booking form, or a link inside our SMS and email follow-ups. Not per click. Not per message sent. Per confirmed booking.',
       pricing_p2: 'You never pay for the booking form or the setup itself. You pay a share of the bookings the system brings in, and nothing else. If it brings in none, you pay nothing. Commission rate is agreed before we start, based on your average booking value.',
       pricing_example: '<strong>Example (med spa, $320 avg booking):</strong><br>40 bookings/month through the new form and our follow-ups<br>Revenue generated: $12,800<br>You pay hanjo: commission on 40 bookings<br><strong>Net to you: the difference, kept in full</strong>',
@@ -2260,7 +1146,7 @@
       table_r5_ch: 'Flexible',
       table_r5_co: '3–12 months',
       label_faq: 'Common questions',
-      title_faq: 'What salon and clinic owners ask us first.',
+      title_faq: 'What salon and clinic owners <span>ask us first.</span>',
       faq_law_h3: 'Is texting customers legal in California? Could I get sued?',
       faq_law_p: 'Texting is legal when the customer has given consent, and consent is the only basis we ever text on. Every number opts in through your own form with clear, TCPA-compliant wording, and every message follows CTIA messaging guidelines with a one-tap "Reply STOP" that we honor immediately. We never buy lists and never cold-text anyone. That consent-first, TCPA & CTIA–aligned approach is exactly what keeps you protected under California and federal law.',
       faq_data_h3: 'How is my customers\' data protected?',
@@ -2277,7 +1163,7 @@
       faq5_p: 'Two weeks from kickoff. Day 1–3: audit and plan. Day 4–7: landing page built. Day 8–14: automation set up and tested. Day 14: live and tracking from day one.',
       faq6_h3: 'Is there a minimum commitment?',
       faq6_p: 'No long-term lock-in. We ask for 90 days to see meaningful results, since funnels keep improving as we optimise. If you want to stop, just give us 30 days notice.',
-      cta_h2: 'See how many bookings<br>your form is losing.',
+      cta_h2: '<span>See how many bookings</span> <em>your form is losing.</em>',
       cta_p: 'Get a free audit of your booking funnel. We\'ll show you how many interested customers drop off before they finish booking, and what those lost appointments are worth every month. No cost, no commitment.',
       cta_btn: 'Get my free audit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       cta_sub: 'Free audit. No setup fee, no monthly fee, no obligation to continue.',
@@ -2322,7 +1208,7 @@
       risk_banner: '<strong>新規のご相談を受付中。</strong>まずは30分の無料相談から。日本語・英語のどちらでも。',
       location_badge: 'LAエリア限定提供中',
       fx_result: '<strong>作り直したあとの変化：</strong>オプションを追加するお客様が増え、1件あたりの予約単価が上がり、予約を始めた方が最後まで完了する割合も上がりました。',
-      bk_title: 'メールとSMSで、お客様をもう一度。',
+      bk_title: 'メールとSMSで、<span>お客様をもう一度。</span>',
       bk_lead: '離れていくお客様は2種類です。予約の途中でやめた方と、一度来て戻らなかった方。それぞれに合わせたメッセージを、ご本人の同意を得たうえでお送りします。',
       bk_a_h: '予約の途中でやめた方へ',
       bk_a1: 'フォームを離れた少しあとに、SMSとメールでご連絡。リンクを開くと、選んでいた施術が選ばれた状態でフォームが開きます。',
@@ -2333,7 +1219,7 @@
       bk_b3: '直前に空いた枠のお知らせは、希望された方にだけSMSで。',
       bk_b4: '足が遠のく前に、最後にもう一度だけ、丁寧なご連絡を。',
       bk_note: 'すべてのメッセージはワンタップで配信停止でき、メッセージ経由のご予約はすべて記録されます。成果報酬はこの記録をもとに計算します。',
-      fx_title: '予約フォームを、途中で離れない形に。',
+      fx_title: '予約フォームを、<span>途中で離れない形に。</span>',
       fx_lead: '実は、予約フォームの途中でやめてしまう方が少なくありません。フォームを作り直すと、ここが変わります。',
       fx1_h: 'ひと目で選べるメニュー',
       fx1_p: 'すべての施術に写真・料金・所要時間を表示。何を予約するのか、迷わせません。',
@@ -2349,7 +1235,7 @@
       fx6_p: '予約はいつも通りSquareのカレンダーに入り、どの広告・どのメッセージから来た予約かも記録されます。',
       fx_cap: '施術を選んだあとの画面。オプション、日時の順に進み、合計は常に表示されます。',
       rx_work_cap: 'ロサンゼルスの日本式ヘッドスパ、HEAD SPA EN。Squareの前段に予約フォームを作り直し、取りこぼしのフォローまで運用しています。',
-      hero_h1: '取りこぼした予約を、<br>売上に戻す。<br><em>費用も手間も、ゼロ。</em>',
+      hero_h1: '取りこぼした予約を、売上に戻す。<em>費用も手間も、ゼロ。</em>',
       hv_form_title: 'メニューを選択',
       hv_svc1_name: 'ヘッドスパ 60分',
       hv_svc1_meta: '$120・60分',
@@ -2373,7 +1259,10 @@
       hv_conf_note: 'Squareのカレンダーに自動で反映されます。',
       hero_sub: '予約フォームの改善と、SMS・メールの自動追客をセットで構築します。美容サロン・クリニックなど、ご予約で成り立つビジネス向け。初期費用・月額費用ゼロ、完全成果報酬。Square・Vagaro・Mindbodyなど、オンライン予約のあるお店なら、予約システムはそのままで導入できます。',
       hero_btn_primary: '無料診断を受ける <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
-      hero_btn_ghost: '相性をチェック <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
+      hero_btn_ghost: '相性をチェック',
+      'where-h': '4つでひとつの流れ、<span>その中のRecovery。</span>',
+      'where-p': '広告、Webサイト、フォローのメールで、お客様を予約の手前までご案内します。Recoveryは、予約の途中で止まってしまった方にもう一度声をかけ、最後まで完了していただくための仕組みです。',
+      'where-c': 'このページは',
       zero_1_strong: '初期費用ゼロ',
       zero_1_span: '全部、無料で作ります',
       zero_2_strong: '月額費用ゼロ',
@@ -2381,7 +1270,7 @@
       zero_3_strong: '完全成果報酬',
       zero_3_span: '予約が入った分だけ',
       label_problem: '集客の現実',
-      title_problem: '来訪客の97%が、<br>予約せずに離反しています。',
+      title_problem: '来訪客の97%が、予約せずに離反しています。',
       legend_booked: '3人が予約',
       legend_away: '97人が帰る',
       funnel_col_drop: '離脱ポイント',
@@ -2395,7 +1284,7 @@
       funnel_d4: '<strong>−10人</strong> あと一声あれば予約していた',
       funnel_r5: '予約完了',
       label_recovery: '取りこぼしを、ゼロに近づける',
-      title_recovery: 'hanjoなら離反顧客を成約につなげます',
+      title_recovery: 'hanjoなら、<span>離反顧客を成約につなげます。</span>',
       appr_h1: '興味はあったものの、予約まで踏み切れなかった',
       appr_p1: 'サービスを見て、フォームまで入力した方。でも最後の一歩を踏み出せなかったお客様へアプローチします',
       appr_action: '私たちが動きます',
@@ -2413,7 +1302,7 @@
       trustpill_3: 'TCPA・CTIA準拠',
       trustpill_note: 'SMSはお客様の同意がある場合のみ送信し、ワンタップで停止できます。これがカリフォルニアでオーナー様を守る仕組みです。<a href="#faq">コンプライアンスFAQを見る →</a>',
       label_fit: '相性をチェック',
-      title_fit: 'あなたのビジネスで使えるか、<br>30秒で診断。',
+      title_fit: 'あなたのビジネスで使えるか、<span>30秒で診断。</span>',
       sim_lead: '4つの質問に答えるだけ。あなたの環境にこの仕組みが合うか、そして何を取り戻せるかを、その場でお伝えします。',
       sim_q1: 'どんなビジネスですか？',
       sim_t_medspa: 'メディカルスパ',
@@ -2447,7 +1336,7 @@
       sim_cta_go: '無料診断を受ける →',
       sim_cta_anyway: 'それでも無料診断を受ける →',
       sim_restart: '↺ 最初からやり直す',
-      title_how: 'フォーム改善もSMS・メール構築も、<br>すべてhanjoが無料で作ります。',
+      title_how: 'フォーム改善もSMS・メール構築も、<span>すべてhanjoが無料で作ります。</span>',
       val1_label: '成約報酬以外',
       val1_num: '$0',
       val2_label: '手間、ほぼ',
@@ -2455,7 +1344,7 @@
       val3_label: 'SMS送信',
       val3_num: '$0',
       label_pricing: '費用のしくみ',
-      title_pricing: 'hanjoが貢献した売上だけが、<br>成果報酬の対象です。',
+      title_pricing: 'hanjoが貢献した売上だけが、<span>成果報酬の対象です。</span>',
       pricing_p1: '料金が発生するのは、当社が構築した仕組み（新しい予約フォーム、SMS・メールの追客）から予約が入った時だけです。クリック数でも送信数でもありません。確定した予約の数だけです。',
       pricing_p2: '予約フォームの制作費や導入費をいただくことはありません。お支払いは、仕組みが生んだ予約の一部だけです。予約が入らなければ、費用はゼロ。料率は始める前に、予約の平均単価をもとに一緒に決めます。',
       pricing_example: '<strong>事例：メディカルスパ（平均予約 $320）</strong><br>新フォーム・追客から入った予約：月40件<br>売上：$12,800<br>hanjoへのお支払い：40件分の成果報酬<br><strong>オーナー様の収益：残りすべて</strong>',
@@ -2472,7 +1361,7 @@
       table_r5_ch: 'フレキシブル',
       table_r5_co: '3〜12ヶ月',
       label_faq: 'よくある質問',
-      title_faq: 'サロン・クリニックのオーナー様から<br>よくある質問。',
+      title_faq: 'サロン・クリニックのオーナー様から<span>よくある質問。</span>',
       faq_law_h3: 'カリフォルニアで顧客にSMSを送るのは合法ですか？訴訟になりませんか？',
       faq_law_p: 'お客様の同意がある場合、SMSの送信は合法です。そして当社は、同意を得た方にしか送りません。送信先はすべて、TCPAに準拠した明確な文言でフォーム上から受信に同意した番号のみ。各メッセージはCTIAのメッセージングガイドラインに沿い、ワンタップの「STOPと返信」を記載して即時に配信停止を反映します。リストの購入や、見知らぬ相手への一斉送信は一切行いません。この「同意ファースト」かつTCPA・CTIA準拠の設計こそが、カリフォルニア州法・連邦法のもとでオーナー様を守ります。',
       faq_data_h3: 'お客様のデータはどう守られますか？',
@@ -2489,7 +1378,7 @@
       faq5_p: '開始から2週間です。最初の3日で診断・設計、4〜7日目でLP制作、8〜14日目で自動化の設定とテスト。14日目から稼働します。',
       faq6_h3: '最低利用期間はありますか？',
       faq6_p: '長期契約の縛りはありません。成果が出るまでに90日ほどかかりますが、やめたい場合は30日前にお知らせいただければ対応します。',
-      cta_h2: '予約フォームで、<br>どれだけ逃しているか。',
+      cta_h2: '<span>予約フォームで、</span><em>どれだけ逃しているか。</em>',
       cta_p: '予約フォームの無料診断を実施します。興味を持ったお客様が予約完了の前にどれだけ離脱しているか、そして毎月いくら分の予約を逃しているかを可視化します。費用も、契約の縛りもありません。',
       cta_btn: '無料診断を申し込む <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>',
       cta_sub: '無料診断。初期費用も月額費用もなし、継続の義務もありません。',
@@ -2756,23 +1645,6 @@
     });
   })();
 
-  // Staggered reveal for value cards
-  (function() {
-    var grid = document.querySelector('.value-grid');
-    if (!grid) return;
-    var cards = grid.querySelectorAll('.value-card');
-    var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          cards.forEach(function(card, i) {
-            setTimeout(function() { card.classList.add('visible'); }, i * 130);
-          });
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.25 });
-    obs.observe(grid);
-  })();
 
 </script>
 
