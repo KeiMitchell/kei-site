@@ -69,17 +69,33 @@
     });
   }
 
-  /* Reveal: a result or a process line arrives once as it scrolls in */
-  if ('IntersectionObserver' in window) {
-    document.querySelectorAll('[data-pl-rise], [data-pl-track]').forEach(function (el) {
-      if (el.getBoundingClientRect().top < innerHeight * 0.85) return;
-      el.classList.add('is-waiting');
+  /* Reveal: a result or a process line arrives once as it scrolls in.
+     Checked on scroll as well as by IntersectionObserver, so nothing can
+     stay hidden if one of them doesn't fire. */
+  var waiting = [];
+  document.querySelectorAll('[data-pl-rise], [data-pl-track]').forEach(function (el) {
+    if (el.getBoundingClientRect().top < innerHeight * 0.85) return;
+    el.classList.add('is-waiting');
+    waiting.push(el);
+  });
+  if (waiting.length) {
+    var reveal = function (el) {
+      el.classList.remove('is-waiting');
+      waiting = waiting.filter(function (w) { return w !== el; });
+      if (!waiting.length) removeEventListener('scroll', check);
+    };
+    var check = function () {
+      waiting.slice().forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < innerHeight * 0.85 && r.bottom > 0) reveal(el);
+      });
+    };
+    addEventListener('scroll', check, { passive: true });
+    if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
-        if (!entries[0].isIntersecting) return;
-        io.disconnect();
-        el.classList.remove('is-waiting');
-      }, { threshold: 0.35 });
-      io.observe(el);
-    });
+        entries.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); reveal(e.target); } });
+      }, { threshold: 0.2 });
+      waiting.forEach(function (el) { io.observe(el); });
+    }
   }
 })();
