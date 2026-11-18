@@ -60,6 +60,10 @@ Fonts are fixed (Kei's decision 2026-07-20; do not re-propose alternatives).
 - **4. Hover:** every button nudges its arrow 3px; buttons never lift or shine. Home ledger rows also get a Board-tint sweep.
 - **Rules:** transform/opacity only, no infinite loops, no cursor effects, everything off under `prefers-reduced-motion: reduce`. New motion goes into motion.css/motion.js, never into a page.
 
+**Loop (2026-11, home):** the four services drawn as one ring (Ads, Web, CRM, Recovery). A customer dot takes one trip round on arrival, lighting each station while a card in the middle shows that moment; hover replays it. In the "What we do" section the same ring is scroll-driven and the middle card shows the real screen (ad, booking, reminder, recovery text). Lives in `/motion.css` section 5. No count-ups, no loops that repeat on their own.
+
+**Shared brand rules:** `/brand.css` loads on every page before `/motion.css`. It only holds what every page and popup must agree on: form controls use the page font, one sage focus ring. The cookie bar (consent.js) uses the site's pill buttons.
+
 ## Anti-references (Kei's explicit rejections; never reintroduce)
 Pill badges, wavy underlines, em dashes in visible copy, emoji, letterspaced JA kickers, forced awkward line breaks, decorative label dashes, 3D/glassmorphism CTAs, Times New Roman, generic SaaS hero-metric templates, identical icon-card grids.
 

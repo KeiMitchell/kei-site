@@ -1,0 +1,8 @@
+/* hanjo shared brand rules: the few things every page and popup must agree on.
+   Page styles keep their own layout; this file only keeps them consistent. */
+
+/* Form controls use the page font (browsers default buttons to Arial) */
+button, input, select, textarea { font-family: inherit; }
+
+/* One focus ring everywhere */
+:where(a, button, input, select, textarea, summary):focus-visible { outline: 2px solid #3A5C45; outline-offset: 3px; }

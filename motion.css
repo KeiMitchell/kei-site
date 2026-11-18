@@ -5,6 +5,7 @@
    2. Work     client work rises in staggered; drifts on scroll; scrolls on hover
    3. Number   a big result rises into place once
    4. Hover    buttons nudge their arrow; nothing lifts, nothing shines
+   5. Loop     the four-service loop: one trip round, stopping at each station
 
    Transform and opacity only. No loops, no shine, no cursor effects.
    Everything here is off under prefers-reduced-motion. */
@@ -17,7 +18,7 @@
 [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; transition: none !important; }
 .cursor-glow { display: none !important; }
 .ew-track, .seework-chevron, .nav-avail-dot, .avail-dot { animation: none !important; }
-#main * { animation: none !important; }
+#main :not(.pl-ring, .pl-ring *) { animation: none !important; }
 :is(.btn, .btn--dark, .btn--light, .btn-primary, .btn-white, .btn-ghost, .nav-cta):hover { transform: none !important; }
 
 @keyframes mRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
@@ -27,11 +28,11 @@
 @media (prefers-reduced-motion: no-preference) {
 
   /* 1. Arrive: same order and timing on every page */
-  #main :is(.crumb, .rx-where, .location-badge) { animation: mFade .5s var(--m-ease) both !important; }
+  #main :is(.crumb, .rx-where, .location-badge, .pl-kicker) { animation: mFade .5s var(--m-ease) both !important; }
   #main h1 { animation: mRise .7s .05s var(--m-ease) both !important; }
   #main h1 > :is(strong, em) { animation: mRise .7s .17s var(--m-ease) both !important; }
-  #main :is(.hero-desc, .hero-sub, .lead) { animation: mRise .6s .3s var(--m-ease) both !important; }
-  #main .hero-actions { animation: mRise .6s .4s var(--m-ease) both !important; }
+  #main :is(.hero-desc, .hero-sub, .lead, .pl-lede) { animation: mRise .6s .3s var(--m-ease) both !important; }
+  #main :is(.hero-actions, .pl-actions) { animation: mRise .6s .4s var(--m-ease) both !important; }
   #main :is(.hero-stats, .zero-grid, .platform-row, .hero-seework) { animation: mRise .6s .5s var(--m-ease) both !important; }
   /* the content right after the hero arrives last, so nothing below the
      title (a form, a document) is on screen before the title itself */
@@ -52,6 +53,31 @@
   /* 3. Number */
   [data-m-num] { transition: transform .9s var(--m-ease), opacity .9s var(--m-ease), clip-path .9s var(--m-ease); clip-path: inset(0 0 0 0); }
   [data-m-num].is-waiting { opacity: 0; transform: translateY(18%); clip-path: inset(100% 0 0 0); }
+
+
+  /* 5. Loop: the hanjo loop (Ads, Web, CRM, Recovery). A customer takes one
+     trip round it on arrival and stops at each station; hover replays it
+     (motion.js-free: the page toggles .is-play). */
+  .pl-ring--hero.is-play .pl-token { animation: plTrip 6.4s var(--out) .3s both; }
+  .pl-ring--hero.is-play .pl-ring-prog { animation: plArc 6.4s var(--out) .3s both; }
+  .pl-ring--hero.is-play .pl-node--1 { animation: plLit 6.4s .3s both; --on: 0%; }
+  .pl-ring--hero.is-play .pl-node--2 { animation: plLit2 6.4s .3s both; }
+  .pl-ring--hero.is-play .pl-node--3 { animation: plLit3 6.4s .3s both; }
+  .pl-ring--hero.is-play .pl-node--4 { animation: plLit4 6.4s .3s both; }
+  .pl-ring--hero.is-play .pl-msg--1 { animation: plMsg 6.4s .3s both; }
+  .pl-ring--hero.is-play .pl-msg--2 { animation: plMsg2 6.4s .3s both; }
+  .pl-ring--hero.is-play .pl-msg--3 { animation: plMsg3 6.4s .3s both; }
+  .pl-ring--hero.is-play .pl-msg--4 { animation: plMsg4 6.4s .3s both; }
+  @keyframes plTrip { 0%, 10% { transform: rotate(0); } 25%, 35% { transform: rotate(90deg); } 50%, 60% { transform: rotate(180deg); } 75%, 85% { transform: rotate(270deg); } 100% { transform: rotate(360deg); } }
+  @keyframes plArc { 0%, 10% { stroke-dashoffset: 100; } 25%, 35% { stroke-dashoffset: 75; } 50%, 60% { stroke-dashoffset: 50; } 75%, 85% { stroke-dashoffset: 25; } 100% { stroke-dashoffset: 0; } }
+  @keyframes plLit { 0%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); } }
+  @keyframes plLit2 { 0%, 24% { background: #fff; color: var(--ink); } 25%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); } }
+  @keyframes plLit3 { 0%, 49% { background: #fff; color: var(--ink); } 50%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); } }
+  @keyframes plLit4 { 0%, 74% { background: #fff; color: var(--ink); } 75%, 100% { background: var(--sage); color: #fff; border-color: var(--sage); } }
+  @keyframes plMsg { 0% { opacity: 0; transform: translateY(10px); } 4%, 20% { opacity: 1; transform: none; } 25%, 100% { opacity: 0; transform: translateY(-10px); } }
+  @keyframes plMsg2 { 0%, 25% { opacity: 0; transform: translateY(10px); } 29%, 45% { opacity: 1; transform: none; } 50%, 100% { opacity: 0; transform: translateY(-10px); } }
+  @keyframes plMsg3 { 0%, 50% { opacity: 0; transform: translateY(10px); } 54%, 70% { opacity: 1; transform: none; } 75%, 100% { opacity: 0; transform: translateY(-10px); } }
+  @keyframes plMsg4 { 0%, 75% { opacity: 0; transform: translateY(10px); } 79%, 100% { opacity: 1; transform: none; } }
 
   /* 4. Hover: one arrow nudge for every button */
   :is(.btn, .btn--dark, .btn--light, .btn-primary, .btn-white, .btn-ghost, .nav-cta) svg { transition: transform .15s var(--m-ease); }
