@@ -643,16 +643,25 @@
       if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncChromeHeight);
     })();
 
-    /* Browsers restore scroll on reload, which drops a visitor part-way down a
-       page they just opened. Start fresh loads and reloads at the top. Back and
-       forward keep their restored position, and #anchors are left alone. */
+    /* Every page opens at the very top: fresh loads, reloads, back and
+       forward (including pages restored from the back/forward cache), and
+       links that carry a #section. The browser's own jump is undone on load,
+       but never after the visitor has started scrolling themselves. */
     (function () {
-      if (location.hash) return;
-      var entry = performance.getEntriesByType('navigation')[0];
-      if (entry && entry.type === 'back_forward') return;
-      history.scrollRestoration = 'manual';
-      try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
-      catch (e) { window.scrollTo(0, 0); }
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      var moved = false;
+      var top = function () {
+        if (moved) return;
+        try { window.scrollTo({ top: 0, left: 0, behavior: 'instant' }); }
+        catch (e) { window.scrollTo(0, 0); }
+      };
+      ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (t) {
+        addEventListener(t, function () { moved = true; }, { passive: true, once: true });
+      });
+      top();
+      document.addEventListener('DOMContentLoaded', top);
+      addEventListener('load', function () { top(); setTimeout(top, 0); });
+      addEventListener('pageshow', function (e) { if (e.persisted) { moved = false; top(); } });
     })();
   </script>
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="navigation" aria-label="Menu">
