@@ -12,7 +12,7 @@ button, input, select, textarea { font-family: inherit; }
 /* ── Page components (from the 2026-11 home; use inside a .pl wrapper) ── */
 .pl {
   --sage-d: #22372A;
-  --node-on: #34573F;
+  --node-on: #3E6A4D;
   --node-rim: rgba(230, 251, 240, .38);
   --sage-l: #E8EBE4;
   --hair: #E4E2DC;
@@ -388,70 +388,67 @@ html[lang="ja"] :is(.pl-kicker, .pl-tools, .pl-msg small, .pl-card-stage, .pl-no
           mask-image: radial-gradient(ellipse 55% 70% at 50% 50%, #000, transparent 75%);
 }
 
-/* Glass surfaces on the loop: stations and moment cards */
-:where(.pl-ring) .pl-node {
-  background-color: rgba(255,255,255,.82);
-  -webkit-backdrop-filter: blur(10px) saturate(160%); backdrop-filter: blur(10px) saturate(160%);
-  border: 1px solid rgba(255,255,255,.9);
-  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(17,17,16,.06), 0 8px 20px -10px rgba(17,17,16,.30);
-}
-.pl-msg {
-  background: rgba(255,255,255,.66);
-  -webkit-backdrop-filter: blur(16px) saturate(170%); backdrop-filter: blur(16px) saturate(170%);
-  border: 1px solid rgba(255,255,255,.85);
-  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(17,17,16,.05), 0 18px 40px -18px rgba(17,17,16,.35);
-}
-/* Station labels sit on a patch of page colour so the ring line never runs through them */
+/* Content layer stays plain (Apple: glass is for controls and navigation, used sparingly) */
+.pl-ring .pl-node { background-color: #fff; border: 1px solid var(--hair); box-shadow: 0 6px 18px -8px rgba(17,17,16,.22); }
+.pl-ring .pl-node.is-lit, .pl-ring--hero:not(.is-play) .pl-node, .pl-ring--where .pl-node.is-current { background-color: var(--node-on); border-color: var(--node-on); }
+.pl-msg { background: #fff; border: 1px solid var(--hair); box-shadow: 0 18px 40px -20px rgba(17,17,16,.30); }
 .pl-ring .pl-node b { background: var(--bg, #F5F4F0); padding: 1px 5px; border-radius: 4px; }
+#inquiry-form .tile-ico { color: var(--sage, #3A5C45); }
+#inquiry-form .tile input:checked + .tile-in { border-color: #3E6A4D; box-shadow: inset 0 0 0 1px #3E6A4D; background: #F4F7F3; }
+#inquiry-form .tile input:checked + .tile-in .tile-tick, #inquiry-form .pill input:checked + span { background: #3E6A4D; border-color: #3E6A4D; color: #fff; }
 
-/* Loop stations in the same smoky glass as the buttons: rim, inner depth, a soft sheen
-   and a caustic line of light along the bottom. Lit stations fill with the dark tint. */
-:where(.pl-ring) .pl-node {
-  isolation: isolate;
-  box-shadow:
-    0 1px 1px rgba(0,0,0,.18), 0 6px 10px -4px rgba(0,0,0,.22), 0 14px 22px -12px rgba(0,0,0,.30),
-    inset 0 1px 1px rgba(255,255,255,.80), inset 0 -1px 1px rgba(255,255,255,.55),
-    inset 1px 0 .5px rgba(255,255,255,.55), inset -1px 0 .5px rgba(0,0,0,.10),
-    inset 0 8px 11px -8px rgba(0,0,0,.40), inset 0 -8px 8px -7px rgba(255,255,255,.30),
-    inset 4px 0 7px -6px rgba(0,0,0,.30), inset -4px 0 7px -6px rgba(0,0,0,.22);
+/* ── Liquid Glass (after Apple's "Adopting Liquid Glass", 2026-11-19) ─────────────────
+   Glass is one functional layer that floats above content: the header and the key actions.
+   Primary action = prominent (tinted) glass, kept crisp for legibility. Secondary action =
+   clear glass. Shapes are concentric with their container. Content scrolling under the
+   floating header gets a soft edge fade. Reduce Transparency / Increase Contrast fall back to solid. */
+.pl, body > nav { --lg-clear: rgba(255,255,255,.58); --lg-rim: rgba(255,255,255,.85); }
+
+/* Secondary action: clear glass capsule */
+html body .pl-actions .pl-link {
+  display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 100px;
+  text-decoration: none; font-size: 15px; font-weight: 600; color: var(--ink);
+  background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.45)), var(--lg-clear);
+  -webkit-backdrop-filter: blur(20px) saturate(180%); backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(17,17,16,.10);
+  box-shadow: inset 0 1px 0 var(--lg-rim), inset 0 -1px 0 rgba(17,17,16,.04), 0 1px 2px rgba(17,17,16,.06), 0 6px 16px -10px rgba(17,17,16,.25);
+  transition: background-color .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
-:where(.pl-ring) .pl-node::before {
-  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 50%; pointer-events: none;
-  background:
-    radial-gradient(40% 12% at 42% 98%, rgba(255,255,255,.55), rgba(255,255,255,0) 100%),
-    linear-gradient(150deg, rgba(255,255,255,.22), rgba(255,255,255,.03) 45%, rgba(255,255,255,.10));
+html body .pl-actions .pl-link:hover { border-color: rgba(17,17,16,.18); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(17,17,16,.06), 0 8px 20px -10px rgba(17,17,16,.30); }
+.pl-actions { gap: 12px; }
+
+/* Controls respond to touch: a quick, small press */
+html body :is(.pl-btn, #inquiry-form .btn, .pl-actions .pl-link), html body > nav .nav-cta { transform-origin: center; }
+html body :is(.pl-btn, #inquiry-form .btn, .pl-actions .pl-link):active, html body > nav .nav-cta:active { transform: scale(.97) !important; transition-duration: .08s; }
+
+/* Desktop header: a floating glass capsule above the content */
+@media (min-width: 881px) {
+  html body > nav, html body > nav.is-scrolled {
+    background: transparent; border-bottom: 0; box-shadow: none;
+    -webkit-backdrop-filter: none; backdrop-filter: none; padding: 12px clamp(16px, 2.5vw, 32px) 0;
+  }
+  html body > nav::before {
+    content: ''; position: absolute; inset: 0 0 -24px; z-index: -1; pointer-events: none;
+    background: linear-gradient(180deg, var(--bg, #F5F4F0) 30%, rgba(245,244,240,0));
+    opacity: 0; transition: opacity .3s ease;
+  }
+  html body > nav.is-scrolled::before { opacity: .92; }
+  html body > nav .nav-inner {
+    height: 60px; max-width: 1240px; padding: 0 10px 0 24px; border-radius: 100px;
+    background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.48)), var(--lg-clear);
+    -webkit-backdrop-filter: blur(24px) saturate(180%); backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(17,17,16,.07);
+    box-shadow: inset 0 1px 0 var(--lg-rim), 0 1px 2px rgba(17,17,16,.05), 0 10px 30px -14px rgba(17,17,16,.22);
+  }
+  /* concentric: capsule radius 30 = button radius 20 + 10 inset */
+  html body > nav .nav-cta { height: 40px; padding: 0 18px; border-radius: 100px; }
 }
 
-/* Contact form choices in the same glass: frosted tiles, a dark-glass tick and dark-glass
-   pills once chosen. Scoped to the inquiry form. */
-#inquiry-form .tile-in {
-  background: linear-gradient(160deg, rgba(255,255,255,.92), rgba(255,255,255,.66));
-  -webkit-backdrop-filter: blur(10px) saturate(150%); backdrop-filter: blur(10px) saturate(150%);
-  border-color: rgba(17,17,16,.09);
-  box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(17,17,16,.04);
+@media (prefers-reduced-transparency: reduce) {
+  html body > nav .nav-inner, html body .pl-actions .pl-link { background: #fff; -webkit-backdrop-filter: none; backdrop-filter: none; }
 }
-#inquiry-form .tile:hover .tile-in { border-color: rgba(52,87,63,.30); }
-#inquiry-form .tile-ico { color: var(--node-on, #34573F); }
-#inquiry-form .tile input:checked + .tile-in {
-  background: linear-gradient(160deg, #fff, rgba(240,244,239,.9));
-  border-color: rgba(52,87,63,.55);
-  box-shadow: inset 0 0 0 1px rgba(52,87,63,.30), inset 0 1px 0 #fff, 0 12px 26px -16px rgba(17,17,16,.40);
+@media (prefers-contrast: more) {
+  html body > nav .nav-inner, html body .pl-actions .pl-link { border-color: rgba(17,17,16,.45); }
+  html body :is(.pl-btn, #inquiry-form .btn), html body > nav .nav-cta { border-color: #1F3A28; }
 }
-#inquiry-form .tile input:checked + .tile-in .tile-tick,
-#inquiry-form .pill input:checked + span {
-  color: #F2F4EE; border-color: rgba(230,251,240,.38);
-  background:
-    radial-gradient(40% 12% at 42% 98%, rgba(255,255,255,.55), rgba(255,255,255,0) 100%),
-    linear-gradient(150deg, rgba(255,255,255,.20), rgba(255,255,255,.03) 45%, rgba(255,255,255,.10)),
-    #34573F;
-  box-shadow:
-    0 1px 1px rgba(0,0,0,.25), 0 4px 8px -4px rgba(0,0,0,.35),
-    inset 0 1px 1px rgba(255,255,255,.70), inset 0 -1px 1px rgba(255,255,255,.45),
-    inset 0 6px 8px -6px rgba(0,0,0,.45), inset 0 -6px 6px -5px rgba(255,255,255,.28);
-}
-#inquiry-form .pill span {
-  background: linear-gradient(160deg, rgba(255,255,255,.92), rgba(255,255,255,.66));
-  border-color: rgba(17,17,16,.10); box-shadow: inset 0 1px 0 #fff;
-  transition: background-color .2s, border-color .2s, color .2s;
-}
-#inquiry-form .tile input:focus-visible + .tile-in, #inquiry-form .pill input:focus-visible + span { outline: 2px solid #3A5C45; outline-offset: 2px; }
+@media (max-width: 767px) { html body .pl-actions .pl-link { width: 100%; justify-content: center; } }
