@@ -459,3 +459,9 @@ html body :is(.pl-btn, #inquiry-form .btn, .pl-actions .pl-link):active, html bo
   html body > nav .nav-right { gap: 12px; }
   html body > nav .nav-cta { padding: 0 14px; font-size: 12.5px; }
 }
+
+/* The page behind the floating header is the brand off-white, not white */
+html, body { background-color: #F5F4F0; }
+@media (max-width: 880px) {
+  html body > nav { background: rgba(245, 244, 240, .86); -webkit-backdrop-filter: saturate(160%) blur(18px); backdrop-filter: saturate(160%) blur(18px); border-bottom: 1px solid rgba(17,17,16,.06); }
+}
