@@ -162,12 +162,14 @@ html[lang="ja"] .pl-h1 { font-size: clamp(34px, 3.9vw, 56px); line-height: 1.32;
 .pl-faq details[open] summary::after { transform: rotate(45deg); }
 .pl-faq p { margin: 0 0 26px; max-width: 640px; font-size: 16px; line-height: 1.7; color: var(--muted); }
 
-.pl-cta { background: var(--ink); color: #fff; text-align: center; padding: clamp(100px, 12vw, 170px) 16px; }
-.pl-cta h2 { margin: 0; color: #fff; font-size: clamp(40px, 5.6vw, 84px); line-height: 1.05; }
-.pl-cta em { display: block; color: #C9D8C5; }
-.pl-cta h2 > span { font-style: normal; color: #fff; }
+.pl-cta { background: #E8EBE4; color: var(--ink); text-align: center; padding: clamp(100px, 12vw, 170px) 16px; }
+.pl-cta h2 { margin: 0; color: var(--ink); font-size: clamp(40px, 5.6vw, 84px); line-height: 1.05; }
+.pl-cta em { display: block; color: var(--sage, #3A5C45); }
+.pl-cta h2 > span { font-style: normal; color: var(--ink); }
 html[lang="ja"] .pl-cta h2 { font-size: clamp(30px, 4vw, 56px); line-height: 1.4; }
-.pl-cta p { margin: 24px 0 36px; font-size: 17px; color: rgba(255,255,255,.75); }
+.pl-cta p { margin: 24px 0 36px; font-size: 17px; color: var(--muted); }
+.pl-cta .pl-btn--light { background: var(--sage, #3A5C45); color: #fff; }
+.pl-cta .pl-btn--light:hover { background: #2e4a38; }
 
 
 @media (max-width: 1023px) {
