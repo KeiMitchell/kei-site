@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap');
 /* hanjo shared brand rules: the few things every page and popup must agree on.
    Page styles keep their own layout; this file only keeps them consistent. */
 
@@ -309,3 +310,99 @@ html.lang-pending .lang-toggle, html.lang-pending .mm-lang, html.lang-pending .f
   .pl-hero:not(.pl-hero--text) .pl-lede { margin-top: 20px; }
   .pl-hero:not(.pl-hero--text) .pl-actions { margin-top: 28px; }
 }
+
+
+/* ── Techy layer + glass buttons (2026-11-18) ──────────────────────────────
+   Glass follows Apple's material: tinted translucency, blur + saturation behind,
+   a lit top edge, a darker lower edge and a soft coloured shadow. */
+.pl, body > nav, .pl-cta, #inquiry-form {
+  --glass-tint: rgba(50, 82, 61, .86);
+  --glass-tint-h: rgba(58, 96, 70, .92);
+  --glass-shine: radial-gradient(90% 120% at 30% -30%, rgba(255,255,255,.30) 0%, rgba(255,255,255,.06) 45%, rgba(255,255,255,0) 62%), radial-gradient(60% 90% at 85% 130%, rgba(170,210,180,.28), rgba(170,210,180,0) 70%);
+  --glass-edge: inset 0 1px 0 rgba(255,255,255,.55), inset 0 -1px 1px rgba(0,0,0,.22), inset 0 0 0 1px rgba(255,255,255,.10), inset 0 6px 12px -8px rgba(255,255,255,.35);
+}
+/* Smoky liquid glass (Kei's reference: the mela.co.jp buttons): dark translucent body,
+   bright rim, inner depth, a diagonal sheen and a thin caustic light along the bottom edge. */
+html body :is(.pl-btn, #inquiry-form .btn), html body > nav .nav-cta, html body .pl-cta .pl-btn--light {
+  position: relative; isolation: isolate; overflow: hidden;
+  color: #F2F4EE; border: 1px solid rgba(230, 251, 240, .28);
+  background:
+    radial-gradient(38% 10% at 38% 100%, rgba(255,255,255,.55), rgba(255,255,255,0) 100%),
+    linear-gradient(160deg, rgba(255,255,255,.15), rgba(255,255,255,.02) 45%, rgba(255,255,255,.09)),
+    rgba(16, 30, 22, .86);
+  -webkit-backdrop-filter: blur(8px) saturate(120%); backdrop-filter: blur(8px) saturate(120%);
+  box-shadow:
+    0 1px 1px rgba(0,0,0,.30), 0 4px 6px -3px rgba(0,0,0,.40), 0 12px 22px -10px rgba(0,0,0,.45),
+    inset 0 1px 1px rgba(255,255,255,.75), inset 0 -1px 1px rgba(255,255,255,.50),
+    inset 1px 0 .5px rgba(255,255,255,.50), inset -1px 0 .5px rgba(0,0,0,.12),
+    inset 0 9px 12px -8px rgba(0,0,0,.50), inset 0 -9px 9px -7px rgba(255,255,255,.30),
+    inset 5px 0 8px -7px rgba(0,0,0,.45), inset -5px 0 8px -7px rgba(0,0,0,.32);
+  transition: background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+html body :is(.pl-btn, #inquiry-form .btn)::before, html body > nav .nav-cta::before, html body .pl-cta .pl-btn--light::before {
+  content: ''; position: absolute; inset: -45% -50%; z-index: -1; pointer-events: none;
+  background: linear-gradient(108deg, transparent 30%, rgba(255,255,255,.22) 41%, rgba(255,255,255,.42) 45%, rgba(255,255,255,.08) 52%, transparent 60%);
+  opacity: .16; transform: translateX(-15%); transition: opacity .4s ease, transform .6s cubic-bezier(.2,.8,.2,1);
+}
+@media (hover: hover) {
+  html body :is(.pl-btn, #inquiry-form .btn):hover, html body > nav .nav-cta:hover, html body .pl-cta .pl-btn--light:hover {
+    background:
+      radial-gradient(38% 10% at 50% 100%, rgba(255,255,255,.85), rgba(255,255,255,0) 100%),
+      linear-gradient(160deg, rgba(255,255,255,.24), rgba(255,255,255,.05) 45%, rgba(255,255,255,.14)),
+      rgba(24, 42, 31, .86);
+    border-color: rgba(230, 251, 240, .45); opacity: 1;
+  }
+  html body :is(.pl-btn, #inquiry-form .btn):hover::before, html body > nav .nav-cta:hover::before, html body .pl-cta .pl-btn--light:hover::before { opacity: .36; transform: translateX(8%); }
+}
+html body :is(.pl-btn, #inquiry-form .btn):active, html body > nav .nav-cta:active {
+  box-shadow: 0 1px 1px rgba(0,0,0,.3), inset 0 1px 1px rgba(255,255,255,.6), inset 0 10px 14px -8px rgba(0,0,0,.6), inset 0 -6px 8px -7px rgba(255,255,255,.25);
+}
+html body .pl-btn:disabled, html body #inquiry-form .btn:disabled { opacity: .6; }
+
+/* Mono for small system text: labels, statuses, captions of the loop */
+.pl-kicker, .pl-tools, .pl-msg small, .pl-card-stage, .pl-node b, .pl-step-svc, .fs-step, .pl-where .pl-node b {
+  font-family: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, 'Noto Sans JP', monospace; font-feature-settings: 'zero' 0;
+}
+.pl-kicker { font-size: 13.5px; }
+.pl-tools { font-size: 12.5px; }
+.pl-msg small, .pl-card-stage { font-size: 11.5px; }
+.pl-node b { font-size: 11px; }
+html[lang="ja"] :is(.pl-kicker, .pl-tools, .pl-msg small, .pl-card-stage, .pl-node b, .pl-step-svc, .fs-step) { font-family: 'Noto Sans JP', sans-serif; }
+
+/* A fine measuring grid behind every hero, fading out toward the edges */
+.pl-hero { isolation: isolate; }
+.pl-hero::before {
+  content: ''; position: absolute; inset: 0 -40px; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(17,17,16,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(17,17,16,.055) 1px, transparent 1px);
+  background-size: 56px 56px; background-position: center top;
+  -webkit-mask-image: radial-gradient(ellipse 70% 75% at 72% 45%, #000 0%, rgba(0,0,0,.35) 55%, transparent 80%);
+          mask-image: radial-gradient(ellipse 70% 75% at 72% 45%, #000 0%, rgba(0,0,0,.35) 55%, transparent 80%);
+}
+.pl-hero--text::before {
+  -webkit-mask-image: radial-gradient(ellipse 60% 90% at 20% 0%, rgba(0,0,0,.7), transparent 75%);
+          mask-image: radial-gradient(ellipse 60% 90% at 20% 0%, rgba(0,0,0,.7), transparent 75%);
+}
+.pl-cta { position: relative; isolation: isolate; overflow: hidden; }
+.pl-cta::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(34,55,42,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(34,55,42,.07) 1px, transparent 1px);
+  background-size: 56px 56px; background-position: center center;
+  -webkit-mask-image: radial-gradient(ellipse 55% 70% at 50% 50%, #000, transparent 75%);
+          mask-image: radial-gradient(ellipse 55% 70% at 50% 50%, #000, transparent 75%);
+}
+
+/* Glass surfaces on the loop: stations and moment cards */
+:where(.pl-ring) .pl-node {
+  background-color: rgba(255,255,255,.82);
+  -webkit-backdrop-filter: blur(10px) saturate(160%); backdrop-filter: blur(10px) saturate(160%);
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(17,17,16,.06), 0 8px 20px -10px rgba(17,17,16,.30);
+}
+.pl-msg {
+  background: rgba(255,255,255,.66);
+  -webkit-backdrop-filter: blur(16px) saturate(170%); backdrop-filter: blur(16px) saturate(170%);
+  border: 1px solid rgba(255,255,255,.85);
+  box-shadow: inset 0 1px 0 #fff, 0 0 0 1px rgba(17,17,16,.05), 0 18px 40px -18px rgba(17,17,16,.35);
+}
+/* Station labels sit on a patch of page colour so the ring line never runs through them */
+.pl-ring .pl-node b { background: var(--bg, #F5F4F0); padding: 1px 5px; border-radius: 4px; }

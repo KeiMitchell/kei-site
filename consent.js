@@ -78,8 +78,8 @@
         '.hc-text a{color:#3A5C45;font-weight:500;text-underline-offset:3px}' +
         '.hc-actions{display:flex;gap:8px;flex-shrink:0}' +
         '.hc-bar button{font:inherit;font-weight:600;border-radius:100px;padding:10px 20px;cursor:pointer;border:1px solid #3A5C45}' +
-        '.hc-allow{background:#3A5C45;color:#fff}.hc-allow:hover{background:#2e4a38}' +
-        '.hc-deny{background:#fff;color:#3A5C45}.hc-deny:hover{background:#F5F4F0}' +
+        '.hc-allow{color:#F2F4EE;border-color:rgba(230,251,240,.28);background:radial-gradient(38% 10% at 38% 100%,rgba(255,255,255,.55),rgba(255,255,255,0)),linear-gradient(160deg,rgba(255,255,255,.2),rgba(255,255,255,.03) 45%,rgba(255,255,255,.12)),rgba(16,30,22,.9);box-shadow:0 4px 6px -3px rgba(0,0,0,.4),inset 0 1px 1px rgba(255,255,255,.75),inset 0 -1px 1px rgba(255,255,255,.5),inset 0 9px 12px -8px rgba(0,0,0,.5),inset 0 -9px 9px -7px rgba(255,255,255,.3)}.hc-allow:hover{border-color:rgba(230,251,240,.45)}' +
+        '.hc-deny{background:rgba(255,255,255,.7);color:#3A5C45;border-color:rgba(17,17,16,.12);box-shadow:inset 0 1px 0 #fff}.hc-deny:hover{background:#F5F4F0}' +
         '.hc-bar button:focus-visible{outline:2px solid #111110;outline-offset:2px}' +
         '@media (max-width:600px){.hc-bar{flex-direction:column;align-items:stretch}.hc-actions{justify-content:flex-end}}';
       document.head.appendChild(style);
