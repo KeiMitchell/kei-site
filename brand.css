@@ -12,6 +12,8 @@ button, input, select, textarea { font-family: inherit; }
 /* ── Page components (from the 2026-11 home; use inside a .pl wrapper) ── */
 .pl {
   --sage-d: #22372A;
+  --node-on: #1B2B21;
+  --node-rim: rgba(230, 251, 240, .38);
   --sage-l: #E8EBE4;
   --hair: #E4E2DC;
   --out: cubic-bezier(.2, .8, .2, 1);
@@ -65,7 +67,7 @@ html[lang="ja"] .pl-h1 { font-size: clamp(34px, 3.9vw, 56px); line-height: 1.32;
 .pl-ring { position: relative; width: 100%; max-width: 520px; aspect-ratio: 1; margin: 0 auto; container-type: inline-size; }
 .pl-ring-svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .pl-ring-track { fill: none; stroke: #D9D6CD; stroke-width: 1; }
-.pl-ring-prog { fill: none; stroke: var(--sage); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; }
+.pl-ring-prog { fill: none; stroke: #2B4033; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; }
 .pl-node {
   position: absolute; width: 12cqw; height: 12cqw; translate: -50% -50%;
   display: grid; place-items: center; border-radius: 50%;
@@ -74,14 +76,14 @@ html[lang="ja"] .pl-h1 { font-size: clamp(34px, 3.9vw, 56px); line-height: 1.32;
   transition: background-color .4s, color .4s, border-color .4s, transform .5s var(--out);
   z-index: 4;
 }
-.pl-node::after { content: ''; position: absolute; inset: -1px; border-radius: 50%; border: 1.5px solid var(--sage); opacity: 0; pointer-events: none; }
+.pl-node::after { content: ''; position: absolute; inset: -1px; border-radius: 50%; border: 1.5px solid rgba(27, 43, 33, .55); opacity: 0; pointer-events: none; }
 .pl-node svg { width: 42%; height: 42%; }
 .pl-node b { position: absolute; white-space: nowrap; font-size: max(12px, 2.8cqw); font-weight: 500; color: var(--muted); }
 .pl-node--1 { left: 50%; top: 10%; } .pl-node--1 b { bottom: 116%; left: 50%; translate: -50% 0; }
 .pl-node--2 { left: 90%; top: 50%; } .pl-node--2 b { top: 116%; left: 50%; translate: -50% 0; }
 .pl-node--3 { left: 50%; top: 90%; } .pl-node--3 b { top: 116%; left: 50%; translate: -50% 0; }
 .pl-node--4 { left: 10%; top: 50%; } .pl-node--4 b { top: 116%; left: 50%; translate: -50% 0; }
-.pl-node.is-lit { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1.08); }
+.pl-node.is-lit { background: var(--node-on); color: #F2F4EE; border-color: var(--node-rim); transform: scale(1.08); }
 .pl-token { position: absolute; inset: 0; pointer-events: none; z-index: 3; }
 .pl-token i { position: absolute; left: 50%; top: 10%; width: 4.2cqw; height: 4.2cqw; translate: -50% -50%; border-radius: 50%; background: var(--sage-d); border: max(2px, .6cqw) solid #fff; box-shadow: 0 2px 8px rgba(17,17,16,.25); }
 .pl-ring-center { position: absolute; inset: 27%; display: grid; place-items: center; }
@@ -95,7 +97,7 @@ html[lang="ja"] .pl-h1 { font-size: clamp(34px, 3.9vw, 56px); line-height: 1.32;
 .pl-msg b { display: block; font-size: 15px; font-weight: 500; line-height: 1.35; }
 /* Before JS / reduced motion: the finished state */
 .pl-ring--hero:not(.is-play) .pl-msg--4 { opacity: 1; transform: none; }
-.pl-ring--hero:not(.is-play) .pl-node { background: var(--sage); color: #fff; border-color: var(--sage); }
+.pl-ring--hero:not(.is-play) .pl-node { background: var(--node-on); color: #F2F4EE; border-color: var(--node-rim); }
 .pl-ring--hero:not(.is-play) .pl-ring-prog { stroke-dashoffset: 0; }
 
 /* ── SECTIONS ── */
@@ -226,7 +228,7 @@ html[lang="ja"] .pl-prose h2, html[lang="ja"] .pl-prose h3 { font-family: 'Shipp
 .pl-ring--where .pl-ring-prog { stroke-dashoffset: 0; stroke: #CFD8CB; }
 .pl-ring--where a.pl-node { text-decoration: none; }
 .pl-ring--where a.pl-node:hover { border-color: var(--sage); transform: scale(1.06); }
-.pl-ring--where .pl-node.is-current { background: var(--sage); color: #fff; border-color: var(--sage); transform: scale(1.12); }
+.pl-ring--where .pl-node.is-current { background: var(--node-on); color: #F2F4EE; border-color: var(--node-rim); transform: scale(1.12); }
 .pl-ring--where .pl-node.is-current b { color: var(--ink); font-weight: 600; }
 .pl-ring--where .pl-ring-center { inset: 30%; text-align: center; font-family: 'Playfair Display', Georgia, serif; font-size: clamp(18px, 2vw, 24px); line-height: 1.25; color: var(--ink); }
 .pl-ring--where .pl-ring-center em { display: block; font-style: italic; color: var(--sage); }
@@ -406,3 +408,55 @@ html[lang="ja"] :is(.pl-kicker, .pl-tools, .pl-msg small, .pl-card-stage, .pl-no
 }
 /* Station labels sit on a patch of page colour so the ring line never runs through them */
 .pl-ring .pl-node b { background: var(--bg, #F5F4F0); padding: 1px 5px; border-radius: 4px; }
+
+/* Loop stations in the same smoky glass as the buttons: rim, inner depth, a soft sheen
+   and a caustic line of light along the bottom. Lit stations fill with the dark tint. */
+:where(.pl-ring) .pl-node {
+  isolation: isolate;
+  box-shadow:
+    0 1px 1px rgba(0,0,0,.18), 0 6px 10px -4px rgba(0,0,0,.22), 0 14px 22px -12px rgba(0,0,0,.30),
+    inset 0 1px 1px rgba(255,255,255,.80), inset 0 -1px 1px rgba(255,255,255,.55),
+    inset 1px 0 .5px rgba(255,255,255,.55), inset -1px 0 .5px rgba(0,0,0,.10),
+    inset 0 8px 11px -8px rgba(0,0,0,.40), inset 0 -8px 8px -7px rgba(255,255,255,.30),
+    inset 4px 0 7px -6px rgba(0,0,0,.30), inset -4px 0 7px -6px rgba(0,0,0,.22);
+}
+:where(.pl-ring) .pl-node::before {
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 50%; pointer-events: none;
+  background:
+    radial-gradient(40% 12% at 42% 98%, rgba(255,255,255,.55), rgba(255,255,255,0) 100%),
+    linear-gradient(150deg, rgba(255,255,255,.22), rgba(255,255,255,.03) 45%, rgba(255,255,255,.10));
+}
+
+/* Contact form choices in the same glass: frosted tiles, a dark-glass tick and dark-glass
+   pills once chosen. Scoped to the inquiry form. */
+#inquiry-form .tile-in {
+  background: linear-gradient(160deg, rgba(255,255,255,.92), rgba(255,255,255,.66));
+  -webkit-backdrop-filter: blur(10px) saturate(150%); backdrop-filter: blur(10px) saturate(150%);
+  border-color: rgba(17,17,16,.09);
+  box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(17,17,16,.04);
+}
+#inquiry-form .tile:hover .tile-in { border-color: rgba(27,43,33,.30); }
+#inquiry-form .tile-ico { color: var(--node-on, #1B2B21); }
+#inquiry-form .tile input:checked + .tile-in {
+  background: linear-gradient(160deg, #fff, rgba(240,244,239,.9));
+  border-color: rgba(27,43,33,.55);
+  box-shadow: inset 0 0 0 1px rgba(27,43,33,.30), inset 0 1px 0 #fff, 0 12px 26px -16px rgba(17,17,16,.40);
+}
+#inquiry-form .tile input:checked + .tile-in .tile-tick,
+#inquiry-form .pill input:checked + span {
+  color: #F2F4EE; border-color: rgba(230,251,240,.38);
+  background:
+    radial-gradient(40% 12% at 42% 98%, rgba(255,255,255,.55), rgba(255,255,255,0) 100%),
+    linear-gradient(150deg, rgba(255,255,255,.20), rgba(255,255,255,.03) 45%, rgba(255,255,255,.10)),
+    #1B2B21;
+  box-shadow:
+    0 1px 1px rgba(0,0,0,.25), 0 4px 8px -4px rgba(0,0,0,.35),
+    inset 0 1px 1px rgba(255,255,255,.70), inset 0 -1px 1px rgba(255,255,255,.45),
+    inset 0 6px 8px -6px rgba(0,0,0,.45), inset 0 -6px 6px -5px rgba(255,255,255,.28);
+}
+#inquiry-form .pill span {
+  background: linear-gradient(160deg, rgba(255,255,255,.92), rgba(255,255,255,.66));
+  border-color: rgba(17,17,16,.10); box-shadow: inset 0 1px 0 #fff;
+  transition: background-color .2s, border-color .2s, color .2s;
+}
+#inquiry-form .tile input:focus-visible + .tile-in, #inquiry-form .pill input:focus-visible + span { outline: 2px solid #3A5C45; outline-offset: 2px; }
