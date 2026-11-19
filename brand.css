@@ -249,3 +249,8 @@ html[lang="ja"] .pl-ring--where .pl-ring-center { font-family: 'Shippori Mincho 
 }
 .pl-sec.pl-sec--form { max-width: 1240px; }
 .pl-sec--form > * { max-width: 760px; }
+
+/* Language switch: hidden for visitors in the US (set by the inline geo check in <head>).
+   Kept for Japanese browsers, anyone who chose Japanese before, and every /ja/ page. */
+html.no-lang .lang-toggle, html.no-lang .mm-lang, html.no-lang .ft-lang { display: none !important; }
+html.lang-pending .lang-toggle, html.lang-pending .mm-lang, html.lang-pending .ft-lang { visibility: hidden; }

@@ -504,6 +504,20 @@
       .rx-funnel li { column-gap: 16px; }
     }
   </style>
+  <script>
+  /* Hide the JP switch for visitors in the US */
+  (function () {
+    var d = document.documentElement, saved = null, cc = null;
+    try { saved = localStorage.getItem('hanjo-lang'); cc = localStorage.getItem('hanjo-cc'); } catch (e) {}
+    if (/^\/ja(\/|$)/.test(location.pathname) || saved === 'ja' || /^ja/i.test(navigator.language || '')) return;
+    if (cc === 'US') d.classList.add('no-lang'); else if (!cc) d.classList.add('lang-pending');
+    fetch('/api/geo').then(function (r) { return r.json(); }).then(function (j) {
+      var c = j.country || 'XX';
+      try { localStorage.setItem('hanjo-cc', c); } catch (e) {}
+      d.classList.toggle('no-lang', c === 'US');
+    }).catch(function () {}).then(function () { d.classList.remove('lang-pending'); });
+  })();
+  </script>
 </head>
 <body>
 
