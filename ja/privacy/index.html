@@ -515,17 +515,27 @@
   </div></div>
 
   </main>
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-logo" aria-label="hanjo">
-        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
-      </span>
-      <div class="footer-meta">
-        <a href="/ja/about/" data-i18n="footer-about">会社概要</a>
-        <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
-        <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
-        <a href="/ja/accessibility/" data-i18n="footer-a11y">アクセシビリティ</a>
+  <footer class="sf">
+    <div class="sf-inner">
+      <div class="sf-row">
+        <a href="/ja/" class="sf-logo" aria-label="hanjo"><img src="/hanjo-logo.svg" alt="hanjo" height="20" /></a>
+        <div class="sf-links" role="navigation" aria-label="Footer">
+          <a href="/ja/crm/">CRM</a>
+          <a href="/ja/web/">Web</a>
+          <a href="/ja/ads/">Ads</a>
+          <a href="/ja/recovery/">Recovery</a>
+          <a href="/ja/about/" data-i18n="footer-about">会社概要</a>
+          <a href="/ja/contact/">Contact</a>
+        </div>
+      </div>
+      <div class="sf-row sf-legal">
         <span data-i18n="footer-copy">© 2026 hanjo · ロサンゼルス</span>
+        <div class="sf-legal-links">
+          <a href="/ja/terms/" data-i18n="footer-terms">利用規約</a>
+          <a href="/ja/privacy/" data-i18n="footer-privacy">プライバシーポリシー</a>
+          <a href="/ja/accessibility/" data-i18n="footer-a11y">アクセシビリティ</a>
+          <button type="button" class="ft-lang" onclick="toggleLang()">English / 日本語</button>
+        </div>
       </div>
     </div>
   </footer>

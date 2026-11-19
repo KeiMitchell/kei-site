@@ -747,17 +747,27 @@
   </div>
 
   </main>
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-logo" aria-label="hanjo">
-        <img src="/hanjo-logo.svg" alt="hanjo" height="22" />
-      </span>
-      <div class="footer-meta">
-        <a href="/about/" data-i18n="footer-about">About Us</a>
-        <a href="/terms/" data-i18n="footer-terms">Terms of Use</a>
-        <a href="/privacy/" data-i18n="footer-privacy">Privacy Policy</a>
-        <a href="/accessibility/" data-i18n="footer-a11y">Accessibility</a>
+  <footer class="sf">
+    <div class="sf-inner">
+      <div class="sf-row">
+        <a href="/" class="sf-logo" aria-label="hanjo"><img src="/hanjo-logo.svg" alt="hanjo" height="20" /></a>
+        <div class="sf-links" role="navigation" aria-label="Footer">
+          <a href="/crm/">CRM</a>
+          <a href="/web/">Web</a>
+          <a href="/ads/">Ads</a>
+          <a href="/recovery/">Recovery</a>
+          <a href="/about/" data-i18n="footer-about">About Us</a>
+          <a href="/contact/">Contact</a>
+        </div>
+      </div>
+      <div class="sf-row sf-legal">
         <span data-i18n="footer-copy">© 2026 hanjo · Los Angeles</span>
+        <div class="sf-legal-links">
+          <a href="/terms/" data-i18n="footer-terms">Terms of Use</a>
+          <a href="/privacy/" data-i18n="footer-privacy">Privacy Policy</a>
+          <a href="/accessibility/" data-i18n="footer-a11y">Accessibility</a>
+          <button type="button" class="ft-lang" onclick="toggleLang()">English / 日本語</button>
+        </div>
       </div>
     </div>
   </footer>
