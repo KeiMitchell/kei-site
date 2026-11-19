@@ -452,3 +452,10 @@ html body :is(.pl-btn, #inquiry-form .btn, .pl-actions .pl-link):active, html bo
   html body :is(.pl-btn, #inquiry-form .btn), html body > nav .nav-cta { border-color: #1F3A28; }
 }
 @media (max-width: 767px) { html body .pl-actions .pl-link { width: 100%; justify-content: center; } }
+@media (min-width: 881px) and (max-width: 1099px) {
+  html body > nav .nav-inner { padding: 0 8px 0 18px; }
+  html body > nav .nav-links { gap: 18px; }
+  html body > nav .nav-links a { font-size: 13.5px; }
+  html body > nav .nav-right { gap: 12px; }
+  html body > nav .nav-cta { padding: 0 14px; font-size: 12.5px; }
+}
