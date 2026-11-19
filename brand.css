@@ -288,3 +288,24 @@ html.lang-pending .lang-toggle, html.lang-pending .mm-lang, html.lang-pending .f
   }
   html body > nav .nav-cta svg { width: 12px; height: 12px; }
 }
+
+/* ── Home first view, desktop (2026-11-18): headline, lede, CTA, loop and the tools line
+   all sit inside one screen, scaling with the window height as well as its width ── */
+@media (min-width: 1024px) {
+  .pl-hero:not(.pl-hero--text) {
+    min-height: max(560px, calc(100svh - var(--chrome-h, 64px)));
+    padding-top: clamp(20px, 4vh, 64px);
+  }
+  .pl-hero:not(.pl-hero--text) .pl-kicker { margin-bottom: clamp(14px, 2.2vh, 22px); }
+  .pl-hero:not(.pl-hero--text) .pl-h1 { font-size: clamp(44px, min(5.6vw, 8.4vh), 84px); }
+  html[lang="ja"] .pl-hero:not(.pl-hero--text) .pl-h1 { font-size: clamp(34px, min(3.9vw, 6.2vh), 56px); }
+  .pl-hero:not(.pl-hero--text) .pl-lede { margin-top: clamp(18px, 3vh, 28px); }
+  .pl-hero:not(.pl-hero--text) .pl-actions { margin-top: clamp(22px, 3.6vh, 38px); }
+  .pl-hero .pl-ring--hero { max-width: min(520px, calc(100svh - var(--chrome-h, 64px) - 210px)); }
+  .pl-hero:not(.pl-hero--text) .pl-tools { margin-top: clamp(16px, 3vh, 40px); padding: 18px 0 22px; }
+}
+@media (max-width: 767px) {
+  .pl-hero:not(.pl-hero--text) { padding-top: 28px; row-gap: 32px; }
+  .pl-hero:not(.pl-hero--text) .pl-lede { margin-top: 20px; }
+  .pl-hero:not(.pl-hero--text) .pl-actions { margin-top: 28px; }
+}
