@@ -99,3 +99,13 @@
     }
   }
 })();
+
+/* Header: hairline appears once the page moves */
+(function () {
+  var nav = document.querySelector('body > nav');
+  if (!nav) return;
+  var on = false;
+  var set = function () { var s = scrollY > 4; if (s !== on) { on = s; nav.classList.toggle('is-scrolled', s); } };
+  addEventListener('scroll', set, { passive: true });
+  set();
+})();

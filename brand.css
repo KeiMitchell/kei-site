@@ -254,3 +254,37 @@ html[lang="ja"] .pl-ring--where .pl-ring-center { font-family: 'Shippori Mincho 
    Kept for Japanese browsers, anyone who chose Japanese before, and every /ja/ page. */
 html.no-lang .lang-toggle, html.no-lang .mm-lang, html.no-lang .ft-lang { display: none !important; }
 html.lang-pending .lang-toggle, html.lang-pending .mm-lang, html.lang-pending .ft-lang { visibility: hidden; }
+
+/* ── Header, desktop (2026-11-18): slimmer bar, quiet sans links, hairline only once scrolled ── */
+@media (min-width: 881px) {
+  html body > nav {
+    background: rgba(245, 244, 240, .78);
+    -webkit-backdrop-filter: saturate(160%) blur(18px); backdrop-filter: saturate(160%) blur(18px);
+    border-bottom: 1px solid transparent; box-shadow: none;
+    transition: border-color .3s ease, background-color .3s ease;
+  }
+  html body > nav.is-scrolled { border-bottom-color: rgba(17, 17, 16, .08); background: rgba(245, 244, 240, .86); }
+  html body > nav .nav-inner {
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+    height: 64px; padding: 0 clamp(24px, 4vw, 56px); max-width: 1440px; margin: 0 auto; box-sizing: border-box;
+  }
+  html body > nav .logo { justify-self: start; display: inline-flex; align-items: center; }
+  html body > nav .logo img { height: 22px; width: auto; display: block; }
+  html body > nav .nav-links { gap: 30px; }
+  html body > nav .nav-links a {
+    font-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif; font-size: 14px; font-weight: 500; letter-spacing: -0.005em;
+    padding: 6px 0; color: rgba(17, 17, 16, .58); opacity: 1; transition: color .2s ease;
+  }
+  html body > nav .nav-links a:hover { color: var(--ink, #111110); }
+  html body > nav .nav-links a::after { bottom: -2px; height: 1px; background: currentColor; }
+  html body > nav .nav-links a.active, html body > nav .nav-links a.active:hover { color: var(--ink, #111110); }
+  html body > nav .nav-links a.active::after { transition: none; }
+  html body > nav .nav-right { justify-self: end; gap: 20px; }
+  html body > nav .lang-toggle { font-size: 12px; font-weight: 600; letter-spacing: 0; color: rgba(17, 17, 16, .55); padding: 4px 2px; }
+  html body > nav .lang-toggle:hover { color: var(--ink, #111110); }
+  html body > nav .nav-cta {
+    height: 36px; min-height: 0; padding: 0 16px; gap: 7px; display: inline-flex; align-items: center;
+    font-size: 13px; font-weight: 600; letter-spacing: 0; border-radius: 100px; box-shadow: none;
+  }
+  html body > nav .nav-cta svg { width: 12px; height: 12px; }
+}
