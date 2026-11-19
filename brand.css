@@ -429,10 +429,13 @@ html body :is(.pl-btn, #inquiry-form .btn, .pl-actions .pl-link):active, html bo
   }
   html body > nav::before {
     content: ''; position: absolute; inset: 0 0 -24px; z-index: -1; pointer-events: none;
-    background: linear-gradient(180deg, var(--bg, #F5F4F0) 30%, rgba(245,244,240,0));
+    /* Colorless scroll edge: blurs whatever passes under, so no band on white or tinted sections */
+    background: none;
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    -webkit-mask-image: linear-gradient(180deg, #000 45%, transparent); mask-image: linear-gradient(180deg, #000 45%, transparent);
     opacity: 0; transition: opacity .3s ease;
   }
-  html body > nav.is-scrolled::before { opacity: .92; }
+  html body > nav.is-scrolled::before { opacity: 1; }
   html body > nav .nav-inner {
     height: 60px; max-width: 1240px; padding: 0 10px 0 24px; border-radius: 100px;
     background: linear-gradient(180deg, rgba(255,255,255,.70), rgba(255,255,255,.48)), var(--lg-clear);
@@ -461,7 +464,7 @@ html body :is(.pl-btn, #inquiry-form .btn, .pl-actions .pl-link):active, html bo
 }
 
 /* The page behind the floating header is the brand off-white, not white */
-html, body { background-color: #F5F4F0; }
+html, html body { background-color: #F5F4F0; }
 @media (max-width: 880px) {
   html body > nav { background: rgba(245, 244, 240, .86); -webkit-backdrop-filter: saturate(160%) blur(18px); backdrop-filter: saturate(160%) blur(18px); border-bottom: 1px solid rgba(17,17,16,.06); }
 }
