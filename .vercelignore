@@ -1,0 +1,8 @@
+# Repo-only files: keep them out of the public hanjo.ai deploy
+/CLAUDE.md
+/DESIGN.md
+/PRODUCT.md
+/.agents/
+/_preview/
+/build-ja.mjs
+/skills-lock.json
