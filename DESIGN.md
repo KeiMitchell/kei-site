@@ -68,8 +68,8 @@ Fonts are fixed (Kei's decision 2026-07-20; do not re-propose alternatives).
 Pill badges, wavy underlines, em dashes in visible copy, emoji, letterspaced JA kickers, forced awkward line breaks, decorative label dashes, 3D/glassmorphism CTAs, Times New Roman, generic SaaS hero-metric templates, identical icon-card grids.
 
 ## Pending migration
-- `/recovery/` migrated 2026-10-07: hero shows the real HEAD SPA EN booking form + site on the Board, funnel is a ruled number table (no dot grid or person icons), SMS mock is light, no emoji, no shimmer or cursor glow, quiz chips are 4px rectangles. Quiz and 2-step form hooks unchanged.
-- `/web/` migrated 2026-10-07: HEAD SPA EN desktop + phone capture on the Board below the hero, captioned with the real scope (site, booking flow, photo/video shoot).
+- `/recovery/` migrated 2026-10-07: hero shows a client head spa's real booking form + site on the Board (anonymized 2026-11-24: no name, logo or link), funnel is a ruled number table (no dot grid or person icons), SMS mock is light, no emoji, no shimmer or cursor glow, quiz chips are 4px rectangles. Quiz and 2-step form hooks unchanged.
+- `/web/` migrated 2026-10-07: client head spa desktop + phone capture (anonymized 2026-11-24) on the Board below the hero, captioned with the real scope (site, booking flow, photo/video shoot).
 - `/crm/` migrated 2026-10-08: labels off, plain left-aligned headings, case study on cream (static bar chart, no count-ups), services as a two-column ruled list, hairline steps/FAQ. The lifecycle "Live simulation" (random dots, infinite) is still in place pending Kei's call.
 - `/ads/` migrated 2026-10-08: labels off, ruled problem/salon/case/onboarding lists, value row visible on load, integrations as a plain dotted list (no pills), hairline pricing + FAQ, commission bar on Board. No client work shown (results are the white-label engine's).
 
